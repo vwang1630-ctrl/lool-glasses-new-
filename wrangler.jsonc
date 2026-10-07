@@ -1,0 +1,45 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "lool-work",
+  "compatibility_date": "2025-09-24",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "@tanstack/react-start/server-entry",
+  "workers_dev": true,
+  "preview_urls": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "lool-work",
+      "database_id": "d6e85c72-d1ff-4b7f-b460-3fa5ea36ede5",
+      "migrations_dir": "migrations",
+    },
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "OTP_KV",
+      "id": "78826bd6583149c7b1b9c95759db4060",
+    },
+  ],
+  "r2_buckets": [
+    {
+      "binding": "RX_BUCKET",
+      "bucket_name": "lool-work-rx",
+    },
+    {
+      "binding": "PRODUCTS_BUCKET",
+      "bucket_name": "lool-work-products",
+    },
+    {
+      "binding": "AUDIT_LOGS_BUCKET",
+      "bucket_name": "lool-work-audit-logs",
+    },
+  ],
+  "vars": {
+    "RESEND_FROM": "noreply@lool.work",
+    "SITE_URL": "https://lool.work",
+  },
+  "routes": [
+    { "pattern": "lool.work", "custom_domain": true },
+    { "pattern": "www.lool.work", "custom_domain": true },
+  ],
+}
