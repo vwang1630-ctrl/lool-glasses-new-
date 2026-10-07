@@ -1,0 +1,291 @@
+{
+  "manifest": "FUZZ SOFA competitor-library — 竞品库 V1.0（S2 外部挖掘的沉淀位：话术/价位/信任证据对照）",
+  "version": "V1.0.0",
+  "updated": "2026-10-06",
+  "write_rules": [
+    "每条必带 source + evidence_tier（T1–T4）；T4 级判断只进 our_counter，不进对外文案",
+    "只记公开可核事实（页面原话/价位/材质主张/review 摘录）；禁止臆测对手销量与内部数据",
+    "their_claim 必须是可点开验证的原文或截图出处；爬取日期必填",
+    "每个竞品按画像维度记：它抢哪个画像、用什么信任证据、我们的对位话术是什么"
+  ],
+  "fields_spec": {
+    "id": "comp-<slug>",
+    "brand": "品牌名",
+    "url": "竞品页/证据页",
+    "price_band": "[min, max]（公开标价，记日期）",
+    "positioning": "一句话定位（其自称）",
+    "their_claim": "其核心信任证据/话术（原文摘录）",
+    "evidence_tier": "T1–T4",
+    "persona_threat": "它抢哪个画像（persona id）",
+    "our_counter": "我们的对位证据/话术方向（不写进页面，供 S5 决策）",
+    "source": "出处 URL + 爬取日期"
+  },
+  "entries": [
+    {
+      "id": "comp-nemuiil",
+      "brand": "Nemuiil",
+      "url": "(AI 概览引用,官网待爬)",
+      "price_band": "[null,null]",
+      "positioning": "life-sized animal statement seating",
+      "their_claim": "detailed 220cm leather gorilla sofa bed with facial features and textured hands",
+      "evidence_tier": "T2(AI 概览引用,2026-09-30 站主截图)",
+      "persona_threat": "kong-movie-fan",
+      "our_counter": "2.1m vs 220cm 同级;我们=200kg rated+EN1728+QC 序列化;查其有无承重/测试证据",
+      "source": "Google AI 概览 2026-09-30 站主截图"
+    },
+    {
+      "id": "comp-george-furniture",
+      "brand": "George Furniture",
+      "url": "(AI 概览引用)",
+      "price_band": "[null,null]",
+      "positioning": "Chinese 3D animal furniture concepts",
+      "their_claim": "statement pieces like King Kong/gorilla sofas, panda chairs, labrador couches",
+      "evidence_tier": "T2(AI 概览引用)",
+      "persona_threat": "kong-movie-fan / cat-household-upgrader",
+      "our_counter": "概念 vs 家具级——确认其产品是否实物;若为概念图=与我方 Mofu 渲染截流同型打法,需观察",
+      "source": "Google AI 概览 2026-09-30 站主截图"
+    },
+    {
+      "id": "comp-blu-dot",
+      "brand": "Blu Dot",
+      "url": "(AI 概览引用)",
+      "price_band": "[null,null]",
+      "positioning": "Small Animal/Big Animal sofa, sculptural primal forms, brushed stainless legs",
+      "their_claim": "sculptural design inspired by primal animal forms",
+      "evidence_tier": "T2(AI 概览引用)",
+      "persona_threat": "statement-piece-affluent",
+      "our_counter": "真设计师品牌(A 级对手),不正面打;差异化=动物写实度+工程数据;记录其被 AI 引用的内容形态(品牌页)",
+      "source": "Google AI 概览 2026-09-30 站主截图"
+    },
+    {
+      "id": "comp-office-logix",
+      "brand": "Office Logix Shop",
+      "url": "https://www.officelogixshop.com/collections/animal-shaped-furniture",
+      "price_band": [
+        899,
+        3999
+      ],
+      "positioning": "animal shaped furniture collection(猩猩椅 $3,999/229cm)",
+      "their_claim": "Mighty Gorilla Sofa: steel-reinforced base, high-density foam(AI 概览引用其页)",
+      "evidence_tier": "T1(站主 2026-09-27 亲手收集;2026-09-30 站主复访:IG 已弃更猩猩内容,Reels 全梗图播放 300-500)",
+      "persona_threat": "kong-movie-fan",
+      "our_counter": "品牌资产不锁死;错位=工程证据+AI渲染截流;监控其品牌词动向(月度复访)",
+      "source": "站主亲手收集 2026-09-27 + 复访 2026-09-30"
+    },
+    {
+      "id": "comp-maximo-riera",
+      "brand": "Maximo Riera",
+      "url": "(gallery 段,页待爬)",
+      "price_band": [
+        12000,
+        32000
+      ],
+      "positioning": "artist-designed statement seating(王座级)",
+      "their_claim": "artist furniture 收藏定位",
+      "evidence_tier": "T1(站主 2026-09-27 亲手收集)",
+      "persona_threat": "statement-piece-affluent",
+      "our_counter": "不正面打;价格阶梯引用其段位;工程证据差异化",
+      "source": "站主亲手收集 2026-09-27"
+    },
+    {
+      "id": "comp-moooi",
+      "brand": "Moooi",
+      "url": "(品牌页待爬)",
+      "price_band": [
+        3000,
+        12000
+      ],
+      "positioning": "design icons(Horse Lamp 等)",
+      "their_claim": "design icons 谱系",
+      "evidence_tier": "T1(站主 2026-09-27 亲手收集)",
+      "persona_threat": "statement-piece-affluent",
+      "our_counter": "动物写实度+工程实测差异化",
+      "source": "站主亲手收集 2026-09-27"
+    },
+    {
+      "id": "comp-sang-hoon-kim",
+      "brand": "Sang Hoon Kim (Meteorite 1)",
+      "url": "https://www.1stdibs.com/furniture/more-furniture-collectibles/home-accents/screens-room-dividers/grey-black-white-contemporary-sofa-meteorite-1-memory-foam-sang-hoon-kim/id-f_28596632",
+      "price_band": [
+        23437,
+        23437
+      ],
+      "positioning": "memory foam 陨石形态艺术沙发(1stDibs)",
+      "their_claim": "撞击坑造型语言,Designboom 2018 报道",
+      "evidence_tier": "T3(1stDibs 在售页 2026-09-29 检索)",
+      "persona_threat": "meteorite-statement-collector",
+      "our_counter": "他=艺术孤品画廊渠道;我方=家具级工程+门到门;同句带原创区隔",
+      "source": "1stDibs 检索 2026-09-29"
+    },
+    {
+      "id": "comp-lv-furniture",
+      "brand": "LV Furniture Collection",
+      "url": "instagram.com/lvfurniturecollection(#gorillasofa 置顶,2024-09 帖 715 赞)",
+      "price_band": [
+        4800,
+        4800
+      ],
+      "positioning": "Gorilla Couch $4,800/700lbs,蓝V认证,『2个月后开业』——与我们同 launch 阶段的直接竞品",
+      "their_claim": "bold luxurious statement piece, see it in person",
+      "evidence_tier": "T2(站主 2026-10-01 IG 实拍:置顶帖+评论区活跃,热评 59 赞)",
+      "persona_threat": "kong-movie-fan",
+      "our_counter": "不打价格战($4,800 vs $9,900):差异=承重测试证据+序列化 QC+EN1728;其 700lbs(~317kg)是自重非承重——确认后可作对比素材",
+      "source": "站主 2026-10-01 IG 实拍 #gorillasofa 标签页"
+    },
+    {
+      "id": "comp-das-archivee",
+      "brand": "das archivée",
+      "url": "instagram(das archivée,2024-04 帖 8167 赞)",
+      "price_band": [
+        9995,
+        9995
+      ],
+      "positioning": "Gorilla Sofa available on Amazon $9,995 — 『Cop or Drop』",
+      "their_claim": "available to buy on Amazon",
+      "evidence_tier": "T2(站主 2026-10-01 IG 实拍:8167 赞价格帖,评论区 Mad expensive/fake/Harambe 梗)",
+      "persona_threat": "kong-movie-fan",
+      "our_counter": "$9,995 市场价已被 8K 赞验证=我方 $9,900 定价锚成立;『Mad expensive』评论=blog#2 价格收据正答的市场问题;监控其 Amazon 实际listing 品质",
+      "source": "站主 2026-10-01 IG 实拍 #gorillasofa"
+    },
+    {
+      "id": "comp-waimaoyangdan01",
+      "brand": "waimaoyangdan01(中国卖家,DM 定制)",
+      "url": "instagram(waimaoyangdan01,2025-09-15 Reel 68 赞)",
+      "price_band": [
+        null,
+        null
+      ],
+      "positioning": "7-foot gorilla sofas, customizable size/material/color via DM",
+      "their_claim": "Not all heroes wear capes. Some are 7-foot gorilla sofas + DM 私聊定制",
+      "evidence_tier": "T2(站主 2026-10-01 IG 实拍:68 赞,首帧梗『When you make the mistake...』)",
+      "persona_threat": "kong-movie-fan",
+      "our_counter": "同款 meme→DM 漏斗已验证;我方差异化=200kg rated+QC 编号+序列化 QC(其无任何工程证据);其 dm-loop 无时薪 SLA",
+      "source": "站主 2026-10-01 IG 实拍 #gorillasofa"
+    },
+    {
+      "id": "comp-garagealkosto",
+      "brand": "garagealkosto(委内瑞拉)",
+      "url": "instagram(garagealkosto,Gorilla Armchair 185 赞,2025-04)",
+      "price_band": [
+        null,
+        null
+      ],
+      "positioning": "Gorilla Armchair 西语市场,AI 场景图+DM 报价",
+      "their_claim": "La exclusividad te espera. Única en su clase. Edición Limitada. DM 问价",
+      "evidence_tier": "T2(站主 2026-10-01 IG 实拍:185 赞+20 条 Precio por favor 求购评论)",
+      "persona_threat": "kong-movie-fan(西语市场)",
+      "our_counter": "其=AI 标签+DM 藏价;我方=明码+工程证据+Room Preview 透明——『价格透明』即差异武器",
+      "source": "站主 2026-10-01 IG 实拍"
+    },
+    {
+      "id": "comp-navhomestores",
+      "brand": "navhomestores(新德里,Kirti Nagar)",
+      "url": "instagram(navhomestores,2024-09 Reel 32 赞)",
+      "price_band": [
+        null,
+        null
+      ],
+      "positioning": "印度家具零售店——现货销售猩猩沙发",
+      "their_claim": "Gorilla sofa now available in India, DM to confirm and test at your store",
+      "evidence_tier": "T2(站主 2026-10-01 实拍:评论区全购买意向 Price/Size/Availability)",
+      "persona_threat": "cat-household-upgrader(印度市场)/B2B 渠道候选",
+      "our_counter": "零售渠道存在=一城一家 B2B 模式的印度候选,非威胁——记录待站主拍板",
+      "source": "站主 2026-10-01 IG 实拍"
+    },
+    {
+      "id": "comp-furnitecture-studio",
+      "brand": "furnitecture.studio(蝴蝶沙发)",
+      "url": "instagram(furnitecture.studio,2026-09-30 帖 1天1269赞)",
+      "price_band": [
+        null,
+        null
+      ],
+      "positioning": "butterfly sculptural sofa — 『A sofa reimagined as a piece of art』",
+      "their_claim": "brand watermark 图+签名句文案;评论区含俄语购买意向『Как хотелось бы приобрести』+Location 提问",
+      "evidence_tier": "T2(站主实拍 2026-10-01:1天1269赞+购买意向评论)",
+      "persona_threat": "statement-piece-affluent / kong-movie-fan",
+      "our_counter": "我方内容性能基准=1天1269赞;其『想买但不知在哪』评论=我们 Room Preview+门到门正答;签名句句式对标",
+      "source": "站主 2026-10-01 #sculpturalsofa 实拍"
+    },
+    {
+      "id": "comp-geoworldgallery",
+      "brand": "geoworldgallery(陨石画廊/经销商)",
+      "url": "instagram(geoworldgallery,2025-05 帖 628 赞)",
+      "price_band": [
+        null,
+        null
+      ],
+      "positioning": "36kg Seymchan 陨铁客厅陈列——『深空遗物』",
+      "their_claim": "标签矩阵直指 #InteriorDesign #Collectors #MuseumQuality——已在向室内设计人群营销",
+      "evidence_tier": "T2(站主实拍 2026-10-01:客厅实拍+文案风格『深空遗物·星战梗』)",
+      "persona_threat": "meteorite-statement-collector",
+      "our_counter": "其卖『石头在客厅』,我方卖『升级为能坐的陨石』;其文案语言(deep space/星战梗)=我方价格阶梯博客的原生语料库",
+      "source": "站主 2026-10-01 #meteorite 实拍"
+    },
+    {
+      "id": "comp-giant-sculptures",
+      "brand": "giant.sculptures(大理石大猩猩 150cm)",
+      "url": "instagram(giant.sculptures,蓝V,2025-11 帖 20 赞)",
+      "price_band": [
+        null,
+        null
+      ],
+      "positioning": "White Veined Gorilla Marble Outdoor Sculpture 150cm——大理石大猩猩雕塑商品",
+      "their_claim": "Strength. Majesty. Silence carved in stone.",
+      "evidence_tier": "T2(站主实拍:蓝V+Price please 评论=大猩猩雕塑存在购买意向)",
+      "persona_threat": "kong-movie-fan / statement-piece-affluent",
+      "our_counter": "150cm 户外大理石 vs 我方 200cm 室内家具级;谱系叙事实物证据+1",
+      "source": "站主 2026-10-01 #statementsculpture 实拍"
+    },
+    {
+      "id": "comp-luxarts-aii",
+      "brand": "luxarts_aii (LuxArts, AI 内容农场)",
+      "url": "instagram.com/reel/DeCZKVLAaBu · 官网 updatebirthday.com(2026-10-05 拉取)",
+      "price_band": [
+        null,
+        null
+      ],
+      "positioning": "AI 概念内容站(官网 updatebirthday.com 自认'AI-generated...not available for purchase',无购物车无收款,Amazon Associates 联盟变现)——不卖任何实物",
+      "their_claim": "Giant cat sleeping bag 😱 Looks like a hug. I'm in 😍 —— 单帖 471.9K 赞/5.1K 评论,俄/西/日/中多语言询价潮+多人喊 Link;而官网自认概念图不可购买:供给真空实锤",
+      "evidence_tier": "T2(站主截图 2026-10-04 + 操盘手拉取 2026-10-05,公开可核)",
+      "persona_threat": "plush-comfort-collector",
+      "our_counter": "完整剧本与 kong-movie-fan 同构且更极端:需求已被 47 万赞证明、供给为零、信任为负(评论区自发打 AI)。对位:真工坊实拍开箱+原声接浪,Mofu 'A hug that never leaves' 与爆帖情绪语言逐字同源;价格带错位明示(471K 赞=$50-300 冲动物预期,我们接家具级升格层,不跟低价锚)。T4 判断,不进对外文案",
+      "source": "https://www.instagram.com/reel/DeCZKVLAaBu/ (post-780569256659066088116) + updatebirthday.com · 原始数据存档 animal-traffic-scan-20261005.json · 2026-10-05"
+    },
+    {
+      "id": "comp-foshan-george",
+      "brand": "George 佛山展厅 (Georges Furniture)",
+      "url": "georgesfurniture.com · CASA 陶瓷卫生城 24 座,佛山季华四路",
+      "price_band": [
+        null,
+        null
+      ],
+      "positioning": "网红创意家具展厅——玻璃钢'二维金刚'大猩猩沙发床(淘宝在售:hotel/villa/展厅用,展示道具级)",
+      "their_claim": "IG 展厅帖 2.8 万赞/4000 评论(post-955023316326937771747),评论 60-70% How much for gorilla——大猩猩问价率全动物第二(80%的马是 FB)",
+      "evidence_tier": "T2(官网+淘宝 listing 验实;post_id 已附可核验,2026-10-05 站主提供原始数据存档 animal-traffic-scan-20261005.json)",
+      "persona_threat": "kong-movie-fan",
+      "our_counter": "它证明了'真大猩猩'供给存在——'全网唯一'叙事作废,改打材质与安全位差:玻璃钢=展厅道具(不可坐/无承重等级),我们=焊接钢架+200kg rated+EN1728+序列化 QC+全球 DDP。对位话术:'a sculpture you can actually sit on'。另:佛山厂有产能+低价,若它转家具级是真正威胁,月度复访盯住",
+      "source": "georgesfurniture.com + world.taobao.com listing + post_id post-955023316326937771747 · 验证 2026-10-05"
+    },
+    {
+      "id": "comp-cityhouse",
+      "brand": "City House Furniture(@cityhouse_furniture,中国采购/制造公司)",
+      "url": "tiktok.com/@cityhouse_furniture · mymodernmet.com/ai-gorilla-sofas(2024-08-08 报道)",
+      "price_band": [
+        null,
+        null
+      ],
+      "positioning": "把 LuxArts AI 渲染猩猩沙发做成实物(黑/棕双色双人座,六块胸肌=靠背)——'render→real'叙事的先占者",
+      "their_claim": "代理人称设计源自 AI 视频后客户需求,'Everything in China is possible';获 My Modern Met 主流报道(2024-08-08)",
+      "evidence_tier": "T2(My Modern Met 主流设计媒体+TikTok 账号,2026-10-06 拉取核验)",
+      "persona_threat": "kong-movie-fan",
+      "our_counter": "'render→real'先发叙事已被其占据——Kong 对位改打工程级奢侈层:2.5mm Q235 焊接钢架+200kg rated+EN 1728 load-tested+序列化 QC+一城一伴,vs 其采购公司模式(价格未公开/材质承重未提/质量弹性'everything is possible')。另:其与 LuxArts 内容农场同栈=内容→需求→履约低价层已跑通,本店同栈打法走高价层。T4 判断不进对外文案",
+      "source": "mymodernmet.com/ai-gorilla-sofas · luxarts.net/warning · 拉取 2026-10-06"
+    }
+  ],
+  "known_gaps": [
+    "kong-movie-fan 维度：TEMU 级低价替代品的话术与差评（画像 perceived_barriers 已引 T2，竞品条目待建）",
+    "cat-household-upgrader 维度：主流 pet-friendly 沙发品牌的 Martindale 数据有无公开（我们对位=QC 编号可验证）",
+    "statement-piece-affluent 维度：艺术家具品牌（如 sculptural 系）价位带与交付服务（DDP/白手套）对照"
+  ]
+}

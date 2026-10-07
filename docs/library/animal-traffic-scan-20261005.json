@@ -1,0 +1,41 @@
+{
+  "manifest": "动物家具 30 天流量扫描 · 原始数据存档（外部 AI 抓取，站主提供 PDF，2026-10-05 入库）",
+  "method": "10 账号 × 2026-09-05~10-05 窗口，fetch_posts 按 likes 排序取前 50；post_id 已附（可独立核验）",
+  "provenance_note": "锚点已本店直拉验证：luxarts_aii 猫睡袋 480000 ↔ 本店 2026-10-05 实测 471.9K/5100 评论，吻合；其余条目凭 post_id 可核验但未逐条复拉",
+  "accounts": [
+    {"handle": "@luxarts_aii", "followers": 1700000, "posts_total": 1400, "country": "VN", "website": "updatebirthday.com", "sample_30d": 50, "total_likes_30d": 931000, "mix": "cat 38% / dog 26% / other 28% / horse 4%", "top_post": "cat sleeping bag 480k"},
+    {"handle": "@outofdecor", "followers": 1500000, "posts_total": 17000, "country": "TR", "website": "itsbio.link/outofdecor", "sample_30d": 50, "total_likes_30d": 2800, "mix": "cat 8% / 84% gadgets（已转型，动物内容废）", "top_post": "nose soap dispenser 1200"},
+    {"handle": "LuxArts FB @luxarts.net", "followers": 4500000, "posts_total": 0, "country": "VN", "website": "luxarts.net", "sample_30d": 26, "total_likes_30d": 114000, "mix": "cat 42% / dog 27% / horse 19%", "top_post": "horse lounger 35k"},
+    {"handle": "@thedesignstuff", "followers": 180000, "posts_total": 12000, "country": "TR", "website": "itsbio.link/thedesignstuff", "sample_30d": 50, "total_likes_30d": 2100, "mix": "cat 6% / tiger 2% / 84% gadgets", "top_post": "nose dispenser 640"},
+    {"handle": "@xoxofurnitureny", "followers": 100000, "posts_total": 3700, "country": "US", "website": "NY showroom", "sample_30d": 50, "total_likes_30d": 950, "mix": "cat 20% / 78% regular sofas（真实家具卖家：动物内容跑不动）", "top_post": "pink LED bed 46"},
+    {"handle": "@curioverse2027", "followers": 73000, "posts_total": 1900, "country": "BR", "website": "-", "sample_30d": 50, "total_likes_30d": 120, "mix": "horse 2% / 98% science（样本噪声，与品类无关）", "top_post": "horse sofa 4"},
+    {"handle": "@cosmos", "followers": 570000, "posts_total": 2400, "country": "-", "website": "-", "sample_30d": 38, "total_likes_30d": 205000, "mix": "horse 3% / 97% architecture（样本噪声）", "top_post": "pedestrian lights 170k"},
+    {"handle": "@dreamingarts.official", "followers": 2100, "posts_total": 970, "country": "VN", "website": "dreamingstore.net", "sample_30d": 50, "total_likes_30d": 170, "mix": "other 48% / dog 10% / cat 8%", "top_post": "cat bean bag 30"},
+    {"handle": "@habibi / George Official Foshan", "followers": 50000, "posts_total": 0, "country": "US(标注存疑)", "website": "Foshan factory", "sample_30d": 1, "total_likes_30d": 28000, "mix": "gorilla 100%", "top_post": "King Kong sofa 28k / 4k comments"},
+    {"handle": "@cat sleeping bag carriers", "followers": 24000, "posts_total": 0, "country": "-", "website": "-", "sample_30d": 0, "total_likes_30d": 0, "mix": "cat 100%", "top_post": "rainbow cat bed"}
+  ],
+  "top_posts_30d": [
+    {"rank": 1, "animal": "cat", "handle": "@luxarts_aii", "post_id": "post-780569256659066088116", "likes": 480000, "comments": 5100, "title": "giant cat-shaped sleeping bag / wearable hug", "inquiry_rate": "60-70% Where to buy / price", "verified_by_us": true},
+    {"rank": 2, "animal": "hippo", "handle": "@luxarts_aii", "post_id": "post-373897118509287699040", "likes": 110000, "comments": 1700, "title": "giant ultra-soft hippo-shaped sleeping bags", "inquiry_rate": "50%"},
+    {"rank": 3, "animal": "dog husky", "handle": "@luxarts_aii", "post_id": "post-950269276375760418645", "likes": 77000, "comments": 480, "title": "giant yellow foam sofa shaped like sleeping husky", "inquiry_rate": "45-55%"},
+    {"rank": 4, "animal": "horse", "handle": "LuxArts FB", "post_id": "post-257154026856291572990", "likes": 35000, "comments": 1100, "title": "man unboxes vacuum-sealed horse lounger, boy jumps", "inquiry_rate": "80% overwhelmingly asking price"},
+    {"rank": 5, "animal": "gorilla", "handle": "@habibi / George Official", "post_id": "post-955023316326937771747", "likes": 28000, "comments": 4000, "title": "Foshan King Kong Sofa showroom 17 items", "inquiry_rate": "60-70% How much for gorilla"},
+    {"rank": 6, "animal": "sloth", "handle": "LuxArts FB", "post_id": "post-070168651949517192993", "likes": 9400, "comments": 160, "title": "giant sloth-shaped hanging lounger", "inquiry_rate": "50%"},
+    {"rank": 7, "animal": "dog husky", "handle": "LuxArts FB", "post_id": "post-785390260083811857086", "likes": 8400, "comments": 140, "title": "couple assembles husky sofa", "inquiry_rate": "40% + AI doubt"},
+    {"rank": 8, "animal": "owl", "handle": "@artdesignidea", "post_id": "post-052469670546799666599", "likes": 910, "comments": 12, "title": "POV: adorable chair for daughter bedroom pink owl", "inquiry_rate": "30%"},
+    {"rank": 9, "animal": "owl", "handle": "@thedesignstuff", "post_id": "post-980942521624640089761", "likes": 22, "comments": 0, "title": "giant owl face vacuum package reading pod", "inquiry_rate": "10%"},
+    {"rank": 10, "animal": "cat", "handle": "@outofdecor", "post_id": "post-746022873975372115550", "likes": 130, "comments": 8, "title": "green monster eating cat funny", "inquiry_rate": "60% Link? Price?"}
+  ],
+  "animal_aggregate": [
+    {"animal": "cat", "total_posts_30d": 35, "total_likes": 591000, "max_likes": 480000, "avg_inquiry": "62%", "competition": "very high but traffic king"},
+    {"animal": "horse", "total_posts_30d": 8, "total_likes": 51400, "max_likes": 35000, "avg_inquiry": "80% highest", "competition": "medium FB"},
+    {"animal": "dog", "total_posts_30d": 21, "total_likes": 173000, "max_likes": 77000, "avg_inquiry": "45%", "competition": "high"},
+    {"animal": "gorilla", "total_posts_30d": 3, "total_likes": 28600, "max_likes": 28000, "avg_inquiry": "65% high ticket", "competition": "low recent, blue ocean"},
+    {"animal": "owl", "total_posts_30d": 4, "total_likes": 1020, "max_likes": 910, "avg_inquiry": "20%", "competition": "0 adult version"},
+    {"animal": "hippo/sloth/other", "total_posts_30d": 18, "total_likes": 135000, "max_likes": 110000, "avg_inquiry": "40%", "competition": "medium"}
+  ],
+  "adopted": "动物优先级（猫流量王/马问价最高/猩猩高客单+供给暂停）；owl 0 竞争 0 需求验证；outofdecor 转型确认（84% gadgets）",
+  "rejected": "该报告衍生的凭空定价（Noctua $6,900-11,900/火山岩 $12k+，现价 $4,800/$4,900）；120 hours 文案；#luxarts/#tadaoando 标签；sleep inside 主张",
+  "data_quality_caveats": "cosmos(97% science)与 curioverse 样本噪声明显；habibi/xoxo posts_total=0 疑抓取缺口；FB 样本仅 26 条；聚合值按样本非全量",
+  "created": "2026-10-05"
+}

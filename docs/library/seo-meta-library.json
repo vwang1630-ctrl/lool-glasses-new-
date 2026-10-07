@@ -1,0 +1,230 @@
+{
+  "library": "FUZZ SOFA seo-meta-library",
+  "version": "V4.3.2",
+  "framework_lock": "V4.3 FINAL TEMPLATE LOCKED — 14 节布局锁死（见 docs/fuzz-produce-manual.md §11.1），本库只供内容字段：SEO Meta/关键词/竞品带/价格带",
+  "updated": "2026-09-26",
+  "protocol": "每次爬取回填后 minor +0.1（V4.2.0 → V4.2.1）。条目必须带 source + evidence_status。禁止无 source 数字入库。",
+  "evidence_status_legend": {
+    "verified": "本会话/工具实测验证（WebSearch/WebFetch/autocomplete/官网）",
+    "user_provided": "用户提供原始数据（截图/post id），可按用户指示上 PDP，未独立复核",
+    "deprecated": "已证伪，禁止再使用"
+  },
+  "tracks": {
+    "detection": "V2.0 AUTO — 看图定赛道，要求 visual evidence（造型特征逐条对图描述，98% 置信才定主词）",
+    "known_tracks": [
+      {
+        "track": "animal_shaped_sofa / 人偶沙发 / 动物造型家居",
+        "visual_features": "全尺寸可坐具象动物造型、Q235 钢架可承重、45kg/m³ 泡棉、非充气非微型",
+        "primary_en": [
+          "animal shaped sofa",
+          "faux fur accent chair",
+          "plush lounge sofa"
+        ],
+        "primary_cn": [
+          "动物造型沙发",
+          "人偶沙发",
+          "玩偶家居",
+          "摆件家居",
+          "仿生家居"
+        ],
+        "example_product": "noctua-owl-armchair"
+      },
+      {
+        "track": "sculptural_armchair",
+        "visual_features": "抽象/雕塑感、非具象动物",
+        "primary_en": [
+          "sculptural armchair",
+          "statement chair"
+        ],
+        "note": "owl armchair 已证伪为假赛道，只配辅助词"
+      }
+    ]
+  },
+  "keyword_clusters_verified": {
+    "en": [
+      {
+        "keyword": "faux fur accent chair",
+        "volume": "Breakout +5000% (Rising #1, 90d)",
+        "evidence": "Google Trends 2026-09-12 + suggestqueries 10/10 购买意图 (with arms/with ottoman/uk)",
+        "status": "verified",
+        "action": "主词第一位"
+      },
+      {
+        "keyword": "animal shaped sofa",
+        "volume": "病毒级 where-to-buy 需求",
+        "evidence": "meta_1p post-944578556600798665017 (Horse 'Where could I get one'), post-494035191687826552853 (giant cat-shaped)",
+        "status": "verified",
+        "action": "主词"
+      },
+      {
+        "keyword": "plush lounge sofa",
+        "volume": "oversized plush 高互动内容",
+        "evidence": "meta_1p post-382358159863427678567 (MaviGadget)",
+        "status": "verified",
+        "action": "主词"
+      },
+      {
+        "keyword": "cat friendly armchair",
+        "volume": "+180% (Rising #2)",
+        "evidence": "Trends 2026-09-12 + concerns CSV (cat scratch 12 搜索 + 8 客服/90d)",
+        "status": "verified",
+        "action": "主词+FAQ 顾虑证据"
+      },
+      {
+        "keyword": "owl armchair",
+        "volume": "Trends Top 100/100 低意图",
+        "evidence": "Trends + suggestqueries 2026-09-12（下拉全是灵性查询）",
+        "status": "verified",
+        "action": "仅辅助词"
+      },
+      {
+        "keyword": "sculptural sofa",
+        "volume": "2026 顶级趋势词（趋势榜头部）",
+        "evidence": "Elle Decor furniture-trends-2026: sculptural/organic silhouettes 列 2026 顶部趋势；Mansion Global 『part art, part furniture』专题",
+        "status": "verified",
+        "action": "meteorite PDP 主词"
+      },
+      {
+        "keyword": "curved sofa",
+        "volume": "头部趋势词（curves=2026 mainstay）",
+        "evidence": "Elle Decor 2026 + Castle Furniture quiet-luxury curves + Meadows & Byrne biomorphic Spring 2026",
+        "status": "verified",
+        "action": "meteorite PDP 副词（SERP 大词，journal 长文承接）"
+      },
+      {
+        "keyword": "space age furniture",
+        "volume": "复兴趋势词（comeback）",
+        "evidence": "House Beautiful UK 『Space Age Furniture Is Making A Trendy Comeback』(g64562598)；TikTok 盘点 trending for a while",
+        "status": "verified",
+        "action": "meteorite PDP 场景词"
+      },
+      {
+        "keyword": "gorilla sofa",
+        "volume": "未验证（待 GSC）",
+        "evidence": "r/Corridor 巨猩沙发真实讨论（T2，persona-library kong-movie-fan）+ meta_1p kingkong 帖 710K views（social-proof fb-kingkong-710k，病毒级 where-to-buy 需求）",
+        "status": "verified",
+        "action": "kong PDP 主词"
+      },
+      {
+        "keyword": "cat shaped sofa",
+        "volume": "未验证（待 GSC）",
+        "evidence": "meta_1p post-494035191687826552853 giant cat-shaped where-to-buy 需求 + Trends cat friendly armchair +180% 语义场（2026-09-12）",
+        "status": "verified",
+        "action": "mofu PDP 副词"
+      },
+      {
+        "keyword": "designer furniture dubai",
+        "volume": "未验证搜索量（行业词族实查：迪拜多家 showroom 以该短语为主推广位语言）",
+        "evidence": "2026-09-26 实查：Alserkal Avenue（Al Quoz 仓库设计区）坐落 BOFFI|DE PADOVA Warehouse 65、GIORGETTI 开业中、Ikonhouse（curated original design）、The A/P Room（collectible design）等真实市场玩家；Aati since 1981 等城内 luxury furniture house 长期使用该词族获客——词有商业实体支撑，非假词",
+        "evidence_status": "T3（市场实体实查，非搜索量实测）",
+        "status": "provisional",
+        "action": "journal:where-dubai-finds-original-furniture 主位（2026-09-26 WO-20260926-01，站主批准 EDM→blog 联动）",
+        "lang": "en",
+        "source": "https://alserkal.online + web 实查 2026-09-26（BOFFI Alserkal Avenue showroom / Ikonhouse / Aati）；cannibal CLEAR 2026-09-26（designer furniture dubai / alserkal furniture 双查无人占用）"
+      }
+    ],
+    "cn": [
+      {
+        "keyword": "动物造型沙发",
+        "evidence": "CELLUTANE×宝可梦造型沙发 ¥28,400 受注生产 (toy-people.com/?p=108239 + saiganak.com)",
+        "status": "verified"
+      },
+      {
+        "keyword": "人偶沙发/人偶家居",
+        "evidence": "T-ARTS インテリア動物家具〜椅子篇〜 扭蛋微缩 (toy-people.com/?p=84882)",
+        "status": "verified"
+      },
+      {
+        "keyword": "玩偶家居",
+        "evidence": "Horse/Dog Sofa 评论 'Where could I get one' / 'I need a Dog Sofa right now' (meta_1p)",
+        "status": "verified"
+      },
+      {
+        "keyword": "摆件家居",
+        "evidence": "虾皮羊驼椅凳 NT$1,500-2,300 (≈$47-72) 民宿摆设需求 (shopee.tw 实测 2026-09-12)",
+        "status": "verified"
+      },
+      {
+        "keyword": "仿生家居",
+        "evidence": "Bocca 唇沙发 意大利 Studio 65/Gufram 1970 + 孔雀椅 丹麦 Wegner (gufram.it/1stdibs)",
+        "status": "verified"
+      }
+    ],
+    "deprecated_fake_words": [
+      {
+        "keyword": "oversized owl chair",
+        "reason": "Google suggestqueries 零建议 2026-09-12"
+      },
+      {
+        "keyword": "giant owl nest chair",
+        "reason": "零建议"
+      },
+      {
+        "keyword": "statement armchair luxury",
+        "reason": "零建议"
+      },
+      {
+        "keyword": "handmade sculptural chair",
+        "reason": "零建议"
+      }
+    ]
+  },
+  "meta_patterns": {
+    "title_rules": "50-60 字符，必含主词 + 关键尺寸 + 品牌；变体 SEO title 按 SKU 色名生成",
+    "description_rules": "150-160 字符，必含 主词/尺寸×承重/价格+DDP/工艺时长/AR；句尾 IP 钩子",
+    "validated_example": {
+      "product": "noctua-owl-armchair",
+      "title": "Faux Fur Accent Chair, Animal Shaped Sofa 120cm | Fuzz Sofa",
+      "title_chars": 59,
+      "description": "Animal shaped sofa, owl edition: faux fur accent chair 120×100×76 cm rated 200 kg. $4,800 DDP, hand-built 72–90 h, AR room preview. Athena's owl, at last.",
+      "description_chars": 151,
+      "status": "live 2026-09-12，桌面 DOM 13/13 验证通过"
+    }
+  },
+  "price_ladder": {
+    "track": "animal_shaped_sofa",
+    "rungs": [
+      {
+        "tier": "扭蛋微缩",
+        "example": "T-ARTS Interior Animal 椅子篇",
+        "price": "¥200 (~$1.3)",
+        "status": "verified"
+      },
+      {
+        "tier": "量产授权沙发",
+        "example": "CELLUTANE×宝可梦 呆呆兽/可达鸭",
+        "price": "¥28,400 (~$190) 受注生产 日本限定",
+        "status": "verified"
+      },
+      {
+        "tier": "量产动物凳",
+        "example": "虾皮羊驼椅凳 150kg",
+        "price": "NT$1,500-2,300 (≈$47-72)",
+        "status": "verified",
+        "note": "原 '$980' 为台币/美元混淆已证伪"
+      },
+      {
+        "tier": "空白带",
+        "price": "$200-$4,800 无成人全尺寸手作动物沙发",
+        "status": "verified"
+      },
+      {
+        "tier": "Atelier 手作升级",
+        "example": "FUZZ SOFA Noctua",
+        "price": "$4,800",
+        "status": "verified"
+      },
+      {
+        "tier": "雕塑椅带",
+        "example": "1stDibs/The Oblist",
+        "price": "$5,000+",
+        "status": "verified"
+      }
+    ],
+    "deprecated_false_competitors": [
+      "RH $5295 owl椅 — 实测无",
+      "Anthropologie $3980 — 实测 $898 餐椅已下架",
+      "Moooi $7200 owl椅 — 实测只有 Pet Light 台灯"
+    ]
+  }
+}

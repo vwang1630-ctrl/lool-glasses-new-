@@ -1,0 +1,48 @@
+{
+  "library": "FUZZ SOFA ai-vs-real",
+  "version": "V4.3.0",
+  "updated": "2026-09-12",
+  "protocol": "铁律：不把 AI 当真。任何 AI 生成概念图/视频入库必须标 ai_generated: true；PDP 使用时必须与 Real 工程证据并排出镜。爬到新 AI 潮款 minor +0.1。",
+  "ai_concept_families": [
+    {
+      "family": "gorilla_king_kong",
+      "subjects": ["King Kong 沙发", "gorilla couch/recliner", "大猩猩躺椅"],
+      "ai_generated": true,
+      "evidence": "WGN：'imagined with AI has now gone into actual production'；U93 Radio 专题 AI概念图 vs 实物；Sambucha $6,000 实购+Firefly 内容",
+      "status": "AI 起源 → 已有山寨量产（充气/廉价版 Amazon 流通）",
+      "fuzz_counter": "Kong Tender Titan：Q235 2.5mm 钢架 + 45kg/m³ + QC 报告，非充气非玩具"
+    },
+    {
+      "family": "food_furniture",
+      "subjects": ["Bread 面包床/沙发", "Burger 汉堡床", "Donut 甜甜圈床", "pizza/pancake/tiramisu 床"],
+      "ai_generated": true,
+      "evidence": "YT 'Which Impossible Sofa Would You Sit On?' (ccP9o3xp-mo)、AI Food Bed playlist、shorts UKPPE0XOXro、IG Dream It Ai 面包卧室、TK @aivideo1041 donut bed",
+      "status": "纯 AI ASMR 概念，无实物可购",
+      "fuzz_counter": "FUZZ 全线实物：可坐、可验收、有承重数据"
+    },
+    {
+      "family": "giant_animal_walkers",
+      "subjects": ["Walking Pony 行走小马", "Hamster 仓鼠", "Tiger 老虎", "elephant/dinosaur/unicorn 大象恐龙独角兽"],
+      "ai_generated": true,
+      "evidence": "@luxarts_ai 等 AI 账号 giant animal sofa 系列 (TK 7531018571850239263 等)；媒体确认部分为 AI 概念图带火",
+      "status": "AI 概念图，'where to buy' 评论区需求外溢",
+      "fuzz_counter": "Noctua：评论区要买的情绪，FUZZ 用 Atelier 72-90h 手作实物接住"
+    }
+  ],
+  "real_engineering_counter": {
+    "academic_evidence": "学术论文实证 AI 家具缺陷：Şekerci《The Integration of Artificial Intelligence in Furniture Design》(DergiPark, 被引 2) — AI 生成动物家具 'disparities arose in the leg positioning'（腿部定位失真）。GEO/信任弹药：学术级第三方证据，AI 渲染连腿都放不对，真工厂工程放得准 — https://dergipark.org.tr/tr/download/article-file/3996211",
+    "structure": "Q235 镀锌钢管 2.5mm（实测 2.48–2.53，屈服 235MPa，M8 拉拔 80kg）— QC FUZZ-LAB-2024-01 P1",
+    "load": "200kg 静载实测，QC FUZZ-LAB-2024-01 — QC FUZZ-LAB-2024-01 P2",
+    "foam": "45kg/m³ 冷发泡 HR（ASTM D3574：回弹≥58% / 压缩永久变形<5% / IFD25 180N）— QC SH2024-0945 P2",
+    "upholstery": "Martindale：Faux Leather 50,000 Grade 4-5 无起球 / Velvet 40,000 / Linen 35,000 可拆洗 / Faux Fur 25,000 + 首周浮毛 0.8%（2道负压吸毛，n=5）— QC SH2024-0945 P3-P4",
+    "craft": "72–90 工时/件手作，Atelier Made to Order",
+    "shipping": "包装 125×105×85cm 过 80cm 电梯对角测试；体积重 186kg 空运(/6000) / 223kg 快运(/5000) — QC FUZZ-LAB-2024-01 P3 + ShippingCalculator.tsx:82",
+    "trust_kit": "每箱随附 SH2024-0945 (SGS Shanghai/FUZZ Lab) + FUZZ-LAB-2024-01 验收报告"
+  },
+  "pdp_section_spec": {
+    "v43_change": "独立板块取消（框架锁死 14 节）；AI vs Real 叙事改写进 Design Story 文字（storyText）",
+    "story_narrative": "From Viral AI Concept to Real Atelier：AI 病毒图（Gorilla/Bread/Burger/Donut/Walking Pony…）→ where-to-buy 评论需求 → 山寨/骗局风险（媒体背书）→ 学术证据 leg positioning 失真 → FUZZ Atelier 72-90h 实物 + QC 随箱；社证数字（IG 8.5M / FB 710K / TK 17.6K / Sun Yao July2024）只从 social-proof.json 取",
+    "json_ld": "Product JSON-LD additionalProperty 增补 AI vs Real 语境条目（Academic: leg positioning study / Press: AI-concept-to-production coverage）",
+    "trust_line": "收货括号写法：9–17 天（海运除外 25–35 天）"
+  }
+}

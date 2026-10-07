@@ -1,0 +1,403 @@
+{
+  "manifest": "FUZZ SOFA social-platform-rules V8.0（站主 2026-09-26 喂养，操盘手按裁决修正）",
+  "version": "V8.6.0",
+  "updated": "2026-10-03",
+  "source": "站主 V8.0 完整版养料包（EDM-EN/AR-BUTTONS-WORKING 干净版校准）",
+  "identity": "精通 Instagram/Facebook/Pinterest 三平台算法-钩子-留存-转化的社媒操盘手；任意 blog 可跑完 Blog→社媒→网站闭环（首例 Where Dubai Finds Original Furniture；候补 Where Riyadh Finds / How Gorilla Throne Is Made）",
+  "voice_axis": "站主裁决（2026-09-26）：社媒内容主轴=全球独家（One Partner Per City / No OEM / Not in the 3 catalogs / GCC 0 Distributors / Global Exclusive Originals），工艺细节降权——IG 受众不为工艺停留，为『只有这里有』停留；factory 禁用，一律 Shanghai atelier/工作室/工坊（更有调性）；手工细节打磨（hand-finished）可用，整体手工雕刻/雕塑（hand-sculpted）继续禁（站内铁律#4 不变）",
+  "banned_all_platforms": {
+    "terms": [
+      "factory",
+      "工厂",
+      "工厂视频",
+      "工厂实拍",
+      "real factory",
+      "real factory footage",
+      "factory footage",
+      "Galvanized",
+      "镀锌钢管",
+      "镀锌",
+      "包装箱",
+      "ships in a crate",
+      "Handmade to order in 1-3 days",
+      "1-3天内完成",
+      "hand-sculpted",
+      "整体手工雕刻",
+      "评论.*送",
+      "送.*视频"
+    ],
+    "patterns": {
+      "ig_caption_url": "IG Caption 内出现 https://（限流 -80%，链接走 Bio+DM）",
+      "comment_gift": "评论区『评论X送Y』诱导互动（权重 -50%）"
+    },
+    "note": "hand-sculpted 由站主 2026-09-26 追加禁用（与站内工艺诚实制对齐）；替代=hand-finished by artisans / shaped by hand"
+  },
+  "enforced_all_platforms": {
+    "atelier_not_factory": "Shanghai atelier / 工作室 替代一切 factory 表述",
+    "hand_finished": "hand-finished by artisans（手工细节打磨）替代 handmade in factory / hand-sculpted",
+    "atelier_process": "SKETCH→FOAM→SKIN→VISION 四镜过程叙事（替代 factory footage 概念）",
+    "evidence_numbers": "200kg load tested · serialised QC（替代 Galvanized/镀锌/包装箱参数）",
+    "trust_tokens": [
+      "One Partner Per City",
+      "No OEM",
+      "Own IP Only",
+      "GCC 0 Distributors",
+      "Global Exclusive Originals",
+      "In-House R&D",
+      "Own Atelier"
+    ]
+  },
+  "instagram": {
+    "algorithm_2026": [
+      "Reels 流量=图文 5-10 倍，轮播不推，必须 Reels",
+      "权重：Share 10 > Save 8 > Comment 4 > Like 1——求 Save/Share 不求赞",
+      "完播率：前 3 秒黏土 vs 成品对比，否则完播<30% 不进二级池",
+      "原创分：人手+时间戳+原声——4 镜 SKETCH 手绘/FOAM 人手按压/SKIN 人手拉皮/VISION 成品；首帧字幕 Shanghai Atelier 06:42 AM / Hand-finished Day 3；黏土刮的原声，不加热门 BGM 盖掉",
+      "链接：Caption 挂 https:// 限流 -80%；Bio 链接+私信喂",
+      "互动质量：REAL=高质量短词；『实物/求链接/多少钱/怎么做』低质量；评论X送Y 权重 -50%",
+      "毒词：factory=家具类目毒词（踢廉价工厂池）——用 atelier",
+      "Location：必须 Shanghai, China（标 Dubai 被判本地工厂）",
+      "标签：精准 #AlserkalAvenue #DesignerFurnitureDubai #DubaiShowroom #ShanghaiAtelier 有效；泛 #luxuryfurniture #furniture 无效",
+      "时间：周二/周五 20:00 CST 北京时间"
+    ],
+    "traffic_levers": [
+      "求 Save：文案带 Save this for your Dubai showroom meeting / Save this for your living room；Save 率>3% 爆款",
+      "求 Share：Share with your designer tired of the 3 catalogs；Share 率>1% 爆款",
+      "求高质量评论：Comment REAL DUBAI / REAL RIYADH——短词+地域化，算法推 GCC 地域池",
+      "追评：有人评 REAL → 回 Atelier process sent. Check DM. Which texture? Short velvet or long faux fur? 引导二轮评论，权重 x3"
+    ],
+    "insider": [
+      "0.5 秒文字钩子：第 0 帧字幕 This is NOT from the 3 catalogs（完播 +15%）",
+      "REAL+城市名让评论区变地域词，算法自动推该城市",
+      "Location Shanghai + Collab 邀请 Alserkal Avenue 官方号（白嫖 20 万粉曝光）",
+      "自评证据：发布 5 分钟内自评 200kg load tested, serialised QC + 4 过程图（带图评论加权）"
+    ],
+    "daily_dashboard": {
+      "graded": "⚠️ 判读用相对值不用绝对值：完播率对 34.5%（小账号基准）· 互动率对 0.5%（平台基准）· 前 3 条 Reels 建立自有播放基线",
+      "actions": {
+        "completion_lt20": "重切前 3 秒（黏土 vs 成品）",
+        "save_lt1": "加 Save 钩",
+        "real_lt3": "换 REAL <城市> 地域词"
+      }
+    },
+    "content_axis_note": "工艺细节不进 Caption 主干（站主裁决：IG 受众不消费工艺）——证据数字一笔带过，主体=独家叙事+场景+Save/Share 钩子",
+    "link_policy": {
+      "established": "2026-10-02",
+      "audited": "T2官方(Mosseri 2025-07-22辟谣+ranking explainer)",
+      "rules": [
+        "'link in bio' CTA 不降 reach(官方辟谣)——放心用",
+        "文案裸链接不可点击→维持禁令;引流=bio UTM 链接+Stories 链接贴纸",
+        "T3观察项:2026 IG 测试文案原生可点链接,全量上线须重写本政策"
+      ],
+      "correction": "10-02 早版'带链接压分发'表述过严,按官方辟谣修正为:CTA 无惩罚,裸链接无意义禁用"
+    },
+    "hashtag_policy": {
+      "established": "2026-10-02",
+      "audited": "T2官方(Meta 建议式样)+T3(2025-12 上限~5 观察)",
+      "rules": [
+        "每帖 3-5 个高相关标签(官方);泛标签无效",
+        "发现主战场=caption/屏幕文字/alt text 的 SEO 关键词——关键词写进文案和字幕(IG 搜索正索引这些)",
+        "现用标签组维持但标 T3,待 15 张拆解卡实证校准(判例011/012)"
+      ]
+    },
+    "ranking_signals_2026": {
+      "established": "2026-10-02",
+      "tier": "T2官方",
+      "entries": [
+        "三核心:观看时长(#1)+likes per reach+sends per reach(Mosseri 2025-01)",
+        "sends/DM 分享=2026 最强增长杠杆;save/comment>赞",
+        "profile visit after watch=强信号",
+        "前 30-60 分钟早期互动速度影响分发",
+        "基准纪律:第三方完播/互动基准=T3 仅参照,前 3 条 Reels 建自有基线"
+      ]
+    },
+    "seo_skill": {
+      "established": "2026-10-02",
+      "evidence": "T2官方(Meta:搜索索引 caption/屏幕文字/alt text)+判例012校准",
+      "checklist": [
+        "文案第一句必须含本条目标搜索词(钩子+SEO 一句两用)",
+        "屏幕文字烧入关键词(用户搜词时字幕被索引)",
+        "alt text 替代文本每帖必填(一句话描述+关键词,零成本增量)",
+        "标签 3-5 个精准,不堆",
+        "账号名字字段含品类词(Sculptural Sofas & Animal Shaped Chairs 已合规)"
+      ],
+      "target_keywords_seed": [
+        "gorilla sofa",
+        "animal shaped furniture",
+        "statement sofa",
+        "sculptural sofa",
+        "luxury furniture Dubai",
+        "unique sofa design"
+      ],
+      "note": "词库随五源简报每周补;表现数据回流后按词留强汰弱"
+    },
+    "trial_reels": {
+      "established": "2026-10-02",
+      "tier": "T2官方(creators.instagram.com+帮助中心,2024-12上线2025全量)",
+      "mechanism": "Reel 仅推非粉丝,约72h窗口,独立评测不影响主 Reel;表现好可转正全量",
+      "usage": "H 假设的官方 A/B 测试台:一个创意出 2-3 个钩子变体各自 Trial,72h 看留存,赢家转正——喂给判例009/假设A证伪流程"
+    },
+    "caption_hook_125": {
+      "established": "2026-10-02",
+      "tier": "T3营销共识(非官方),与SEO首句合并执行",
+      "rule": "第一句=目标搜索词+钩子,125字符内(超出被折叠,决定'更多'点击)"
+    }
+  },
+  "pinterest": {
+    "algorithm_2026": [
+      "本质=搜索引擎：70% 流量来自搜索非关注",
+      "铁律：每条 Pin 挂 /blog/ 链接（468 浏览 0 出站=没挂链接）；修复后 CTR 预期 1.5-3%",
+      "图：1000x1500 竖图，横图不推；4 张图必须不同，-d1~-d4 链接不同",
+      "标题：≤36-100 字符，公式=主关键词+场景+证据（给搜索引擎看，不是给人看）",
+      "描述：必须英文，含关键词 designer furniture dubai + Alserkal + One Partner Per City + 证据 200kg；禁淘宝参数（包箱尺寸/镀锌）",
+      "Board：禁 Real Factory（搜索量 0+廉价标记）→ Where Dubai Finds Original Furniture — Shanghai Atelier；Board 描述塞关键词",
+      "频率：每天 1 条美东 21:00（迪拜次日 5:00）连 4 天，算法喜欢稳定",
+      "UTM：-d1~-d4 各不同，归因 consult_events",
+      "长尾：30 天起峰，单 Pin 生命周期 6 个月=SEO 外链反哺 Blog"
+    ],
+    "traffic_levers": [
+      "Text Overlay：半透明黑条 Not from the 3 catalogs. Shanghai Atelier（CTR 1.5%→3%）；文字≤20% 图面积",
+      "描述首句写场景：Alserkal, City Walk... same ten silhouettes from same 3 catalogs. This piece is in none of them.",
+      "Idea Pin 4 页滑动（黏土→FOAM→SKIN→成品+链接）=标准 Pin 流量 4-5 倍",
+      "Board 描述塞关键词吃 Pinterest 站内搜索"
+    ],
+    "daily_dashboard": {
+      "graded": "⚠️ 出站 CTR：30 天/500+ 曝光后 ≥0.3% 及格、≥1% 优秀（T3）；绝对浏览数无基准——前 30 天自建基线（T1 唯一参照：旧 Pin 468 曝光 0 出站）",
+      "actions": {
+        "ctr_lt03": "标题关键词重写（30 天/500+曝光后才判）",
+        "zero_outbound": "查链接是否挂上/是否被判工厂词"
+      }
+    },
+    "official_rules": {
+      "researched": "2026-09-26",
+      "sources": [
+        "help.pinterest.com（Pin performance and distribution：禁重复 Pin，重复=垃圾标记）",
+        "community.pinterest.biz（2025-08 官方：模板变体= fresh pins，换图位/背景/文字位置）",
+        "create.pinterest.com（Pin 必带 title+description+topic tags）",
+        "help.pinterest.com Collage Ads（每 Pin 必含 title+description+outbound URL）"
+      ],
+      "rules": [
+        "标题 ≤100 字符，至少一个关键词短语，可点击但禁标题党",
+        "fresh pins：同一 URL/产品每周 3-5 个变体（换图位/背景/文字），不重复上传相同内容",
+        "描述按用户意图写，关键词前置（前 3 词权重最高）",
+        "图=2:3 竖版 1000x1500",
+        "Board 标题+描述织入关键词并定期更新"
+      ],
+      "title_finding": "爆款标题模式=好奇缺口/价值承诺/解决方案框架（how to/ideas for/best X for Y），≤8 词；参数表标题无此先例（Tailwind/Jana O Media/Socialinsider 交叉验证）"
+    },
+    "user_persona_crosswalk": {
+      "version": "V1.0",
+      "built": "2026-09-26",
+      "rule": "钩子三源交集：平台用户行为(有源)×我方画像字段(有级)×我方真实卖点——缺一环不算钩子",
+      "platform_user_data": {
+        "sources": [
+          "Sprout Social 2026 (619M MAU Q4 2025)",
+          "Pinterest Business (约70%女性)",
+          "NRF 2025-03 (66% Gen Z 周活把它当首选购物站)",
+          "Shopify/Future Commerce (39-40% Gen Z 产品搜索从 Pinterest 起步而非 Google)",
+          "Benly via MBADV (75% Pinners 处于主动购买/规划心态 vs 其他平台约 28%)",
+          "Pinwell 2026 (核心买家=年轻+女性+富裕家庭)"
+        ],
+        "profile": "女性为主(70%)、Gen Z 增长最快(40%+)、富裕家庭占比高、**关键差异=来之前就带着采购计划**(planning mindset,75% vs 28%)"
+      },
+      "crosswalk": [
+        {
+          "platform_behavior": "75% 用户带着采购计划来（planning mindset）",
+          "our_persona": "statement-piece-affluent 的 buying_journey「Pinterest 长期语境浸润」+plush-comfort-collector",
+          "our_point": "Room Preview（计划期先看到摆家里）",
+          "hook_produced": "See it in your room——不是碰运气，是平台行为与产品功能的精确咬合"
+        },
+        {
+          "platform_behavior": "66% Gen Z 周活把它当首选购物入口、40%搜索从这起步",
+          "our_persona": "kong-movie-fan(H3) 的搜索行为（gorilla sofa GSC 9 展示@位置7.1）",
+          "our_point": "独家全球 IP + 3 catalogs 差异化",
+          "hook_produced": "This Gorilla Sofa Broke the 3-Catalog Rule"
+        },
+        {
+          "platform_behavior": "Gen Z 增长最快(40%+)，对 AI 渲染内容免疫度高、对「真东西」饥渴",
+          "our_persona": "ai-vs-real 库（全库最大信任疑虑主题）",
+          "our_point": "手工细节打磨+200kg 实测（clay→sitting 可坐实证）",
+          "hook_produced": "From a Lump of Clay to a Sofa You Can Sit On"
+        },
+        {
+          "platform_behavior": "富裕家庭+女性主导家居决策",
+          "our_persona": "statement-piece-affluent desire「审美选择即社会位置，不撞款」",
+          "our_point": "One Partner Per City / GCC 0 Distributors",
+          "hook_produced": "The Sofa Showrooms Fight to Show First"
+        }
+      ],
+      "discipline": "以后每条钩子产出时必须能写出这条链：平台行为(带源)→画像字段(带级)→我方卖点(带据)——写不出链的钩子=乱出，禁用"
+    }
+  },
+  "facebook": {
+    "algorithm_2026": [
+      "推有意义对话：一条带问题的评论 > 10 个赞",
+      "≤80 字符防折叠（超长 CTR -70%）；80 字符+空行+…折叠钩：点展开=一次互动",
+      "图：Supabase 大图直链（本地图压缩严重）",
+      "OG：必须 blog published 后发（否则 OG 空白 CTR=0）",
+      "时间：目标市场上午 10 点（迪拜 10:00）买手上班刷 FB",
+      "自评：评论区自评 atelier 视频（有视频评论的帖子加权 20%）",
+      "毒词：factory 被推给 B2C 廉价家具人群而非 B2B showroom",
+      "双语首评：英文帖+阿拉伯语首评（استوديو شنغهاي المستقل + تصاميم أصلية حصرية عالمياً + بحث وتطوير داخلي + ورشة خاصة）通吃 GCC",
+      "IG Reels 勾选同步 FB Reels 吃双池",
+      "文案以问题结尾逼回答（would you show it? / would you put it in your majlis?）"
+    ],
+    "daily_dashboard": {
+      "graded": "⚠️ 触达基准=粉丝数×1%-5%（T3），按页面实际粉丝数折算；互动率对 0.06-0.20%（T3）",
+      "actions": {
+        "reach_lowno": "文案超 80 字符被折叠",
+        "clicks_low": "OG 未抓到（blog 未 published）"
+      }
+    },
+    "link_policy": {
+      "established": "2026-10-02",
+      "evidence": "T2:外链帖触达低于原生内容",
+      "rule": "FB内容原生化,链接进评论区;仅当目标是直接引流才用链接帖并接受低触达"
+    }
+  },
+  "closed_loop_sop": {
+    "day0": "Blog published → 检查 OG 标题/描述/大图 → 20:00 CST IG Reels → 5 分钟内自评证据图 → 追评 REAL",
+    "day1_4": "Pinterest 每日 1 条美东 21:00，-d1-alserkal / -d2-citywalk / -d3-dubaihills / -d4-trade 四场景图不同",
+    "day2": "Facebook 迪拜 10:00 发布 + 阿语首评 + atelier 视频自评",
+    "day3_14": "看 UTM 归因：哪个场景（-alserkal/-citywalk/-dubaihills）转化高，下一篇 Blog 写那个场景",
+    "day14_30": "数据复盘 → social-review 周评闭环",
+    "expectation_14d": "consult_events +3~+8；30 天 +10~+20；Pin 90 天 5000+ 外链长尾 6 个月",
+    "if_not_fixed": "维持 468 浏览 0 出站 + IG 限流 + FB 推 C 端"
+  },
+  "gate_mapping": {
+    "rb13": "禁词族 grep（factory/工厂/镀锌/Galvanized/包装箱/ships in a crate/Handmade to order in 1-3 days/评论送/送视频/hand-sculpted）——social block 全文",
+    "rb14": "IG caption 禁 https://（Bio+DM 喂链接）+ 禁『评论X送Y』诱导句式",
+    "rb15_等效": "Pin 描述英文+关键词（designer furniture dubai/Alserkal/One Partner Per City）——由 social-gen 输入参数+playbook 公式保证（关键词随 blog 变，不做死闸门）",
+    "rb16_等效": "FB ≤80 字符——rb12 已强制",
+    "rb17_等效": "UTM 闭环（utm_source 三平台+campaign=slug）——rb12 linkIssue 已强制",
+    "r15_已存在": "pinterest link_required 校验（WO-20260914-06），与 rb13/14 无冲突"
+  },
+  "template_fixed": {
+    "instagram": "Not from the 3 catalogs. {story_sentence} {W}x{D}x{H} cm, holds {LOAD} kg. Want the atelier process? Comment REAL DUBAI. Save this for your Dubai showroom meeting. Share with your designer tired of the 3 catalogs.",
+    "pinterest_desc": "{scene_sentence} Designer furniture Dubai from our Shanghai atelier — One Partner Per City, no OEM, global exclusive originals. 200kg load tested, serialised QC. {W}x{D}x{H} cm. Full atelier story: {link}",
+    "facebook_main": "Same silhouettes from the same 3 catalogs. This one is in none of them — one partner per city. Would you show it? Trade: trade@fuzzsofa.com",
+    "facebook_first_comment_ar": "استوديو شنغهاي المستقل + تصاميم أصلية حصرية عالمياً + بحث وتطوير داخلي + ورشة خاصة. Atelier process: SKETCH→FOAM→SKIN→VISION."
+  },
+  "evidence_audit_20260926": {
+    "reason": "站主红线：定论需要实际数据不是编的。V8 原始数字未经分级入库，本次全部对账。",
+    "downgraded": [
+      {
+        "claim": "Pinterest CTR 1.5-3%",
+        "verdict": "❌ 编造级——外部实测基准=有机出站 CTR 常态 0.3%-1%，≥1.5% 即优(T3 LinkGrab)；1.5-3% 是前 10% 水平不能当及格线",
+        "now": "及格线 0.3%（30 天/500+曝光后），优秀线 1%"
+      },
+      {
+        "claim": "Pin 7天200-400/30天1000-2000/90天5000+ 浏览",
+        "verdict": "❌ 无任何公开基准支持新账号绝对值",
+        "now": "T4 假设：我方前 30 天数据定基线（唯一 T1 参照=旧 Pin 468 曝光 0 出站）"
+      },
+      {
+        "claim": "IG 播放 500-2000 算正常",
+        "verdict": "❌ 1 粉账号无此前提",
+        "now": "T4：前 3 条 Reels 数据定基线"
+      },
+      {
+        "claim": "Collab 白嫖 20 万粉曝光",
+        "verdict": "❌ Alserkal Avenue 账号规模未核实——删除，Collab 价值待核实后再议"
+      },
+      {
+        "claim": "FB 自评加权 20%",
+        "verdict": "❌ 无出处",
+        "now": "T4 启发式，仅作为「自评有益」的方向性理由，数字作废"
+      },
+      {
+        "claim": "IG 权重 Share10>Save8>Comment4>Like1",
+        "verdict": "⚠️ 社区流传启发式，官方从未公布权重数字",
+        "now": "保留为定性启发（互动质量影响分发=官方确认），数字部分标 T4"
+      }
+    ],
+    "sourced_benchmarks": {
+      "pinterest": {
+        "ctr": "有机出站 CTR 常态 0.3%-1%，≥1.5%=优（T3）",
+        "source": "LinkGrab Pinterest analytics 基准 2026 检索"
+      },
+      "instagram": {
+        "engagement": "Reels 互动率 0.48%-0.50%（Socialinsider 2026Q2，连续两季下滑，T3）",
+        "completion": "小账号(1K-5K)跳过率 65.5%→隐含看完率约 34.5%（T3 Socialinsider）；<15s Reels 完播率比 >1min 高约 20%（T3 WSI）",
+        "reach": "Reels 触达率约 30.8%，约为其他格式两倍（T3 Sender.net 汇总）"
+      },
+      "facebook": {
+        "reach": "有机触达=粉丝数的 1%-5%（Hootsuite 1-2% / Swydo 1.37-1.65% / SocialStatus 5.04%，T3）；小页面百分比更高",
+        "engagement": "互动率 0.06-0.20%（T3 Adobe 2025-11）"
+      }
+    },
+    "validation_plan": "前 30 天我方第一方数据（收件箱+consult_events）建立自有基线后，本表 T4 项逐条替换或证伪；90 天后复查外部基准时效",
+    "t1_baseline_corrected": {
+      "date": "2026-09-26",
+      "source": "站主两张后台截图（档案页+分析工具概览）",
+      "two_layers": {
+        "lifetime_per_pin": "旧主 Pin 累计：785 曝光/12 出站（lifetime CTR 1.53%）——出站发生在三十天前挂链时期",
+        "last_30_days": "2026/8/26-9/25：曝光 1,035(↓9.6%) / 参与 19(↓67%) / 出站 0(↓100%) / 收藏 0(↓100%) / 受众 795(↑3.3%) / 参与人次 12(↓57%)"
+      },
+      "diagnosis": "分发活（1,035 曝光+受众正增长），转化死（近期 0 出站 0 保存）——根因=近期 Pin 无链接/无关键词描述/无保存理由，三张裸图；非 Pinterest 不给流量",
+      "baseline_locked_for_ab": "今晚起新四连发（链接+关键词+签名句+Save钩）为对照组实验：30 天后对 0 出站/0 保存基线验证",
+      "ops_todo": "账号简介含禁词 Sit on Art+Handmade 待站主改；Board 未改名待站主改",
+      "correction_note": "操盘手 09-26 曾误将终身值(1.53% CTR)当现值呈报，站主截图纠正——两层必须分开读"
+    }
+  },
+  "platform_priority_coldstart": {
+    "version": "V1.0",
+    "established": "2026-10-02",
+    "basis": "判例009;三平台同起点对照实验(T1,0粉同期,站主官方面板读数2026-10-02)",
+    "data": {
+      "instagram_reel_24h": {
+        "views": 113,
+        "non_followers": "100%",
+        "real_engagement": 0,
+        "note": "评论1条系站主自种,T0剔除(判例010)"
+      },
+      "pinterest_pin_5d": {
+        "impressions": 17,
+        "pin_clicks": 3,
+        "outbound": 1,
+        "note": "9-27发布,搜索型慢热属正常,评判周期3个月"
+      },
+      "facebook_24h": {
+        "views": 0,
+        "note": "社交图分发,零粉=零分发半径,结构性无水"
+      }
+    },
+    "priority": [
+      "instagram_reels(主力泵,推荐流冷启动可用)",
+      "pinterest(复利资产,按班照发当SEO养)",
+      "facebook(降级存在感阵地,同步发帖保号)"
+    ],
+    "fb_retest_trigger": "粉丝>100 或 实拍素材库到位"
+  },
+  "changelog_v82": "10-02:判例009/010/012接线——platform_priority_coldstart新增;IG/FB补link_policy(裸链接禁令);IG补hashtag_policy(标签=T3待实证)。起因:站主抓出IG/FB文案裸链接误指令+标签单源无实证。",
+  "changelog_v83": "10-02 晚:IG 机制校准(判例012首役)——ranking_signals_2026 新增(T2 官方源);link_policy 按 Mosseri 辟谣修正;hashtag_policy 按官方 3-5+SEO 关键词更新。配套:ig-pump-battle.json 建档(战役/水脉清单/拆解卡/H假设模板)。",
+  "growth_mode": {
+    "mode": "organic_only",
+    "established": "2026-10-02",
+    "authority": "站主级3裁决",
+    "rule": "一切增长只走自然水路(IG 推荐流+IG SEO+Pinterest SEO);投流不启用,如将来重启须站主显式批预算"
+  },
+  "changelog_v84": "10-02:站主裁决『不投流』→growth_mode=organic_only 入档;IG seo_skill 技能块新增(五项清单+种子词库)——IG SEO 正式进生产能力。",
+  "changelog_v85": "10-02 晚:外部 skill 生态扫描后收真金二条——trial_reels(官方A/B测试台)+caption_hook_125(T3);红线拒收:互动机器人/小号矩阵/爬虫管线/ManyChat(三硬顶+爬虫红线命中,立此存照)。",
+  "youtube": {
+    "status": "已开频道(站主,2026-10-03 确认)",
+    "handle": "@fuzzsofa",
+    "subs": 3,
+    "videos": 1,
+    "branding": "头像=大猩猩渲染 ✓ · 站点链接 fuzzsofa.com ✓ · 名=Fuzz Sofa Studio ✓",
+    "existing_video": {
+      "title": "Pink Velvet Owl Chair | A Magical Reading Corner for Sweet Escapes",
+      "length": "0:06",
+      "views": 2,
+      "age": "2个月",
+      "note": "6 秒=Shorts 形态;标题有 owl chair 词,缺 animal furniture 词族"
+    },
+    "strategy": [
+      "站主拍的 3 段工坊实拍 → 每段双发:IG Reel(剪)+ YouTube 原样(标题/描述/标签由操盘手出,埋目标词 gorilla sofa / animal shaped furniture)",
+      "GEO 价值:YouTube=Google 自家资产,视频进 Google 视频搜索+AI 概览引用池",
+      "站内 PDP/首页后续可嵌 YouTube 视频增加停留",
+      "发布手动(与全站纪律一致)"
+    ]
+  },
+  "changelog_v86": "10-03:youtube 节点新增(频道已存在确认:@fuzzsofa,3订阅1视频);双发策略入档(3段工坊视频=IG+YouTube 一鱼四吃)。"
+}

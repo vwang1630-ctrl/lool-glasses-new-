@@ -1,0 +1,105 @@
+{
+ "manifest": "FUZZ SOFA ai-visibility — GEO 采样台账 V1.0（0 成本版：手工 prompt 采样替代 Profound/Otterly 的监测回路）",
+ "version": "V1.1.0",
+ "updated": "2026-09-30",
+ "method": "每月 1 次：prompt_bank 全量在 ChatGPT / Perplexity / Gemini 免费版各跑一遍 → 记录每问：我们是否被引用、引用我们的域名、我们排位。写入 check_log。连续 2 次未引用的关键词 → 查该词落地页内容缺口（对照 keyword-library）",
+ "prompt_bank": [
+  {
+   "persona_link": "kong-movie-fan",
+   "prompts": [
+    "is there a real king kong gorilla sofa for sale",
+    "where to buy the viral gorilla sofa",
+    "gorilla shaped sofa real product"
+   ]
+  },
+  {
+   "persona_link": "owl-nostalgia-collector",
+   "prompts": [
+    "is there a real owl armchair for adults",
+    "mid century owl chair designer",
+    "owl shaped armchair for living room"
+   ]
+  },
+  {
+   "persona_link": "plush-comfort-collector",
+   "prompts": [
+    "best adult plush sofa brands",
+    "jellycat style furniture for adults",
+    "faux fur accent chair that doesn't shed"
+   ]
+  },
+  {
+   "persona_link": "cat-household-upgrader",
+   "prompts": [
+    "best designer sofa for cat owners",
+    "cat scratch proof sofa that looks good",
+    "washable cat friendly armchair"
+   ]
+  },
+  {
+   "persona_link": "statement-piece-affluent",
+   "prompts": [
+    "sculptural statement sofa brands",
+    "animal shaped luxury furniture",
+    "sofa that looks like a piece of art"
+   ]
+  },
+  {
+   "persona_link": null,
+   "prompts": [
+    "animal shaped sofa brands",
+    "FUZZ SOFA",
+    "fuzzsofa.com reviews",
+    "best animal themed furniture 2026"
+   ]
+  }
+ ],
+ "check_log": [
+  {
+   "date": "2026-09-30",
+   "engine": "Google AI 概览(站主手机,香港节点)——Day30 采样的提前首测",
+   "prompts": [
+    {
+     "prompt": "Where can I buy a gorilla sofa?",
+     "cited": false,
+     "cited_domains": [
+      "OfficeLogixShop",
+      "Amazon",
+      "AliExpress",
+      "LV Furniture Collection",
+      "Jubilee Furniture",
+      "Ubuy"
+     ],
+     "note": "引用者含充气玩具;我们 Kong PDP FAQ 有 where-to-buy 答案但未被采——权威/新鲜度缺口;行动=『Where to buy a gorilla sofa』截流文(真实vs充气角度)"
+    },
+    {
+     "prompt": "What are some animal shaped sofa brands?",
+     "cited": false,
+     "cited_domains": [
+      "Blu Dot",
+      "Nemuiil",
+      "George Furniture(中国品牌,Kong/熊猫椅)",
+      "OfficeLogixShop(蓝链)"
+     ],
+     "note": "列表型问题,AI 引用清单页;行动=品牌清单向内容+合集页强化"
+    },
+    {
+     "prompt": "Are owl armchairs comfortable?",
+     "cited": true,
+     "cited_domains": [
+      "fuzzsofa.com(卡片第一位)",
+      "Instagram patrick_norguet",
+      "Pinterest"
+     ],
+     "note": "✅ Noctua 被点名——FAQ『Is it comfortable?』直接被采;FAQ 策略当场验证"
+    }
+   ],
+   "baseline": "1/3 引用;owl comfort 命中=FAQ 可引用格式生效;两缺口已有对应行动",
+   "new_competitors": [
+    "Nemuiil(220cm 皮革猩猩沙发床)",
+    "George Furniture(中国,3D 动物家具)",
+    "Blu Dot(Small Animal Sofa)"
+   ]
+  }
+ ]
+}

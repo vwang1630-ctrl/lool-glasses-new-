@@ -1,0 +1,29 @@
+{
+  "manifest": "sales-intent-rules — 欲望三查标记库(score v2 用;单源 rules 的第一批居民,后续裁决类规则陆续迁入)",
+  "version": "V1.0",
+  "updated": "2026-09-30",
+  "source": "sales-intent-backlog.md A 项(站主『入』2026-09-30);标记表=品牌库签名句公式+已上线金句归纳",
+  "desire_checks": {
+    "vivid": {
+      "name": "画面感钩子",
+      "weight": 5,
+      "desc": "至少一句有体感的句子(动词/通感/明喻),不是参数复述",
+      "markers_en": ["drinks the light", "catches the light", "catches light", "tactile", "embrace", "wrap", "hug", "lounge", "陷进去", "裹住", "拥抱", "坐进", "躺", "贴身", "云朵", "丝滑", "温顺"],
+      "simile_patterns": ["\\blike a\\b", "\\bas if\\b", "像", "如同", "宛如"]
+    },
+    "contrast": {
+      "name": "对比结构",
+      "weight": 5,
+      "desc": "让用户觉得『不买就亏/别人是 X 我们是 Y』的对照结构(签名句公式)",
+      "patterns_en": ["most [a-z ]{3,60}\\.", "unlike", " vs\\.? ", "instead of", "compared to", "cheap cop", "printed silhouette"],
+      "patterns_cn": ["而不是", "和.{2,20}不同", "多数同类", "别家", "廉价"]
+    },
+    "offer": {
+      "name": "Offer 清晰度",
+      "weight": 5,
+      "desc": "看完知道下一步做什么(DM 照片/加购/trade@/可视化),无死胡同",
+      "markers": ["DM", "send a photo", "send us a photo", "add to cart", "trade@", "checkout", "visualiz", "room preview", "order", "发照片", "下单", "加购", "可视化"]
+    }
+  },
+  "write_rules": "标记表是启发式不是判决:命中=PASS;未命中=该维 −weight,并提示人工复看(AI 无法穷尽好文案,闸门只拦死胡同不定义好文案)"
+}

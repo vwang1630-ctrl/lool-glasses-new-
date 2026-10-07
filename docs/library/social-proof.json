@@ -1,0 +1,169 @@
+{
+  "library": "FUZZ SOFA social-proof",
+  "version": "V4.3.3",
+  "updated": "2026-09-12",
+  "protocol": "Social Proof Wall 只从本库取数。verified 条目可直接上页；user_provided 条目按用户指示可用（用户自持截图为证），入库时必须标 evidence_status。爬到新证据 minor +0.1。",
+  "verified_entries": [
+    {
+      "id": "fb-owl-nest-chair-quote",
+      "platform": "facebook",
+      "type": "user_quote",
+      "text": "my giant nest chair! I would literally never get up",
+      "source": "Midnight Owls 小组 post-240172653813987420135, 2026-07-05",
+      "link": "https://www.facebook.com/permalink.php?story_fbid=pfbid0F4BD3ahLuKrat1PSDsa9WjRSCc8rtzrM1UHWr5vtf4YqbZ5pVxHkfZXFgggFM5Ybl&id=61587674910067",
+      "use": "PDP 引用第一屏 / Interior Inspiration 卡片 #1"
+    },
+    {
+      "id": "meta-horse-sofa-where-to-buy",
+      "platform": "meta_1p",
+      "type": "demand_comment",
+      "text": "Where could I get one",
+      "source": "post-944578556600798665017 (Horse Sofa, 590 赞)",
+      "use": "玩偶家居 需求证据 / SEO keywords_matrix"
+    },
+    {
+      "id": "meta-dog-sofa-need-now",
+      "platform": "meta_1p",
+      "type": "demand_comment",
+      "text": "I need a Dog Sofa right now",
+      "source": "post-507045992969691452174",
+      "use": "同上"
+    },
+    {
+      "id": "wgn-gorilla-sofa-ai-to-real",
+      "platform": "facebook_press",
+      "type": "media_coverage",
+      "text": "A gorilla sofa that was imagined with AI has now gone into actual production",
+      "source": "WGN Morning News 视频 1432270774116347",
+      "link": "https://www.facebook.com/WGNMorningNews/videos/if-you-can-dream-it-you-can-do-it-a-gorilla-sofa-that-was-imagined-with-ai-has-n/1432270774116347/",
+      "use": "'From Viral AI Concept to Real Atelier' 板块权威引用（主流媒体确认 AI概念→真量产 叙事）"
+    },
+    {
+      "id": "ig-gorilla-couch-viral-2024",
+      "platform": "instagram",
+      "type": "viral_reel",
+      "text": "The Gorilla Sofa became a viral piece of furniture in 2024 after images of giant gorilla-shaped couches began circulating online",
+      "source": "@reginamochii reel DT02A-sEsOb + DWslkmIj2f2 等多 reel",
+      "link": "https://www.instagram.com/reel/DT02A-sEsOb/",
+      "use": "Social Proof Wall IG 条目"
+    },
+    {
+      "id": "fb-gorilla-couch-6000-bought",
+      "platform": "facebook",
+      "type": "creator_video",
+      "text": "Creator bought a $6,000 gorilla couch (Adobe Firefly partner content)",
+      "source": "Sambucha 视频 2827420077644215; 另 Drew Dirksen 'Replacing my couch with a GORILLA' 1082402181112836",
+      "use": "价位带证据：病毒级猩猩沙发创作者实付 $6,000"
+    },
+    {
+      "id": "pinterest-ar-tryon-official",
+      "platform": "pinterest",
+      "type": "platform_feature",
+      "text": "Pinterest AR Try On for Home Decor — 80,000+ shoppable Pins, 'Try in your Space'",
+      "source": "Pinterest Newsroom 官方 + TechCrunch 2022-01",
+      "link": "https://newsroom.pinterest.com/news/pinterest-introduces-ar-try-on-for-home-decor-for-the-ultimate-online-home-shopping-experience/",
+      "use": "Pinterest board embed + AR try-on 渠道策略依据"
+    },
+    {
+      "id": "yt-impossible-food-sofas",
+      "platform": "youtube",
+      "type": "ai_content_trend",
+      "text": "AI ASMR 食物家具潮：kiwi jelly/orange slime/tiramisu 不可坐沙发；pizza/donut/burger bed",
+      "source": "youtube.com/watch?v=ccP9o3xp-mo + shorts UKPPE0XOXro + AI Food Bed playlist PLwi_C-QpKom026OBOcxwZhz67dEq_DOxa",
+      "use": "ai-vs-real 板块（标注 AI 假图，引到 Real Q235 实物）"
+    },
+    {
+      "id": "tk-giant-animal-lounger-discover",
+      "platform": "tiktok",
+      "type": "discover_demand",
+      "text": "TikTok Discover 聚合页 'Giant Snimal Lounger'：where-to-buy 巨型猫躺椅/动物沙发 内容簇",
+      "source": "tiktok.com/discover/giant-snimal-lounger + @thatsverygina 7679283151079820557",
+      "use": "Social Proof Wall TK 条目"
+    },
+    {
+      "id": "fb-my-dream-sofa-comments",
+      "platform": "facebook",
+      "type": "demand_comment",
+      "text": "'My Dream Sofa' 帖评论区集中问 where to buy + 晒单",
+      "source": "My Mini Panther 视频 1768551681194406",
+      "use": "评论区需求证据"
+    },
+    {
+      "id": "pinterest-jeremy-king-ar-shopping",
+      "platform": "pinterest",
+      "type": "platform_feature",
+      "text": "Jeremy King（Pinterest 工程负责人）主导 AR 家具购物：shoppable pins 让用户虚拟摆放后直接购买",
+      "source": "Engadget 专访 + Pinterest Newsroom + TechCrunch 2022-01 + CNET（80,000+ shoppable Pins）",
+      "link": "https://www.engadget.com/pinterest-furniture-augmented-reality-150002511.html",
+      "use": "Try in your room 后台 AR 链接 → Pinterest AR shoppable 的渠道依据（V4.3 锁定改法）"
+    },
+    {
+      "id": "ai-scam-warning-media",
+      "platform": "press",
+      "type": "risk_reversal",
+      "text": "媒体警告：AI 病毒图带火的山寨/广告站常为骗局，收货与渲染图不符（U93 Radio、WGN 跟进报道）",
+      "source": "facebook.com/u93radio/posts/959610196176820",
+      "use": "信任反转弹药：'别人发渲染图，我们交验收报告'（SH2024-0945 + FUZZ-LAB-2024-01 随箱）"
+    },
+    {
+      "id": "jellycat-333m-comfort-economy",
+      "platform": "press",
+      "type": "market_context",
+      "text": "Jellycat revenue rose 66% to £333 million for FY2024 (pre-tax profit £139M), per Companies House accounts — the plush comfort economy Noctua's Design Story references",
+      "source": "Companies House 03591414 full accounts FY2024 (filed 2025-05-12); CNBC 2025-10-01; BBC",
+      "link": "https://www.cnbc.com/2025/10/01/gen-z-favorite-toymaker-jellycat-hits-450-million-revenue-amid-craze.html",
+      "use": "Noctua PDP storyText 首段 '£333 million comfort economy' 的数字溯源条目",
+      "evidence_status": "verified"
+    },
+    {
+      "id": "pet-furniture-market-4b-2025",
+      "platform": "market_research",
+      "type": "market_context",
+      "text": "Global pet furniture market ≈ US$4.24 billion in 2025, CAGR ~6.5% (projection to US$6.64B by 2032) — structural tailwind behind cat-friendly and animal-shaped upholstery demand",
+      "source": "Persistence Market Research, Pet Furniture Market report (2025); Mordor Intelligence 交叉核对 US$4.03B/2025",
+      "link": "https://www.persistencemarketresearch.com/market-research/pet-furniture-market.asp",
+      "use": "Blog『搜索数据』段 + cat friendly armchair 关键词的市场规模背书（blog-animal-sofa-boom-2026 已引用）",
+      "evidence_status": "verified"
+    },
+    {
+      "id": "global-plush-market-12b-2026",
+      "claim": "全球毛绒(plush)市场 ~US2.1B（2026），成年人支出超过儿童；kidult 整体 ~US0.3B",
+      "value": "US$12.1B",
+      "source": "https://www.aprasi.com/blogs/trending-topics/adult-plush-toys-the-kidult-wellness-trend-2026",
+      "evidence_status": "verified",
+      "date": "2026-09-12",
+      "note": "Aprasi 2026 行业综述；kidult ~$20.3B 见 Global Sources 同题综述。供 plush-comfort-collector 画像内容引用（rb2 需挂 sources 链接）"
+    }
+  ],
+  "user_provided_pending": [
+    {
+      "id": "ig-animal-sofa-8.5m-50off",
+      "platform": "instagram",
+      "claim": "单条动物沙发 reel 8.5M 播放，广告话术 50% OFF",
+      "evidence_status": "user_provided",
+      "needed": "reel 链接或截图"
+    },
+    {
+      "id": "fb-kingkong-710k",
+      "platform": "facebook",
+      "claim": "King Kong 猩猩沙发为 FB 最火条目 710K 互动",
+      "evidence_status": "user_provided",
+      "needed": "post 链接或截图"
+    },
+    {
+      "id": "tk-sunyao-17.6k-527k",
+      "platform": "tiktok",
+      "claim": "TK 17.6K 赞 meme 视频 527K 播放，July 20，创作者 Sun Yao（2024-07）",
+      "evidence_status": "user_provided",
+      "needed": "视频链接或截图"
+    }
+  ],
+  "delivery_rule": {
+    "standard": "收货统一 9–17 天（制作 2–3 天/72–90h + DDP 运输 7–14 天）",
+    "sea_freight": "海运除外：25–35 天（DDP）",
+    "copy_format": "V4.3 括号写法：『9–17 天（海运除外 25–35 天）』",
+    "grading": "chargeable ≤30kg 走 9–17；海归类（如 Noctua 186/223kg）写 25–35",
+    "applies_to": "noctua-owl-armchair 为海归类，线上维持 25–35 天 DDP 不变",
+    "source": "用户业务规则 V4.3 FINAL TEMPLATE LOCKED 2026-09-12"
+  }
+}

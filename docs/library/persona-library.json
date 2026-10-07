@@ -1,0 +1,1463 @@
+{
+  "manifest": "FUZZ SOFA persona-library — 买家画像反推库 V4.5（方法论锚定 + 证据分级 + 心理结构 × 经济对标）",
+  "version": "V4.7.1",
+  "updated": "2026-10-05",
+  "changelog": [
+    "V4.6.0 Evidence-Based Buyer Persona：evidence_level（H1–H4）+ buyer_psychology（want/desire/fear/doubt/trigger/proof/action 七字段）+ economic_profile.price_band + market_signals（五信源 competitor/review/question/search/social）入 schema——5 画像全量按既有证据忠实回填（H3×2 / H2×2 / 无 H4：真实买家验证待首单）；persona audit 与 r14 强校验。一号战略原则：PRODUCT→MARKET→HUMAN→PSYCHOLOGY→CONTENT→CONVERSION。",
+    "V4.5.0 心理×经济层：psychology（核心动机/自我一致/收藏心理/行为经济学要素/触发时刻）+ economic_profile（收入基准×售价档位判定）入 schema，persona audit 强校验；学术锚 Belk/Winnicott/Thaler/Cialdini/Kahneman，经济基准 BLS CE 2024",
+    "V4.4.0 方法论层升级：Revella Five Rings 五要素 + JTBD 任务陈述 + NN/g 研究 grounding + 证据分级 T1–T4 + 假设强制带 validation_plan + `persona audit` 强制审计",
+    "V4.3.0 初版：4 画像（triggers/动机/疑虑/出没/角度），社群证据爬取于 2026-09-12",
+    "V4.7.0（2026-09-14）反循环证伪层：五画像 +falsification_status/counter_evidence/last_challenged 三字段；shadow_personas 增 cn-direct-whatsapp-buyer 影子草稿（33/44 CN 单实证）；persona audit 闸门硬化（UNFALSIFIED>60 天=FAIL）——WO-20260914-03",
+    "V4.7.1（2026-09-14）用户证伪纠错：影子画像证据由『WhatsApp/直连成交』修正为『线上支付成交、WhatsApp 售前咨询』——用户原话入 counter_evidence；真问题浮出：获客入口未知，需买家回访",
+    "V4.8.0(2026-09-29)Meteorite 立案:主画像 meteorite-statement-collector(五波浪潮 T3x6+T1x1,H2,反证层齐)+ 影子画像 space-venue-buyer(B2B 太空主题空间,零一手 T3-only);evidence/2026-09-29-meteorite-deepdive.md 为画像证据基座"
+  ],
+  "methodology": {
+    "framework": "Revella Five Rings of Buying Insight™（Buyer Persona Institute）× Jobs-to-be-Done（Christensen, HBR 2016）× 证据分级制",
+    "anchors": [
+      "Revella 五要素：priority_initiative / success_factors / perceived_barriers / decision_criteria / buying_journey —— 每画像必填（Buyer Persona Institute, buyerpersona.com）",
+      "JTBD：以『顾客雇用产品完成的任务』为分析单位，不以人口属性为单位（Christensen et al., Know Your Customers' 'Jobs to Be Done', HBR 2016-09）",
+      "NN/g：persona 是『虚构但真实』的典型用户，必须基于用户研究，且是活文档——随数据持续验证修正（nngroup.com/articles/persona）"
+    ],
+    "honesty_rule": "证据分级是本库的钢筋牌号：写进内容的画像结论，只能引用 T1–T3 级证据；T4 假设必须带 validation_plan 且不得作为主张直接写进文案。当前四画像的需求存在性均有 T2/T3 证据，画像结构细节多为 T4（分析师推断）——这正是验证管线要收敛的东西。",
+    "content_gate": "画像角度写进正文时：数字仍走 r2/rb2 溯源；AI 对象仍走 r10/rb9 标注；社证数字仍走 r11/rb10 准入。画像改变『写什么、对谁说、先给哪个证据』，不改变『什么数字能说』。",
+    "h_levels": {
+      "H1": "Hypothesis 推测——仅 Product+Market 推断，不得作为用户事实引用，published 前必须升 H2+",
+      "H2": "Market Supported 市场数据支持——Competitor/Reviews/Search 至少两类信号",
+      "H3": "Behavior Supported 真实行为支持——Clicks/Chats/Questions（T1 行为证据）",
+      "H4": "Buyer Validated 真实买家验证——Orders+Reviews+Post-purchase",
+      "升级规则": "与 evidence T 级联动：T1 行为→H3，订单/售后→H4；降级与退役同画像毕业制度"
+    }
+  },
+  "evidence_tiers": {
+    "T1": "一手验证数据：买家访谈 / 订单关联 / GSC 查询词（最强，当前缺失 — 验证管线的目标）",
+    "T2": "社群一手言论：Reddit/评论区真实买家原话（本次会话实爬）",
+    "T3": "第三方报告/主流媒体/可信行业分析",
+    "T4": "分析师推断（假设级）——必须带 validation_plan，不得作为主张写进文案"
+  },
+  "references": [
+    {
+      "label": "Buyer Persona Institute — Revella Five Rings of Buying Insight",
+      "url": "https://buyerpersona.com/blog/want-to-increase-the-value-of-buyer-personas-heres-5-ways"
+    },
+    {
+      "label": "Christensen et al. — Know Your Customers' Jobs to Be Done (HBR 2016)",
+      "url": "https://hbr.org/2016/09/know-your-customers-jobs-to-be-done"
+    },
+    {
+      "label": "Nielsen Norman Group — Personas: 定义与用户研究要求",
+      "url": "https://www.nngroup.com/articles/persona/"
+    },
+    {
+      "label": "Strategyzer — Value Proposition Canvas（pains/gains 结构参照）",
+      "url": "https://www.strategyzer.com/library/value-proposition-canvas"
+    },
+    {
+      "label": "Belk 1988 — Possessions and the Extended Self (JCR 15:2, 延伸自我/收藏心理经典, 被引 18k+)",
+      "url": "https://doi.org/10.1086/209154"
+    },
+    {
+      "label": "Winnicott 1953 — Transitional Objects and Transitional Phenomena (IJP 34:89–97, 过渡性客体)",
+      "url": "https://pep-web.org/browse/document/ijp.034.0089a"
+    },
+    {
+      "label": "BLS Consumer Expenditures 2024（户均年支出 $78,535 / 税前收入 $104,207 / 最高五分位 $150,342）",
+      "url": "https://www.bls.gov/news.release/cesan.nr0.htm"
+    },
+    {
+      "label": "美国家具及设备类户均年支出 ≈$2,414（BLS CE 2024 数据，Statista 口径）",
+      "url": "https://www.statista.com/statistics/305534/us-expenditure-on-household-furnishings-and-equipment/"
+    }
+  ],
+  "inference_inputs": [
+    "theme_keywords（slug/name/concept）",
+    "price",
+    "W/H dims",
+    "materials",
+    "track（V2.0 AUTO）"
+  ],
+  "personas": [
+    {
+      "id": "kong-movie-fan",
+      "label": "金刚/大猩猩梗文化粉丝",
+      "en_label": "Kong movie & ape-meme fandom",
+      "evidence_status": "verified",
+      "jtbd": "当病毒梗成为社群身份符号时，我要买一件真实存在、拿得出手的镇宅实物，以便在家里和社群里都证明『我把梗活成了真』——而不是被 AI 假图的山寨货收割。",
+      "priority_initiative": "AI 大猩猩沙发病毒图刷屏（r/Corridor 等社群热议『这玩意是真的吗』），产生把梗实体化的占有欲；主流媒体报道（WGN）确认实物存在，触发认真搜索",
+      "success_factors": "实物与叙事相符（有可验证的工程数据，不是开箱即翻车）；开箱即拍、社交可展示；社群里被认出『你买了那个真货』",
+      "perceived_barriers": "山寨恐惧是第一障碍——r/Corridor 买家实测吐槽：买到的比 AI 图便宜劣质、长得完全不一样；其次是运输损坏（巨物）与价格疑虑（TEMU 级替代品锚定了低价预期）",
+      "decision_criteria": "可第三方验证的工程证据（钢结构/QC 报告/承重数据）> 主流媒体报道 > 工时叙事 > 价格（价格后置，收藏逻辑）",
+      "buying_journey": "社群看到梗（FB/IG/TikTok 病毒视频）→ 搜索验证真伪（r/mildlyinfuriating 记录了这一步被 AI 假图污染的挫败）→ 对比谁发布真实工厂证据 → 收藏级冲动决策，周期短",
+      "evidence": [
+        {
+          "tier": "T1",
+          "claim": "真实访客在 AI 客服同问 Noctua 与 Kong 价格（2026-08-29, n=1）——Kong 主题触达实证",
+          "source": "t1-evidence.json: t1-20260829-owlkong-journey"
+        },
+        {
+          "tier": "T2",
+          "claim": "买家实测：市售大猩猩沙发比 AI 图便宜劣质、与图不符（山寨恐惧的直接证据）",
+          "source": "https://www.reddit.com/r/Corridor/comments/1jsgg3m/"
+        },
+        {
+          "tier": "T2",
+          "claim": "AI 假图污染搜索、真买家找不到真货（购买旅程中『验证真伪』环节的痛点）",
+          "source": "https://www.reddit.com/r/mildlyinfuriating/comments/1ftfy2l/"
+        },
+        {
+          "tier": "T2",
+          "claim": "ape 梗文化社群对大猩猩沙发有明确的占有意愿（amcstock 『ape』身份文化）",
+          "source": "https://www.reddit.com/r/amcstock/comments/1ceevek/"
+        },
+        {
+          "tier": "T3",
+          "claim": "AI 概念大猩猩沙发进入实物量产，成为主流媒体报道对象",
+          "source": "social-proof 库 verified：WGN Morning News 视频"
+        }
+      ],
+      "hypotheses": [
+        {
+          "claim": "价格容忍 high（$4k+ 视为收藏级消费）",
+          "tier": "T4",
+          "validation_plan": "首单访谈问价格决策；GSC 后台看 gorilla 类查询词与 PDP 会话/加购的关联率"
+        },
+        {
+          "claim": "决策周期短（冲动收藏）",
+          "tier": "T4",
+          "validation_plan": "订单数据：Kong PDP 首次会话→下单的时间分布"
+        }
+      ],
+      "triggers": {
+        "theme_keywords": [
+          "gorilla",
+          "king kong",
+          "kong",
+          "ape",
+          "monkey",
+          "猩猩",
+          "金刚"
+        ],
+        "tracks": [
+          "animal_shaped_sofa"
+        ]
+      },
+      "price_tolerance": "high（T4 假设，待验证）",
+      "habitats": [
+        "Reddit r/Corridor r/DannyGonzalez r/amcstock",
+        "FB/IG 病毒视频评论区",
+        "TikTok #gorillasofa",
+        "YouTube 梗文化频道"
+      ],
+      "core_objection": "『实物会不会像 AI 图的山寨货——便宜、劣质、和图不一样？』（T2 证据：r/Corridor 买家实测正是买到这种）",
+      "trust_evidence_priority": [
+        "真实工厂证据：2.5mm Q235 钢结构 + QC 报告 SH2024-0945 / FUZZ-LAB-2024-01",
+        "承重数据 200kg 实测（QC FUZZ-LAB-2024-01）",
+        "主流媒体报道（WGN：AI 概念→实物量产）",
+        "72–90 工时手作"
+      ],
+      "content_angles": [
+        "From viral AI render to real steel：图→实物全记录",
+        "对质山寨：我们发布测试数据，他们只有一张图",
+        "梗的仪式感：镇宅级定制的占有叙事"
+      ],
+      "psychology": {
+        "core_motivation": "痴迷的本质是身份资本：King Kong 是跨越 90+ 年的影史符号（1933 初代至今），『把梗活成真』是圈内身份的物证——占有实物＝在梗文化里拥有『发现者/执行者』地位，社群认可（r/amcstock 的 ape 身份文化）形成强化回路",
+        "self_congruity": {
+          "actual": "我是梗文化的圈内人，不是围观者",
+          "ideal": "我是敢把热爱变成镇宅物的执行者"
+        },
+        "collector_psychology": "延伸自我逻辑（Belk 1988）：该人群的收藏序列为 影史周边 → 手办 → 家具级镇宅物，one-of-one 定制是序列天花板——藏品即自我的延伸",
+        "behavioral_economics": [
+          {
+            "factor": "禀赋效应",
+            "anchor": "Kahneman / Knetsch / Thaler 1990, JPE 98(6):1325–1348",
+            "content_use": "AR 试放 / Interior Worlds 让『已拥有』的想象先发生，退换保障降低放弃成本 → AR 入口置顶"
+          },
+          {
+            "factor": "稀缺原理",
+            "anchor": "Cialdini《Influence》稀缺原则",
+            "content_use": "one-of-one / 限量编号叙事驱动收藏冲动"
+          },
+          {
+            "factor": "社会认同",
+            "anchor": "Cialdini《Influence》社会认同原则",
+            "content_use": "病毒播放数据与真实晒单前置——该人群决策高度依赖社群背书"
+          },
+          {
+            "factor": "社交损失厌恶（损失厌恶的反转形态）",
+            "anchor": "Kahneman & Tversky 1979 前景理论",
+            "content_use": "他们的『怕』不是花钱，是买到山寨在圈内丢脸 → 工厂证据是社交损失的对冲，要放在价格之前讲"
+          }
+        ],
+        "trigger_moments": [
+          "AI 大猩猩沙发病毒图再翻红",
+          "金刚新片 / 影史纪念节点",
+          "社群大规模『这是真的吗』讨论潮",
+          "发薪+情绪节点"
+        ]
+      },
+      "economic_profile": {
+        "income_benchmark": {
+          "fact": "美国户均税前收入 $104,207 / 年支出 $78,535（BLS CE 2024）；梗文化核心人群 18–34 岁收入普遍低于户均（推断）",
+          "source": "https://www.bls.gov/news.release/cesan.nr0.htm",
+          "tier": "T3"
+        },
+        "price_position": {
+          "verdict": "纯梗粉丝（无积累）不可及；真实买家＝有购买力的梗文化跨界者（30–45 岁 tech/creative/有收藏习惯）——对后者 Kong 是『梗身份+镇宅物』双身份资产",
+          "math": "$9,900 ≈ 户均年支出的 12.6%",
+          "tier": "T4（真实买家构成待验证）"
+        },
+        "payment_behavior": "收藏级冲动 × 大额 → 分期/定金制是转化杠杆（假设）",
+        "validation_plan": "首单访谈问身份构成与支付方式；GSC 看 gorilla/kong 查询词与 PDP 深度会话的关联；订单出现后回填真实买家画像",
+        "price_band": {
+          "min": 5000,
+          "max": 12000,
+          "note": "真实买家=有购买力的梗文化跨界者（30–45 tech/creative），$9,900≈户均年支出 12.6%（T4 待验证）"
+        }
+      },
+      "coverage_tokens": [
+        "steel",
+        "SH2024-0945",
+        "gorilla"
+      ],
+      "evidence_level": "H3",
+      "buyer_psychology": {
+        "want": "一件真实存在、做工对得起梗的大猩猩镇宅沙发——把 King Kong 梗活成实物",
+        "desire": "梗文化圈的身份资本：『把梗活成真』的执行者地位与社群认可（ape 身份强化回路）",
+        "fear": "山寨恐惧第一（T2：市售大猩猩沙发比 AI 图便宜劣质、与图不符）；其次巨物运输损坏",
+        "doubt": "实物会不会是 AI 图的山寨货——便宜、劣质、和图不一样？（TEMU 级低价锚）",
+        "trigger": "社群梗热度回归/同好晒实物 + 真实工厂与 QC 证据当场在场",
+        "proof": "2.5mm Q235 钢架 + QC SH2024-0945 + EN 1728 承重数据 + WGN 报道 + 实拍细节",
+        "action": "先验真伪（工厂证据→实拍）再下单镇宅"
+      },
+      "market_signals": [
+        {
+          "type": "question",
+          "ref": "t1-20260829-owlkong-journey（AI 客服真实访客同问 Noctua/Kong 价格）"
+        },
+        {
+          "type": "social",
+          "ref": "evidence[3]: r/amcstock ape 身份文化占有意愿（T2）"
+        },
+        {
+          "type": "review",
+          "ref": "evidence[1]: r/Corridor 买家山寨实测吐槽（T2）"
+        },
+        {
+          "type": "competitor",
+          "ref": "evidence[1]: TEMU 级替代品低价锚（T2）"
+        }
+      ],
+      "falsification_status": "UNFALSIFIED",
+      "counter_evidence": [],
+      "last_challenged": "2026-09-14",
+      "feed_wants": {
+        "items": [
+          {
+            "see": "梗成真的实物震撼",
+            "give": "AI渲染vs实物同角度对比",
+            "tier": "T2",
+            "src": "persona evidence:r/Corridor 买家实测帖(T2)+WGN报道"
+          },
+          {
+            "see": "硬核制造/测试过程",
+            "give": "工厂三工序实拍+负载测试画面",
+            "tier": "T2",
+            "src": "9/27 站主竞品实拍:白色工作室实拍=全内容形式互动最高(站主亲手收集);EN1728/QC 是 kong-movie-fan proof 字段既有项"
+          },
+          {
+            "see": "社群身份资本(把梗活成真)",
+            "give": "晒单场景/社群语言",
+            "tier": "T4",
+            "src_or_plan": "validation:发布后 IG 评论语言分析(r/Corridor 式话术是否出现)"
+          }
+        ],
+        "tied_rule": "内容配比:纯给80%/织产品20%;T4 条目=验证中的假设,验证(external_search/观察窗/数据对照)完成升 T3 前禁入 published 主张,可做 draft 测试",
+        "updated": "2026-09-30"
+      },
+      "feed_wants_rule": "内容配比:纯给80% / 织产品20%;纯产品无看点=没人看,纯看点无产品=不捕鱼——交点才是网结"
+    },
+    {
+      "id": "plush-comfort-collector",
+      "label": "毛绒舒适经济收藏家（Jellycat 人群/kidult）",
+      "en_label": "Plush comfort-economy collector (Jellycat crowd / kidult)",
+      "evidence_status": "verified",
+      "jtbd": "在高压的成人生活里，我要一件家具级的治愈毛绒物，以便在家中理直气壮地『幼稚』而不失体面——把 Jellycat 式 comfort object 放大到能坐能靠。",
+      "priority_initiative": "kidult 毛绒消费从玩具柜走向家具（Jellycat +70% 至 £333M、成人支出超儿童）；『faux fur accent chair』+5,000% Breakout 即此需求溢出到家具类目",
+      "success_factors": "触感兑现（不掉毛、不塌）；styled 实拍证明放得进成年人空间；拥有感与展示性（晒单文化）",
+      "perceived_barriers": "幼稚污名（『这是给小孩的吧』）；劣质毛绒掉毛起球的糟糕记忆；与现有家居风格失配",
+      "decision_criteria": "工艺数据（Martindale/脱毛率）> 实拍场景图 > 品牌叙事 > 价格",
+      "buying_journey": "TikTok/IG 种草 → 搜索真货（此时劣质 dropship 泛滥）→ 工艺细节横向比较 → 情绪节点/节日下单",
+      "evidence": [
+        {
+          "tier": "T3",
+          "claim": "全球毛绒市场 ~US$12.1B（2026），成年人支出超过儿童",
+          "source": "https://www.aprasi.com/blogs/trending-topics/adult-plush-toys-the-kidult-wellness-trend-2026"
+        },
+        {
+          "tier": "T3",
+          "claim": "kidult 产品整体 ~US$20.3B 市场",
+          "source": "https://www.globalsources.com/knowledge/kidult-products-guide-top-adult-toys-items/"
+        },
+        {
+          "tier": "T3",
+          "claim": "Jellycat FY2024 营收 +70% 至 £333M（Companies House 账户），稀缺营销驱动",
+          "source": "social-proof V4.3.1 verified + https://shoppingscientists.com/jellycat-marketing-strategy-case-study/"
+        },
+        {
+          "tier": "T3",
+          "claim": "『faux fur accent chair』+5,000% Breakout（90d）——毛绒需求溢出到家具类目",
+          "source": "seo-meta-library verified：Google Trends 实测 2026-09-12"
+        },
+        {
+          "tier": "T2",
+          "claim": "巨型猫毛绒病毒帖(luxarts_aii, 2026-10-03):471.9K 赞/5.1K 评论,多语言询价潮;其官网自认'AI-generated, not available for purchase'——comfort object 家具级放大的需求被大规模实证,且该审美赛道供给真空(无人发货)",
+          "source": "instagram.com/reel/DeCZKVLAaBu + updatebirthday.com · 站主截图 2026-10-04 + 拉取 2026-10-05"
+        }
+      ],
+      "hypotheses": [
+        {
+          "claim": "触感/脱毛是首要决策标准（非价格）",
+          "tier": "T4",
+          "validation_plan": "竞品毛绒家具差评挖掘（Amazon/ Wayfair review mining：『shed』『matted』词频）；PDP 材质区块滚动深度"
+        },
+        {
+          "claim": "幼稚污名是核心屏障",
+          "tier": "T4",
+          "validation_plan": "站内搜索词分析；社媒评论情感抽取；首单访谈"
+        },
+        {
+          "claim": "价格容忍 medium-high",
+          "tier": "T4",
+          "validation_plan": "GSC 查询词中价格修饰词（cheap/affordable vs designer）占比"
+        }
+      ],
+      "triggers": {
+        "material_keywords": [
+          "faux fur",
+          "plush",
+          "teddy",
+          "boucle",
+          "毛绒"
+        ],
+        "tracks": [
+          "animal_shaped_sofa"
+        ]
+      },
+      "price_tolerance": "medium-high（T4 假设，待验证）",
+      "habitats": [
+        "TikTok #jellycat #plushies",
+        "IG 毛绒收藏晒单",
+        "小红书 治愈家具",
+        "pop-up 排队文化（Jellycat Diner 式）"
+      ],
+      "core_objection": "『会不会显得幼稚、像儿童玩具，放不进成年人的家？』",
+      "trust_evidence_priority": [
+        "材质工艺数据：Martindale 磨擦次数 + 首周脱毛率 0.8%（两段脱毛工艺）",
+        "成人向 styling 证据（Interior Worlds / 雕塑感搭配）",
+        "Jellycat £333M 市场背书：这不是小众怪癖，是 comfort economy"
+      ],
+      "content_angles": [
+        "Comfort economy：从 Jellycat 到家具级毛绒",
+        "成人向 styling：可爱不幼稚的搭配法则",
+        "工艺数据写给认真的收藏家（脱毛率/磨擦次数）"
+      ],
+      "psychology": {
+        "core_motivation": "毛绒物是情绪调节装置（Winnicott 1953 过渡性客体理论的成人延续）：高压成人生活里的软性自我照顾；收藏是『理直气壮照顾自己』的可见形式，不是幼稚",
+        "self_congruity": {
+          "actual": "我还需要安慰，这不丢人",
+          "ideal": "我懂得对自己好，而且有审美地对自己好"
+        },
+        "collector_psychology": "系列陈列与完成癖（Jellycat 稀缺营销正是吃这个，£333M 营收验证）；藏品条件保存（保养说明＝收藏礼仪）；从玩具柜到家具＝收藏的『毕业仪式』，Mofu 是序列天花板件",
+        "behavioral_economics": [
+          {
+            "factor": "心理账户迁移",
+            "anchor": "Thaler 1985 Mental Accounting",
+            "content_use": "$2,800 放进『玩具』账户嫌贵，放进『收藏毕业件/自我照顾投资』账户就通 → 文案任务是做账户迁移：Martindale/脱毛率把毛绒从玩具升格为家具"
+          },
+          {
+            "factor": "禀赋效应（触觉变体）",
+            "anchor": "Kahneman / Knetsch / Thaler 1990；触感无法线上传递的补偿",
+            "content_use": "材质样卡（swatch）让触觉想象先发生"
+          },
+          {
+            "factor": "稀缺原理",
+            "anchor": "Cialdini；Jellycat retire 机制为实证",
+            "content_use": "限量/补货节奏叙事"
+          },
+          {
+            "factor": "社会认同",
+            "anchor": "Cialdini",
+            "content_use": "成人向晒单文化是转化链路一环（IG 收藏陈列）"
+          }
+        ],
+        "trigger_moments": [
+          "高压期（项目结束/换季）",
+          "搬新家",
+          "节日礼物（送自己也收礼）",
+          "Jellycat 类新品发布的情绪外溢"
+        ]
+      },
+      "economic_profile": {
+        "income_benchmark": {
+          "fact": "美国家庭家具及设备类户均年支出 ≈$2,414（BLS CE 2024，Statista 口径）；毛绒玩具单件消费远低于家具类（无权威口径，推断）",
+          "source": "https://www.statista.com/statistics/305534/us-expenditure-on-household-furnishings-and-equipment/",
+          "tier": "T3（家具基准）"
+        },
+        "price_position": {
+          "verdict": "毕业档：$2,800 不是『毛绒玩具』心理账户能消化的价格——真实买家是玩偶收藏的『毕业买家』（把爱好升格为家具的人）；必须用家具级耐用证据（Martindale/脱毛率）支撑跨账户",
+          "math": "$2,800 ≈ 普通家庭 1.16 年全部家具类预算",
+          "tier": "T4（毕业买家构成待验证）"
+        },
+        "payment_behavior": "情绪节点冲动 × 中等金额 → 礼物场景/分期可转化（假设）",
+        "validation_plan": "GSC 查询词价格修饰词占比；首单访谈『这是给谁的/什么 occasion 下单』；Amazon/Wayfair 毛绒家具差评挖掘验证触感优先假设",
+        "price_band": {
+          "min": 2000,
+          "max": 4500,
+          "note": "毕业档：真实买家是玩偶收藏的毕业买家（T4 待验证）"
+        }
+      },
+      "coverage_tokens": [
+        "faux fur",
+        "martindale",
+        "shedding"
+      ],
+      "evidence_level": "H2",
+      "buyer_psychology": {
+        "want": "一件家具级的治愈毛绒物——Jellycat 式 comfort object 放大到能坐能靠",
+        "desire": "理直气壮地对自己好：有审美地照顾自己而不失体面（Winnicott 过渡性客体的成人延续）",
+        "fear": "幼稚污名（『这是给小孩的吧』）；劣质毛绒掉毛起球的糟糕记忆；与家居风格失配",
+        "doubt": "$2,800 超出『毛绒玩具』心理账户——一个毛绒东西凭什么这么贵",
+        "trigger": "家具级耐用证据（Martindale/脱毛率）当场在场 + 成人向 styling 实景",
+        "proof": "Martindale 磨擦数据 + 首周脱毛率 0.8%（两段脱毛工艺）+ Jellycat £333M 市场背书",
+        "action": "跨越心理账户完成『毕业购买』——把玩偶收藏升格为家具"
+      },
+      "market_signals": [
+        {
+          "type": "search",
+          "ref": "evidence[3]: faux fur accent chair +5,000% Breakout 90d（T3）"
+        },
+        {
+          "type": "social",
+          "ref": "evidence[0–1]: 成年人毛绒支出超儿童（全球市场报告 T3）"
+        }
+      ],
+      "falsification_status": "UNFALSIFIED",
+      "counter_evidence": [],
+      "last_challenged": "2026-09-14",
+      "feed_wants": {
+        "items": [
+          {
+            "see": "触觉满足画面/声音(ASMR)",
+            "give": "毛流特写+坐陷慢镜头",
+            "tier": "T3",
+            "src": "brand-library:Jellycat comfort economy 案例确认触觉经济成立(案例库 T3)"
+          },
+          {
+            "see": "面料三态对比",
+            "give": "皮革/绒/毛对比内容",
+            "tier": "T4",
+            "src_or_plan": "validation:PDP 三材质 FAQ 点击数据+IG 三材质贴互动对照"
+          },
+          {
+            "see": "巨型猫形毛绒的 unboxing 瞬间(471K 帖=拆压缩包实拍形式)",
+            "give": "真货开箱改道:无真空压缩(2026-10-05 工坊事实:全目录非真空压缩),改为'纸箱→三只猫出炉→躺入被抱住'的原声实拍;471K 帖的'压缩回弹3秒'形式无法照抄,弃",
+            "tier": "T2",
+            "src": "instagram.com/reel/DeCZKVLAaBu · 爆帖形式直接对标,2026-10-05 · 真空压缩证伪 2026-10-05"
+          }
+        ],
+        "tied_rule": "内容配比:纯给80%/织产品20%;T4 条目=验证中的假设,验证(external_search/观察窗/数据对照)完成升 T3 前禁入 published 主张,可做 draft 测试",
+        "updated": "2026-09-30"
+      },
+      "feed_wants_rule": "内容配比:纯给80% / 织产品20%;纯产品无看点=没人看,纯看点无产品=不捕鱼——交点才是网结"
+    },
+    {
+      "id": "cat-household-upgrader",
+      "label": "养猫家庭换沙发起人",
+      "en_label": "Cat-household upgrader",
+      "evidence_status": "verified",
+      "jtbd": "当猫再一次毁掉沙发时，我要一张利爪活不下去、但造型不妥协的椅子，以便不再在猫和家具之间二选一。",
+      "priority_initiative": "上一张沙发被抓毁（触发事件）；『cat friendly armchair』+180% 与宠物家具 US$4.24B 市场说明这是持续性升级需求",
+      "success_factors": "三年后还像新的；猫抓了不心疼也不伤猫；客人夸的是造型不是『宠物用品』",
+      "perceived_barriers": "耐久话术不信任（被『pet-friendly』营销骗过）；清洁麻烦；担心造型被迫妥协成宠物风",
+      "decision_criteria": "可对照的耐磨数据（Martindale 数字）> 可拆洗 > 同类用户实测口碑 > 造型",
+      "buying_journey": "猫毁沙发 → Reddit/小红书搜材质共识 → 带着材质清单式问题进店（r/homeowners 共识：超细纤维/紧密织法，避真皮与松织）→ 逐条核对耐久证据 → 下单",
+      "evidence": [
+        {
+          "tier": "T1",
+          "claim": "访客点名 Mofu Cat 并留邮编（AI 客服，2026-08-30, n=1）——猫型产品真实意向触达",
+          "source": "t1-evidence.json: t1-20260830-mofu-cat-intent"
+        },
+        {
+          "tier": "T2",
+          "claim": "养猫人选材质共识：微纤维/紧密织法防勾丝，避免真皮与松织；利爪毁沙发是普遍痛点",
+          "source": "https://www.reddit.com/r/homeowners/comments/14effgt/"
+        },
+        {
+          "tier": "T2",
+          "claim": "猫奴社群在换沙发时以『布料活不活得过猫』为第一问题",
+          "source": "https://www.reddit.com/r/CatsUK/comments/1r1dmrt/"
+        },
+        {
+          "tier": "T2",
+          "claim": "多猫家庭把『耐猫』作为 BuyItForLife 级购买标准",
+          "source": "https://www.reddit.com/r/BuyItForLife/comments/13x0foy/"
+        },
+        {
+          "tier": "T3",
+          "claim": "『cat friendly armchair』搜索 +180%（90d）；宠物家具市场 US$4.24B（2025）、CAGR ~6.5%",
+          "source": "seo-meta-library + social-proof V4.3.2 verified（Google Trends 实测 / Persistence Market Research）"
+        }
+      ],
+      "hypotheses": [
+        {
+          "claim": "价格容忍 medium（$2–5k，以耐久证据换溢价）",
+          "tier": "T4",
+          "validation_plan": "订单价格分布 × 该画像查询词来源交叉；首单访谈问价格决策链"
+        },
+        {
+          "claim": "决策以数据对照为先（清单式比较）",
+          "tier": "T4",
+          "validation_plan": "PDP 材质表交互热区分析；FAQ 里耐久问题的占比（当前 8 条 FAQ 中耐久相关数量即为代理指标）"
+        }
+      ],
+      "triggers": {
+        "theme_keywords": [
+          "cat",
+          "feline",
+          "kitten",
+          "paw",
+          "猫"
+        ],
+        "material_keywords": [
+          "washable",
+          "performance velvet",
+          "tight-weave"
+        ]
+      },
+      "price_tolerance": "medium（T4 假设，待验证）",
+      "habitats": [
+        "Reddit r/CatsUK r/homeowners r/BuyItForLife r/HomeDecorating",
+        "小红书/知乎 养猫家居",
+        "IG #catsofinstagram 家居向"
+      ],
+      "core_objection": "『利爪会不会毁掉它？脏了能不能洗？』——真皮和松织是雷区（T2 证据：社群共识）",
+      "trust_evidence_priority": [
+        "Martindale 耐磨数据（faux leather 50k / velvet 40k / linen 35k，QC SH2024-0945）",
+        "可拆洗（linen removable washable）+ 首周脱毛率 0.8%",
+        "承重与结构（钢架不怕拆家）"
+      ],
+      "content_angles": [
+        "材质 vs 利爪：把耐久写成对照叙事",
+        "可拆洗+低脱毛的清洁剧本",
+        "猫型家具给猫型家庭（Mofu 情感投射）"
+      ],
+      "psychology": {
+        "core_motivation": "终止内战：『猫和家具二选一』的家庭矛盾终结者——购买不是消费升级而是关系修复（对猫的爱 × 对体面家的坚持）",
+        "self_congruity": {
+          "actual": "我是既要猫又要体面家的主人",
+          "ideal": "我两样都保住了，还不用再想这件事"
+        },
+        "behavioral_economics": [
+          {
+            "factor": "沉没成本愤怒（报复性升级）",
+            "anchor": "Thaler 1980 沉没成本谬误的行为延伸",
+            "content_use": "命名这个情绪：『最后一次换沙发』叙事——上一张被抓毁的愤怒是购买燃料"
+          },
+          {
+            "factor": "风险规避主导",
+            "anchor": "被 pet-friendly 营销欺骗过的信任赤字",
+            "content_use": "第三方可验证数据（QC 编号/Martindale 数字）是唯一解药；营销形容词无效"
+          },
+          {
+            "factor": "清单式决策（System 2）",
+            "anchor": "Kahneman《Thinking, Fast and Slow》双系统",
+            "content_use": "给对照表而不是形容词：材质 × Martindale × 拆洗矩阵"
+          }
+        ],
+        "trigger_moments": [
+          "沙发被抓毁当天（愤怒峰值）",
+          "搬家/换房",
+          "客人到访前（体面压力）",
+          "猫体检后的人猫共存规划"
+        ]
+      },
+      "economic_profile": {
+        "income_benchmark": {
+          "fact": "美国家庭家具及设备类户均年支出 ≈$2,414（BLS CE 2024，Statista 口径）；沙发更换周期 7–10 年（行业常识口径，单次大额换购心理预期存在）",
+          "source": "https://www.statista.com/statistics/305534/us-expenditure-on-household-furnishings-and-equipment/",
+          "tier": "T3"
+        },
+        "price_position": {
+          "verdict": "拉伸档（可接受的大额换购）：在『7–10 年一换』心理预期内成立，但必须以耐久证据换溢价——这正是 Martindale 数据成为第一决策标准的原因",
+          "math": "$2,800 ≈ 普通家庭 1.16 年家具类预算",
+          "tier": "T4（价位带 $2–5k 假设见 hypotheses）"
+        },
+        "payment_behavior": "计划性购买（比较数周）+ 大件物流敏感 → 免费入户安装比折扣更有说服力（假设）",
+        "validation_plan": "订单价格分布 × 画像查询词交叉；FAQ 耐久问题占比（代理指标）；首单访谈问决策时长",
+        "price_band": {
+          "min": 2000,
+          "max": 5000,
+          "note": "拉伸档：在『7–10 年一换』心理预期内成立（价位带 $2–5k 假设见 hypotheses）"
+        }
+      },
+      "coverage_tokens": [
+        "washable",
+        "martindale",
+        "shedding"
+      ],
+      "evidence_level": "H3",
+      "buyer_psychology": {
+        "want": "一张利爪活不下去、但造型不妥协的椅子——终结『猫和家具二选一』",
+        "desire": "关系修复：既要猫又要体面家，两样都保住且不用再想这件事",
+        "fear": "被 pet-friendly 营销骗过；利爪毁沙发；清洁麻烦；造型被迫妥协成宠物风",
+        "doubt": "利爪会不会毁掉它？脏了能不能洗？真皮和松织是不是雷区？（T2 社群共识）",
+        "trigger": "沙发再一次被猫毁掉的瞬间 + 耐磨/可拆洗硬数据当场在场",
+        "proof": "Martindale 分材质数据（faux leather 50k / velvet 40k / linen 35k）+ 可拆洗 + 钢架结构",
+        "action": "按材质决策表下单——耐磨数据是第一决策标准"
+      },
+      "market_signals": [
+        {
+          "type": "question",
+          "ref": "t1-20260830：访客点名 Mofu Cat 并留邮编（AI 客服 T1）"
+        },
+        {
+          "type": "social",
+          "ref": "evidence[2–3]: 猫奴社群『布料活不活得过猫』BuyItForLife 共识（T2）"
+        },
+        {
+          "type": "search",
+          "ref": "evidence[4]: cat friendly armchair +180% 90d、宠物家具 US$4.2B（T3）"
+        }
+      ],
+      "falsification_status": "UNFALSIFIED",
+      "counter_evidence": [],
+      "last_challenged": "2026-09-14",
+      "feed_wants": {
+        "items": [
+          {
+            "see": "全网爆火的猫沙发渲染图——想要却买不到",
+            "give": "截流内容:『That viral cat sofa was a render. This one is real.』+渲染图评论区同行口吻",
+            "tier": "T2",
+            "src": "2026-09-30 检索实测:渲染图百万观看+『where can I buy this』求购评论刷屏;可买的只有 $100-300 无骨架豆袋,家具级空白=Mofu 位"
+          },
+          {
+            "see": "猫形状本身的情绪价值(拟真/kawaii/图腾感)——『我家沙发是只猫』",
+            "give": "Mofu 形态特写/家居摆放预览图",
+            "tier": "T4",
+            "src_or_plan": "validation:Mofu PDP 会话词+IG 互动语言分析(用户夸的是形还是功能);external_search『cat shaped sofa』在 Pinterest/Etsy 的存量热度"
+          },
+          {
+            "see": "怎么放进家里的方案(尺寸/材质/摆放)",
+            "give": "Room Preview 预览+三材质对比",
+            "tier": "T3",
+            "src": "PDP 既有口径:firm raised 42cm seat + direct-cure foam + steel frame(功能是舒适与耐久,不是防抓)"
+          }
+        ],
+        "banned_angle": "⚠️ 防猫抓/摩擦次数不是主张——r7 已裁(全线撤下)+站主 2026-09-30 再确认『这不是我产品的点』。猫是形状与情感,防抓是普通沙发的功能卖点,混入=走错品类",
+        "tied_rule": "T4 验证完成升 T3 前禁入 published 主张",
+        "updated": "2026-09-30(站主纠错版)"
+      },
+      "feed_wants_rule": "内容配比:纯给80% / 织产品20%;纯产品无看点=没人看,纯看点无产品=不捕鱼——交点才是网结",
+      "jtbd_note": "欲望点主位(2026-09-30 截流判决):猫沙发渲染图的求购者;防抓禁入照旧"
+    },
+    {
+      "id": "statement-piece-affluent",
+      "label": "高净值镇宅雕塑买家",
+      "en_label": "Affluent statement-piece buyer",
+      "evidence_status": "verified",
+      "jtbd": "当我的家需要一件定义品味的核心时，我要一件介于艺术与家具之间的镇宅物，以便空间一眼可识别、且不与任何人撞款——家即画廊。",
+      "priority_initiative": "豪宅/设计媒体把雕塑家具定义为『part art, part furniture』的收藏品类（Mansion Global 专题），空间升级进入艺术逻辑",
+      "success_factors": "一件定调全屋；成为访客对话的起点；限量/定制的排他性；交付有收藏品级仪式（随箱 QC 报告）",
+      "perceived_barriers": "theme park 化（怕幼稚、俗、游乐场感）；撞款（网红同款贬值）；与既有空间风格失配；巨物入户（电梯/门洞）",
+      "decision_criteria": "设计谱系与工时叙事 > 实景合成（放我家什么样）> 限量/定制排他性 > 材质工程数据 > 价格（价格后置）",
+      "buying_journey": "设计媒体/Pinterest 长期语境浸润 → 自主发现或设计师引入 → AR/Interior Worlds 实景验证 → 长决策周期、高客单、重服务（DDP/入户）",
+      "evidence": [
+        {
+          "tier": "T1",
+          "claim": "真实访客按『问价 → 20㎡ 空间验证 → 现代风格』旅程咨询，lead ready=true（AI 客服，2026-08-29, n=1, zip 99501 US）",
+          "source": "t1-evidence.json: t1-20260829-owlkong-journey"
+        },
+        {
+          "tier": "T3",
+          "claim": "豪宅媒体把雕塑沙发定义为艺术级收藏品类（『part art, part furniture』）",
+          "source": "https://www.mansionglobal.com/articles/the-lure-of-a-sculptured-sofa-219678"
+        },
+        {
+          "tier": "T3",
+          "claim": "设计媒体确认 statement 雕塑沙发的空间定调作用",
+          "source": "https://www.houseandgarden.co.za/interiors/living-room/statement-sofas-that-transform-every-living-room-beautifully-8f1e7f14-9cd3-415d-b5b8-16a2e1ca6d76"
+        },
+        {
+          "tier": "T2",
+          "claim": "动物母题家具的成人向 styling 需求（站内 journal 话题簇 animal motifs / sculptural trend 已有流量承接）",
+          "source": "站内：/en/journal/animal-motifs-in-interior-design.html 与 sculptural-furniture-trend-2026.html（internal）"
+        },
+        {
+          "tier": "T3",
+          "claim": "2026 顶级家具趋势 = 雕塑感/有机曲线（curved sofas、rounded silhouettes 列 Elle Decor 2026 趋势榜；曲线 × quiet luxury 成 luxury 主流）——该画像是趋势买单人群；meteorite-statement-sofa = 该画像第二款产品",
+          "source": "https://www.elledecor.com/design-decorate/trends/a69811787/furniture-trends-2026/ + https://castlefurniture.com/blogs/news/luxury-furniture-trends-2026-quiet-luxury-curves-new-neutrals"
+        },
+        {
+          "tier": "T3",
+          "claim": "Space Age 家具复兴被主流媒体确认回归（tulip chair→Sputnik 吊灯谱系，『forward-thinking and comfortable』）；社媒盘点称已流行一段时间——陨石款的 cratered/monolithic 形态语言正落在该复兴带",
+          "source": "https://www.housebeautiful.com/uk/decorate/looks/g64562598/space-age-furniture/"
+        },
+        {
+          "tier": "T3",
+          "claim": "Pinterest 用户 75% 处于主动购买/规划心态（vs 其他平台 28%），核心买家=年轻+女性+富裕家庭——镇宅雕塑买家的「计划期浸润」行为有平台级数据支撑",
+          "source": "Benly via MBADV + Pinwell Media 2026（2026-09-26 检索，WO-20260926-10）"
+        },
+        {
+          "tier": "T1",
+          "claim": "Pinterest Audience Insights 实测（2026-09-27 站主截图）：受众女53%/男47%（男占比远高于平台均值），核心年龄25-34，Home Decor亲和度60.9%、Art亲和度59.4%，设备Android 71.4%，地域=美国城市非GCC",
+          "source": "Pinterest Audience Insights 后台截图 2026-09-27（站主提供）"
+        }
+      ],
+      "hypotheses": [
+        {
+          "claim": "触发阈值 price_min $3000 / W_min 120cm",
+          "tier": "T4",
+          "validation_plan": "按 PDP 价格带 × GSC 展示词分布回归校准阈值；产品线扩充后用订单数据复核"
+        },
+        {
+          "claim": "设计师渠道是重要触点",
+          "tier": "T4",
+          "validation_plan": "订单来源问卷（'你的设计师/渠道'字段）；Pinterest/设计媒体 UTM 归因"
+        },
+        {
+          "claim": "决策周期长、重服务",
+          "tier": "T4",
+          "validation_plan": "会话→订单时间分布；客服咨询记录分类"
+        }
+      ],
+      "triggers": {
+        "theme_keywords": [
+          "sculptural",
+          "sculpture",
+          "statement",
+          "space age"
+        ],
+        "price_min": 3000,
+        "dims": {
+          "W_min": 120
+        },
+        "tracks": [
+          "animal_shaped_sofa",
+          "sculptural"
+        ]
+      },
+      "price_tolerance": "high（T4 假设：按艺术品逻辑定价，待订单数据验证）",
+      "habitats": [
+        "Mansion Global / AD 读者",
+        "Pinterest / IG 室内设计",
+        "室内设计师渠道",
+        "豪宅 / show flat 采购"
+      ],
+      "core_objection": "『是 intent 还是 theme park？』——怕买成游乐场道具，毁了空间格调",
+      "trust_evidence_priority": [
+        "工匠工时（72–90h hand-built）与限量叙事",
+        "Interior Worlds 实景合成（放我家什么样）",
+        "雕塑感设计谱系（animal motifs / 2026 sculptural trend 站内话题簇）",
+        "QC 报告随箱（收藏品级别的交付仪式）"
+      ],
+      "content_angles": [
+        "一房一件：sculptural styling 法则",
+        "Art piece 与家具的边界（Mansion Global 语境）",
+        "定制排他性：one-of-one 的收藏逻辑"
+      ],
+      "psychology": {
+        "core_motivation": "家即画廊：空间是品味的物证，审美选择即社会位置（Bourdieu《区分》的区隔逻辑）——购买的是社交资本（访客对话的起点），不是家具",
+        "self_congruity": {
+          "actual": "我的家应该像我一样不可复制",
+          "ideal": "做收藏家/赞助人，而不是消费者"
+        },
+        "collector_psychology": "艺术收藏逻辑：编号/工匠工时/one-of-one 是收藏品资格的形式要件；撞款恐惧＝收藏贬值焦虑",
+        "behavioral_economics": [
+          {
+            "factor": "心理账户归类",
+            "anchor": "Thaler 1985 Mental Accounting",
+            "content_use": "定价与叙事按艺术品逻辑（one-of-one/编号/工时）正是帮买家完成『艺术/收藏』账户归类——归类完成，价格不再与沙发比"
+          },
+          {
+            "factor": "稀缺与排他对冲",
+            "anchor": "Cialdini 稀缺原则 × 收藏贬值风险",
+            "content_use": "one-of-one 是对『网红同款贬值』的对冲，限量叙事＝保值叙事"
+          },
+          {
+            "factor": "昂贵即信号（炫耀性消费传统）",
+            "anchor": "Veblen 1899《有闲阶级论》",
+            "content_use": "不打折——折扣毁掉信号价值；议价空间换成服务升级（白手套/入户）"
+          }
+        ],
+        "trigger_moments": [
+          "换房/豪宅入住",
+          "设计师提案节点",
+          "设计媒体专题唤起（Mansion Global 类阅读后）",
+          "社交场合被问『你家那件哪来的』"
+        ]
+      },
+      "economic_profile": {
+        "income_benchmark": {
+          "fact": "美国最高收入五分位户均年支出 $150,342（BLS CE 2024，基线参考）；Mansion Global/AD 读者构成高于该基线（推断）",
+          "source": "https://www.bls.gov/news.release/cesan.nr0.htm",
+          "tier": "T3（基线）"
+        },
+        "price_position": {
+          "verdict": "无压力档：$2,800–9,900 低于传统艺术家具门槛——定位优势是『可负担的雕塑收藏入场券』；该画像不需要降价，需要的是收藏资格叙事",
+          "math": "$9,900 ≈ 最高五分位户年支出的 6.6%",
+          "tier": "T4（价格后置假设见 hypotheses）"
+        },
+        "payment_behavior": "重服务（DDP/入户/白手套）＞ 价格谈判；合同式购买、发票抬头需求（假设）",
+        "validation_plan": "订单来源问卷（设计师/渠道）；设计师渠道 UTM 归因；首单访谈问『同类藏品』",
+        "price_band": {
+          "min": 2800,
+          "max": 12000,
+          "note": "无压力档：$2,800–9,900 低于传统艺术家具门槛（T4 价格后置假设见 hypotheses）"
+        }
+      },
+      "coverage_tokens": [
+        "sculptural",
+        "statement",
+        "artisan"
+      ],
+      "evidence_level": "H3",
+      "buyer_psychology": {
+        "want": "一件介于艺术与家具之间的镇宅雕塑——空间一眼可识别、不与任何人撞款",
+        "desire": "家即画廊：审美选择即社会位置，购买的是社交资本（访客对话的起点）而非家具（Bourdieu 区隔）",
+        "fear": "theme park 化（幼稚/俗/游乐场感）；撞款贬值；与既有空间失配；巨物入户（电梯/门洞）",
+        "doubt": "是 intent 还是 theme park？——怕买成游乐场道具毁了空间格调",
+        "trigger": "限量叙事 + 工匠工时 + Interior Worlds 实景合成（放我家什么样）",
+        "proof": "72–90h hand-built + 实景合成 + 雕塑设计谱系 + QC 报告随箱（收藏品级交付仪式）",
+        "action": "价格后置，为『可负担的雕塑收藏入场券』资格下单"
+      },
+      "market_signals": [
+        {
+          "type": "question",
+          "ref": "t1：真实访客『问价→20㎡ 空间验证→现代风格』lead ready（AI 客服 T1）"
+        },
+        {
+          "type": "search",
+          "ref": "evidence[4–5]: 2026 雕塑感/有机曲线 + Space Age 复兴主流媒体确认（T3）"
+        },
+        {
+          "type": "social",
+          "ref": "evidence[3]: 动物母题成人向 styling 需求站内话题簇（T2）"
+        }
+      ],
+      "falsification_status": "UNFALSIFIED",
+      "counter_evidence": [],
+      "last_challenged": "2026-09-14",
+      "feed_wants": {
+        "items": [
+          {
+            "see": "安静高级的空间品味信号",
+            "give": "实拍细节(毛流/缝线/光影)",
+            "tier": "T3",
+            "src": "Mansion Global『part art part furniture』+House&Garden statement sofa 专题(persona evidence 既有)"
+          },
+          {
+            "see": "provenance 来历/限量/工艺证明",
+            "give": "序列化报告=收藏级来历",
+            "tier": "T3",
+            "src": "persona T3:Mansion Global+皮具 QC 惯例;决策标准『设计谱系>实景>限量』既有 T2/T3"
+          },
+          {
+            "see": "一房一件 styling 案例",
+            "give": "styling 案例(实拍或AI场景标注)",
+            "tier": "T4",
+            "src_or_plan": "validation:GSC『statement sofa living room』类词曝光测试"
+          }
+        ],
+        "tied_rule": "内容配比:纯给80%/织产品20%;T4 条目=验证中的假设,验证(external_search/观察窗/数据对照)完成升 T3 前禁入 published 主张,可做 draft 测试",
+        "updated": "2026-09-30"
+      },
+      "feed_wants_rule": "内容配比:纯给80% / 织产品20%;纯产品无看点=没人看,纯看点无产品=不捕鱼——交点才是网结"
+    },
+    {
+      "id": "owl-nostalgia-collector",
+      "label": "猫头鹰图腾收藏爱好者",
+      "en_label": "Owl totem nostalgia collector",
+      "evidence_status": "verified",
+      "jtbd": "当我要把『猫头鹰人』的身份从摆件升格为家里的镇宅物时，我要一张真的是猫头鹰、且拿得出手的设计师椅子，以便图腾被认真对待——而不是被当成 2010 年代的 kitsch 装饰。",
+      "priority_initiative": "r/Superbowl 44 万成员的 owl 爱好者社群（NPR 2025-02）+ owl 收藏文化长青 + 2026 春季鸟纹趋势中 owl 占『sophisticated/moody』生态位（Homes & Gardens）；触发节点 = Superb Owl Sunday（每年 2 月）与复古收藏文化回潮",
+      "success_factors": "形象还原度（一眼是真猫头鹰：眼/耳羽簇细节工艺）；设计谱系正名（mid-century lineage，Tony Paul 1950s 同类在先）——是收藏不是玩具；工程数据兜底",
+      "perceived_barriers": "kitsch 恐惧（『会不会像 2010 年廉价 owl 装饰的放大版』）；Walmart/Amazon 低价 owl chair 锚定低价预期；成人级猫头鹰椅市场空白带来的真伪存疑（像我 kong 画像的山寨困境）",
+      "decision_criteria": "形象还原与细节工艺 > 设计谱系/出处正名 > 工程数据 > 价格",
+      "buying_journey": "owl 内容长期浸润（r/Superbowl/IG #owldecor）→ 搜 owl chair 撞见低价同名失望而返 → 撞见设计师级实物 → 用 mid-century 谱系完成『不是玩具』的自我说服 → 收藏式决策",
+      "evidence": [
+        {
+          "tier": "T2",
+          "claim": "r/Superbowl 猫头鹰爱好者社区 440,000+ 成员（『For owl lovers everywhere』），Superb Owl 玩梗已成年度文化事件（NPR 2025-02 报道、Reddit 超级碗广告致敬）",
+          "source": "https://www.reddit.com/r/Superbowl/ + NPR 2025-02 报道"
+        },
+        {
+          "tier": "T3",
+          "claim": "2026 春季鸟纹为设计热点趋势，owl 与 heron/cranes 同列『sophisticated/moody』成熟向生态位（区别于 parrot 的多巴胺向）",
+          "source": "https://www.homesandgardens.com/interior-design/bird-motif-trend-2026 + https://wildbloo.com/2026-interior-design-trends-bird-motifs/"
+        },
+        {
+          "tier": "T3",
+          "claim": "mid-century 猫头鹰椅有真实设计谱系：Tony Paul Owl Chair（1950s）作为 vintage 收藏品流通——『成人级设计师猫头鹰椅』是被市场验证过的品类，不是空想",
+          "source": "https://birdcagehome.com/shop/furniture/tony-paul-owl-chairs-pair/"
+        },
+        {
+          "tier": "T3",
+          "claim": "反信号（画像定向依据）：『Swans are to 2026 as owls were to 2010』——owl 不是 2026 新鲜热词而是怀旧位；owl 收藏以 retro/kitsch 形态长青。结论：该画像不是趋势追逐者，是图腾收藏者——文案不得写『2026 最热』",
+          "source": "https://stylebyemilyhenderson.com/11-decor-trends-2026"
+        },
+        {
+          "tier": "T3",
+          "claim": "市场空白：Walmart/Amazon 的 owl chair 搜索结果全部为低价/儿童/木工 DIY 定位，无成人级设计师猫头鹰扶手椅——$4,800 位次无人占据",
+          "source": "https://www.walmart.com/c/kp/owl-chair + https://www.amazon.com/owl-chair/s?k=owl+chair（2026-09-12 检索）"
+        }
+      ],
+      "hypotheses": [
+        {
+          "claim": "价格容忍：纯 owl 爱好者对 $4,800 是毕业级跨度，真实买家 = owl 情感 × statement 购买力的交集人群",
+          "tier": "T4",
+          "validation_plan": "GSC owl/noctua 查询词 × PDP 深度会话关联率；首单访谈问『为什么是猫头鹰』与价格决策链"
+        },
+        {
+          "claim": "Superb Owl Sunday（每年 2 月）是该画像的流量/转化峰值节点",
+          "tier": "T4",
+          "validation_plan": "GSC owl 词组二月环比对照全年；2027-02 前发布 Superb Owl 主题内容做前后对照"
+        },
+        {
+          "claim": "与 statement-piece-affluent 存在双身份重叠（owl 情感 + 购买力）",
+          "tier": "T4",
+          "validation_plan": "订单出现后交叉分析画像词来源；ai_chat 会话中 owl+空间规划双信号计数"
+        }
+      ],
+      "triggers": {
+        "theme_keywords": [
+          "owl",
+          "noctua",
+          "猫头鹰"
+        ],
+        "tracks": [
+          "animal_shaped_sofa"
+        ]
+      },
+      "price_tolerance": "medium（T4 假设：图腾收藏逻辑，需谱系正名支撑溢价）",
+      "habitats": [
+        "r/Superbowl（44 万 owl 爱好者）",
+        "IG #owldecor #owlsofinstagram",
+        "Etsy/复古市集 owl 收藏圈",
+        "Superb Owl 玩梗文化围观人群（每年 2 月）"
+      ],
+      "core_objection": "『会不会像 2010 年代的 kitsch 猫头鹰装饰放大版——可爱但廉价？』（T3 反信号：swans 才是 2026 新宠，owl 已成 nostalgic 词——正因如此，谱系正名是第一信任证据）",
+      "trust_evidence_priority": [
+        "形象细节工艺：眼/耳羽簇手工 + 72–90h 工时（还原度第一标准）",
+        "mid-century 设计谱系正名（Tony Paul 1950s 同类 vintage 在流通 = 收藏有市场）",
+        "工程数据兜底（2.5mm Q235 钢架 + QC 报告）",
+        "one-of-one 限量叙事（图腾不撞款）"
+      ],
+      "psychology": {
+        "core_motivation": "猫头鹰是身份图腾（智慧符号 + 个人收藏史）：2010s 猫头鹰装饰一代如今 30–45 岁、有购买力——把当年的小收藏升格为家具级镇宅物（Belk 1988 延伸自我的收藏升格路径）；r/Superbowl 式社区认同（『owl person』是自我标签）",
+        "self_congruity": {
+          "actual": "我是懂猫头鹰的人，收藏了这么多年",
+          "ideal": "把热爱的图腾住进家里，且被客人当设计品而不是玩具"
+        },
+        "collector_psychology": "retro/kitsch 收藏文化（灯/摆件/马克杯）的序列天花板 = 家具级；Tony Paul 1950s 谱系给了收藏正名——从 kitsch 到 collector 的身份跃迁正是购买的心理酬赏",
+        "behavioral_economics": [
+          {
+            "factor": "心理账户迁移",
+            "anchor": "Thaler 1985 Mental Accounting",
+            "content_use": "从『装饰摆件』账户迁到『设计师收藏家具』账户——mid-century 谱系叙事是迁移杠杆（Tony Paul 同类 vintage 在流通=有收藏市场）"
+          },
+          {
+            "factor": "熟悉性偏好（单纯曝光效应）",
+            "anchor": "Zajonc 1968 mere exposure",
+            "content_use": "owl 人对猫头鹰形象有几十年情感积累 → 形象还原度是第一标准：眼/耳羽簇细节工艺放最前（与 kong 画像的『别像山寨』同构）"
+          },
+          {
+            "factor": "禀赋效应",
+            "anchor": "Kahneman / Knetsch / Thaler 1990",
+            "content_use": "AR 试放让图腾先『住进』我家"
+          },
+          {
+            "factor": "稀缺原理",
+            "anchor": "Cialdini",
+            "content_use": "one-of-one 收藏逻辑：图腾不该撞款"
+          }
+        ],
+        "trigger_moments": [
+          "Superb Owl Sunday（每年 2 月，r/Superbowl 文化事件）",
+          "International Owl Awareness Day（8/4）",
+          "复古市集淘到猫头鹰旧物之后",
+          "搬新家想放一件『自己的图腾』"
+        ]
+      },
+      "economic_profile": {
+        "income_benchmark": {
+          "fact": "美国家庭家具及设备类户均年支出 ≈$2,414（BLS CE 2024，Statista 口径）；$4,800 ≈ 2 年家具预算 → 对纯情怀买家超支，对双身份买家可及",
+          "source": "https://www.statista.com/statistics/305534/us-expenditure-on-household-furnishings-and-equipment/",
+          "tier": "T3"
+        },
+        "price_position": {
+          "verdict": "毕业档 × 双画像重叠：纯 owl 爱好者买 $4,800 需要谱系正名（『这是设计收藏不是装饰』）；真实买家 = owl 情感 × statement 购买力的交集——Noctua 对他们同时是图腾和镇宅物",
+          "math": "$4,800 ≈ 普通家庭 2 年家具类预算 ≈ 户均年支出的 6.1%",
+          "tier": "T4（交集人群构成待验证）"
+        },
+        "payment_behavior": "收藏式决策 × 中大额 → 分期/定金可用；Superb Owl 节点营销可制造时机（假设）",
+        "validation_plan": "GSC owl/noctua 查询词 × PDP 会话关联；Superb Owl 周流量前后对照；首单访谈『为什么是猫头鹰』",
+        "price_band": {
+          "min": 4000,
+          "max": 9900,
+          "note": "毕业档×双画像重叠：owl 情感 × statement 购买力交集（$4,800≈户均年支出 6.1%，T4 待验证）"
+        }
+      },
+      "coverage_tokens": [
+        "owl",
+        "noctua",
+        "sculptural"
+      ],
+      "evidence_level": "H2",
+      "buyer_psychology": {
+        "want": "一张真的是猫头鹰、且拿得出手的设计师椅子——图腾从摆件升格为镇宅物",
+        "desire": "把热爱的图腾住进家里，且被客人当设计品而不是玩具（Belk 延伸自我的收藏升格）",
+        "fear": "kitsch 恐惧（2010 年廉价 owl 装饰的放大版）；Walmart/Amazon 低价锚定",
+        "doubt": "成人级猫头鹰椅市场空白——它真的存在吗？会不会像 kitsch 放大版？",
+        "trigger": "设计谱系正名（Tony Paul 1950s vintage 流通）+ 眼/耳羽簇手工还原细节",
+        "proof": "形象还原度工艺（72–90h）+ mid-century 谱系 + QC 工程兜底 + one-of-one 限量",
+        "action": "确认『这是设计收藏不是装饰』后下单"
+      },
+      "market_signals": [
+        {
+          "type": "social",
+          "ref": "evidence[0]: r/Superbowl 440,000+ 『owl person』社区认同（T2）"
+        },
+        {
+          "type": "search",
+          "ref": "evidence[1,4]: 2026 鸟纹设计热点 + Walmart/Amazon owl chair 全是低价/儿童（市场空白 T3）"
+        },
+        {
+          "type": "competitor",
+          "ref": "evidence[4]: Walmart/Amazon owl chair 低价锚竞品盘点（T3）"
+        }
+      ],
+      "falsification_status": "UNFALSIFIED",
+      "counter_evidence": [],
+      "last_challenged": "2026-09-14",
+      "feed_wants": {
+        "items": [
+          {
+            "see": "猫头鹰本体之美/图腾文化",
+            "give": "猫头鹰设计史内容",
+            "tier": "T2",
+            "src": "persona evidence:r/Superbowl 44万成员(NPR报道)+Tony Paul 谱系(T3)"
+          },
+          {
+            "see": "收藏升格故事(摆件→家具)",
+            "give": "收藏升格叙事",
+            "tier": "T4",
+            "src_or_plan": "validation:GSC owl decor/collection 词组+Etsy owl 收藏圈观察"
+          }
+        ],
+        "tied_rule": "内容配比:纯给80%/织产品20%;T4 条目=验证中的假设,验证(external_search/观察窗/数据对照)完成升 T3 前禁入 published 主张,可做 draft 测试",
+        "updated": "2026-09-30"
+      },
+      "feed_wants_rule": "内容配比:纯给80% / 织产品20%;纯产品无看点=没人看,纯看点无产品=不捕鱼——交点才是网结"
+    },
+    {
+      "id": "gcc-showroom-partner",
+      "label": "GCC 展厅/买手店合伙人",
+      "en_label": "GCC showroom & boutique buyer",
+      "evidence_status": "verified",
+      "jtbd": "当我的展厅需要客户说不出「这在别处见过」的镇店货源时，我要一座城市独一份的原创雕塑家具，以便独家成为我店的资产而非厂家的渠道策略。",
+      "priority_initiative": "迪拜设计区策展军备赛：Alserkal Avenue 实查 BOFFI|DE PADOVA(Warehouse 65)/GIORGETTI 开业中/Ikonhouse curated original design——国际设计品牌正密集落位，本地买手店需要差异化货源应战",
+      "success_factors": "一城一家白纸黑字独家；拍照地标引流（客户自发发帖）；风险清零（DDP 关税预付+MOQ 1+退货通道）；创始人直达服务",
+      "perceived_barriers": "同款化（客户见过同轮廓）；中国供应商两大顾虑=关税麻烦+库存压货；中国原创设计品质/售后疑虑；高客单决策周期长",
+      "decision_criteria": "独家排他性 > 拍照传播力 > 风险清零条款 > 工程实测数据 > 价格",
+      "buying_journey": "被 OEM 推销信每日轰炸 → 好奇钩子/同行案例破防 → Room Preview 效果图低门槛试看 → trade@ 创始人直达谈判",
+      "evidence_level": "H2",
+      "evidence": [
+        {
+          "tier": "T3",
+          "claim": "Alserkal Avenue 设计品牌 showroom 密集落位（BOFFI|DE PADOVA Warehouse 65、GIORGETTI 开业中、Ikonhouse curated original design、The A/P Room collectible design）",
+          "source": "2026-09-26 web 实查 + https://alserkal.online"
+        },
+        {
+          "tier": "T3",
+          "claim": "迪拜头部家具零售 THE One 自 1996（Abu Dhabi 首店）以 theatre 概念扩张 20+ 店——GCC 买手以「体验/感受」为选品语言",
+          "source": "Wikipedia + Harper's Bazaar Arabia（EDM邮件模板.html THE One 作战卡已核验 2026-09-26）"
+        }
+      ],
+      "buyer_psychology": {
+        "want": "别的展厅拿不到的独家货源——客户在自己店里说不出「这在别处见过」",
+        "desire": "成为全城策展最硬的店：独家=给对方的资产，客户为「只有这里有」专程上门",
+        "fear": "同款化贬值；中国供应商两大顾虑（关税麻烦+库存压货）；选错货源砸了策展招牌",
+        "doubt": "中国原创设计的品质与售后撑不撑得起 high-end 门面（vs 无脑接 OEM 目录）",
+        "trigger": "one partner per city 白纸黑字 + Room Preview 2 小时出效果图 + 创始人直达邮箱",
+        "proof": "承重实测 200kg + QC 报告随箱编号 + DDP 迪拜交货 + MOQ 1 件",
+        "action": "回复一个词 preview 换效果图；转 trade@fuzzsofa.com 直接与创始人谈"
+      },
+      "coverage_tokens": [
+        "showroom",
+        "exclusive",
+        "catalog",
+        "Dubai",
+        "original"
+      ],
+      "source": "2026-09-26 站主令：「写这篇blog的时候可以让这些中东的商家搜到……根据中东商家的心理用户画像以及数据去写，框架以邮件的内容去散发延续」（WO-20260926-01）；Alserkal 实查 + THE One 核验 + $35k T1 单据",
+      "updated": "2026-09-26",
+      "voice_rules": {
+        "updated": "2026-09-26",
+        "source": "站主 V8.0 养料包（WO-20260926-03）",
+        "do": [
+          "说 Shanghai atelier / 独立工作室",
+          "说全球独家：One Partner Per City（白纸黑字）/ No OEM / Own IP Only / GCC 0 Distributors",
+          "用证据数字：200kg load tested · serialised QC",
+          "说 hand-finished by artisans（手工细节打磨）",
+          "以问题结尾逼回答（would you show it?）",
+          "Alserkal/City Walk 场景锚点，同款之痛开场"
+        ],
+        "dont": [
+          "factory/工厂（类目毒词，调性杀手）",
+          "hand-sculpted/整体手工雕刻（站内铁律#4）",
+          "Galvanized/镀锌/包装箱尺寸/1-3天淘宝参数上社媒",
+          "一律包税承诺（DDP=可选，WO-20260926-02）",
+          "评论区评论X送Y 诱导",
+          "IG caption 挂 https://（走 Bio+DM）",
+          "工艺细节铺陈（IG 受众不为工艺停留）"
+        ]
+      },
+      "evidence_correction": "2026-09-26 站主澄清：$35k 单为自测单（非真实 B2B 意图），已从证据中剔除——GCC B2B 需求量级的真实验证靠本轮 EDM+Pin 战役的 consult_events 实测"
+    },
+    {
+      "id": "meteorite-statement-collector",
+      "label": "陨石镇宅收藏买家(太空情结 × 购买力)",
+      "en_label": "Meteorite statement collector (space nostalgia × purchasing power)",
+      "evidence_status": "partial",
+      "jtbd": "当我要为太空情结买一件能住进家里的实物时,我要一件字面意义的『陨石』、但工艺是家具级的镇宅物,以便热爱的宇宙从海报/模型升格为每天可触的空间核心——而不是又一件货架上的太空周边。",
+      "priority_initiative": "五波浪潮交汇(evidence/2026-09-29-meteorite-deepdive.md):太空经济 CAGR 41.5%(Grand View Research)+ 天体美学 2026 从俗变雅(Jaipur Rugs/LA Times『星空天花板=新 accent wall』)+ 收藏级设计渠道(1stDibs 调查 maximalism 39%)+ 陨石拍卖 $530 万纪录(Sotheby's 2025-07)+ Space Age 复兴设计专题",
+      "success_factors": "字面还原度(凹坑/熔壳语言一眼是陨石,Sang Hoon Kim $23,437 已验证艺术市场接受该形态);工程数据兜底(能每天坐的陨石——钢架/承重实测/QC 报告,与纯收藏品划清界限);一城一家孤品逻辑;Room Preview 实景合成(『落在我客厅的陨石』)",
+      "perceived_barriers": "『是不是 gimmick』恐惧(陨石沙发听起来像主题公园道具);纯收藏市场回调疑虑(Mastrangelo『十字路口』——我方以家具级工程定位规避);搜索不存在(meteorite sofa 零搜索量→买家找不到我们,需借浪截流);巨物入户(115x115x85 crate)",
+      "decision_criteria": "形态还原与设计谱系(Space Age 复兴带)> 实景合成(放我家什么样)> 工程实测数据 > 价格(拍卖阶梯锚定后价格感知重排)",
+      "buying_journey": "太空内容长期浸润(科幻/SpaceX 新闻/天体美学)→ 拍卖新闻瞥见 $530 万陨石(『真陨石原来这么贵』)→ 浪词桥内容截流(meteor shower/celestial decor/意向文 meteorite for sale)→ Room Preview 实景 → 收藏式决策;B2B 变体见影子画像 space-venue-buyer",
+      "evidence": [
+        {
+          "tier": "T3",
+          "claim": "太空旅游市场 2026 $1.86B → 2030 $10.1B,CAGR 41.5%;商业部门驱动 78% 太空经济增长(KPMG)",
+          "source": "https://www.grandviewresearch.com/industry-analysis/space-tourism-market(2026-09-29 检索)"
+        },
+        {
+          "tier": "T3",
+          "claim": "史上最贵陨石 NWA 16788(火星,24.67kg)$530 万成交(Sotheby's NY 2025-07-16);Sotheby's 办史上首场纯陨石专场;月/火陨石 $1,000+/克",
+          "source": "https://www.cnn.com/2025/07/16/science/mars-rock-auction-million-sold"
+        },
+        {
+          "tier": "T3",
+          "claim": "唯一直接竞品 Sang Hoon Kim《Meteorite 1》记忆棉陨石形态沙发 1stDibs 在售 $23,437——陨石形态家具被艺术市场高价验证",
+          "source": "https://www.1stdibs.com/furniture/more-furniture-collectibles/home-accents/screens-room-dividers/grey-black-white-contemporary-sofa-meteorite-1-memory-foam-sang-hoon-kim/id-f_28596632"
+        },
+        {
+          "tier": "T3",
+          "claim": "天体美学 2026 从卡通印花转向成熟奢华(蛋白石/虹彩/galaxy 黑花岗岩);LA Times 称星空天花板壁纸=新 accent wall——需求分层完整,顶端=我方价位",
+          "source": "https://www.jaipurrugs.com/blog/opalescent-color-celestial-decor-iridescent-rugs"
+        },
+        {
+          "tier": "T3",
+          "claim": "1stDibs 2026 设计师调查:maximalism 39% + eclecticism 34% 为最强延续审美——statement 雕塑件需求侧有数据",
+          "source": "https://investors.1stdibs.com/news/news-details/2025/2026-Interior-Design-Trends-1stDibs-Survey-Identifies-Maximalism-Chocolate-Brown-and-Vintage-Antiques-as-Top-Designer-Choices"
+        },
+        {
+          "tier": "T1",
+          "claim": "statement-piece-affluent 画像 T1 前例(2026-08-29 真实访客问价→空间验证旅程,zip 99501 US,lead ready=true)——高客单镇宅买家真实存在且已到访;Meteorite 为该画像第二款产品",
+          "source": "t1-evidence.json: t1-20260829-owlkong-journey"
+        },
+        {
+          "tier": "T3",
+          "claim": "反信号:'meteorite sofa' 搜索量为 0(GSC 观察名单 2026-09-29)——需求未被创造,买家结构与 owl 不同:不是『搜不到失望而返』而是『根本不知道存在』→ 触达必须借浪",
+          "source": "docs/library/gsc-latest.json 观察名单"
+        }
+      ],
+      "hypotheses": [
+        {
+          "claim": "真实买家 = 太空情结 × statement 购买力交集(与 owl 双身份结构同构),纯太空迷买 $9,900 需拍卖阶梯正名",
+          "tier": "T4",
+          "validation_plan": "consult_events space/meteorite 信号计数;首单访谈『为什么是陨石』;GSC 意向词位次 x PDP 关联"
+        },
+        {
+          "claim": "流星雨日历(每年 3-4 场)为该画像触发节点,Geminids+圣诞双撞(12 月)为年度峰值",
+          "tier": "T4",
+          "validation_plan": "2026-12 Geminids 前后 GSC/流量对照;Orionids 10/21 首波试水数据"
+        },
+        {
+          "claim": "B2B 变体(太空主题酒店/场馆)为主要批量通道",
+          "tier": "T4",
+          "validation_plan": "首轮 10 封 B2B 信回复率;见影子画像 space-venue-buyer"
+        }
+      ],
+      "triggers": {
+        "theme_keywords": [
+          "meteorite",
+          "meteor",
+          "space age",
+          "celestial",
+          "galaxy",
+          "陨石"
+        ],
+        "tracks": [
+          "sculptural"
+        ]
+      },
+      "price_tolerance": "high(T4:拍卖阶梯锚定后 $9,900 感知为『阶梯底价』——待首单验证)",
+      "habitats": [
+        "科幻/太空内容社区",
+        "celestial decor 追随者(TikTok whimsigoth/Pinterest)",
+        "1stDibs/collectible design 圈层",
+        "拍卖新闻读者",
+        "太空主题酒店住客(B2B 间接)"
+      ],
+      "core_objection": "『陨石沙发是不是 gimmick/主题公园道具?』——工程实测+设计谱系正名是第一信任证据(与 owl 的 kitsch 恐惧同构)",
+      "trust_evidence_priority": [
+        "设计谱系正名(Space Age 复兴带)",
+        "工程实测(钢架/承重/序列化 QC=收藏品 provenance)",
+        "拍卖价格阶梯($530 万/$23,437/$9,900 三级锚,全部有出处)",
+        "Room Preview 实景合成",
+        "一城一家孤品"
+      ],
+      "content_angles": [
+        "价格阶梯:$530 万真陨石 vs $23,437 艺术件 vs $9,900 能坐的陨石",
+        "流星雨夜内容(借浪):今晚看流星雨?能坐的那颗在这",
+        "《Where to Buy a Real Meteorite (And the One You Can Sit On)》意向文",
+        "太空酒店大堂 B2B 案例(影子画像联动)"
+      ],
+      "psychology": {
+        "core_motivation": "太空情结的实体化:NASA 重返月球/SpaceX 时代长大的『太空浪漫主义』一代需要一件可触的宇宙——陨石是唯一能合法拥有的太空实物(拍卖市场验证了『拥有陨石』的身份意义),沙发把『拥有』升级为『居住』",
+        "self_congruity": {
+          "actual": "我是懂宇宙的人(科幻/新闻/美学追随者)",
+          "ideal": "客人坐进我家客厅的陨石里——热爱的东西成了可用的藏品"
+        },
+        "collector_psychology": "拍卖市场(Sotheby's Geek Week)把陨石收藏主流化;家具级陨石=序列天花板(从海报→模型→标本→可坐),一步到位的顶层收藏",
+        "behavioral_economics": [
+          {
+            "factor": "心理账户迁移",
+            "anchor": "Thaler 1985",
+            "content_use": "从『家具预算』账户迁到『收藏/太空情结』账户——价格阶梯叙事主动完成迁移"
+          },
+          {
+            "factor": "锚定",
+            "anchor": "价格阶梯 $530 万/$23,437/$9,900",
+            "content_use": "顶级锚使 $9,900 感知为『阶梯底价』(每级锚都有出处,不踩无出处红线)"
+          }
+        ],
+        "trigger_moments": [
+          "流星雨夜(年度 3-4 场固定触发)",
+          "陨石拍卖新闻(不定期高热)",
+          "SpaceX/NASA 大事件",
+          "圣诞礼物季(Geminids 双撞)"
+        ]
+      },
+      "economic_profile": {
+        "income_benchmark": {
+          "fact": "对标 statement-piece-affluent(BLS CE 2024 家具类户均年支出 ~$2,414);$9,900 = 户均 4 年家具预算 → 纯太空迷超支,交集人群可及(拍卖账户)",
+          "source": "https://www.statista.com/statistics/305534/us-expenditure-on-household-furnishings-and-equipment/",
+          "tier": "T3"
+        },
+        "price_position": {
+          "verdict": "太空情结 × statement 购买力交集;$9,900 经三级价格阶梯锚定后感知为收藏档底价",
+          "math": "$9,900 = 户均年家具支出 4.1 倍 = 拍卖陨石入门标本价位的家具级映射",
+          "tier": "T4(交集构成待验证)"
+        },
+        "payment_behavior": "中大额收藏式决策 → 定金/分期可用(Kong 线同构);B2B 变体走 FF&E 采购流程(影子画像)",
+        "validation_plan": "consult_events 信号计数;首单访谈;Orionids/Geminids 前后对照",
+        "price_band": {
+          "min": 9000,
+          "max": 9900,
+          "note": "Kong/Meteorite 共用 statement 价位段(T4)"
+        }
+      },
+      "coverage_tokens": [
+        "meteorite",
+        "meteor",
+        "space age",
+        "celestial",
+        "galaxy",
+        "sculptural"
+      ],
+      "evidence_level": "H2",
+      "buyer_psychology": {
+        "want": "一件字面意义的陨石、工艺却是家具级的镇宅物——把太空情结住进家里",
+        "desire": "客人坐进客厅的陨石里——热爱的宇宙成为可用的藏品(拥有→居住的升格)",
+        "fear": "gimmick 恐惧(主题公园道具化);纯收藏市场回调(买到『过气的品类』)",
+        "doubt": "这个东西真的存在吗?(搜索为零→从未见过实物——市场空白双向刃)",
+        "trigger": "拍卖价格阶梯正名(真陨石 $530 万=品类严肃性)+ 工程实测数据",
+        "proof": "序列化 QC 报告(收藏品 provenance 逻辑)+ Room Preview 实景 + 一城一家",
+        "action": "确认『这是工程家具不是道具』后进入收藏式决策"
+      },
+      "market_signals": [
+        {
+          "type": "search",
+          "ref": "evidence[6]: meteorite sofa 零搜索=市场空白双向刃(T1 GSC)"
+        },
+        {
+          "type": "competitor",
+          "ref": "evidence[2]: Sang Hoon Kim $23,437 唯一竞品高价验证(T3)"
+        },
+        {
+          "type": "social",
+          "ref": "deepdive 文档: celestial/whimsigoth TikTok-Pinterest 数据富矿(T3)"
+        },
+        {
+          "type": "auction",
+          "ref": "evidence[1]: Sotheby's 首场陨石专场+$530 万纪录(T3)"
+        }
+      ],
+      "falsification_status": "UNFALSIFIED",
+      "counter_evidence": [],
+      "last_challenged": "2026-09-29",
+      "feed_wants": {
+        "items": [
+          {
+            "see": "陨石/拍卖/天文内容",
+            "give": "拍卖价格阶梯+流星雨借浪",
+            "tier": "T3",
+            "src": "evidence:Sotheby's $530M(CNN)+Chalhoub/Gulf News 静奢(behavior_tags)"
+          },
+          {
+            "see": "太空美学空间",
+            "give": "太空主题空间内容",
+            "tier": "T3",
+            "src": "behavior_tags T-3/T-4:体验经济+财富迁入者(Bain/Chalhoub)"
+          }
+        ],
+        "tied_rule": "内容配比:纯给80%/织产品20%;T4 条目=验证中的假设,验证(external_search/观察窗/数据对照)完成升 T3 前禁入 published 主张,可做 draft 测试",
+        "updated": "2026-09-30"
+      },
+      "feed_wants_rule": "内容配比:纯给80% / 织产品20%;纯产品无看点=没人看,纯看点无产品=不捕鱼——交点才是网结"
+    }
+  ],
+  "shadow_personas": [
+    {
+      "id": "cn-direct-whatsapp-buyer",
+      "label": "CN 直连 WhatsApp 现金买家",
+      "status": "shadow_draft",
+      "created": "2026-09-14",
+      "why_shadow": "真实付费者 33/44 CN 单【线上支付】成交，成交前多经 WhatsApp 咨询；获客入口不明（口碑/社媒/直搜候选），而主库五画像全部从英文社区读出；GSC 90 天 zh 查询 0 行——真正付钱的人结构性地不在主库（评审原文：『系统被设计成只看见自己想看见的人』的现实版本）",
+      "evidence_status": "t1_inventory",
+      "evidence_tier": "T1（订单国籍/渠道字段，第一方）",
+      "signals": [
+        "订单 44 单中 33 单 CN，全线上支付完成闭环（operator-library IP/GEO 层基线 2026-09-07）",
+        "获客入口不经画像导向通道：口碑/社媒/直搜候选——哪个为主仍未确证（真问题，待买家回访）",
+        "GSC 2026-06-15~09-13 zh 查询 0 行——搜索通道与成交完全分离"
+      ],
+      "hypothesis": "CN 买家决策心理与五画像不同构（候选假设：礼送场景/迁居置办/仿毛猎奇/高净值自用），需独立七字段心理图；当前 EN 文案对其成交零贡献",
+      "graduation": "连续 2 个证据周期同向 T1（订单备注/WhatsApp 转写/售后记录）→ 提交用户裁决转正；转正前禁止入 patches（r12 不认影子画像）",
+      "falsification_status": "UNFALSIFIED",
+      "counter_evidence": [
+        {
+          "claim": "『WhatsApp 是成交现场』为 operator 误判——支付全部线上完成，WhatsApp 只是售前咨询工具",
+          "channel": "cs_transcript",
+          "source": "用户 2026-09-14 原话：『我是线上全新支付的啊。WhatsApp只是客服咨询工具』",
+          "date": "2026-09-14"
+        }
+      ],
+      "last_challenged": "2026-09-14"
+    },
+    {
+      "id": "space-venue-buyer",
+      "label": "太空主题空间采购方(酒店/场馆 B2B)",
+      "status": "shadow_draft",
+      "created": "2026-09-29",
+      "why_shadow": "零一手数据:全部证据为 T3 外部检索(客户存在性已验证,但采购决策链/预算/周期全未知);按规则影子观察不入 patches,毕业需连续 2 证据周期同向 T1",
+      "evidence_status": "t3_only",
+      "evidence_tier": "T3(外部检索:客户存在性+定制先例)",
+      "signals": [
+        "Universal Stella Nova & Terra Luna 太空主题度假酒店已营业(750 间房规模验证题材撑起整店)",
+        "Grande Centre Point Space Pattaya(泰国)太空主题+水上乐园",
+        "Moonrise Hotel(圣路易斯)月球主题精品酒店——独立业主决策链最短",
+        "Frost 科学馆 250 座天文厅座椅=Grimshaw 定制——太空场馆为定制家具付费的先例",
+        "『space themed hotel』为真实搜索词(桥内容/B2B 双用)"
+      ],
+      "hypothesis": "太空主题空间的采购逻辑=主题即库存:镇店物是招牌而非陈设;决策人(精品=业主/连锁=设计采购)对『有故事的件』有 PR 动机(『大堂落了颗陨石』双方可发的新闻);Room Preview 可作 B2B 销售工具(『发大堂照,2 小时陨石入画』)",
+      "graduation": "首轮 10 封 B2B 信 → 任一回复即升级 T2(cs_transcript 通道)→ 连续 2 周期同向 T1(报价/订单)→ 提交用户裁决转正",
+      "falsification_status": "UNFALSIFIED",
+      "counter_evidence": [],
+      "last_challenged": "2026-09-29"
+    },
+    {
+      "id": "gcc-quiet-luxury-buyer",
+      "label": "GCC 静奢状态买家(隐私/全球移动/疗愈——沙发是状态的道具)",
+      "status": "shadow_draft",
+      "created": "2026-09-30",
+      "why_shadow": "零一手数据:全部证据为外部讨论+趋势文章(无出处趋势=T4,静奢设计趋势=T3 可引用);迪拜市场本身未验证(GSC designer furniture dubai 零曝光);按规矩影子观察,毕业需连续 2 证据周期同向 T1+用户裁决",
+      "evidence_status": "t3_foundation",
+      "evidence_tier": "T3(静奢/曲线趋势已有 Elle Decor 等来源,见 statement-piece-affluent evidence;富豪行为趋势=无出处不采信)",
+      "jtbd": "当我要的不是家具而是『一种生活状态』的实物锚点时,我要一件安静、独占、可随我迁移审美的雕塑件,以便我的家不炫耀却一眼贵——沙发是状态道具,不是主角",
+      "signals": [
+        "静奢/Quiet Luxury 为 2026 设计主流(T3:Elle Decor 2026 趋势+quiet luxury+curves,已在 statement 画像证据)",
+        "手工/反 Logo 偏好与品牌天然同构(无 logo,手工细节只拍不说)",
+        "站主裁决的六状态方向:隐私/体验/全球移动/疗愈/手工质感/沙漠美学(灵感来源,非证据)",
+        "⚠️ 配套红线(站主定 9/30):假定位标签禁止;不冒充在场/富豪生活;『模块化/One sofa three homes』话术禁止(产品不可拆,r6),真话版=全球门到门直送"
+      ],
+      "hypothesis": "状态化文案(T-3)+反撞款主张(T-1)+专属服务证据(T-2)的组合,比产品参数文案更能击穿 GCC 静奢买家——T3 支撑下的主假设,待 GCC 真实互动升 T2",
+      "graduation": "状态化测试帖(GA4/IG/EDM 任一通道)出现 GCC 来源的真实互动或询盘 → 升 T2;连续 2 证据周期同向 → 提交用户裁决转正",
+      "falsification_status": "UNFALSIFIED",
+      "counter_evidence": [],
+      "last_challenged": "2026-09-30",
+      "behavior_tags": [
+        {
+          "tag": "T-1 反重复/反撞款",
+          "evidence": "富裕买家对『repetitive, overexposed, disconnected』产品拒绝付溢价(Gulf News 2026-06)",
+          "tier": "T3",
+          "operational": "one-of-one/不在任何目录=第一卖点句;反目录叙事全线强化"
+        },
+        {
+          "tag": "T-2 客户经理式服务预期",
+          "evidence": "Bain 2026:客户基数缩至 3.3 亿(-2000万),消费向最富层集中,策略=VIC 关怀+hyper-personalization;Chalhoub:elevated clienteling",
+          "tier": "T3",
+          "operational": "序列化 QC 报告=provenance;一城一家=专属客户经理逻辑;white-glove 是入场券不是加分项"
+        },
+        {
+          "tag": "T-3 体验>物品,物品是道具",
+          "evidence": "Bain/CNBC 2026:奢侈品增长由体验驱动,商品仅 1-4%;Forbes ME:海湾体验经济(NEOM/Red Sea)",
+          "tier": "T3",
+          "operational": "内容卖状态不卖沙发(影子画像主假设,由此升半级:从灵感到有 T3 支撑的假设)"
+        },
+        {
+          "tag": "T-4 多宅迁徙·审美连续性",
+          "evidence": "Chalhoub:UAE=财富避风港,吸引 wealthy relocators 迁入",
+          "tier": "T3",
+          "operational": "全球门到门直送(真话版,禁模块化话术);文案测『迁入者的第一件镇宅物』角度"
+        },
+        {
+          "tag": "T-5 阿语/本地化服务期待",
+          "evidence": "Chalhoub:GCC 消费者要 Arabic-language/heritage-driven customization + elevated clienteling",
+          "tier": "T3",
+          "operational": "阿语首评制度已有=正确;EDM 出阿语变体;阿语客服话术已备"
+        },
+        {
+          "tag": "T-6 财富迁入者·零本地信任史",
+          "evidence": "同 T-4:新迁入富豪在 GCC 无消费历史,对本地品牌从零建立信任",
+          "tier": "T3",
+          "operational": "信任先行内容(QC/EN 1728/工厂实拍)对他们比对本地老钱更重要"
+        }
+      ],
+      "feed_wants": {
+        "items": [
+          {
+            "see": "安静高级的私密空间/沙漠光影",
+            "give": "状态化内容",
+            "tier": "T3",
+            "src": "behavior_tags T-1/T-3:反重复溢价拒付(Gulf News)+体验经济(Bain/Forbes ME)"
+          },
+          {
+            "see": "不被看见的奢侈(具体形态)",
+            "give": "状态化内容(世界安静下来)",
+            "tier": "T4",
+            "src_or_plan": "validation:影子画像一手观察——站主已加一批 GCC 账号,30 天观察窗记录他们实际晒什么,观察记录进 evidence"
+          }
+        ],
+        "tied_rule": "影子画像观察即证据:30 天观察窗的一手记录(channel=站主亲手)逐条进 evidence,shadow 毕业通道照旧"
+      }
+    }
+  ],
+  "write_rules": [
+    "反循环证伪层（2026-09-14 WO-20260914-03）：每个画像必带 falsification_status / counter_evidence / last_challenged；UNFALSIFIED≠确认，只是还没被证伪；超 60 天无反例检验 → persona audit FAIL（exit 1，不是 WARNING——同一个脑子给的警告会被同一个脑子绕过，闸门说了算）",
+    "counter_evidence 只认循环干净通道：gsc_query（陌生人原始查询词）/ cs_transcript（客服·WhatsApp 转写）/ payment_record（支付记录）/ review_text（评论原文）/ external_search（外部搜索证据）；站内互动、页面参与度、由我们内容塑造的任何数据不得作为反例或正例自证",
+    "影子画像（shadow_personas）只观察不入 patches，毕业需连续 2 个证据周期同向 T1 + 用户裁决转正；退役规则同主画像",
+    "月度反画像挑战并入 C 线 persona audit：对每个画像强制回答『过去 30 天有没有不支持它的证据？如果它是错的，真实买家最可能是谁？有没有完全被忽略的人群？』——挑战后 last_challenged 戳日期，有反例填 counter_evidence"
+  ]
+}

@@ -1,0 +1,370 @@
+{
+  "manifest": "FUZZ SOFA framework-lock",
+  "version": "V4.4.0",
+  "updated": "2026-09-13",
+  "source": "02-Frontend-Page-Framework.md 要素（原文件未入仓）+ docs/fuzz-produce-manual.md §11.1（原 v43 模板锁文档 2026-09-13 收编删除）",
+  "implementation": "src/components/product-detail.tsx",
+  "global": {
+    "background": "#0A0A0A",
+    "fonts": [
+      "Cormorant",
+      "IBM Plex Sans"
+    ],
+    "locked": [
+      "布局",
+      "节序",
+      "组件",
+      "列数",
+      "图数",
+      "样式",
+      "字体",
+      "底色"
+    ]
+  },
+  "sections": [
+    {
+      "id": 1,
+      "name": "Hero",
+      "locked": "16 图轮播，计数 1/16",
+      "data": "data.skus[].images / data.images",
+      "constraints": {
+        "images_max": 16
+      },
+      "psych": {
+        "buyer_question": "Is this it — do I want it at first sight?",
+        "psychological_job": "desire_capture",
+        "content_goal": "3 秒内捕获第一眼欲望：这就是我要的那件"
+      }
+    },
+    {
+      "id": 2,
+      "name": "TryInRoom",
+      "locked": "白色胶囊按钮 + 60x60 缩略图",
+      "data": "data.interiorInspirations + 后台 AR 链接（→ Pinterest AR shoppable）",
+      "psych": {
+        "buyer_question": "Can I imagine it in my home?",
+        "psychological_job": "ownership_imagination",
+        "content_goal": "把抽象欲望变成『已放进我家』的拥有想象",
+        "mandate": "代入感/互动体验——重点展示本站 AI 合成功能：引导用户上传自己房间的照片，AI 将产品无缝合成进用户房间，制造『这就是我家』的拥有代入。内容必须主动教用户用这个功能（上传→选品→预览）。"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Overview",
+      "locked": "Atelier Made to Order · H1 · Description · Price · 制作 1–3 天 · DDP 7–14 天（海运 25–35 不推荐）· sticky nav",
+      "data": "data.h1 / description列 / price列 / data.leadTime / data.leadTimeNote",
+      "psych": {
+        "buyer_question": "What exactly am I getting?",
+        "psychological_job": "comprehension",
+        "content_goal": "30 秒建立完整产品认知，不留模糊"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Inspiration",
+      "locked": "3 卡 · 260px · 4:3 · 只能 3 张 · 不重复",
+      "data": "data.interiorInspirations",
+      "constraints": {
+        "cards": 3,
+        "image_required": true,
+        "images_unique": true,
+        "scene_zone": "no_digits_no_params"
+      },
+      "scene_zone_rule": "用户 2026-09-12 定调（模块属性不可跨界）：Interior Inspiration=纯场景氛围区，面向室内设计师/酒店采购/别墅业主，像室内设计杂志。禁区：任何数字参数、Martindale/摩擦次数、QC 测试数据、工业术语、尺寸、可拆卸/机洗声明。参数归 ProductData/材质工艺，可拆卸内容归 主要特点。",
+      "psych": {
+        "buyer_question": "Will it fit my life and my style?",
+        "psychological_job": "lifestyle_projection",
+        "content_goal": "让买家看见自己生活方式的延伸而非一件陌生家具"
+      }
+    },
+    {
+      "id": 5,
+      "name": "DesignStory",
+      "locked": "标题模式 'A Sanctuary …' 可换文案 + 正方形 Sketch 176px 折叠",
+      "data": "data.storyHeading / data.storyText / data.storySketch",
+      "constraints": {
+        "sketch_square_px": 176,
+        "collapsible": true
+      },
+      "brand_root_principle": "用户 2026-09-12 定调：本节是全页唯一讲『产品设计想法 + 品牌原创』的区块 = 品牌的根 + GEO 引子。storyText 必须从数据出发构思设计叙事（设计问题→标志性设计决策→工坊工艺→名字来历+品牌承诺），全部挂真实产品数字；禁市场考据风（Jellycat 弃用事件），禁通用套话，禁照搬旧版模板稿",
+      "psych": {
+        "buyer_question": "Is this original and authentic?",
+        "psychological_job": "authenticity_proof",
+        "content_goal": "证明设计意图与原创血统（Design Story=品牌之根）",
+        "mandate": "真实感/破防——展示工厂最真实、最粗糙的制作过程实拍（焊接钢架/裁皮/缝制毛坯感），打破 AI 虚假感，建立极高信任。实拍必须真图，禁 AI 图冒充实拍（r10 隔离）。"
+      }
+    },
+    {
+      "id": 6,
+      "name": "KeyFeatures",
+      "locked": "01–04 固定 4 条",
+      "data": "data.features[{title,desc}]",
+      "constraints": {
+        "items": 4,
+        "banned_zone_terms": [
+          "Q235",
+          "yield",
+          "屈服",
+          "MPa",
+          "QC",
+          "SH2024",
+          "FUZZ-LAB",
+          "ASTM"
+        ]
+      },
+      "feature_zone_rule": "用户 2026-09-12 定调（铁律#9）：主要特点写产品本身特质，禁钢材型号/屈服强度/QC 测试编号——规格归 ProductData（ldProperties），QC 编号归产品数据表/白手套/交期备注/FAQ。",
+      "psych": {
+        "buyer_question": "Why is it worth the price?",
+        "psychological_job": "value_justification",
+        "content_goal": "把价格逐项拆解成可感知的价值点"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Materials",
+      "locked": "材料简单列表 ≤6 项（2026-09-12 用户定调：只写材料名）",
+      "data": "content.materials = 材料名简单列表（例：镀锌管 / 定型高密度海绵 / 人造皮 / 人造皮草 / 亚麻 / 天鹅绒）。禁摩擦次数 / Martindale / 可拆洗 / QC 编号 / 数字进材料列表——那些归 ProductData 与工艺卡。工艺过程卡片（≤4，不足时第 4 卡=export_cert）不变。",
+      "constraints": {
+        "columns_max": 6,
+        "list_format": "simple_names_only",
+        "banned_in_list": [
+          "rubs",
+          "Martindale",
+          "washable",
+          "removable",
+          "QC",
+          "digits"
+        ],
+        "fourth_card_when_short": "export_cert"
+      },
+      "craft_verb_rule": "用户 2026-09-12 定：工艺=过程三步 ①镀锌管框架手工焊接 ②造型海绵固化后手工细节打磨（禁『整体手工雕塑/雕刻』式夸大——hand-polished detail，不是 hand-carved/sculpted）③手工缝纫（无缝纫工序的产品如实省略，如陨石=直接海绵固化成型）",
+      "psych": {
+        "buyer_question": "Is it actually made of this?",
+        "psychological_job": "tactile_trust",
+        "content_goal": "用材质事实建立触觉信任，敢摸敢坐"
+      }
+    },
+    {
+      "id": 8,
+      "name": "ProductData",
+      "locked": "表格 + CM/IN 切换",
+      "data": "data.specs / data.specifications",
+      "psych": {
+        "buyer_question": "Will it fit? Are the numbers real?",
+        "psychological_job": "fit_verification",
+        "content_goal": "尺寸/承重/规格硬核核验，消除尺寸恐惧",
+        "mandate": "理性/逻辑——功能 + 详细参数（尺寸/材质/承重/包装/体积重），给理性决策者的核验材料。"
+      }
+    },
+    {
+      "id": 9,
+      "name": "DeliveredWorldwide",
+      "locked": "2 列",
+      "data": "data.whiteGloveText",
+      "psych": {
+        "buyer_question": "Can I trust the delivery?",
+        "psychological_job": "delivery_reassurance",
+        "content_goal": "白手套 DDP 承诺消除物流与入户恐惧",
+        "mandate": "安心/尊贵——白手套四步细节：拆包 → 入户就位 → 安装定位 → 清运包装垃圾，消除大件家具入户恐惧。"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Reviews",
+      "locked": "5.0/5 模块",
+      "data": "reviews 表",
+      "psych": {
+        "buyer_question": "Did anyone else trust this?",
+        "psychological_job": "social_proof",
+        "content_goal": "他人信任向买家转移：有人先买了我才敢买",
+        "mandate": "临门一脚/闭环——调取真实评论与 Q&A，他人信任转移促成下单。真实评论空窗期禁造假（r11 准入），以 FAQ + atelier 承诺兜底并催收社证。"
+      }
+    },
+    {
+      "id": 11,
+      "name": "FAQ",
+      "locked": "前 4 条折叠问答可见 + 原生 details「Show all」展开其余",
+      "data": "faqs 表 is_active（≤8 条硬顶；全量仍在 DOM + FAQPage JSON-LD）",
+      "constraints": {
+        "items": 4,
+        "max_rows": 8,
+        "note": "V1.1 契约（2026-09-12 用户裁决）：4 可见 + 展开全部；>8 条 = FRAMEWORK_DRIFT"
+      },
+      "psych": {
+        "buyer_question": "What could still go wrong?",
+        "psychological_job": "objection_clearing",
+        "content_goal": "逐条清掉下单前最后的疑虑",
+        "mandate": "预答闭环——与评论区分工：FAQ=预答最后疑虑，评论=实证。答案数字与正文一致（FAQ 漂移=WARNING）。"
+      }
+    },
+    {
+      "id": 12,
+      "name": "StickyBuyBar",
+      "locked": "固定",
+      "data": "price/SKU 联动",
+      "psych": {
+        "buyer_question": "Is now the moment — is it safe to act?",
+        "psychological_job": "action_trigger",
+        "content_goal": "零风险感推动此刻下单"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Footer",
+      "locked": "固定壳",
+      "data": "—",
+      "psych": {
+        "buyer_question": "Who is behind this store?",
+        "psychological_job": "legitimacy",
+        "content_goal": "实体与售后可信度兜底"
+      }
+    },
+    {
+      "id": 14,
+      "name": "SEOMeta",
+      "locked": "字段壳",
+      "data": "data.seoTitle / metaDescription / keywords / ldDescription / ldProperties / variantSeoTitles",
+      "constraints": {
+        "title_chars": [
+          50,
+          60
+        ],
+        "description_chars": [
+          150,
+          160
+        ]
+      },
+      "psych": {
+        "buyer_question": "Is this what I searched for?",
+        "psychological_job": "intent_match",
+        "content_goal": "搜索承诺与页面兑现完全一致"
+      }
+    }
+  ],
+  "trust_kit": {
+    "qc_reports_required": [
+      "SH2024-0945",
+      "FUZZ-LAB-2024-01"
+    ],
+    "trusted_numbers": [
+      50000,
+      40000,
+      35000,
+      25000,
+      0.8,
+      58,
+      5,
+      45,
+      2.5,
+      2.48,
+      2.53,
+      235,
+      80,
+      200,
+      300,
+      5.5,
+      125,
+      105,
+      85,
+      186,
+      223,
+      24,
+      180,
+      44,
+      100,
+      120,
+      76,
+      35,
+      3,
+      1.5,
+      15,
+      2,
+      7,
+      1,
+      14,
+      22,
+      25
+    ],
+    "trusted_numbers_note": "1/2/3/7/14 = 框架锁定交期常数（1–3 天生产 · 7–14 天运输）；25/35 = 海运 25–35 天（不推荐）括号常数；22 = 压缩永久变形标准条件 70°C 22h；72/90/9/17 = 2026-09-12 废止（旧工时/旧 9–17 口径，出现即 r2/r9 拦）；产品专属数字走 patch.approved_numbers",
+    "trusted_tokens": [
+      "EN 1728:2012",
+      "ASTM D3574",
+      "ISO 12947-2",
+      "ASTM D4977",
+      "IFD25",
+      "Q235",
+      "DDP",
+      "AR"
+    ],
+    "trusted_money": [
+      "¥28,400",
+      "NT$1,500",
+      "NT$2,300",
+      "$898",
+      "£333",
+      "$117",
+      "$4,800"
+    ],
+    "year_regex": "\\b(18|19|20)\\d{2}\\b"
+  },
+  "delivery_rule": {
+    "unified_format": "1–3 天生产 + 7–14 天运输（海运 25–35 天，不推荐）",
+    "build_days_pattern": "1[–-]3",
+    "transit_days_pattern": "7[–-]14",
+    "sea_leadtime_pattern": "25[–-]35",
+    "deprecated_patterns": [
+      "9[–-]17"
+    ],
+    "user_ruling": "2026-09-12 用户裁决：全站统一口径，chargeable_kg 不再改变客户侧承诺；旧『9–17 天（海运除外 25–35 天）』括号写法废止；旧工时叙事 72–90h 一并废止（实际生产 1–3 天）"
+  },
+  "ai_subjects": [
+    "bread",
+    "burger",
+    "donut",
+    "doughnut",
+    "walking pony",
+    "hamster",
+    "tiger",
+    "elephant",
+    "dinosaur",
+    "unicorn"
+  ],
+  "ai_subjects_note": "2026-09-12 移除 gorilla / king kong：kong 已是在售实物产品（SKU/价格/QC/物流齐备，用户裁决『全部新规改』按真品执行）——本名单只保留未产品化的 AI 概念对象。线上场景图 AI 标注豁免同日用户裁决①（暂不标注，等真图替换或后期统一加标；文字侧 AI 隔离不变）",
+  "ai_label_tokens": [
+    "AI-generated concept",
+    "AI 渲染",
+    "AI-generated",
+    "viral AI"
+  ],
+  "forbidden_words": {
+    "zh": [
+      "可能",
+      "大概",
+      "通常",
+      "建议",
+      "推荐",
+      "也许",
+      "可拆卸",
+      "可拆洗",
+      "机洗"
+    ],
+    "en": [
+      "probably",
+      "maybe",
+      "usually",
+      "suggest",
+      "recommend",
+      "perhaps",
+      "washable",
+      "removable"
+    ]
+  },
+  "changelog": [
+    "2026-09-13：一号战略指令补充——五区块投喂策略入 psych.mandate（TryInRoom=AI 房间合成代入感 / DesignStory=工厂粗糙实拍破防 / ProductData=理性详参 / DeliveredWorldwide=白手套四步 / Reviews+FAQ=真实社证闭环临门一脚）。canonical 岗位不变，mandate=该节的内容执行令。",
+    "2026-09-13：V4.4.0 psych 层新增——14 节各挂 canonical buyer_question/psychological_job/content_goal（PRODUCT→MARKET→HUMAN→PSYCHOLOGY→CONTENT→CONVERSION 战略链），14 节结构与约束一字未动；r14 校验 patch 心理卡与本表对齐。",
+    "2026-09-13：Inspiration 卡 image_required=true 入闸（r7）+ verify 线上图查——noctua 事故：三卡 image 键丢失，双端渲染层 filter 掉无图卡→区块静默空白，闸门此前只查文案不查图。",
+    "2026-09-13：主要特点禁区入闸（r7）——特点区禁钢材型号/屈服强度/QC 编号（铁律#9），kong 特点[3] QC 移出为首个案例。",
+    "2026-09-12 晚：材料=简单名称列表≤6（r7）；场景区禁数字/参数（r7）；全站禁 washable/removable/可拆卸（r6）——模块属性不可跨界，材料区/参数区/场景区各归其位。"
+  ],
+  "psych_note": "一号战略原则（2026-09-13 用户裁决）：Every product starts with itself. 每节有 canonical psychological_job —— 内容不是『填区块』而是『回答该节买家问题』。r14 校验 patch.psych_jobs 与本表对齐。"
+}

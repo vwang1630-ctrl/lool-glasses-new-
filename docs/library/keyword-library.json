@@ -1,0 +1,364 @@
+{
+  "manifest": "FUZZ SOFA keyword-library — 关键词库 V1.0（画像×关键词对齐层：S3 画像语言 → S4 搜索语言的翻译表）",
+  "version": "V1.3.0",
+  "updated": "2026-10-05",
+  "write_rules": [
+    "每条必带 source（工具口径+日期，或 GSC 导出）；禁凭感觉填 volume",
+    "page_assigned 一词一主位：PDP 或文章唯一持有；cannibal <kw> CONFLICT 时必须先裁决再上新内容",
+    "persona_link 必须是 persona-library 在册画像 id（关键词与画像对齐是本库存在的意义）",
+    "ai_citation 布尔：该词在 GEO 采样中被 LLM 引用我们时置 true 并记 ai-visibility 台账",
+    "provisional 保质期通道（2026-09-14 WO-20260914-03）：证据未达 T1 的词可带 provisional_deadline（登记日+30 天，ISO）先行入库——有出处但有时限，不是无出处合法化；cannibal 对过期未升级词报 RISK 提醒清扫",
+    "retired 数组：provisional 过期未升级的词移入此处（保留记录），cannibal 按 CONFLICT 拦截流通——重新验证（GSC 实测/订单证据）升级后才能移回 keywords 复活；月度跑 scripts/kw-expiry-sweep.mjs 执行迁移"
+  ],
+  "keywords": [
+    {
+      "id": "kw-gorilla-sofa",
+      "keyword": "gorilla sofa",
+      "intent": "transactional",
+      "persona_link": "kong-movie-fan",
+      "page_assigned": "products:kong-tender-titan-monumental-sculpture-sofa",
+      "volume_tier": "T2（社区需求存在：r/Corridor 真实讨论）+ GSC 实测 9 展示/90 天 @ 均位置 7.1（<10 阈值，维持观察）",
+      "ai_citation": false,
+      "cannibal_status": "clear",
+      "source": "persona-library V4.5 kong-movie-fan evidence T2（reddit.com/r/Corridor/comments/1jsgg3m）+ gsc-export.json 2026-09-14",
+      "updated": "2026-09-14",
+      "pain_point": "痛点:大猩猩沙发品类购买",
+      "node_status": "live"
+    },
+    {
+      "id": "kw-faux-fur-accent-chair",
+      "keyword": "faux fur accent chair",
+      "intent": "transactional",
+      "persona_link": "plush-comfort-collector",
+      "page_assigned": "products:kong-tender-titan-monumental-sculpture-sofa（2026-09-12 分配：kong Long Faux Fur 选项真实存在，Breakout 词借位；mofu 为布面无毛绒不争）",
+      "volume_tier": "T3 verified：Google Trends +5,000% Breakout（90d，2026-09-12 实测，seo-meta-library）",
+      "ai_citation": false,
+      "cannibal_status": "clear",
+      "source": "seo-meta-library verified（Google Trends 实测 2026-09-12）",
+      "updated": "2026-09-12",
+      "pain_point": "痛点:触感面料家具购买(Noctua 品类词)"
+    },
+    {
+      "id": "kw-cat-friendly-armchair",
+      "keyword": "cat friendly armchair",
+      "intent": "transactional",
+      "persona_link": "cat-household-upgrader",
+      "page_assigned": "products:mofu-cat-sofa-tender-hug-sculpture",
+      "volume_tier": "T3 verified：+180%（90d，seo-meta-library）；宠物家具市场 US$4.24B（PMR）",
+      "ai_citation": false,
+      "cannibal_status": "clear",
+      "source": "seo-meta-library + social-proof V4.3.2 verified",
+      "note": "2026-09-12 执行一词一主位：noctua-owl-armchair 的 data.keywords 已移除该词（页面侧曾与库裁决不一致）",
+      "updated": "2026-09-12",
+      "pain_point": "痛点:养猫家庭——耐抓/不怕猫"
+    },
+    {
+      "id": "kw-sculptural-sofa",
+      "keyword": "sculptural sofa",
+      "intent": "commercial-investigative",
+      "persona_link": "statement-piece-affluent",
+      "page_assigned": "products:meteorite-statement-sofa（PDP）+ journal:sculptural-furniture-trend-2026（信息层）",
+      "volume_tier": "T3 verified：2026 顶级趋势词（Elle Decor furniture-trends-2026 列 sculptural/organic silhouettes 为年度顶部趋势）；搜索量数字待 GSC",
+      "ai_citation": false,
+      "cannibal_status": "watch（PDP+文章共用——意图分层写法可豁免，待 GSC 归因裁决）",
+      "source": "seo-meta-library V4.3.1 verified + persona-library V4.5 statement-piece-affluent evidence T3（elledecor.com a69811787 / mansionglobal）",
+      "updated": "2026-09-12",
+      "pain_point": "痛点:雕塑感 statement 件——艺术与家具之间",
+      "node_status": "live"
+    },
+    {
+      "id": "kw-curved-sofa",
+      "keyword": "curved sofa",
+      "intent": "commercial-investigative",
+      "persona_link": "statement-piece-affluent",
+      "page_assigned": "products:meteorite-statement-sofa（PDP 副词，主词让位 sculptural sofa）",
+      "volume_tier": "T3 verified：curves 为 2026 quiet-luxury 主流词（Elle Decor 2026 + Castle Furniture + Meadows & Byrne biomorphic）；量待 GSC",
+      "ai_citation": false,
+      "cannibal_status": "watch（SERP 大词竞争激烈——PDP 只做副词露出，长文承接留待 B 线裁决）",
+      "source": "seo-meta-library V4.3.1 verified（elledecor.com a69811787 / castlefurniture.com curves / meadows-byrne biomorphic）",
+      "updated": "2026-09-12",
+      "pain_point": "痛点:2026 曲线/雕塑风 statement 件"
+    },
+    {
+      "id": "kw-space-age-furniture",
+      "keyword": "space age furniture",
+      "intent": "commercial-investigative",
+      "persona_link": "statement-piece-affluent",
+      "page_assigned": "products:meteorite-statement-sofa（PDP 场景词）",
+      "volume_tier": "T3 verified：复兴趋势词（House Beautiful UK 『Space Age Furniture Is Making A Trendy Comeback』g64562598）；量待 GSC",
+      "ai_citation": false,
+      "cannibal_status": "clear（场景词，与 PDP 主副词语义分层不冲突）",
+      "source": "seo-meta-library V4.3.1 verified（housebeautiful.com/uk g64562598）+ persona-library V4.5 evidence T3",
+      "updated": "2026-09-12",
+      "pain_point": "痛点:Space Age 复兴收藏(借浪词)"
+    },
+    {
+      "id": "kw-owl-armchair",
+      "keyword": "owl armchair",
+      "intent": "transactional",
+      "persona_link": "owl-nostalgia-collector",
+      "page_assigned": "products:noctua-owl-armchair",
+      "volume_tier": "T3：品类真实存在（Tony Paul 1950s vintage 流通中）；搜索量待 GSC",
+      "ai_citation": false,
+      "cannibal_status": "clear",
+      "source": "persona-library V4.5 owl-nostalgia-collector evidence T3（birdcagehome.com，2026-09-12 爬取）",
+      "updated": "2026-09-12",
+      "pain_point": "痛点:猫头鹰图腾升格为家具(收藏者)",
+      "node_status": "live"
+    },
+    {
+      "id": "kw-owl-chair",
+      "keyword": "owl chair",
+      "intent": "transactional",
+      "persona_link": "owl-nostalgia-collector",
+      "page_assigned": "products:noctua-owl-armchair（我方主位）",
+      "volume_tier": "T3：零售类目页存在 = 需求真实（Walmart/Amazon）；量待 GSC",
+      "ai_citation": false,
+      "cannibal_status": "watch（该词语义场被低价/儿童类目页占据——内容必须做『设计师级/mid-century』区隔，不与低价同场竞争）",
+      "source": "walmart.com/c/kp/owl-chair + amazon.com/owl-chair（2026-09-12 检索）",
+      "updated": "2026-09-12",
+      "pain_point": "痛点:猫头鹰图腾升格为家具(收藏者)",
+      "node_status": "live"
+    },
+    {
+      "id": "kw-plush-lounge-sofa",
+      "keyword": "plush lounge sofa",
+      "intent": "transactional",
+      "persona_link": "plush-comfort-collector",
+      "page_assigned": "products:mofu-cat-sofa-tender-hug-sculpture（PDP 场景词，2026-09-12 登记）",
+      "volume_tier": "T3 verified：oversized plush 高互动内容（meta_1p post-382358159863427678567 MaviGadget）",
+      "ai_citation": false,
+      "cannibal_status": "clear（场景词）",
+      "source": "seo-meta-library keyword_clusters_verified.en（2026-09-12 在册）",
+      "updated": "2026-09-12",
+      "pain_point": "痛点:舒适窝坐——毛绒拥抱感"
+    },
+    {
+      "id": "kw-cat-shaped-sofa",
+      "keyword": "cat shaped sofa",
+      "intent": "transactional",
+      "persona_link": "cat-household-upgrader",
+      "page_assigned": "products:mofu-cat-sofa-tender-hug-sculpture（PDP 副词，2026-09-12 登记）",
+      "volume_tier": "未验证（待 GSC；meta_1p giant cat-shaped where-to-buy 需求存在）",
+      "ai_citation": false,
+      "cannibal_status": "clear",
+      "source": "seo-meta-library keyword_clusters_verified.en（2026-09-12 新增：meta_1p post-494035191687826552853 + Trends 语义场） | 2026-09-30 截流判决:TikTok/IG 渲染图百万观看+求购评论,实物空白(检索实测)",
+      "updated": "2026-09-12",
+      "pain_point": "痛点升级(2026-09-30):全网病毒猫沙发渲染图千万观看+\"where to buy\"刷屏,实物不存在——想要却买不到(截流网结,T2 社证)",
+      "node_status": "live"
+    },
+    {
+      "id": "kw-animal-shaped-sofa",
+      "keyword": "animal shaped sofa",
+      "intent": "transactional",
+      "persona_link": "多画像共享（kong/plush/cat/statement 的品类总词）",
+      "page_assigned": "blog draft:animal-shaped-sofa-boom-2026（抢占中）",
+      "volume_tier": "未验证（待 GSC）",
+      "ai_citation": false,
+      "cannibal_status": "watch（品类总词与 4 款 PDP 语义场重叠；文章必须做『品类导购』而非复刻 PDP）",
+      "source": "blog 框架锁 fixtures/blog-animal-sofa-boom-2026.json（draft，待发布裁决）",
+      "updated": "2026-09-12",
+      "pain_point": "痛点:家居个性表达——不撞款",
+      "node_status": "live"
+    },
+    {
+      "id": "kw-king-kong-sofa",
+      "keyword": "king kong sofa",
+      "intent": "transactional",
+      "persona_link": "kong-movie-fan",
+      "page_assigned": "products:kong-tender-titan-monumental-sculpture-sofa",
+      "volume_tier": "T1 verified：GSC 实测 149 展示/90 天（2026-06-15~09-13，7 变体含 king kong couch/kingkong sofa/…sofa price），主词 123 展示 @ 均位置 7.2",
+      "ai_citation": false,
+      "cannibal_status": "clear（2026-09-14 cannibal 检查无人占用；journal making-of 15 展示为 hub-and-spoke 支援位，PDP:journal=106:15 层级健康）",
+      "source": "docs/library/gsc-export.json（GSC searchAnalytics 2026-09-14 拉取，kong 簇 149 展示/0 点击）",
+      "note": "⚠ 校准发现：均位置 7.2（第一页）0 点击/123 展示——PDP 标题（Kong Tender Titan — Monumental Gorilla Sofa）不含查询短语 King Kong，slug 有 king-kong 但标题层没有。候选动作：EN seoTitle 加 King Kong Gorilla Sofa 短语（标题改动走工单，一次一个变量，等用户裁决） → 已执行 2026-09-14（WO-20260914-02）：EN seoTitle 落库 'King Kong Gorilla Sofa, Monumental Sculpture 200cm | Fuzz Sofa'（62 字符），zh 手工行重键不动文案，线上 EN/zh <title> 双验证通过",
+      "updated": "2026-09-14",
+      "pain_point": "痛点:金刚梗文化——把梗活成真(kong-movie-fan)"
+    },
+    {
+      "id": "kw-koala-shaped-sofa",
+      "keyword": "koala shaped sofa",
+      "intent": "transactional",
+      "persona_link": "plush-comfort-collector",
+      "page_assigned": "products:eucaly-koala-sofa（2026-09-14 命名裁决 Eucaly，slug 已定）",
+      "volume_tier": "未验证（待 GSC；Trends 语义场 + 零售品类页存在）",
+      "ai_citation": false,
+      "cannibal_status": "clear",
+      "source": "2026-09-14 实查：koala-shaped 品类真实存在（Temu koala folding lazy sofa / Snuggle Treasures Kobi giant koala sleeping sofa $83 / Walmart-Amazon giant koala plush 48in / FB viral giant koala bean bag）；注意：koala sofa 头词被 us.koala.com 家具品牌占用（award-winning sofa bed, 120-night trial），主词避开头词打 shaped 细分",
+      "provisional": {
+        "registered": "2026-09-14",
+        "deadline": "2026-10-14",
+        "upgrade_path": "GSC 90 天实测 → verified"
+      },
+      "updated": "2026-09-14",
+      "pain_point": "痛点:考拉造型猎奇(竞品/替代品词)"
+    },
+    {
+      "id": "kw-are-owl-chairs-comfortable",
+      "keyword": "are owl chairs comfortable",
+      "intent": "informational",
+      "persona_link": "plush-comfort-collector",
+      "page_assigned": "products:noctua-owl-armchair（14节用户疑惑解答区主位）",
+      "volume_tier": "未验证（T3：Reddit/Quora 舒适度问答形态真实存在，见 persona-library 证据；GSC 待实测）",
+      "ai_citation": false,
+      "cannibal_status": "clear",
+      "source": "2026-09-14 用户战略令三（精准主词守PDP+热度问答词吃流量）+ persona-library T3 社区问答证据（comfort 主题讨论）；cannibal CLEAR 2026-09-14（无人占用）",
+      "provisional": {
+        "registered": "2026-09-14",
+        "deadline": "2026-10-14",
+        "upgrade_path": "GSC 90 天实测 → verified"
+      },
+      "updated": "2026-09-14",
+      "pain_point": "痛点:舒适度疑虑(Noctua 预售决策)"
+    },
+    {
+      "id": "kw-is-fuzz-sofa-ai-or-real",
+      "keyword": "is fuzz sofa ai or real",
+      "intent": "informational",
+      "persona_link": "跨画像信任疑虑（ai-vs-real 库主管）",
+      "page_assigned": "products:kong-tender-titan-monumental-sculpture-sofa（14节问答 Concept→Factory→Real 主位；品牌级信任词由旗舰位承接，GSC king kong 簇 149 展示为本位流量基础）",
+      "volume_tier": "未验证（AI 渲染疑虑为 ai-vs-real 库立项主题；GSC 待实测）",
+      "ai_citation": false,
+      "cannibal_status": "clear",
+      "source": "2026-09-14 用户战略令三 + ai-vs-real 库（AI/实物隔离主题在库）+ 用户指定参考法（LowFruits 弱竞争/AlsoAsked 问答形态）；cannibal CLEAR 2026-09-14",
+      "provisional": {
+        "registered": "2026-09-14",
+        "deadline": "2026-10-14",
+        "upgrade_path": "GSC 90 天实测 → verified"
+      },
+      "updated": "2026-09-14",
+      "pain_point": "痛点:真假辨别——品牌词防御(最高优先级信任战)"
+    },
+    {
+      "id": "kw-gorilla-sofa-price",
+      "keyword": "gorilla sofa price",
+      "intent": "commercial",
+      "persona_link": "statement-piece-affluent",
+      "page_assigned": "blog:gorilla-sofa-price-what-9900-buys",
+      "volume_tier": "T3（2026-09-30 SERP 分析:gorilla sofa 词族 SERP 无真产品页=空门;父词 gorilla sofa GSC 实测排名 6;price 意图由 9/27 站主竞品情报『评论区 100% 问价格』验证）",
+      "ai_citation": false,
+      "cannibal_status": "clear",
+      "evidence_status": "verified",
+      "source": "docs/library/gsc-latest.json 观察名单 2026-09-29 + evidence/2026-09-29-google-ai-overview-noctua.md SERP 记录",
+      "updated": "2026-09-30",
+      "pain_point": "痛点:价格疑虑——这钱花得值不值",
+      "node_status": "live"
+    },
+    {
+      "id": "kw-meteor-shower",
+      "keyword": "meteor shower",
+      "intent": "informational",
+      "persona_link": "gcc-quiet-luxury-buyer",
+      "page_assigned": "pending",
+      "volume_tier": "T3",
+      "ai_citation": false,
+      "cannibal_status": "clear",
+      "evidence_status": "verified",
+      "source": "fishing 周报观察名单 2026-09-30",
+      "updated": "2026-10-01"
+    },
+    {
+      "id": "kw-celestial-decor",
+      "keyword": "celestial decor",
+      "intent": "informational",
+      "persona_link": "gcc-quiet-luxury-buyer",
+      "page_assigned": "pending",
+      "volume_tier": "T3",
+      "ai_citation": false,
+      "cannibal_status": "clear",
+      "evidence_status": "verified",
+      "source": "behavior_tags T-1/T-3(Chalhoub/Gulf News)2026-09-30",
+      "updated": "2026-10-01"
+    },
+    {
+      "id": "kw-space-themed-room",
+      "keyword": "space themed room",
+      "intent": "informational",
+      "persona_link": "gcc-quiet-luxury-buyer",
+      "page_assigned": "pending",
+      "volume_tier": "T3",
+      "ai_citation": false,
+      "cannibal_status": "clear",
+      "evidence_status": "verified",
+      "source": "deepdive:Stella Nova 等太空酒店实证 2026-09-29",
+      "updated": "2026-10-01"
+    },
+    {
+      "id": "kw-meteorite-for-sale",
+      "keyword": "meteorite for sale",
+      "intent": "transactional",
+      "persona_link": "meteorite-statement-collector",
+      "page_assigned": "pending",
+      "volume_tier": "T3",
+      "ai_citation": false,
+      "cannibal_status": "clear",
+      "evidence_status": "verified",
+      "source": "2026-09-29 SERP:真陨石经销商+拍卖行为主,家具级空白",
+      "updated": "2026-10-01"
+    },
+    {
+      "id": "kw-gifts-for-space-lovers",
+      "keyword": "gifts for space lovers",
+      "intent": "transactional",
+      "persona_link": "meteorite-statement-collector",
+      "page_assigned": "pending",
+      "volume_tier": "T4(假设:Geminids+圣诞双撞,validation=GSC 12月对照)",
+      "ai_citation": false,
+      "cannibal_status": "clear",
+      "evidence_status": "verified",
+      "source": "观察名单 2026-09-30",
+      "updated": "2026-10-01"
+    }
+  ],
+  "retired": [],
+  "latam_note": "2026-10-01 站主实拍:西语市场猩猩沙发需求实证(T2,garagealkosto 185赞+20条求购评论)。西语网为潜在扩张方向,EN 主力线验证后试水。详见 evidence/2026-10-01-latam-spanish-demand.md",
+  "platform_seo_channels": [
+    {
+      "established": "2026-10-02",
+      "rule": "同一词库三平台分渠供词;每条内容 target_search_keyword 从这里取,不自造",
+      "google_gsc": {
+        "channel": "blog 母体/PDP",
+        "note": "28 天窗口,周一看数"
+      },
+      "pinterest": {
+        "channel": "Pin 描述/标题",
+        "note": "搜索型,词写描述首句"
+      },
+      "ig": {
+        "channel": "Reel 文案首句+屏幕文字+alt text",
+        "note": "T2官方:IG 搜索索引这三处;标签 3-5 辅助",
+        "seed_keywords": [
+          "kw-gorilla-sofa",
+          "kw-animal-shaped-sofa",
+          "kw-sculptural-sofa",
+          "statement sofa(待立卡)",
+          "luxury furniture Dubai(待立卡)"
+        ],
+        "status": "T3 种子——14 天第一战回流后按词留强汰弱"
+      }
+    }
+  ],
+  "watchlist": [
+    {
+      "keyword": "giant cat bed real",
+      "why": "luxarts_aii 471.9K 赞 AI 假猫睡袋帖制造的搜索意图(评论区'where to buy'多语言潮);供给真空——Mofu 真货是唯一真实答案",
+      "persona_link": "plush-comfort-collector",
+      "added": "2026-10-05",
+      "source": "instagram.com/reel/DeCZKVLAaBu + updatebirthday.com 拉取 2026-10-05"
+    },
+    {
+      "keyword": "giant cat sleeping bag",
+      "why": "同浪产品词;AI 农场无货架,搜到者即真空需求",
+      "persona_link": "plush-comfort-collector",
+      "added": "2026-10-05",
+      "source": "同上"
+    },
+    {
+      "keyword": "cat shaped sofa",
+      "why": "巨型猫形家具审美浪的品类词;Mofu 主位候选(指派前过 cannibal 检查)",
+      "persona_link": "plush-comfort-collector",
+      "added": "2026-10-05",
+      "source": "同上"
+    }
+  ]
+}

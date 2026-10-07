@@ -1,0 +1,12 @@
+{
+  "manifest": "operator-dashboard — 驾驶舱(sales-intent-backlog D 仪表1;每周站主/操盘手定一次主推)",
+  "version": "V1.0",
+  "updated": "2026-09-30",
+  "featured_sku": {
+    "slug": "kong-tender-titan-monumental-sculpture-sofa",
+    "label": "Kong",
+    "reason": "blog#2 价格教育母体刚上线,全部社媒出口正指向 Kong——主推与内容同频",
+    "until": "2026-10-06"
+  },
+  "rules": "每周更新一次(周报时顺带);无库存概念——按战略权重/毛利定,不按库存;featured_sku 的所有新内容优先排产"
+}

@@ -1,0 +1,219 @@
+#!/usr/bin/env node
+/**
+ * Design token consistency check.
+ *
+ * Rules:
+ *  0. Radius scale — 6px controls, 4px selectors, 0px cards/images/bars.
+ *  1. No hardcoded colors in components — hex literals, rgb()/rgba()/hsl()
+ *     literals, and non-semantic Tailwind color utilities (text-white,
+ *     bg-black, text-gray-400, bg-[#111], ...). Use token utilities instead
+ *     (bg-base, bg-surface, text-ink, text-ink-dim, border-line, text-accent).
+ *  2. No unused tokens — every --color-* / --text-* token registered in
+ *     `@theme inline` in src/styles.css must be referenced somewhere in src.
+ *
+ * Escape hatch: add `token-ok` in a comment on the same line.
+ *
+ * Baseline: scripts/design-tokens.baseline.json records known legacy
+ * violations per file so CI fails only on NEW ones.
+ * Refresh it deliberately with:  node scripts/check-design-tokens.mjs --update-baseline
+ *
+ * Usage: node scripts/check-design-tokens.mjs [--strict]
+ *   --strict  ignore the baseline and report every violation
+ */
+import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from "node:fs";
+import { join, relative } from "node:path";
+
+const ROOT = process.cwd();
+const SCAN_DIR = join(ROOT, "src");
+const STYLES = join(ROOT, "src/styles.css");
+const BASELINE_PATH = join(ROOT, "scripts/design-tokens.baseline.json");
+
+const UPDATE = process.argv.includes("--update-baseline");
+const STRICT = process.argv.includes("--strict");
+
+/** Files where raw color values are legitimate (token definitions, generated). */
+const ALLOW_FILES = [
+  "src/styles.css",
+  "src/pages/mobile/theme.ts",
+  "src/integrations/supabase/types.ts",
+];
+
+const CODE_RE = /\.(tsx?|jsx?|css)$/;
+
+/** Tailwind palette families that bypass the token system. */
+const PALETTE =
+  "slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose";
+
+const RULES = [
+  {
+    id: "hex-literal",
+    re: /#[0-9a-fA-F]{3,8}\b/g,
+    msg: "hardcoded hex color — use a semantic token utility/variable",
+  },
+  {
+    id: "rgb-literal",
+    re: /\b(?:rgba?|hsla?)\(\s*\d/g,
+    msg: "hardcoded rgb()/hsl() color — use a semantic token",
+  },
+  {
+    id: "bw-utility",
+    re: /(?<![\w-])(?:text|bg|border|fill|stroke|ring|from|via|to)-(?:white|black)(?![\w-])/g,
+    msg: "non-semantic white/black utility — use text-ink / bg-base / border-line",
+  },
+  {
+    id: "palette-utility",
+    re: new RegExp(
+      `(?<![\\w-])(?:text|bg|border|fill|stroke|ring|from|via|to)-(?:${PALETTE})-\\d{2,3}(?![\\w-])`,
+      "g",
+    ),
+    msg: "raw Tailwind palette color — use a semantic token utility",
+  },
+  {
+    id: "radius-scale",
+    re: /(?<![\w-])rounded(?:-[trbl][lr]?)?-(?:full|xl|2xl|3xl|4xl|\[(?:[7-9]|[1-9]\d+)px\])(?![\w-])/g,
+    msg: "off-scale radius — controls 6px (rounded-md), selectors 4px (data-radius=\"swatch\"), cards/images/bars 0px (rounded-none)",
+  },
+  {
+    id: "arbitrary-color",
+    re: /(?<![\w-])(?:text|bg|border|fill|stroke|ring|from|via|to)-\[(?:#|rgb|hsl)[^\]]*\]/g,
+    msg: "arbitrary color utility — use a semantic token utility",
+  },
+];
+
+function walk(dir, out = []) {
+  for (const entry of readdirSync(dir)) {
+    if (entry === "node_modules" || entry.startsWith(".")) continue;
+    const full = join(dir, entry);
+    if (statSync(full).isDirectory()) walk(full, out);
+    else if (CODE_RE.test(entry)) out.push(full);
+  }
+  return out;
+}
+
+const files = walk(SCAN_DIR);
+const allSource = new Map(files.map((f) => [f, readFileSync(f, "utf8")]));
+
+/* ---------------- Rule 1: hardcoded colors ---------------- */
+const violations = []; // { file, line, rule, text }
+
+for (const [file, src] of allSource) {
+  const rel = relative(ROOT, file).replace(/\\/g, "/");
+  if (ALLOW_FILES.includes(rel)) continue;
+  src.split("\n").forEach((line, i) => {
+    if (line.includes("token-ok")) return;
+    for (const rule of RULES) {
+      rule.re.lastIndex = 0;
+      const m = line.match(rule.re);
+      if (m) {
+        violations.push({
+          file: rel,
+          line: i + 1,
+          rule: rule.id,
+          msg: rule.msg,
+          text: m[0],
+        });
+      }
+    }
+  });
+}
+
+/* ---------------- Rule 2: unused tokens ---------------- */
+const stylesSrc = readFileSync(STYLES, "utf8");
+const themeBlock = stylesSrc.match(/@theme inline\s*\{([\s\S]*?)\n\}/);
+const declared = [];
+if (themeBlock) {
+  for (const m of themeBlock[1].matchAll(/^\s*--(color|text)-([a-z0-9-]+)\s*:/gm)) {
+    const kind = m[1];
+    const name = m[2];
+    if (name.includes("--")) continue; // paired line-height / letter-spacing
+    declared.push({ kind, name, token: `--${kind}-${name}` });
+  }
+}
+
+const consumerSource = [...allSource.entries()]
+  .filter(([f]) => relative(ROOT, f).replace(/\\/g, "/") !== "src/styles.css")
+  .map(([, s]) => s)
+  .join("\n");
+const stylesBody = stylesSrc.replace(themeBlock ? themeBlock[0] : "", "");
+
+/** Utility prefixes generated by each token kind. */
+const COLOR_PREFIXES = ["text", "bg", "border", "fill", "stroke", "ring", "from", "via", "to", "outline", "decoration", "divide", "shadow", "accent", "caret"];
+
+function isTokenUsed({ kind, name, token }) {
+  if (consumerSource.includes(token) || stylesBody.includes(token)) return true;
+  if (kind === "text") {
+    return new RegExp(`(?<![\\w-])text-${name}(?![\\w-])`).test(consumerSource);
+  }
+  return COLOR_PREFIXES.some((p) =>
+    new RegExp(`(?<![\\w-])${p}-${name}(?![\\w-/])`).test(consumerSource),
+  );
+}
+
+const unused = declared.filter((t) => !isTokenUsed(t));
+
+/* ---------------- Baseline ---------------- */
+const baseline = existsSync(BASELINE_PATH)
+  ? JSON.parse(readFileSync(BASELINE_PATH, "utf8"))
+  : { hardcodedColorsByFile: {}, unusedTokens: [] };
+
+const countsByFile = {};
+for (const v of violations) countsByFile[v.file] = (countsByFile[v.file] ?? 0) + 1;
+
+if (UPDATE) {
+  writeFileSync(
+    BASELINE_PATH,
+    JSON.stringify(
+      {
+        $comment:
+          "Known design-token violations. CI fails on anything above these counts. Only lower these numbers.",
+        generated: new Date().toISOString().slice(0, 10),
+        hardcodedColorsByFile: Object.fromEntries(
+          Object.entries(countsByFile).sort(([a], [b]) => a.localeCompare(b)),
+        ),
+        unusedTokens: unused.map((t) => t.token).sort(),
+      },
+      null,
+      2,
+    ) + "\n",
+  );
+  console.log(
+    `Baseline written: ${violations.length} hardcoded-color lines across ${Object.keys(countsByFile).length} files, ${unused.length} unused tokens.`,
+  );
+  process.exit(0);
+}
+
+const allowedCounts = STRICT ? {} : (baseline.hardcodedColorsByFile ?? {});
+const allowedUnused = new Set(STRICT ? [] : (baseline.unusedTokens ?? []));
+
+const newViolations = [];
+for (const [file, list] of Object.entries(
+  violations.reduce((acc, v) => ((acc[v.file] ??= []).push(v), acc), {}),
+)) {
+  const allowed = allowedCounts[file] ?? 0;
+  if (list.length > allowed) newViolations.push(...list.slice(allowed));
+}
+const newUnused = unused.filter((t) => !allowedUnused.has(t.token));
+
+/* ---------------- Report ---------------- */
+if (!newViolations.length && !newUnused.length) {
+  console.log(
+    `✓ design tokens OK (${violations.length} baselined color literals, ${unused.length} baselined unused tokens)`,
+  );
+  process.exit(0);
+}
+
+if (newViolations.length) {
+  console.error(`\n✗ ${newViolations.length} new hardcoded color value(s):\n`);
+  for (const v of newViolations) {
+    console.error(`  ${v.file}:${v.line}  [${v.rule}] ${v.text}  — ${v.msg}`);
+  }
+}
+if (newUnused.length) {
+  console.error(`\n✗ ${newUnused.length} unused design token(s) in @theme inline:\n`);
+  for (const t of newUnused) console.error(`  ${t.token} — declared but never used in src/`);
+}
+console.error(
+  `\nFix the above, add \`token-ok\` on an intentional line, or run` +
+    ` \`node scripts/check-design-tokens.mjs --update-baseline\` after a deliberate cleanup.\n`,
+);
+process.exit(1);

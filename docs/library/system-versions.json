@@ -1,0 +1,98 @@
+{
+  "_manifest": "system-versions 版本对账清单(2026-10-02 立,站主令:同步不许靠站主问)——任何库文件升版,依赖它的下游必须在同一会话内重审并盖章;站主只查本文件一眼=验全站同步状态",
+  "rule": [
+    "1. 任何源文件升版 → 本清单该行 updated 同步改",
+    "2. 依赖它的下游 artifacts → last_audit 章重盖(旧章=未同步=违规状态)",
+    "3. 操盘手每次给站主任何产出(发布包/brief/回答)前,先查本清单有无未同步行",
+    "4. 站长抽查路径:只看本文件,'pending_resync' 非空=有拖欠",
+    "5. L2 触发(多消费者)后本清单机器化,接入 heartbeat ⏸"
+  ],
+  "sources": [
+    {
+      "file": "social-platform-rules.json",
+      "version": "V8.5.0",
+      "updated": "2026-10-02",
+      "note": "平台规则(IG/FB/Pin 机制与政策)"
+    },
+    {
+      "file": "keyword-library.json",
+      "version": "V1.3.0",
+      "updated": "2026-10-02",
+      "note": "三平台供词"
+    },
+    {
+      "file": "operator-protocol.md",
+      "version": "V1.0.3",
+      "updated": "2026-10-02",
+      "note": "操盘协议+判例库"
+    },
+    {
+      "file": "ig-pump-battle.json",
+      "version": "V1.2",
+      "updated": "2026-10-02",
+      "note": "IG第一战(fb_status/ig_bio_link/trial接入)"
+    },
+    {
+      "file": "ig-internals-study.md",
+      "version": "9轮",
+      "updated": "2026-10-02",
+      "note": "IG 知识库(机制/案例/矿脉/拆解)"
+    },
+    {
+      "file": "judgment-log.md",
+      "updated": "2026-10-02",
+      "note": "判断日志层"
+    },
+    {
+      "file": "工作包.html + ops-sync-work-package.cjs",
+      "version": "V1.0",
+      "updated": "2026-10-02",
+      "note": "后台工作包同步链:改 cici/工作包.html → node scripts/ops-sync-work-package.cjs → 后台即最新"
+    },
+    {
+      "file": "seo-geo-monthly.json",
+      "version": "V1.0",
+      "updated": "2026-10-03",
+      "note": "SEO/GEO 月度收录基线台账,每月例会对比"
+    }
+  ],
+  "downstream_audits": [
+    {
+      "artifact": "桌面 FUZZ发布包.txt",
+      "depends_on": [
+        "social-platform-rules",
+        "keyword-library"
+      ],
+      "last_audit": "2026-10-02 @V8.5.0",
+      "status": "OK"
+    },
+    {
+      "artifact": "content-master.md 排产",
+      "depends_on": [
+        "social-platform-rules",
+        "keyword-library",
+        "judgment-log"
+      ],
+      "last_audit": "2026-10-02",
+      "status": "OK(包1-8按10-01规生成,审计未发现违规;新包按V8.5.0)"
+    },
+    {
+      "artifact": "operator-dashboard.json featured_sku",
+      "depends_on": [
+        "content-master"
+      ],
+      "last_audit": "2026-09-30",
+      "status": "WATCH(10-06 到期换主推,届时重审)"
+    },
+    {
+      "artifact": "后台 admin/index.html『AI 助手→工作包』",
+      "depends_on": [
+        "content_blocks(work_package_html)",
+        "cici/工作包.html"
+      ],
+      "last_audit": "2026-10-02 @部署",
+      "status": "OK"
+    }
+  ],
+  "pending_resync": []
+}

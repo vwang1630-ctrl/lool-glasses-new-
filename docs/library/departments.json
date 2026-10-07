@@ -1,0 +1,105 @@
+{
+  "manifest": "FUZZ SOFA 部门编制表（AI 合伙人体制下的一级部门注册处）",
+  "version": "V1.2.0",
+  "updated": "2026-09-26",
+  "source": "站主 2026-09-26 裁决：社媒出口线独立成部门，部门名=神仙姐姐",
+  "departments": [
+    {
+      "id": "dept-shenxian-jiejie",
+      "name": "神仙姐姐",
+      "full_name": "神仙姐姐部（社媒出口部）",
+      "established": "2026-09-26",
+      "mandate": "blog 是母体，神仙姐姐部是出口——把每一篇母体内容切成各平台 native 形状送出去，并让每一发子弹可归因、可复盘、可反哺下一篇选题",
+      "reports_to": "AI 操盘手（fuzz-operator）",
+      "staffing": "编制 1 席：由 AI 操盘手社媒线兼任（第一阶段不设独立席位，扩张待 ROI 数据）",
+      "jurisdiction": {
+        "green_直接执行台账留痕": [
+          "每篇 blog/产品的全套出口产稿（social-outlet，过 rb12/rb13/rb14 闸）",
+          "social_calendar 排期落库与执行提醒",
+          "按 playbook V3.0 模板执行评论区互动与 DM 喂链接话术",
+          "周 social-review 数据复盘（证伪条目必须写回 playbook 或明示无变化）",
+          "节点日历维护（Dubai Design Week/Art Dubai/斋月 Eid/Majlis 季）+ 提前 30 天产稿躺库",
+          "场景归因台账（-alserkal/-citywalk/-dubaihills/-trade UTM 数据沉淀为海湾地标热力图）",
+          "后续一切社交类业务归口本部（站主 2026-09-26 确认）：今天新开的社媒出口线为起点，未来新增平台/账号/社交业务一律进神仙姐姐部",
+          "平台研究先行（2026-09-26 立）：新平台首次产稿前必须先建研究块（官方规则+基准数据+爆款样例三层，带出处）入 social-platform-rules.json，没研究块不许产稿"
+        ],
+        "yellow_提案待批": [
+          "playbook 规则修订（新增/证伪算法假设）",
+          "新平台出口开通（TikTok/Reddit 现状=库内有宪法但未启用）",
+          "新追评/DM 话术模板",
+          "对外 Collab 邀请（如 Alserkal Avenue 官方号）"
+        ],
+        "red_永不越界": [
+          "不碰 PDP/价格/站内文案/模板锁（归 A 线闸门）",
+          "不接平台 API、不买小号（站主 2026-09-14 裁决）",
+          "不自导自演：对外永远署名 Fuzz Sofa 品牌号/Cici 创始人人设，禁伪装买家身份发言/评价（假评论=全系统红线）",
+          "涉钱投放（预算/充值/竞价）一律站主拍板",
+          "不限流红线：IG caption 挂链接、factory 词族、评论X送Y（rb13/rb14 强制）",
+          "无出处数字不入产稿不入周报（2026-09-26 站主红线：判读线只用有源基准+我方第一方数据，查不到=标 T4 假设并注明，绝不冒充实绩）"
+        ]
+      },
+      "kpi": {
+        "primary": "consult_events（出站咨询），不是粉丝数不是赞",
+        "cadence": "14 天 +3~+8 → 30 天 +10~+20（V8 基线，跑三个循环后按实际重校）",
+        "per_post_efficiency": "每篇母体的出口效率比=每千次曝光产出的 consult_events，周报必列",
+        "scenario_heatmap": "海湾地标场景热力图（数据反哺选题的制度化载体）"
+      },
+      "rituals": {
+        "daily": "排期执行 + 互动话术 + 当日数据记 social_calendar.metrics",
+        "weekly": "周一例会前交神仙姐姐周报（独立段落进 partner-report）：五问+各平台数据 vs 判读线+本周证伪了哪条规则（或明示无变化+为何）+下周计划；数据源=social-data-inbox.md（站主每周日填写）",
+        "monthly": "场景热力图刷新 → 下月选题提案（提交操盘手走 fuzz-produce 立单）"
+      },
+      "first_sprint": "按 V3.0 节奏打完 Dubai 篇（Pin×4 + IG Reels 9/29 + FB 迪拜 10:00）；跑通一个完整周报模板；启动场景归因台账 v1",
+      "operating_bases": [
+        "docs/library/social-platform-rules.json（V8 算法宪法）",
+        "docs/library/social-playbook.json（V3.0 出口操作层）",
+        "social_calendar 表（排期与数据）",
+        "fuzzsofa.com/social（一键复制工作台）",
+        "docs/library/social-data-inbox.md（数据收件箱：站主周日 2 分钟填数，周报唯一数据源）",
+        "docs/library/social-accounts-registry.md（账号资产登记：只记状态不存密码）"
+      ],
+      "scope_note": "管辖权=社交类全域（站主 2026-09-26 划定）；操盘手保留第 0 层战略与新市场进入管线主责（市场无关方法论，GCC 只是第一个剧场），神仙姐姐部承接其社媒出口执行"
+    },
+    {
+      "id": "dept-ghost",
+      "name": "幽灵员工",
+      "full_name": "幽灵员工部（物流情报部）",
+      "established": "2026-09-18",
+      "formal_launch": "2026-09-26（站主令「正式的开启」）",
+      "mandate": "代替人肉巡检的后台情报员：FX 汇率哨兵 + 在途包裹拟人查单 + 承运商公告监控 + 物流轨迹人工代查（§14 绕 API 弯路），只读、不碰钱、不做法律动作，一切商务建议只写简报待裁决",
+      "reports_to": "AI 操盘手（fuzz-operator）",
+      "staffing": "编制 1 席（AI 兼任），Phase 2 方向=快递100/浏览器自动化（站主已定方向）",
+      "jurisdiction": {
+        "green_直接执行台账留痕": [
+          "每日 08:30 简报（ghost-daily.mjs）：FX 漂移/在途包裹/承运商公告",
+          "物流轨迹人工代查入库（后台轨迹代查卡→shipment_events source=manual）",
+          "运行留痕 runs.jsonl + 简报归档 briefings/"
+        ],
+        "yellow_提案待批": [
+          "换汇基准调整建议（涉钱=站主拍板）",
+          "Phase 2 浏览器自动化升级",
+          "新增监控源（新承运商/新公告页）"
+        ],
+        "red_永不越界": [
+          "只读数据库，零写操作",
+          "不做比价/改价/理赔等商务法律动作",
+          "异常不静默吞——失败本身就是情报"
+        ]
+      },
+      "kpi": {
+        "primary": "简报按日交付率 + 情报命中率（FX 漂移捕获/包裹状态准确）",
+        "cadence": "每日 10:00（Windows 计划任务 FUZZ Ghost Daily，2026-09-26 站主定 10:00）"
+      },
+      "rituals": {
+        "daily": "10:00 简报 → 操盘手晨读 → 需裁决项上浮站主",
+        "weekly": "情报周汇总并入神仙姐姐周报附件"
+      },
+      "operating_bases": [
+        "scripts/ghost/（ghost-daily.mjs + briefings/ + runs.jsonl）",
+        "docs/fuzz-produce-manual §14（系统文档）"
+      ],
+      "handover_note": "2026-09-26 接管时发现：计划任务从未注册（9-18 后断档 8 天），已补跑当日简报；schtasks 注册被权限护栏拦，待站主亲手执行一条命令"
+    }
+  ],
+  "expansion_rule": "新部门由站主命名+裁决设立；编制与预算变化属站主裁决区；部门章程修订走 operator-library 台账"
+}

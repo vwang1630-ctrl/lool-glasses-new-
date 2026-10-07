@@ -1,0 +1,49 @@
+{
+  "manifest": "SEO/GEO 月度收录基线台账 — 每月例会对比(数据源:gsc-latest.json 自动拉取 + ai-visibility.json 采样),首月 2026-09",
+  "version": "V1.0",
+  "created": "2026-10-03",
+  "entries": [
+    {
+      "month": "2026-09",
+      "gsc": {
+        "range": "2026-09-02 → 09-30(28 天窗口)",
+        "clicks": 4,
+        "impressions": 225,
+        "ctr_pct": 1.8,
+        "avg_position": 7.8,
+        "baseline_note": "对比 9-21 起点:74 展示 0 点击——首批点击出现,展示 ×3",
+        "source": "gsc-latest.json(2026-10-03T00:57Z 自动拉取,T1)"
+      },
+      "geo": {
+        "engines_tested": "Google AI 概览(站主手机实测,提前首测 1 问)",
+        "prompts_tested": 1,
+        "cited": false,
+        "cited_domains_instead": "OfficeLogixShop / Amazon / AliExpress / LV Furniture Collection",
+        "full_sampling": "ChatGPT/Perplexity/Gemini 月度全量首测未跑(方法在 ai-visibility.json,18 问)",
+        "llms_txt": "已部署",
+        "source": "ai-visibility.json check_log 2026-09-30(T2 手工实测)"
+      },
+      "top_keywords": [
+        "ai gorilla couch / ai gorilla sofa(gorilla 制作故事文承接)",
+        "animal sofa(合集页,pos 15.25)",
+        "animal inspired furniture",
+        "meteorite 页荷兰语查询(pos 1)"
+      ],
+      "next_review": "2026-11 例会:对比本基线,同口径",
+      "channels_baseline": {
+        "note": "2026-10-03 各渠道冷启动实测(站主面板,T1)——全部为零,此为 10 月起点",
+        "pinterest": "已发布,点击数据周一批露",
+        "instagram": "113 浏览/24h(单条 Reel 最高),真实互动 0",
+        "facebook": "保温模式,0 点击",
+        "youtube": {
+          "subs": 3,
+          "videos": 1,
+          "views": 2,
+          "clicks": 0,
+          "note": "6 秒 AI 风格短片,2 个月前发,无目标词无指向——0=出厂状态非成绩"
+        },
+        "reddit": "未入场(账号未建)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "_manifest": "IG 泵水第一战(Water Factory 首役,站主 2026-10-02 批『开』)。全程按协议判例009-012执行。",
+  "version": "V1.0",
+  "established": "2026-10-02",
+  "goal": "14 天内找到第一条可重复水路:陌生曝光→UTM 命中网站→≥1 下游行为(产品页深读/preview 提交/咨询)",
+  "hard_endpoint": {
+    "window_days": 14,
+    "start": "首条 H 假设 Reel 发布日",
+    "success": "任一 H 假设跑出完整链,每段有出处(平台面板+UTM+consult_events)",
+    "fail_action": "复盘换钩子维度再来,不无限拖"
+  },
+  "evidence_separation": [
+    "竞品数据=假设来源(T2)",
+    "自己账号数据=假设验证(T1)",
+    "真实咨询/成交=商业验证(台账)",
+    "三层不得混(判例库原规)"
+  ],
+  "mechanism_audit_20261002": {
+    "_note": "判例012:全部带官方源+日期;第三方基准一律 T3 仅参照永不设及格线",
+    "ranking_signals": {
+      "tier": "T2官方",
+      "source": "Adam Mosseri 2025-01 官方确认+Meta ranking explainer",
+      "entries": [
+        "Reels 三核心信号:观看时长(#1,含回放率)+likes per reach+sends per reach",
+        "2026 趋势:sends/DM 分享权重升至最强;赞弱化,save/comment 超过赞",
+        "profile visit after watch=强相关性信号",
+        "前 30-60 分钟早期互动速度影响分发;Reels chaining 分批约100条排序"
+      ]
+    },
+    "link_policy": {
+      "tier": "T2官方+T3观察",
+      "entries": [
+        "Mosseri 2025-07-22 官方辟谣:'link in bio' 说法不降 reach",
+        "文案裸链接不可点击(历史行为)→维持禁令,引流=bio 链接(UTM)+Stories 贴纸",
+        "⚠️观察项(T3):2026 IG 测试文案原生可点链接/产品标签,若全量上线须重写 link_policy"
+      ]
+    },
+    "hashtag_policy": {
+      "tier": "T2官方建议+T3观察",
+      "entries": [
+        "Meta 官方:每帖 3-5 个高相关标签;2025-12 起上限约 5(测试 3)",
+        "发现机制转向 caption/屏幕文字/alt text 的 SEO 关键词——关键词写进文案和字幕",
+        "泛标签(#love类)无效"
+      ]
+    },
+    "benchmarks": {
+      "tier": "T3仅参照",
+      "rule": "完播率/互动率第三方基准不设及格线;前 3 条 Reels 建自有基线(T1 唯一参照)"
+    }
+  },
+  "watchlist": {
+    "_note": "三类水脉(站主 10-02 采 ChatGPT 案):A 学形式/B 起流量/C 找对水(商业密度最高,≥3 张卡)",
+    "A_direct": [
+      "nemuiil",
+      "office logix shop",
+      "maximo riera",
+      "moooi",
+      "blu dot",
+      "LV Furniture Collection",
+      "das archivée",
+      "waimaoyangdan01(DM定制)",
+      "garagealkosto(西语市场)",
+      "navhomestores(印度现货)",
+      "Sang Hoon Kim/Meteorite 1stDibs",
+      "George Furniture(3D概念)"
+    ],
+    "B_scenario": [
+      "furnitecture.studio(艺术家具场景)",
+      "giant.sculptures(雕塑×空间)",
+      "moooi(部分场景)",
+      "待补:GCC 豪宅软装/luxury interior 账号 2-3 个"
+    ],
+    "C_buychain": [
+      "geoworldgallery(画廊/经销商)",
+      "maximo riera(艺术家生态)",
+      "待补:GCC 室内设计师/软装/开发商账号 2-3 个——站主翻墙时顺手加"
+    ]
+  },
+  "dissection_card_template": {
+    "_note": "7 字段;⑤只填可见行为代理,竞品网站/DM 数据不可见禁填(防编数据)",
+    "fields": {
+      "1_account": "",
+      "2_link_placement": "bio|文案|评论|无|Stories贴纸",
+      "3_hashtags": "数量+具体组合",
+      "4_hook_3s": "前3秒画面+文字",
+      "5_format": "实拍|渲染|房间场景|过程|混合",
+      "6_demand_scenario": "豪宅客厅|statement piece|定制|小空间等",
+      "7_visible_behavior_proxy": "CTA指向+评论区在说什么(问价=DM水路/where to buy=网站水路/保存暗示=收藏水路)"
+    }
+  },
+  "hypothesis_template": {
+    "id": "H-001",
+    "target_person": "",
+    "demand_scenario": "",
+    "hook": "",
+    "format": "",
+    "cta": "",
+    "expected_behavior": "",
+    "utm": "",
+    "falsify": "达 X 次有效曝光仍无目标信号则废(X=首轮自建基线后定)",
+    "target_search_keyword": "本条 Reel 主赌的 IG 搜索词(文案首句+屏幕文字+alt text 三处必须出现)"
+  },
+  "owner_task": {
+    "what": "翻 watchlist 账号,截互动最高 Reel(封面+评论区)",
+    "quota": "15 张,C 类≥3,三天攒齐",
+    "send_to": "操盘手逐张填拆解卡"
+  },
+  "growth_mode": "organic_only(站主令 2026-10-02,零投流跑第一战)",
+  "seo_checklist": [
+    "文案第一句必须含本条目标搜索词(钩子+SEO 一句两用)",
+    "屏幕文字烧入关键词(用户搜词时字幕被索引)",
+    "alt text 替代文本每帖必填(一句话描述+关键词,零成本增量)",
+    "标签 3-5 个精准,不堆",
+    "账号名字字段含品类词(Sculptural Sofas & Animal Shaped Chairs 已合规)"
+  ],
+  "data_loop_ig": {
+    "cadence": "每周一随 GSC 拉数+日常面板(北京时间)",
+    "per_hypothesis": [
+      "views",
+      "watch 完成度(面板)",
+      "sends/shares",
+      "saves",
+      "comments(问出处剔T0)",
+      "profile visits",
+      "UTM sessions",
+      "下游行为(产品页深读/preview/consult)"
+    ],
+    "per_keyword": [
+      "目标词 Reel 是否出现在 IG 搜索(站主墙内查,截图)",
+      "该词 Reel 的 views 对比"
+    ],
+    "verdict_rule": "H 假设由自家数据证伪;词由数据留强汰弱;全部绝对计数带日期(协议§5)"
+  },
+  "fb_status": {
+    "mode": "weekly_1post 保温模式(站主 10-02 批,原 paused 修为每周一帖)",
+    "slot": "北京时间每周四 21:00(T3 行业基准占位,粉丝>100 后用自家数据重挑)",
+    "content": "转发当周表现最好的 Pin(图+文案现成,零创作)",
+    "first_post": "2026-10-08 21:00,内容=10-03~10-07 跑得最好的一条,由操盘手放成品包进桌面文件",
+    "why": "页面保温(门面灯常亮)+零创作成本+零心气损耗;期望水=0(判例009:零粉社交图不产水),此定位为保温不为引水",
+    "exit": "粉丝>100 或首条真实咨询 → 重评是否认真做 FB",
+    "page_state": "已有历史帖(10-01 Noctua 等),非空页"
+  },
+  "ig_bio_link": {
+    "status": "不挂(站主 10-02 裁决;且 web 端实测无法改链接——Instagram 限制仅移动 App 可编辑,站主手机暂不可用,双方合流撤销)",
+    "ig_downstream": "主页访问→DM/关注/咨询(consult_events 记录);UTM 网站对账暂由 Pinterest 独扛",
+    "reopen": "站主手机可用且愿意时,App 内一分钟设置,链接备好随取"
+  }
+}

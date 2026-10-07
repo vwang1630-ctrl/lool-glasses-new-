@@ -1,0 +1,109 @@
+{
+  "manifest": "selling-points — 卖点库(SKU × 画像 × 证据句;sales-intent-backlog B 项 2026-09-30 立)",
+  "version": "V1.0",
+  "updated": "2026-09-30",
+  "write_rules": [
+    "无出处不主张照用:每句必须挂 source(指向 products.data 字段或带日期的 PDP 抓取)",
+    "句子是成品文案,生产(PDP/blog/发布包)直接取用,不临场发挥",
+    "摩擦次数/Martindale/可拆卸/机洗 禁入(r7/r6 照适用)",
+    "新 SKU 入库 = 站主供四要素后,按 4 画像各 3 句起建"
+  ],
+  "products": {
+    "kong-tender-titan-monumental-sculpture-sofa": {
+      "label": "Kong",
+      "updated": "2026-09-30",
+      "by_persona": {
+        "kong-movie-fan": [
+          {
+            "line": "Most gorilla sofas are prints on foam. Kong is a 2.5 mm Q235 welded frame rated to 200 kg — the meme, engineered.",
+            "source": "Kong PDP(2026-09-30 抓取):钢架/承重/FUZZ-LAB-2024-01"
+          },
+          {
+            "line": "Serialised inspection report SH2024-0945 travels with your crate — your unit's recorded test, not a marketing claim.",
+            "source": "Kong PDP:序列化检验报告"
+          },
+          {
+            "line": "Clay form, welded steel core, hand-sewn fur — built in our own Shanghai atelier. No OEM, no catalog, no second Kong.",
+            "source": "Kong PDP FAQ:手工/独占原创/OEM 否定"
+          }
+        ],
+        "statement-piece-affluent": [
+          {
+            "line": "At $9,900, Kong sits in the engineering tier of an $899–$32,000 market — monumental scale, documented like equipment.",
+            "source": "PDP $9,900 + 9/27 站主竞品情报价格带(Office Logix/Maximo Riera)"
+          },
+          {
+            "line": "One partner per city: your skyline, your Kong, and no second one in any catalog.",
+            "source": "站内 One Partner Per City 口径 + PDP FAQ 独占条款"
+          },
+          {
+            "line": "The QC report with your serial number is collector provenance — for a sculpture you actually sit in.",
+            "source": "Kong PDP:序列化检验报告"
+          }
+        ],
+        "plush-comfort-collector": [
+          {
+            "line": "45 kg/m³ cold-cure foam shaped in its final form — it keeps the cloud without going flat.",
+            "source": "Kong PDP:冷固高密海绵"
+          },
+          {
+            "line": "Seat height tuned to 38 cm: gorilla-lounge geometry you sink into, not perch on.",
+            "source": "Kong PDP FAQ:38cm 座高"
+          },
+          {
+            "line": "Three collector skins — full-grain leather, short velvet, long faux fur — one hand-sewn per piece.",
+            "source": "Kong PDP FAQ:三材质一口径"
+          }
+        ],
+        "cat-household-upgrader": [
+          {
+            "line": "A firm raised seat that never sags: 45 kg/m³ cold-cure foam holds its shape through years of pounce-and-nap cycles.",
+            "source": "Kong PDP:冷固高密海绵(防塌由材料密度支撑,不做摩擦次数主张——r7)"
+          },
+          {
+            "line": "Rated to 200 kg — the zoomies are covered.",
+            "source": "Kong PDP:200kg rated FUZZ-LAB-2024-01"
+          },
+          {
+            "line": "Full-grain leather skin wipes clean — the easy mode for pet households.",
+            "source": "Kong PDP FAQ:皮革 wipes clean"
+          }
+        ]
+      }
+    },
+    "mofu-cat-sofa-tender-hug-sculpture": {
+      "label": "Mofu",
+      "updated": "2026-09-30",
+      "by_persona": {
+        "cat-household-upgrader": [
+          {
+            "line": "That viral cat sofa flooding your feed was a 3D render. Mofu is real — 120 cm of cat, steel frame, foam that never sags.",
+            "source": "T2:病毒渲染图百万观看+求购评论(2026-09-30 检索实测)+PDP 钢架/冷固海绵"
+          },
+          {
+            "line": "$100 bean bags collapse. Renders don't exist. Mofu is $3,660 of furniture-grade cat — 42 cm raised seat, built for a decade of naps.",
+            "source": "KEIKI 豆袋 $100-300(检索)+PDP 42cm 座高/T1 产品数据"
+          },
+          {
+            "line": "One shape, three skins — Coarse Boucle, Ice Silk Satin, or plush. Cut and hand-sewn per piece.",
+            "source": "PDP:三材质一口径"
+          }
+        ],
+        "plush-comfort-collector": [
+          {
+            "line": "The nap you remember from childhood — on a cat the size of one.",
+            "source": "kidult 舒适经济(brand-library Jellycat 案例 T3)+动画感设计语言(PDP gentle giant archetype)"
+          },
+          {
+            "line": "Cat-shaped, furniture-grade: the internet's favorite cat sofa, engineered instead of rendered.",
+            "source": "截流定位(2026-09-30 判决)+PDP 工程事实"
+          },
+          {
+            "line": "Steel skeleton under the soft: rated for humans, shaped like your cat.",
+            "source": "PDP:钢架+承重"
+          }
+        ]
+      }
+    }
+  }
+}

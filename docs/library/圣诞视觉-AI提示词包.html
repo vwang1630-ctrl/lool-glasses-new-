@@ -1,0 +1,142 @@
+<title>圣诞视觉 AI 提示词包</title>
+<style>
+  :root { --bg:#f4f6f8; --surface:#fff; --ink:#141f2c; --ink2:#4a5b6d; --line:#d6dde4; --accent:#0e7490; --red:#9a3412; --red-bg:#f9ece5; --code-bg:#0f1b29; --code-fg:#d7e3f0; color-scheme: light; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0e151d; --surface:#16202b; --ink:#dbe4ed; --ink2:#8ba0b4; --line:#2a3948; --accent:#4cc3e0; --red:#e8956a; --red-bg:#2b1f18; --code-bg:#0a121c; --code-fg:#c9d8e6; color-scheme: dark; } }
+  :root[data-theme="dark"] { --bg:#0e151d; --surface:#16202b; --ink:#dbe4ed; --ink2:#8ba0b4; --line:#2a3a48; --accent:#4cc3e0; --red:#e8956a; --red-bg:#2b1f18; --code-bg:#0a121c; --code-fg:#c9d8e6; color-scheme: dark; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif; font-size:15.5px; line-height:1.8; padding-inline:clamp(16px,5vw,44px); }
+  main { max-width:780px; margin:0 auto; padding-block:40px 64px; }
+  h1,h2,h3 { font-family:"Noto Serif SC","Songti SC",serif; line-height:1.4; text-wrap:balance; }
+  h1 { font-size:1.9rem; margin:0 0 .3em; }
+  h2 { font-size:1.3rem; margin:2.4em 0 .6em; padding-top:1.1em; border-top:1px solid var(--line); }
+  h3 { font-size:1.05rem; margin:1.5em 0 .4em; }
+  .sub { color:var(--ink2); }
+  .box { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:1em 1.3em; margin:1.2em 0; }
+  .red { border-left:3px solid var(--red); background:var(--red-bg); }
+  pre { background:var(--code-bg); color:var(--code-fg); border-radius:10px; padding:1em 1.2em; overflow-x:auto; font-size:.8rem; line-height:1.65; font-family:"JetBrains Mono",Consolas,monospace; white-space:pre-wrap; }
+  table { width:100%; border-collapse:collapse; font-size:.9rem; margin:1em 0; }
+  th,td { text-align:left; padding:.5em .7em; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--ink2); font-size:.8rem; }
+  .tag { display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.1em; color:var(--accent); margin-bottom:.4em; }
+</style>
+<main>
+  <h1>圣诞视觉 · AI 提示词包</h1>
+  <p class="sub">四款产品 · 8 场景 + 氛围图 · 给设计/AI 生图直接用 · v1.0 · 2026-10-04</p>
+
+  <h2>〇、策略与红线（设计必读）</h2>
+  <div class="box red">
+    <p style="margin:0 0 .5em"><strong>① 产品本体必须实拍合成</strong></p>
+    <p style="margin:0 0 .8em">品牌文案是 "Everyone Posts Renders. We Built the Real One."——AI 只生成<strong>场景氛围图</strong>（空房间/环境/光影），产品从实拍图库抠图合成。纯 AI 生成产品形象 = 自毁定位，禁止。</p>
+    <p style="margin:0 0 .5em"><strong>② 圣诞 = 我们的"唯一点缀色"逻辑</strong></p>
+    <p style="margin:0">视觉规范：色板 ≤1 个点缀色。圣诞红就是那个点缀色——一个红丝带/一只红球/一束暖灯即可，<strong>禁止圣诞树雪人堆满画面</strong>。画面世界依旧硬（混凝土/夜雪/留白），节日是画面里的一点暖。</p>
+  </div>
+  <table>
+    <tr><th>用途</th><th>比例</th><th>备注</th></tr>
+    <tr><td>IG 主帖</td><td class="num">4:5（1080×1350）</td><td>九宫格主弹药</td></tr>
+    <tr><td>官网 Hero / 横幅</td><td class="num">16:9</td><td>圣诞档 landing</td></tr>
+    <tr><td>Stories / Reels 封面</td><td class="num">9:16</td><td>竖版三连</td></tr>
+  </table>
+
+  <h2>一、通用 Negative Prompt（所有场景共用）</h2>
+<pre>candy colors, cluttered christmas decorations, christmas tree overload, santa claus,
+snowmen, gaudy ornaments, oversaturated, soft pastel filter, dreamy bokeh overkill,
+stock photo look, cheesy, blurry product, distorted furniture, warped fur texture,
+text, watermark, logo, third-party brand items, messy room, plastic look</pre>
+
+  <h2>二、Kong Tender Titan（旗舰猩猩王座）</h2>
+
+  <h3>场景 K1 ·「守护圣诞的温柔巨人」— 官网 Hero / IG 主帖</h3>
+  <div class="box"><span class="tag">创意</span>混凝土 LOFT 挑高客厅，一面落地窗外是大雪，室内唯一暖源是壁炉与产品；一根红丝带从猩猩肩头垂落。巨兽守着节日，反差即叙事。</div>
+<pre>Editorial interior photography, vast brutalist concrete loft living room, floor-to-ceiling
+windows with heavy snowfall outside at dusk, a monumental black fur gorilla-shaped sculptural
+sofa as the only furniture, positioned like a throne, single crimson silk ribbon draped over
+its shoulder, fireplace glow as the only warm light source, low-angle shot emphasizing
+monumental scale, desaturated warm-neutral palette, deep shadows, museum-quality lighting,
+one red accent only, shot on medium format camera, ultra detailed fur texture, 8k
+--ar 16:9  [官网横幅]
+--ar 4:5   [IG 主帖]
+--ar 9:16  [Stories]</pre>
+
+  <h3>场景 K2 ·「礼物比它小」— IG 单图 / Stories</h3>
+  <div class="box"><span class="tag">创意</span>素水泥背景，猩猩沙发前地板上放一只包装精致的小礼物盒——礼物的渺小反衬产品的分量。文案钩子现成："This year's biggest gift isn't in a box."</div>
+<pre>Minimalist fine-art product photography, empty raw concrete gallery space, polished concrete
+floor, a single elegantly wrapped dark green gift box with thin crimson ribbon placed on the
+floor, vast negative space behind it reserved for compositing, single hard directional
+spotlight from above, long dramatic shadow, museum atmosphere, desaturated charcoal and bone
+palette, architectural digest style, ultra sharp
+--ar 4:5  [合成位:产品实拍置于礼盒后方,占画面 70%]</pre>
+
+  <h2>三、Noctua Owl（猫头鹰雕塑沙发）</h2>
+
+  <h3>场景 N1 ·「雪夜守夜人」— IG 主帖</h3>
+  <div class="box"><span class="tag">创意</span>夜雪初停的落地窗前，猫头鹰沙发面朝窗外雪林，室内一串暖色灯串（唯一节日元素），安静得能听见雪落——契合猫头鹰的"夜"属性。</div>
+<pre>Cinematic interior photography, silent snowy night, floor-to-ceiling window overlooking a
+snow-covered pine forest under moonlight, plush owl-shaped sculptural armchair facing the
+window in silhouette, one strand of warm miniature string lights glowing softly on the wall
+behind, blue hour tones, warm-cool contrast, quiet contemplative mood, desaturated palette,
+editorial photography, shot on medium format, film grain, ultra detailed
+--ar 4:5  --ar 9:16</pre>
+
+  <h3>场景 N2 ·「壁炉边的守夜者」— 官网横幅</h3>
+<pre>Editorial interior, minimal modern chalet living room at night, stone fireplace with burning
+fire, plush owl-shaped sculptural armchair beside the firelight, bone-white and charcoal
+palette, warm firelight as only color source, snow visible through a small round window,
+cozy but austere, high-end interior magazine photography, desaturated warm neutrals
+--ar 16:9</pre>
+
+  <h2>四、Mofu Cat（猫形拥抱沙发）</h2>
+
+  <h3>场景 M1 ·「拆礼物的猫」— IG 主帖（四款里最"节日"的一张）</h3>
+  <div class="box"><span class="tag">创意</span>柔和晨光客厅，猫形沙发周围散落 2-3 只已拆开的礼盒与丝带——像猫拆完了礼物。这是唯一允许画面"俏皮"的场景，但色板纪律不破。</div>
+<pre>Soft editorial interior photography, morning window light in a minimal warm-wood living room,
+a plush cat-shaped hugging armchair in cream white fur, two or three opened gift boxes with
+loose crimson ribbons scattered on the wool rug in front of it, playful but restrained,
+warm neutral palette with single red accent, soft natural light, shallow depth of field,
+lifestyle magazine quality
+--ar 4:5  --ar 9:16</pre>
+
+  <h3>场景 M2 ·「圣诞拥抱」— Stories</h3>
+<pre>Close-up lifestyle photography, detail of a cream plush cat-shaped armchair, a single
+knitted crimson scarf casually draped over its "arms", warm bokeh string lights in dark
+background, intimate cozy mood, minimal composition, tactile fur texture close-up,
+desaturated warm tone
+--ar 9:16</pre>
+
+  <h2>五、Meteorite（陨石雕塑沙发）</h2>
+
+  <h3>场景 Me1 ·「随圣诞夜坠落的陨石」— 全案视觉锤</h3>
+  <div class="box"><span class="tag">创意</span>夜空雪原/极简中庭，陨石沙发静静停在画面中心，头顶一线流星——"圣诞夜，有东西坠落在了你家客厅"。全案最强的一张，建议做主视觉。</div>
+<pre>Cinematic wide shot, minimal snow-covered courtyard at night surrounded by dark concrete
+walls, a meteorite-textured sculptural sofa in the center as the only object, a single faint
+shooting star streak across the deep blue night sky, gentle snowfall, dramatic rim lighting,
+near-monochrome palette of charcoal and bone with faint warm window glow on one side,
+epic and silent atmosphere, fine-art photography, ultra high detail
+--ar 16:9  --ar 4:5</pre>
+
+  <h3>场景 Me2 ·「金色圣诞」— IG 主帖</h3>
+<pre>Editorial interior photography, dark charcoal gallery room, meteorite-textured sculptural
+sofa under a single museum spotlight, one gold christmas bauble resting on the sofa seat as
+the only festive element, dramatic chiaroscuro lighting, near-black background, gold as the
+only color, luxury minimalism, shot on medium format
+--ar 4:5</pre>
+
+  <h2>六、合成规范（给设计）</h2>
+  <table>
+    <tr><th>项</th><th>要求</th></tr>
+    <tr><td>产品来源</td><td>仅用实拍图库（拍摄要求剧照包）；透视、焦段、光影方向须与场景一致；产品投影/接地阴影必须重绘贴合</td></tr>
+    <tr><td>产品占比</td><td>主视觉 60–75%；氛围图产品可剪影/半剪影</td></tr>
+    <tr><td>标注</td><td>纯 AI 氛围图（未合成产品）用于 IG 的话，Caption 加 "Concept scene"；合成产品图不用标</td></tr>
+    <tr><td>禁止</td><td>AI 生成产品形态、改变产品比例/颜色/材质、给它加圣诞帽之类的拟物改造</td></tr>
+  </table>
+
+  <h2>七、圣诞档文案钩子与时间线（北京时间）</h2>
+  <table>
+    <tr><th>日期</th><th>动作</th></tr>
+    <tr><td>11 月中旬</td><td>视觉图全部出稿；IG 开始暖场（氛围图先行）</td></tr>
+    <tr><td>12 月 1 日前后</td><td>圣诞档上线 + **订单截止提醒**：定制 1–3 天 + 门到门 7–14 天 → 想圣诞前收货，最晚 12 月上旬下单（具体截止日以物流实测为准，先按 12 月 5 日试）</td></tr>
+    <tr><td>12 月下旬</td><td>转" Christmas is over. The sculpture stays."——节日后的长期主义收尾帖</td></tr>
+  </table>
+  <p class="sub">文案钩子库：*The gift that stays in the living room.* / *This year's biggest gift isn't in a box.* / *Santa delivers presents. We deliver a monument.*</p>
+
+  <footer>FUZZ SOFA 圣诞视觉 v1.0 · 提示词风格已对齐《视觉风格规范 v1.0》(硬世界里的软雕塑) · 产品本体实拍合成红线全程有效</footer>
+</main>

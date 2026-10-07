@@ -1,0 +1,345 @@
+<title>GEO 实战手册</title>
+<style>
+  /* ── 设计方向：一份"给 AI 看的说明书"自身的说明书——
+     检索文档的冷静蓝墨 + 引用芯片 + 档案编号式小标 ── */
+  :root {
+    --bg: #f2f5f7;
+    --surface: #ffffff;
+    --ink: #122031;
+    --ink-2: #46586c;
+    --line: #d5dde4;
+    --accent: #0e7490;
+    --accent-ink: #0b5c73;
+    --cite: #9a3412;
+    --cite-bg: #fbeee6;
+    --ok: #166534;
+    --warn: #92400e;
+    --code-bg: #0f1b29;
+    --code-fg: #d7e3f0;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e151d;
+      --surface: #16202b;
+      --ink: #dbe5ef;
+      --ink-2: #8ba0b4;
+      --line: #2a3948;
+      --accent: #4cc3e0;
+      --accent-ink: #7ad4ea;
+      --cite: #e8956a;
+      --cite-bg: #2b1f18;
+      --ok: #6fcf97;
+      --warn: #e0a850;
+      --code-bg: #0a121c;
+      --code-fg: #c9d8e6;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0e151d;
+    --surface: #16202b;
+    --ink: #dbe5ef;
+    --ink-2: #8ba0b4;
+    --line: #2a3948;
+    --accent: #4cc3e0;
+    --accent-ink: #7ad4ea;
+    --cite: #e8956a;
+    --cite-bg: #2b1f18;
+    --ok: #6fcf97;
+    --warn: #e0a850;
+    --code-bg: #0a121c;
+    --code-fg: #c9d8e6;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-size: 16px;
+    line-height: 1.85;
+    padding-inline: clamp(16px, 6vw, 48px);
+  }
+  main { max-width: 720px; margin: 0 auto; padding-block: 48px 72px; }
+  p { margin: 0 0 1em; }
+  h1, h2, h3 { font-family: "Noto Serif SC", "Songti SC", serif; line-height: 1.35; text-wrap: balance; }
+  h2 { font-size: 1.55rem; margin: 3em 0 .8em; padding-top: 1.2em; border-top: 1px solid var(--line); }
+  h2 .no { color: var(--accent); font-variant-numeric: tabular-nums; margin-right: .5em; }
+  h3 { font-size: 1.12rem; margin: 1.8em 0 .5em; }
+  a { color: var(--accent-ink); text-underline-offset: 3px; }
+  sup.cite a { text-decoration: none; color: var(--cite); font-weight: 600; font-size: .72em; }
+  .lede { font-size: 1.13rem; color: var(--ink-2); }
+  .eyebrow {
+    font-size: .74rem; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600; margin-bottom: 1em;
+  }
+  header h1 { font-size: clamp(2rem, 6vw, 2.9rem); margin: 0 0 .5em; }
+  .toc {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 1.1em 1.4em; margin: 2.2em 0 0; font-size: .92rem;
+  }
+  .toc ol { margin: .3em 0 0; padding-left: 1.3em; }
+  .toc a { text-decoration: none; }
+  .box {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 1em 1.3em; margin: 1.4em 0;
+  }
+  .box .tag {
+    display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .12em;
+    color: var(--accent); margin-bottom: .4em;
+  }
+  .box.cite-box { border-left: 3px solid var(--cite); background: var(--cite-bg); }
+  .box.cite-box .tag { color: var(--cite); }
+  table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: 1.2em 0; }
+  th, td { text-align: left; padding: .55em .7em; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--ink-2); font-weight: 600; font-size: .8rem; letter-spacing: .04em; }
+  .tbl-wrap { overflow-x: auto; }
+  td.num, th.num { font-variant-numeric: tabular-nums; }
+  .score { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--accent-ink); white-space: nowrap; }
+  pre {
+    background: var(--code-bg); color: var(--code-fg); border-radius: 10px;
+    padding: 1em 1.2em; overflow-x: auto; font-size: .8rem; line-height: 1.6;
+    font-family: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  }
+  code.inline {
+    font-family: "JetBrains Mono", Consolas, monospace; font-size: .84em;
+    background: var(--cite-bg); color: var(--cite); border-radius: 4px; padding: .1em .4em;
+  }
+  .myth { border-left: 3px solid var(--warn); }
+  .myth .tag { color: var(--warn); }
+  .myth .claim { font-weight: 700; }
+  .verdict { display: inline-block; font-size: .78rem; font-weight: 700; padding: .05em .6em; border-radius: 99px; }
+  .verdict.true { color: var(--ok); background: color-mix(in srgb, var(--ok) 12%, transparent); }
+  .verdict.partly { color: var(--warn); background: color-mix(in srgb, var(--warn) 14%, transparent); }
+  .phase { margin: 1em 0; }
+  .phase .ph-tag {
+    display: inline-block; background: var(--accent); color: #fff; font-size: .78rem;
+    font-weight: 700; padding: .15em .8em; border-radius: 6px; margin-bottom: .5em;
+  }
+  ul.check { list-style: none; padding-left: 0; margin: .4em 0 1.4em; }
+  ul.check li { padding-left: 1.5em; position: relative; margin-bottom: .45em; }
+  ul.check li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .src-list { font-size: .88rem; color: var(--ink-2); }
+  .src-list li { margin-bottom: .5em; }
+  footer { margin-top: 3em; padding-top: 1.4em; border-top: 1px solid var(--line); font-size: .82rem; color: var(--ink-2); }
+</style>
+
+<main>
+  <header>
+    <div class="eyebrow">Generative Engine Optimization · 北京时间 2026-10-03</div>
+    <h1>GEO 实战手册</h1>
+    <p class="lede">搜索引擎把用户送到你的门口；生成式引擎把你的名字写进答案。这份手册讲清后者怎么做：引擎的挑选原理、学术实证、四层打法，以及一次对我们自己网站的真实审计。</p>
+    <nav class="toc">
+      <ol>
+        <li><a href="#s1">为什么是现在</a></li>
+        <li><a href="#s2">引擎怎么挑内容：四步管线</a></li>
+        <li><a href="#s3">实证：一条内容最多提升 40% 被引用率</a></li>
+        <li><a href="#s4">时效校正：FAQ 富结果已死，FAQPage 标记没死</a></li>
+        <li><a href="#s5">四层打法</a></li>
+        <li><a href="#s6">实战案例：对我们自己站的审计</a></li>
+        <li><a href="#s7">六个常见误区</a></li>
+        <li><a href="#s8">90 天执行清单</a></li>
+        <li><a href="#s9">出处</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <h2 id="s1"><span class="no">01</span>为什么是现在</h2>
+  <p>用户的调研入口正在从搜索框迁向对话框。Gartner 预测，到 2026 年传统搜索引擎的使用量将因 AI 聊天机器人下降 25%<sup class="cite"><a href="#src6">[6]</a></sup>。对电商站意味着一件事：过去你争的是<strong>排名</strong>，现在要争的是<strong>引用</strong>——当用户问 ChatGPT、Perplexity 或 Google AI Overviews「什么值得买」，谁被写进答案，谁就拿走这单生意。</p>
+  <p>引用和排名的区别在信任结构上。排名是搜索引擎的一次仲裁；引用是 AI 替自己的答案作的担保——它只在有把握时才署你的名。所以被引用的流量小而精，转化意图极强。</p>
+  <div class="box cite-box">
+    <span class="tag">本手册的数据纪律</span>
+    <p style="margin:0">文中每个数字都带出处编号，查证链接在文末<sup class="cite"><a href="#src1">[1]</a></sup>。这不是洁癖——你往下读会看到，<strong>「数字带出处」本身就是 GEO 的第一杠杆</strong>。</p>
+  </div>
+
+  <h2 id="s2"><span class="no">02</span>引擎怎么挑内容：四步管线</h2>
+  <p>生成式引擎回答一个问题，走四步。每一步都对应一个你可以动手的位置——这就是后面四层打法的骨架。</p>
+  <table>
+    <tr><th>步骤</th><th>引擎在做什么</th><th>你的优化点</th></tr>
+    <tr><td>① 抓取</td><td>爬虫来读你的页面</td><td>对 AI 爬虫放行、页面可渲染、加载快</td></tr>
+    <tr><td>② 检索</td><td>把网页切成块，按问题语义召回</td><td>段落短小、一段一个完整意思、标题达意</td></tr>
+    <tr><td>③ 综合</td><td>从召回块里选出处，交叉印证后组织答案</td><td>结构化数据、第三方佐证、可摘录的结论句</td></tr>
+    <tr><td>④ 署名</td><td>决定在答案里引用谁</td><td>实体清晰：你是谁、牌子叫什么、全网叫法一致</td></tr>
+  </table>
+  <p>关键推论：<strong>站内做得再好，只覆盖①②③；④的「署名权」要看全网有多少地方在替你作证。</strong>多数人卡在没意识到这一点。</p>
+
+  <h2 id="s3"><span class="no">03</span>实证：一条内容最多提升 40% 被引用率</h2>
+  <p>GEO 不是玄学，它有一篇可查证的奠基论文：Princeton、Georgia Tech 与 IIT Delhi 的团队 2024 年发表在 KDD 的《GEO: Generative Engine Optimization》<sup class="cite"><a href="#src1">[1]</a></sup>。做法很硬：建了一个一万条查询的基准（GEO-bench），对九种内容改写策略逐一实测「AI 答案采纳了你多少内容」。</p>
+  <p>结果：九种方法里，<strong>效果最好的三种是——引用来源、加入语录、给出统计数据</strong>，最高能把内容在生成式答案中的可见度提升约 40%<sup class="cite"><a href="#src1">[1]</a></sup>。翻译成人话：<strong>AI 最爱抄「有数字、有出处、有原话」的段落</strong>。写「我们的泡棉密度是 45kg/m³，高于行业常见的 30kg/m³」的页面，比写「我们品质卓越」的页面，被引用概率高一个量级。</p>
+
+  <h2 id="s4"><span class="no">04</span>时效校正：FAQ 富结果已死，FAQPage 标记没死</h2>
+  <p>网上大量 GEO 课程还停留在旧叙事，必须先校准一个时间线：</p>
+  <div class="box">
+    <ul style="margin:.2em 0 .2em 1.2em; padding:0">
+      <li><strong>2023-08</strong> — Google 宣布 FAQ 富结果只对权威政府/健康网站展示，HowTo 富结果彻底下线<sup class="cite"><a href="#src2">[2]</a></sup></li>
+      <li><strong>2026-05</strong> — FAQ 富结果从 Google 搜索中完全消失<sup class="cite"><a href="#src3">[3]</a></sup></li>
+      <li><strong>但标记本身仍然值得部署</strong>——理由变了：不再是拿搜索结果版面，而是喂给 AI 提取与引用<sup class="cite"><a href="#src4">[4]</a></sup></li>
+    </ul>
+  </div>
+  <p>一句话：视觉红利没了，提取红利还在，而且对做 AI 引用的人来说，后者才是要的那层。</p>
+
+  <h2 id="s5"><span class="no">05</span>四层打法</h2>
+
+  <h3>L1 技术层——给 AI 写说明书</h3>
+  <ul class="check">
+    <li>robots.txt 明牌放行 AI 爬虫：GPTBot、OAI-SearchBot、ClaudeBot、PerplexityBot、Google-Extended 等</li>
+    <li>部署 <code class="inline">llms.txt</code>：一页讲清你是谁、卖什么、凭什么信、怎么联系</li>
+    <li>JSON-LD 只深做两种：<code class="inline">FAQPage</code> 和 <code class="inline">Product</code>，不搞七种全铺</li>
+    <li>Product 的 price 必填、availability 必填；不能公开价格就给参考区间</li>
+    <li>时间字段用 ISO 8601 完整格式（含时区），dateModified 实改实更</li>
+    <li>上线前过两道验证：Google Rich Results Test + validator.schema.org，全绿才发布</li>
+  </ul>
+  <pre>{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "巨猩沙发的承重是多少？",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "框架为手焊 Q235 钢结构，静态承重实测 300kg，设计上限 400kg。检测报告 SH2024-0945 随箱交付。"
+    }
+  }]
+}</pre>
+  <p style="font-size:.9rem; color:var(--ink-2)">注意答案的写法：数字 + 单位 + 出处报告号。这是第 03 节结论的直接落地。</p>
+
+  <h3>L2 内容层——写「可被摘录」的段落</h3>
+  <p>核心单元是「答案块」：一段可以被 AI 原样摘进答案的完整内容。六段式配方：</p>
+  <ul class="check">
+    <li>结论前置：40 字内直接回答问题</li>
+    <li>关键数据：材质、尺寸、价格区间、发货时效、认证、评分</li>
+    <li>适用条件：适合谁、不适合谁、什么场景</li>
+    <li>来源标注：检测报告号、媒体评测、第三方平台</li>
+    <li>客观对比：与替代方案/不同规格怎么比</li>
+    <li>佐证信息：发布日期、资质编号、版本</li>
+  </ul>
+  <ul class="check">
+    <li>少写「高端、优质、领先」，多写具体事实——形容词是 AI 摘录率的毒药</li>
+    <li>FAQ 从真实客户问题里来，答案与页面可见内容一字不差</li>
+    <li>多语言版本信息必须一致；规格用真实 HTML 表格</li>
+    <li>图片带 alt、视频带字幕章节，供多模态理解</li>
+  </ul>
+
+  <h3>L3 实体层——让全网替你作证</h3>
+  <p>信源按四层建矩阵，AI 交叉验证时层层都能命中你：</p>
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>层级</th><th>信源</th><th>作用</th></tr>
+    <tr><td>一级·自有</td><td>官网、官方产品页、官方社媒</td><td>参数与价格的权威定本</td></tr>
+    <tr><td>二级·权威</td><td>行业媒体、设计博客、评测站、认证机构</td><td>可采信的第三方背书</td></tr>
+    <tr><td>三级·知识</td><td>问答社区、论坛、YouTube/Instagram 内容</td><td>场景与比较类问题的素材</td></tr>
+    <tr><td>四级·用户</td><td>真实评价、买家秀、开箱</td><td>口碑与「真实存在」证明</td></tr>
+  </table>
+  </div>
+  <ul class="check">
+    <li>建 Wikidata 实体卡：品牌、成立、所在地、官网，给 AI 一个可校验的锚点</li>
+    <li>拿下品类 roundup 文章的入选位——AI 回答「最好的 X」时大量转述榜单</li>
+    <li>品牌名、参数、售后政策全平台一字不差——不一致比缺失更伤</li>
+  </ul>
+  <ul class="check">
+    <li>建 Wikidata 实体卡：品牌、成立、所在地、官网，给 AI 一个可校验的锚点</li>
+    <li>进 2–3 个行业目录/平台（品类相关的设计目录、零售平台、媒体专栏）</li>
+    <li>拿下品类 roundup 文章的入选位——AI 回答「最好的 X」时大量转述榜单</li>
+    <li>品牌名全网一致：站名、社媒名、目录名一字不差</li>
+  </ul>
+
+  <h3>L4 测量层——没有基线就永远说不清效果</h3>
+  <ul class="check">
+    <li>服务端记录 AI 爬虫命中（哪家 bot、爬了哪个路径、何时），出周报</li>
+    <li>每月固定测一组提示词（品类词 + 购买意图词），记录 ChatGPT / Perplexity / AI Overviews 是否引用你、引用哪页</li>
+    <li><strong>信息准确率</strong>是被低估的关键指标：AI 说的参数、价格、发货时效是否正确——说错就 48 小时内同步修正官网和外部信源，否则错误会以讹传讹</li>
+    <li> Search Console 看展示/点击趋势，作为旁证</li>
+  </ul>
+
+  <h2 id="s6"><span class="no">06</span>实战案例：对我们自己站的审计</h2>
+  <p>以下是对 fuzzsofa.com（雕塑动物沙发独立站）2026 年 10 月 3 日的全站 GEO 审计，代码级核查 + 线上生产实测：</p>
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>层级</th><th>得分</th><th>已做到</th><th>缺口</th></tr>
+    <tr><td>L1 技术</td><td class="score">85–90</td><td>9 家 AI 爬虫明牌放行；教科书级 llms.txt；Product 全栈标记（含两国运费、退货政策）；FAQPage 内嵌 20 组问答</td><td>TTFB 冷连接 3.5s 待压到 1s 内；单页 HTML 514KB 偏重</td></tr>
+    <tr><td>L2 内容</td><td class="score">75</td><td>规格数字化（承重/密度/木箱标准），FAQ 来自真实咨询</td><td>可摘录「答案块」未标准化，散落各页</td></tr>
+    <tr><td>L3 实体</td><td class="score">20</td><td>—</td><td>无 Wikidata 实体、无目录收录、无 roundup 占位——<strong>最大缺口</strong></td></tr>
+    <tr><td>L4 测量</td><td class="score">60</td><td>服务端 AI 爬虫命中已全量落库（bot/路径/UA）</td><td>数据在攒、报告环未闭；提示词月测未启动</td></tr>
+  </table>
+  </div>
+  <div class="box">
+    <span class="tag">审计中的即时验证</span>
+    <p style="margin:0">旗舰产品页此前有「TTFB 7 秒 + JSON-LD 缺失」双症状。本次线上实测：JSON-LD <strong>已修复</strong>（Product/Offer/FAQPage/运费/退货全套齐全）；TTFB 冷连接降至 <strong>3.5s</strong>——改善但未达标，L1 剩余工作就这一条。</p>
+  </div>
+  <p>这个案例说明了四层的真实关系：<strong>技术层是入场券（不做白做），实体层是天花板（决定 AI 敢不敢署你的名）</strong>。入场券我们快拿满了，下一阶段全部火力在 L3。</p>
+
+  <h2 id="s7"><span class="no">07</span>六个常见误区</h2>
+  <div class="box myth">
+    <span class="tag">误区一</span>
+    <p><span class="claim">「FAQ 富结果死了，FAQPage 标记就没用了。」</span> <span class="verdict partly">半错</span></p>
+    <p style="margin:0">富结果的视觉红利确实没了<sup class="cite"><a href="#src2">[2]</a></sup>，但标记的价值整体转移到了 AI 提取层<sup class="cite"><a href="#src4">[4]</a></sup>——而那层才是 GEO 要的。</p>
+  </div>
+  <div class="box myth">
+    <span class="tag">误区二</span>
+    <p><span class="claim">「加了 schema，排名就会涨。」</span> <span class="verdict partly">半错</span></p>
+    <p style="margin:0">结构化数据不是排名因子。它给你的是<strong>资格</strong>（富结果的入场券）和<strong>理解</strong>（AI 知道这页是什么），别指望它直接加权。</p>
+  </div>
+  <div class="box myth">
+    <span class="tag">误区三</span>
+    <p><span class="claim">「Schema 类型越多越好，七种全上。」</span> <span class="verdict true">错</span></p>
+    <p style="margin:0">窄而深优于宽而浅：FAQPage + Product 做到全绿，胜过七种每样都错一处。错误标记比没有标记更糟。</p>
+  </div>
+  <div class="box myth">
+    <span class="tag">误区四</span>
+    <p><span class="claim">「为了有 FAQ 标记，编几条问答放上去。」</span> <span class="verdict true">错，且危险</span></p>
+    <p style="margin:0">标记内容与页面可见内容不一致会被判为违规；对 AI 而言，编造的 FAQ 是污染它答案的噪音，被识破一次，全站信任降级。</p>
+  </div>
+  <div class="box myth">
+    <span class="tag">误区五</span>
+    <p><span class="claim">「价格不方便公开，price 字段空着或写面议。」</span> <span class="verdict true">错</span></p>
+    <p style="margin:0">price 为空，Product 标记的核心价值就没了——AI 提取价格时直接落空。至少给参考区间，哪怕「四位数起」。</p>
+  </div>
+  <div class="box myth">
+    <span class="tag">误区六 · 追新名词</span>
+    <p><span class="claim">「HowTo 还在 Schema 优先清单里」「AIPO、GEO 3.0 是下一代的必修课」。</span> <span class="verdict true">警惕</span></p>
+    <p style="margin:0">HowTo 富结果 2023-08 就被 Google 整体下线<sup class="cite"><a href="#src2">[2]</a></sup>，还在给你推它的清单是旧年历。AIPO、GEO 3.0 之类说法目前主要是服务商话术，无一有同行评审或可验证效果数据支撑——GEO 的有效手段就论文实证的那些：引用来源、语录、统计数据、结构清晰、多源一致。名字会翻新，杠杆不会。</p>
+  </div>
+
+  <h2 id="s8"><span class="no">08</span>90 天执行清单</h2>
+  <div class="phase">
+    <span class="ph-tag">第 1–2 周 · 技术收尾</span>
+    <ul class="check">
+      <li>TTFB 压进 1 秒（检查预热集合覆盖、砍 HTML 体积）</li>
+      <li>全站 schema 过 Rich Results Test，清零所有警告</li>
+      <li>AI 爬虫命中数据接出第一份周报</li>
+    </ul>
+  </div>
+  <div class="phase">
+    <span class="ph-tag">第 3–6 周 · 内容引用资产</span>
+    <ul class="check">
+      <li>每张关键页面造一个 50 字内「答案块」（数字+出处+结论）</li>
+      <li>规格表标准化：密度、承重、时效、认证，全部表格化</li>
+      <li>启动提示词月测，记录引用基线</li>
+    </ul>
+  </div>
+  <div class="phase">
+    <span class="ph-tag">第 7–12 周 · 实体层攻坚</span>
+    <ul class="check">
+      <li>Wikidata 实体卡上线</li>
+      <li>拿下 2–3 个品类目录/平台收录</li>
+      <li>攻略 3 篇品类 roundup 文章的入选位</li>
+      <li>月末复测提示词，对照基线看引用率变化</li>
+    </ul>
+  </div>
+
+  <h2 id="s9"><span class="no">09</span>出处</h2>
+  <ol class="src-list">
+    <li id="src1">Aggarwal, V., Murahari, V., Rajpurohit, T., Kalyan, A., Narasimhan, K., Deshpande, A. <a href="https://arxiv.org/abs/2311.09735">《GEO: Generative Engine Optimization》</a>, KDD 2024（Princeton / Georgia Tech / IIT Delhi；GEO-bench 一万条查询；最高约 40% 可见度提升，引用来源/语录/统计为最优三策略）</li>
+    <li id="src2">Search Engine Land 等对 Google 2023-08 公告的报道：FAQ 富结果仅限权威政府与健康网站，HowTo 富结果下线</li>
+    <li id="src3"><a href="https://luminotechnology.com">Luminotechnology</a>、<a href="https://1stpage.ae">1stpage.ae</a>（2026）：FAQ 富结果于 2026-05 前后从 Google 搜索完全下线</li>
+    <li id="src4"><a href="https://vectoron.ai">Vectoron</a>（2026）：「FAQPage 标记在 2026 年仍值得部署，但理由已变——视觉折叠框消失，价值转移到 AI 提取与引用」</li>
+    <li id="src5">Google <a href="https://search.google.com/test/rich-results">Rich Results Test</a> 与 <a href="https://validator.schema.org">validator.schema.org</a>：部署后上线前的两道标准验证</li>
+    <li id="src6">Gartner 新闻稿（2024-02）：预测到 2026 年传统搜索引擎使用量将下降 25%，主因 AI 聊天机器人分流</li>
+  </ol>
+
+  <footer>
+    fuzzsofa.com 操盘组 · 案例数据为 2026-10-03 全站代码级审计与线上生产实测结果 · 本稿遵循「无出处数字不外发」纪律
+  </footer>
+</main>

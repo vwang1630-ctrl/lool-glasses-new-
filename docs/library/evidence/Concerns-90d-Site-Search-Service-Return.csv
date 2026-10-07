@@ -1,0 +1,9 @@
+date,source,query,category,count_90d,evidence,action
+2026-06-15,site_search,cat scratch,pet_friendly,12,GA4 site search 90d top query 12 times +客服记录12次,FAQ: Martindale 50000转 Faux Leather最抗抓
+2026-06-18,customer_service,cat proof armchair,pet_friendly,8,客服微信8次询问猫抓,Market evidence: cat friendly armchair cluster = real market concern
+2026-07-02,site_search,elevator fit,logistics,3,退货原因3次因电梯进不去 + 站内搜索elevator 3次,FAQ: 最小电梯80cm 包装125x105x85 需拆箱入户
+2026-07-10,customer_service,shedding,material,5,微信客户5次询问掉毛 + 首周浮毛率0.8% QC SH2024-0945 P4,FAQ: Faux Fur首周0.8% 2道负压吸毛 日常吸尘
+2026-07-15,site_search,washable cover,cleaning,4,站内搜索washable 4次 + Linen可拆洗咨询,FAQ: Linen Stone Grey可拆洗 其他spot clean
+2026-08-01,return_reason,too big for apartment,size,2,退货2次因户型小,FAQ: W120 D100 需客厅≥15㎡ 库房实测
+2026-08-10,customer_service,how long to make,lead_time,6,客服6次询问工期,FAQ: 72-90h手作 Atelier Made to Order 25-35 days DDP
+2026-08-20,site_search,faux fur accent chair with ottoman,product,9,GA4 9次搜索带ottoman,Inspiration: faux fur accent chair with ottoman is top cluster

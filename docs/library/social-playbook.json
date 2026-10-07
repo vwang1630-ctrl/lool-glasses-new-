@@ -1,0 +1,815 @@
+{
+  "_readme": "social-playbook — 第 17 活库（2026-09-14 WO-20260914-08 立库）。社交出口层宪法：blog 是母体，社交只把 blog 切短发，不另写内容。每平台块按 算法→钩子→留存→转化 四层组织，每条规则必须挂在某层之下；算法层只收『假设+证伪条件』，未测假设不得写成已证明（反循环纪律同 persona-library）。禁词机制沿用 scene-image-manifest.banned_terms 模式。结构规则由 rb12 闸门强制（pdp-toolbox blogValidate），闸门只拦结构，判断靠人。",
+  "version": "V3.0.0",
+  "updated": "2026-09-26",
+  "principle": "blog 是母体，社交是出口：只写 1 篇 blog，社交自动多 1 张卡。出口链接强制 = blog canonical URL + UTM，空链接/首页链接/异 slug 链接 = rb12 FAIL（13 点击 0 出站的根治）。冻结期合规：不碰 score 权重 / keyword 主位 / PDP 模板 / 站内文案；新增页面=独立变量须另开工单（立库工单母体=存量 blog，零新增页面）。",
+  "funnel_layers": {
+    "algorithm": "平台分发机制假设：hypothesis + evidence + falsify + shelf_life_days。证伪即回审计改规则，UNFALSIFIED 超保质期 = audit FAIL 纪律同源",
+    "hook": "标题/前 3 秒：必须问句 + 规格（W D H）；禁品牌口号式标题",
+    "retention": "看完率：快切结构 / 图轮换防去重 / 发布坑位",
+    "conversion": "行动层：规格描述 + 强制 blog 链接 + CTA + 第一方回流（UTM → consult_events social_inbound）"
+  },
+  "link_contract": {
+    "pattern": "{origin}/{locale}/journal/{slug}.html?utm_source={platform}&utm_medium=social&utm_campaign={slug}-d{day}",
+    "rule": "每个出站链接必须带 utm_source ∈ {pinterest, instagram, facebook}；站侧 journal 页捕获后落 consult_events(action='social_inbound', surface=utm_source, page_path, note=utm_campaign)",
+    "locale_note": " Pinterest/FB 坑位主打 EN（21:00 America/New_York），用 /en/ 前缀"
+  },
+  "banned_terms": [
+    "Sit on Art",
+    "sit on art",
+    "SIT ON ART",
+    "factory",
+    "工厂",
+    "工厂视频",
+    "工厂实拍",
+    "real factory",
+    "factory footage",
+    "Galvanized",
+    "镀锌",
+    "镀锌钢管",
+    "包装箱",
+    "ships in a crate",
+    "Handmade to order in 1-3 days",
+    "1-3天内完成",
+    "hand-sculpted",
+    "整体手工雕刻"
+  ],
+  "why_banned": "双层禁词：①Sit on Art 口号（T1 实测 467 展示 0 出站，口号无搜索承接）②V8 声音护栏（站主 2026-09-26 喂养）：factory/工厂=类目毒词踢廉价工厂池；Galvanized/镀锌/包装箱/1-3天=淘宝参数不上社媒；hand-sculpted=整体手工雕塑（站内铁律#4 禁，站主 2026-09-26 追加确认）——替代 hand-finished by artisans；由 rb12(禁词)+rb13(禁词族)+rb14(IG https/诱导) 三闸强制",
+  "spec_limits": {
+    "pinterest": {
+      "title_chars": 100,
+      "description_chars": 500,
+      "image": "1000x1500 (2:3) JPEG",
+      "per_day": 1,
+      "slot": "21:00 America/New_York（EST/EDT 自动对时）"
+    },
+    "instagram": {
+      "caption_chars": 2200,
+      "reel": "15s 快切 MP4，成片无音轨，BGM 在 IG 内挂热门音频（音频属分发权重）"
+    },
+    "facebook": {
+      "text_chars": 80,
+      "image": "直接用 blog hero 图，不另产资产"
+    },
+    "reddit": {
+      "nurture_days": 30,
+      "karma_gate": 500,
+      "per_week": "30 分钟人工；软植入 ≤1 条/月（门槛后）"
+    },
+    "tiktok": {
+      "video": "1080x1920 竖版 ≤30s",
+      "script_words": "≤80 词",
+      "per_day": "1-2 条",
+      "test_matrix": "30 条候选池=1 产品×5 钩子×3 BGM×2 剪辑"
+    }
+  },
+  "platforms": {
+    "pinterest": {
+      "algorithm": {
+        "hypothesis": "Pinterest 搜索天然问句形态：问句标题 + 规格描述吃搜索分发；04 VISION迪拜场景图有自然分发能力（467 展示为基线）",
+        "evidence": "T1 基线：467 展示 / 13 点击 @ Sit on Art 时期 = 图有能力、问句标题假设未测；问句形态=T2 平台公开行为",
+        "falsify": "问句标题 pin 连发 ≥7 天，展示中位数 < 467 基线 → 判伪回审计；展示达标而出站仍 0 → 查链接/账号权重而非标题",
+        "shelf_life_days": 30
+      },
+      "hook": {
+        "title_rule": "必须问句（'?' 结尾）且必含 W/D/H 三个数字；≤100 字符（rb12 强制）",
+        "templates": [
+          "Is Fuzz Sofa AI or real? {W}x{D}x{H} cm Gorilla Sofa",
+          "Real sofa or AI render? {W}x{D}x{H} cm, see the factory",
+          "Can a sofa really look like this? {W}x{D}x{H} cm",
+          "How heavy is a full-grain leather gorilla sofa? {W}x{D}x{H} cm",
+          "Is this Dubai penthouse sofa real? {W}x{D}x{H} cm"
+        ],
+        "rotation": "同一 blog 多 pin 按天轮换模板与图，禁同图同题连发（Pinterest 去重抑制）；模板 #1 为旗舰句（与 kw-is-fuzz-sofa-ai-or-real 同源）"
+      },
+      "retention": {
+        "image_rule": "1000x1500 (2:3) JPEG，封面即场景（04 VISION迪拜首发）；后续 01-04 轮换；图内不加文字贴片",
+        "scene_guard": "描述文案禁踩 scene-image-manifest 该图 banned_terms（与 r13 同源：图中没有的不许写）",
+        "slot": "每天 1 条 @ 21:00 America/New_York；1 blog = 4 天坑位（d1–d4）"
+      },
+      "conversion": {
+        "description_rule": "≤500 字符；必含 W/D/H/seat height/承重/包体体积/材质 + blog 链接；数字只准来自 products.data（r2 同源，rb12 校验字段齐全）",
+        "description_template": "Handmade to order in 1-3 days. {W}x{D}x{H} cm, seat height {SH} cm, holds {LOAD} kg, ships flat in a {PKG} cm crate. {MATERIALS}. Full story + real factory footage: {LINK}",
+        "link_required": true
+      },
+      "board_name": "Where Dubai Finds Original Furniture — Shanghai Atelier",
+      "board_desc_keywords": "Designer Furniture Dubai + Alserkal Avenue + One Partner Per City + Shanghai Atelier（Board 描述塞关键词吃站内搜索）",
+      "longtail": "30 天起峰，单 Pin 生命周期 6 个月=SEO 外链反哺 blog（Pin 不删）",
+      "note": " ｜ IG 冻结期间，体验层职责由 Pinterest Idea Pin（4-5 页滑动，纯图无出镜）承接",
+      "alt_text_rules": {
+        "version": "V1.0",
+        "established": "2026-09-26",
+        "source": "WO-20260926-09（站主纠错：发布界面字段功课缺失）+ Pinterest 官方帮助中心",
+        "rule": "每条 Pin 必带替代文本：≤125 字符、描述性优先（先说画面里有什么）、主关键词前置、自然句不堆砌；双重价值=视障用户屏幕阅读器 + 算法读取的图片文本信号",
+        "where": "创建 Pin → 更多选项下拉 → 替代文本",
+        "owner": "social-gen 生成块自带 alt 字段（下版生成器补；当前过渡=发布包人工行）"
+      },
+      "unit_rule": {
+        "established": "2026-09-26 站主裁决",
+        "rule": "标题=人类单位口语化（6.5 ft / 440 lbs，受众为主美国）；描述=双单位（公制+英制并存）；反对的是口号不是数字，真实测量值必须保留（rb12）",
+        "conversion": "200cm=6.5ft · 160cm=63in · 152cm=60in(5ft) · 200kg=440lbs"
+      }
+    },
+    "instagram": {
+      "algorithm": {
+        "hypothesis": "冷启动小号只有 Reels 有自然分发，轮播/单图无分发（轮播已证伪）；前 3 秒线稿+问句字卡是停留钩子",
+        "evidence": "T1：轮播 1 post → 1 follower → 零触达（已证伪轮播路线）；Reels 分发=T2 平台公开行为，待自家 Reel 数据复核",
+        "falsify": "Reel 连发 ≥5 条中位触达 < 50 → 回审计（届时查账号权重与完播率，而非单条内容）",
+        "shelf_life_days": 30
+      },
+      "hook": {
+        "first_3s": "第 0 帧字幕 This is NOT from the 3 catalogs + SKETCH 人手开场，首帧时间戳 Shanghai Atelier 06:42 AM / Hand-finished Day 3，黏土刮原声不盖 BGM（原创分）",
+        "caption_rule": "新五要素（V3.0）：场景/独家钩 + 尺寸实测 + 问句 + 地域化 REAL（Comment REAL DUBAI）+ Save/Share 钩；caption 禁 https://（链接走 Bio+DM，rb14）",
+        "caption_template": "Not from the 3 catalogs. {story_sentence} 6.5 ft wide, holds 440 lbs. Want the atelier process? Comment REAL DUBAI. Save this for your Dubai showroom meeting."
+      },
+      "retention": {
+        "reel_structure": "01 线稿 → 02 泡沫 → 03 蒙皮 → 04 场景，15 秒快切（4 镜各 ~3.5s 硬切）；顺序=制作时序，故事线=从怀疑到实物",
+        "asset_rule": "1080x1350 MP4；源图优先用户原始 01-03 过程图；缺失时用 PDP 工艺实拍补位，禁 AI 冒充工厂图（psych_jobs 工艺故事红线）"
+      },
+      "conversion": {
+        "comment_to_dm": "人工 SOP：评论 REAL 后 24h 内回复 + 引导私信发工厂视频/询价；禁自动 DM 机器人（IG ToS 红线 + 冻结期合规）",
+        "link": "bio 挂 blog URL（同 link_contract 带 utm_source=instagram）；caption 不放外链（IG 不吃外链，评论/私信承接）"
+      },
+      "advanced_plays": [
+        {
+          "play": "Collab 联名发帖",
+          "phase": "week_2_4",
+          "how": "找 1k-10k 互补号（宠物/家居/ weird interior 向）合发 Reel 双投递；AI 产候选清单+邀约话术",
+          "falsify": "3 次邀约 0 应答 → 停"
+        },
+        {
+          "play": "Story 投票/问答",
+          "phase": "now",
+          "how": "每 Reel 发后 24h 配 Story：投票（Real or AI?）+ 问答箱；互动率目标 20%",
+          "falsify": "连续 5 Story 互动 <10% → 停该玩法"
+        },
+        {
+          "play": "Broadcast Channel",
+          "phase": "later",
+          "how": "粉丝 >500 开；新品预告+独家码；纯推送不依赖算法",
+          "falsify": "-"
+        },
+        {
+          "play": "DM→优惠券漏斗",
+          "phase": "now",
+          "how": "评论 REAL → 人工私信发工厂视频+优惠券码（SOP 话术 AI 产）；券面率=涉钱=用户定；禁自动 DM 机器人（IG ToS 红线，沿用既有 comment_to_dm 判例）",
+          "falsify": "50 次 DM 0 用码 → 换钩子"
+        },
+        {
+          "play": "Shop Tag 产品标签",
+          "phase": "later",
+          "how": "需 IG commerce 资质+商品目录接入（API 范畴）；用户已裁决不接 API——仅当用户翻案再评估",
+          "falsify": "-"
+        }
+      ],
+      "algorithm_weights": "Share 10 > Save 8 > Comment 4 > Like 1（2026 算法）；Reels 流量=图文 5-10 倍，轮播不推",
+      "location": "Shanghai, China（禁标 Dubai——被判本地工厂）",
+      "tags_precision": [
+        "#AnimalShapedFurniture",
+        "#SculpturalFurniture",
+        "#ArtFurniture",
+        "#BespokeLiving",
+        "#fauxfurcouch",
+        "#gorillasofa",
+        "#fuzzsofa"
+      ],
+      "tags_useless": [
+        "#luxuryfurniture",
+        "#furniture"
+      ],
+      "follow_up_reply": "Atelier process sent. Check DM. Which texture? Short velvet or long faux fur?（追评二轮，权重 x3）",
+      "story_outlet": {
+        "role": "体验层出口（2026-09-26 站主令补入）：Try In Your Room 发散流量",
+        "why": "Caption 挂链接限流 -80%，但 Story 链接贴纸是 IG 官方允许的挂链位置——体验层转化只走 Story",
+        "format": "成品图/客户房间合成图 + 文字 This is NOT from the 3 catalogs + 链接贴纸 /ai-room-preview（utm_source=instagram&utm_content=room-preview）+ CTA See it in YOUR room — 2 min",
+        "cadence": "每次 Reels 发布同日加一条 Story；客户 Room Preview 成图（经客户同意）=二次 Story 素材",
+        "ugc_loop": "Room Preview 成图回流=下一条内容素材（客户同意后）——体验层产内容，内容再引体验层，自增强环",
+        "brand_rule": "贴纸怕伤调性的解法（站主 2026-09-26）：内容帧升级为品牌大片主角（黑罩+serif 排版+品牌粉 kicker，生成器 gen-story-frames.cjs 出 1080x1920 B2C/B2B 双版），贴纸降级为右下配角+自定义文案（See it in your room ↗，永不露裸 URL）；Try In Your Room 双版本体现=B2C 打房间想象/B2B 打独家+trade@"
+      },
+      "caption_rule": "五要素（V3.0.2）：独家钩 + 尺寸 + 问句 + 地域 REAL + Save；主钩唯一=REAL，次钩唯一=Save；DM Room Preview 钩归 Story/私信（cta_discipline V1.0）；caption 禁 https://",
+      "reopen_order": "2026-09-26 站主令解除冻结：Reels/Story 照常执行（当日冻结令作废）",
+      "tags_volume_data": {
+        "source": "Gemini search 2026-09-27",
+        "optimal": "#AnimalShapedFurniture 85K-120K posts = sweet spot (enough demand, rankable)",
+        "avoid": [
+          "#LuxuryInteriors 45M+ (too broad)",
+          "#LuxuryHomeDecor 18M+ (too broad)",
+          "#DesignerSofas 1.2M+ (dominated by major brands)"
+        ]
+      },
+      "gcc_posting_time": {
+        "established": "2026-09-27 Gemini M2 数据",
+        "finding": "Middle East 最佳发布时间 = GST 4:00 AM（捕获清晨活跃），非迪拜 10:00",
+        "implication": "Reels 按 GCC 观众活跃时间发 → GST 16:00-20:00 = 北京 20:00-24:00 → 排期合理，维持",
+        "stories_peak": "GST 7:00-9:30 + 17:00-19:00"
+      },
+      "best_posting_time": {
+        "middle_east": "GST 4:00 AM（清晨活跃前）—— 但我们受众在美国，维持美东 21:00 / 北京 20:00",
+        "gcc_audience": "GST 16:00-20:00 = 北京 20:00-24:00 → 9/29 20:00 北京时间合理",
+        "us_audience": "美东 21:00 = 北京次日 9-10 点"
+      },
+      "format_engagement": {
+        "carousels": "0.55% 互动率，比单图多 114% → 用于信任+收藏",
+        "reels": "2.46% 互动率，触达是静态 2.1 倍 → 用于拉新",
+        "static": "0.45% 互动率 → 日常存在感"
+      },
+      "format_strategy": "Reels 拉新 → Carousel 做信任收藏 → 静态做品牌"
+    },
+    "facebook": {
+      "algorithm": {
+        "hypothesis": "FB 只做 blog 转发承接位，不做原生内容运营（无账号基础，投入最小化）",
+        "evidence": "T4 假设（无 FB 数据）；validation_plan: 链接帖连发 4 周看出站点击",
+        "falsify": "4 周点击=0 → 降级为纯占位不发，工单报用户",
+        "shelf_life_days": 30
+      },
+      "hook": {
+        "text_rule": "≤80 字符：blog 标题改写 + 1 个问句钩子（rb12 强制长度）"
+      },
+      "retention": {
+        "image_rule": "直接用 blog hero 图"
+      },
+      "conversion": {
+        "link_rule": "必须 blog URL（同 link_contract，utm_source=facebook）——链接就是 FB 帖的全部目的"
+      },
+      "phase2_group": {
+        "trigger": "现有链接帖 falsify 判定后或粉丝 ≥300 时启动评估",
+        "hypothesis": "Page 无分发、Group 才有：建 'Fuzz Sofa Family' 用户群做复购+UGC 池；提问帖/投票帖拉 reach；外链放评论区不进正文（进了也点不动还压 reach）",
+        "evidence": "T2（FB 创作者共识）；自家 T4",
+        "falsify": "Group 30 天 <50 人 或 帖均触达未超 Page 2 倍 → 降回转发位报工单",
+        "ops": "群主=用户（真人身份）；AI 产每周 3 帖模板（提问/投票/用户晒单转发）；新员欢迎+重复问题（怎么清洗）=AI 产 SOP 话术、人工贴"
+      },
+      "time": "目标市场上午 10:00（迪拜 10:00 买手上班刷 FB）",
+      "first_comment_ar": "استوديو شنغهاي المستقل + تصاميم أصلية حصرية عالمياً + بحث وتطوير داخلي + ورشة خاصة. Atelier process: SKETCH→FOAM→SKIN→VISION.",
+      "fold_hook": "正文 ≤80 字符 + 空行 + …（点展开=一次互动）"
+    },
+    "reddit": {
+      "role": "口碑与信任背书——最难平台，纪律优先于增长；被 ban=全域名拉黑，一次事故烧掉整个渠道",
+      "algorithm": {
+        "hypothesis": "Reddit 反营销：新号直发链接必删；先 30 天纯参与攒 Karma 建账号信誉，之后被问到才给链接（评论内）转化率最高",
+        "evidence": "T2（subreddit 自宣规则+反垃圾共识）；自家账号 T4 未启动",
+        "falsify": "养号期参与帖/评论被删率 >50% → 换 sub 清单或停整线报工单；软植入帖 0 出站点击 ×4 周 → 降为纯 AMA",
+        "shelf_life_days": 90
+      },
+      "hook": {
+        "story_rule": "第一人称真实故事体（'My dog destroyed 3 couches, this one survived' 型），不带链接不带推销腔；产品只作故事道具不作主角；禁营销句式（banned_terms 沿用+禁 'check out/our brand'）",
+        "ama_rule": "AMA 用主理人真实身份（'I design animal-shaped furniture, made to order in Shanghai, AMA'），标题必含 AMA 字样；简介挂站链接"
+      },
+      "retention": {
+        "nurture_protocol": "前 30 天：0 发帖，只回帖+评论；每 sub 先读 wiki/置顶规约再开口；每周人工预算 30 分钟",
+        "target_subs": [
+          "r/BuyItForLife",
+          "r/InteriorDesign",
+          "r/malelivingspace",
+          "r/femalelivingspace",
+          "r/DogAdvice",
+          "r/CatAdvice",
+          "r/BestofRedditorUpdates 禁（无关）"
+        ],
+        "voice": "美式口语，像玩家不像卖家；可以自嘲可以吐槽（'shipping from Shanghai sounds scary, here is how we do DDP'）"
+      },
+      "conversion": {
+        "soft_plant_gate": "Karma ≥500 且账号龄 ≥30 天才允许第一次软植入；被用户提问带动才给链接，评论区给（不进正文）；AMA 简介常挂",
+        "red_line": "小号带节奏/伪装消费者口碑/自问自答/买 upvote = 永不。平台封禁 + FTC 虚假口碑双重风险；用户 spec 该条已于 2026-09-21 被否，替代=主理人真实身份 AMA"
+      },
+      "account_state": {
+        "account": "u/Limp_Shake_2985",
+        "holder": "用户本人（主理人真实身份，nurture 期不挂品牌不自我介绍卖家身份）",
+        "created": "约 2026-06（账龄 3 个月，用户 2026-09-21 出示截图）",
+        "baseline_karma": {
+          "post": 1,
+          "comment": 0
+        },
+        "day0_activity": "2026-09-21",
+        "gate_note": "账龄门槛已满足；30 天活动钟自 2026-09-21 起算；karma≥500 为软植入默认门，social-review 可按数据提前提案（yellow 区，沉默≠裁决）"
+      }
+    },
+    "tiktok": {
+      "role": "爆发与测品——工业化脚本矩阵，有机测钩子，加投涉钱归用户",
+      "algorithm": {
+        "hypothesis": "完播率 > 点赞 > 评论；前 3 秒钩子决定分发池级；同一产品不同钩子表现差异 > 不同产品差异",
+        "evidence": "T2（平台公开创作者共识）；自家账号 T4 未启动",
+        "falsify": "前 5 条中位完播 <20% → 钩子库整体换血报工单；30 条矩阵后无一条 >500 播放 → TK 降频为素材库（喂 IG Reels）",
+        "shelf_life_days": 60
+      },
+      "hook": {
+        "script_structure": "死结构四拍：0-3s 痛点钩子（字卡+口播，钩子库 5 选 1）/ 3-10s 演示（工厂制作实拍=psych_jobs 工艺故事素材，禁 AI 冒充）/ 10-20s 效果（房间场景成品+对比）/ 20-30s CTA（'full story on the site'，导 profile）",
+        "hook_bank": [
+          "Is this sofa AI or real?",
+          "My cat destroyed my last couch",
+          "$3000 sofa vs this",
+          "POV: your sofa ships flat from Shanghai",
+          "The internet said this couch was fake"
+        ]
+      },
+      "retention": {
+        "test_matrix": "1 产品 × 5 钩子 × 3 BGM × 2 剪辑节奏 = 30 条候选池；有机发布 1-2 条/天，24-48h 判死留活；活者复制模板再产 5 条",
+        "production_division": "AI 产：口播稿（≤80 词/30s）+ 分镜清单 + 剪辑指令；人工做：剪映/CapCut 剪辑 + 热门 BGM 挂载（IG 同理，音频属分发权重）+ 发布"
+      },
+      "conversion": {
+        "cta": "当前 CTA=profile 链接（bio 挂 blog URL，link_contract 同款 utm_source=tiktok）；TK Shop 小黄车=资质+涉钱，later 用户裁决",
+        "paid_wall": "DOU+/广告加投=涉钱=用户保留面；AI 只产投前素材与数据报告，不产生投决策"
+      }
+    }
+  },
+  "sources": [
+    {
+      "note": "2026-09-14 用户实测与需求裁决（467/13/0 出站、IG 1 follower、六条散规则停更、blog 母体令）——WO-20260914-08 user_ruling 原文",
+      "tier": "T1"
+    },
+    {
+      "note": "Pinterest 创意规格 2:3 (1000x1500)、标题 100 / 描述 500 字符上限；IG Reels 分发偏好；平台公开规格与公开行为",
+      "tier": "T2"
+    },
+    {
+      "note": "问句关键词同源：keyword-library kw-is-fuzz-sofa-ai-or-real（registered 2026-09-14，provisional 至 2026-10-14，主位=Kong PDP 14 节问答区——社交层借问句钩子，主位不抢）",
+      "tier": "T1"
+    },
+    {
+      "note": "2026-09-21 用户高级运营能力裁决：不接 API（现在不接、以后也不用、恒人工发布）；要求 AI 侧具备 长期品牌记忆/跨平台策略大脑/数据闭环自进化 + 5 平台高级玩法拆解（IG 人设、FB Group、Pin SEO、Reddit 养号 AMA、TK 工业化测品）；其中『Reddit 小号带节奏』被否（封号+FTC 风险），替代=主理人真实身份 AMA——WO-20260921-09 user_ruling",
+      "tier": "T1"
+    }
+  ],
+  "strategy_brain": {
+    "principle": "不是一稿多发：同一母篇每平台按本库四层规则变形（Pin 问句 SEO / IG 人设 Reel / FB 短钩转发 / Reddit 故事 / TK 四拍脚本）；发什么由母篇定，怎么发由平台块定",
+    "weekly_decision": {
+      "cadence": "每周一（gsc-weekly 04:17 拉数后，social-review 一并跑）",
+      "inputs": [
+        "gsc-export.json：UTM 出站点击（哪平台真带客）",
+        "social_calendar.metrics：平台侧数据（用户周粘）",
+        "上新/促销/节日日历",
+        "人工预算：用户每周默认 2h 黏贴排期（无 API 恒成立）"
+      ],
+      "rule": "主战场 = 预期出站点击/人工小时 最高的平台，加频；其余降频维持存在感（保号不复播）；决策必须留理由进工单台账",
+      "budget": "预算=用户人工时间，不是钱；一切加投/广告/佣金=涉钱=用户保留面，AI 只供数据报告"
+    },
+    "phase_gate": {
+      "now": [
+        "pinterest 日更",
+        "instagram reel 2-3/周 + story",
+        "facebook 转发 2/周",
+        "reddit 养号启动（30 分钟/周）",
+        "tiktok 候选池建档"
+      ],
+      "week_2_4": [
+        "tiktok 有机测品开跑",
+        "reddit AMA 首秀（karma 门槛后）",
+        "ig collab 邀约",
+        "fb group 评估"
+      ],
+      "later": [
+        "fb group 建",
+        "broadcast channel",
+        "pin/TK 付费（涉钱，用户裁决）",
+        "一切 API（用户已裁决：现在不接，以后也不用，恒人工）"
+      ]
+    },
+    "weekly_schedule": {
+      "timezone_note": "用户在 UTC+8，受众主力美东：北京时间上午 9-10 点 = 美东晚 20-23 点（夏冬令时通吃，全年黄金档）",
+      "workflow": "每周 30 分钟批量灌装（建议周一早，配合 gsc-weekly 后的 social-review）：把 social-outlet 产的本周稿灌进各平台原生排期器（Pin 原生排期 / Meta Business Suite 同管 IG+FB / TK 桌面端排期）——无 API 约束下零成本自动化；Reddit 是唯一不进排期器的（必须真人实时）",
+      "matrix": {
+        "pinterest": {
+          "freq": "每天 1 条",
+          "action": "周一一次灌 7 天排期",
+          "slot_us": "21:00 America/New_York（T1 已锁）",
+          "slot_cn": "北京时间周一上午 9-10 点批次"
+        },
+        "instagram": {
+          "freq": "Reels 2-3 条/周 + 每条发后 24h 配 Story 投票",
+          "action": "Meta Business Suite 排期（与 FB 同面板）",
+          "slot_us": "ET 晚 19-21 点（T2 假设，实据后校准）"
+        },
+        "facebook": {
+          "freq": "转发 2 条/周",
+          "action": "同 Meta 排期器",
+          "slot_us": "ET 晚间（T2 假设）"
+        },
+        "tiktok": {
+          "freq": "现阶段 0（只建候选池）；week_2_4 有机测品开跑后 1-2 条/天",
+          "action": "TK 桌面端排期或当天手动",
+          "slot_us": "ET 晚 19-22 点（T2 假设）"
+        },
+        "reddit": {
+          "freq": "评论每天或隔天，5 分钟/次；30 天 0 发帖",
+          "action": "手动实时，不排期（u/Limp_Shake_2985）",
+          "slot_us": "美东工作日白天最活跃 = 北京时间晚 21-23 点顺手做"
+        }
+      },
+      "weekly_budget": "用户人工合计 ≈2h/周：周一 30 分钟灌排期 + Reddit 35 分钟（5min×7）+ 富余给平台数据回填（social-review 要用）"
+    }
+  },
+  "data_loop": {
+    "flow": "gsc-pull（周一自动，已上线）→ social-review：读 gsc-export 出站行 + social_calendar 回填平台侧 metrics → 各平台 algorithm 假设逐条对 falsify 条件（UNFALSIFIED 超保质期=audit FAIL，纪律同源）→ 产周调整工单（加频/降频/换钩子/停线）→ 台账留痕",
+    "metrics_source": {
+      "站侧": "GSC UTM 自动（零人工）",
+      "平台侧": "用户每周从各平台 creator studio 粘数字（展示/点击/完播/互动），social-review 收进 social_calendar.metrics"
+    },
+    "self_evolution": "钩子库/模板/sub 清单按证伪结果增删；每周工单必须含至少一条『本周数据改了哪条规则』或明示『无变化+为何』——防止闭环退化成周报"
+  },
+  "brand_memory": {
+    "principle": "引用不复制：社媒文案涉及的产品事实一律指向真源，禁止凭印象写数",
+    "product_facts_source": "src/lib/products.ts（materials/规格唯一真源，r2 同源）——如 Owl Chair：FSC 认证胡桃木实框架+高密海绵羽绒包裹+Bouclé&Velvet 绒面+实心黄铜脚",
+    "tone_constitution": "美式口语非翻译腔（IG/Reddit/TK 硬性）；标题宪法=问句+规格数字（rb12）；禁词=Sit on Art（rb12）+手工承诺禁令（措辞口径 V2：禁扛手工人设，卖专属感 Made Only for You）",
+    "commercial_canon": "保修 90 天 / DDP 关税税费预付 / 上海发出 / 1-3 天生产+Flex 7-14 天运输（海运 25-35 不推荐）/ 按订单打造（禁按单制作）",
+    "pointers": {
+      "品牌": "brand-library.json",
+      "画像": "persona-library.json",
+      "关键词": "keyword-library.json",
+      "SEO": "seo-meta-library.json"
+    }
+  },
+  "campaigns": {
+    "see_it_in_your_room": {
+      "status": "testing_room_preview_10",
+      "thesis": "品牌最大转化障碍 = 『网上买 $1k+ 沙发没法想象摆进自己家』；工具已存在（RoomPreviewModal 本地合成：房间图原比例画布+贴地接触阴影+7% 环境色融合+JPEG 下载/navigator.share，免 Gemini 无 API 依赖）。本战役把它从『PDP 功能』升格为『传播母题』，直接承接品牌问句：Is it AI or real? → Don't imagine it. See it in YOUR room.",
+      "three_layers": [
+        {
+          "layer": "自产层",
+          "phase": "now（9-23 前起跑）",
+          "how": "我们用工具产 5-10 张房间合成图（scene-image-manifest 场景图 × 产品 cutouts），caption 必标 visualized with our Room Preview；喂 Pin（2:3 问句卡）/IG Reel 结尾镜/TK 效果拍——五平台立刻有粮",
+          "cost": "零开发，纯内容生产（AI 出稿+人工合成 30 分钟/张）"
+        },
+        {
+          "layer": "UGC 层",
+          "phase": "week 2-4",
+          "how": "工具下载成功提示加一句 Tag @fuzzsofa #MyFuzzRoom（轻改动）；用户 DM 授权 SOP（转发前必问 may we share this?）；精选转发到我们账号并 @作者",
+          "falsify": "开跑 8 周 UGC 0 帖 → 撤该层，工具留作 PDP 转化件"
+        },
+        {
+          "layer": "激励层",
+          "phase": "week 4+（涉钱）",
+          "how": "被精选的 UGC 给折扣码——面率/机制/预算全部用户裁决，AI 只备数据（转发量/涨粉/出站）",
+          "falsify": "-"
+        }
+      ],
+      "red_lines": [
+        "合成图必须标注 visualization/Room Preview，禁冒充实拍（psych_jobs 工艺故事红线同源——品牌信誉建立在『我们不骗』上）",
+        "工厂/工艺内容永远真实素材，合成图永不混入工艺叙事",
+        "转发用户图必须先取得授权（DM SOP 留痕）",
+        "折扣面率=涉钱=用户保留面"
+      ],
+      "metrics": "工具使用次数（product_events）+ #MyFuzzRoom 帖数 + UTM 出站 + 精选转发涨粉",
+      "falsify": "自产层 4 周互动中位 < 账号基线 → 降回纯 PDP 功能不再动员社媒",
+      "dev_needs": "①下载 JPEG 角落水印 fuzzsofa.com · room preview（每张流出图=免费广告位，published UI 改动→提案待用户点头）②下载成功页 share 提示语——两项皆轻改动，等用户点头进工单"
+    }
+  },
+  "trust_copy_locked": {
+    "en": "Made to order for you — see it in your room before you commit. Door-to-door worldwide, duties handled at checkout (DDP or self-pay). 48h returns.",
+    "rules": [
+      "所有合成图 caption 必带 visualization 标签（Room Preview / visualized）",
+      "禁承诺 30 天免费退——真实口径=48h 退货+按单定制取消阶梯（WO-20260921-12 用户裁决，虚假承诺=自焚信任）",
+      "每条内容必须正面回答恐惧清单至少一条（当前 #1 = is it AI or real 真实性）",
+      "DDP 口径=可选项（WO-20260926-02 站主裁决）：说 door-to-door + duties handled at checkout，禁说一律包税",
+      "社媒主轴=全球独家（One Partner Per City / No OEM / Not in the 3 catalogs / GCC 0 Distributors），工艺细节退证据层（站主 2026-09-26 裁决）",
+      "关税话术 V1.1（2026-09-26 站主令：以 shipping-policy 页面内容为准）：全平台禁用「包税」字样。标准表述=照搬政策页口径：「结账时自行选择关税结算方式：由我们代缴（DDP——Delivered Duty Paid，订单总价含产品、出口空运、清关、关税税费与末端派送，结账时逐项列明）或进口时自理（DDU，关税由您在交货前与承运商结算）」。配送选项名称=Atelier Flex Standard（空运 7–14 工作日，推荐）/ Atelier Sea Voyage（25–35 天，不推荐）；白手套=独立加购项"
+    ]
+  },
+  "test_pack": {
+    "name": "room-preview-10",
+    "goal": "验证合成图能不能骗过真人+带来第一个出站——10 张跑完看 Outbound Click 与『Where is sofa from』，用户再裁 $100/Gemini 产能",
+    "split": {
+      "pinterest": 5,
+      "reddit": 1,
+      "spare": 4
+    },
+    "pinterest_protocol": {
+      "metrics": "收藏（saves）+ 出站点击（Pin stats + GSC UTM 双源）",
+      "window": "14 天",
+      "slot": "21:00 America/New_York（T1 锁定），2026-09-23 起日更",
+      "link": "PDP canonical + utm_campaign=roompreview-test（战役扩展：测试包链接允许直落 PDP，blog 衍生 pin 仍守 link_contract 博客规范）",
+      "title_rule": "问句+规格数字照旧（rb12），标题里的 W/D/H 生产时必须从 products.ts 实数回填"
+    },
+    "reddit_protocol": {
+      "disclosure_first": "标题自报身份：I design animal-shaped furniture made to order in Shanghai — this is a render from our room preview tool, honest roast welcome",
+      "no_body_link": "正文零链接零推销；评论区被问 where from 时以主理人身份自然给站链接（此刻才是出站入口与披露时刻）",
+      "sub_selection": "候选 r/SomethingIMade / r/furniture_design——发帖当日核对该 sub 现行规约再落， automod 删帖即记录换地，不申诉硬刚",
+      "metrics": "『where is sofa from』类问询数 + upvote 比 + 是否被删/被指营销（风险遥测）",
+      "ruling_note": "用户 2026-09-21 特批的真实性测试帖，豁免 30 天纯评论养号期的发帖禁令，但披露红线不豁免",
+      "deferred": "2026-09-21 用户裁决暂停（WO-20260921-13）：9-23 帖与 9-26 备用帖均 skipped，降级为第二周可选，重启需用户点头；『真实吐槽』验证信号由站内问答+ai_chat 真实提问部分接管。WO-12 的披露豁免令随帖暂停，重启时继续有效。"
+    },
+    "spare": "3 张狗友好场景（④ 裁决进包）+ 1 张 Reddit 备用（首帖存活才启用）",
+    "cost_model": "工时：AI 出稿/标题/UTM + 用户浏览器合成（约 30 分钟/张）；单张成本实测后回填本块",
+    "falsify": "Pin 14 天 0 收藏且 0 出站，或 Reddit 帖被删/被指营销 → 合成图路线降级回 PDP 功能，$100/Gemini 永不提"
+  },
+  "reddit_voice": {
+    "_readme": "Reddit 文风搬回自己家（WO-20260921-13 用户批准）：难的是平台账号，值钱的是真人语气——语气零风险移植到自有域名，正是恐惧清单 #1（is it AI or real）的解药与 GEO 最吃的可引用格式。",
+    "principle": "问句是真的（GSC 真实查询词 + ai_chat 真实访客提问），答的人是我们自己——语气像 Reddit，身份是主理人，光明正大。",
+    "rules": [
+      "第一人称主理人视角（I/we design…in Shanghai），不装路人",
+      "自曝缺点先于卖点：海运 25–35 天我们不推荐、48h 退货限制如实说、产能小要排队",
+      "实数：尺寸/承重/价格/天数照实给，禁『行业领先』级空形容词（rb 禁词同源）",
+      "每篇正面回答恐惧清单至少一条（当前 #1=is it AI or real）",
+      "混品牌故事+产品设计理念时不改根：Design Story=品牌之根四段范式照旧，只是语气换掉",
+      "发布前过对应闸门：站内问答=FAQ 口径一致性，blog=rb1–rb12"
+    ],
+    "red_line": "学文风不学戏台——禁假评论区/假用户名提问/仿 Reddit thread 排版。伪造社证与 r11 同罪，被识破一次信任反噬不可逆。",
+    "where_used": [
+      "站内问答（/faq 扩展『直接回答』系）",
+      "部分 blog 篇目（问答体混品牌故事）",
+      "社媒 caption 的诚实口吻"
+    ],
+    "signal_sources": "GSC 28 天真实查询词（gsc-export.json 周更）+ ai_chat 真实访客原话（operator-intel 喝 DB）"
+  },
+  "platform_rules_v8": "docs/library/social-platform-rules.json（V8.0.1 完整算法-钩子-复盘-闭环，本 playbook 三平台块与其冲突时以 V8 为准）",
+  "closed_loop_sop": {
+    "day0": "Blog published → OG 检查 → 20:00 CST IG Reels → 5 分钟自评证据 → 追评 REAL",
+    "day1_4": "Pin 美东 21:00 连 4 天：-d1-alserkal/-d2-citywalk/-d3-dubaihills/-d4-trade",
+    "day2": "FB 迪拜 10:00 + 阿语首评 + atelier 视频自评",
+    "day3_14": "UTM 场景归因反哺下一篇 blog 选题",
+    "day14_30": "复盘 → social-review 周评"
+  },
+  "signature_language": {
+    "version": "V1.0",
+    "established": "2026-09-26",
+    "source": "站主定调（Want to see this piece in your home 方向），操盘手双语双层化",
+    "signature_short": {
+      "zh": "想看看它摆在你家什么样吗？",
+      "en": "See it in your room.",
+      "note": "贴纸文案/Story 帧/图上文字/落款——4 词是英文极限，en 版为全站既有资产不另造"
+    },
+    "body_question": {
+      "zh": "想看看这件摆在你家里是什么样吗？",
+      "en": "Want to see this piece in your home?",
+      "note": "blog 段尾/EDM 结尾/DM 话术收尾——正文专用，后接最低动作成本句（One photo is all it takes / 一张照片就够了）"
+    },
+    "usage_rules": [
+      "同一场物料里短句和长问句不并排出现（贴纸用短句，正文用长问句）",
+      "英文永远用 en 版现成句，禁止直译中文长问句",
+      "Ru/Ar 市场开线时同结构再译， Ar 版需 GCC 母语者校一次（暂无则不出）",
+      "此句组=品牌专用语言，神仙姐姐产稿必用、禁自由发挥变体"
+    ]
+  },
+  "cta_discipline": {
+    "version": "V1.0",
+    "established": "2026-09-26",
+    "source": "站主「不想偏任何侧重点，要一个点扣一个点，每个点发挥自己的功能」——物料层 CTA 堆叠审计后的修正",
+    "rule": "每条物料 primary_cta 唯一 + 次级 ≤1，其余动作留白；DM Room Preview 钩归 Story/DM 场景专属，不进 Reel caption；Share 句废除（分享是结果不是请求）",
+    "division": {
+      "reel": "主钩=Comment REAL <城市>（算法池）/ 次钩=Save this",
+      "story": "主钩=链接贴纸 Room Preview（体验层专属）",
+      "facebook": "主钩=问题逼回答 / 评论区自评两条各管各的",
+      "pinterest": "无 CTA 语句——链接即钩",
+      "edm": "主钩=回复一个词 / 次钩=样品卡"
+    }
+  },
+  "mesh_map": {
+    "version": "V1.0",
+    "established": "2026-09-26",
+    "source": "站主「编织成一张网，每个点相扣又统一」",
+    "dna_layer": "八点事实（独家IP/无OEM/一城一家/上海工作室/手工打磨/200kg证据/按单/全球发货+关税可选）+签名句（See it in your room. / Want to see this piece in your home?）——每个节点必带，像水印（rb 闸门强制）",
+    "nodes": {
+      "pin": {
+        "entries": [
+          "Pinterest 搜索",
+          "Google（Pinterest 域名权重，免费双层捕获）"
+        ],
+        "exits": [
+          "blog 链接（必有）"
+        ],
+        "primary_hook": "链接即钩，无 CTA 语"
+      },
+      "blog": {
+        "entries": [
+          "全渠道 UTM",
+          "Google/GEO"
+        ],
+        "exits": [
+          "Room Preview 工具",
+          "产品页 ≥2",
+          "journal 簇 ≥2"
+        ],
+        "primary_hook": "证据沉淀+GEO 定义句"
+      },
+      "room_preview": {
+        "entries": [
+          "blog",
+          "Story 贴纸",
+          "DM"
+        ],
+        "exits": [
+          "体验即转化",
+          "成图→UGC（经同意）"
+        ],
+        "primary_hook": "See it in your room",
+        "role": "体验层枢纽"
+      },
+      "reel": {
+        "entries": [
+          "IG feed"
+        ],
+        "exits": [
+          "评论→DM 喂图→Room Preview"
+        ],
+        "primary_hook": "Comment REAL <城市>"
+      },
+      "story": {
+        "entries": [
+          "Reels 同日粉丝"
+        ],
+        "exits": [
+          "贴纸→ai-room-preview",
+          "DM 钩"
+        ],
+        "primary_hook": "体验层贴纸"
+      },
+      "facebook": {
+        "entries": [
+          "粉丝+本地时间线"
+        ],
+        "exits": [
+          "问题评论→trade@"
+        ],
+        "primary_hook": "问题逼回答"
+      },
+      "edm": {
+        "entries": [
+          "注册/下单名单"
+        ],
+        "exits": [
+          "blog",
+          "采样卡",
+          "reply"
+        ],
+        "primary_hook": "回复一个词"
+      },
+      "ugc": {
+        "entries": [
+          "客户 Room Preview 成图（经同意）"
+        ],
+        "exits": [
+          "新 Social Post→新曝光"
+        ],
+        "primary_hook": "真实客户房间=最强素材",
+        "note": "网的自增强环"
+      }
+    },
+    "weave_check": "每个新资产出厂前自检三问：①入口在哪（谁从哪看到我）②出口在哪（我指向哪个节点）③DNA 八点带了吗——三问答不全，不许出厂（rb 闸门+人工复核）",
+    "honest_difficulty": "机制零新建（零件 2026-09-26 已全部造齐）；真难度=节点密度靠日复一日产出（4 条 Pin 是洞，40 条才是网）+Google→Pin 线靠 fresh pins 喂养不可指挥",
+    "wedge_render_vs_real": {
+      "established": "2026-09-26 站主点破",
+      "insight": "猩猩沙发 AI 渲染图全网泛滥——看客已从「哇」变「又是假的」；渲染泛滥恰恰让实物最稀缺最显眼",
+      "basis_chain": "平台行为=AI 渲染图泛滥+审美疲劳（ai-vs-real 库+WGN 案例：AI 造需求，造实物者收钱）→画像=ai-vs-real 信任疑虑→卖点=我们真的造出来了+Try In Your Room",
+      "execution": [
+        "Pin 图上文字=Not a render. It exists.",
+        "过程图(SKETCH/FOAM/SKIN)=实物证明资产,占比提升",
+        "Room Preview=渲染给不了的东西:你自己的房间——终局差异点"
+      ]
+    },
+    "four_beat": {
+      "established": "2026-09-26 站主点破",
+      "beats": {
+        "宣称": "社媒钩子发狂言（We Built the Real One）",
+        "怀疑": "看客不信——免费的一拍，怀疑越重破防越狠",
+        "证据": "落地页制作过程粗糙实拍+QC 编号+制作过程文兑现宣称（五区块投喂：工艺故事区=粗糙实拍破防）",
+        "体验": "Room Preview：不但真，还能是你家"
+      },
+      "wiring": "Pin→blog（含 how-is-fuzz-sofa-made 链接）→PDP 画廊过程图→Room Preview；d2/d3/d4 过程 Pin 本身也是预置证据",
+      "discipline": "宣称的力度必须≤证据库存量——吹到证据兑现不了的程度=自焚（假评论红线同源）"
+    }
+  },
+  "emotion_framework": {
+    "version": "V1.0",
+    "established": "2026-09-27",
+    "source": "站主转交学术研究（S-O-R模型/叙事传输/情绪传染 PNAS 68.9万人实验/V8.1.0 证据审计交叉验证）",
+    "what_to_amplify": [
+      "独家IP/One Partner Per City",
+      "Room Preview 体验",
+      "渲染vs实物楔子",
+      "证据数字"
+    ],
+    "what_to_brief": "工艺过程细节（海绵成型+打磨一笔带过）",
+    "what_to_ban": [
+      "包税",
+      "factory",
+      "hand-sculpted",
+      "雕刻叙事",
+      "120小时工时",
+      "评论X送Y",
+      "caption挂链接"
+    ],
+    "emotion_rules": {
+      "ig": "正向+低情绪熵（joy+trust）效果最好，anger 会掉粉",
+      "fb": "anger/pride/enthusiasm 高唤醒有效，fear 无效",
+      "entropy_rule": "一条帖子只打一个情绪点——情绪熵越高(又喜又怒又感动)互动越低",
+      "micro_advantage": "小账号(0-1万粉)情绪钩子比大账号更可信——我们 0 粉是优势不是劣势",
+      "title_density": "标题越简洁聚焦互动越高——参数堆叠=语义密度低=死（站主「标题是钩子不是数据」裁决的学术验证）",
+      "narrative_transportation": "Reels 四镜结构（粘土→发泡→蒙皮→成品）=叙事传输，把人传送进故事后批判性思维关闭"
+    },
+    "future_trigger": "账号 ≥100 条帖子+真实互动数据后，用 VAD 模型+NRC 词典训练账号专属 Scorer——当前操盘手即 Scorer",
+    "format_strategy": {
+      "established": "2026-09-27 Gemini M3 数据",
+      "carousel": "互动率 0.55%——比单图多 114% 互动，比 Reels 多 12% 保存率 → 用于信任+收藏",
+      "reels": "触达率是静态的 2.1 倍，互动 0.50% → 用于拉新（top of funnel）",
+      "static": "品牌一致性 0.45% → 用于日常存在感",
+      "strategy": "Reels 拉新 → Carousel 做信任和收藏 → 静态做品牌一致性"
+    }
+  },
+  "competitor_intel": {
+    "version": "V1.0",
+    "established": "2026-09-27",
+    "source": "站主亲手从 Pinterest/IG/1stDibs 前线收集的原始竞品情报（非 AI 推演）",
+    "pricing_landscape": [
+      {
+        "brand": "Office Logix Shop",
+        "product": "Sculpted Gorilla Accent Chair",
+        "price": 3999,
+        "dims": "229x163x173cm",
+        "material": "工业泡沫+面料",
+        "weakness": "无QC/无载荷测试/12周交货/不退款/声誉问题",
+        "ig": "@office_logix_shop"
+      },
+      {
+        "brand": "FUZZ SOFA",
+        "product": "Kong Tender Titan",
+        "price": 9900,
+        "dims": "200x160x152cm",
+        "material": "钢芯+45kg/m³泡棉+长绒毛",
+        "strength": "200kg 实测/QC编号/Room Preview/一城一家"
+      },
+      {
+        "brand": "Moooi",
+        "product": "Horse Lamp",
+        "price": 10000,
+        "strength": "450K粉丝/已认证/设计周展示",
+        "lesson": "把争议当卖点"
+      },
+      {
+        "brand": "Maximo Riera",
+        "product": "Animal Chair Collection",
+        "price": "£32000+",
+        "edition": "限量20件/款",
+        "strength": "熔铸过程可视化/190h机器+170h手工"
+      }
+    ],
+    "content_wins": [
+      {
+        "rank": 1,
+        "format": "白色工作室实拍demo",
+        "engagement": "190K likes",
+        "lesson": "用户想看的是「真的存在而且能坐」",
+        "action": "下一批内容优先=白底实拍视频"
+      },
+      {
+        "rank": 2,
+        "format": "色卡展示 Reel",
+        "engagement": "1.5K likes",
+        "lesson": "12色同价降低决策成本",
+        "action": "Kong 多色展示轮播"
+      },
+      {
+        "rank": 3,
+        "format": "展厅/商业安装图",
+        "engagement": "840-310 likes",
+        "lesson": "场景即信任",
+        "action": "商业安装案例补充"
+      }
+    ],
+    "comment_analysis": {
+      "finding": "100% 评论区=价格+物流，零品牌故事讨论",
+      "implication": "市场已准备好买，唯一阻碍=信任+物流信息",
+      "action": "FAQ 置顶 Price+Shipping+How to Buy"
+    },
+    "tag_ecosystem": {
+      "empty_tags": [
+        "#fauxfurcouch",
+        "#animalsofa"
+      ],
+      "insight": "几乎空白，Fuzz Sofa 可抢占心智",
+      "action": "所有 Pin 统一打这两个标签+精准补充"
+    },
+    "pricing_insight": "$3,999(Office Logix)和$9,900(FUZZ)之间有$6,000空档——站主裁决：不改价，先让数据说话",
+    "follower_personas": {
+      "office_logix": "散户+经销商（肯尼亚/休斯顿/墨西哥）",
+      "maximoriera": "设计师+收藏家+画廊（EU/US沿海）",
+      "moooi": "室内设计师+经销商+博主（450K verified）",
+      "fuzz_sofa_target": "室内设计师+高净值毛绒爱好者+网红店主"
+    },
+    "pr_angle_upgrade": {
+      "established": "2026-09-27",
+      "source": "Yanko Design 2026-06-28：AI Generates Thousands of Product Renders a Day. Almost None Ship.",
+      "quote": "In April 2024, a design page posted a few images of a gorilla-shaped couch... On TikTok, the images passed 500,000 likes... A furniture manufacturer in China saw the numbers and went to work.",
+      "our_angle": "我们是「真有人造出来了」的那个案例——不是 AI slop，是 Real Build。FTC 开始打 AI 假货=市场对 Real 的需求在涨",
+      "media_pitch_upgrade": "从「we built the real one」升级为「the AI gorilla couch got 500K likes on TikTok. Everyone thought it was fake. We built it — 200kg load tested, serialised QC, and you can preview it in YOUR room before ordering.」",
+      "ftc_context": "FTC 2026 AI 执法 + 60% 消费者怀疑线上内容真实性 + 54% AI 疲劳 → 我们的 Real Build 故事正踩在市场情绪上"
+    }
+  },
+  "gcc_buyer_behavior": {
+    "version": "V1.0",
+    "validated": "2026-09-27 Gemini G2 search",
+    "key_finding": "GCC wealthy buyers initiate DMs for private pricing, NOT standard checkout — validates our DM→WhatsApp conversion flow",
+    "platform_roles": {
+      "instagram": "Primary visual discovery — buyers follow elite galleries and studios, initiate DMs for private pricing",
+      "pinterest": "Mood-boarding for villa renovations (Palm Jumeirah/Emirates Hills) — awareness, not conversion",
+      "whatsapp": "De facto transactional bridge — video walkthroughs, material samples, custom renders",
+      "linkedin": "B2B sourcing — property developers, boutique hotels, interior consultants"
+    },
+    "dm_first_confirmed": true
+  },
+  "ftc_ai_labeling": {
+    "established": "2026-09-27",
+    "source": "Gemini G4 侦察——FTC 2026年1月成立AI执法单元",
+    "requirement": "AI生成内容必须标注 Made with AI 或 AI-generated，未标注最高罚 $53,088/次",
+    "our_status": "✅ Room Preview 页面已标注 visualization / AI room preview",
+    "gap": "需逐页检查所有 AI 生成图是否有标注",
+    "max_fine": "$53,088/violation"
+  }
+}

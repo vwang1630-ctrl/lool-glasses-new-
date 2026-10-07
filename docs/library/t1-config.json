@@ -1,0 +1,48 @@
+{
+  "manifest": "FUZZ SOFA t1-config — T1 第一方数据甄别配置（谁的数据不算客户数据）",
+  "version": "V1.0",
+  "updated": "2026-09-12",
+  "note": "甄别规则：订单/收藏/订阅/评论命中以下邮箱或昵称 → 标记为所有者自测，不计入 T1 证据。新增自测账号请补进来，否则会污染画像验证。",
+  "owner_emails": [
+    "vwang1630@gamil.com",
+    "vwang1630@gmail.com",
+    "admin@fuzzsofa.com"
+  ],
+  "owner_handles": [
+    "cici",
+    "coco"
+  ],
+  "suspicious_domains_note": "QQ/163 等邮箱的真实访客单独列出存疑，不由工具代判",
+  "brand_voice_guard": {
+    "version": "V1.0",
+    "updated": "2026-09-26",
+    "source": "站主 V8.0 养料包喂养（WO-20260926-03）+ 站主裁决：factory→工作室/atelier；hand-sculpted 禁用；工艺细节退证据层，全球独家主轴",
+    "banned": [
+      "factory",
+      "工厂",
+      "工厂视频",
+      "工厂实拍",
+      "real factory",
+      "factory footage",
+      "Galvanized",
+      "镀锌",
+      "镀锌钢管",
+      "包装箱",
+      "ships in a crate",
+      "Handmade to order in 1-3 days",
+      "1-3天内完成",
+      "hand-sculpted",
+      "整体手工雕刻",
+      "手工雕塑成形",
+      "评论.*送",
+      "送.*视频"
+    ],
+    "enforced": [
+      "Shanghai atelier / 工作室 / 工坊",
+      "hand-finished by artisans（手工细节打磨）",
+      "SKETCH→FOAM→SKIN→VISION atelier process",
+      "200kg load tested · serialised QC",
+      "One Partner Per City · No OEM · Own IP Only · GCC 0 Distributors · Global Exclusive Originals · In-House R&D · Own Atelier"
+    ]
+  }
+}

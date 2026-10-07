@@ -1,0 +1,1550 @@
+# FUZZ SOFA 内容生产系统 · 说明书（唯一文档）
+
+> V4.3 FINAL TEMPLATE LOCKED · 更新于 2026-09-26（**10-02 增补九:操盘协议 V1.0 立项——Current Truth 一张表/两道门/默认假+数据水管三规则+判例007/008+触发器冻结;业务事实修正:全部订单均测试,真实营收=0;详 §19.7 及 docs/library/operator-protocol.md**）（**09-26 增补四**：§8 裁决三（DDP 可选口径/V8 社媒喂养/部门制/FX 选项1）· §13.7 部门制神仙姐姐部+幽灵员工部 · §14 幽灵员工正式开启+FX 触发线 · §15 playbook V3.0+rb13/rb14 声音护栏 · Dubai 篇 blog 上线 score 97.3A；**09-26 增补五**：§8 裁决四（钩子制改制/渲染vs实物楔子/四拍逻辑/证据审计 V8.1.0/$35k 澄清）· §15.0.1 编网图 mesh_map+签名句 V1.0+CTA 主次制 · §15.0.2 后台声音哨兵；**09-27 增补六**：§8 裁决五（关税话术 V1.1 禁包税/工艺叙事终版/$35k 测试单澄清/T1 基线两层修正/G-MWA V0.9 试点）· §15.0.3 声音纪律终版+平台研究先行 · WO-20260927-01/02/03 执行；**09-27 增补八（终版整合）**：§18 实战全记录详细级审核版（20 项工作清单/纠错卡/两道门/挂账总表/竞品情报 V1.0/情绪框架 V1.0/工具雷达 V1.0/数据收集系统）：新增 §17 实战全记录（详细级·审核导向：G-MWA 首役对账/清污五表/编网首日闭环/纠错卡三张/工程教训五条/挂账总表））（09-21 晚新增 §13.6 章程五问 · §15 社媒系统 · §8 裁决二 · §10 台账增补二；**09-22 增补三 WO-14～15：GA4 实测 + 抠图闸门/双路由 returnPolicy/违禁清洗三层数/GSC 排查**；操盘手现役状态 operator-library V1.13.0）
+> 覆盖范围：`/fuzz-produce` 调度技能 + `scripts/pdp-toolbox.mjs` 闸门 + `docs/library/` 活库 + 数据库双通道 + 80 端口部署
+> **2026-09-13 文档收编**：本文件是 `docs/` 下唯一文档——原 pdp-toolbox.md 并入 §3，v43 模板锁并入 §11.1，IP 运营手册并入 §11.2–11.5，GEO+画像蓝图并入 §12。历史版本（v42/v43/no-api 系/noctua 快照/business-scenario-tests）已删除，git 历史可查；证据原档移至 `docs/library/evidence/`。
+> 冲突时以本文引用的工具实际行为为准（工具 selftest 全绿 > 文档描述）。
+
+---
+
+## 0. 全景一页图
+
+```
+ 你给四样：图 + W/D/H/SH/重量/承重 + 真实材质表 + 价格
+        │
+        ▼
+ ┌─────────────────── 调度层 .claude/skills/fuzz-produce/SKILL.md ───────────────────┐
+ │  判断走哪条线：A 线 PDP / B 线 blog / C 线校准环，然后按步执行                      │
+ └──────────────────────────────────┬───────────────────────────────────────────────┘
+        读库（先读后写）             │                一切确定性校验
+        ▼                            │                ▼
+ ┌── 记忆层 docs/library/ ──┐        │        ┌── 闸门层 pdp-toolbox.mjs ──┐
+ │ 活库全景见 §5 + 2 把模板锁│ ◀──────┼──────▶ │ validate → score → verify  │
+ │ + 台账 证据分级 T1–T4，   │  回填   │        │ selftest 全绿才算工具可信   │
+ │ 无出处不主张，爬到证据+0.1│        │        └────────────────────────────┘
+ └───────────────────────────┘        │
+                                      ▼
+                        ┌── 输出双轨 ──────────────────────────┐
+                        │ ① 完整 HTML patch（推广/覆盖用）        │
+                        │ ② DB JSONB 补丁（线上真通道，写库即生效）│
+                        └──────────────┬──────────────────────┘
+                                       ▼
+                        线上站（本机 80 端口，Windows Server 自托管）
+                                       ▲
+              ┌── C 线校准环 ─┴──────────┐   ┌── 社交出口层 §15 ──────────┐
+              │ GSC(周自动)/GA4/AI采样/   │   │ blog 是母体，五平台是出口；  │
+              │ t1 订单台账 → 改画像与关键词│   │ social-outlet 产稿落日历，  │
+              └──────────────────────────┘   │ social-review 周评证伪闭环   │
+                                             └────────────────────────────┘
+```
+
+一句话：**你只给物理事实和审批，其余全自动；机器闸门把关，活库记住一切，校准环让它越跑越准，社交出口把它送出去，合伙人章程（§13.6）管着这一切的权限。**
+
+---
+
+## 1. 五层架构与分工（2026-09-21 起社交出口层入列）
+
+| 层 | 载体 | 职责 | 铁律 |
+|---|---|---|---|
+| **战略层（操盘手/合伙人）** | `.claude/skills/fuzz-operator/SKILL.md` + `operator-library.json` | 漏斗/内容矩阵/CRO/品牌 战略判断，发工单不执行（§13）；**2026-09-21 起兼任经营合伙人**（章程 §13.6：green 区直接干、分歧 openly 反对、周一例会） | 不改闸门不绕闸门；涉钱/published/模板锁→你裁决 |
+| **调度层** | `.claude/skills/fuzz-produce/SKILL.md` | 判断路线、执行步骤、爬取证据、写内容、调命令 | 做详情页/blog/上新/校准**先进这个技能** |
+| **闸门层** | `scripts/pdp-toolbox.mjs` | 一切确定性校验（r1–r14 / rb1–rb12 / operator / score / selftest） | 闸门说了算，**不许绕过、不许口头辩护** |
+| **记忆层** | `docs/library/`（活库全景 §5） | 唯一事实来源 | 写库必有门禁（无 source 硬拒绝），读库优先于凭记忆 |
+| **社交出口层** | `social-playbook.json` + `social_calendar` 表 | blog 是母体、五平台是出口；social-outlet 产稿落日历、social-review 周评证伪（§15） | **不接平台 API、不买小号**（用户裁决）；披露红线不豁免 |
+
+**冲突裁决顺序**（谁赢）：
+1. 工具输出 vs 文档描述 → **selftest 全绿的工具赢**，回头修文档
+2. 库 vs 记忆 → 库赢；库内两条冲突 → 证据 tier 高者赢；同 tier → 日期新者赢
+3. 模板锁 vs SEO 建议 → **模板锁赢**（锁是转化结构，SEO 只在锁内做）
+4. 要不要 published / 建新画像 / 动模板锁 → **你裁决**，Claude 只给选项和推荐
+
+---
+
+## 2. 三条线
+
+### A 线：PDP 详情页（上新 / 改版）——九步
+
+```
+1. scaffold        node scripts/pdp-toolbox.mjs scaffold input.json   # 从四样输入生成 patch 骨架
+2. 反推            persona brief <slug|input.json>   # 输出：未覆盖主题信号 + 爬取计划 + 会怎么搜
+3. 定向爬取        按 brief ④执行（Reddit/Quora/Trends/竞品页）：
+                   证据 → persona-library / t1-evidence（带 tier+source）
+                   竞品话术 → competitor-library；关键词结论 → keyword-library
+4. 画像定稿        persona audit（exit 0）→ persona infer → patch.personas
+5. 关键词裁决      brief ⑤ 候选 → keyword-library 登记（page_assigned 一词一主位）
+                   → cannibal（CONFLICT exit 1 = 先裁决再写）
+6. 内容生产        按 14 节模板锁写 patch（只换内容不增删节）；
+                   社证数字只准 Story 段且先查库；FAQ 数字与正文一致
+7. 闸门            validate（exit 0）→ score（≥B 过，A 才算优秀）
+8. 上线            你审批 → DB 补丁（写库即生效）→ verify <线上URL> <patch>
+9. 归档            进 C 线周节奏；T1 证据回流走毕业制度
+```
+
+**Claude 的判断权**：主题信号建新画像还是挂现有画像、爬取结果够不够 T2 门槛、内容角度选哪条——判断完要说明理由，但**判断不改变闸门**。
+
+### B 线：blog 文章——同构九步，差异点
+
+| 项 | A 线 PDP | B 线 blog |
+|---|---|---|
+| 输入 | 图+参数+材质+价格 | 目标关键词 + 挂载产品（≥2 内链）+ 画像角度（角度即 H2 骨架） |
+| 模板锁 | `framework-lock.json`（14 节） | `blog-framework-lock.json`（title 35–38 字符、excerpt 150–160、H2 4–8、禁表格/h1、分类 7 类） |
+| 闸门 | validate r1–r13 | blog-validate rb1–rb12 |
+| 存储 | products 表 | site_articles 表（/journal，markdown content） |
+| 蚕食红线 | cannibal 查关键词归属 | 目标词与任一 PDP/文章冲突 = **不开写**，先换词或换角度 |
+| 流程 | …→ DB 补丁 → verify | → 落 **draft** → 你审 → published → blog-verify |
+
+**Blog 补丁形状**（blog-validate 的输入契约）：
+
+```jsonc
+{
+  "slug", "category", "status": "draft|published",
+  "title",            // 35–38 字符（head 拼后缀后 SERP ≤60）
+  "excerpt",          // 150–160 字符（= meta description + 列表卡）
+  "image",            // hero 图 URL（必填）
+  "content",          // markdown（无表格/h1；H2 4–8 段）
+  "target_keyword",   // 必须库内有证据条目
+  "social",           // 可选：社交出口块（blog 是母体，社交是出口；social-gen 生成，rb12 强制）
+  "approved_numbers": [],   // 文中非 QC 组数字的授权清单
+  "sources": [{ "url", "label", "backs" }],  // 外链白名单：无 source 不引用
+  "personas": []      // rb11 画像准入
+}
+```
+
+### C 线：校准环（越跑越准的机器）
+
+**每周一（自动化为主，人工约 60 分钟）**：GSC 周任务**自动**拉数（schtasks「FUZZ cron gsc-weekly」周一 04:17 → `gsc-pull.mjs pull 28` + verify → `docs/library/gsc-export.json`，token 在 `scripts/gsc/token.json` 不入仓）→ `t1 inventory`（第一方信号+自测甄别）→ 聚类挂画像 → keyword-library 更新 → cannibal 扫描 → 转人工破洞清单报给你。GSC 授权已完成（2026-09-21，authCode 后门换活 token；`pull 28` 是正解——28 天窗口 74 展示 vs 7 天仅 13，低流量站用大窗口才看得出趋势）。
+
+**每月（约半天）**：persona audit 全量 → ai-visibility 采样（prompt bank × ChatGPT/Perplexity/Gemini，连续 2 次未引用的词查内容缺口）→ competitor-library 刷新 → user_provided 社证催办 → score 权重复盘（GSC 攒满 90 天才动权重，一次一个变量）。
+
+**毕业制度**：同一画像假设 ≥5 条同向 T1 证据 → 升级进 evidence。**画像退役**：连续 2 个月关联查询词=0 且 ai_chat 命中=0 → 提议 deprecated（你批）。
+
+**周一例会已并入此节奏**（§13.6）：gsc-weekly 拉数（自动）→ social-review 周评 → operator-next ICE 排序 → 用户 15 分钟批准/否决。
+
+---
+
+## 3. 命令手册
+
+全部命令：`node scripts/pdp-toolbox.mjs <命令> [参数]`
+
+| 命令 | 干什么 | exit 0 条件 |
+|---|---|---|
+| `validate <patch.json>` | PDP 上库闸门 r1–r13 | 全 PASS（WARNING 不拦） |
+| `blog-validate <patch.json>` | Blog 闸门 rb1–rb11 | 全 PASS |
+| `score <patch.json>` | 按 12 项权重打分（A/B/C），blog patch 自动识别 | PASS（顺带重跑闸门） |
+| `verify <线上URL> <patch.json>` | 线上 DOM 回归（QC id、meta、JSON-LD，桌面+手机双 UA） | 全核对项通过 |
+| `blog-verify <URL> <patch.json>` | 同上，blog 版（meta==excerpt 等） | 同上 |
+| `selftest` | 工具自检：正样本 + 22 负样本注入 + 线上 DOM 回归 | 三者全过 → ALL GREEN |
+| `blog-selftest` | Blog 版：demo 文章 + 13 负样本（draft 状态跑离线部分） | 全过 → ALL GREEN |
+| `operator` | 操盘手战略板审计（§13）：漏斗六阶段/产品覆盖/矩阵真词/CRO 证据级+ICE/open 项打分/工单台账/AB 一次一变量/E-E-A-T | 全 PASS |
+| `operator-intake <input.json>` | OP-01–05 产品驱动逆向推导：Product DNA 14 字段卡+风险轴（Visual Impact/Uniqueness/Trust Risk/Delivery Risk）+四层市场搜索词（A 直接/B 相似/C 同用户/D 同价格带）+五信源清单+H1 画像骨架 | DNA 卡+搜索计划 |
+| `operator-intel` | 例行情报：ai_chat 增量（游标 intel-state.json）/转人工计数/t1 订单甄别（QQ 域存疑单列不代判）/事件计数 + 板对账漂移标记 | DONE + 漂移清单 |
+| `operator-next` | CRO open 项 ICE 排序（i×c×e）→ THE ONE + 落选原因 + parked/blocked 喊话清单 | 推荐 1 项 |
+| `operator-selftest` | 审计器自身考题（9 负样本注入） | 全过 → ALL GREEN |
+| `scaffold <input.json>` | 四样输入 → 14 节 patch 骨架（自动带 personas 占位） | 生成文件 |
+| `blog-scaffold` | blog patch 骨架（自动带 personas，H2 槽位=画像内容角度） | 生成文件 |
+| `persona brief <slug\|file>` | 画像反推简报：①信号盘点②库内命中③未覆盖主题④爬取计划⑤会怎么搜⑥回填 | 输出简报 |
+| `persona infer <slug>` | DB slug 直连 → 宽文本匹配画像库 → 推荐 personas + 证据词 | 输出建议 |
+| `persona audit <file>` | 心理×经济层强校验（缺 psychology/economic_profile 即拦） | 全过 |
+| `cannibal <patch\|kw>` | DB 实查一词多主位 | 非 CONFLICT |
+| `library show` | 列出全部库及版本 | — |
+| `library search <词>` | 全库全文检索 | — |
+| `library add <库> <json文件>` | 回填证据条目（**无 source 硬拒绝**，成功自动 minor +0.1） | 写入成功 |
+| `library bump <库>` | 手动版本 +0.1 | — |
+| `t1 inventory` | DB 全表拉取 + 自测订单甄别（订单污染防线） | 输出甄别结果 |
+| `t1 ledger` | 第一方证据台账 `t1-evidence.json` | 输出台账 |
+| `social-gen <input.json>` | blog 母体 → 社交出口块 + Pin 图/Reel 资产（出厂过 rb12；标题问句+实数尺寸+UTM 齐活） | 生成成功 |
+
+**配套脚本**（非 toolbox，独立入口）：`node scripts/gsc-pull.mjs pull 28`（GSC 数据拉取，`verify` 核对链路；token `scripts/gsc/token.json` 不入仓；周一 04:17 schtasks 自动跑）· `scripts/cron-tick.mjs`（「FUZZ cron 10min」+「FUZZ cron daily-report」两任务的共用 tick，无 GSC 逻辑）。
+
+**章程动作**（非命令行命令，见 §13.6/§15.4）：**social-outlet**（母篇→子稿出口：输入 blog/product slug，按 playbook 各平台块产子稿，全带 link_contract UTM，落 social_calendar status=draft，rb12 同源校验）· **social-review**（周数据闭环：gsc-export 出站行 + social_calendar 回填 metrics → 逐平台对 falsify 条件 → 产周调整工单，必须含「本周数据改了哪条规则」或明示无变化+为何）。
+
+**标准节奏**（任何内容上线前）：`validate` exit 0 → `score` ≥B → 落库 → `verify` PASS。**新产品先 validate 再落库。**
+
+### 3.1 补丁文件形状（validate 的输入契约）
+
+现成样本在 `docs/library/fixtures/`（noctua/kong/mofu/meteorite-patch.json + blog demo），照抄形状最稳：
+
+```jsonc
+{
+  "slug": "noctua-owl-armchair",
+  "freight_class": "sea",              // 运输方式事实描述（r9 已不改客户侧承诺）
+  "chargeable_kg": 223,                // 计费重（运费模拟用；2026-09-12 起不改变交期口径）
+  "price": 4800,
+  "approved_numbers": [2, 22],         // 产品专属已核实数字（输入规格、文化引用等）
+  "personas": ["owl-nostalgia-collector"],  // r12：必须在 persona-library
+  "seo": { "title", "description", "h1", "keywords": [] },
+  "content": {
+    "tagline", "storyHeading", "storyText",
+    "quote": { "text", "source" },     // r4: 必须逐字出现在 storyText + 必须有出处
+    "features": [ /* 恰 4 条，禁钢材型号/屈服/QC 编号 */ ],
+    "materials": [ /* 简单名称列表 ≤6 项，禁数字/参数 */ ],
+    "leadTime", "leadTimeNote",
+    "faq": [], "ldProperties": [], "interiorInspirations": [ /* ≤3 且不重复，场景区禁数字 */ ], "heroImages": []
+  },
+  "must_not_contain": [],              // verify 断言旧文案已从 DOM 消失
+  "known_issues": [ /* 已上报待代码修复的缺陷：verify 只标 KNOWN 不判 FAIL；修复后移入 must_not_contain */ ]
+}
+```
+
+### 3.2 内容评分权重与蚕食判定
+
+`score <patch>`：规则加权求和（FAIL 扣满 / WARNING 扣半）+ 关键词落位（title/desc/H1/story，占 4 分）+ 画像覆盖。
+PDP 权重：r2 溯源 20 > r7 框架 15 > r4+r8 信任 14 > r9/r10 各 8 > r5+r5c 关键词 12 > r6 6 > r1/r3 6 > r11/r13 各 4 > r12 7。Blog：rb2 溯源 20 > rb6 结构 15 > rb7 内链 10 > rb11 画像 10 > 其余同构。
+分级 **A≥90 / B≥75 / C≥60 / D<60**。**权重基线 V1 = 锚定框架锁的治理假设，待 GSC/订单数据校准**（输出里带此标注）。
+
+`cannibal <patch|关键词>`：DB 实查 `products.seo` + `site_articles`，判定谁持有这个词：PDP 持有 = 商业意图归产品页（blog 走信息/画像角度）；≥2 篇文章同抢 = **CONFLICT**（exit 1）；文章与 PDP 同词 = RISK。匹配是词边界级（`ape` 不会命中 `shaped`）。
+
+### 3.3 画像引擎与 T1 管线（V4.5 心理×经济层）
+
+`persona brief` + `persona infer` 组成完整反推管线：**brief = 收集数据 → 从数据提炼主题（①–⑤步）；infer = 库内触发器匹配出画像**。新产品先 brief（发现库里没人接的主题信号 → 定向爬取 → 回填建画像），再 infer。
+
+- 方法论锚定（引用已验证）：Revella **Five Rings of Buying Insight** + Christensen **JTBD**（HBR 2016）+ NN/g persona grounding。
+- **心理结构层（每画像必填）**：`psychology = {core_motivation, self_congruity, collector_psychology, behavioral_economics[]（factor+学术锚+content_use）, trigger_moments[]}`。学术锚：Belk 1988 延伸自我（DOI 10.1086/209154）、Winnicott 1953 过渡性客体（PEP-Web）、Thaler 心理账户/沉没成本、Cialdini 稀缺/社会认同、Kahneman & Tversky 前景理论、Veblen 炫耀性消费。
+- **经济对标层（每画像必填）**：`economic_profile = {income_benchmark（T3 出处）, price_position（verdict+math）, payment_behavior, validation_plan}`。基准：BLS CE 2024 户均年支出 $78,535 / 税前收入 $104,207 / 家具类 ≈$2,414/年。落地结论：Kong $9,900 ≈ 户均年支出 12.6%（纯梗粉不可及，真实买家=有购买力的跨界者）；Mofu $2,800 ≈ 1.16 年全部家具预算（毕业档，必须耐久证据换溢价）。
+- **证据分级**：T1 访谈/订单/GSC/站内对话（过 t1 甄别）> T2 社群一手 > T3 报告媒体 > T4 分析师假设。**T4 必须带 validation_plan，不得作为主张写进文案**；内容只能引用 T1–T3。
+- `persona audit`：缺 JTBD / Revella 五要素 / 心理层 / 经济层 / ≥1 条 T1–T3 / 任一假设无验证计划 → exit 1。
+
+**T1 第一方证据管线**：
+
+| 命令 | 作用 |
+|---|---|
+| `t1 inventory` | 拉全部第一方表（orders/ai_chat/reviews/favorites/newsletter），按 t1-config.json **自动甄别所有者自测数据**，输出各源真实信号量 |
+| `t1 ledger` | T1 证据台账（t1-evidence.json）：每条 {date, n, source, claim, persona_link, caveat} |
+
+**毕业规则**：同一画像假设累计 ≥5 条同向 T1 → hypotheses(T4) 升级 evidence(T1)。**防镀金纪律**（2026-09-12 实例）：47 张订单里 45 张是所有者自测单——不甄别的话"均价 $5,400"会被误当需求证据写进画像。首次盘点结论：**AI 客服是当前唯一真实访客原话源**（意向会话 ×4）；真实客户订单=0；**转人工请求 ×4 无跟进=运营破洞**。
+
+**当前五画像**：
+
+| 画像 | 触发 | 核心疑虑（→ 信任弹药） |
+|---|---|---|
+| kong-movie-fan 金刚梗文化粉丝 | 主题 gorilla/kong/ape | 山寨恐惧（r/Corridor 买家实测）→ QC 报告+钢结构+承重 |
+| plush-comfort-collector Jellycat 人群 | 材质 faux fur/plush | 幼稚污名 → 工艺数据+成人向 styling |
+| cat-household-upgrader 养猫家庭 | 主题 cat | 利爪+清洁 → 材质耐久+护理口径 |
+| statement-piece-affluent 高净值镇宅 | price≥3000 + W≥120 | intent 还是 theme park → 工时/限量/实景合成 |
+| owl-nostalgia-collector（noctua 主画像，V4.5 全层） | 书房/智慧圣鸟/收藏 | 情感真伪 → 品牌叙事+真实工艺 |
+
+（上表证据词随裁决演进——如 plush 画像的 martindale/shedding 证据词已因 9-12 晚裁决过期，待 audit 更新。）
+
+### 3.4 工具缺陷史（测试即审计）
+
+1. **[已修复 09-12] Materials 网格硬编码假材质**——桌面 CORDUROY 卡从不读 DB → 组件改动态读 craftsmanshipText 分块（≤4 卡，第 4 卡=export_cert 补位），CORDUROY 入 must_not_contain，44 行死翻译清除。
+2. **[已修复 09-12] FAQ FRAMEWORK_DRIFT**——改「前 4 可见 + Show all 展开」，≤8 硬顶，框架锁升 V1.1 契约。
+3. **[已修复 09-12] Interior Inspiration 两卡重复+画像错位**——按画像对症重写 3 卡，r7 加重复/缺文案防线。
+4. **[P3 待清理] JSONB 嵌套 data.data 陈旧副本**——mapper 读顶层不受影响，但新代码读 data.data 会踩雷（见 §10 遗留清单）。
+5. **[P2 待修] SSR 无 DB fetch 超时**——Supabase 抖动时全站请求 hang（进程活、CPU 空闲），重启恢复；待加 timeout+降级。
+6. **[已修复 09-13] 闸门正则误吞（无词边界）**——`/MPa/i` 命中 "COMPA**NION**"、`EN\s?\d` 命中 "of**ten 5**"、`yield` 命中 "un**yield**ing"，mofu 场景卡被误拦到永远无法 PASS → 单位词一律 `\b`（`\bMPa\b`/`\bASTM\b`/`\bEN\s?\d`/`\byield\b`）。**教训：新增正则先对四产品在库文案全文试跑再加闸**
+7. **[已修复 09-13] 网关 `select data` 全量 JSONB 拉爆 node**——HTTP SQL 网关拉整行 jsonb 直接 OOM（Fatal process out of memory: Zone），且崩溃点之前的写已落库 → 只 select 目标键（`data->'features'`），修复脚本一律做成幂等（新文案在位则跳过写入）。同族教训：网关 DELETE 的 rowCount 恒报 0（即使真删了 2 行），**永远用 `select count(*)` 回读验证，不信 rowCount**。
+
+### 3.5 场景卡四步流水线（Interior Inspiration 标准写法，2026-09-13 定稿）
+
+场景区功能定位（用户裁决）：**场景展示 + 用户画像区 + try-in-your-room 引导 + 社交转发触发器**——画像/心理学/行为学机制主要就落在这个区。每张场景卡必须按四步走完才准动笔：
+
+| 步 | 动作 | 依据/工具 |
+|---|---|---|
+| ① 识图 | 先看图像本体，把图里实际内容写进 `scene-image-manifest.json` 的 `seen`，图中没有的道具进 `banned_terms`，标 `copy_verified` | **r13 闸门强制**（清单缺失/图未登记/文案踩禁区词 = FAIL） |
+| ② 反推目标用户 | 从规格/材料/参数（W/D/H/SH/承重/材质/价格）用数据反推这款是给谁买的 | `persona brief` + `persona infer`（铁律#8 画像先行；r12 强制画像在库） |
+| ③ 画像×图内容 | 目标用户 × 图里真实内容 → 定这张卡的画像锚与行为心理学切入点（这个人为什么在图前停下、会转发给谁、代入谁） | persona-library 心理×经济层；引用证据只准 T1–T3 |
+| ④ 四拍公式 | **画像锚**（这人是谁）→ **图内真实细节**（只准写 seen 里有的）→ **try-in-your-room 房间钩**（放进你家是什么效果）→ **社交转发钩**（值得截图发圈的那个点） | 手艺标准（闸门只拦 ①+存量禁区，②③④ 靠纪律+审计） |
+
+硬约束叠加：场景区零数字零参数零工业术语（r7）· 禁词（r6）· AI 隔离（r10）。分工一句话：**闸门拦「没看图就写」和「图文错配」，写得好不好看 ③④**。
+
+---
+
+## 4. 闸门规则速查
+
+### PDP：r1–r14
+
+| id | 名称 | 拦什么 |
+|---|---|---|
+| r1 | 占位符 | TODO/lorem/占位文案残留 |
+| r2 | 数字溯源 | 正文数字必须能对上 patch 内字段/库内条目，无出处的数字禁止出现 |
+| r3 | 价格字段 | price > 0 必填 |
+| r4 | 用户原话逐字+出处 | 引用客户原话必须逐字且带出处 |
+| r5 | 关键词证据 | seo.keywords 必须在 seo-meta-library `keyword_clusters_verified` 内（含禁假词检查） |
+| r6 | 禁词 | forbidden-en 正则（probably/maybe/usually/suggest/recommend/perhaps 及词形变化）；2026-09-12 晚追加 washable/removable（产品不可拆卸）+ zh 侧 可拆卸/机洗/可拆洗 |
+| r7 | 框架锁约束 | features=4（**禁钢材型号/屈服/QC 编号**）、materials 简单名称列表 ≤6 项（禁摩擦次数/Martindale/QC/数字）、inspiration≤3 卡不重复 + **每卡必带 image**（渲染层 filter 掉无图卡→整区空白）+ **场景区禁数字/参数/工业术语**、title 50–60、desc 150–160、FAQ 4 可见+Show all（≤8 硬顶） |
+| r8 | 信任组 QC 报告 | 必须引用帧级 QC 报告号（SH2024-0945 / FUZZ-LAB-2024-01）；合法区=产品数据表/白手套/交期备注/FAQ/JSON-LD |
+| r9 | 交期归级 | 统一口径『1–3 天生产 + 7–14 天运输（海运 25–35 天，不推荐）』；旧 9–17 写法直接拦 |
+| r10 | AI vs Real 隔离 | AI 概念对象（bread/burger/donut/walking pony/hamster/tiger/elephant/dinosaur/unicorn 等）只准进 Story 段且带标注词 |
+| r11 | 社证数字准入 | 社证数字必须查库（user_provided 挂 WARNING 待你确认；库内无即 FAIL） |
+| r12 | 买家画像准入 | patch.personas 必须是 persona-library 在册画像 |
+| r13 | 图像辨识先行 | 每张场景卡图必须在 `scene-image-manifest.json` 登记视觉辨识（seen=图里实际内容、copy_verified）；文案禁踩该图 banned_terms——**图中没有的道具不许写**（2026-09-13 kong/meteorite 图文错配事故入闸） |
+| r14 | 产品-市场-人-心理对齐（一号战略原则，2026-09-13） | 四断层拦截：①画像缺 `evidence_level`（H1–H4）②画像 `buyer_psychology` 缺七字段（want/desire/fear/doubt/trigger/proof/action）③patch.psych_jobs 心理卡缺失/`psychological_job` 与 framework-lock canonical 错位/指向库外画像 ④价格带错配（`economic_profile.price_band` 之外的价格 × 画像 = Premium 产品配错档画像）。全 H1 → WARNING（published 前须升 H2+）。**score 权重不动**（一次一个变量 + GSC 90 天窗口），r14 在 validate 上游生效、score 继承其结论。scaffold 自动生成 14 张心理卡；framework-lock V4.4.0 `psych` 层 = canonical 词表 |
+
+### Blog：rb1–rb12
+
+rb1 占位符 · rb2 无出处不主张+来源白名单（外链必须白名单内）· rb3 基础字段 · rb4 关键词证据（库内目标词+禁假词）· rb5 禁词（同 r6）· rb6 框架锁结构（分类/长度/H2/渲染器限制/前100词）· rb7 内链有效性（**DB 实查**，死链即拦）· rb8 交期口径（正文提到 delivery/days 就必须含 1–3 和 7–14，禁 9–17）· rb9 AI vs Real（**meta 层禁 AI 对象**；正文提及必须带 AI 标注词）· rb10 社证数字准入 · rb11 买家画像准入 · rb12 社交出口块（**无 social 块不拦**——存量文章豁免；有块才校验：Pinterest 标题必须**问句（含 ?）+WxDxH**、链接必须挂**本 blog slug + utm_source=pinterest**、描述≤500 字符；IG caption 必含尺寸+问句+Comment REAL、Reel 4 镜；FB ≤80 字符+blog 链接；**banned_terms 禁词**（Sit on Art 等）任何卡面出现即拦。规则源=social-playbook V1.0，生成走 `social-gen`，卡不问句/无尺寸/空链接=FAIL——13 点击 0 出站的根治闸）
+
+### selftest 机制（工具自己的期末考试）
+
+- **正样本**：跑一遍在库 demo patch（noctua / blog demo 文章），必须全 PASS。
+- **负样本注入**：往正样本里故意注入 29（PDP）/ 16（blog）种违规，**每条必须被预期的那条规则拦下**（`[CAUGHT]`），任何 `[MISSED]` = 有规则失效。（r14 上闸后 PDP 考题含 7 条心理对齐负样本：心理卡缺失/岗位错名/断卡/指向库外画像/缺 evidence_level/心理图缺字段/价格带错配——库级负样本用注入改板库实现，不动库文件；rb12 上闸后 blog 考题含 3 条出口负样本：口号标题复辟+无尺寸 / 链接缺 UTM / FB 超 80 字符）
+- **线上 DOM 回归**：拿在库 URL 实际渲染页做核对（draft 状态跳过此步）。
+- **维护纪律**：改规则必须同步改负样本考题；负样本也要跟着事实改（例：gorilla 随 kong 产品化移出 ai_subjects 后，注入 gorilla 的考题换成了 tiger）。`String.replace` 匹配不到旧串会**静默空转**，注入等于没注——这是负样本过期最常见的形态。
+
+---
+
+## 5. 活库（docs/library/）
+
+| 文件 | 角色 |
+|---|---|
+| `seo-meta-library.json` | 关键词簇（verified 集合是 r5/rb4 的准入门） |
+| `social-proof.json` | 社证数字台账（verified_entries / user_provided_pending，r11/rb10 数据源） |
+| `ai-vs-real.json` | AI 概念对象清单 + 标注词 + 学术证据（r10/rb9 数据源） |
+| `keyword-library.json` | 关键词×画像对齐（page_assigned 一词一主位 / cannibal_status） |
+| `competitor-library.json` | 竞品话术骨架（条目必带 evidence_tier） |
+| `ai-visibility.json` | GEO 采样：prompt bank 16 问 + check_log（月采样） |
+| `persona-library.json` | 买家画像（Revella Five Rings + JTBD + 心理×经济层） |
+| `brand-library.json` | 品牌案例 + 品牌理论文献 + 写作范式（Story 四段+签名句公式） |
+| `framework-lock.json` | **PDP 模板锁**（14 节布局，改锁=你裁决） |
+| `blog-framework-lock.json` | **Blog 模板锁** |
+| `t1-evidence.json` | 第一方证据台账（t1 ledger 维护） |
+| `t1-config.json` | 自测甄别配置（owner 邮箱等） |
+| `fixtures/` | 在库 patch 样本（noctua/kong/mofu/meteorite-patch.json + blog demo）——selftest 的正样本源 |
+| `scene-image-manifest.json` | **场景卡图像辨识清单（r13 数据源）**：每张场景卡图的 seen（图里实际内容）/ banned_terms（图中没有的道具，文案禁踩）/ copy_verified——写卡先看图，看图必登记 |
+| `social-playbook.json` | **社交出口层宪法（V3.0.0，rb12 数据源；2026-09-26 V8 喂养升级）**：blog 是母体、社交只切短发；**五平台**（pinterest/instagram/facebook/reddit/tiktok）各按 算法/钩子/留存/转化 四层写，算法层只收「假设+证据级+证伪条件+保质期天数」（UNFALSIFIED 超保质期=audit FAIL）；`link_contract` 出口链接 UTM 规范；`strategy_brain`（周决策+五平台总周历）、`data_loop`（周数据闭环）、`brand_memory`（长期品牌记忆）、`campaigns`（see_it_in_your_room 房间合成战役）、`trust_copy_locked`（信任文案 LOCKED）、`test_pack`（room-preview-10 测试包）——全系统见 §15。生成走 `social-outlet`/`social-gen`，rb12 强制 |
+| `gsc-export.json` | **GSC 周拉数落盘（不入仓，gitignored）**：schtasks「FUZZ cron gsc-weekly」周一 04:17 自动写入（pull 28 + verify）；social-review 与 C 线聚类的数据源 |
+| `evidence/` | 证据原档：QC 报告 ×2（r8 信任组编号 SH2024-0945 / FUZZ-LAB-2024-01 的出处）· Google Trends 导出 · 90d 站内搜索/客服/退货 CSV |
+
+**证据分级**：T1 访谈/订单一手 > T2 社群一手 > T3 报告媒体 > T4 分析师假设。T4 只能带 `validation_plan` 存在 hypotheses，**禁止直接写进文案**。
+
+**写库门禁**：`library add` 缺 source 自动拒绝；入库成功自动 minor +0.1；deprecated 条目（禁假词）只进不出。
+
+**当前重点画像**：kong-movie-fan / plush-comfort-collector / cat-household-upgrader / statement-piece-affluent / owl-nostalgia-collector（noctua 第 5 画像，V4.5 全层）。
+
+---
+
+## 6. 数据库通道（线上真通道）
+
+### 表结构
+
+| 表 | 存什么 | 关键点 |
+|---|---|---|
+| `products` | 4 产品主档 | `data` 列是 **jsonb**，PDP 页面内容全部从这里渲染 |
+| `faqs` | FAQ 行，按 `product_slug` 关联 | 改 FAQ = delete + insert 整组 |
+| `site_articles` | /journal 文章（markdown content，status: draft/published） | draft 安全暂存，SSR 只渲染 published |
+| `translations` + `ui_strings` | **双层字典**，经 getDict 注入每个页面 | 死键必须两层都清，否则随页面源码发给所有访客 |
+| `social_calendar` | 社媒发布日历（WO-20260921-12 立表）：post_date/platform/title/mother_ref/utm_url/status/metrics | platform CHECK(pinterest,instagram,facebook,reddit,tiktok)；status CHECK(draft,ready,posted,skipped,archived)；唯一索引 (platform,post_date,title) 防重复灌装——**自治区：直接读写，台账记** |
+
+### 写库即生效
+
+写库不需要重启——nitro 每次请求读 DB。但 **.output 里的代码和静态资源是进程启动时读进内存的**（见 §7）。
+
+### 安全写库七步（每次 DB 补丁都走）
+
+```
+1. backup    先把整行读出来存档（出事能还原）
+2. 改键      逐键 jsonb_set(data,'{key}',$1::jsonb)，不整行覆盖
+3. 死键删除  链式 data - 'a' - 'b'（无逗号）
+4. 双写      表级冗余字段（若有）同步更新
+5. faqs      delete + insert 整组重写
+6. 读回      每步 readback 校验，键数/值逐项对
+7. 翻译清理  delete from translations where source_text = any(string_to_array($1,'␞'))
+             + ui_strings 死键按 id 删，两层都要清
+             + **死串先跨产品查共享**（别款 data 里也在用的串不删，否则清掉别款翻译）
+```
+
+### 五个血泪教训
+
+1. **jsonb 列经 HTTP 网关返回的是字符串**，必须 `JSON.parse`，否则 DB 直连尺寸/材质静默全盲（productToPersonaInput 曾因此翻车）。
+2. **翻译死键两层都要清**：`ui_strings`（源串）+ `translations`（译文）都经 getDict 注入页面。bd 旧口径曾因只清了 translations 而全站残留。
+3. **网关铁律**：text 参数必须显式 `::text`、JSON 参数 `::jsonb`、数组用 `string_to_array($n::text,'|')`，**禁 `::text[]`**；DELETE 的 rowCount 不可信，回读验证。
+4. **死串跨产品共享**：短通用串（"Quality Assured"/"Export certification…"）被多款共用，盲 purge 清掉别款 zh 翻译——purge 前逐串 `select slug from products where slug<>$1 and data::text like …`，命中即跳过。
+5. **POST body 必须带 `query` 键（2026-09-21）**：SQL-over-HTTP 网关只认 `{query, params}` 形状——body 里只有 `sql` 键（或两键都没有）时，**整个 body 会被当裸 SQL 执行**，报 `pq: syntax error at "{"`（column 1），报错完全不像「键名写错」；inline `node -e` 里连错两次、拆成 .mjs 脚本仍错，根因都是这个。所有补丁脚本一律发 `{query, params}`。附：jsonb 读回断言要用空白容忍正则（`/"link"\s*:\s*"\/faq"/`）——`jsonb::text` 输出冒号逗号后带空格，字面 includes 必然假阴。
+
+---
+
+## 7. 部署架构（本机 80 端口自托管）
+
+### 正确部署四步
+
+```powershell
+# 1. 停旧进程（记下 PID）
+Get-Process node | Stop-Process -Force
+
+# 2. 构建 —— 必须显式 node-server preset！
+#    默认 vite build 出的是 cloudflare-module preset：只导出 fetch handler，
+#    在裸 node 下绑定不了任何端口 → 静默无监听
+$env:NITRO_PRESET = "node-server"; npm run build
+# 内存紧张时加：$env:NODE_OPTIONS = "--max-old-space-size=2048"
+
+# 3. 启动 —— PORT 必须显式（nitro 默认 3000，被占则静默退出 code 0）
+#    用 WMI 启动 bat（Start-Process 会弄坏引号）：
+Invoke-CimMethod -ClassName Win32_Process -Name Create -Arguments @{
+  CommandLine = 'cmd /c "D:\data\code\cici\fuzz-couch-comfort\start-prod-80.bat"' }
+
+# 4. 验证 .output 真的存在 + 站点活着
+Test-Path .output/server/index.mjs          # True
+(Get-ChildItem .output/public/assets/*.js).Count   # 应该是几十个
+curl.exe -sL http://localhost/ -o NUL -w "%{http_code}"   # 200
+```
+
+### 三大事故形态（都发生过）
+
+| 事故 | 症状 | 根因 | 防法 |
+|---|---|---|---|
+| **静默无监听** | 进程活着但站点不通 | 默认 preset 是 cloudflare-module | 永远 `NITRO_PRESET=node-server` |
+| **.output 内存孤儿** | 站点正常但磁盘 .output 是空壳；进程一死**瞬间全站下线**且无从重启 | 生产模式把代码+静态资源全读进 RAM，磁盘文件可删而无症状 | 每次部署后验证 `.output/server/index.mjs` + `assets/*.js` 数量 |
+| **构建 OOM（exit 134）** | vite 2 秒死，43MB 堆都分不出（Rolldown panic: out of memory） | 不是堆上限，是**系统 commit 耗尽**（本机上限 = RAM 10.43GB，pagefile 被 C 盘满锁死） | 构建前查 `Win32_OperatingSystem` FreeVirtualMemory ≥1.5GB；关 Chrome/VSCode 大户；`NODE_OPTIONS=2048`。**根治 C 盘**：删 `C:\Users\B\AppData\Local\Programs\Microsoft VS Code\` 下 hash 旧版本残留文件夹（可积累数 GB；VS Code 实际可能装在 D 盘，删前用 `Get-Process Code | select -Unique Path` 验证）；AutomaticManagedPagefile=True 时腾出 C 盘即可在线扩 pagefile，无需重启 |
+
+### 验证陷阱
+
+- **PowerShell `Invoke-WebRequest` 走系统代理**（sing-box）→ 抓到的是旧 Cloudflare 远端站。必须 `-Proxy $null`。
+- **curl 不加 `-L`** 拿到 30x 空壳 → 误判"干净"。永远 `-sL`。
+- 工具箱自己的 Node fetch 直连，才是权威读数。
+- 别名 URL（如 meteorite-ring-sofa）301 到 canonical（meteorite-statement-sofa）；i18n 伪静态 `.html` 后缀由路由剥掉，302 到 `/{locale}/...html`。
+- **PowerShell 会吃掉 `node -e` 双引号串里的 `$1` 和反引号**——复杂脚本一律写成 .cjs 文件再跑。
+
+---
+
+## 8. 2026-09-12 裁决全记录（现行法规）
+
+### PDP 八节修正（全站适用）
+
+1. **室内设计灵感卡**：从实际图片写场景（先下载实图再写标题描述，禁凭空编）
+2. **主要特点**：写产品本身特质
+3. **工艺细节**：诚实三步——手工焊接镀锌框架 → 定型高密度海绵（在最终形态中固化）+ 手工细节打磨（**禁"整体手工雕刻"**）→ 手工缝纫（无缝纫的产品如实省略，如陨石）
+4. **故事**：品牌之根——设计想法+品牌原创（禁市场考据风/禁照搬旧稿）
+5. **材料**：简单名称列表 ≤6 项
+6. **交付（全站统一）**：『1–3 天生产 + 7–14 天运输（海运 25–35 天，不推荐）』。旧 9–17 / 72–90 / 25–35-only 写法全部废止。源码层 18 处 fallback 已全部统一
+7. **免费白手套**：文案须含包装服务
+8. **FAQ 交付答法**：与第 6 条同一口径
+
+### 补充裁决
+
+- **AI 概念图暂不标注**（线上场景图豁免）：标注折损商业说服力，等真图替换或后期统一加标；**文字侧隔离（r10/rb9）不变**
+- **海绵表述**：全产品统一"定型高密度海绵"；承重数据现有即正确不改
+- **陨石**：就是定型高密度海绵，没有布包
+- **kong/mofu**：全部按新规改（已完成上线）
+- **blog 草稿**：复检通过
+
+### 晚间追加裁决（模块属性不可跨界，r6/r7 已改闸门）
+
+- **摩擦次数/猫抓叙事全线撤下**：不是产品主打，Martindale/摩擦次数/猫抓耐咬话术从场景区、材料区、FAQ 撤下；QC 编号只保留在产品数据表、白手套服务、交期备注、FAQ 数字处（r8 仍绿）
+- **材料＝简单名称列表 ≤6 项**：用户给定口径「镀锌管，定型高密度海绵，人造皮，人造皮草，亚麻，天鹅绒」
+- **场景区（Interior Inspiration）零数字零参数**：纯氛围描述，面向室内设计师/酒店采购/别墅业主
+- **主要特点**：禁钢材型号/屈服强度/QC 编号（铁律#9；2026-09-13 入 r7 闸门+考题）
+- **产品基本不可拆卸**：全站禁 washable/removable/可拆卸/机洗（r6 全局禁词）；护理统一"日常吸尘+局部清洁"
+- **保修统一 90 天**：WARRANTY_DAYS=90 + 保修页兜底 + 客户侧文案（旧 5/3/2 年废止）
+- **交期客户侧格式**：「时间：产品制作 1-3 天，交货 7-14 天。（海运 25–35，不推荐）」＝EN「Made in 1–3 days, delivered in 7–14 days. (Sea freight 25–35 days, not recommended.)」
+
+### 四项终审（2026-09-13 凌晨）
+
+①Try-in-room 弹窗保持现状（确认非 bug）· ②QC 报告 scope=**全产品强制**（r8 维持 frame 级）· ③mofu/meteorite 材料**暂不动**（kong 已按「完善大猩猩」专项令改 5 简单名）· ④storyText Q235 已软化（故事无钢材型号，产品数据表保留）。
+
+### 统一口径下保留的合法 business days（非交期，勿"修"）
+
+银行退款 5–10 天 · 付款核验 1–2 天 · warranty 理赔 5 天（后台 SLA）· home-config 分层运费 ETA（7–15/3–5 天，商业决策待定）。
+
+### 图文错配事故与图像辨识先行（2026-09-13 下午）
+
+- **事故**：kong 三卡 [1]/[2]、meteorite 三卡 [0]/[2] 图↔文案交叉错配——前一晚的「视觉核对」实际看错了文件。典型症状：kong 奶油白卡图是五人派对（无人喝咖啡），文案却写「a slow coffee」；meteorite 天文馆少年卡挂在创意阁楼图上。修复：按用户给定图序逐卡文案归位（DB+fixture+zh 翻译三层），线上 24/24 三元组逐卡核对通过
+- **裁决①图像辨识先行（r13 入闸）**：写场景卡前必须先看图本体，把实际内容登记 `docs/library/scene-image-manifest.json`（seen / banned_terms / copy_verified）；文案禁踩 banned_terms。r13 独立规则 + 2 考题（未登记图 / 文案踩图中无道具），selftest 22/22
+- **裁决②场景区功能定位**：Interior Inspiration = 场景展示 + **用户画像区** + try-in-your-room 引导 + 社交转发触发器——画像/心理学/行为学机制主要作用于这个区。据此定稿**场景卡四步流水线**（§3.5）：识图(r13) → 规格材料参数反推目标用户 → 目标用户×图内容定画像与心理角度 → 四拍公式文案
+- **12 张现有场景卡按新标准的重写尚未执行**，作为下一批候选（先斩后奏禁令：重写必须走 §3.5 全流程，不得只改文字）
+
+### 2026-09-20/21 追加裁决（运费改制 · 幽灵员工 · 真关税 · FAQ · 金额防线）
+
+- **运价改制上线（09-20）**：Express 档下架；Flex 成本×1.3；美国 DDP 2500 / 全球 2340 口径——服务费层重排，模板锁不变
+- **满额免运全面下线（09-21，裁决原文：『把超过 $10,000 的多件订单会免掉约 $2,500 运费的删除掉，目前不做这运费相关的删除掉都』）**：三处计算点全下（quoteRates 阈值豁免 / checkout complimentaryDiscount 恒 0 / 页脚失效承诺删除）——运费全额收取，远程附加费不再按 $10,000 豁免；线上双 zip 验证（96766/99501 × subtotal 12000/500 同费）；`shipping_settings.free_threshold` 惰性保留不参与计算
+- **幽灵员工上线（09-21，裁决原文：『我没有顺丰丰桥api，我让你模拟人工查快递的方式去查询顺丰的轨迹。然后把轨迹复制到相对应的即用户个人中心里查询运输轨迹的地方。绕过api.……所以必须用这个弯路。否则我的网站就无法继续。』）**：后台粘贴顺丰轨迹 → 客户个人中心时间线（§14）；同日用户补刀：人工抓取风险大 → 快递100 定为方向（§14.4）
+- **快递100 全接入（09-21，用户提供凭证）**：poll 适配器 + 订阅推送 webhook + 聚合兜底 + cron 节流（§14.4–14.5）；国际寄件 API 考察结论=仅圆通国际单通道，与「多家比价」设想不符，路线（A 货代 / B DHL MyDHL / C 圆通小件）等用户裁决
+- **真关税引擎（09-20，WO-20260920-02）**：删 64 国假 DDP 费表，按目的地国家×货值实算（US 0.40 系数）；免运只免运费服务费；税率按季复核
+- **独立 FAQ 页（09-21）**：/faq 上线，11 条全站问答 DB 驱动 + FAQPage JSON-LD + 页脚入口 + zh 词典 30 条 operator 行（auto=false 防乱译）；GEO 引子位
+- **服务端金额防线（09-21）**：createOrderFor 重查 products 重算 itemBase、重算关税对账（±$0.011 不符拒单）、drift 平移 total；dutyMode/countryFee 进 zod（此前被静默剥离）；残留面=运费回声仍信任（需重跑报价，未扩）
+- **Gemini 先不开（09-21 用户裁决）**：相关 AI 功能暂不启用，不产生计费；后续要开时另行裁决
+- **/en/returns 死链修复**：通用 .html 301 会落 `/en/returns.html`（不存在）——特殊通道 301 到 `/en/returns-refunds.html`
+
+### 2026-09-21 追加裁决二（GSC 全通 · PDP 自愈 · 页脚重建 · 社媒五平台 · AI 合伙人）
+
+- **GSC 校准环全通（WO-20260921-08）**：旧 token 7 天测试期已死（invalid_grant）→ 用户粘贴 OAuth 回调 URL → `authCode` 后门（camelCase，不是 auth-code）换活 token；`pull 28` 替代 `pull 7`（28 天窗口 74 展示 vs 7 天 13，低流量站大窗口才见趋势）；schtasks「FUZZ cron gsc-weekly」周一 04:17 自动 pull 28+verify → gsc-export.json；**正式发布（in production）后 token 不再过期**
+- **PDP 陈旧 chunk 自愈（同上）**：部署换 build 后老标签页还开着 → 动态 import 旧 chunk 404 白屏。`__root.tsx` ErrorComponent 对动态导入失败类错误自动整页 reload 一次（15s sessionStorage 防循环）
+- **页脚重建（同上）**：footer_config 重写为 15 项 canonical 链接（Collection/Explore/Support 三组，EN 标签走词典 zh 手工行）；死链 `/terms-of-service` → `/terms` 301；zh 词典 11 条核验
+- **社媒运营能力立案（WO-20260921-09，用户高级 AI 规格落地）**：五平台能力+策略大脑+数据闭环+品牌记忆入 social-playbook；**两条用户红线**：①「目前不要接api后面也不用可以人工」——一切平台动作人工，原生排期器是唯一自动化；②否决我的「Reddit 小号带节奏」方案（封号+FTC 虚假口碑风险）→ 改主理人真实身份路线
+- **AI 合伙人章程立法（WO-20260921-10/11/12）**：经营合伙定性+权限再分配+分歧协议+周一例会（§13.6）；合伙人五问进每日自答/例会/周报；首批自治三项批准（blog 内链/社媒日历落库/PDP 文案 A/B 带约束）；$100 投放与 Gemini 产能暂不批 → 转 10 张合成图测试包（§15.7）
+- **Reddit 账号实况入账**：u/Limp_Shake_2985（3 个月账龄，karma 1/0 空白号），Day0=2026-09-21；用户裁决「说明都不做就这样发」——资料页零装修，纪律全在行为层（§15.6）
+
+---
+
+### 2026-09-26 裁决三（DDP 可选口径 · V8 社媒喂养 · 部门制 · FX 选项1 · Dubai 篇上线）
+
+- **DDP 口径降调（WO-20260926-02，裁决原文：『全站口径。可选最好——他们的税不是我们负责的，但可以帮忙提前交。这是选择题，不能拿出来确定或者宣扬的』）**：结账本就是 DDP/DDU 双模式（代码早已支持），宣传层 16 文件 38 处+content_blocks 32 处+zh 词条 33 条全部改为「门到门送达，关税结账时结算（代缴 DDP 或自缴 DDU）」；policy-copy/invoice/结账逻辑零改动；审计子项=invoice.ts:218 无条件 "Prices are DDP"（DDU 订单失真）另立工单
+- **V8 社媒养料整合（WO-20260926-03）**：新建 social-platform-rules.json V8.0.1；playbook V2.3.0→V3.0.0（禁词 6→18）；rb13（禁词族：factory/镀锌/包装箱/hand-sculpted/评论送）+rb14（IG caption 禁 https）上闸带 selftest 负样本 19/19；裁决要点=factory 禁用说工作室/atelier（更有调性）、hand-sculpted 禁（铁律#4）、IG 工艺降权全球独家主轴
+- **Dubai 篇上线（WO-20260926-01）**：where-dubai-finds-original-furniture published，blog-validate 12 闸+score 97.3A+线上 verify 全绿；画像 gcc-showroom-partner（H2：Alserkal 实查+$35k T1+THE One 核验）；关键词 designer furniture dubai provisional 入库
+- **部门制（WO-20260926-05，裁决原文：『分出一个部门，这个部门叫神仙姐姐』+『幽灵员工正式开启』）**：departments.json V1.2.0 注册两部门——神仙姐姐部（社媒出口，社交类全域归口，KPI=consult_events+出口效率比+场景热力图）+幽灵员工部（物流情报，每日 10:00 简报，只读不碰钱）；红线三硬顶=不自导自演（假评论红线）/不接 API 不买小号/涉钱站主拍板
+- **FX 裁决选项1（WO-20260926-06）**：价卡换汇基准 7.15 不动（现价 6.72 漂移 -5.95%），幽灵员工埋触发线——硬线 ≤6.60 或连续 ≥30 天 <6.80 → 简报 🚨 上浮站主重校议题（预算涨幅 ~6.4%）；未触发期间漂移仅记录不催办
+
+### 2026-09-26 裁决四（钩子制 · 渲染vs实物 · 四拍逻辑 · 证据审计 · 声音哨兵）
+
+- **rb12 钩子制改制（裁决链：站主「标题不是数据，是钩子」「用户很懒」+实测研究）**：Pin 标题从「问句+WxDxH 强制」改为钩子制——好奇缺口/价值承诺 ≤100 字符、关键词自然内嵌、实数下沉到描述当证明层；caption 实数放宽人类单位（6.5 ft/440 lbs 与公制等效）；依据=Tailwind/Jana O Media/Socialinsider 爆款标题研究（参数表标题无先例）。现行四条钩子标题全部带三源依据链（平台行为×画像字段×我方卖点，user_persona_crosswalk V1.0）
+- **渲染vs实物楔子（站主点破）**：猩猩沙发 AI 渲染图全网泛滥，看客默认「都是假的」——渲染泛滥恰恰让实物最稀缺最显眼。落位=d1 标题 "Everyone Posts Gorilla Sofa Renders. We Built the Real One." + 图上文字 "Not a render. It exists. — See it in YOUR room" + 过程图（clay/foam/skin）升权为实物证明资产
+- **四拍逻辑（站主点破）**：宣称→怀疑→证据→体验。钩子发狂言（Pin）→看客怀疑（免费）→落地页制作过程粗糙实拍+QC 编号兑现宣称→Room Preview 完成转化。纪律=宣称力度必须≤证据库存量（假评论红线同源）
+- **证据审计 V8.1.0（站主红线：「定论需要实际数据不是编的」）**：V8 养料包四个数字查无出处降级（Pin CTR 1.5-3% 实为常态 0.3-1% ≥1.5% 才优；播放/浏览绝对值无公开基准；FB 自评+20% 无源）；全部换有源基准（Pinterest 出站 CTR 0.3-1% T3 / IG Reels 互动 0.48-0.50% T3 / FB 有机触达=粉丝 1-5% T3）+ 我方 T1 两层基线（终身 785 曝光 12 出站 vs 近 30 天 1,035 曝光 0 出站 0 保存）
+- **$35k 澄清（订单污染防线执行）**：站主澄清为自测单，已从 gcc-showroom-partner 画像证据剔除——GCC B2B 需求真实验证靠本轮战役 consult_events 实测
+- **神仙姐姐章程红线 +3**：无出处数字不入产稿不入周报 · 平台研究先行（新平台产稿前必须先建研究块：官方规则+基准+爆款样例三层带出处）· 全平台账号名统一 fuzzsofa + 统一简介 V1.0（八点覆盖，accounts-registry）
+- **后台声音哨兵上线（站主令「有信息有订单会有声音提示」，归后台系统）**：admin-alert.js 植入综合后台——60s 轮询三路（新订单/新咨询留言/AI 求助人工），WebAudio 响铃+横幅+浏览器通知；水位 localStorage 首跑不追溯；教训=本构建静态清单烧进 bundle，public 新文件必须重建才生效（热同步无效已记档）
+
+### 2026-09-27 裁决五（关税话术 · 工艺叙事终版 · G-MWA 试点 · 站点级清污）
+
+- **关税话术 V1.1（站主令：以 shipping-policy 页面为唯一标准源）**：全平台禁用「包税」字样（迪拜买家语境=卖家吞税，被当低价陷阱）。标准表述照搬政策页：「结账时自行选择关税结算方式——由我们代缴（DDP，订单总价逐项列明含产品/空运/清关/关税/末端派送）或进口时自理（DDU，交货前与承运商结算）」；渠道名=Atelier Flex Standard（空运 7–14 工作日，推荐）/ Atelier Sea Voyage（25–35 天，不推荐）；白手套=独立加购项
+- **工艺叙事终版（站主定调）**：①模具叙事=伪命题，不写（真工艺=模具成型+细节打磨，但说了会引出「那你们不是纯手工？」的争议，绕开）②海绵优势可写、细节打磨一笔带过（不说纯手工、也不说不是手工）③「120+ 小时手工雕刻」「三周雕刻肌肉轮廓」类叙事全废（违反事实与铁律#4）；已执行=Ivory Gorilla 文章重织（Kong 串门/重复图/编造海运 12–15 工作日/studio@ 假邮箱全清）+ llms.txt 8 处全清 + faqs 10 行 DDP 对齐 + workshop/order-detail/meteorite/翻译表 141 行
+- **$35k 澄清（站主）**：该单为自测单，非真实客户——已从 gcc-showroom-partner 画像证据剔除（订单污染防线执行）；GCC B2B 需求真实验证=本轮战役 consult_events
+- **T1 基线两层修正（站主后台截图）**：档案页终身=785 曝光/12 出站（CTR 1.53% 已达优秀线）；分析页近 30 天=1,035 曝光/0 出站/0 保存（↓100%）——诊断=分发活、转化死（近期 Pin 无链接无关键词），根因已由新弹药修复，30 天对照实验进行中
+- **G-MWA V0.9 试点（外部审计 AI 对账采纳）**：缺口驱动贪心织网=Gap(≥10 曝光+连续两窗口+位置分层)→三件套（母体 blog+子体×2）→Harvest(出站+5×咨询)→MeshRank 回流；修正=Hook 打分禁伪精度（三源链 rubric 齐=1）/Threads 剔除（黄区）/embedding cosine 拒（小样本关键词匹配足够）；V0.9 只读报告不自动产 WO；首个真空洞=king kong 簇 → WO-20260927-01
+- **WO-20260927-01/02/03 已执行**：①Kong title 补连续词形（$9,900 守 17 字符可见区）+meta 去 hand-sculpted，validate PASS score 100A，两 GSC 窗口后 CTR 对账 ②llms.txt 8 处口径全清+补 Kong 旗舰条目 ③站点级口径清污：faqs 15 行 DDP 双模式对齐、hand-sculpted/factory 全站归零（faqs/products/translations 141 行/UI strings/workshop/order-detail/meteorite）、pages_config 13 处、translations 禁词行删除 141+新键 zh 30 条
+- **发布字段功课制度（站主纠错）**：Pin 发布界面字段（主图/替代文本/主题标签）=产稿必填项，替代文本 ≤125 字符描述性+关键词前置；每条 Pin 四件套=标题/描述/替代文本/链接，缺一不算完工
+
+### 2026-09-27 裁决六（终审确认 + 工具雷达 + 情绪框架 + 竞品情报）
+
+- **站主终审确认**：本批 10 项工具对初创阶段全部无用——非工具不好，是阶段未到。工具准入两道门：①「解决哪张工单？」②「服务哪个阶段的我们？」
+- **竞品情报 V1.0（站主前线实测）**：Office Logix $899 猩猩边椅（零评价/120天交货/Currently Unavailable）/ Maximo Riera £32k+/Moooi $10k Horse Lamp——Fuzz Sofa 定位=比 Maximo 便宜十倍比 Office Logix 好十倍
+- **G-MWA V0.9 首个真空洞执行**：king kong 簇（35 曝光 0 点击 @6.8-11.8）→ WO-20260927-01 Kong title 补连续词形+meta 卫生清理（validate PASS score 100A）
+- **Yanko Design 反转故事验证**：AI 渲染图 500K TikTok likes→佛山厂商生产→评价 underwhelming→我们是 quality version
+- **FTC AI 执法**：2026 年 1 月成立，最高罚 $53,088/次，AI 图必须标注——我们 Room Preview 已标 visualization ✅
+
+---
+
+## 9. 你只需要做的五件事（2026-09-21 版）
+
+1. **给物理事实**：图 + W/D/H/SH/重量/承重 + 真实材质表 + 价格（每款新品）
+2. **published 审批**（PDP 补丁 / blog 上线——draft 永远是安全暂存）
+3. **测试包合成与发布**（当前唯一人工产能瓶颈）：Room Preview 浏览器合成（约 30 分钟/张，10 张测试包）→ 按 social_calendar 排期黏贴发布（Pin 进原生排期器、Reddit 真人实时）
+4. **周一合伙人例会 15 分钟**（§13.6）：AI 带数字和下周计划来，你批准/否决；顺带从各平台 creator studio 黏贴上周平台侧数据（social-review 收进日历 metrics）
+5. **user_provided 社证确认**（链接/截图书面确认后回填库）
+
+> 已完成下架的历史事项：GSC 授权（2026-09-21 全通，周任务自动化，不再需要你动手）。
+
+---
+
+## 10. 当前状态台账（2026-09-13 凌晨）
+
+### 产品（全部在线）
+
+| 产品 | 状态 | 数字 |
+|---|---|---|
+| noctua-owl-armchair | 全管线首测通过，V1 在线；09-13 场景三卡 image 键修复（事故见下） | score 99/A · verify 18/18 |
+| kong-tender-titan | V1 全新规上线；**09-13 一次性完善**（材料 5 简单名/特点[3] QC→FaceTime/场景卡去数字/库内 aag.Material 简化/FAQ+皮面选择 6 条）| validate 12/12 · score 98/A · selftest 19/19 · verify 32/32 · 线上电池 28/28；200cm/承重 200kg（旧文案 400kg 已废） |
+| mofu-cat-sofa | V1 全新规上线 | validate PASS（1 WARNING=画像证据词过期）· score 93.8/A · verify PASS；D70/H130/38kg/承重 300kg |
+| meteorite-statement-sofa | V1 上线 | 定型高密度海绵、如实省略缝纫；别名 meteorite-ring-sofa 301 到 canonical |
+
+### 工具与内容
+
+- **PDP selftest：ALL GREEN**（22/22 负样本拦截——09-13 新增「特点区QC」「场景区缺图」+ r13 两题）· **Blog selftest：ALL GREEN**（13/13，离线部分）
+- **kong/meteorite 场景卡图文错配事故（09-13，已修复）**：六卡文案挂错图（含「slow coffee」写在无咖啡的派对图上）；逐卡归位 + 翻译三层同步。**事故产物（用户令建）**：①`scene-image-manifest.json` 图像辨识清单（12 图已全量登记）②r13 图像辨识先行入闸（独立规则+考题+score 权重 4）③场景卡四步流水线定稿（§3.5：识图→参数反推画像→画像×图内容→四拍公式）——现有 12 卡按新标准重写待下一批
+- **noctua 场景卡图文消失事故（09-13，已修复）**：Interior Inspiration 三卡 image 键在重写文案时丢失（fixture 带病→DB 跟丢），桌面+移动渲染层 `.filter(s=>s.image)` 静默丢弃无图卡→区块只剩空 grid。修复：三张原图回填 DB+fixture（文案零改动、翻译零清理）；**闸门补课**——r7 卡必带图（constraint `image_required`）+「场景区缺图」考题+verify 每张场景图线上在场检查。**教训：重写数组字段必须携带原键全集，不许只写变更键；文案区重写前先 dump 旧键集合**
+- **kong 一次性完善（2026-09-13，全程 ~21 分钟）**：闸门升级（特点区禁区+自测题）→ fixture 5 处 → DB 补丁（5 键 jsonb_set + faqs 6 行重写 + 6 死串清除 + 11 zh 手工行）→ 线上三层电池全绿。**教训**：①翻译死串清理前必须跨产品查共享；②线上验证分层看——可见 DOM（剥 script）、JSON-LD/数据层、库内字段（src 零引用的 at_a_glance 不进 payload）各归各的检查，别拿原始 HTML 全文 includes 当电池（相关产品 payload 会串台）
+- **verify 检查已按真实渲染契约泛化（09-13）**：QC=「DOM 或 JSON-LD 任一在场」、leadTime=「原句或 1–3/7–14/25–35 三件套」；**Materials 区渲染的是 craftsmanshipText 工艺卡**（content.materials 只喂 JSON-LD 与移动树 Material 行，桌面页不渲染列表）
+- **文档收编（09-13）**：docs/ 收敛为本文件唯一文档 + library/evidence/ 证据原档；git 历史保存全部删除文件
+- Blog demo 文章 `animal-shaped-sofa-boom-2026`：**draft 在库待你审**
+- 晚间裁决落地：noctua DB 补丁 + faqs 表重插 + 翻译层清旧插新（35 死串、32 zh 新行）+ 三产品 fixture 交期统一——线上已生效
+- **深夜构建+部署完成**（90 天保修代码上线）；**教训：字典终扫必须在旧进程停机后做**——ui-i18n 的 SSR miss 回填会在旧构建存活渲染期间复活已清的旧口径行（指纹 auto=true/provider=google）
+- **四项终审已落实（09-13）**；**教训：字典清理的 KEEP 保护伞勿用前缀族匹配**
+- 统一交期：DB 行 + 源码 18 处 fallback + 翻译两层（370+49+14 行旧串清除）三层全部落地
+
+### 2026-09-20/21 台账增补
+
+- **真关税引擎已上线**（WO-20260920-02，commit 17da225）：`duties-config` 按目的国系数×货值实算，假 $380 表删除；checkout 关税行 = 目的国实算并预付（DDP）；可选「关税自付」通道= 关税 0 由买家自理——台账 WO-20260920-02 存裁决原文
+- **快递100 carriers 行已入库**（id fc2b18bf…，api_key/secret/customer + webhook_salt，type=international 不进报价引擎）：账号权限未开通（所有承运商 401 不支持此快递公司）——管道就绪，权限下来即活
+- **/faq 全站问答页上线**（commit 07dd2b6）：`public.faqs` product_slug IS NULL 11 行；zh 词典 operator 行 30 条；sitemap monthly 0.6
+- **服务端金额防线落地**（commit 22e20f0）：下单重核商品价+关税；在线验证通过
+- **工单台账**：operator-library.json `work_orders` 现存 40+ 条（WO-20260921-01/02/03 为 09-21 三连），每条必留裁决原文+commit
+
+### 2026-09-21 台账增补二（WO-04～12 · 社媒与合伙时代）
+
+- **WO-20260921-08 GSC 全通+页脚+自愈**：token 换活+周任务上线（§8 追加裁决二）；28 天基线 74 展示 0 点击（冷启动如实记录）
+- **WO-20260921-09 社媒能力立案**：social-playbook 五平台四层+策略大脑+数据闭环+品牌记忆（V2.0.0）
+- **WO-20260921-10 合伙人章程+房间合成战役**：operator V1.8.0 章程立法；see_it_in_your_room 战役入库（V2.1.0）
+- **WO-20260921-11 合伙人五问**：钱/风险/人性/未来/自治 五问立法（V1.9.0）+ 首次述职（含对「30 天免费退」示例的公开反对——后获用户采纳）
+- **WO-20260921-12 五问首裁**：$100/Gemini 暂不批 → 10 张测试包（social_calendar 落 10 行：Pin 5 正式 9-23 起日更 + Reddit 1 + 备用 4）；信任文案 LOCKED；自治三项入章程（V1.10.0，playbook V2.2.0，commit 38a57ca）
+- **承诺在账（9-28 周一交付）**：①`docs/backup-restore.md` 实物文档（单机风险排第一，用户点名「不是口头方案」）②dog friendly +40% 假设拿 GSC+Pin 数作答 ③首期 `docs/library/partner-report.md`（五问打头+本周未请示自办清单）
+- **冻结令**：9-23 起常规周粮全部让位 10 张测试包，测试结果出来前不出常规内容
+
+### 2026-09-22 台账增补三（WO-14～15 · 信任面与 GSC 清障）
+
+- **WO-20260921-14 GA4 接入**（commit a32747c/f4cd7d7）：G-FD4MN4RM7G 严格延迟加载遵 consent 契约；preview_open/whatsapp_click/SPA page_view 三埋点；Realtime 3 用户端到端实测通过（operator V1.12.x）
+- **WO-20260922-15 抠图闸门+returnPolicy+违禁清洗+GSC 排查**（operator V1.13.0）：
+  - **try-in-your-room 按钮加抠图闸门**：MinIO cutout/ 27 文件全是 noctua 一家的重传，其余商品 cutouts=0，合成回落带背景主图＝用户所见「背景没扣」根因；桌面+移动按钮改 `cutouts>0` 才渲染，补传抠图即自动恢复
+  - **GSC 产品摘要黄警告清零**：`hasMerchantReturnPolicy{MerchantReturnNotPermitted, applicableCountry 23 市场}` 挂进**两条路由**的 offers（新路由 products.$slug + 旧路由 $slug——GSC 点名的 3 条 URL 全走旧路由，只改新路由会漏）；PDP「Custom」 assurance 卡追加交付后不退明示句（点击展开，构建产物已验证）
+  - **违禁旧文案（hand-carved/72–90）三层清根**：①首页 meta 源头改 One-of-a-kind ②products.description 顶层列改写（真源头，全库扫唯一；改写口径与活页 no carved blocks 材料事实一致）③translations+ui_strings 两轮清洗（round-2 根因：round-1 清洗后抓取验证时惰性采集任务把当时的旧描述采回字典——**教训：清洗→改源头→抓取验证必须按此顺序，倒序会把旧文重新采进字典**）；selftest ALL GREEN
+  - **GSC 索引 40 未收录一次性排查**：26 重定向=语言 302 设计使然+legacy 301（目标已收录）；10 noindex 全为刻意（admin×7/cart/checkout/payment/order/token）；1×5xx=部署窗口瞬时（60 条 sitemap 全 200 复测）；软 404 待用户点开报告提供 URL
+  - **WO-16 AI 试摆 webp**（1d09b5b）：后台抠图上传口 accept 放开 image/webp（原写死 png 是唯一拦截点）；前台合成输出 JPEG→WebP 0.92（旧内核 toDataURL 静默回落 PNG 时显式检测回退 JPEG）
+  - **WO-17 GEO 收录遥测**（ai_bot_hits 表 + server.ts 入口 AI 爬虫命中计数）：11 类 AI 爬虫 UA 识别、fire-and-forget 落库、每小时 200 行预算；GSC 验证失败教训=Google 复查用的是上次抓取版本，修复后直接再点验证或等 24-48h 重抓；GEO 状态=入口全开（robots 九家+llms.txt）、Google 43 页收录、搜索取材面已通，bot 流量遥测从本单起有数
+  - **WO-18 全站健康操盘手制度**：用户常设令——每日五类巡检（GSC 黄红标/PDP JSON-LD/GA4 断流代理/SSL/基础 SEO）+ 早上 9 点一句人话播报；`scripts/daily-health-audit.mjs` + schtasks『FUZZ cron health-audit』08:57 durable 生成 `docs/library/health-report-latest.json`；**预发工作流**=代码改动 build→8080 测试→汇报等『上』→上生产（DB 数据补丁仍 green 直执）；**公开反对**『假评论占位变绿』（FTC $51,744/条+Google spam policy+反噬真实社证），替代=真实评论采集管线待立项；巡检坑三件=301 规范路径两制/AggregateOffer/consult_events.action 列名
+
+### 遗留清单（待决/待做）
+
+
+| 项 | 性质 |
+|---|---|
+| 9-28 三交付：backup-restore.md / dog friendly +40% GSC+Pin 数 / partner-report.md 首期 | 章程承诺，用户点名验收 |
+| 10 张测试包执行与判读（Pin 14 天收藏/出站）→ 决定 $100/Gemini 是否上产能；Reddit 帖暂停待重启（WO-13） | 测试驱动裁决 |
+| reddit_voice 内容首批：站内问答 draft + 第一篇 Reddit 文风 blog（品牌故事+设计理念混问答） | draft AI 全权，published 你审 |
+| GA4 后台三项：preview_open/whatsapp_click 标 key events · 资料保留期 14 个月 · 自家 IP 标内部流量 | 你在 GA4 后台操作（Realtime 已实测通，2026-09-21） |
+| 其余 4 商品（kong/meteorite/mofu/eucaly）后台商品编辑区补传透明抠图 → try-in-your-room 按钮自动恢复（闸门已就位，WO-15） | 你在后台操作 |
+| Cloudflare 两开关：SSL/TLS→Edge Certificates→Always Use HTTPS + HSTS 启用（SSL 收尾；Full Strict 需源站证书另议，WO-15） | 你在 CF 后台操作 |
+| GSC 软 404 具体 URL（在「未建立索引→转址式 404/软 404」报告点开）+ 各项修复后「验证修复」 | 你在 GSC 后台操作 |
+| Gemini $100 产能 · JPEG 水印（"fuzzsofa.com · room preview"）· 下载页分享提示 · 分享优惠机制 | 全部未批事项，触发条件到了先提案 |
+| Reddit 养号 30 天（纯评论）→ karma≥500 才开软提及；主理人 AMA 选题 | 节奏在账（§15.6） |
+| 批次 2 九篇 mother 映射文章进 social-outlet 出口管道 | 内容待产 |
+| PayPal 生产凭证 | 等用户提供 |
+| EIN / 货代报价 | 等用户提供/外部 |
+| .env 加固 | 基建待做 |
+| DeepL 456 兜底回填 | 新英文串暂以英文露出 |
+| 快递100 企业实名审核 → 权限开通后拿真顺丰单号验证 poll 链路 | 等外部（平台审核） |
+| 订阅推送（付费产品）购买后接线 kuaidi100Subscribe | 商业决策 |
+| 国际寄送路线 A 货代 / B DHL MyDHL API / C 圆通国际小件 | 用户裁决 |
+| 国际邮件备注（订单确认/发货邮件补轨迹说明） | 小改进，未排期 |
+| Journal 旧文 "400 kg" 超标数字 | 内容修正，待做 |
+| 旧 blog 文章内 business days / Dubai 残留 | B 线另案清理 |
+| sameAs JSON-LD | 需代码改动 |
+| JSONB 嵌套 data.data 陈旧副本 | 待清理（§3.4 缺陷 #4） |
+| 02-Frontend-Page-Framework.md | 原文件未入仓 |
+| plush-comfort-collector 画像证据词 | 过期（faux fur/martindale/shedding 已不实），待 M 线 audit 时更新 |
+| 分层运费 ETA（7–15 / 3–5 天） | 商业决策待你定 |
+| 商城侧 9/6 静态走查遗留 | 状态词汇三套并存 / 交易类邮件缺失 / 电汇 bank_settings 表空——原 `business-scenario-tests.md` 已删，详见 git 历史（commit 4c36457 之前） |
+
+> 已销项：GSC 授权（2026-09-21 全通，§8）· /faq 上线 · 金额防线 · 免运下线 · 保修 90 天口径 · QC scope 定案。
+
+---
+
+## 11. 模板锁边界 · IP 纪律 · GEO 运营
+
+### 11.1 模板锁边界（能改 / 不能动）
+
+锁死 = 布局/节序/组件/列数/图数；每节的唯一数据入口见 `docs/library/framework-lock.json` 的 `sections[].data`（机器可读契约即锁本体）。
+
+- **能改清单**：文字 · 图片 · 后台配置 · SEO Meta · 信任感数据 · 竞品带 · SameAs · 社会化证明 · 房间合成图 · 后台 AR 链接（AR 目标 → Pinterest AR shoppable）
+- **不能动清单**：14 节的布局、节序、列数、图数、组件、样式、字体、底色（背景 #0A0A0A；Cormorant + IBM Plex Sans）
+
+> 历史注：文档版模板锁 v42/v43 已废止删除——其 72–90h 工时、9–17 收货、材料 4 列 Martindale 均为旧口径（§8 裁决全部推翻）。现行契约只有 framework-lock.json + 本节两份清单。
+
+### 11.2 IP 钩子方法论（借「文化记忆」，不借「版权资产」）
+
+钩子的作用是唤起联想、辐射搜索，不是蹭授权。三条红线：
+
+| 红线 | 反例 | 正确做法 |
+|---|---|---|
+| 不用剧照/海报/电影截图 | 放 2005《金刚》剧照 | 只用**自拍产品图** + 原创场景图 |
+| 不用角色名做商品名/SKU | "King Kong Sofa™" | 商品名自创（Kong 系列已有 codeName 机制 ✓） |
+| 不暗示授权/联名 | "Official King Kong merchandise" | 编辑性文化引用："the giant-ape archetype that cinema made immortal" |
+
+**公版安全区**：1929 年前作品 + 已入公版的 1933 初代《金刚》形象属公版，可用「巨猿进城」公共桥段做叙事引用；**2005 年后电影元素全部回避**。Jellycat/宝可梦等在册品牌只做编辑性提及 + 非关联声明 FAQ。
+
+| 产品 | 文化钩子（公版/无主素材） | 辐射人群与搜索词 |
+|---|---|---|
+| 大猩猩沙发 | 1933 公版《金刚》：巨猿的温柔反差 | 电影迷、潮玩玩家、loft 公寓（gorilla sofa / statement chair） |
+| 猫头鹰沙发 | 希腊神话雅典娜的智慧圣鸟 | 书房/图书馆人群（owl armchair / wisdom decor） |
+| 狮子 | 狮心王理查/纳尼亚式（文学公版区） | 别墅客厅 |
+| 熊 | 森林童话公版意象 | 儿童房/亲子 |
+| 兔子 | 爱丽丝梦游仙境（公版） | 设计师/女生公寓 |
+
+**每产品 IP 三件套**（全部有现成后台字段，零开发）：①`storyText` 300 字 IP 叙事 ②`concept`/`inspiration` 一句话钩子 ③图片 `alt` 带 IP 词。
+大猩猩现行上线范文 = `docs/library/fixtures/kong-patch.json` 的 storyText（1933 公版引用+FAQ 非关联声明，用户已批上线；旧手册范文里 400kg/44cm/160 artisan hours 已废止，承重/坐高一律以 DB specifications 为准）。
+
+### 11.3 GEO/AI 搜索层
+
+**已就绪**：PDP 三件结构化数据（Product+BreadcrumbList+FAQPage）· sitemap.xml · OG 卡片 · robots.txt 显式欢迎 GPTBot/ClaudeBot/PerplexityBot/Google-Extended 等 9 个 AI 爬虫 · llms.txt（品牌事实卡+可引用事实清单）。
+
+**GEO 内容守则**（写产品文案时执行）：
+1. 每页至少 5 个**可引用的硬事实**（尺寸/承重/天数——AI 生成答案爱引用带数字的句子）
+2. FAQ 用完整问句（用户在 AI 里就是这么问的）
+3. 同一事实全站一致（现行示例：200kg 承重在 PDP/FAQ/llms.txt/结构化数据四处同值——旧示例 400kg 已废止）
+
+### 11.4 AI 房间预览 UGC 飞轮
+
+功能链：PDP「AI 房间预览」→ 客户上传自己房间 → 产品合成入房 → 分享页（share.$id）。运营节奏（人工，每周 30 分钟）：
+1. 后台收件箱看 AI 会话 `needs_human` 线索 → WhatsApp 跟进时**主动送一张 AI 房间预览图**
+2. 客户分享社媒后 → 征得同意转发官号（@客户）→ 沉淀为 PDP「Interior Inspiration」真实案例位
+3. 每月选 3 张最佳 UGC → 做成 Journal 文章（独家视觉资产 + 天然长尾词）
+
+**战役化（2026-09-21）**：此飞轮已立案为 `campaigns.see_it_in_your_room`（social-playbook），当前状态 `testing_room_preview_10`——10 张合成图测试包先行验证「能不能骗过真人+带来第一个出站」（协议见 §15.7）；测试通过才扩 UGC 飞轮与产能。
+
+### 11.5 度量体系（需你开通账号，代码已可对接）
+
+| 度量 | 工具 | 动作 |
+|---|---|---|
+| 传统 SEO | Google Search Console + Bing Webmaster | 验证域名（Cloudflare 一键）→ 提交 sitemap.xml |
+| AI 可见性 | 每月在 ChatGPT/Perplexity/Gemini 问产品词 | 记录是否引用 fuzzsofa.com（llms.txt + FAQ 是饵；台账 ai-visibility.json） |
+| 流量转化 | GA4 或 Plausible | **已接入（2026-09-21，WO-14，G-FD4MN4RM7G）**：严格延迟加载（点「全部接受」才加载 gtag.js，遵循 consent 契约）；事件=page_view（SPA 补发）/ preview_open（三入口）/ whatsapp_click；建议在 GA4 后台把后两个标为 key events |
+| 结构化健康 | Google Rich Results Test | 对每个 PDP 跑一次，0 错误为准 |
+
+---
+
+## 12. GEO + 画像工作流蓝图（架构层，V1.0 定稿 2026-09-12）
+
+> 回答三个问题：行业 AI 营销系统做画像的「数据-分析-工具」链路是什么；我们的五步链是否自洽；如何用轻量工具实现同样效果。本文是架构层，工具是执行层（§3），库是沉淀层（§5）。
+
+### 12.0 一页结论
+
+1. **行业黑盒可以还原成一个通用链路**：数据层（第一/二/三方）→ 分析层（统计/语义/预测三级）→ 工具层（六类工具）。三类系统的差异只在哪一层最重。
+2. **五步链逻辑成立，缺 2.5 个环节**：缺一整环「S6 反馈校准」（没有它整条链是开环，不会越跑越准）；半环「S3↔S4 对齐」（画像语言≠搜索语言）；另缺一个沉淀位「竞品库」。
+3. **本仓已实现约 70%**：画像库 V4.5、反推管线、内容闸门、T1 毕业制度都在。真正缺的：GSC 授权（P0）、行为事件埋点、竞品库填肉。
+4. **轻量化的关键不是省工具钱，是换分析范式**：重型系统靠「数据量+模型」补判断力；我们靠「Schema+闸门」补纪律——**AI 填 Schema，工具做校验**，每个结论带证据等级。样本量小的时候这套反而比统计建模准。
+
+### 12.1 行业链路拆解（黑盒推断，均基于公开材料）
+
+| 系统 | 黑盒推断（数据→分析→工具） | 可借鉴点 |
+|---|---|---|
+| **跨境多智能体**（钛动 Navos 等，服务 8–10 万家出海企业） | 数据=广告平台 API+自家投放/转化+电商公开数据；分析=受众聚类×素材归因；工具=agent 编排压到分钟级 | ①四角色分工（洞察/创意/监控/报告）抄成周节奏；②用投放回流校准素材。不可复制：数据护城河来自代运营量 |
+| **GEO/AI 可见度**（Profound / Peec AI / Otterly，$29–250/mo） | 数据=LLM 回答采样+GSC+引用源域；分析=引用率/提及份额/缺口定位；工具=prompt bank+定时采样 | 链路零门槛：固定 prompt bank+每月手工采样+台账=同样回路，0 成本（ai-visibility.json 已建） |
+| **家具电商 AI 视觉**（Furnea 不可核实；同类 ArchiVinci/DekorAI 等） | 数据=产品图+场景库+风格标签；分析=图生图风格迁移；工具=扩散模型管线 | 「画像」含量最低——是 S5 内容供给端。我们同位能力=Interior Worlds 实景合成（标 ai_generated，走 r10） |
+| **摘星 AI**（对照样本，被质疑套壳） | 底座模型不构成壁垒，链路设计和 Schema 纪律才是 | 反面教材：能力在链路不在系统——这正是 validate/audit 闸门存在的原因 |
+
+### 12.2 数据层：三方九格（本仓现状）
+
+| 格 | 来源 | 现状 |
+|---|---|---|
+| 第一方-行为 | GA4/站内搜索/热区 | **半✓（09-21 WO-14）**：GA4 已接（G-FD4MN4RM7G，consent 延迟加载）——事件基线从今天开始攒；Clarity 未装 |
+| 第一方-交易 | 订单/RFM/客单价 | ✓ 有表但 45/47 自测单——必过 `t1 inventory`，真实=0 |
+| 第一方-声音 | 客服/询盘/评论 | 半✓：ai_chat 是唯一真实访客原话源（已挖） |
+| 第二方-平台洞察 | Meta/TikTok CC/Keyword Planner/Pinterest Trends | ✗ 未制度化 |
+| 第三方-社群 | Reddit/Quora/论坛 | 半✓：新品手工爬过，无巡检节奏 |
+| 第三方-行业报告 | Statista/BLS CE/财报 | ✓ 已入库 8 条 T3 |
+| 第三方-竞品 | SimilarWeb/Semrush/评论挖掘 | ✗ 竞品库骨架 0 条目 |
+| 第三方-趋势 | Google Trends/Exploding Topics | 半✓：Trends 实测 2 词入库 |
+| 第三方-GEO 采样 | LLM 回答本身 | ✓ 台账+prompt bank 已建，待月度首轮 |
+
+### 12.3 分析层三级（轻量替代）
+
+| 级 | 行业方法 | 我们的替代 |
+|---|---|---|
+| L1 基础统计 | RFM/k-means/漏斗（数百单才稳定） | GA4 内置受众 + LLM 分箱；**真实订单=0 期间整体挂起**（样本不够不硬建模） |
+| L2 文本语义 | 评论情感/主题/意图聚类 | **LLM 直读**：原话→受控标签词表+摘录→证据入库（T2/T3 挖掘的实际做法，已两次验证） |
+| L3 预测建模 | 倾向评分/序列模型（千级会话） | GA4 预测受众；流量阈值前不自己训 |
+
+> 核心判断：**行业系统的 L1/L3 在我们的流量阶段是伪精度**。轻量方案重心全放 L2——文本语义对样本量最不敏感，且正是沙发这种「高客单、低频、强话术」品类的胜负手。
+
+### 12.4 工具层六类（全部轻量起步）
+
+| 类别 | 行业重型 | 我们用 | 成本 |
+|---|---|---|---|
+| 行为分析 | Amplitude/Hotjar | GA4 + Microsoft Clarity | $0 |
+| 社媒洞察 | Brandwatch | Meta Audience Insights + TikTok CC + SparkToro | $0 / $39 起 |
+| 竞品流量 | SimilarWeb Pro | SimilarWeb 免费 + Semrush 按需（新词期买 1 个月） | $0–130 |
+| 评论情感 | Revuze/Thematic | LLM 直读 | $0 |
+| 趋势关键词 | Glimpse/Exploding Topics | Google Trends + Keyword Planner + persona brief ⑤ | $0 |
+| GEO 监测 | Profound/Peec AI | 手工 prompt 采样台账（起步）/ Otterly $29（要图表再买） | $0–29 |
+| 画像生成 | Delve AI | persona-library + persona audit（AI 填 Schema、工具强校验） | $0 |
+
+### 12.5 六步闭环的 I/O 设计（每步的验收闸门）
+
+| 步 | 输入 | 处理 | 输出 | 验收闸门 | 回流物 |
+|---|---|---|---|---|---|
+| S1 特征提取 | 图+参数+材质表+价格 | 结构化 | input.json / DB slug 直连 | `scaffold` / `persona brief` ① | 规格事实包 |
+| S2 外部挖掘 | S1 的主题词+信号 | 定向爬取（brief ④ 计划） | 证据条目（tier+source） | `library add`（无 source 拒收） | T2/T3 证据、竞品条目 |
+| S3 画像反推 | 证据包 | 反推+心理×经济建模 | persona-library 条目 | `persona audit`（缺任一 exit 1） | 画像+triggers+coverage_tokens |
+| S4 SEO+GEO | 画像×关键词 | 关键词矩阵/FAQ/Schema/prompt bank | keyword-library 分配表 | `cannibal`（CONFLICT exit 1） | 关键词-页面归属 |
+| S5 详情页 | 全部上面 | PDP 14 节锁 / blog 框架锁 | patch → DB | `validate` → `score` → `verify` | 上线页 + score 报告 |
+| **S6 反馈校准（补）** | GSC/GA4/AI 采样/订单 | 甄别→台账→毕业 | t1-evidence 更新、假设毕业、关键词归因 | `t1 inventory`（自测甄别强制） | **改写 S3 画像与 S4 关键词** |
+
+S6 的输出反哺 S3/S4，闭环才成立——「越跑越准」不是愿望，是这张表的执行。逐链判定要点：S2→S3 断层 A「爬到≠可信」由证据分级补；S3→S4 断层 B「画像语言≠搜索语言」（养猫人自称 cat parent，搜的是 cat scratch proof sofa）由 keyword-library 对齐表+cannibal+GSC 归因补；S5→结束断层 C「开环」由 S6 补——**这是唯一的结构性缺失**。
+
+### 12.6 缺失环节清单（按优先级）
+
+1. **P0 反馈校准回路**：GSC 授权（5 分钟，你操作）→ 查询词 T1 + score 权重校准 + cannibal 裁决依据全解锁。整条链唯一必须你亲手做的事。
+2. **P1 行为数据**：**GA4 已接入（09-21 WO-14）**——page_view/preview_open/whatsapp_click 三事件基线开始攒；Clarity 热图仍未装（免费，流量起来前不急）。
+3. **P1 信任背书制度化**：3 条 user_provided 社证（IG 8.5M / FB 710K / TK 17.6K）待你确认链接；缺第三方通道（Trustpilot / Google Reviews——高客单家具决策标配）。
+4. **P1 竞品库**：骨架已建（0 条目），S2 爬取时顺手填。
+5. **P2 转化层破洞**：ai_chat 4 次转人工无出口（真人失联=真金白银流失）；$100 分享优惠未开发。
+6. **P2 多市场适配**：i18n 翻译已自动；市场级差异先记 trendingGeo 字段，等 GSC 分国数据再做画像微调——现在做是空转。
+7. **P3 CRM/再营销**：newsletter 有表无策略；GA4 受众未建。流量起来前不投入。
+
+### 12.7 数据收口与 AI 喂数（核心原则：AI 填 Schema，工具做校验）
+
+| 模式 | 输入包 | AI 任务 | 输出契约 | 校验 |
+|---|---|---|---|---|
+| A 画像生成/增补 | brief 输出+爬取笔记 | 按 persona-library 字段结构产出 | JSON（psychology+economic_profile 全字段） | `persona audit` exit 0 才入库 |
+| B 评论挖掘 | review 原文 | 只做三件事：标签归类（受控词表）/情感/摘录原话 | {tag, sentiment, quote, url} | quote 必须可回溯 URL；数字禁入（防幻觉） |
+| C 查询词聚类 | GSC 导出 CSV | 按意图聚类+挂画像 | {cluster, keywords[], persona_link, intent} | 挂画像必须是库内 id |
+| D GEO 采样 | prompt bank | 逐问记录：是否引用我们/引用了谁 | check_log 条目 | 纯记录，无 AI 判断 |
+
+**反幻觉纪律**：AI 产出的数字必须带它自己看到的 source 才能进库；进库走 `library add` 的 source 硬门；画像主张一律标 tier。AI 在这套体系里是「填表员+初级分析师」，审计权在 audit/validate 手里。
+
+### 12.8 校准回路：越跑越准的四个机制
+
+1. **毕业制度**（已运行）：同一画像假设 ≥5 条同向 T1 → 升级进 evidence。
+2. **score 权重校准**：基线 V1 是治理假设；GSC 攒满 ~90 天数据后按「规则命中 ↔ 查询词表现」回归校准。
+3. **画像退役规则**：连续 2 个月该画像关联查询词=0 且 ai_chat 命中=0 → 标 deprecated，触发的内容下架评估。
+4. **一次一个变量**：改 title 不改首图、改价格不改文案——否则 S6 的归因全是噪音。
+
+### 12.9 与行业系统的能力对照（诚实版）
+
+| 能力 | 行业系统 | 我们 | 差距本质 |
+|---|---|---|---|
+| 受众聚类/预测建模 | 平台级数据+自带模型 | 挂起（样本不足） | 数据量——但小样本下他们的模型也是伪精度 |
+| 素材批量生成 | 多模态管线 | 单品精修+AI 图强标注 | 他们求量，我们求真——高客单品类「真」是转化资产（r/Corridor 山寨恐惧即反证） |
+| GEO 监测 | 自动采样+图表 | 手工台账 | 频率，不是能力；$29 就能补 |
+| 画像深度 | 通用分群 | 心理结构×经济对标+证据分级 | **我们更深**——行业到「人群」为止，我们到「动机和支付心理」 |
+| 数据规模 | 8–10 万家积累 | 单站 | 不可比也不需要——单站赢在链路闭环速度 |
+
+---
+
+## 13. 操盘手层（2026-09-13 加，第 0 层 · 战略层）
+
+**身份**：顶级独立站 AI 操盘手——站在 fuzz-produce（调度）、pdp-toolbox（闸门）、docs/library/（记忆）之上。producer 负责"把一件内容按规矩造出来"，操盘手负责"决定造什么、为什么造、造完看什么数"。入口技能 `.claude/skills/fuzz-operator/SKILL.md`（经营复盘/漏斗/转化/矩阵/品牌/CRO/月度校准走它；单件内容生产仍走 /fuzz-produce）。
+
+### 13.0 一号战略原则（2026-09-13 用户裁决，全系统最高原则）
+
+**Every product starts with itself.** Operator 不再"拿到产品直接写内容"，先做产品驱动的逆向推导：
+
+```
+PRODUCT DNA（14 字段+风险轴）→ MARKET REVERSE（四层市场，词不可脱离 DNA）
+→ USER SIGNALS（五信源）→ PERSONA（H1–H4 证据级，推测不伪装成事实）
+→ BUYER PSYCHOLOGY（want/desire/fear/doubt/trigger/proof/action 七字段）
+→ CONTENT（每节 psychological_job：内容=回答买家问题）→ CONVERSION
+```
+
+- **为什么**：单看用户属性或泛泛人群标签不够——产品数据 × 用户行为 × 使用情境结合，才形成具体的目标用户理解。
+- **四层市场**：A 直接产品（form×category）/ B 相似产品（style/statement/collectible）/ C 相同用户（unique interiors…）/ D 相同价格带（同购买风险 × 同决策周期——买 $500 与 $8,000 的独特家具心理完全不同）。
+- **五信源**（External Intelligence ≠ Competitor Research）：competitor 卖什么 / review 喜欢什么 / question 害怕什么 / search 主动找什么 / social 如何描述欲望。
+- **Evidence-Based Buyer Persona**：H1 推测 → H2 市场支持（market_signals 必填）→ H3 行为支持（T1）→ H4 买家验证（订单/售后）；H1 禁作事实引用、published 前须升 H2+。
+- **五落点**：operator-library `strategy` 块（V1.3.1）· framework-lock `psych` 层（V4.4.0，14 节 canonical 岗位词表）· persona-library V4.6 schema（evidence_level+buyer_psychology+price_band+market_signals，5 画像全量回填 H3×3/H2×2）· patch `psych_jobs` 心理卡（scaffold 自动生成）· 闸门 **r14**（selftest 29/29）。
+- **执行映射**：OP-01–05 = `operator-intake` + persona brief + 定向爬取；OP-06–08 = 内容生产（先看心理卡再动笔）；OP-09–11 = validate（r14）/score；OP-12 = 工单台账交用户审批。
+- **五区块投喂策略**（2026-09-13 一号战略指令，写入 framework-lock `psych.mandate` = 各节内容执行令）：①**TryInRoom**=代入感——AI 房间合成功能前置展示，引导上传自家照片→AI 无缝合成→『这就是我家』拥有代入；②**DesignStory/工艺**=真实感·破防——工厂最真实最粗糙的制作过程**实拍**（真图，禁 AI 冒充，r10 隔离不变），打破 AI 虚假感；③**ProductData**=理性·逻辑——功能+尺寸/材质/承重/包装体积重详参；④**DeliveredWorldwide**=安心·尊贵——白手套四步（拆包→入户就位→安装定位→清运包装垃圾）；⑤**Reviews+FAQ**=临门一脚——真实评论+Q&A 闭环；空窗期禁造假（r11），以 FAQ+承诺兜底并催收社证。
+- **A 级自迭代纪律**（一号战略指令）：草案 → validate（r1–r14）exit 0 → score → 有区块不符合投喂逻辑必须自己修改重跑 → **score A 级才出工单交用户审批**。≥B 只是闸门落库底线，A 是操盘手交作业线（score 权重本身不动）。
+
+### 13.1 五大职能 → 本店落位
+
+| 职能 | 调用既有资产 | 拥有的新资产（operator-library.json） |
+|---|---|---|
+| ①全局商业战略×用户旅程 | framework-lock 14 节、try-in-room、C 线 | `funnel_map`：六阶段（attract/resonate/trust/decision/retain/refer）×资产×指标×漏洞×next_action |
+| ②消费心理学×文案重塑（FABE+痛点营销） | persona-library 心理×经济层、场景卡四拍公式（§3.5） | FABE 审计意见（出工单，不亲手改文案） |
+| ③GEO/SEO 内容矩阵（E-E-A-T×Topic Cluster） | keyword-library 一词一主位、cannibal、ai-visibility | `content_matrix`（簇规划）+ `eeat_audit`（四维齐全） |
+| ④品牌资产×故事化叙事 | brand-library、Design Story=品牌之根 | `brand_equity`：archetype+护城河主张（带证据级）+一致性红线 |
+| ⑤数据驱动 CRO | t1 inventory/ledger、GSC(待授权)、score 权重 | `cro_backlog`（假设×证据级×度量×状态）+ `ab_tests` |
+
+**FABE → 14 节映射**：F（属性）=Materials/ldProperties/ProductData · A（优势）=KeyFeatures · B（利益）=场景卡/Story/Overview · E（证据）=QC(r8)/社证(r11)/FAQ/白手套。漏斗三段职责：首屏抓眼球=Hero+buy bar；中段建信任=Story/Craft/Reviews/FAQ；尾段促转化=sticky bar/try-in-room/Delivered/FAQ。
+
+### 13.2 战略板审计（确定性部分）
+
+```
+node scripts/pdp-toolbox.mjs operator           # exit 0 = 板子结构合规
+node scripts/pdp-toolbox.mjs operator-intel     # 例行喝 DB（周节奏第一枪）：ai_chat 增量/转人工/t1 订单甄别/事件 + 板对账漂移标记
+node scripts/pdp-toolbox.mjs operator-next      # ICE 排序出 THE ONE（i×c×e，同分按影响→信心→id 决胜）
+node scripts/pdp-toolbox.mjs operator-selftest  # 9 负样本全拦 = 审计器可信
+```
+
+审计拦八类结构违规：漏斗缺阶段/缺资产指标 · 产品未被漏斗覆盖 · 矩阵挂不在册关键词（禁假词）· CRO 假设缺 hypothesis/metric/evidence_tier（T4 必带 validation_plan，铁律#2）· open/testing 项缺合法 ICE{i,c,e}（1–5 整数，open 项不打分不许进排序）· 工单台账缺失/工单缺 id 规范/ruling/裁决原文，accepted 缺 executed_commit，target 指向不存在的 CRO 项 · AB 并发 >1 或缺 single_variable/decision_rule（铁律#7）· E-E-A-T 四维有缺。**审计 PASS ≠ 战略正确**——它只拦结构违规，判断靠操盘手的脑子。
+
+**intel 甄别口径**（铁律#1 无出处不主张的机器化）：订单按 t1-config 甄别——所有者邮箱=自测；QQ/163/126 域=存疑档**单独列出不由工具代判**；只有真实候选档才计入「真实订单」并触发板对账 flag。转人工计数词表含中文「人工」；ai_chat 游标存 intel-state.json（created_at 原始精度，id 是 UUID 不可比）。
+
+### 13.3 工单契约与节奏
+
+**工单五件套**（缺一不发）：`WO-<日期>-<序号>` + 目标漏斗阶段 + 动什么（一次一个变量）+ 走 A/B/C 哪条线（执行归 fuzz-produce，产出必过闸门）+ 验收指标（必须对应 cro_backlog 某条 metric）+ 回流去向（哪个库）。
+
+**周（~30min）**：operator audit → cro_backlog 按 影响×证据级 排序 → 出工单；blocked/parked 项对用户集中喊话一次。**月（与 C 线合并）**：t1 inventory → ai-visibility 采样 → content_matrix 刷新 → eeat_audit 更新 → 板 bump。
+
+### 13.4 权力边界
+
+- 操盘手自决：漏斗优先级、内容角度、cluster 规划、CRO 假设排序、测试设计、闸门内的模块信息职责
+- 必须用户裁决：一切 published · 涉钱 · 模板锁 · 画像 deprecated · 商业口径（运费/保修/交期）· GSC 授权（亲自）
+- **上任第一杠杆排序（2026-09-13）**：GSC 授权 > PayPal 沙盒闭环 > 转人工破洞清零 > GA4/Clarity 接入 > 首篇 blog published——全部已挂 cro_backlog（id：cro-gsc-auth / cro-paypal-close-loop / cro-ai-chat-human / cro-analytics-wiring / cro-blog-publish）
+
+### 13.5 操盘手现役状态（2026-09-21 晚校准，operator-library.json V1.10.0）
+
+**入口**：`/fuzz-operator`（第 0 层）。五条命令（均由 `node scripts/pdp-toolbox.mjs` 承载）：
+
+| 命令 | 干什么 | 节奏 |
+|---|---|---|
+| `operator` | 战略板结构审计（八类违规全拦，exit 0=合规） | 每周第一枪 |
+| `operator-intel` | 例行喝 DB：ai_chat 增量/转人工/t1 订单甄别/事件 + 板对账漂移标记 | 每周 |
+| `operator-next` | cro_backlog ICE 排序出 THE ONE（同分影响→信心→id 决胜） | 每周出工单前 |
+| `operator-intake` | 新品逆向推导入口：PRODUCT→MARKET→HUMAN→PSYCHOLOGY→CONTENT→CONVERSION（OP-01–05） | 每款新品 |
+| `operator-selftest` | 审计器自考（负样本全拦=工具可信） | 改动后必跑 |
+
+**三层裁决 `decision_rights.auto_ruling`**（工单执行时的权力分配，2026-09-13 定）：
+
+- **green = 常设授权**：写库事实判断（备份+断言+回读+完整性+线上验证+台账六纪律）直接执行不必请示——依据用户 2026-09-13 常设授权
+- **yellow = 提案等待**：出工单挂板，等用户裁决；**永不超时——沉默≠裁决**（工单挂着不动是设计，不是失职）
+- **red = 用户五项保留面**：一切 published · 涉钱 · 模板锁 · 画像 deprecated · 商业口径（运费/保修/交期）——碰都只能提案
+
+**工单台账 `work_orders`**：`WO-<日期>-<序号>`，五件套缺一不发；**必留裁决原文（用户原话）+ executed_commit**——审计器查这两键，缺了 FAIL。截至 09-21 晚台账 **50 单**，09-21 十二连：01（免运下线+人工代查）/ 02（快递100+国际寄件考察）/ 03（金额防线+FAQ+说明书）/ 04（快递100 权限开通修 com/phone 两硬伤）/ 05（社媒出口批次 1 四篇挂块）/ 06（物流措辞 DDP 四层洗白）/ 07（条款 15 节+死链）/ 08（PDP 自愈+页脚+GSC 周任务）/ 09（社媒能力建库 V2.0.0）/ 10（合伙人章程+房间合成战役）/ 11（合伙人五问）/ 12（五问首裁：$100 暂不批转测试包）。
+
+**校准环实况**：GSC 校准环**全通**——token 换活（authCode 后门）+ schtasks 周一 04:17 自动 pull 28+verify → gsc-export.json；28 天基线 74 展示 0 点击（冷启动如实记录，作为一切后续归因的零点）。keyword-library V1.2.0 带 provisional 保质期通道（到期未转正自动拦）+ retired 拦截（禁再用退役词）。
+
+### 13.6 AI 合伙人章程（2026-09-21 立法，WO-10/11/12）
+
+**缘起**：用户裁决「我想把你升级为我的合伙人。你是这网站的大脑」——从执行者升级为经营合伙。定性：**经营合伙**（决策权+责任+全透明），非法律合伙——无股权、无法人资格、不对外代表签约。库内位置：`operator-library.json strategy.partner_charter`。
+
+**权限再分配**：
+
+| 区 | 内容 |
+|---|---|
+| **AI 全权（green 直接执行+台账留痕）** | 内容生产线（PDP/blog/社媒子稿/排期）· SEO 与关键词运营 · GSC 校准环 · 数据基建与自动化 · 质量闸门 · 故障自愈与事故响应 · 活库治理 |
+| **用户保留面（只备数据与提案）** | 涉钱（定价/折扣/投放/支付凭证）· 法务（条款/隐私/管辖）· published 品牌门面（首页/PDP 布局视觉）· 模板锁 · 第三方账号凭证 · 一切 API 与付费集成 |
+
+**分歧协议**：合伙人不是点头的人——数据支持时**必须 openly 反对**用户提案（给数据+建议+风险）；用户否决 AI 也要留理由，双方对台账负责；失败照实报、禁虚荣指标。（首例已兑现：用户拿「30 天免费退」当转化示例，AI 以真实口径 48h+按单梯度公开反对，用户采纳：「你反对得对，记一功」。）
+
+**周一合伙人例会**（唯一固定会，15 分钟）：gsc-weekly 拉数（自动）→ social-review 周评 → operator-next ICE 排序 → AI 带数字和下周计划，用户批准/否决。
+
+**合伙人五问**（`five_questions`，每日自答 + 例会议程 + 周报头 `docs/library/partner-report.md`；周历只是五问的执行结果，**永不进例会议程主体**）：
+
+| 问 | 每周答什么 | 权利边界 |
+|---|---|---|
+| ① 这周赚钱还是烧钱 | 分平台 出站点击→到站行为→订单 归因链；内容投入 vs 产出；每周答一次「只剩 $100 投哪、ROI 怎么算」 | AI 出数+建议；一切真金支出=用户裁决 |
+| ② 最大的雷在哪 | 雷区清单滚动维护（封号/虚假宣传/数据管道断供/单点依赖/备份），每雷标 概率×杀伤×缓释×演练日 | AI 排雷+演练；接不住的雷提前报 |
+| ③ 客户为什么不买 | 恐惧清单滚动维护（**当前 #1=真实性恐惧**，「is fuzz sofa ai or real」已是搜索词即证据）；**每条内容必须正面回答至少一条恐惧** | AI 供证据与方案；信任承诺口径（退货/保修/DDP）=用户+法务 |
+| ④ 下月风口怎么卡位 | 季节轴/关键词趋势/竞品弱点——竞品骂声只转自己选题，**禁去竞品帖插广告** | 选题 AI 定，投放涉钱=用户 |
+| ⑤ 哪些事不问直接干 | green 区季度扩张提名（首批三项已批，见下） | 提名 AI，批准=用户 |
+
+**首批自治扩张**（`autonomy_expansions`，2026-09-21 分批批）：①blog 内链优化直接改（台账记）②social_calendar 表直接读写（台账记）③PDP 文案 A/B——只动文案层，模板锁/价格/退货政策不动，**改一句记一句转化**。
+
+**成本纪律**（`capital_discipline`）：Gemini $100 产能**暂不批**（ROI 阶段未到）；触发条件=10 张测试包跑出 Outbound Click 与「Where is sofa from」信号；现有成本模型=工时（AI 出稿+用户合成黏贴），单张成本待实测回填。
+
+**9-28 章程交付承诺**：`docs/backup-restore.md` 实物文档（单机风险#1，用户点名「不是口头方案」）· dog friendly +40% 假设拿 GSC+Pin 数作答 · 首期 partner-report.md。
+
+---
+
+### 13.7 部门制（2026-09-26 立，departments.json V1.2.0）
+
+**组织架构**：站主（裁决：涉钱/published/商业口径/部门设立）→ AI 操盘手（战略+管线+台账）→ 下辖 fuzz-produce 生产线 + 两个挂牌部门。
+
+| 部门 | 辖区 | 心跳 | KPI |
+|---|---|---|---|
+| **神仙姐姐部**（社媒出口部） | 社交类全域归口（站主 09-26 划定）：产稿/排期/互动话术/周复盘/节点日历/场景热力图 | Pin 美东 21:00 · IG 周二五 20:00 CST · FB 迪拜 10:00 · 周一周报 | consult_events（不认粉丝数）+ 出口效率比 + 海湾场景热力图 |
+| **幽灵员工部**（物流情报部） | FX 哨兵/在途包裹拟人查单/承运商公告/轨迹人工代查（§14） | 每日 10:00 简报（FUZZ Ghost Daily，09-26 站主定 10:00） | 简报按日交付率 + 情报命中率 |
+
+**两部门共同红线**：不自导自演（假评论=全系统红线，对外永远署名品牌号/Cici 创始人）· 不接平台 API 不买小号 · 涉钱站主拍板。绿/黄/红三区全表见 `docs/library/departments.json`；数据收件箱（站主每周日 2 分钟填数）=`docs/library/social-data-inbox.md`；账号资产登记=`docs/library/social-accounts-registry.md`（密码永不入库）。
+
+---
+
+## 14. 幽灵员工（物流轨迹系统 · 2026-09-21 定稿）
+
+**概念**：一个不领工资的物流专员——客户下单后，它盯着每一个在途包裹：查轨迹、写时间线、推进订单状态。它有三条胳膊（真 API / 快递100 聚合 / 人工代查），断哪条都能干活；客户在个人中心看到的一切轨迹都是它记的账。设计目标只有一个：**订单量撑不起丰桥 API 门槛时，轨迹体验不能塌**（用户裁决原文见 §8）。
+
+### 14.1 数据模型（四张表一口清）
+
+| 表 | 关键列 | 角色 |
+|---|---|---|
+| `shipments` | tracking_no, carrier_id?, status, latest_event, **last_tracked_at** | 一单一包裹；last_tracked_at=配额节流闸（55 分钟） |
+| `shipment_events` | shipment_id, occurred_at, description, location, stage, **source** | 轨迹流水；**去重唯一索引 (shipment_id, occurred_at, description)**——轮询/推送/粘贴三路重复进不来 |
+| `carriers` | provider, api_key/api_secret/account_id, webhook_secret, tracking_enabled, type | 承运商凭证库；kuaidi100 行 type=international（不进报价引擎） |
+| `cron_tokens` | name='tracking' | cron 鉴权（或 env secret） |
+
+**状态机**：`mapStage()` 关键词分类（已收件/收取快件/已发出→dispatched，运输中→in_transit，派送→out_for_delivery，签收→delivered…）→ `STAGE_RANK` 只进不退 → `orders.status` 推进（shipped/delivered）+ `orders.latest_shipping_event` 回写。
+
+### 14.2 三条胳膊（降级链设计：断哪条都能干活）
+
+1. **承运商直连**：`providers.ts` 注册表（ProviderId→label/needsSecret/canTrack）+ `fetchTracking` switch——新增承运商=注册表加一行+一个 case，**管道零改动**（当前顺丰走此形态）
+2. **快递100 聚合兜底**：`getAggregatorCarrier()` 取 carriers 表 kuaidi100 行——shipment 没有专属凭证或凭证未启用时自动落聚合行，**任何单号都能 track**
+3. **人工代查（幽灵员工的真身，过渡期主通道）**：后台「轨迹代查」卡粘贴顺丰轨迹文本（逐行含【城市】或 JSON 数组两种入料）→ `parseManualTrackingText` 解析（样板剔除、mapStage 同管道）→ `adminIngestManualTracking`（admin 会话校验）→ `shipment_events source=manual`，去重+状态推进复用同一管道；卡片带 Open SF tracking 直达链接（官方页手工誊抄，非爬虫）
+
+### 14.3 事件管道（承运商无关，即插即用）
+
+所有来源殊途同归到 `recordTrackingEvents({ shipmentId, orderId, carrierId, trackingNo, events, source })`：去重 → 插行 → shipments.latest_event 回写 → 订单状态推进。**source 字段记来源**（manual / poll / webhook），事故可溯源。新通道（未来别家聚合、DHL webhook）= 新 adapter 喂同一个函数，客户侧零感知。
+
+### 14.4 快递100 管道（已上线，等权限）
+
+- **实时查询（poll）**：POST `poll.kuaidi100.com/poll/query.do`，sign=UPPER(MD5(param+key+customer))，body 只收 customer/sign/param 三键（官方文档 api.kuaidi100.com/document/5f0ffb5ebc8da837cbd8aefc）；**param 字段名是 `com` 不是 company**（09-21 首版写错，已修——401 时代无法区分，权限开通后被掩盖）；**`phone` 顺丰必填**（顺丰/顺丰快运/中通必填，缺→408 电话校验不通过）：已从 orders.phone 接入（后台 test-tracking 也支持 body.phone，缺省回捞该单号最新 shipment 的订单电话），规整规则=剥格式、+86/86 前缀收敛到末 11 位；请求带 resultv2=4（每条轨迹加状态名+location）+ lang=zh（与人工代查通道同语言，mapStage 关键词中文）；**responseCode 语义**：500=无轨迹（正常空）、401=无权限、403/400=数据不完整或未充值、408=电话校验失败、503=签名错、504=频率超限、601=无可用单量（额度尽，账号需充值）；**账号权限 2026-09-21 已开通**（官方参数形状实测 500 查询无结果=通道活，假单号查不到是正确答案）；**频率红线：每单 ≥30 分钟、24h ≤48 次**——cron 55 分钟节流在其内
+- **订阅推送（webhook，付费产品，权限开通前保持未接线）**：`/api/webhooks/kuaidi100` 验签 UPPER(MD5(param+key+salt))，salt=carriers.webhook_secret，兼容裸 key；无匹配 shipment 也 ack（防 24h 无效重试）；`kuaidi100Subscribe` 助手就绪。**线上已端到端验证**：假造签名推送 2 事件入库，篡改签名 401 拒
+- **配额保护**：cron 轮询每单每 55 分钟一次（last_tracked_at 闸）；后台 Sync now 手动触发不受限；订阅推送上线后轮询可再降频
+
+### 14.5 自动化节奏
+
+`schtasks` 每 10 分钟 tick → `/api/public/tracking-cron`（token 鉴权）→ `syncActiveShipments`：只挑 `tracking_no 非空 + 未签收 + (last_tracked_at 为空或 >55 分钟前) + (有专属承运商或聚合行可用)` 的 shipment，按最久未查优先。
+
+### 14.6 客户与操作员看到什么
+
+- **客户**：个人中心→订单详情→完整轨迹时间线（桌面+移动一致；MobileOrderDetail 已补齐）；订单状态随轨迹自动推进
+- **操作员**：后台履约页「轨迹代查」卡（粘贴→即时客户可见）+ Sync now（立即轮询）+ 承运商凭证管理
+
+### 14.7 设计原则（为什么长这样）
+
+①**降级而非阻塞**：API→聚合→人工三层任一可用即工作，断供不塌；②**幂等去重**：三路来源撞车靠唯一索引兜底，重复推送不产生重复行；③**承运商无关**：事件管道不看来源，接新快递=加 adapter；④**诚实展示**：轨迹逐条原文不加工，未签收不假报；⑤**配额自觉**：免费额度内节流轮询，付费推送就绪可切；⑥**三道门**：cron token、webhook 验签、admin 会话——各入口各自鉴权。
+
+### 14.8 待办
+
+见 §10 遗留清单前三行（权限验证 / 推送接线 / 国际路线裁决）。国际寄件（下单出面单）考察结论：快递100 仅圆通国际单通道且属小包网络，沙发主件不可走——多家比价真实路径=DHL MyDHL 官方 API 或维持货代专线，**属用户商业决策，未写一行代码**（WO-20260921-02）。
+
+---
+
+### 14.5 正式开启与 FX 触发线（2026-09-26 站主令「正式的开启」）
+
+- **在编+闹钟**：Windows 计划任务 FUZZ Ghost Daily 已注册，**每日 10:00**（站主 09-26 定，替换原 08:30）；9-18~9-25 断档 8 天（任务从未注册成功，已复盘记档）
+- **FX 触发线（WO-20260926-06 选项1）**：价卡换汇基准 7.15 不动；ghost-daily 记账两线——硬线现价 ≤**6.60** / 趋势线连续 ≥**30 天** <6.80（state/fx-watch.json），命中任一简报 🚨 升级上浮站主重校议题（预算涨幅 ~6.4%，需全站美元价+EDM+AI 客服三处同步）；未触发期间漂移仅记录不催办
+- **首日战果（09-26）**：捕获漂移 -5.95%（7.15→6.72），按裁决仅记录（连续 1 天）；顺丰公告源 ERR 如实报（网络环境），失败本身即情报
+
+---
+
+## 15. 社媒运营系统（五平台出口 · 策略大脑 · 数据闭环 · 2026-09-21 立法）
+
+**定位一句话**：blog（+PDP）是母体，社交是出口——不在平台上从零造内容，把母体内容切成各平台 native 形状送出去，每条出口都回答恐惧清单至少一条、都带 UTM 可归因。库内宪法=`docs/library/social-playbook.json`（**V3.0.0**，2026-09-26 V8 喂养升级），算法宪法=`docs/library/social-platform-rules.json`（V8.0.1），日历=`social_calendar` 表，产稿=`social-outlet`，周评=`social-review`（§3 章程动作）；**执行归神仙姐姐部**（§13.7）。
+
+### 15.0 V8 喂养整合（2026-09-26，站主裁决修正版）
+
+- **声音护栏（rb13/rb14，selftest 19/19）**：rb13 禁词族=factory/工厂（廉价池毒词，一律说 Shanghai atelier/工作室）、Galvanized/镀锌/包装箱/ships in a crate/1-3 天（淘宝参数不上社媒）、hand-sculpted/整体手工雕塑（铁律#4，站主 09-26 确认；替代=hand-finished by artisans 手工细节打磨）、评论X送Y 诱导（权重 -50%）；rb14=IG caption 禁 https://（限流 -80%，链接走 Bio+DM）
+- **内容主轴（站主裁决）**：工艺细节退证据层（一笔带过），全球独家顶钩子层——One Partner Per City / No OEM / Not in the 3 catalogs / GCC 0 Distributors / Global Exclusive Originals
+- **算法要点（V8 全文见 platform-rules）**：IG 权重 Share 10>Save 8>Comment 4>Like 1、Location 必须 Shanghai、精准标签有效泛标签无效、Comment REAL <城市> 进地域池；Pinterest=搜索引擎，标题描述给搜索词（designer furniture dubai 类）非参数、30 天起峰 6 个月长尾、Text Overlay ≤20% 图面积；FB ≤80 字符+空行折叠钩、阿语首评通吃 GCC、问题结尾逼回答
+- **闭环 SOP**：Day0 blog published→IG Reels+自评证据→Day1-4 Pin 四场景（-alserkal/-citywalk/-dubaihills/-trade）→Day2 FB→Day3-14 场景归因反哺下一篇选题（Riyadh 候选 WO-20260926-04 pending）→Day14/30 复盘
+- **DDP 口径联动**：trust_copy_locked 已同步「door-to-door + duties handled at checkout (DDP or self-pay)」，禁「一律包税」承诺（WO-20260926-02）
+
+### 15.0.1 编网图 mesh_map V1.0 + 签名句 + CTA 主次制（2026-09-26 晚，站主「点扣点成网」）
+
+- **编网图（mesh_map）**：节点=pin/blog/room_preview/reel/story/facebook/edm/ugc，每个节点登记入口×出口×主钩；DNA 底噪层=八点事实+签名句（每节点必带，rb 强制）；UGC 回流环=客户 Room Preview 成图（经同意）→新素材→新曝光，网的自增强环
+- **签名句 V1.0（双语双层）**：短句 EN "See it in your room." / ZH「想看看它摆在你家什么样吗？」（贴纸/帧/落款）；长问句 EN "Want to see this piece in your home?" / ZH「想看看这件摆在你家里是什么样吗？」（正文/EDM/DM 收尾，后接 One photo is all it takes）；使用纪律=短句长句不并排、英文禁直译中文长句、新市场同构再译需母语者校、禁自由变体
+- **CTA 主次制 V1.0**：每条物料 primary_cta 唯一+次级 ≤1，其余留白；DM Room Preview 钩归 Story/私信专属；Share 句废除（分享是结果不是请求）；分工=Reel 主钩 REAL<城市>/Story 主钩贴纸/FB 主钩问题/Pin 链接即钩
+- **四拍逻辑**：宣称→怀疑→证据→体验（详见 §8 裁决四）；mesh_map.four_beat
+- **体验层出口**：IG Story（唯一官方挂链位→/ai-room-preview，utm_content=room-preview）+ 品牌版 Story 帧生成器 gen-story-frames.cjs（1080×1920 B2C/B2B 双版，贴纸降级配角）；blog 新增体验段+Room Preview GEO 定义句（见 §8 裁决四前 Dubai 篇上线条目）
+
+### 15.0.2 后台声音哨兵（admin-alert.js，2026-09-26 上线）
+
+- 轮询三路 60s：新订单（orders）/新咨询留言（contact_messages）/AI 求助人工（ai_chat_sessions.needs_human）；提醒=WebAudio 响铃（订单 5 声/消息 3 声）+页面横幅+浏览器通知；水位 localStorage、首跑不追溯
+- 文件=public/admin/admin-alert.js（index.html 已接线）；**部署特性**：本构建静态清单烧进 bundle，public 新增文件必须完整重建才生效（热同步 .output 无效，已实测记档）
+- 桌面备用轮询器 scripts/alerts/order-alert.mjs（60s 轮询 orders+ai_chat_messages，响铃+气泡，常驻循环）——二选一即可，当前以后台哨兵为主
+
+**两条用户红线**（WO-20260921-09 裁决）：①**不接平台 API**（现在不接、以后也不接——一切动作人工，原生排期器是唯一自动化）；②**不买小号、不做伪装口碑**（封号+FTC 虚假宣传双重风险，AI 提案被用户否决的记录在案）。
+
+### 15.0.3 声音纪律终版 + 平台研究先行（2026-09-27 定稿）
+
+**什么是重点、什么是忽略一笔带过（站主原话锚定）**：
+- 重点（放大说）：全球独家 IP / One Partner Per City / Not in the 3 catalogs / Room Preview 体验 / 200kg-300kg-5.5x 证据 / 渲染 vs 实物楔子（Everyone Posts Renders. We Built the Real One.）
+- 一笔带过（不强调）：工艺过程（模具成型+细节打磨——模具是伪命题不写，打磨一笔带过；不说纯手工也不否认手工）/ 物流细节（照政策页原文，不自创数字）
+- 禁用：包税（→关税按官方税率结账时结算，代办可选）/ factory（→atelier）/ hand-sculpted（→hand-finished）/ 120 小时工时 / 雕刻雕刻 / 评论X送Y / caption 挂链接
+
+**平台研究先行**：新平台首次产稿前必须先建研究块（官方规则+基准数据+爆款样例三层带出处）入 social-platform-rules.json；Pinterest 研究块已建（官方 fresh pins/字段/替代文本 + 爆款标题钩子模式 + 用户画像交叉表 user_persona_crosswalk V1.0：75% 采购计划心态×Room Preview 精确咬合）
+
+---
+
+## 15.1 五平台分工
+
+| 平台 | 角色 | 关键打法（各按假设+证据级入库） |
+|---|---|---|
+| **Pinterest** | 搜索与长尾流量之王 | 问句标题+WxDxH 实数（rb12）；Board 关键词布局；2:3 图；21:00 ET（T1 已锁）； dog friendly / small apartment 类长尾词 |
+| **Instagram** | 品牌与信任 | Reels 2-3 条/周 + Story 投票/问答；Collab 联名、Broadcast Channel 私域（进阶玩法库在册，按 phase 开） |
+| **Facebook** | 社群与复购 | 转发 2 条/周；外链放评论区；Fuzz Sofa Family Group 属 phase 2（先养主页） |
+| **Reddit** | 口碑与信任背书（最难） | **养号 30 天纯评论→karma≥500 才开软提及**；主理人真实身份披露优先；永不小号带节奏 |
+| **TikTok** | 爆发与测品 | 现阶段 0（只建候选池）；week 2-4 有机测品后 1-2 条/天；四拍口播稿（0-3s 钩子/3-10s 演示/10-20s 效果/20-30s CTA） |
+
+### 15.2 假设纪律（算法层不许拍脑袋）
+
+每个平台的每条算法规则入库时必须四件套齐：**假设 + 证据级**（T1 用户实测 / T2 平台公开 / T4 假设）+ **证伪条件** + **保质期天数**。`social-review` 周评逐条对证伪；**UNFALSIFIED 超保质期 = audit FAIL**（与 persona/keyword 同源纪律）。周调整工单必须含「本周数据改了哪条规则」或明示无变化+为何——防止闭环退化成打卡。
+
+### 15.3 总周历（`strategy_brain.weekly_schedule`）
+
+**时区策略**：用户在 UTC+8、受众主力美东——**北京时间上午 9-10 点 = 美东晚 20-23 点**（夏冬令时通吃，全年黄金档）。
+
+| 平台 | 频次 | 灌装动作 | 美东时点 |
+|---|---|---|---|
+| Pinterest | 每天 1 条 | 周一一次灌 7 天原生排期 | 21:00（T1） |
+| Instagram | Reels 2-3 条/周 | Meta Business Suite（与 FB 同面板） | 晚 19-21（T2） |
+| Facebook | 转发 2 条/周 | 同上 | 晚间（T2） |
+| TikTok | 0（候选池期） | TK 桌面端排期 | — |
+| Reddit | 养号期纯评论 | **唯一不进排期器的**——必须真人实时 | 美东活跃时段 |
+
+每周一早 30 分钟批量灌装 = 无 API 约束下的零成本自动化；本周预算约 2h（五问①口径）。
+
+### 15.4 数据闭环（`data_loop`）
+
+`gsc-pull`（周一 04:17 自动，GSC UTM 出站行）→ `social-review`（读 gsc-export + 用户从各平台 creator studio 黏贴的平台侧数字 → social_calendar.metrics）→ 各平台 algorithm 假设逐条对证伪条件 → 周调整工单（加频/降频/换钩子/停线）→ 台账留痕。钩子库/模板/sub 清单按证伪结果增删（`self_evolution`）；`brand_memory` 沉淀长期品牌记忆（什么话术立得住、什么翻过车，跨战役不重蹈）。
+
+### 15.5 信任文案 LOCKED（`trust_copy_locked`，WO-12 定稿）
+
+> **"Made to order for you — see it in your room before you commit. DDP: no surprise fees. 48h returns."**
+
+三条铁律：①所有合成图 caption 必带 visualization 标签（Room Preview / visualized）；②**禁承诺 30 天免费退**（真实口径=48h 退货+按单定制取消阶梯——虚假承诺=自焚信任，AI 公开反对获用户采纳案）；③每条内容必须正面回答恐惧清单至少一条（当前 #1 = is it AI or real）。
+
+**link_contract**：出口链接=`{origin}/{locale}/journal/{slug}.html?utm_source={platform}&utm_medium=social&utm_campaign={slug}-d{day}`（测试包例外允许直落 PDP，见下）；`banned_terms`（Sit on Art 等抄袭话术）任何卡面出现即拦（rb12）。
+
+### 15.6 Reddit 纪律（唯一没有排期器的平台）
+
+- **账号实况**：u/Limp_Shake_2985（账龄 3 个月，karma 1/0 空白号），Day0=2026-09-21。用户裁决「说明都不做就这样发」——资料页零装修，**纪律全在行为层**
+- **养号 30 天**：纯评论不发帖；karma≥500 才开软提及；AMA（I make pet-friendly furniture）是养号后的选题
+- **披露优先**：凡涉及自己产品的帖子，标题自报身份（I design/made this）；正文零链接，问询在评论区以主理人身份自然接——**披露红线任何测试都不豁免**
+- **禁小号带节奏、禁未披露推广**（平台封号 + FTC）、禁去竞品帖插广告（骂声→转成自己的选题）
+
+### 15.7 room-preview-10 测试包（`test_pack`，当前最高优先级）
+
+**目的**：验证 Room Preview 浏览器合成图**能不能骗过真人+带来第一个出站**——用户再裁 $100/Gemini 产能。用户 2026-09-21 特批豁免 Reddit 30 天养号期的发帖禁令（仅此一帖，披露不豁免）。
+
+| 项 | 内容 |
+|---|---|
+| 分配 | Pin 5（9-23~9-27 日更 21:00 ET）+ Reddit 1（9-23）+ 备用 4（3 狗友好 Pin + 1 Reddit 备用，首帖存活才启用）——**共 10 行已落 social_calendar** |
+| Pin 协议 | 14 天窗口看收藏+出站（Pin stats 与 GSC UTM 双源）；链接=PDP canonical + `utm_campaign=roompreview-test`（战役扩展例外）；标题问句+W/D/H 实数从 products.ts 回填（rb12） |
+| Reddit 协议 | 标题："I design animal-shaped furniture made to order in Shanghai — this is a render from our room preview tool, honest roast welcome"；正文零链接；sub 候选 r/SomethingIMade / r/furniture_design（**发帖当日核对现行规约**，automod 删帖即记录换地不硬刚）；指标=「where is sofa from」问询数+upvote 比+删帖/被指营销 |
+| 成本模型 | 工时：AI 出稿/标题/UTM + 用户浏览器合成（约 30 分钟/张）；单张成本实测后回填 |
+| **证伪** | Pin 14 天 0 收藏且 0 出站，或 Reddit 帖被删/被指营销 → 合成图路线降级回 PDP 功能，**$100/Gemini 永不提** |
+
+**配套冻结令**：9-23 起常规第一周粮全部让位测试包；生产 caption 必带 trust_copy_locked 文案+visualization 标签。
+
+---
+
+## 附：文档导航
+
+**本文档是 `docs/` 唯一文档**（2026-09-13 收编；09-21 两轮增补）：命令速查 §3（补丁形状 §3.1 / 评分 §3.2 / 画像与 T1 §3.3 / 缺陷史 §3.4 / 场景卡四步流水线 §3.5）· 闸门 §4 · 活库 §5 · 数据库 §6 · 部署 §7 · 裁决 §8 · 台账 §10 · 模板锁与 IP §11 · 架构蓝图 §12 · 操盘手层 §13（现役状态 §13.5 · **AI 合伙人章程+五问 §13.6**）· 幽灵员工 §14（物流轨迹系统）· **社媒运营系统 §15（五平台/周历/数据闭环/信任文案/测试包）**。
+
+- 已并入并删除：`pdp-toolbox.md`（→§3）· `fuzz-sofa-v43-final-template-locked.md`（→§11.1）· `pdp-ip-playbook.md`（→§11.2–11.5）· `geo-persona-workflow.md`（→§12）
+- 已删除的历史文件（git 历史可查）：`fuzz-sofa-v42-final-live.md` · `no-api-data-basis.md` · `no-api-data-basis-V1.1-CORRECTED.md` · `noctua-data-basis.json` · `noctua-data-basis-v1.2.json` · `noctua-pdp-full-2026-09-12.json` · `noctua-pdp-full-v1.2-dollhome-2026-09-12.json` · `business-scenario-tests.md`
+- 证据原档 → `docs/library/evidence/`（QC 报告 ×2 / Trends 导出 / 90d 搜索 CSV）
+- 会话记忆（不入仓）：部署细节 `fuzzsofa-deploy-architecture.md` · Story=品牌根 `fuzzsofa-story-brand-root-principle.md`
+- **只读渲染页**：`docs/fuzz-produce-manual.html`——给非命令行读者看的可读版（目录+深浅色）；改本文后必跑 `node scripts/render-manual.mjs` 重刷，**内容以本 md 为准**
+
+
+## 移动端 PDP 内容规范（站主令 2026-09-24，WO-20260923-08/09）
+
+移动端产品详情页只允许以下 8 个区块，按序：
+1. 图集（含 Try in your room 胶囊、收藏在主图右上）
+2. 缩略图条
+3. 概览：tagline + H1 + 一句话故事（无说明书墙、无关税词）
+4. 选项：材质 chips / 颜色缩略图 / 数量（预选首项，价格随选实时变）
+5. Key Features 类散文区：❌ 禁止（灵感卡/设计故事/编号散文一律不上移动端）
+6. Materials & Craftsmanship（4 图标卡）
+7. Product Data（参数表 + 尺寸切换 + 运费计算器 + 工程描述降级区 + 保障链）
+8. Reviews → FAQ
+
+吸底栏：价格 + Add to Cart + Buy Now（固定不动，字距 ≤0.1em，直角，h-11）。
+任何往移动 PDP 加内容区块的改动，先过站主。
+
+
+## 16. EDM 与外部情报管线（2026-09-24 立）
+
+- **EDM 体系**：模板库 `docs/library/edm-templates.md`（发送版=桌面 HTML `EDM邮件模板.html`）
+  - B2B 经销商开发信：GCC 首位经销商招募（独家原创 IP+独立工厂+手工，不写编造资历；官方口径=上海）
+  - B2C 生命周期六阶段：新注册(48h 信任信)/未付款(24-48h 亲自处理)/签收第 7 天(评价邀请)/已购 30-60 天(VIP 优先权,不发折扣)/沉睡 90 天(低门槛回入口)/冷开发(私人 Gmail ≤20 封/天,不用主站域名)
+- **外部情报管线**：站主投喂原料 → 拆/滤/推/摸 → 14 天最小测试 → 判读线过才晋级
+  - 库：`docs/library/external-intel-library.json`（intel/promoted/rejected/failed）
+  - 社交日历：`docs/library/social-calendar.json`（IG+Reddit 首批测试中,判读 10-08）
+  - 在测：INT-01 llms.txt 四问框架 / INT-03 IG / INT-04 Reddit；纪律=最小可判读样本+并发≤3+负知识归档
+- **电话区号**：结账电话输入前置国家区号(38 国),提交自动补全剥 trunk 0
+
+
+## 17. 文案交付四道门（2026-09-24 立，起因=B2B 信连出 4 处事实错误被站主逐个抓出）
+
+任何对外文案（EDM/开发信/落地页/PDP）交付前，必须过四道门，缺一不算完成：
+
+1. **铁律门**：对照 §15.5 三条铁律（visualization 标签/禁 30 天免费退→48h+按单梯度/恐惧清单正面回答）+ 官方口径（上海，禁深圳）+ **零编造资历与数据**（设计师头衔/店铺数/案例数据——原稿里的编造也要清，不因"是站主草稿"而豁免）
+2. **能力门**：每个功能声明对照产品实际行为——Room Preview=客户官网自助约 2 分钟（非代客出图/无 2 小时）；支付=PayPal live 已开；AR 话术=站内已有
+3. **价格门**：信中每个价格与 products 表逐一比对（Kong 9,900 / Mofu 3,660 / Meteorite 3,800 / Owl 4,800 / 小样 10）
+4. **通读门**：最终渲染产物整篇通读（读 HTML 成品，不读源码片段），检查叠字/占位符/断句
+
+失误复盘（2026-09-24）：B2B 信润色时保留了原稿的"30 天退货"×4（违反铁律②）、"2 小时出图"（违反能力门）、"深圳建造"（违反口径）——根因=把站主草稿当可信输入，只改站主点名的问题，没做全量事实核对。外部审查抓出后逐个修复，本节为防复发立法。
+
+---
+
+## 17. 实战全记录：2026-09-26/27 双日战役（详细级 · 审核导向）
+
+> **本章审核指引（给站主）**：本章每一个环节按「决策原文 → 执行内容 → 验证方法 → 验证结果 → 遗留」五段记录。审核时三查：①查数字——所有数字旁标注了出处等级（T1=我方第一方实测 / T2=社区实证 / T3=外部有源 / T4=假设，无标即违红线）；②查闸门——所有上线内容是否过闸（validate/score 结果在案）；③查错误——§17.0 的纠错卡是本方失误全记录，不遮掩。证据存放：git 提交序列 713af14→4c39824+、台账 operator-library.json work_orders WO-20260926-01～WO-20260928-01、consult_events 表、scripts/db-patches-20260926-dubai-blog/ 与 scripts/db-patches-20260927-wording/ 全部补丁脚本。
+
+> **📜 全量交付物档案（逐项编号 A1-A12 决策 / B1-B12 文案全文 / C 技术清单 / D 验证 / E 挂账）**：`docs/library/audit-20260926-27-appendix.md` —— 本章为战役叙事，逐条审核请按附录编号进行。
+
+### 17.0 纠错卡：站主三次纠错与本方失误全记录（审计必读）
+
+| # | 站主纠错 | 本方失误根因 | 制度化修复 |
+|---|---|---|---|
+| 1 | 「pin 发布他标记主图，我不知道主图。以及替代文本——这功课你好像没有做」 | 产稿只产了标题/描述/链接，没研究 Pinterest 发布界面的真实字段（主图/替代文本/主题标签） | 替代文本×4 补齐+逐字段对照卡；alt_text_rules V1.0 入库；**产稿字段完整性=完工标准** |
+| 2 | 「标题不是数据，是钩子啊。用户很懒的」 | 首批 Pin 标题写成参数表（200x160x152 cm），把描述层的活干在了标题层 | rb12 改制：标题=钩子（好奇缺口/价值承诺 ≤100 字符），实数下沉描述层当证明；selftest 19/19 |
+| 3 | 「没有实际的数据不要拿给我看」+「你又让我这不懂的人教你了。你应该先了解 pin 这个平台的规则和玩法以及相关的数据」 | ①V8 养料包四个数字（CTR 1.5-3%/播放 500-2000 等）未查证直接当判读线入库 ②平台产稿前没做平台研究 | 证据审计 V8.1.0（六项降级换有源基准）；平台研究先行制度化（无研究块不许产稿）；双红线入长期记忆+神仙姐姐章程 |
+
+**根因综述**：三次纠错同源——「先生产后研究」的顺序错误。修复=顺序倒转（研究块→产稿），已写入 departments.json 神仙姐姐部 green 区与操盘手长期记忆。
+
+### 17.1 时间线总览
+
+- **9/26**：EDM 定稿（DDP→atelier 口径修正）→ Dubai 篇 blog 上线（97.3A）→ DDP 口径全站可选化（16 文件 38 处+content_blocks 32 处+zh 33 条）→ V8 养料喂养（playbook V3.0/platform-rules V8.1.0/rb13/rb14）→ 部门制挂牌（神仙姐姐部+幽灵员工部）→ 后台声音哨兵 → FX 触发线
+- **9/27**：G-MWA V0.9 试点立案 → king kong 簇真空洞确认 → WO-20260927-01 执行（Kong title+meta）→ WO-20260927-02（llms.txt 8 处）→ WO-20260927-03（站点级口径清污）→ Ivory Gorilla 文章重织 → **Pin 1 首发+首次出站点击+自测污染打标**
+
+### 17.2 G-MWA V0.9 试点全记录（选题算法）
+
+**起源**：站主转交外部 AI「缺口驱动贪心织网 + MeshRank 回流」提案，指令=先分析不开工。
+
+**第一道闸门：伪空洞焚毁（对账实录）**
+
+对账数据源=gsc-export.json（8/24-9/21，27 行，T1 我方第一方）。Gap 公式=曝光−10×点击（Gap>20 且点击=0 记空洞）：
+
+| 提案声称的空洞 | 真实对账 | 判定 |
+|---|---|---|
+| designer furniture dubai Gap 高 | **零曝光**（词 9-26 刚登记，Google 尚未展示） | ❌ 伪空洞 |
+| is it ai or real Gap 高 | 不在 28 天窗口数据内 | ❌ 伪空洞 |
+| cat scratch proof sofa Gap 高 | 该查询不存在于任何窗口 | ❌ 伪空洞 |
+| （提案未发现）king kong sofa | **24 曝光 0 点击 @ 位置 8.3**；簇合计（king kong sofa/couch/kingkong sofa）≈35 曝光 0 点击，位置 6.8-11.8 | ✅ 唯一真空洞 |
+
+**裁决**（站主）：框架收，例子作废——「假空洞烧真工时，比发错货还贵」。
+
+**V0.9 修正三处**：
+1. Gap 门槛：曝光 ≥10 + **连续两个窗口确认** + 位置分层（≤20=优化现有页标题/摘要；>20 或无覆盖=才织新三件套）——原提案把所有空洞映射到「织新结」
+2. Hook 打分禁伪精度：废除 Curiosity 0.9 式小数，rubric 制——三源链齐=1 缺=0，链入台账
+3. Threads 子体剔除（黄区未批+无研究块）；embedding cosine 拒绝（小样本关键词匹配足够）
+
+**V0.9 权限**：只读 Gap 排名报告，不自动产 WO。转正条件=14 天 Harvest 数据。
+
+**外部 AI 辩论四轮记录**：①外部 AI 全盘接受修正并拍板 ②就 WO-20260927-01 标题终稿辩论（其版把 $9,900 搬到 57 字符=移动端截断，我版 $9,900 守 17 字符可见区；其版三名词堆叠；其版三处改动捆成一个变量——三项均我方胜，外部 AI 认可）③其版 Reddit 子体撞养号期（karma 1，10-21 前只准评论）被我否 ④管辖权确认：外部 AI=外部审计员，只读跟踪 Gap；执行权在操盘手+神仙姐姐部。
+
+### 17.3 Kong title CTR 实验（WO-20260927-01，进行中）
+
+**实验变量（唯一）**：title 词序——补连续词形 "King Kong Sofa" 首段；$9,900 守 17 字符可见区（移动端 SERP 截断 50-60 字符；GSC 存在 "king kong sofa price" 变体=价格可见性影响高意向点击，T3 外部共识+T1 变体存在）。
+
+**卫生清理（不计变量）**：metaDescription hand-sculpted → hand-finished by artisans（铁律#4 存量违规，WO-04 时代闸门未拦 meta 层）；DDP 一律包税 → 关税结账时结算。
+
+**闸门**：validate PASS（r1-r14）· score 100/100 A。
+
+**验收（小样本诚实版）**：主=两 GSC 窗口合计 clicks≥1（二值；24 曝光样本上比 CTR 百分比是噪音）；参考=CTR 方向性、位置守 ≤10、price 变体。证伪=14 天不动 → 回滚+翻车记录（写明失败类型：钩子不行 vs 词无意图）；成功 → 词簇申转 verified + MeshRank 首次实测。
+
+**基线（T1）**：该簇 35 曝光 0 点击 @ 位置 6.8-11.8（8/24-9/21 窗口）。
+
+### 17.4 站点级口径清污全记录（WO-20260927-03）
+
+**起源**：执行 WO-01 时发现 title/meta 清完，页面其余字段仍是旧口径——FAQ JSON-LD（AI 直接读取）、AI 聊天答案、i18n 载荷含 hand-sculpted / factory / 一律包税 / 120 小时工时（铁律#4 已废止项）。
+
+**依据**：站主 9-26 裁决链——DDP 可选化（「这是选择题，不能拿出来确定或者宣扬的」）→ 工艺叙事（「模具是伪命题不写；海绵优势+打磨一笔带过；不说纯手工也不否认」）→ 声音纪律终版（重点放大说/细节一笔带过/禁用清单）。
+
+**清污明细**：
+
+| # | 位置 | 数量 | 内容 |
+|---|---|---|---|
+| 1 | faqs 表 DDP 对齐 | 10 行 | 「DDP delivery included — duties and taxes prepaid」等 7 组句式 → 「door-to-door + duties handled at checkout (prepaid or self-pay)」 |
+| 2 | faqs 表 hand-sculpted/factory | 5 条 | Kong/Noctua×2/Mofu×1 + factory→atelier |
+| 3 | products 表 | 2 | noctua（de-fuzzed factory→atelier）、kong（FaceTime factory→atelier video tour；Factory FaceTime 板块题→Atelier FaceTime） |
+| 4 | translations 表 | 删 141+ 行 | 禁词旧键（hand-sculpted 57+factory 21+90 to 120 hours 5+No carving 2+workshop 旧键等）；新增 zh 30+ 条（provider=operator） |
+| 5 | src 代码 | 6 处 | product-detail/MobilePage/ai-room-preview×2/index/__root |
+| 6 | pages_config | 13 处 | Sculpting & Shaping → Shaping & Finishing；hand-polished → carefully finished |
+| 7 | llms.txt | 8 处 | 见 §15.0.2 前的 llms.txt 修复记录；含 1-year warranty→90 天、7-day→48h 口径 |
+| 8 | workshop.tsx | 3 处 | meta 描述+板块题+描述 |
+
+**保留项（有意不动，审计须知）**：政策层费用名称（outbound DDP shipping fee 扣款条款）与已双模式表述的政策句——交易/法务层不在此 scope；invoice.ts:218 无条件 "Prices are DDP"（DDU 订单失真）=审计子项另立工单。
+
+**验收终值（线上实测，rebuild+restart 后）**：Kong 页 hand-sculpted 0（清前 20+）· factory 0（清前 3+）· 一律包税 0 · Noctua/Mofu 页 0/0 · llms.txt 残留 0 · faqs 残留 0 · translations 禁词行 0。
+
+### 17.4.2 工艺叙事终版（站主多次纠偏收敛）
+
+裁决原话锚定：「弹性泡沫直接贴合在钢芯上，历时三周手工雕刻出肌肉轮廓——神经这无法成立」「我们是先用模具再去打磨细节的」「不用写模具，这其实都没必要写。就是海绵的优势好了再打磨」「不说我们是纯手工，也不说我们不是手工的——一笔带过最好」。
+
+**层级**：重点放大（独家 IP/One Partner Per City/Not in the 3 catalogs/Room Preview/证据数字）· 一笔带过（海绵优势+细节手工打磨，示例："High-density foam over the welded steel core, with final details finished by hand."）· 禁写（模具/雕刻/sculpting/120 小时/纯手工宣称/不是手工的辩解）。
+
+### 17.5 编网首日实战（Pin 1 + consult_events 闭环）
+
+**发布**：Pin 1 钩子标题首发（9/27），Board=Tactile Luxury & Atelier Craft。
+
+**首次出站点击 + 闭环实证**：9/27 10:01:02 consult_events 记录 social_inbound/pinterest/-d1——与 Pinterest 后台出站点击数同秒对账。管道全环（Pin→出站→UTM→blog 落地→归因）实测走通。
+
+**自测污染打标**：站主自查发现当日点击为自己测试——对账 10 条 consult_events 全为自测（时间戳聚簇证实：三条挤在同一分钟 18:18:06/27/32），全部打标 [self-test 站主自测] 不计入成绩。**第一条真鱼定义**=本人未点击时段自发出现的出站点击。
+
+**四平台回声（9/26 18:18 测试窗）**：pinterest/instagram/facebook 三面均有入站记录——三平台出站通道全部实测可用。
+
+**历史基线两层修正**：档案页终身=785 曝光/12 出站（CTR 1.53%，T1）vs 分析页近 30 天=1,035 曝光/0 出站/0 保存——诊断=分发活（受众 795 ↑3.3%）、转化死（近期 Pin 无链接无关键词），新弹药已修复此因。
+
+### 17.6 后台声音哨兵（admin-alert.js）
+
+三路轮询 60s：新订单（loadOrdersPage 首行水位）/新咨询留言（contact_messages 最新行）/AI 求助（needs_human=true handled=false 计数）。提醒=WebAudio 响铃（订单 5 声/消息 3 声）+页面横幅+浏览器 Notification（首点请求权限）。水位 localStorage（fuzz_alert_state_v1），首跑不追溯。桌面备用轮询器 scripts/alerts/order-alert.mjs 同源逻辑。
+
+### 17.7 工程教训清单（新增 5 条）
+
+1. nitro 静态清单烧进 bundle：public 新文件必须完整重建才可服务；热同步 .output 无效（实测 404）
+2. 生产 DB 写入走文件补丁通道：inline node -e 直写被权限护栏拦（Modify Shared Resources）——一律 scripts/db-patches-*/xxx.cjs 文件执行，顺带留痕
+3. bash 转义坑：JS 含 $/反引号/CRLF 时 node -e 内联必炸——一律文件补丁脚本；补丁需 CRLF 自适应（锚点 \n 匹配 \r\n 失败教训×1）
+4. 多行锚点替换自检：本日两次锚点未中被断言拦截（ABORT 保持原样），断言模式继续执行
+5. deploy-prod.bat pause 陷阱：管道调用时 bat 不执行（曾误判部署完成，复验发现旧进程 PID 11104 仍在）——已改手动三步部署；bat 待改造去 pause
+
+### 17.8 挂账总表（审计对照）
+
+| 项 | 状态 | 下一动作 | 责任 |
+|---|---|---|---|
+| WO-20260927-01 Kong title 实验 | 进行中 | 两 GSC 窗口（~10/11）CTR 对账 | 操盘手 |
+| WO-20260928-01 SERP 情报 | pending | 价格教育三件套候选（实验出分后决） | 操盘手+神仙姐姐 |
+| WO-20260927-03 尾巴 | 收尾 | translations 孤儿 zh 行 28 条（alt 键+DeepL 噪声）低优先 | 神仙姐姐 |
+| invoice.ts:218 | 审计子项 | DDU 订单下 "Prices are DDP" 失真，dutyMode 感知渲染 | 操盘手 |
+| DM 承诺履约 | 站主纪律 | 每天早晚各查一次 IG 私信，或降级 24h | 站主 |
+| AggregateRating schema | 条件后置 | 真实签收评价 ≥3 条 verified 后上线 | 操盘手 |
+| DMARC 记录 + trade@ 收件确认 | 站主待办 | DNS 一条 + 测试信已投递待确认 | 站主 |
+| translations 孤儿 zh 行 28 条 | 低优先清扫 | 下次清污批次 | 神仙姐姐 |
+---
+
+## 18. 增补八：全量整合与最终状态（2026-09-27 深夜）
+
+### 18.1 本日全部工作清单（20 项按序）
+
+| # | 工作项 | 状态 |
+|---|---|---|
+| 1 | Dubai blog 上线（97.3A） | ✅ |
+| 2 | 全站 DDP 口径可选化 | ✅ |
+| 3 | 社媒发布包 V3.0→V3.2 | ✅ |
+| 4 | Overlay 图×10+品牌帧×2 | ✅ |
+| 5 | G-MWA V0.9 立案 | ✅ |
+| 6 | WO-20260927-01 Kong title 执行 | ✅ |
+| 7 | WO-20260927-02 llms.txt 执行 | ✅ |
+| 8 | WO-20260927-03 站点级清污 | ✅ |
+| 9 | 部门制挂牌 | ✅ |
+| 10 | 声音哨兵上线 | ✅ |
+| 11 | 备份系统设计 | ✅ |
+| 12 | 工具雷达 V1.0 | ✅ |
+| 13 | 情绪框架 V1.0 | ✅ |
+| 14 | 关税话术 V1.1 | ✅ |
+| 15 | 行为→钩子推导表 | ✅ |
+| 16 | 竞品情报 V1.0 | ✅ |
+| 17 | Ivory Gorilla 文章重织 | ✅ |
+| 18 | Room Preview FAQ JSON-LD | ✅ |
+| 19 | 评论区 SOP | ✅ |
+| 20 | 说明书增补五+六+七 | ✅ |
+
+### 18.2 站主三次纠错
+
+| # | 纠错 | 根因 | 修复 |
+|---|---|---|---|
+| 1 | 发布字段缺失 | 产稿未研究平台界面 | alt_text_rules+字段完整性=完工标准 |
+| 2 | 标题参数堆叠 | 「标题是钩子不是数据」 | rb12 钩子制 |
+| 3 | 无源数字当判读线 | 证据审计 V8.1.0+两红线入记忆 |
+
+### 18.3 两道门（工具准入）
+
+第一道：「解决哪张工单？」第二道：「服务哪个阶段的我们？」
+
+### 18.4 站主待办 6 件
+
+Board改名/简介更新/GIT_BACKUP_PASS/DMARC/trade@确认/竞品研究
+
+### 18.5 数据时钟
+
+GSC 每周一 04:17 · Ghost 每日 10:00 · 声音哨兵 60s · 收件箱每周日
+
+
+## 19. 系统复制指南(再制黏贴 · 2026-09-30 立,站主令:新项目复制本系统)
+
+> 目的:新项目启动时,把本项目的**操盘手系统**整体移植。原则:**复制机器,不复制记忆**——
+> 管线/闸门/库结构/纪律是机器,照搬;产品事实/价格/画像证据/关键词/竞品/品牌案例是记忆,必须重造。
+
+### 19.0 复制判定表(一眼分清)
+
+| 可原样复制(机器) | 必须重造(记忆) |
+|---|---|
+| 闸门工具 pdp-toolbox.mjs(r1-r14/rb1-rb14 全套) | products 表全部产品数据(事实/价格/规格) |
+| framework-lock + blog-framework-lock(模板锁) | persona-library 的证据条目(结构可留,证据清空重爬) |
+| 三线流程(A: PDP 九步 / B: blog 九步 / C: 校准环) | keyword-library 条目 / competitor-library 条目 |
+| SQL-over-HTTP 网关模式(env-sql.cjs) | brand-library 案例与金句(选新项目的) |
+| daily-health-audit / cron-tick / ghost-daily / prerender-warmup | judgment-log(格式保留,内容清零) |
+| backup-to-git + 计划任务 / 三套部署脚本 | 场景图与 scene-image-manifest |
+| .claude/skills(fuzz-produce / fuzz-operator) | 社媒账号 / 发布包内容 |
+| 库的 schema 与写入门禁(缺 source 自动拒绝) | press/EDM 名单 |
+
+### 19.1 七层移植清单(按依赖序,下层就绪才动上层)
+
+**L0 基础设施层**
+- 源站自托管:nitro `NITRO_PRESET=node-server` 构建(⚠️ 裸 `npm run build` 会产 cloudflare-worker 产物,本地起不来——本项目踩过);`PORT=80` 必须显式(nitro 默认 3000)
+- 部署三脚本:deploy-prod.bat(停旧→构建→起新)/ start-prod-80.bat / restore-after-reboot.bat(断电重启用)
+- DB:新加坡 PostgreSQL,走 SQL-over-HTTP 网关(Basic auth),应用侧永不直连
+- Cloudflare:DNS 代理 + Email Routing(收信转主邮箱)+ DMARC(TXT `_dmarc` `v=DMARC1; p=none; rua=mailto:...`)+ WAF(注意:会对 AI 场景图帖子的访客侧产生标签问题与地区规则,需按项目调)
+- 邮件:Resend 直连发信(info@ 发件,DKIM 自动);部署后 DMARC 补进箱率
+- GSC:服务账号 JWT(gsc-report.mjs 零依赖实现),站点资源授权一次
+- 备份:`backup-to-git.mjs` + 计划任务每日 10:05;DB 备份进私有 git
+- 定时:cron-tick(订单维护 10 分钟一拍)/ gsc-weekly(周一 04:17 拉数)/ ghost-daily(幽灵员工日报)
+
+**L1 内容闸门层**
+- `node scripts/pdp-toolbox.mjs selftest` 全绿才可开工(工具不自检=闸门不存在)
+- PDP 模板锁 framework-lock.json(14 节布局不可改,psych_jobs 心理卡)+ blog 模板锁 blog-framework-lock.json(title 35-38 / excerpt 150-160 / H2 4-8 / 禁表格 / 内链契约 ≥2+≥2)
+- 闸门顺序铁律:validate exit 0 → score ≥B(交作业线 A)→ 落 draft → **published 必须用户点头** → verify 线上回归
+
+**L2 知识库层(docs/library/,40+ 文件)**
+- 结构照搬,条目清空重造。核心库:persona-library / keyword-library / competitor-library / brand-library / seo-meta-library / social-proof / ai-vs-real / social-playbook / operator-library / t1-evidence / scene-image-manifest / content-master
+- 写入门禁:一切数字必须有 source;`library add` 缺 source 自动拒绝
+
+**L3 画像层**
+- 方法论:Revella 五要素 × JTBD × 证据分级 T1-T4 × 反循环证伪层(falsification_status/counter_evidence/last_challenged,60 天无反例检验=FAIL)
+- 影子画像制度:零一手数据的买家进影子区,毕业=连续 2 证据周期同向 T1+用户裁决
+- 一号战略原则:Every product starts with itself——市场关键词不可脱离产品 DNA
+
+**L4 内容生产线**
+- A 线 PDP:operator-intake → scaffold → persona brief → 定向爬取 → persona audit → 关键词裁决(cannibal 红线)→ 14 节生产(先读 psych_jobs)→ validate→score A → 用户审批 → 落库 → verify
+- B 线 blog:同构九步;**blog 是母体,社媒是出口**(social-gen 产出过 rb12)
+- C 线校准环:周(t1 inventory/GSC 聚类/cannibal 扫描)+ 月(persona audit/ai-visibility 采样/competitor 刷新)
+
+**L5 社媒出口层**
+- **单一文档制**:content-master.md 唯一内容文档(规则+排期+发布包+归档+回流,站主令:不分文件)
+- 桌面双卡模式:《社媒发布包.html》(复制即发,每段带复制钮)+《站主任务清单.html》(进度勾选)——发布前三闸:CTA 含 try-in-your-room / 自评价值型 / 脚本只对真人
+- 多产品轮换:比例按产品线定(本项目 猩猩2:其他各1),禁单产品轰炸
+- 时间纪律:**只对站主报本地时间**(本项目=北京时间)
+- 数据回流:发布即登记,24h 一次+周报一次;自测点击自动打标不计成绩
+
+**L6 战略层**
+- fuzz-operator(/fuzz-operator):漏斗/内容矩阵/CRO 战略板
+- judgment-log:每个决策记「决策→依据→结果→学到」,站主直觉先立案再执行(证据给弹药,验证指标给刹车)
+- tool-radar:外部工具两道门(「解决哪张工单」+「服务哪个阶段的我们」),答不出=跳过+回访触发器
+- GSC 竞争词观察名单:逐词点名取位置,周日看曲线定加码
+- 竞品档案保鲜:对标账号每月亲手复访一次(9/27 基准 9/30 即过期,实证)
+
+### 19.2 新项目落地节奏(第一周→第一月)
+
+| 阶段 | 动作 |
+|---|---|
+| D1-D2 | L0 全套就位(域名/DNS/邮箱/DB/部署/备份/计划任务),selftest 绿 |
+| D3-D4 | L1+L2:模板锁按新品类微调(结构不改只换内容规范),库 schema 建好 |
+| D5-D7 | 第一批产品数据入库(站主供:图+参数+材质表+价格)→ A 线走第一支 PDP |
+| W2 | 首画像爬证据定稿(至少 1 个 H2+)→ B 线第一篇 blog 过闸 → 社媒账号+发布包模式启动 |
+| W3+ | C 线校准环开跑;GSC 观察名单立;竞品首扫(亲手+搜索双轨) |
+
+### 19.3 随行红线(普适,不随项目变)
+
+无出处不主张 · T4 假设禁入文案 · AI 隔离(线上场景图豁免需用户裁决) · 交期诚实制 ·
+产品不可拆卸声明禁 · draft→审批→published · 订单污染防线(分析前必跑 t1 inventory) ·
+一次一个变量 · 画像先行无画像不进闸 · 模板锁赢过 SEO 建议 · **闸门说了算,不口头辩护**
+
+### 19.5 增补(2026-10-01:归因/自愈/捕鱼三套系统入列)
+
+**新增系统组件(七件,复制判定表全属「机器」列):**
+1. `scripts/fishing-report.mjs` — 捕鱼效率周报:GSC 观察名单+EDM source 归因+询盘信号三路 join,含**噪声分类器**(按特征:语法/超长/已知模式,不按关键词——duty 类 core 商业词故意不过滤);接进周一 gsc-weekly 自动批
+2. `src/lib/attribution.ts` — 首触/末触归因:落地抓 utm_*+referrer 存 localStorage,trackConsult 并 `attr[first:..|last:..]` token 进 consult_events.note,周报按 src: 解析网扣
+3. `src/routes/api/public/preview-subscribe.ts` + `src/components/PreviewEmailCapture.tsx` — 合成后邮件捕获:缩图≤1280px→Resend 附件回发本人(房间照不落公开目录)→newsletter_subscribers upsert(source=preview:<slug> 入 EDM 池)
+4. `scripts/deploy-keep-assets.cjs` — 部署资产宽限期:构建前存上一代 assets→构建后补回缺失文件(**累积+30天修剪**);根治「部署后手机/旧标签页断链」
+5. **构建版本自愈探针**(根组件):keep 阶段写源级 public/version.json 构建指纹→已开页面每 60s+visibility 比对,不一致自动 reload(版本号+15s 双防循环)——部署后 60s 全设备自愈
+6. GA4 转化事件层:add_to_cart(cart.ts)+preview_submit(三预览面),同意门控内
+7. 场景页织网模式(ScenePage):featuredProduct 直链+TrySection(自助 2 分钟+UTM=场景 slug)+Further Reading(journal 语义内链×2)+IG 社交扣+转发钩——四拍齐
+
+**分析三纪律(沟通层,普适):**
+站主给方向 → 操盘手 ①有数据 ②有论证 ③用算法原理 推出结论 → 给建议 → 站主定该不该上。
+产品欲望点不由站主定也不由 AI 定:站主给方向,AI 评分(需求证据×产品兑现×心理匹配×竞争空位)给建议。
+推断类结论必须标 tier(T2/T3 可用;T4 挂 validation_plan 禁入主张)。教训案:防抓不是 Mofu 欲望点(站主纠错)。
+
+**新增踩坑实录(11-14):**
+11. 部署即删 assets → 手机/旧标签页断链错误边界 → keep-assets 宽限+自愈探针根治
+12. 未验证 SLA(「2 小时出图」)进文案 → 交期诚实制延伸:运营未确认的时间承诺不入文案
+13. 模板漂移:social-gen 模板产出已废钩子(REAL DUBAI)→ 已废词表须机器可读+出厂自检比对
+14. DB replace 假阳性:`returning slug` 在 replace 未命中时也返回行 → 变更类 UPDATE 必须 returning strpos 验证;大小写变体(Title Case)逐一排查
+
+### 19.6 增补(2026-10-01 晚:稳定性三件套+裁决台账+竞争应对制度)
+
+**新增系统组件(五件):**
+1. `scripts/watchdog-server.bat` + 计划任务「FUZZ Server Watchdog」(每5分钟) — 端口 80 掉线自动拉起生产服务;**进程守护是稳定性根基**(此前服务跑在无人守护的 cmd 窗口)
+2. `scripts/deploy-smoke.mjs` — 部署冒烟测试七项(首页/PDP+Product schema/集合/Journal/预览/登录接口),接进 deploy-prod.bat,失败 exit 1
+3. `scripts/register-watchdog.bat` — 看门狗注册一键化(含验证)
+4. `docs/library/decision-ledger.json` — 裁决台账+四级授权模型(逐条问→阈值提议→类别授权→全自治永外);事实修正类 4/4 同向证据建议授第2级;30 天模式识别自动提议升级
+5. `docs/library/capability-usage-map.md` — 能力防吃灰台账:每项能力登记用途+触发点;🟡超30天未触发给死线;🔴无归档理由接线或退役(退役需站主批)
+
+**新增制度(六条):**
+- **分析三纪律**:有数据/有论证/用算法原理;分工=站主给方向→操盘手推结论给建议→站主定该不上
+- **市场配比+验证器**:内容全球向主力,单市场每周≤1;市场假设装 90 天验证器(信号阈值+到期降级)
+- **截流标签池**:#sculpturalfurniture #furnitecture #organicmodern + 自创 #realnotrender(AI vs Real 专用)
+- **选品参考制**:竞品爆款形态清单入 content-master(学选题不学卖法;形态参考,材质体系用我们的)
+- **样品治理**:测试品只挂指定页(如 collection),场景/推荐位经 NON_SCENE_SLUGS 永久排除
+- **DM 人工环裁撤**:自助工具 2 分钟口径,CTA 不引导发照片;DM/WhatsApp 保留售后与定制
+
+**新增踩坑实录(15-18):**
+15. 编辑事故:一次 Edit 误删登录验证块 → 500 → 部署后全链路验证当场抓到修复——**部署后验证工序不可省**
+16. 中文输入法弯引号粘贴进命令行 → schtasks 失败/建错 —— 给站主的命令做成 bat 文件,粘贴路径即可
+17. nitro 静态清单构建时固化 → 构建后写盘的新静态文件(如 version.json)不被服务,必须源级写入随构建烤入
+18. DB replace 假阳性 + Title Case 变体:replace 未命中也返回行;大小写变体逐一排查(where ilike + strpos 双验)
+
+### 19.4 本项目踩坑实录(教训即配置,新项目直接免疫)
+
+1. 裸 `npm run build` 产出错误 preset → 部署脚本必须内置 `NITRO_PRESET=node-server`
+2. 时区混排导致错日风险 → 只报站主本地时间
+3. 品牌资产(Board 名/Bio)锁城市 → 品牌是全球的,市场只是第一个剧场
+4. 单产品轰炸社媒 → 多产品轮换立规
+5. FB 对 AI 场景图自动打「AI 内容」标签 → FB 帖优先工坊实拍,实拍图库需站主供给
+6. 竞品基准 3 天过期 → 月度亲手复访制度
+7. 作战清单快照过期(策略升级日未回炉) → 发布前三闸+单一文档制
+8. 闸门输入格式(数字授权须数值型/内链须 canonical 形态) → 先读闸门源码再组补丁
+9. 沙箱(8080)与生产(80)双进程僵尸 → 每次重建后两端都重启,预热两端分开跑
+10. 零搜索量的自造品类 → 不造浪,借浪(桥内容接浪潮搜索,意向词细网并行)
+
+### 19.7 增补(2026-10-02:操盘协议 V1.0 立项,站主批)
+
+> 全文:`docs/library/operator-protocol.md`(V1.0,commit a0880ce)。三轮头脑风暴收敛案(站主携外部 AI 对抗辩论,四次实锤驱动),行业成熟实践的等比缩小版。**本节为摘要,规则全文以协议文件为准,冲突时以协议为准。**
+
+**一、九字方针:一张表、两道门、默认假(Current Truth,压一切之上)**
+
+- **一张表**:全站 9 类关键事实(支付/订单/咨询/流量/画像/部署)各挂——现任权威源+新鲜度策略+真伪门+可解锁动作+Fallback。谁有资格回答"现在是什么状态",查表,不猜。
+- **两道门**:①Freshness(时间门:没验证时间或过期=STALE)②Authenticity(真伪门:T0 自测/站主行为永不进真实商业学习)。**Fresh≠True,True≠Current**——$35k 打穿真伪门(新鲜但假),74 展示打穿时间门(真实但过期)。
+- **默认假**:无验证时间戳的事实一律 STALE。"存在"≠"当前有效"。收入数据**默认 T0(测试),站主显式盖章才升 T1**(银行对账思路)。
+- **事实两分**:配置类(PayPal 开关/画像)=事件驱动,变更即更新不设 TTL;测量类(GSC/流量)=TTL 自然腐烂。防"每日重验"假工作。
+- **CONFLICT 只发生在两个现任权威之间**(Manual 无出庭资格);STALE/CONFLICT 时依赖该事实的动作冻结(熔断)。
+- **查询纪律**:"现在"只从活数据答;"当时为什么"才查手册/台账;过期→答"未知待验",禁止报旧值当现值。
+
+**二、数据水管三规则(站主 10-02 三问沉淀)**
+
+1. **新水入管先判断定**:补充→兑旧水升版本+记配方;推翻→旧水归档,当前只出一种水(怕的不是新旧结合,是结合了不记版本);
+2. **新水必须流遍全身**:"新增一个事实"不算完成,"所有引用处换新+报 N 处已同步(N 可抽查)"才算——改源头≠改完(假闭环);
+3. **废水三桶**:当前管(验真)可饮 / 沉淀池(archived/failed)不流但留档 / 下水道(真销毁)仅限密钥隐私。
+
+**三、Priority Engine + 五件套(全为现有能力的读取规则,零新采集)**
+
+P0-AI/P0-Human(永不假闭环)/P1 造信号(P0 空转强制落此,禁漂 P3)/P2 资产/P3 优化(traffic L0-L1 整级冻结)。**两把钥匙**:commercial 升级只解锁销售动作,P3 只由 traffic 管。五件套=Revenue Sentinel/Customer Memory/Decision Protocol/Heartbeat/Signal Pump,输入全为现有件(consult_events/gsc-export/framework-lock/schtasks 时间戳)。权限唯一权威=decision-ledger 0-3 级,不另立。
+
+**四、即时生效(操盘手纪律,无需批准)**
+
+①给站主的每个数字带"截至几月几日"②站主宣布"X 更新了"→记忆副本作废必回读③"现在状态"只从活数据答。判例 007:收入信号未验真禁挂 P0(教训:8 笔测试 wire 被当真钱三周);判例 008:画像/数据更新后禁用旧副本作答(教训:站主多次抓到 Pin 用旧数据)。
+
+**五、触发器冻结(L0 期间一行代码不写)**
+
+| 触发 | 动作 |
+|---|---|
+| 现在(L0) | 协议=文档+纪律三条,冻结 |
+| 第一条**真实**咨询(过 T0 甄别) | 激活 Customer Memory 流程 |
+| 第一笔**真实**订单(站主盖章) | Revenue 台账立 T1 首页+盖章仪式成文 |
+| 多消费者抢读状态 | 再评估 signal_state 机器化 |
+
+**北极星**:Revenue Pipeline Health(Velocity/Leakage/Value);首次回复按小时,周复盘绝对计数禁百分比(L2 以下)。漏斗:咨询→首回→Qualified→Quote→Follow-up(48h/7d)→Payment→发货。
+
+**业务事实修正(10-02 站主澄清)**:全部订单含 8 笔 wire $48,460 均测试单,**从无真实客户下单,真实营收=0**;P0-Human 由此清空。§8/§10/§17 中与此冲突的"真钱待核验"表述以本条为准。
+
+**同日二次增补(站主令"入库同时打通层级")**:三平台同起点对照实验(0粉,T1 读数 10-02:IG Reel 24h 113 浏览/100% 非粉,Pin 5 天 17 浏览/1 出站,FB 0)→判例 009-012 入协议(平台优先级=IG Reels 主力/Pinterest 复利 3 个月周期/FB 降级;互动信号先问出处+停止种评论;产稿前五源数据简报闸;平台机制条目带官方源+日期)。链接修正令:social-platform-rules 升 V8.2.0——IG 文案禁裸链接(改 bio+CTA/Stories 贴纸)、IG 标签降 T3 待竞品实证、FB 原生化+链接进评论。**泵水第一战(站主定):IG 竞品爆款拆解。**
+
+**同日三次增补(IG 通水战开闸,站主批『开』)**:①机制校准(T2 官方源,Mosseri 2025-01/2025-07):Reels 三核心信号=观看时长+likes per reach+sends per reach;"link in bio"不降 reach(辟谣),文案裸链接维持禁令;IG 搜索索引 caption/屏幕文字/alt text(SEO 主战场),标签 3-5 辅助——rules 升 V8.3.0→V8.4.0。②站主级3裁决『**不投流**』:growth_mode=organic_only 入档,投流重启须显式批预算。③ig-pump-battle.json 建档:14 天硬终点(第一条可重复水路=曝光→UTM→≥1 下游行为)/三类水脉清单(A 学形式/B 起流量/C 找对水≥3卡)/7 字段拆解卡/H 假设模板(含 target_search_keyword)/数据回流环(周读数,绝对计数)。④关键词库升 V1.3.0:platform_seo_channels 三平台分渠供词(Google/Pinterest/IG),内容不自造词。
+
+## 21. 移植全量抽取增量（2026-10-07 立，站主令：全面抽取用于另一项目）
+
+> §19/§20 之后（10-01～10-07）新增的全部「机器件」与普适制度，按层归位。
+> 新项目 = 本说明书（§0-§21 机器列）+ 新记忆（产品事实/证据/语料，全部重造）。
+> 一句话版：**复制机器，不复制记忆；吸收制度，不搬运事故。**
+
+### 21.1 稳定性层（血泪换来的，新项目第一天就装）
+
+| 件 | 内容 | 移植形态 |
+|---|---|---|
+| `.output_backup` 备份机制 | 构建前整目录备份；构建失败 `.output` 被清空时靠它救命（本项目实战救回 1 次：静态资产全 500、后台黑屏，进程靠内存苟着） | 照搬流程：停进程→回灌→重启→五路探活（HTML/静态/favicon/后台/店面） |
+| `scripts/safe-deploy.cjs` | 原子部署七步：预检（内存+僵尸清扫）→备份→构建→产物验证→keep-assets→停旧启新→探活，任一步失败自动回滚 | 照搬脚本，改路径即可 |
+| 单机 OOM 三查 | ①查**提交内存**非可用内存 ②僵尸 node/Code 进程按 CreationDate 判杀 ③pagefile 所在盘剩余空间（本项目 pagefile 在只剩 1GB 的 D 盘） | 部署预检三条，写进 safe-deploy |
+| SW 冷启动黑屏修复 | `navigator.serviceWorker.register('/sw.js',{updateViaCache:'all'})`——否则 iOS 冷启动重新下载 sw.js，品牌壳接管前白/黑屏 ~3s | 一行代码，新项目首日入 |
+| 构建铁律 | **先构建成功、再停旧进程**（顺序反了=线上死于半成品）；显式 `NITRO_PRESET=node-server` + 显式 `PORT` | 已在 §7，此处升级为部署不可绕过序 |
+
+### 21.2 双数据库教训（P0 警示：新项目**单库起步**）
+
+本项目债，新项目直接免疫：
+- **双库并存（云库兜底 + 自建库主数据）= 渲染分裂根源**。SSR 读云兜底、浏览器读自建，同一页面两端内容可不同；排查成本极高
+- `VITE_` 前缀变量是**构建期全局**——同时烤进 SSR 与客户端 bundle，不能用来选择性切换某一端的数据源（试过即回滚）
+- 网关写 jsonb 存在双重编码（`{"html": ...}` 再包一层）：读取端解两层；变更类 UPDATE 必须 `returning strpos()` 验真（§19.6 坑 14 的 jsonb 版）
+- 管理后台渲染存储 HTML 的防御代码：**双解析 + 换行归一化**（`\n` 字面量与真实换行两种形态都要接）
+- 云库残留旧行 = JSON-LD 残留等幽灵症状；渲染层排雷要包含「云端已删/改但缓存未清」检查项
+
+### 21.3 学习库制度（新项目带结构，不带内容）
+
+- 结构：`learning/LEARNING-INDEX.md` 索引 + `capability-radar.md` 能力自审（L0 未验证/L1 有框架/L2 有实战/L3 可自治；**禁止自评通胀，L0→L1 唯一路径=跑一次真的**；级别变动必须挂实物证据）
+- 投喂吸收流程：站主喂外部材料 → 拆成「可执行条款」入 learning/ → 红线部分上升为纪律 → 负知识（什么没用）也归档
+- **冻结令**（本项目 10-05 起）：系统建完即冻结；冻结期=纯执行期，第一个真实询盘前不新增学习文件。新项目照用：**建系统的时间盒要关死，否则永远在建系统、永远不开张**
+
+### 21.4 顾客语言语料库（最高价值数据资产，第一天就建）
+
+- 四象限定位：真实×难验证的数据最值钱——每条真实顾客原话都是领域 corner case，AI 编不出来
+- **每条语料必挂「指向动作」**：原话 → PDP/主图/FAQ/发布包的具体修改，只归档不挂动作=坟场
+- 好水定义：能改变「为什么成交/为什么不成交」认知的证据。UV/曝光/排名=低价值水；"I love it but $4,800 is too expensive"=价格感知问题（改 PDP 不是改价）
+- 漏斗行为分布：首个真实流量周，按「看价格/看物流/看材质/看尺寸/问价/问运费/付款」出人数分布表=第一张漏斗心理地图
+- 触达发送记录表（对方账号/原话出处/模板号/回复）与语料同库，归因闭环用
+
+### 21.5 冷启动执行纪律（零投流版）
+
+- **零投流令**：第一单真实客户订单前，一切付费投放建议自动否决
+- **首周成功重定义**：1 帖发布 → 1 真实曝光 → 1 互动/问价 → 1 条归因记录。≠爆款≠出单。跑通 1 个样本，能力即从 L0 升 T1
+- 中间指标（防连续判定失败）：DM 10 条 ≥2 回复=正常；帖曝光只记不判；收藏与主页访问看趋势
+- 停止线：10 条触达 0 回复 = 方向错，停下来质疑假设（不是调参数）
+- **穿透测试**：正式开闸前自测全链路 4 环（发内容→自评问价→自测 DM→UTM 落地→GSC/事件核对），断环当周修
+- Reddit/社区线：自建 sub 冷启动 + 借既有浪潮；发帖解剖学（Update 序列养帖）；自测打标不计成绩
+
+### 21.6 三档定位与 EDO（战略自检，随系统带走）
+
+- 95% AI：会写会做图，**发不出去/0 播放**（无发布包体系，AI 图被限流）｜4%：会发**没人看**（无情报管线）｜1%：会写、会发、知道发什么（post_id 级情报）——**分界线不是建出来的，是第一次「出街→有人看→有人问」划下的**
+- 阶段命名 **Evidence-Driven Operator**：我每做一次决策，都越来越知道为什么
+- 警示（封顶采纳）：系统越来越聪明但越来越不知道真实世界发生什么 = 给没有病人数据的医院不断加知识库。对冲=冻结令+首周 T1 样本+漏斗行为分布
+
+### 21.7 口径治理（单点事实源）
+
+- 全站关键口径**单一来源**（本项目：承重一律 200kg，站主钦定）；口径变更=全站清点+旧话术全退役（300kg/5.5× 类旧口径留一处=隐患）
+- 命名治理：**概念性命名（内部代号/家族名）禁入事实层文案**——事实层只写可验证属性
+- 无出处数字红线：给用户的每个数字必须带出处；查不到=标 T4 或不给（文案/报告/产稿同规）
+
+### 21.8 打包带走清单（新项目开工当天的 copy list）
+
+```
+SYSTEM-KIT/            ← 本说明书（§0-§21 机器列）+ library/ 的 schema 骨架
+scripts/               ← pdp-toolbox / safe-deploy / deploy-keep-assets / deploy-smoke /
+                          watchdog-server / backup-to-git / gsc-report / fishing-report /
+                          cron-tick / prerender-warmup / daily-health-audit / confidence-map
+.claude/skills/        ← fuzz-produce（生产闸门）/ fuzz-operator（战略层）
+docs/library/          ← 全部 *.json 的 schema（条目清空）+ judgment-log/knowledge-cards 空表
+learning/              ← 11 文件的方法论部分（案例清空）
+```
+
+不变式一句话：**工具要 selftest 绿才算存在；闸门说了算不口头辩护；published 必须用户点头；数字必有出处；一次一个变量。**

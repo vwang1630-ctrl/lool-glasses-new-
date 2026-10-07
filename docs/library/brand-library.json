@@ -1,0 +1,130 @@
+{
+  "manifest": "FUZZ SOFA brand-library — 品牌运营库 V1.0（成功品牌案例分析 × 文献论文 × 总结写作范式：Design Story 区=品牌之根的理论与弹药库，服务 A/B 线内容生产与 GEO 引子）",
+  "version": "V1.1.1",
+  "updated": "2026-09-14",
+  "write_rules": [
+    "案例必带 source（媒体/官方 URL 或 ISBN/DOI）+ evidence_status（verified / unverified-partial）+ tier（沿用 T1-T4 分级）",
+    "文献只收真实可核的著作/论文（作者、年份、题目、出处齐全），禁编造引文——经典理论写标准书目信息即可，不需 URL",
+    "每条必须带 applied_lesson：本案/本文对 FUZZ SOFA 内容生产的具体指令——无应用落地的条目不收",
+    "T4/分析师假设条目必须带 validation_plan，禁止直接写进文案",
+    "writing_rules 演进制：每次用案例/文献实际写了 Story 或 blog 后，把验证有效的句式/结构回填本库"
+  ],
+  "literature": [
+    {
+      "id": "lit-holt-cultural-branding",
+      "work": "How Brands Become Icons: The Principles of Cultural Branding",
+      "author": "Douglas B. Holt",
+      "year": 2004,
+      "publisher": "Harvard Business School Press",
+      "core_idea": "文化品牌理论：icon 品牌靠回应社会的身份张力而成 icon；品牌以『行动者』身份讲故事、化解张力，而非堆卖点",
+      "applied_lesson": "FUZZ 的身份张力=『成年人的家要不要童心』——Story 区要写『把童心做成家具级的尊严』，不是卖可爱；品牌是化解张力的一方",
+      "evidence_status": "verified",
+      "tier": "T3"
+    },
+    {
+      "id": "lit-keller-cbbe",
+      "work": "Conceptualizing, Measuring, and Managing Customer-Based Brand Equity",
+      "author": "Kevin Lane Keller",
+      "year": 1993,
+      "journal": "Journal of Marketing, 57(1), 1–22",
+      "core_idea": "CBBE 品牌资产金字塔：突显→功效→评价→感受→共鸣；品牌资产=消费者头脑中结构化的独特联想",
+      "applied_lesson": "每款 PDP 只强化 1-2 个核心联想（猫头鹰=『脸即结构』、陨石=『天降之座』）；14 节全部对称服务同一联想，禁多主题稀释",
+      "evidence_status": "verified",
+      "tier": "T3"
+    },
+    {
+      "id": "lit-aaker-brand-identity",
+      "work": "Building Strong Brands",
+      "author": "David A. Aaker",
+      "year": 1996,
+      "publisher": "The Free Press",
+      "core_idea": "品牌识别系统：产品/组织/人格/符号四视角；符号视角是可累积视觉资产的容器",
+      "applied_lesson": "『眼睛/耳簇=承重节点』是符号层签名决策——跨 FAQ/Materials/JSON-LD/story 重复出现，形成可识别品牌符号；每款产品须找一个签名决策",
+      "evidence_status": "verified",
+      "tier": "T3"
+    },
+    {
+      "id": "lit-fournier-relationships",
+      "work": "Consumers and Their Brands: Developing Relationship Theory in Consumer Research",
+      "author": "Susan Fournier",
+      "year": 1998,
+      "journal": "Journal of Consumer Research, 24(4), 343–373",
+      "core_idea": "消费者-品牌关系理论：品牌可成为消费者的伙伴，关系形态决定沟通语气",
+      "applied_lesson": "收藏社群运营=伙伴关系：售后与 AR 预览写『你的 Noctua』而非『您购买的商品』；社群引用做成固定仪式栏目",
+      "evidence_status": "verified",
+      "tier": "T3"
+    },
+    {
+      "id": "lit-muniz-oguinn-brand-community",
+      "work": "Brand Community",
+      "author": "Albert M. Muñiz Jr. & Thomas C. O'Guinn",
+      "year": 2001,
+      "journal": "Journal of Consumer Research, 27(4), 412–432",
+      "core_idea": "品牌社群三标志：共享意识、仪式与传统、道德责任感",
+      "applied_lesson": "Midnight Owls 类业主社群=『仪式与传统』素材源（T2 社证）；社群内容进社证库走 r11 闸门",
+      "evidence_status": "verified",
+      "tier": "T3"
+    },
+    {
+      "id": "lit-schmitt-experiential",
+      "work": "Experiential Marketing",
+      "author": "Bernd Schmitt",
+      "year": 1999,
+      "journal": "Journal of Marketing Management, 15(1–3), 53–67",
+      "core_idea": "战略体验模块：感官/情感/思考/行动/关联",
+      "applied_lesson": "AI Room Preview=思考+关联模块，Materials 卡=感官模块；14 节每节至少落一个体验模块，禁纯参数罗列（对症原则的理论依据）",
+      "evidence_status": "verified",
+      "tier": "T3"
+    },
+    {
+      "id": "lit-belk-extended-self",
+      "work": "Possessions and the Extended Self",
+      "author": "Russell W. Belk",
+      "year": 1988,
+      "journal": "Journal of Consumer Research, 15(2), 139–168. DOI 10.1086/209154",
+      "core_idea": "延伸自我：拥有物构成自我认同的一部分",
+      "applied_lesson": "与 persona-library V4.5 心理锚共用；故事收束写『家即画廊/镇宅物』时的理论支撑——买的是自我陈述的物证",
+      "evidence_status": "verified",
+      "tier": "T3"
+    }
+  ],
+  "case_studies": [
+    {
+      "id": "case-jellycat-plush-economy",
+      "brand": "Jellycat（英国毛绒玩具）",
+      "case": "把毛绒玩具做成『成人的 comfort economy』：2024 营收 £333M（≈$450M，2013 年 $7M → 2023 $252M → 2024 ≈$446M），利润翻倍至 £139M；Jellycat Diners 体验店把购买变成剧场体验（店员现场『烹制』毛绒食物），2024-2025 全球排队现象；核心客群=Gen Z 与 kidult 收藏家",
+      "source": "CNBC 2025-10-01 (cnbc.com/2025/10/01/gen-z-favorite-toymaker-jellycat-hits-450-million-revenue-amid-craze.html)；FT (ft.com/content/6de169be-8066-4a06-b6a3-0c125e8281b6)；TIME100 2026 (time.com/collection/time100-most-influential-companies/2026/jellycat/)",
+      "tier": "T3",
+      "evidence_status": "verified",
+      "applied_lesson": "① 玩偶经济成人化=品类风口，FUZZ mascot furniture 是其『家具级延伸』——Story 写法：承认谱系、声明原创（original Fuzz Sofa Atelier design，FAQ 免责已立）；② 体验剧场化启示：『atelier 手作 72–90h』=生产过程的剧场化讲述；③ 禁模仿其 IP 形象"
+    },
+    {
+      "id": "case-bocca-poltronova",
+      "brand": "Poltronova / Studio 65（Bocca 唇形沙发，1970）",
+      "case": "意式激进设计把『家具做成雕塑/玩笑』卖进收藏级市场：Bocca 自 1970 年生产至今、设计史与拍卖市场持续流通——证明『形即产品』可以穿越 50 年保值",
+      "source": "Poltronova 官方档案与设计史通行记载（studio 65 / poltronova.it）",
+      "tier": "T3",
+      "evidence_status": "verified",
+      "applied_lesson": "statement-piece-affluent 画像『art piece 与家具边界』话语权的谱系来源；陨石/猫头鹰文案可挂『shape-as-product lineage』，但必须同句带原创区隔，禁 affiliation 暗示"
+    },
+    {
+      "id": "case-collectible-design-positioning",
+      "brand": "Collectible design 类目（Design Miami / Maison&Objet 生态）",
+      "case": "限量/编号设计品把家具定价逻辑从『材料+工时』切到『艺术收藏』心理账户；FUZZ $2,800–9,900 档=『可负担的收藏入场券』（对标：最高五分位户年支出基准，见 persona-library economic_profile）",
+      "source": "定价对标=BLS CE 2024（persona-library V4.5 economic_profile）；类目生态=分析师假设",
+      "tier": "T4",
+      "evidence_status": "unverified-partial",
+      "validation_plan": "补 Design Miami / M&O 年度报告 T3 源；GSC 攒 90 天看 statement 画像查询词转化后再升 T3",
+      "applied_lesson": "定价与叙事按艺术品账户归类（编号/工时/one-of-one）=心理账户操作（Thaler）；引用本条前必须先补 T3 源"
+    }
+  ],
+  "writing_rules": [
+    "品牌根四段范式（noctua 验证 99/A）：设计问题开场 → 标志性设计决策（一句可引用的签名句）→ 工坊工艺（全真实数字）→ 名字/谱系 + 品牌承诺收束",
+    "签名句公式：『多数同类做 X，我们让 Y 成为 Z』（例：most character furniture prints a face on foam. Noctua's face is the frame.）——GEO 可引用性核心，AI 引擎喜欢结构清晰的对立句",
+    "金句延续制：旧版文案的好句子是品牌声音资产，重写时保留（如 'Wisdom has never been this comfortable'、陨石 'Sit where the sky landed'）",
+    "文献→文案翻译规则：理论概念不直接出现（不写 CBBE/延伸自我等术语），只写它指挥下的具体事实与场景",
+    "案例→文案规则：引用案例谱系时必须同句带原创区隔（original by Fuzz Sofa Atelier），禁 affiliation 暗示",
+    "总结写作产出制度：凡用本库写了 Story/blog/品牌材料，把『案例/理论 → 实际句式』的映射回填 writing_rules；品牌级长文（年度信/品牌故事页）产出前先读本库 literature+case_studies 列提纲",
+    "产品命名纪律（2026-09-14 用户令）：每个产品一个短 IP 名（Kong / Noctua / Meteorite / Mofu / Eucaly），全站唯一且固定——h1 以短名开头，长描述词（Monumental Gorilla Sofa 等品类 SEO 词）只出现在 h1/tagline 尾巴与 seo.title，不混进产品名本体；URL slug、AI 客服货卡、订单邮件、场景卡、blog 内链一律用『短名+品类』（如 Kong 大猩猩沙发 / Noctua 猫头鹰扶手椅），禁止每次变着花样造新称呼（检查点：命名变体 >1 即违例）"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "manifest": "FUZZ SOFA t1-evidence — T1 第一方证据台账（访级：买家访谈/订单/GSC/站内行为）",
+  "version": "V1.0",
+  "updated": "2026-09-14",
+  "promotion_rule": "同一画像假设累计 ≥5 条同向 T1 证据（跨来源更佳）→ 该假设从 hypotheses(T4) 升级进对应画像 evidence(T1)，persona-library 中标注 n 与日期。此前 T4 假设不得作为主张写进文案。",
+  "screening_rule": "所有订单/收藏/订阅/评论先过 t1-config.json 甄别（owner email/昵称 = 自测，不计）；工具 `t1 inventory` 自动执行并留痕。",
+  "entries": [
+    {
+      "id": "t1-20260829-owlkong-journey",
+      "date": "2026-08-29",
+      "tier": "T1",
+      "source": "ai_chat (web, ip_hash 4e67ded7)",
+      "n": 1,
+      "claim": "真实访客原话：同问 Noctua 与 Kong 价格，并给出『20 sqm living room, zip 99501 (US), modern style』，lead ready=true —— 问价→空间验证→风格的购买旅程实证",
+      "persona_link": [
+        "statement-piece-affluent.buying_journey",
+        "kong-movie-fan"
+      ],
+      "caveat": "n=1，单次会话；不构成价格容忍证据"
+    },
+    {
+      "id": "t1-20260830-mofu-cat-intent",
+      "date": "2026-08-30",
+      "tier": "T1",
+      "source": "ai_chat (widget-desktop, ip_hash 76b30118)",
+      "n": 1,
+      "claim": "访客点名 Mofu Cat 并留邮编 223233 —— 猫型产品的真实意向触达",
+      "persona_link": [
+        "cat-household-upgrader"
+      ],
+      "caveat": "n=1；邮编疑似国内，画像地域假设不受影响"
+    },
+    {
+      "id": "t1-20260830-human-handoff-gap",
+      "date": "2026-08-30",
+      "tier": "T1",
+      "source": "ai_chat (needs_human=true 会话 ×4)",
+      "n": 4,
+      "claim": "4 次转人工请求无跟进记录 —— 高意向访客要求人工时漏斗无出口（含点名产品+留邮编的会话）",
+      "persona_link": [],
+      "caveat": "运营缺陷行动项，非画像证据；修复后此条留作『修复前流失记录』"
+    },
+    {
+      "id": "t1-20260912-orders-zero-real",
+      "date": "2026-09-12",
+      "tier": "T1",
+      "source": "orders 表甄别",
+      "n": 47,
+      "claim": "47 单中 45 单为所有者自测（vwang1630@gamil.com）、1 单 admin 测试、1 单 QQ 邮箱存疑 —— 真实客户订单 = 0，价格带假设暂不可裁决；订单管道已就绪，真实成交进来即可自动入账",
+      "persona_link": [],
+      "caveat": "此条是『否定性 T1』：防止把自测单当需求证据（假数据镀金风险已在 t1 inventory 自动拦截）"
+    },
+    {
+      "id": "t1-20260914-owner-ruling-zero-external",
+      "date": "2026-09-14",
+      "tier": "T1",
+      "source": "所有者裁决原文 + orders 表全量复筛",
+      "n": 48,
+      "claim": "所有者 2026-09-14 裁决「目前的都是测试订单。并没有外部订单」——orders 表 48 行实查：vwang1630@gamil.com 46（9/12 盘点 45→46，+1 为其后测试单）、admin@fuzzsofa.com 1、3603533189@qq.com 1（QQ 存疑档由本裁决归为测试）→ 真实客户订单 = 0 维持，首单基线从零起验（曝光→对话→首单）",
+      "persona_link": [],
+      "caveat": "否定性 T1 续认；同时作废 WO-20260914-07 用户战略令中「33/44真实单走WhatsApp/直连」记忆口径——该数字无系统载体（conversations 表 0 行，站外 WhatsApp 不落库），属站外/记忆口径，不得作为画像证据。2026-09-14 二次澄清（所有者）：「真实单走WhatsApp」意指 WhatsApp 仅承担沟通，客户订单仍走网站——站外成交有风险，风控规则=成交必须站内。故 33/44 实为 WhatsApp 沟通客户口径（意向/咨询），非成交口径；影子画像 cn-direct-whatsapp-buyer 前提由『站外直连成交不可见』修正为『WhatsApp 咨询→站内成交』，漏斗全链路可在站内测量，唯一盲区=咨询环节未落库"
+    }
+  ]
+}

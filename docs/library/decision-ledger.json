@@ -1,0 +1,116 @@
+{
+  "manifest": "decision-ledger — 待裁决台账+授权分级(2026-09-30 站主『按你的步骤去做』立项)",
+  "version": "V1.0",
+  "updated": "2026-10-06",
+  "method": "①每条待裁决事项标:能否阈值化/建议授权级别 ②站主拍板后记录进 history ③同类决策连续 30 天同向 → 自动提议升授权级(第0级逐条问 → 第1级批量批 → 第2级类别授权书 → 第3级永外=公域首发/花钱/对外承诺)",
+  "levels": {
+    "0": "逐条问(现行默认)",
+    "1": "阈值提议:系统自动起草+排队,站主批量批(一次一周)",
+    "2": "类别授权:某类变更永久免问,事后抽审(需站主签授权,数据:同类30天连续同向)",
+    "3": "全自治:永外——公域首发/花钱/对外承诺必须留人"
+  },
+  "authorizations": [
+    {
+      "class": "事实修正类",
+      "scope": "旧文案与新裁决/新确认数据冲突时,自动修正(如 120 hours/2 hours/旧尺寸/已废钩子)",
+      "level": "第2级(建议授予)",
+      "evidence": "同类 4/4 全批:DDP 清污(9/27)、120 hours 雕刻(9/30)、2 hours SLA(9/30)、Kong 尺寸 200×160×152(10/1)",
+      "status": "待站主签授",
+      "granted_at": null
+    },
+    {
+      "class": "数据任务类",
+      "scope": "报告/扫描/排队/草案起草(捕鱼报告/craft-scan/GSC/draft 落库)",
+      "level": "第2级(已事实运行)",
+      "evidence": "fishing-report+craft-scan 周一自动批;blog draft 落库先斩后奏获追认",
+      "status": "运行中",
+      "granted_at": "2026-09-30"
+    }
+  ],
+  "pending": [
+    {
+      "id": "d-b2b-venue",
+      "question": "B2B 场地合作(派对别墅/超跑俱乐部需展示单元)",
+      "can_automate": false,
+      "why": "商业模式决定:需实体单元+物流预算,红线挂起",
+      "awaiting": "站主",
+      "since": "2026-09-30"
+    },
+    {
+      "id": "d-press-revive",
+      "question": "媒体信复活时机(Meteorite 十月期)",
+      "can_automate": false,
+      "why": "站主裁缓,时机属商务判断",
+      "awaiting": "站主",
+      "since": "2026-09-30"
+    },
+    {
+      "id": "d-weights",
+      "question": "Kong/Mofu/Meteorite 实重报数",
+      "can_automate": false,
+      "why": "工坊事实,只有站主能取得",
+      "awaiting": "站主",
+      "since": "2026-09-30"
+    },
+    {
+      "id": "d-mofu-entry-sku",
+      "question": "Mofu $799 小款 SKU 是否立项(外部提案,现目录 Mofu=$2,600-2,800)",
+      "can_automate": false,
+      "why": "供应链/定价决策,需工坊产能与成本数据;外部提案曾伴随虚构事实(LA仓库/真空压缩)已剔除",
+      "awaiting": "站主+工坊评估",
+      "since": "2026-10-05"
+    },
+    {
+      "id": "d-cat-sleeping-bag-sku",
+      "question": "猫睡袋新品立项(巨猫浪 480K 赞/问价 62%,外部报告称流量王;对应 watchlist 词已录)",
+      "can_automate": false,
+      "why": "新品类(可钻入睡袋)非现有四品形态,需工坊可行性+毛利测算;数据支撑:30 天流量王+供给真空",
+      "awaiting": "站主+工坊评估",
+      "since": "2026-10-05"
+    },
+    {
+      "id": "d-horse-lounger-sku",
+      "question": "马躺椅新品立项(FB 3.5 万赞/问价 80% 全动物最高,平台分化:FB 渠道)",
+      "can_automate": false,
+      "why": "同上,新品类需工坊评估;FB 渠道本店未开",
+      "awaiting": "站主+工坊评估",
+      "since": "2026-10-05"
+    },
+    {
+      "id": "d-gpsr-eu-rp",
+      "question": "GPSR 欧盟通用产品安全法规(2024-12 生效):欧盟市场消费品需欧盟境内责任人——本店无欧盟主体,结构性合规缺口",
+      "can_automate": false,
+      "why": "无责任人=严格意义不得进入欧盟市场;选项:EU 责任人服务商(年费)/DDP 物流商是否代担/暂停欧盟订单——影响现有与未来全部欧盟订单,需专项裁决",
+      "awaiting": "站主(建议:核对物流商条款后选责任人服务商,费用入 unit economics)",
+      "since": "2026-10-06",
+      "ruling": "站主裁 10-06:隐形搁置(不优先不放大),重估触发=欧盟订单量出现"
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-09-30",
+      "question": "blog#2 欲望点 CTA 形态",
+      "answer": "上(修正 DM 环后)",
+      "pattern": "全自助方向确认"
+    },
+    {
+      "date": "2026-09-30",
+      "question": "场景页手术",
+      "answer": "上",
+      "pattern": "织网方向确认"
+    },
+    {
+      "date": "2026-09-30",
+      "question": "归因系统部署",
+      "answer": "上",
+      "pattern": "归因方向确认"
+    },
+    {
+      "date": "2026-09-30",
+      "question": "旧文 120 hours/尺寸修正",
+      "answer": "确认数据+执行",
+      "pattern": "事实修正类第 4 次同向"
+    }
+  ],
+  "review_cadence": "周日复盘随 fishing-report 过一遍 pending+history;30 天模式识别自动提议升授权级"
+}

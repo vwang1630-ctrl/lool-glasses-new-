@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "created": "2026-09-24",
+  "note": "14 天社交/渠道测试日历 — 站主或操盘手按日执行;判定数据由操盘手从服务器日志 referer + GSC 读取",
+  "calendars": [
+    {
+      "id": "CAL-20260924-IG",
+      "linked_intel": "INT-20260924-03",
+      "channel": "Instagram (有机)",
+      "start": "2026-09-25",
+      "end": "2026-10-08",
+      "cadence": "每周 4-5 帖",
+      "assets": "现有产品图(supabase) + AR 房间预览截图 + 内部场景摄影",
+      "posts": [
+        {"day": 1, "type": "主图+短故事", "ref": "Kong 正面照", "caption_hook": "Not a sofa. A 200cm gorilla guarding the living room."},
+        {"day": 3, "type": "AR 展示", "ref": "AR 房间预览截图", "caption_hook": "See it in YOUR room before it exists."},
+        {"day": 5, "type": "场景图", "ref": "Fireside Roost 内部场景", "caption_hook": "The guardian your reading corner deserves."},
+        {"day": 8, "type": "工坊幕后", "ref": "工坊/模具照", "caption_hook": "Hand-sculpted in Shanghai. 10 years of chips and chisels."},
+        {"day": 10, "type": "细节特写", "ref": "材质特写", "caption_hook": "Faux fur you'll keep touching."},
+        {"day": 12, "type": "场景图", "ref": "Snow-day Nest", "caption_hook": "Snow days get spent here."},
+        {"day": 14, "type": "合集轮播", "ref": "全系列", "caption_hook": "Which one guards your room?"}
+      ],
+      "hashtags": "#sculpturalfurniture #animalsofa #statementpiece #interiordesign #madetoorder",
+      "judge": "14 天内 instagram.com 来源会话 ≥3 → PASS(intel 晋级);0 → 失败归档"
+    },
+    {
+      "id": "CAL-20260924-REDDIT",
+      "linked_intel": "INT-20260924-04",
+      "channel": "Reddit (经历型帖子,不卖货)",
+      "start": "2026-09-25",
+      "end": "2026-10-08",
+      "posts": [
+        {"day": 2, "sub": "r/SomethingIMade", "title": "I hand-sculpt animal sofas in Shanghai — here's the owl chair taking shape", "ref": "制作过程图/草图"},
+        {"day": 9, "sub": "r/DesignMyRoom 或 r/InteriorDesign", "title": "Would a 120cm owl armchair overwhelm this reading corner?", "ref": "场景图+房间对比"}
+      ],
+      "judge": "14 天内 reddit.com 来源会话 ≥5 → PASS;被版务删帖 2 次 → 失败归档(渠道-内容不匹配)"
+    }
+  ]
+}

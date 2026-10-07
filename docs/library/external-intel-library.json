@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "created": "2026-09-24",
+  "protocol": "拆→滤→推→摸 (WO: fuzz-intel-pipeline, 站主 2026-09-24 设立)",
+  "sections": {
+    "intel": "验证中的条目(status: testing + 14天测试设计)",
+    "promoted": "验证通过,已写入 llms.txt / 站内规范",
+    "rejected": "滤掉的原料(一句话原因)",
+    "failed": "测试失败或样本不足(含数据)"
+  },
+  "entries": [
+    {
+      "id": "INT-20260924-01",
+      "source": "站主投喂:行业 llms.txt 方法(口水转写)",
+      "topic": "llms.txt 四问框架(我们是谁/做什么/竞争优势/能做你这一单)",
+      "assumption": "AI 爬虫/智能体抓动态站抓不住重点;根目录 curated llms.txt 让其第一眼读对公司画像",
+      "action_taken": "对照四问框架审计既有 llms.txt(1,912B→2,776B):补 Who We Are 工坊背景、Competitive Advantages(模具手雕/Q235+泡棉参数/检验报告编号/ISPM15/AR 预览/保修)、Ordering & Capability(DDP 分区/MOQ 单件无起订量/交期/支付方式)、新增 $10 小样入口",
+      "status": "testing",
+      "test_design": "14 天:判读线=llms.txt 被 ≥3 种不同 AI 爬虫抓取(ai_bot_hits.path 含 /llms.txt);基线=AI 爬虫 38 次/7 种(2026-09-23)",
+      "judge_date": "2026-10-08",
+      "social_calendar": null,
+      "notes": "博主『先做上去再说』已滤掉(我们早已上线);『别要模板』无增量价值"
+    },
+    {
+      "id": "INT-20260924-02",
+      "source": "站主投喂:流量来源 12 类口播清单",
+      "topic": "渠道分类学与优先级决策矩阵",
+      "assumption": "流量可分 12 类渠道;渠道选择应由客单价/资产/预算倒推而非全做",
+      "action_taken": "拆成决策矩阵:立测 2(IG 有机/Reddit 经历帖→CAL-20260924-*);收纳 1(行业协会 ASID/IFDA 待调研);延后 7(付费广告×3 待转化证明、红人需预算拍板、TK 有机/PR/播客);在跑 2(SEO/GEO 已有)",
+      "status": "promoted",
+      "promoted_as": "渠道决策矩阵(本条目即框架本身,已入册)",
+      "notes": "口播遗漏变量:渠道-内容资产匹配(如 Pinterest 需图)与客单价匹配($5k 家具不适配低 intent 展示广告)"
+    },
+    {
+      "id": "INT-20260924-03",
+      "source": "INT-02 推演:12 类之 #1 社媒有机流量",
+      "topic": "Instagram 有机流量 14 天最小测试",
+      "assumption": "视觉雕塑家具在 IG 能带来 referral 会话",
+      "action_taken": "14 天 7-9 帖(现有素材),日历 CAL-20260924-IG;站主或操盘手按日发帖",
+      "status": "testing",
+      "judge_date": "2026-10-08",
+      "judge": "instagram.com 来源会话 ≥3 → PASS"
+    },
+    {
+      "id": "INT-20260924-04",
+      "source": "INT-02 推演:12 类之 #10 论坛评论(Quora/Reddit)",
+      "topic": "Reddit 经历型帖子 14 天最小测试",
+      "assumption": "匠人经历帖(不卖货)能为高客单家具站带来高质量 referral",
+      "action_taken": "2 帖(r/SomethingIMade 匠人过程帖;r/DesignMyRoom 求评帖),日历 CAL-20260924-REDDIT",
+      "status": "testing",
+      "judge_date": "2026-10-08",
+      "judge": "reddit.com 来源会话 ≥5 → PASS;删帖 2 次 → 失败归档"
+    },
+    {
+      "id": "INT-20260924-05",
+      "source": "站主投喂:EDM 留存复购方法(Who/When/What 框架)",
+      "topic": "EDM 用户分层留存——高客单信任>折扣",
+      "assumption": "EDM 分层触达(Who×When×What)提升留存复购、摊薄获客成本;高客单客户信任信号>折扣深度",
+      "action_taken": "数据核实:此前 \\$65k 未付订单全部为站主测试单,无真实抢救名单→EDM 首战对象改为真实注册用户(名单见后台「用户」标签,不入库);模板库 docs/library/edm-templates.md 建 4 封(新客信任/老客唤醒/未付跟进/冷开发)。冷开发纪律:私人 Gmail、≤20 封/天、不用主站域名",
+      "status": "testing",
+      "judge_date": "2026-10-08",
+      "judge": "运营性测试(n=2 不做统计推断):新客模板发出后 7 天内是否有回复/小样领取/首单——记录行为,积累手感",
+      "notes": "口播核心结论与本站完美匹配:高客单靠信任背书(检验报告/实测数据/真实评价)而非折扣——已写入模板;发件域名信誉是隐形资产,冷开发绝不用主站域名"
+    }
+  ]
+}

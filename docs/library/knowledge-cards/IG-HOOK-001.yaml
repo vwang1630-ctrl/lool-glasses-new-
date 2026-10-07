@@ -1,0 +1,84 @@
+# IG-HOOK-001 · 真工坊原声实录钩子（收编版第一张实物卡）
+# 来源: ig-pump-battle.json H1 假设 + ig-reel-h1-package.md · 转写归档见 decision-system-adoption.md
+# schema: 交接文档 v1.0 + 收编修订（design_constraint_note / interleave_scheme，2026-10-05 操盘手代裁）
+id: "IG-HOOK-001"
+title: "真工坊原声实录钩子对陌生垂类人群的 Save/Share 驱动力"
+type: "tactic"
+
+hypothesis: "对动物家具/雕塑设计兴趣的陌生垂类人群，「真工坊手作过程原声实录」钩子的 Reel 产生的 Save/Share 率高于本账号其他钩子维度，并带动 profile 访问与 bio 链点击"
+
+rationale: |
+  机制层（T2 官方）：Mosseri 2025-01 官方确认 + Meta ranking explainer——
+  Save/Share 是 IG 推荐权重信号，原创实拍优先于搬运渲染。
+  假设层（本店 conjecture）：本店唯一不可复制资产是真实工坊
+  （ai-vs-real 证据链），渲染图赛道已拥挤（ig-gorillasofa-tag-scan：
+  三市场竞品全在发渲染），原声实录是差异化最强刺激。
+
+epistemic_status:
+  source_quality: "medium"        # 口径②：最弱环——机制 high + 钩子推断 medium → medium
+  empirical_support: "untested"   # 事实核验 2026-10-05：Reel#1 未发布（素材到即剪）
+  consensus: "single_source"
+
+applicability:
+  industries: ["ecommerce", "furniture", "content"]
+  stages: ["pre_launch", "early_growth"]
+  platforms: ["instagram"]
+  regions: ["global"]
+  constraints: ["仅适用冷启动期（粉丝<1000）", "依赖真工坊素材可得性"]
+
+testable_predictions:
+  - metric: "Save+Share 率 / 触达千次"
+    baseline: "前 3 条 Reels 自建基线（判例012：T3 基准仅参照永不设及格线）"
+    expected_direction: "↑"
+    effect_size_estimate: "medium"
+    time_window: "首月 4 条 Reel/臂（ABAB 交替）"
+    control_condition: "同账号并发交替：原声实录钩子 vs 其他钩子维度（如 before/after 视觉冲击），天级错开发布"
+    success_definition: "原声臂 Save+Share 率连续 2 条高于对照臂，且 profile 访问→bio 链 UTM 命中 ≥1"
+    failure_definition: "2h 互动率 <1% 且 2h 触达 ≥200 → 即时判换钩子重剪不追发；2h 触达不足 200 → 等 24h 再判，不许硬判；或 4 条/臂跑完两臂无差异"
+    sample_size_min: "cold_start_sequential"   # 口径①：冷启动顺序设计枚举，不填假数
+    statistical_power: null
+    design_constraint_note: "冷启动量级 design_quality 预期封顶 medium（ABAB 交替无真对照）"
+
+potential_risks:
+  - risk_type: "brand_damage"
+    trigger_hint: "工坊画面暴露代工痕迹，引发非真手工质疑"
+    severity_if_ignored: "medium"
+    note: "画面先过站主；口径已锁：不说纯手工也不否认（铁律#4）"
+  - risk_type: "platform_ban"
+    trigger_hint: "纯原创自然内容，风险极低"
+    severity_if_ignored: "low"
+
+cost_estimate:
+  time_hours_user: 2
+  time_hours_ai: 1
+  money_usd: 0
+  opportunity_cost: "其他钩子维度 Reel 同期少发一半"
+  reversibility: "reversible"
+
+sources:
+  - type: "platform_docs"
+    url_or_citation: "Adam Mosseri 2025-01 官方确认（ig-pump-battle.json 判例引用）"
+    author_credibility: "practitioner"
+    quality_score: 4
+  - type: "case_study"
+    url_or_citation: "ig-gorillasofa-tag-scan：三市场竞品全发渲染图（差异化空位证据）"
+    author_credibility: "practitioner"
+    quality_score: 3
+
+created_at: "2026-10-05"
+last_verified: "2026-10-05"
+expires_at: "2026-12-31"
+version: "1.0"
+
+empirical_evidence:
+  experiments: []
+  summary:
+    high_quality: { confirmed: 0, rejected: 0 }
+    medium_quality: { confirmed: 0, rejected: 0 }
+    low_quality: { confirmed: 0, rejected: 0 }
+    last_updated: "2026-10-05"
+
+referenced_by_routing_rules: ["ROUTING-001"]
+audit:
+  changes:
+    - { version: "1.0", changed_at: "2026-10-05", changed_by: "operator", reason: "自 ig-pump-battle H1 假设转写，站主『开工』令入库" }

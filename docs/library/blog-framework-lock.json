@@ -1,0 +1,99 @@
+{
+ "manifest": "FUZZ SOFA blog-framework-lock",
+ "version": "V4.5.1",
+ "updated": "2026-09-30",
+ "source": "src/routes/journal.$slug.tsx + journal.index.tsx + markdown-body.tsx 实测（2026-09-12）",
+ "template": {
+  "route": "/journal/<slug>",
+  "implementation": [
+   "src/routes/journal.$slug.tsx",
+   "src/routes/journal.index.tsx",
+   "src/components/markdown-body.tsx"
+  ],
+  "locked": "模板壳不可改：分类 eyebrow → serif H1 → 日期 → hero 图 → markdown 正文 → 可选 video/gallery → 页脚 CTA（Explore the collection →）；背景/字体继承全站（#0A0A0A + Cormorant/IBM Plex Sans）；SSR 仅渲染 status=published（draft 为安全暂存态，爬虫不可见）",
+  "canonical_url": "/en/journal/<slug>.html（裸 /journal/<slug> 302 跳转至此；正文内链、blog-verify 一律用 canonical 形态）"
+ },
+ "storage": {
+  "table": "site_articles",
+  "columns": [
+   "slug",
+   "title",
+   "excerpt",
+   "content (markdown)",
+   "image",
+   "category",
+   "status draft|published",
+   "published_at",
+   "data {gallery,video,videoPoster}",
+   "i18n"
+  ]
+ },
+ "renderer_limits": {
+  "engine": "react-markdown（非 GFM）",
+  "supported": [
+   "h2/h3",
+   "bold/italic",
+   "hr",
+   "lists",
+   "links",
+   "图片（自动 figure+figcaption，alt 必填）",
+   "blockquote"
+  ],
+  "forbidden_syntax": [
+   "markdown 表格（无 GFM 不渲染）",
+   "HTML 标签",
+   "正文 h1（H1 由 title 字段渲染，正文从 h2 起）"
+  ]
+ },
+ "content_contract": {
+  "title_chars": [
+   35,
+   38
+  ],
+  "title_note": "head 自动拼 ' | Journal | Fuzz Sofa'（22 字符）→ SERP 总长 ≤60",
+  "excerpt_chars": [
+   150,
+   160
+  ],
+  "excerpt_note": "excerpt 即 meta description 与列表卡摘要",
+  "categories": [
+   "Collection",
+   "Concepts",
+   "Design",
+   "Guides",
+   "Process",
+   "Spaces",
+   "Trends"
+  ],
+  "h2_sections": [
+   4,
+   8
+  ],
+  "lede_rule": "目标关键词必须出现在正文前 100 词",
+  "product_links_min": 2,
+  "product_links_note": "『结合产品』契约：正文 ≥2 条 /en/products/<slug> 内链（不同产品）",
+  "journal_links_min": 2,
+  "journal_links_note": "话题簇内链：正文 ≥2 条 journal 内链，canonical 形态 /en/journal/<slug>.html（站内 302 的裸 /journal/<slug> 会多一跳，不用于正文），目标必须 status=published",
+  "internal_static_links_allowlist": [
+   "/animal-sofa-collection",
+   "/journal",
+   "/ai-room-preview"
+  ],
+  "hero_image_required": true,
+  "internal_static_links_allowlist_note": "2026-09-26 增 /ai-room-preview（WO-20260926-07 站主令 Try In Your Room 入 blog/GEO）；路由实测 302→canonical 200",
+  "kpi": {
+   "statement": "Blog=给 PDP 送水的副产线(2026-09-30 站主批,sales-intent-backlog C 项)",
+   "唯一 KPI": "正文中至少一根内链让人『点了就想买』——开头痛点 → 产品当解法 → CTA 回 PDP",
+   "note": "形式契约仍为 ≥2 产品内链;KPI 是质不是量。blog 不追求完整,禁自由发挥",
+   "skeleton": "开头痛点钩子 → 中段产品=解法(≥2 内链) → 结尾 CTA 回 PDP/DM 闭环"
+  }
+ },
+ "sourcing_rule": "正文段落含主张数字且数字不在 trust_kit 信任组/approved_numbers 时，该段必须带 markdown 链接且链接 URL ∈ patch.sources；正文所有外部链接必须 ⊆ sources（无 source 不引用，无链接不主张）",
+ "meta_rules": {
+  "ai_subjects_ban": "AI 概念对象（gorilla/bread/donut/…）不得出现在 title/excerpt（meta 层）；正文提及必须带 AI 标注词（继承 pdp framework-lock ai_label_tokens）",
+  "social_tokens": "user_provided 社证数字引用必须挂 sources 条目并保持 WARNING（未确认不进 meta）",
+  "delivery": "交期表述继承括号写法 9–17（海运除外 25–35）或纯海归类 25–35"
+ },
+ "trust_kit_ref": "framework-lock.json trust_kit 全量共享（QC 数字组/交期常数/金额组/QC 报告号）",
+ "seo_auto": "head 自动生成：title=标题+后缀 · description=excerpt · Article JSON-LD（headline/description/image/datePublished/publisher）· canonical /journal/<slug>；zh 由翻译两层后台自动补"
+}

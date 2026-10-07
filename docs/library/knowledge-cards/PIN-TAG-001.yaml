@@ -1,0 +1,79 @@
+# PIN-TAG-001 · 品类词 sweet spot 标签（收编版第二张实物卡）
+# 来源: judgment-log 2026-09-27 标签条目（挂账 8 天）· 转写归档见 decision-system-adoption.md
+id: "PIN-TAG-001"
+title: "品类词 sweet spot 标签的出站点击驱动"
+type: "tactic"
+
+hypothesis: "对动物造型家具垂类，品类词标签 #AnimalShapedFurniture（85K-120K 帖子量，sweet spot）带来的出站点击多于品牌泛词 #DesignerFurnitureDubai"
+
+rationale: |
+  Sweet spot 逻辑：够大证明需求真实存在，够小不被淹没可排名
+  （Gemini G1 搜索量数据）。品牌+城市词双重错位：太泛（West Elm
+  也用）+ 锁死城市违反品牌资产纪律（judgment-log 9/28 判例：
+  品牌资产永不锁城市）。
+
+epistemic_status:
+  source_quality: "medium"        # 搜索量数据可溯但非平台官方口径
+  empirical_support: "untested"   # 9/27 挂账至今，Pin 持续在发但标签效果从未单独归因
+  consensus: "single_source"
+
+applicability:
+  industries: ["ecommerce", "furniture"]
+  stages: ["pre_launch", "early_growth"]
+  platforms: ["pinterest"]
+  regions: ["global"]
+  constraints: ["结论仅适用同量级账号（0 基础粉丝）", "以出站点击为北极星指标"]
+
+testable_predictions:
+  - metric: "出站点击 / 千次曝光"
+    baseline: "Pin 1（旧标签）首日出站点击 1 次，self-test 已排除"
+    expected_direction: "↑"
+    effect_size_estimate: "medium"
+    time_window: "2 周"
+    control_condition: "同账号 ABAB 交替：同类内容交替挂品类词标签 vs 品牌+城市词标签（≥6 Pin/臂）"
+    success_definition: "品类词臂出站点击率高于对照臂，且 ≥2 次出站点击归因可复现"
+    failure_definition: "两臂无差异 → 另立卡检验'描述关键词才是排名因子'（refuted 也是有效证据）"
+    sample_size_min: "cold_start_sequential"
+    statistical_power: null
+    design_constraint_note: "每臂 6 Pin 或各累计 800 次曝光，先到为准；design_quality 封顶 medium"
+
+potential_risks:
+  - risk_type: "seo_penalty"
+    trigger_hint: "标签堆砌（>10 个/条）可能被判 spam"
+    severity_if_ignored: "low"
+    note: "每条 3-5 个精准标签即可"
+
+cost_estimate:
+  time_hours_user: 0.5
+  time_hours_ai: 0.2
+  money_usd: 0
+  opportunity_cost: "趋近于零（发布流程内顺带执行）"
+  reversibility: "reversible"
+
+sources:
+  - type: "case_study"
+    url_or_citation: "Gemini G1 标签搜索量扫描（#AnimalShapedFurniture 85K-120K）"
+    author_credibility: "practitioner"
+    quality_score: 3
+  - type: "blog"
+    url_or_citation: "Tailwind 研究：标题 ≤8 词+好奇缺口（judgment-log 9/27 同源）"
+    author_credibility: "vendor"
+    quality_score: 2   # vendor 有利益相关，压分
+
+created_at: "2026-10-05"
+last_verified: "2026-10-05"
+expires_at: "2027-01-31"
+version: "1.0"
+
+empirical_evidence:
+  experiments: []
+  summary:
+    high_quality: { confirmed: 0, rejected: 0 }
+    medium_quality: { confirmed: 0, rejected: 0 }
+    low_quality: { confirmed: 0, rejected: 0 }
+    last_updated: "2026-10-05"
+
+referenced_by_routing_rules: ["ROUTING-001"]
+audit:
+  changes:
+    - { version: "1.0", changed_at: "2026-10-05", changed_by: "operator", reason: "自 judgment-log 9/27 挂账条目转写，站主『开工』令入库" }
