@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>实时眼镜试戴间 v2</title>
+<style>
+:root{ --bg:#101014; --fg:#f2f1ee; --dim:#9a9890; --ok:#3fae8c; }
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);
+  font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;overflow:hidden}
+#stage{position:fixed;inset:0;display:block}
+#video{display:none}
+#hud{position:fixed;left:0;right:0;bottom:0;padding:14px 18px calc(14px + env(safe-area-inset-bottom));
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center;
+  background:linear-gradient(transparent,rgba(0,0,0,.55))}
+button{background:#26262c;color:var(--fg);border:1px solid #3a3a42;border-radius:8px;
+  padding:9px 16px;font-size:14px;cursor:pointer}
+button:hover{border-color:#5a5a66}
+#start{background:var(--ok);border-color:var(--ok);color:#08130f;font-weight:700}
+#status{position:fixed;top:0;left:0;right:0;padding:12px 18px calc(12px + env(safe-area-inset-top));
+  text-align:center;color:var(--dim);font-size:13.5px;
+  background:linear-gradient(rgba(0,0,0,.5),transparent)}
+#status b{color:var(--fg)}
+</style>
+</head>
+<body>
+<canvas id="stage"></canvas>
+<video id="video" playsinline></video>
+<div id="status"><b>实时眼镜试戴间 v2</b> — 头部姿态矩阵 + 遮挡网格（镜腿正确没入头后）。画面全程本地。</div>
+<div id="hud">
+  <button id="start">▶ 开始试戴</button>
+  <button id="flip" style="display:none">🔄 翻转</button>
+  <button id="snap" style="display:none">📸 截图</button>
+  <button id="occToggle" style="display:none">🙈 遮挡: 开</button>
+</div>
+
+<script type="module">
+// 纯开源组合: MediaPipe FaceLandmarker(Apache-2.0) + Three.js(MIT)
+// 遮挡网格技术参考 alperenuzun/basic-virtual-tryon-glasses(MIT)
+import { FaceLandmarker, FilesetResolver } from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14";
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
+
+const video = document.getElementById("video");
+const canvas = document.getElementById("stage");
+const status = document.getElementById("status");
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: false, antialias: true });
+const scene = new THREE.Scene();
+const cam = new THREE.PerspectiveCamera(40, innerWidth / innerHeight, 0.05, 100);
+cam.position.z = 5;
+scene.add(new THREE.AmbientLight(0xffffff, 1.15));
+const key = new THREE.DirectionalLight(0xffffff, 1.3); key.position.set(2, 3, 4); scene.add(key);
+
+// ── 镜框（程序化占位；GLB 支持后续加）──
+const glasses = new THREE.Group();
+{
+  const mat = new THREE.MeshPhysicalMaterial({ color: 0x2c2620, roughness: 0.35, clearcoat: 0.6 });
+  const rim = new THREE.TorusGeometry(0.6, 0.065, 16, 48);
+  const L = new THREE.Mesh(rim, mat); L.position.x = -0.7;
+  const R = new THREE.Mesh(rim, mat); R.position.x = 0.7;
+  const bridge = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.46, 12), mat);
+  bridge.rotation.z = Math.PI / 2; bridge.position.set(0, 0.16, 0);
+  const leg = new THREE.CylinderGeometry(0.04, 0.04, 1.6, 10);
+  const TL = new THREE.Mesh(leg, mat); TL.position.set(-1.28, 0.08, -0.8); TL.rotation.y = Math.PI / 2 - 0.22;
+  const TR = new THREE.Mesh(leg, mat); TR.position.set(1.28, 0.08, -0.8); TR.rotation.y = -(Math.PI / 2 - 0.22);
+  glasses.add(L, R, bridge, TL, TR);
+}
+// 眼镜挂在 headGroup 下:headGroup 由姿态矩阵驱动,镜框相对头部姿态摆放
+const headGroup = new THREE.Group();
+headGroup.add(glasses);
+scene.add(headGroup);
+headGroup.visible = false;
+
+// ── 遮挡网格:头形椭球,只写深度不写颜色 → 镜腿进头后的部分被隐藏 ──
+const occluder = new THREE.Mesh(
+  new THREE.SphereGeometry(1, 32, 24),
+  new THREE.MeshBasicMaterial({ colorWrite: false })
+);
+occluder.scale.set(0.98, 1.28, 1.15); // 比头略瘦长;遮挡优先级在镜腿后
+headGroup.add(occluder);
+let occlusionOn = true;
+document.getElementById("occToggle").onclick = (e) => {
+  occlusionOn = !occlusionOn;
+  occluder.visible = occlusionOn;
+  e.target.textContent = occlusionOn ? "🙈 遮挡: 开" : "🙈 遮挡: 关";
+};
+
+// ── 背景视频面片(最远,最先画,不写深度) ──
+const bgMesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ depthWrite: false }));
+bgMesh.renderOrder = 0; bgMesh.position.z = 4.95;
+scene.add(bgMesh);
+glasses.renderOrder = 2; occluder.renderOrder = 1;
+
+function fit() { renderer.setSize(innerWidth, innerHeight, false); cam.aspect = innerWidth / innerHeight; cam.updateProjectionMatrix(); }
+addEventListener("resize", fit); fit();
+
+let mirrored = true;
+document.getElementById("flip").onclick = () => { mirrored = !mirrored; };
+document.getElementById("snap").onclick = () => {
+  const a = document.createElement("a");
+  a.download = "tryon-" + Date.now() + ".png";
+  a.href = canvas.toDataURL("image/png"); a.click();
+};
+
+// ── MediaPipe(输出头部姿态矩阵) ──
+let landmarker = null, running = false, lastVideoTime = -1;
+async function init() {
+  const files = await FilesetResolver.forVisionTasks("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/wasm");
+  landmarker = await FaceLandmarker.createFromOptions(files, {
+    baseOptions: { modelAssetPath: "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task", delegate: "GPU" },
+    runningMode: "VIDEO",
+    outputFaceBlendshapes: false,
+    outputFacialTransformationMatrixes: true, // ← 关键:真 3D 头部姿态
+    numFaces: 1,
+  });
+}
+
+document.getElementById("start").onclick = async () => {
+  document.getElementById("start").disabled = true;
+  try {
+    status.innerHTML = "加载人脸模型(约 3MB,仅首次)…";
+    await init();
+    status.innerHTML = "请求摄像头…";
+    const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user", width: 1280, height: 720 } });
+    video.srcObject = stream; await video.play();
+    running = true;
+    status.innerHTML = "试戴中 — 开源栈,画面不出设备";
+    for (const id of ["flip", "snap", "occToggle"]) document.getElementById(id).style.display = "";
+    loop();
+  } catch (e) { status.innerHTML = "启动失败: " + e.message + "(需 https/localhost + 摄像头授权)"; }
+};
+
+// 平滑:对矩阵位置/四元数做插值防抖
+const tmpM = new THREE.Matrix4(), tmpP = new THREE.Vector3(), tmpQ = new THREE.Quaternion(), tmpS = new THREE.Vector3();
+const smoothP = new THREE.Vector3(), smoothQ = new THREE.Quaternion();
+let hasPrev = false;
+
+function applyHeadMatrix(m) {
+  tmpM.fromArray(m.data);
+  // MediaPipe 矩阵是米制+右手系;换算到我们的场景尺度
+  tmpM.decompose(tmpP, tmpQ, tmpS);
+  // 姿态矩阵的平移以 hips/原点为准 → 取负映射到相机前
+  const px = -tmpP.x, py = tmpP.y - 0.05, pz = 4.2 + tmpP.z * 0.35;
+  const s = tmpP.z === 0 ? 1 : 1; // 尺度用矩阵分量归一
+  if (!hasPrev) { smoothP.set(px, py, pz); smoothQ.copy(tmpQ); hasPrev = true; }
+  smoothP.lerp(new THREE.Vector3(px, py, pz), 0.45);
+  smoothQ.slerp(tmpQ, 0.45);
+  headGroup.position.copy(smoothP);
+  headGroup.quaternion.copy(smoothQ);
+  // 头部尺度:由矩阵第三列范数估计距离感(粗校准,离屏近大远小)
+  const dist = Math.hypot(tmpP.x, tmpP.y, tmpP.z);
+  const scale = THREE.MathUtils.clamp(0.011 * (1 / (dist || 0.45)) * 0.45, 0.7, 1.6);
+  headGroup.scale.setScalar(scale);
+}
+
+function loop() {
+  if (!running) return;
+  if (video.readyState >= 2 && video.currentTime !== lastVideoTime) {
+    lastVideoTime = video.currentTime;
+    if (landmarker) {
+      const res = landmarker.detectForVideo(video, performance.now());
+      const m = res.facialTransformationMatrixes?.[0];
+      if (m) { headGroup.visible = true; applyHeadMatrix(m); }
+      else headGroup.visible = false;
+    }
+    // 背景视频(镜像)
+    if (video.videoWidth) {
+      if (!bgMesh.material.map) bgMesh.material.map = new THREE.VideoTexture(video);
+      const va = video.videoWidth / video.videoHeight, ca = cam.aspect;
+      const h = 2 * Math.tan((cam.fov * Math.PI) / 360) * bgMesh.position.z;
+      bgMesh.scale.set(h * ca, h, 1);
+      bgMesh.material.map.wrapS = THREE.RepeatWrapping;
+      bgMesh.material.map.repeat.x = mirrored ? -1 : 1;
+      bgMesh.material.map.offset.x = mirrored ? 1 : 0;
+      bgMesh.material.needsUpdate = true;
+    }
+    renderer.render(scene, cam);
+  }
+  requestAnimationFrame(loop);
+}
+</script>
+</body>
+</html>
