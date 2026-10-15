@@ -40,6 +40,7 @@ button:hover{border-color:#5a5a66}
 // 遮挡网格技术参考 alperenuzun/basic-virtual-tryon-glasses(MIT)
 import { FaceLandmarker, FilesetResolver } from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14";
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
+import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js";
 
 const video = document.getElementById("video");
 const canvas = document.getElementById("stage");
@@ -75,7 +76,33 @@ const glasses = new THREE.Group();
   // 鼻托=原点:把整框几何下移,使鼻托(两圈之间偏上处)落在 group 原点
   inner.position.set(0, -0.16, 0);
   glasses.add(inner);
+  glasses.userData.inner = inner;
 }
+
+// 自动加载真实镜框模型(frames/frame-01.glb);成功则替换占位框
+function normalizeFrame(scene3d) {
+  const box = new THREE.Box3().setFromObject(scene3d);
+  const size = box.getSize(new THREE.Vector3());
+  const center = box.getCenter(new THREE.Vector3());
+  const s = 2.5 / Math.max(size.x, size.y, 0.001); // 归一到 2.5 单位宽,瞳距缩放接管后续
+  scene3d.scale.setScalar(s);
+  scene3d.position.sub(center.multiplyScalar(s));
+  return scene3d;
+}
+(function loadRealFrame() {
+  new GLTFLoader().load(
+    "frames/frame-01.glb",
+    (gltf) => {
+      const model = normalizeFrame(gltf.scene);
+      const inner = glasses.userData.inner;
+      if (inner) { inner.visible = false; }
+      glasses.add(model);
+      status.innerHTML = "真镜框模型已加载(frame-01)";
+    },
+    undefined,
+    (err) => console.log("[tryon] 真模型加载失败,用占位框:", String(err).slice(0, 80))
+  );
+})();
 // 眼镜挂在 headGroup 下:headGroup 由姿态矩阵驱动,镜框相对头部姿态摆放
 const headGroup = new THREE.Group();
 headGroup.add(glasses);
