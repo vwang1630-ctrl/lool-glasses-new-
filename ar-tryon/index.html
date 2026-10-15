@@ -51,7 +51,14 @@ cam.position.z = 5;
 scene.add(new THREE.AmbientLight(0xffffff, 1.15));
 const key = new THREE.DirectionalLight(0xffffff, 1.3); key.position.set(2, 3, 4); scene.add(key);
 
-// ── 镜框（程序化占位；GLB 支持后续加）──
+// ── 校准块(试戴时站主可调这三个数,其余不用动) ──
+const CFG = {
+  scaleK: 5.6,          // 瞳距→镜框大小的换算系数(大=镜框大)
+  noseOffsetY: 0.015,   // 镜框相对鼻梁基准的垂直偏移(正=上移)
+  noseOffsetZ: -0.02,   // 镜框相对头部的前后偏移(负=贴脸更近)
+};
+
+// ── 镜框:原点=鼻托位置(方案条款2) ──
 const glasses = new THREE.Group();
 {
   const mat = new THREE.MeshPhysicalMaterial({ color: 0x2c2620, roughness: 0.35, clearcoat: 0.6 });
@@ -63,7 +70,11 @@ const glasses = new THREE.Group();
   const leg = new THREE.CylinderGeometry(0.04, 0.04, 1.6, 10);
   const TL = new THREE.Mesh(leg, mat); TL.position.set(-1.28, 0.08, -0.8); TL.rotation.y = Math.PI / 2 - 0.22;
   const TR = new THREE.Mesh(leg, mat); TR.position.set(1.28, 0.08, -0.8); TR.rotation.y = -(Math.PI / 2 - 0.22);
-  glasses.add(L, R, bridge, TL, TR);
+  const inner = new THREE.Group();
+  inner.add(L, R, bridge, TL, TR);
+  // 鼻托=原点:把整框几何下移,使鼻托(两圈之间偏上处)落在 group 原点
+  inner.position.set(0, -0.16, 0);
+  glasses.add(inner);
 }
 // 眼镜挂在 headGroup 下:headGroup 由姿态矩阵驱动,镜框相对头部姿态摆放
 const headGroup = new THREE.Group();
@@ -76,7 +87,7 @@ const occluder = new THREE.Mesh(
   new THREE.SphereGeometry(1, 32, 24),
   new THREE.MeshBasicMaterial({ colorWrite: false })
 );
-occluder.scale.set(0.98, 1.28, 1.15); // 比头略瘦长;遮挡优先级在镜腿后
+occluder.scale.set(0.94, 1.24, 1.18); // 比头略瘦,中心略靠后(防吃镜框);只写深度
 headGroup.add(occluder);
 let occlusionOn = true;
 document.getElementById("occToggle").onclick = (e) => {
@@ -147,10 +158,15 @@ function applyHeadMatrix(m) {
   smoothQ.slerp(tmpQ, 0.45);
   headGroup.position.copy(smoothP);
   headGroup.quaternion.copy(smoothQ);
-  // 头部尺度:由矩阵第三列范数估计距离感(粗校准,离屏近大远小)
-  const dist = Math.hypot(tmpP.x, tmpP.y, tmpP.z);
-  const scale = THREE.MathUtils.clamp(0.011 * (1 / (dist || 0.45)) * 0.45, 0.7, 1.6);
-  headGroup.scale.setScalar(scale);
+}
+// 瞳距动态缩放(方案条款2核心):左右虹膜中心(468/473)归一化距离 → 每帧实时瞳距 → 镜框大小
+function applyIpdScale(landmarks) {
+  const li = landmarks[468], ri = landmarks[473];
+  if (!li || !ri) return;
+  const ipd = Math.hypot(li.x - ri.x, li.y - ri.y, (li.z - ri.z) * 0.6);
+  if (ipd < 1e-4) return;
+  const scale = THREE.MathUtils.clamp(CFG.scaleK / ipd, 0.5, 2.2);
+  headGroup.scale.setScalar(THREE.MathUtils.lerp(headGroup.scale.x || scale, scale, 0.3));
 }
 
 function loop() {
@@ -160,8 +176,13 @@ function loop() {
     if (landmarker) {
       const res = landmarker.detectForVideo(video, performance.now());
       const m = res.facialTransformationMatrixes?.[0];
-      if (m) { headGroup.visible = true; applyHeadMatrix(m); }
-      else headGroup.visible = false;
+      if (m && res.faceLandmarks?.length) {
+        headGroup.visible = true;
+        applyHeadMatrix(m);
+        applyIpdScale(res.faceLandmarks[0]);
+        // 鼻托锚定:镜框在头组内按鼻梁基准微调(方案条款2)
+        glasses.position.set(0, CFG.noseOffsetY, CFG.noseOffsetZ);
+      } else headGroup.visible = false;
     }
     // 背景视频(镜像)
     if (video.videoWidth) {
