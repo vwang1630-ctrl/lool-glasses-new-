@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>实时试戴 v7 · MIT 引擎完整移植</title>
+<title>实时试戴 v8 · 三点锚定</title>
 <meta name="robots" content="noindex, nofollow">
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;background:#000;overflow:hidden;font:14px/1.5 system-ui,sans-serif}
 #threejsContainer{position:fixed;inset:0}
-#tryon-video{display:none}
+#threejsContainer canvas{width:100%!important;height:100%!important;display:block}
+#tryon-video{position:fixed;left:0;bottom:0;width:2px;height:2px;opacity:.01;pointer-events:none}
 #status{position:fixed;top:0;left:0;right:0;z-index:10;padding:12px;text-align:center;
   background:linear-gradient(rgba(0,0,0,.65),transparent);color:#fff;font-size:14.5px;line-height:1.5}
 #status .err{color:#e07b6a;font-weight:700}
@@ -18,336 +19,253 @@ html,body{margin:0;height:100%;background:#000;overflow:hidden;font:14px/1.5 sys
   padding:14px 16px calc(16px + env(safe-area-inset-bottom));background:linear-gradient(transparent,rgba(0,0,0,.55))}
 button{background:#26262c;color:#eee;border:1px solid #3a3a42;border-radius:8px;padding:11px 18px;font-size:14px;cursor:pointer}
 #start{background:#3fae8c;border-color:#3fae8c;color:#08130f;font-weight:700;font-size:15px}
+#sizeWrap,#calval{align-self:center;color:#3fae8c;font-size:13px}
+input[type=range]{vertical-align:middle;width:110px}
 </style>
+<script type="importmap">
+{ "imports": { "three": "/admin/tryon-assets/three.module.js?v=8" } }
+</script>
 </head>
 <body>
 <div id="threejsContainer"></div>
 <video id="tryon-video" autoplay playsinline muted></video>
-<div id="status">v7 · 点「▶ 开始试戴」— MIT 开源引擎完整移植,画面本地处理</div>
+<div id="status">v8 · 点「▶ 开始试戴」— 授权后立刻看到自己，眼镜跟住耳朵和鼻梁</div>
 <div id="track"></div>
 <div id="hud">
   <button id="start">▶ 开始试戴</button>
   <button id="snap" hidden>📸 截图</button>
+  <span id="sizeWrap" hidden>大小
+    <input type="range" id="sizeR" min="0.5" max="2" step="0.05">
+    <span id="sizeVal"></span>
+  </span>
+  <span id="calval" hidden></span>
 </div>
 
 <script type="module">
-/* v7 = alperenuzun/basic-virtual-tryon-glasses (MIT) 引擎的完整单文件移植。
-   原版数学逐行保留:正交相机(负象限)+视频精灵+基准轴姿态+自适应平滑+动态遮挡。
-   适配点仅三处:自托管资源/中文界面/合成人脸调试模式(force=1)。 */
+/* v8 终版 = MIT 引擎(alperenuzun/basic-virtual-tryon-glasses)渲染
+   + 站主三点锚定:镜腿跟耳朵、鼻托跟鼻梁中心——纯几何,无姿态矩阵,无符号地狱
+   + 视频精灵镜像显示、颜色管线修正、尺寸自适应 */
+window.__MODULE_RAN = true;
 
-/* ── constants ── */
-const LM = { leftEyeOuter: 33, rightEyeOuter: 263, leftEyeInner: 133, rightEyeInner: 362,
-  leftTemple: 127, rightTemple: 356, leftCheek: 234, rightCheek: 454,
-  forehead: 10, chin: 175, noseBridge: 168, noseTip: 1 };
-const FACE_OVAL = [10,338,297,332,284,251,389,356,454,323,361,288,397,365,379,378,400,377,152,148,176,149,150,136,172,58,132,93,234,127,162,21,54,103,67,109];
-const CFG = { refHeadWidth: 140, refFaceHeight: 210, glassesDepth: 10, glassesDown: 2, glassesCenterX: 0, glassesScale: 1.22 };
-const CANVAS_WIDTH = 640;
-const ASSETS = "/admin/tryon-assets";
-
-/* ── UI ── */
-const statusEl = document.getElementById("status");
-const trackEl = document.getElementById("track");
+const $ = (id) => document.getElementById(id);
+const statusEl = $("status"), trackEl = $("track");
+const video = $("tryon-video");
 const L = (m) => { const d = document.createElement("div"); d.textContent = m; statusEl.appendChild(d); };
 const S = (m) => { const d = document.createElement("div"); d.className = "ok"; d.textContent = m; statusEl.appendChild(d); };
 const E = (m) => { const d = document.createElement("div"); d.className = "err"; d.textContent = m; statusEl.appendChild(d); };
 const setTrack = (m, c) => { trackEl.textContent = m; trackEl.style.color = c || "#3fae8c"; };
-
-/* ── helpers (原版) ── */
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
-const toV = (pts, i) => new THREE.Vector3(-pts[i][0], -pts[i][1], -pts[i][2]);
-const mid = (a, b) => a.clone().add(b).multiplyScalar(0.5);
-const eyeMid = (pts, i, j) => mid(toV(pts, i), toV(pts, j));
-const qDelta = (a, b) => 2 * Math.acos(clamp(Math.abs(a.dot(b)), 0, 1));
-const toPixels = (landmarks, video) => {
-  const w = video.videoWidth, h = video.videoHeight;
-  return landmarks.map((l) => [l.x * w, l.y * h, l.z * w]);
-};
 
-/* ── three (自托管) ── */
-const THREE = await import(ASSETS + "/three.module.js?v=7");
+const ASSETS = "/admin/tryon-assets";
+const CFG = { refWidth: 130, up: 0.02, glassesScale: 1.22 };
+const FACE_OVAL = [10,338,297,332,284,251,389,356,454,323,361,288,397,365,379,378,400,377,152,148,176,149,150,136,172,58,132,93,234,127,162,21,54,103,67,109];
 
-/* ── scene.js (原版) ── */
-function createCamera(video) {
-  const vw = video.videoWidth, vh = video.videoHeight;
-  const cam = new THREE.OrthographicCamera(-vw/2, vw/2, vh/2, -vh/2, 0.1, 5000);
-  cam.position.set(-vw/2, -vh/2, 500);
-  return cam;
-}
-function createVideoBackground(video, camera) {
-  const vw = video.videoWidth, vh = video.videoHeight;
-  const tex = new THREE.Texture(video); tex.minFilter = THREE.LinearFilter;
-  const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, depthWrite: false, side: THREE.DoubleSide }));
-  sprite.center.set(0.5, 0.5);
-  sprite.scale.set(-vw, vh, 1);
-  sprite.position.copy(camera.position); sprite.position.z = 0;
-  return { bg: tex, sprite };
-}
-function createLights() {
-  const key = new THREE.DirectionalLight(0xffffff, 1.2); key.position.set(0, 120, 250);
-  const fill = new THREE.DirectionalLight(0xeef0ff, 0.5); fill.position.set(-100, 40, 120);
-  const rim = new THREE.DirectionalLight(0xffffff, 0.4); rim.position.set(60, 80, -100);
-  const top = new THREE.DirectionalLight(0xffffff, 0.25); top.position.set(0, 200, 50);
-  const amb = new THREE.HemisphereLight(0xffffff, 0x444466, 0.5);
-  return [key, fill, rim, top, amb];
-}
-function createRenderer(video) {
-  const r = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
-  r.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  r.setSize(CANVAS_WIDTH, CANVAS_WIDTH * video.videoHeight / video.videoWidth);
-  r.toneMapping = THREE.ACESFilmicToneMapping;
-  r.toneMappingExposure = 1.1;
-  r.outputColorSpace = THREE.SRGBColorSpace;
-  return r;
-}
-function handleResize(camera, renderer, video) {
-  const vw = video.videoWidth, vh = video.videoHeight;
-  camera.left = -vw/2; camera.right = vw/2; camera.top = vh/2; camera.bottom = -vh/2;
-  camera.updateProjectionMatrix();
-  renderer.setSize(CANVAS_WIDTH, CANVAS_WIDTH * vh / vw);
+let THREE_, renderer, scene, cam3;
+let videoTex = null, bgSprite = null;
+let glassesObj = null, occluder = null;
+let faceLandmarker = null;
+let lastVW = 0, lastVH = 0, lastVideoTime = -1, busy = false, faceLocked = false;
+
+/* ═══ 场景初始化(MIT 架构:视频精灵在 GL 内,正交相机负象限) ═══ */
+async function initScene() {
+  THREE_ = await import("three");
+  scene = new THREE_.Scene();
+
+  renderer = new THREE_.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.toneMapping = THREE_.NoToneMapping;
+  renderer.outputColorSpace = THREE_.SRGBColorSpace;
+  renderer.setClearColor(0x000000, 0);
+  $("threejsContainer").appendChild(renderer.domElement);
+  renderer.domElement.style.width = "100%";
+  renderer.domElement.style.height = "100%";
+  renderer.domElement.style.display = "block";
+  renderer.domElement.style.objectFit = "cover";
+
+  videoTex = new THREE_.VideoTexture(video);
+  videoTex.minFilter = THREE_.LinearFilter;
+  videoTex.colorSpace = THREE_.SRGBColorSpace;
+
+  cam3 = new THREE_.OrthographicCamera(-1, 1, 1, -1, 0.1, 5000);
+  resizeGL();
+  addEventListener("resize", resizeGL);
+
+  bgSprite = new THREE_.Sprite(new THREE_.SpriteMaterial({ map: videoTex, depthWrite: false }));
+  scene.add(bgSprite);
+
+  scene.add(new THREE_.AmbientLight(0xffffff, 0.9));
+  const key = new THREE_.DirectionalLight(0xffffff, 1.2); key.position.set(0, 100, 300); scene.add(key);
+  const fill = new THREE_.DirectionalLight(0xeef0ff, 0.4); fill.position.set(-80, 30, 120); scene.add(fill);
+
+  glassesObj = buildGlasses();
+  scene.add(glassesObj);
+
+  occluder = buildOccluder();
+  scene.add(occluder);
+  window.__DBG = { scene, glassesObj, occluder, THREE_, cam3, video, renderer };
 }
 
-/* ── occluder.js (原版:36 点脸轮廓扇形,只写深度,双面) ── */
-function createDynamicFaceMesh() {
-  const nOval = FACE_OVAL.length, nVerts = nOval + 1;
-  const positions = new Float32Array(nVerts * 3);
-  const indices = [];
-  for (let i = 0; i < nOval; i++) indices.push(0, i + 1, ((i + 1) % nOval) + 1);
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-  geo.setIndex(indices);
-  const mat = new THREE.MeshBasicMaterial({ colorWrite: false, side: THREE.DoubleSide });
-  const mesh = new THREE.Mesh(geo, mat);
+function resizeGL() {
+  const vw = video.videoWidth || 1280, vh = video.videoHeight || 720;
+  renderer.setSize(vw, vh, false);
+  cam3.left = -vw / 2; cam3.right = vw / 2; cam3.top = vh / 2; cam3.bottom = -vh / 2;
+  cam3.updateProjectionMatrix();
+  if (bgSprite) bgSprite.scale.set(-vw, vh, 1);  // 负宽度=镜像(自拍视角),MIT 原版方案
+}
+
+/* ═══ 眼镜(MIT 原版建模:金丝圆框+G-15 镜片) ═══ */
+function buildGlasses() {
+  const T = THREE_;
+  const g = new T.Group();
+  const lensW = 52, lensH = 43, bridgeGap = 17, wireR = 0.7, templeLen = 145;
+  const cx = bridgeGap / 2 + lensW / 2 + 1.5;
+  const acetate = new T.MeshPhysicalMaterial({ color: 0x3d1f0d, roughness: 0.16, clearcoat: 0.95, side: T.DoubleSide });
+  const gold = new T.MeshStandardMaterial({ color: 0xc9a54e, metalness: 0.92, roughness: 0.12, side: T.DoubleSide });
+  const goldD = new T.MeshStandardMaterial({ color: 0xa08030, metalness: 0.88, roughness: 0.18 });
+  const lens = new T.MeshPhysicalMaterial({ color: 0x1c2e1c, roughness: 0.02, transparent: true, opacity: 0.68, side: T.DoubleSide, depthWrite: false, clearcoat: 1 });
+  const ell = (w, h) => {
+    const pts = [];
+    for (let i = 0; i <= 72; i++) { const a = (i / 72) * Math.PI * 2; pts.push(new T.Vector3(Math.cos(a) * w * .5, Math.sin(a) * h * .5, 0)); }
+    return new T.CatmullRomCurve3(pts, true);
+  };
+  const rim = (x) => { const m = new T.Mesh(new T.TubeGeometry(ell(lensW, lensH), 72, wireR, 8, true), gold); m.position.x = x; return m; };
+  g.add(rim(-cx)); g.add(rim(cx));
+  const lensM = (x) => { const sh = new T.Shape(); sh.absellipse(0, 0, lensW * .485, lensH * .485, 0, Math.PI * 2, false, 0);
+    const m = new T.Mesh(new T.ShapeGeometry(sh, 48), lens); m.position.set(x, 0, 0.2); return m; };
+  g.add(lensM(-cx)); g.add(lensM(cx));
+  const bp = [new T.Vector3(-cx + lensW * .35, lensH * .08, wireR), new T.Vector3(-bridgeGap * .25, lensH * .18, wireR * 2),
+    new T.Vector3(0, lensH * .22, wireR * 2.5), new T.Vector3(bridgeGap * .25, lensH * .18, wireR * 2),
+    new T.Vector3(cx - lensW * .35, lensH * .08, wireR)];
+  g.add(new T.Mesh(new T.TubeGeometry(new T.CatmullRomCurve3(bp), 24, wireR * 1.2, 8, false), gold));
+  const temple = (side) => { const p = new T.Group();
+    p.position.set(side * (cx + lensW * .5 + 2.5), lensH * .2, 0);
+    const ap = new T.CatmullRomCurve3([new T.Vector3(0,0,0), new T.Vector3(0,0,-templeLen*.5), new T.Vector3(0,0,-templeLen)]);
+    p.add(new T.Mesh(new T.TubeGeometry(ap, 32, 1, 8, false), gold));
+    const tp = new T.CatmullRomCurve3([new T.Vector3(0,0,-templeLen*.65), new T.Vector3(0,0,-templeLen*.82), new T.Vector3(0,0,-templeLen)]);
+    p.add(new T.Mesh(new T.TubeGeometry(tp, 16, 1.6, 8, false), acetate));
+    p.rotation.y = side * 0.06; return p; };
+  g.add(temple(-1)); g.add(temple(1));
+  return g;
+}
+
+/* ═══ 遮挡网(MIT 原版:36 点脸轮廓扇形,只写深度) ═══ */
+function buildOccluder() {
+  const T = THREE_;
+  const n = FACE_OVAL.length;
+  const pos = new Float32Array((n + 1) * 3);
+  const idx = [];
+  for (let i = 0; i < n; i++) idx.push(0, i + 1, ((i + 1) % n) + 1);
+  const geo = new T.BufferGeometry();
+  geo.setAttribute("position", new T.BufferAttribute(pos, 3));
+  geo.setIndex(idx);
+  const mesh = new T.Mesh(geo, new T.MeshBasicMaterial({ colorWrite: false, side: T.DoubleSide }));
   mesh.renderOrder = 1; mesh.frustumCulled = false;
   return mesh;
 }
 
-/* ── glasses.js (原版:金丝圆框+G-15 镜片,纯程序化) ── */
-function createSunglasses() {
-  const g = new THREE.Group();
-  const lensW = 52, lensH = 43, bridgeGap = 17, wireR = 0.7, templeLen = 56;
-  const cx = bridgeGap / 2 + lensW / 2 + 1.5;
-  const acetateMat = new THREE.MeshPhysicalMaterial({ color: 0x3d1f0d, metalness: 0, roughness: 0.16, clearcoat: 0.95, clearcoatRoughness: 0.06, reflectivity: 0.5, side: THREE.DoubleSide });
-  const goldMat = new THREE.MeshStandardMaterial({ color: 0xc9a54e, metalness: 0.92, roughness: 0.12, side: THREE.DoubleSide });
-  const goldDarkMat = new THREE.MeshStandardMaterial({ color: 0xa08030, metalness: 0.88, roughness: 0.18 });
-  const lensMat = new THREE.MeshPhysicalMaterial({ color: 0x1c2e1c, metalness: 0.05, roughness: 0.02, transparent: true, opacity: 0.68, side: THREE.DoubleSide, depthWrite: false, clearcoat: 1, clearcoatRoughness: 0.03, envMapIntensity: 0.3 });
-  function ellipseCurve3D(w, h, segments) {
-    segments = segments || 72;
-    const pts = [];
-    for (let i = 0; i <= segments; i++) {
-      const a = (i / segments) * Math.PI * 2;
-      pts.push(new THREE.Vector3(Math.cos(a) * w * 0.5, Math.sin(a) * h * 0.5, 0));
-    }
-    return new THREE.CatmullRomCurve3(pts, true);
-  }
-  function buildRim(xOff) {
-    const mesh = new THREE.Mesh(new THREE.TubeGeometry(ellipseCurve3D(lensW, lensH), 72, wireR, 8, true), goldMat);
-    mesh.position.x = xOff; return mesh;
-  }
-  g.add(buildRim(-cx)); g.add(buildRim(cx));
-  function buildLens(xOff) {
-    const shape = new THREE.Shape();
-    shape.absellipse(0, 0, lensW * 0.485, lensH * 0.485, 0, Math.PI * 2, false, 0);
-    const mesh = new THREE.Mesh(new THREE.ShapeGeometry(shape, 48), lensMat);
-    mesh.position.set(xOff, 0, 0.2); return mesh;
-  }
-  g.add(buildLens(-cx)); g.add(buildLens(cx));
-  const bridgePts = [
-    new THREE.Vector3(-cx + lensW * 0.35, lensH * 0.08, wireR),
-    new THREE.Vector3(-bridgeGap * 0.25, lensH * 0.18, wireR * 2),
-    new THREE.Vector3(0, lensH * 0.22, wireR * 2.5),
-    new THREE.Vector3(bridgeGap * 0.25, lensH * 0.18, wireR * 2),
-    new THREE.Vector3(cx - lensW * 0.35, lensH * 0.08, wireR)];
-  g.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(bridgePts), 24, wireR * 1.2, 8, false), goldMat));
-  function buildTemple(side) {
-    const pivot = new THREE.Group();
-    pivot.position.set(side * (cx + lensW * 0.5 + 2.5), lensH * 0.2, 0);
-    const armPath = new THREE.CatmullRomCurve3([
-      new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, -templeLen * 0.5), new THREE.Vector3(0, 0, -templeLen)]);
-    pivot.add(new THREE.Mesh(new THREE.TubeGeometry(armPath, 32, 1, 8, false), goldMat));
-    const tipPath = new THREE.CatmullRomCurve3([
-      new THREE.Vector3(0, 0, -templeLen * 0.65), new THREE.Vector3(0, 0, -templeLen * 0.82), new THREE.Vector3(0, 0, -templeLen)]);
-    pivot.add(new THREE.Mesh(new THREE.TubeGeometry(tipPath, 16, 1.6, 8, false), acetateMat));
-    pivot.rotation.y = side * 0.06;
-    return pivot;
-  }
-  g.add(buildTemple(-1)); g.add(buildTemple(1));
-  function buildHinge(side) {
-    const hg = new THREE.Group();
-    hg.add(new THREE.Mesh(new THREE.CylinderGeometry(1.4, 1.4, 4, 12), goldMat));
-    const plate = new THREE.Mesh(new THREE.BoxGeometry(3.5, 5, 1.3), goldMat);
-    plate.position.set(-side * 1.5, 0, 0); hg.add(plate);
-    const screw = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.4, 8), goldDarkMat);
-    screw.rotation.x = Math.PI / 2; screw.position.set(-side * 2.2, 0, 0.8); hg.add(screw);
-    hg.position.set(side * (cx + lensW * 0.5 + 1), lensH * 0.2, -0.5);
-    return hg;
-  }
-  g.add(buildHinge(-1)); g.add(buildHinge(1));
-  g.traverse((c) => { if (c.isMesh) c.renderOrder = 3; });
-  return g;
+/* ═══ 追踪+放置:三点锚定 ═══ */
+const sm = { pos: null, roll: null, yaw: null, s: null };
+
+function updatePlacement(lms) {
+  const vw = video.videoWidth, vh = video.videoHeight;
+  const P = (i) => new THREE_.Vector3((lms[i].x - 0.5) * vw, (0.5 - lms[i].y) * vh, (lms[i].z || 0) * vw);
+  const earL = P(234), earR = P(454), bridge = P(168);
+  const width = earL.distanceTo(earR);
+  if (width < 1) return;
+
+  const userSize = Number(localStorage.getItem("tj_size") || 1);
+  const up = Number(localStorage.getItem("tj_up") || 0.02);
+
+  const tP = bridge.clone(); tP.y += up;
+  const s = (width / 130) * CFG.glassesScale * userSize;
+  const roll = Math.atan2(earR.y - earL.y, earR.x - earL.x);
+  const dL = bridge.distanceTo(earL), dR = bridge.distanceTo(earR);
+  const yaw = Math.asin(clamp((dL - dR) / width, -1, 1)) * 0.9;
+
+  sm.pos = sm.pos ? sm.pos.lerp(tP, 0.5) : tP.clone();
+  sm.roll = sm.roll !== null ? sm.roll + (roll - sm.roll) * 0.4 : roll;
+  sm.yaw = sm.yaw !== null ? sm.yaw + (yaw - sm.yaw) * 0.4 : yaw;
+  sm.s = sm.s ? sm.s + (s - sm.s) * 0.3 : s;
+
+  glassesObj.position.copy(sm.pos);
+  glassesObj.rotation.set(0, -sm.yaw, -sm.roll);
+  glassesObj.scale.setScalar(sm.s);
 }
 
-/* ── 状态 ── */
-let faceLandmarker = null, glassesObj, faceObj, bg, video = document.getElementById('tryon-video'), renderer, camera, scene;
-let predictionInFlight = false, faceSeen = false;
-const sm = { ready: false, gPos: new THREE.Vector3(), gQuat: new THREE.Quaternion(), gScale: new THREE.Vector3(1,1,1), prev: new THREE.Vector3() };
-
-/* ── 引擎 (原版 index.js 数学) ── */
-function initializeThreejs() {
-  const container = document.getElementById("threejsContainer");
-  camera = createCamera(video);
-  const bgResult = createVideoBackground(video, camera);
-  bg = bgResult.bg;
-  renderer = createRenderer(video);
-  container.appendChild(renderer.domElement);
-  scene = new THREE.Scene();
-  scene.add(bgResult.sprite);
-  const pmrem = new THREE.PMREMGenerator(renderer);
-  pmrem.compileCubemapShader();
-  scene.environment = pmrem.fromScene(new THREE.Scene()).texture;
-  pmrem.dispose();
-  createLights().forEach((light) => scene.add(light));
-  faceObj = createDynamicFaceMesh(); faceObj.visible = false; scene.add(faceObj);
-  glassesObj = createSunglasses(); glassesObj.visible = false; scene.add(glassesObj);
-  window.addEventListener("resize", () => handleResize(camera, renderer, video), false);
-  animate();
-  window.__DBG = { scene, glassesObj, faceObj, renderer, camera };
-}
-function animate() {
-  bg.needsUpdate = true;
-  requestAnimationFrame(animate);
-  renderer.render(scene, camera);
-}
-function scheduleNextPrediction() {
-  if (!video) { requestAnimationFrame(scheduleNextPrediction); return; }
-  if (typeof video.requestVideoFrameCallback === "function") {
-    video.requestVideoFrameCallback(() => renderPrediction());
-  } else requestAnimationFrame(renderPrediction);
-}
-function renderPrediction() {
-  if (predictionInFlight) { scheduleNextPrediction(); return; }
-  predictionInFlight = true;
-  if (!faceLandmarker) { predictionInFlight = false; scheduleNextPrediction(); return; }
-  const results = faceLandmarker.detectForVideo(video, performance.now());
-  // force=1 调试:假摄像头无真脸 → 注入居中标准脸关键点
-  if (location.search.includes("force=1") && (!results.faceLandmarks || results.faceLandmarks.length === 0)) {
-    const arr = new Array(468).fill(0).map(() => ({ x: 0.5, y: 0.45, z: 0 }));
-    const put = (i, x, y, z) => arr[i] = { x, y, z: z || 0 };
-    put(33, .40, .45); put(133, .45, .46); put(362, .55, .46); put(263, .60, .45);
-    put(168, .50, .50); put(6, .50, .48); put(5, .50, .53); put(4, .50, .56); put(1, .50, .59);
-    put(10, .50, .34); put(175, .50, .68);
-    put(127, .36, .47, .08); put(356, .64, .47, .08);
-    put(234, .34, .47, .10); put(454, .66, .47, .10);
-    FACE_OVAL.forEach((idx, k) => {
-      const a = (k / FACE_OVAL.length) * Math.PI * 2;
-      put(idx, .5 + Math.cos(a) * .17, .47 + Math.sin(a) * .17, .05);
-    });
-    results.faceLandmarks = [arr];
-  }
-  if (results.faceLandmarks && results.faceLandmarks.length > 0 && glassesObj) {
-    glassesObj.visible = true;
-    if (faceObj) faceObj.visible = true;
-    if (!faceSeen) { faceSeen = true; setTrack("✓ 人脸已锁定 — 眼镜上脸"); }
-    const pts = toPixels(results.faceLandmarks[0], video);
-    const lEye = eyeMid(pts, LM.leftEyeInner, LM.leftEyeOuter);
-    const rEye = eyeMid(pts, LM.rightEyeInner, LM.rightEyeOuter);
-    const nose = toV(pts, LM.noseBridge), nTip = toV(pts, LM.noseTip);
-    const fHead = toV(pts, LM.forehead), chn = toV(pts, LM.chin);
-    const lTmp = toV(pts, LM.leftTemple), rTmp = toV(pts, LM.rightTemple);
-    const lChk = toV(pts, LM.leftCheek), rChk = toV(pts, LM.rightCheek);
-    const eMid = mid(lEye, rEye);
-    const eW = lEye.distanceTo(rEye), tW = lTmp.distanceTo(rTmp), cW = lChk.distanceTo(rChk);
-    const fW = Math.max(eW, tW, cW), fH = fHead.distanceTo(chn);
-    const xAxis = rEye.clone().sub(lEye).normalize();
-    const yRaw = fHead.clone().sub(chn).normalize();
-    const zAxis = xAxis.clone().cross(yRaw).normalize();
-    if (zAxis.z < 0) zAxis.negate();
-    const yAxis = zAxis.clone().cross(xAxis).normalize();
-    const rotMat = new THREE.Matrix4().makeBasis(xAxis, yAxis, zAxis);
-    const targetQuat = new THREE.Quaternion().setFromRotationMatrix(rotMat);
-    targetQuat.multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), Math.PI));
-    const btt = nTip.clone().sub(nose);
-    const depAdj = clamp(btt.length() * 0.1, 0, 6);
-    const tGPos = eMid.clone()
-      .addScaledVector(xAxis, CFG.glassesCenterX)
-      .addScaledVector(yAxis, CFG.glassesDown)
-      .addScaledVector(zAxis, CFG.glassesDepth + depAdj);
-    const wS = fW / CFG.refHeadWidth, hS = fH / CFG.refFaceHeight;
-    const bS = wS * 0.7 + hS * 0.3;
-    const gS = bS * CFG.glassesScale;
-    const tGScale = new THREE.Vector3(gS, gS, gS);
-    const mov = tGPos.distanceTo(sm.prev);
-    const aDelta = qDelta(sm.gQuat, targetQuat);
-    const aP = clamp(0.15 + mov * 0.015, 0.15, 0.55);
-    const aR = clamp(0.20 + aDelta * 0.6, 0.20, 0.75);
-    const aS = clamp(0.16 + mov * 0.010, 0.16, 0.45);
-    if (!sm.ready) { sm.gPos.copy(tGPos); sm.gQuat.copy(targetQuat); sm.gScale.copy(tGScale); sm.ready = true; }
-    else { sm.gPos.lerp(tGPos, aP); sm.gQuat.slerp(targetQuat, aR); sm.gScale.lerp(tGScale, aS); }
-    sm.prev.copy(tGPos);
-    glassesObj.position.copy(sm.gPos);
-    glassesObj.quaternion.copy(sm.gQuat);
-    glassesObj.scale.copy(sm.gScale);
-    glassesObj.updateWorldMatrix(true, true);
-    if (faceObj) {
-      const posAttr = faceObj.geometry.getAttribute("position");
-      let cx2 = 0, cy2 = 0, cz2 = 0;
-      const fwdOff = 8;
-      for (let fi = 0; fi < FACE_OVAL.length; fi++) {
-        const fv = toV(pts, FACE_OVAL[fi]);
-        fv.addScaledVector(zAxis, fwdOff);
-        posAttr.setXYZ(fi + 1, fv.x, fv.y, fv.z);
-        cx2 += fv.x; cy2 += fv.y; cz2 += fv.z;
-      }
-      cx2 /= FACE_OVAL.length; cy2 /= FACE_OVAL.length; cz2 /= FACE_OVAL.length;
-      const coneD = fW * 0.5;
-      posAttr.setXYZ(0, cx2 - zAxis.x * coneD, cy2 - zAxis.y * coneD, cz2 - zAxis.z * coneD);
-      posAttr.needsUpdate = true;
-    }
-  } else {
-    if (glassesObj) glassesObj.visible = false;
-    if (faceObj) faceObj.visible = false;
-    if (faceSeen) { faceSeen = false; setTrack("… 未检测到人脸 — 正对摄像头,40-70cm,露出全脸", "#d9a441"); }
-    sm.ready = false;
-  }
-  predictionInFlight = false;
-  scheduleNextPrediction();
-}
-
-/* ── 启动 ── */
-document.getElementById("start").onclick = async () => {
-  document.getElementById("start").disabled = true;
+/* ═══ 逐帧 ═══ */
+function loop() {
+  requestAnimationFrame(loop);
+  if (!faceLandmarker || busy || video.readyState < 2) return;
+  if (video.currentTime === lastVideoTime) return;
+  lastVideoTime = video.currentTime;
+  busy = true;
   try {
-    L("1/3 请求摄像头(授权后立刻能看到自己)…");
+    const res = faceLandmarker.detectForVideo(video, performance.now());
+    let lms = res.faceLandmarks && res.faceLandmarks[0];
+    const FORCE = location.search.includes("force=1");
+    if (FORCE) {  // force 模式:无条件用合成锚点(假摄像头的垃圾检测会干扰)
+      lms = new Array(468).fill(0).map(() => ({ x: 0.5, y: 0.45, z: 0 }));
+      const put = (i, x, y, z) => lms[i] = { x, y, z: z || 0 };
+      put(234, .34, .47, .1); put(454, .66, .47, .1); put(168, .50, .50);
+      put(33, .40, .45); put(133, .45, .46); put(362, .55, .46); put(263, .60, .45);
+      put(10, .50, .34); put(175, .50, .68);
+      FACE_OVAL.forEach((idx, k) => { const a = (k / 36) * Math.PI * 2; put(idx, .5 + Math.cos(a) * .17, .47 + Math.sin(a) * .17, .05); });
+    }
+    const Q = new URLSearchParams(location.search);
+    const NOOCC = Q.has("noocc");
+    const ZOFF = Number(Q.get("zoff") || 0);
+    if (lms) {
+      if (!faceLocked) { faceLocked = true; setTrack("✓ 人脸已锁定 — 眼镜上脸", "#3fae8c"); }
+      updatePlacement(lms);
+      glassesObj.position.z += ZOFF;
+      glassesObj.visible = true;
+      occluder.visible = !NOOCC;
+    } else {
+      if (faceLocked) { faceLocked = false; setTrack("… 未检测到人脸 — 正对摄像头,40-70cm", "#d9a441"); }
+      glassesObj.visible = false;
+      occluder.visible = false;
+    }
+  } catch (e) { console.error(e); }
+  busy = false;
+  renderer.render(scene, cam3);
+}
+
+/* ═══ 启动:先摄像头(立刻见脸),引擎后台加载 ═══ */
+$("start").onclick = async () => {
+  $("start").disabled = true;
+  try {
     const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user", width: 1280, height: 720 } });
     video.srcObject = stream; await video.play();
-    S("1/3 摄像头 ✓ — 你应该已经看到自己");
-    L("2/3 加载追踪引擎(后台)…");
-    const vision = await import(ASSETS + "/vision_bundle.mjs?v=7");
+    S("摄像头 ✓ — 屏幕里就是你");
+    initScene();
+    L("加载追踪引擎(后台)…");
+    const vision = await import(ASSETS + "/vision_bundle.mjs?v=8");
     const fileset = await vision.FilesetResolver.forVisionTasks(ASSETS + "/wasm");
-    L("3/3 加载人脸模型(3.7MB)…");
     faceLandmarker = await vision.FaceLandmarker.createFromOptions(fileset, {
-      baseOptions: { modelAssetPath: ASSETS + "/face_landmarker.task?v=7", delegate: "GPU" },
+      baseOptions: { modelAssetPath: ASSETS + "/face_landmarker.task?v=8", delegate: "GPU" },
       runningMode: "VIDEO", numFaces: 1,
       outputFaceBlendshapes: false, outputFacialTransformationMatrixes: false,
     });
-    S("3/3 引擎 ✓");
-    initializeThreejs();
-    setTrack("请正对摄像头 — 检测到人脸后眼镜自动上脸", "#d9a441");
-    document.getElementById("snap").hidden = false;
-    scheduleNextPrediction();
+    S("引擎 ✓ — 正对摄像头,眼镜自动上脸");
+    setTrack("", "#3fae8c");
+    loop();
   } catch (e) {
-    const name = e.name || "Error";
-    const hint = name === "NotAllowedError" ? "摄像头被拒绝——地址栏左侧图标→允许→刷新"
-      : name === "NotFoundError" ? "设备无摄像头"
-      : name === "NotReadableError" ? "摄像头被占用"
-      : "看 console";
-    E("失败[" + name + "]: " + e.message + " — " + hint);
-    document.getElementById("start").disabled = false;
+    const n = e.name || "";
+    E("失败[" + n + "]: " + e.message + " — " +
+      (n === "NotAllowedError" ? "授权被拒:地址栏左侧摄像头图标→允许→刷新" :
+       n === "NotFoundError" ? "设备无摄像头" :
+       n === "NotReadableError" ? "摄像头被占用" : "看 console"));
+    $("start").disabled = false;
   }
 };
-document.getElementById("snap").onclick = () => {
-  const a = document.createElement("a");
-  a.download = "tryon-" + Date.now() + ".png";
-  a.href = renderer.domElement.toDataURL("image/png"); a.click();
+
+$("snap").onclick = () => {
+  const c = document.createElement("canvas");
+  c.width = renderer.domElement.width; c.height = renderer.domElement.height;
+  const ctx = c.getContext("2d");
+  ctx.drawImage(renderer.domElement, 0, 0);
+  const a = document.createElement("a"); a.download = "tryon-" + Date.now() + ".png";
+  a.href = c.toDataURL("image/png"); a.click();
 };
 </script>
 </body>
