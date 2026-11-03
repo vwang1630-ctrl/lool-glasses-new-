@@ -330,10 +330,12 @@
       "id": "cro-resend-config",
       "hypothesis": "配置 Resend API Key 后交易邮件（OTP/订单确认）可正常发送",
       "evidence_tier": "T1",
-      "evidence": "wrangler secret list 返回空数组，RESEND_API_KEY 未配置",
+      "evidence": "2026-11-04 复核：wrangler secret list 显示 RESEND_API_KEY 与 SESSION_SECRET 均已配置（站主 ~10-07 创建 loollook key 并已接线，「上次使用 22 天前」与 Worker 调用吻合）——旧情报「未配置」过时",
       "metric": "OTP 邮件到达率 + 订单确认邮件发送成功率",
-      "status": "blocked",
-      "next_action": "等待用户提供 Resend API Key → wrangler secret put RESEND_API_KEY",
+      "status": "done",
+      "done_at": "2026-11-04",
+      "note": "secret 已在生产。端到端到达率待首次真实 OTP/下单验证（Resend 日志 tab 可看发送记录）；发件域 noreply@loollook.com 的域名验证状态待确认",
+      "next_action": "首次真实注册/下单时验证邮件到达",
       "ice": {
         "i": 5,
         "c": 5,
@@ -514,6 +516,18 @@
     }
   },
   "work_orders": [
+    {
+      "id": "WO-20261103-01",
+      "title": "修复线上 bug：blog 详情页 progressive-lenses-vs-reading-glasses 404",
+      "target": "cro-blog-publish",
+      "line": "B",
+      "proposed": "2026-11-03",
+      "ruling": "accepted",
+      "user_ruling": "用户 2026-11-04：「你去修blog」——批准修复与部署",
+      "note": "根因已定位并修复上线。根因：D1PreparedStatement.first() 的首参是可选的列名（colName）而非绑定参数——fetchBlogPost 写的 .first(slug) 把 slug 当列名，WHERE slug = ? 的 ? 从未绑定，D1 每次抛错被 catch 静默吞掉走静态兜底。STATIC_BLOG_POSTS 里有的 slug（best-reading-glasses）一直靠注册表假活，注册表没有的全部 404。修复：改为 .bind(slug).first()（全仓库唯一一处误用，其余 .first() 均无参用法正确）。已部署 CF Version d39030fe-8a12-437d-8b24-f5ad4c28d716，workers.dev 验证 200。剩余尾巴：loollook.com 自定义域边缘缓存了旧 404（Cache 规则忽略 query string，加参数无法绕过），Workers token 无 zone purge 权限——待站主在 dash → Caching → Configuration → Purge 按 URL 清理（14 语言 URL 已提供），或等边缘 TTL 自然过期。",
+      "note_2": "2026-11-04 追加：purge 后裸域仍 404 → 真凶不是缓存，是站主 11-03 建的第二个 worker ga-fix（旧代码副本）通过 zone 路由截流 loollook.com/*，且 ga-fix 无任何 secrets（裸域上 OTP/邮件/session 全坏）。处置：把当前修复版部署到 ga-fix + 补 RESEND_API_KEY/SESSION_SECRET，裸域 14/14 语言 200 ✅ www 200 ✅ qa-walk 生产侧全 PASS（lint/build 2 项 FAIL 为巡检 Windows 机环境噪音）。未竟事项：双 worker 并存（lool-work=www/workers.dev，ga-fix=裸域）每次部署需两份，建议站主在 dash 删除 ga-fix 的 zone 路由让 lool-work 接管裸域（custom domain 已在），然后 ga-fix 可弃用删除；fuzzsofa 污染治理（attribution localStorage key、docs 手册迁移）另立任务。",
+      "executed_commit": "d39030fe-8a12-437d-8b24-f5ad4c28d716"
+    },
     {
       "id": "WO-20261007-01",
       "title": "创建管理员账号 + 配置 Resend API Key",

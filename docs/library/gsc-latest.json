@@ -1,0 +1,175 @@
+{
+  "at": "2026-11-03T17:25:54.961Z",
+  "site": "sc-domain:loollook.com",
+  "permission": "siteFullUser",
+  "range": {
+    "startDate": "2026-10-03",
+    "endDate": "2026-10-31"
+  },
+  "totals": {
+    "clicks": 0,
+    "impressions": 0,
+    "ctr": 0,
+    "avgPosition": 0
+  },
+  "topQueries": [],
+  "topPages": [],
+  "watchlist": [
+    {
+      "term": "reading glasses",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "best reading glasses",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "reading glasses for women",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "reading glasses for men",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "progressive lenses",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "fashion readers",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "fashion cheaters",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "fashion readers women",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "square fashion readers",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "oversized fashion readers",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "oversized cheaters",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "stylish cheaters for women",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "TR90 readers",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "ageless eyewear",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "stylish reading glasses",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "reading glasses that don't look old",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "glasses for my face shape",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "how to choose eyeglass frames",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "best glasses for round face",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "virtual try on glasses online",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "how to measure pupil distance at home",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "affordable reading glasses online",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "reading glasses under $30",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "fashion readers that don't look like reading glasses",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "lightweight TR90 fashion readers",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    },
+    {
+      "term": "buy fashion readers online",
+      "clicks": 0,
+      "impressions": 0,
+      "position": null
+    }
+  ]
+}

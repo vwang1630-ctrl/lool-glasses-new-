@@ -12,7 +12,7 @@ const KEY_PATH = new URL(
   import.meta.url,
 );
 const OUT_PATH = new URL("../../docs/library/gsc-latest.json", import.meta.url);
-const SITE = "https://loollook.com/";
+const SITE = "sc-domain:loollook.com";
 const QUIET = process.argv.includes("--quiet");
 
 function daysAgo(n) {

@@ -69,13 +69,16 @@ const fetchBlogPost = createServerFn({ method: "GET" })
              FROM blog_posts
             WHERE slug = ? AND active = 1`,
         )
+        // D1 first() takes an optional COLUMN name, not bind params —
+        // params must go through .bind() or the ? stays unbound and D1 throws.
+        .bind(slug)
         .first<{
           slug: string;
           cover_image_url: string;
           title_json: string | null;
           content_json: string | null;
           published_at: number;
-        }>(slug);
+        }>();
       if (row) return normalizeBlogRow(row);
     } catch {
       // D1 unavailable locally or unbound — fall through to static registry.
