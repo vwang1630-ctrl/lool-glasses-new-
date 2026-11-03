@@ -14,6 +14,28 @@ import { JsonLd } from "@/lib/jsonld";
 
 const SITE = "https://loollook.com";
 
+/**
+ * Extract FAQ pairs from HTML content for FAQPage schema (GEO).
+ * Matches <h3>question</h3><p>answer</p> patterns in the FAQ section.
+ */
+function extractFaqs(html: string): { q: string; a: string }[] {
+  const faqs: { q: string; a: string }[] = [];
+  // Find the FAQ section by looking for an <h2> containing "faq" (case-insensitive)
+  const faqMatch = html.match(/<h2[^>]*>[^<]*faq[^<]*<\/h2>/i);
+  if (!faqMatch) return faqs; // No FAQ section found — don't extract anything
+  const faqStart = html.indexOf(faqMatch[0]);
+  const faqSection = html.slice(faqStart);
+  // Only match <h3>...</h3> followed by <p>...</p> within the FAQ section
+  const h3Pattern = /<h3[^>]*>(.*?)<\/h3>\s*<p[^>]*>(.*?)<\/p>/gis;
+  let m: RegExpExecArray | null;
+  while ((m = h3Pattern.exec(faqSection)) !== null) {
+    const q = m[1]!.replace(/<[^>]*>/g, "").trim();
+    const a = m[2]!.replace(/<[^>]*>/g, "").trim();
+    if (q && a) faqs.push({ q, a });
+  }
+  return faqs;
+}
+
 function normalizeBlogRow(r: {
   slug: string;
   cover_image_url: string;
@@ -97,6 +119,24 @@ export const Route = createFileRoute("/$lang/blog/$slug")({
       },
       mainEntityOfPage: { "@type": "WebPage", "@id": url },
     };
+    // Extract FAQs from body for FAQPage schema (GEO — AI Overview pickup)
+    const bodyHtml = pickLang(post?.body, lang) ?? "";
+    const faqs = extractFaqs(bodyHtml);
+    const faqJsonLd =
+      faqs.length > 0
+        ? {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map(({ q, a }) => ({
+              "@type": "Question",
+              name: q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: a,
+              },
+            })),
+          }
+        : null;
     return {
       meta: [
         { title },
@@ -111,6 +151,15 @@ export const Route = createFileRoute("/$lang/blog/$slug")({
         { name: "twitter:description", content: description },
         { name: "twitter:image", content: image },
       ],
+      // FAQPage schema for GEO — AI Overview / Perplexity pickup
+      scripts: faqJsonLd
+        ? [
+            {
+              type: "application/ld+json" as const,
+              children: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c"),
+            },
+          ]
+        : undefined,
     };
   },
   component: BlogPostPage,
