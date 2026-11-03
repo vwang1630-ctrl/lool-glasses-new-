@@ -1,0 +1,263 @@
+{
+  "manifest": "lool-8663 PDP 内容生产 patch（Fashion Readers 定位，operator 管线第⑤步）",
+  "slug": "lool-8663",
+  "price": 26,
+  "currency": "USD",
+  "supportsProgressive": false,
+  "approved_numbers": [26, 47, 24, 150, 142, 1.0, 1.5, 2.0, 2.5, 3.5, 69, 9.9],
+  "seo": {
+    "title": "Vintage Round Boston Oval Fashion Readers - +1.0 to +3.5 | lool",
+    "description": "Vintage round Boston oval fashion readers in premium acetate — classic unisex 47-24-150mm silhouette. +1.0 to +3.5 magnification with blue-light filtering. Magnification only — not a medical device.",
+    "h1": "Vintage Round Boston Oval Fashion Readers — The Classic Acetate Cheater",
+    "keywords": [
+      "fashion readers",
+      "vintage round fashion readers",
+      "Boston oval fashion readers",
+      "acetate fashion readers",
+      "buy fashion readers online",
+      "virtual try on glasses"
+    ]
+  },
+  "content": {
+    "gallery": [
+      "https://loollook.com/images/product/JxSqme9fOvlspPYXyG0si.jpg",
+      "https://loollook.com/images/product/t4pcTmciSSwLSeQSXmljA.jpg",
+      "https://loollook.com/images/product/4I1greYvANq8HjSkfeCqp.jpg",
+      "https://loollook.com/images/product/g2TK1cshrzzq7dtNp8YdR.jpg",
+      "https://loollook.com/images/product/7kpJHlqZ6MPK6tieV6uwx.jpg",
+      "https://loollook.com/images/product/coNUjqF1rzinqu0EnCo9M.jpg",
+      "https://loollook.com/images/product/Pq61t2qlokakH0YXW5rBa.jpg",
+      "https://loollook.com/images/product/raVkU2dliCMpOcHtZqLkZ.jpg"
+    ],
+    "highlights": [
+      "Classic vintage-round Boston oval silhouette",
+      "Premium acetate — plant-based, hypoallergenic",
+      "Magnification +1.0 to +3.5 — magnification only",
+      "Scratch-resistant + UV400 protection standard",
+      "Virtual Try-On with your real camera",
+      "Blue light filtering lenses",
+      "Free tracked shipping over $69 · 30-day returns on non-prescription readers"
+    ],
+    "overview": {
+      "heading": "A timeless round frame for everyday style",
+      "body": "A vintage round Boston oval fashion reader for everyday style — classic unisex silhouette (47-24-150mm, 142mm frame width) in premium acetate. Available in +1.0 to +3.5 magnification with blue-light filtering. Magnification only — not a medical device. For vision concerns, consult an eye care professional."
+    },
+    "vto": {
+      "heading": "Try them on — with your real camera",
+      "text": "Virtual Try-On uses your real camera, so you can see exactly how the frames sit on your face — a real virtual try on, no uploads, no waiting."
+    },
+    "frame_details": [
+      {
+        "label": "Material",
+        "value": "Premium acetate — plant-based, hypoallergenic"
+      },
+      {
+        "label": "Shape",
+        "value": "Boston Oval — vintage round, classic unisex fit"
+      },
+      {
+        "label": "Dimensions",
+        "value": "Lens 47mm · Bridge 24mm · Temple 150mm · Frame 142mm"
+      },
+      {
+        "label": "Weight",
+        "value": "Lightweight acetate construction"
+      }
+    ],
+    "lens_options": {
+      "brands": ["lool House", "Mingyue", "Essilor", "ZEISS", "Transitions"],
+      "note": "Single-vision, reader, and blue-light lenses available — add your prescription at checkout."
+    },
+    "pd_measure": {
+      "text": "Measure PD at home in 30 seconds with your phone — no ruler, no guesswork."
+    },
+    "shipping_returns": {
+      "text": "Free shipping over $69 · 30-day returns on non-prescription readers · Prescription custom-made, non-returnable",
+      "detail": {
+        "shipping_heading": "Free tracked shipping on orders over $69",
+        "shipping_body": "We offer free, tracked worldwide shipping on all orders over $69. Orders under $69 have a flat $9.9 shipping fee.",
+        "returns_heading": "30-Day Returns",
+        "returns_body": "30-day free returns & exchanges for non-prescription glasses. Prescription glasses are custom-made to your prescription and PD, and cannot be returned or exchanged unless there is a manufacturing defect or prescription error on our part. All returned items must be unworn and in original packaging."
+      }
+    },
+    "faq": [
+      {
+        "question": "What is a Panto frame?",
+        "answer": "A panto frame is a vintage silhouette with a softly rounded lower rim and a flatter top edge — the mid-century English classic that reads as style, not as an aid. This Boston oval belongs to the same vintage-round family, pairing timeless round lines with a clean, understated look."
+      },
+      {
+        "question": "What is a Boston Oval frame?",
+        "answer": "A Boston oval frame takes its name from the classic Boston silhouette — soft oval lenses with a balanced vintage-round profile. It's the go-to classic for a timeless, universally flattering look, in premium acetate with +1.0 to +3.5 magnification."
+      },
+      {
+        "question": "Are vintage round frames in style for 2026?",
+        "answer": "Yes — vintage round and oval silhouettes are part of the 2026 classic comeback, especially for men's frames. Timeless round lines are trending again as style-first eyewear, not medical aids."
+      },
+      {
+        "question": "What does 47-24-150 mean for glasses size?",
+        "answer": "It means 47mm lens width, 24mm bridge, and 150mm temple length, with a total frame width of 142mm (5.59in). These are classic proportions that suit a wide range of face shapes."
+      },
+      {
+        "question": "What diopter should I choose for reading and phone use?",
+        "answer": "These fashion readers come in +1.00 to +3.50. Most users pick +1.5 for computer work and +2.0 to +2.5 for reading books and menus. Choose the lowest comfortable strength — if in doubt, start with +1.5."
+      },
+      {
+        "question": "Is acetate good for glasses?",
+        "answer": "Yes — premium acetate is a plant-based material that's flexible, lightweight and hypoallergenic, which is why classic eyewear brands use it for vintage-style frames like this one."
+      }
+    ],
+    "reviews": {
+      "note": "This frame just launched — customer feedback is on its way. While it arrives, the FAQ below answers the questions we hear most."
+    },
+    "ldProperties": [
+      {
+        "name": "Brand",
+        "value": "lool"
+      },
+      {
+        "name": "Frame",
+        "value": "Boston Oval acetate · Lens 47mm · Bridge 24mm · Temple 150mm · Frame 142mm"
+      },
+      {
+        "name": "Price",
+        "value": "$26.00"
+      },
+      {
+        "name": "Fit",
+        "value": "Classic unisex fit · suits a wide range of face shapes"
+      }
+    ]
+  },
+  "must_not_contain": [],
+  "personas": [
+    "style-conscious-reader",
+    "early-presbyopia-professional",
+    "value-seeking-couple"
+  ],
+  "psych_jobs": [
+    {
+      "section": "Hero",
+      "persona": "style-conscious-reader",
+      "buyer_question": "Is this the right pair for me?",
+      "psychological_job": "desire_capture",
+      "content_goal": "3 秒内建立产品认知：好看、专业、值得买",
+      "evidence_required": ["8 张真实产品图", "$26 价格", "acetate 材质名"],
+      "desired_action": "看到复古圆框的第一眼就确认『这就是我会戴的款』，继续下滑"
+    },
+    {
+      "section": "VirtualTryOn",
+      "persona": "style-conscious-reader",
+      "buyer_question": "Can I see it on my face?",
+      "psychological_job": "ownership_imagination",
+      "content_goal": "引导用户用真实摄像头试戴，建立拥有感",
+      "evidence_required": ["真实摄像头 VTO 可用", "非 AI 换脸承诺"],
+      "desired_action": "点击进入 /try-on，用自己的脸确认合适"
+    },
+    {
+      "section": "Overview",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "What exactly am I getting?",
+      "psychological_job": "comprehension",
+      "content_goal": "30 秒建立完整产品认知：镜框+镜片+价格+配送",
+      "evidence_required": ["尺寸规格", "放大倍数范围", "价格与配送摘要"],
+      "desired_action": "30 秒内理解产品全貌，确认覆盖自己的阅读需求"
+    },
+    {
+      "section": "LensOptions",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Which lens is right for me?",
+      "psychological_job": "value_justification",
+      "content_goal": "清晰展示镜片层级和价格差异，帮助用户做出选择",
+      "evidence_required": [
+        "lool House/Mingyue/Essilor/ZEISS/Transitions 五级品牌"
+      ],
+      "desired_action": "在镜片选项里选定一个品牌层级，继续加购"
+    },
+    {
+      "section": "FrameDetails",
+      "persona": "style-conscious-reader",
+      "buyer_question": "Is the quality good?",
+      "psychological_job": "quality_assurance",
+      "content_goal": "用材质和工艺细节建立品质信任",
+      "evidence_required": ["acetate 材质", "47×24×150×142 全尺寸"],
+      "desired_action": "确认材质与做工对得起价格，消除『廉价塑料』顾虑"
+    },
+    {
+      "section": "PDMeasure",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "How do I get my PD?",
+      "psychological_job": "friction_reduction",
+      "content_goal": "消除 PD 测量恐惧——手机 30 秒搞定",
+      "evidence_required": ["/measure-pd 工具", "手机 30 秒话术"],
+      "desired_action": "打开 /measure-pd 用量瞳距工具，拿到 PD 值"
+    },
+    {
+      "section": "ProductData",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Will it fit? Are the specs right?",
+      "psychological_job": "fit_verification",
+      "content_goal": "硬核规格消除尺寸恐惧",
+      "evidence_required": [
+        "47mm 镜片",
+        "24mm 鼻桥",
+        "150mm 镜腿",
+        "142mm 镜框"
+      ],
+      "desired_action": "用自己的脸型/尺寸对照规格，确认能戴"
+    },
+    {
+      "section": "ShippingReturns",
+      "persona": "value-seeking-couple",
+      "buyer_question": "Can I trust the delivery?",
+      "psychological_job": "delivery_reassurance",
+      "content_goal": "Free shipping worldwide + 30-day returns 消除物流恐惧",
+      "evidence_required": ["Free shipping worldwide", "30-day returns"],
+      "desired_action": "确认运费与退换无忧，进入下单阶段"
+    },
+    {
+      "section": "Reviews",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Did anyone else trust this?",
+      "psychological_job": "social_proof",
+      "content_goal": "真实评论/FAQ 建立信任",
+      "evidence_required": ["FAQ 兜底"],
+      "desired_action": "看到常见问题有答案，觉得『不是我一个人需要这个』"
+    },
+    {
+      "section": "FAQ",
+      "persona": "value-seeking-couple",
+      "buyer_question": "What could still go wrong?",
+      "psychological_job": "objection_clearing",
+      "content_goal": "逐条清掉下单前最后的疑虑",
+      "evidence_required": ["框型科普", "尺寸含义", "放大倍数选择", "材质说明"],
+      "desired_action": "所有疑虑清空，无理由不买"
+    },
+    {
+      "section": "StickyBuyBar",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Is now the moment?",
+      "psychological_job": "action_trigger",
+      "content_goal": "零风险感推动此刻下单",
+      "evidence_required": ["价格锚点", "加购按钮", "免运费"],
+      "desired_action": "点击加购/立即购买，进入 checkout"
+    },
+    {
+      "section": "Footer",
+      "persona": "value-seeking-couple",
+      "buyer_question": "Who is behind this store?",
+      "psychological_job": "legitimacy",
+      "content_goal": "HK Lool Vision 实体可信度兜底",
+      "evidence_required": ["HK Lool Vision 公司信息", "品牌背书"],
+      "desired_action": "确认是正规商家，放心提交订单"
+    },
+    {
+      "section": "SEOMeta",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Is this what I searched for?",
+      "psychological_job": "intent_match",
+      "content_goal": "搜索承诺与页面兑现完全一致",
+      "evidence_required": ["搜索词落位 title/desc/h1", "关键词库证据"],
+      "desired_action": "从 Google 点进来后，页面内容与搜索词一致，继续浏览"
+    }
+  ]
+}

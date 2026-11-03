@@ -1,0 +1,104 @@
+{
+  "manifest": "lool selling-points — 眼镜卖点库（SKU × 画像 × 证据句）",
+  "version": "V1.0.0",
+  "updated": "2026-10-07",
+  "write_rules": [
+    "无出处不主张：每句必须挂 source（指向产品 schema 字段或 PDP 数据）",
+    "句子是成品文案，PDP/blog/社媒直接取用",
+    "禁用 senior/elderly/old/aging/presbyopia/factory/handmade",
+    "新 SKU 入库 = 站主供参数后，按画像各 3 句起建"
+  ],
+  "trust_tokens": [
+    "Virtual Try-On with real camera — see yourself wearing them",
+    "Measure PD at home with your phone — no doctor visit needed",
+    "3-week progressive adaptation guarantee",
+    "Pro-grade Essilor/ZEISS/Transitions lenses",
+    "Free shipping worldwide · 30-day returns"
+  ],
+  "by_persona": {
+    "early-presbyopia-professional": [
+      {
+        "line": "You don't need 'reading glasses' — you need glasses that let you keep doing what you do, just clearer.",
+        "source": "品牌定位：去老年化"
+      },
+      {
+        "line": "Try them on before you buy — real camera, your face, not a filter.",
+        "source": "/try-on 虚拟试戴功能"
+      },
+      {
+        "line": "From $6 frames to Essilor progressive lenses — you choose the upgrade, not the markup.",
+        "source": "价格阶梯：frame $6-29, lenses lool House < Mingyue < Essilor/ZEISS < Transitions"
+      }
+    ],
+    "progressive-curious": [
+      {
+        "line": "One pair. Near, far, and everything in between. No switching, no squinting.",
+        "source": "渐进镜片产品页"
+      },
+      {
+        "line": "Most people adapt in 3 weeks — and we guarantee it. If it doesn't work, we make it right.",
+        "source": "3-week progressive adaptation guarantee"
+      },
+      {
+        "line": "Start with a free virtual try-on. See yourself in progressives before committing.",
+        "source": "/try-on + /choose-eyeglasses"
+      }
+    ],
+    "style-conscious-reader": [
+      {
+        "line": "Reading glasses that actually match your style — not your age.",
+        "source": "品牌定位：ageless design"
+      },
+      {
+        "line": "Dozens of frame shapes, multiple colors per shape. Find the one that's yours.",
+        "source": "/products 产品目录"
+      },
+      {
+        "line": "See it on your face first — our virtual try-on shows every frame in real time.",
+        "source": "/try-on"
+      }
+    ],
+    "value-seeking-couple": [
+      {
+        "line": "Two pairs, same prescription — because life happens. Frames from $6 each.",
+        "source": "价格策略：$6-29 frames"
+      },
+      {
+        "line": "Professional lenses, honest prices. Essilor and ZEISS without the boutique markup.",
+        "source": "镜片层级：lool House < Mingyue < Essilor/ZEISS"
+      },
+      {
+        "line": "Free shipping. 30-day returns. Try a pair risk-free.",
+        "source": "配送政策"
+      }
+    ],
+    "tech-savvy-presbyope": [
+      {
+        "line": "Measure your PD with your phone — MediaPipe, sub-millimeter accuracy, no appointment.",
+        "source": "/measure-pd MediaPipe 实现"
+      },
+      {
+        "line": "Virtual try-on uses your real camera — not AI face swap. See yourself, not a filter.",
+        "source": "/try-on 技术实现"
+      },
+      {
+        "line": "Upload your prescription, pick your lenses, track your order — all from your phone.",
+        "source": "全流程在线化"
+      }
+    ],
+    "gift-buyer-adult-child": [
+      {
+        "line": "The gift they'll actually use every day — glasses that look great and work perfectly.",
+        "source": "产品定位"
+      },
+      {
+        "line": "Virtual try-on means they can pick the frame they love — before it arrives.",
+        "source": "/try-on"
+      },
+      {
+        "line": "Progressive lenses with a 3-week adaptation guarantee — no risk, no hassle.",
+        "source": "3-week progressive adaptation guarantee"
+      }
+    ]
+  }
+}

@@ -10,14 +10,14 @@
     {
       "binding": "DB",
       "database_name": "lool-work",
-      "database_id": "d6e85c72-d1ff-4b7f-b460-3fa5ea36ede5",
+      "database_id": "54542c91-b95e-4fbc-b48e-5ad60a974cea",
       "migrations_dir": "migrations",
     },
   ],
   "kv_namespaces": [
     {
       "binding": "OTP_KV",
-      "id": "78826bd6583149c7b1b9c95759db4060",
+      "id": "05a7a52e017947d0adbe20f3c3385dfd",
     },
   ],
   "r2_buckets": [
@@ -35,11 +35,11 @@
     },
   ],
   "vars": {
-    "RESEND_FROM": "noreply@lool.work",
-    "SITE_URL": "https://lool.work",
+    "RESEND_FROM": "noreply@loollook.com",
+    "SITE_URL": "https://loollook.com",
   },
   "routes": [
-    { "pattern": "lool.work", "custom_domain": true },
-    { "pattern": "www.lool.work", "custom_domain": true },
+    { "pattern": "loollook.com", "custom_domain": true },
+    { "pattern": "www.loollook.com", "custom_domain": true },
   ],
 }

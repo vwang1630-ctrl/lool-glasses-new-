@@ -1,0 +1,16 @@
+{
+  "name": "feishu-bot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.mjs",
+    "discover": "FEISHU_DISCOVER=1 node src/index.mjs"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "dependencies": {
+    "@larksuiteoapi/node-sdk": "^1.63.1"
+  }
+}

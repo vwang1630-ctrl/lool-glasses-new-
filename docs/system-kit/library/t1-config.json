@@ -1,0 +1,37 @@
+{
+  "manifest": "lool t1-config — T1 第一方数据甄别配置（谁的数据不算客户数据）",
+  "version": "V1.0.0",
+  "updated": "2026-10-07",
+  "note": "甄别规则：订单/收藏/订阅/评论命中以下邮箱或昵称 → 标记为所有者自测，不计入 T1 证据。",
+  "owner_emails": ["admin@loollook.com"],
+  "owner_handles": ["lucas", "admin"],
+  "suspicious_domains_note": "测试订单需站主确认后标记",
+  "brand_voice_guard": {
+    "version": "V1.0.0",
+    "updated": "2026-10-07",
+    "banned": [
+      "senior",
+      "elderly",
+      "old",
+      "aging",
+      "anti-aging",
+      "presbyopia",
+      "factory",
+      "工厂",
+      "handmade",
+      "grandma glasses",
+      "grandpa glasses",
+      "old people glasses"
+    ],
+    "enforced": [
+      "ageless design",
+      "redesigned for the 45-60 generation",
+      "Virtual Try-On with real camera",
+      "Measure PD at home",
+      "3-week progressive adaptation guarantee",
+      "Pro-grade lenses at honest prices",
+      "Free shipping worldwide",
+      "Essilor / ZEISS / Transitions"
+    ]
+  }
+}

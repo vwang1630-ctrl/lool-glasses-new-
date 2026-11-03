@@ -1,0 +1,243 @@
+{
+  "manifest": "lool framework-lock — PDP 模板锁（loollook.com 眼镜产品页）",
+  "version": "V1.3.0",
+  "updated": "2026-11-02",
+  "source": "loollook.com PDP 设计稿（Lovable fork: lucasxue2/loollook.com）",
+  "implementation": "src/routes/$lang/product.$slug.tsx",
+  "global": {
+    "brand": "lool（小写）",
+    "fonts": ["Inter", "system-ui"],
+    "locked": ["布局", "节序", "组件", "列数", "图数", "样式", "字体", "底色"],
+    "banned_terms": [
+      "senior",
+      "elderly",
+      "old",
+      "aging",
+      "anti-aging",
+      "presbyopia",
+      "factory",
+      "handmade"
+    ]
+  },
+  "sections": [
+    {
+      "id": 1,
+      "name": "Hero",
+      "locked": "产品主图 + 标题 + 价格 + CTA",
+      "data": "product.images / product.title / product.price",
+      "constraints": {
+        "images_max": 8
+      },
+      "psych": {
+        "buyer_question": "Is this the right pair for me?",
+        "psychological_job": "desire_capture",
+        "content_goal": "3 秒内建立产品认知：好看、专业、值得买"
+      }
+    },
+    {
+      "id": 2,
+      "name": "VirtualTryOn",
+      "locked": "虚拟试戴入口按钮 + 说明文字",
+      "data": "/try-on 路由",
+      "psych": {
+        "buyer_question": "Can I see it on my face?",
+        "psychological_job": "ownership_imagination",
+        "content_goal": "引导用户用真实摄像头试戴，建立拥有感"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Overview",
+      "locked": "H1 + 描述 + 价格 + 镜片选项 + 配送信息",
+      "data": "product.title / product.description / product.price / lens options",
+      "psych": {
+        "buyer_question": "What exactly am I getting?",
+        "psychological_job": "comprehension",
+        "content_goal": "30 秒建立完整产品认知：镜框+镜片+价格+配送"
+      }
+    },
+    {
+      "id": 4,
+      "name": "LensOptions",
+      "locked": "镜片品牌层级展示（lool House → Mingyue → Essilor/ZEISS → Transitions）",
+      "data": "lens_skus 表",
+      "constraints": {
+        "hierarchy_order": [
+          "lool House",
+          "Mingyue",
+          "Essilor",
+          "ZEISS",
+          "Transitions"
+        ],
+        "price_transparency": true
+      },
+      "psych": {
+        "buyer_question": "Which lens is right for me?",
+        "psychological_job": "value_justification",
+        "content_goal": "清晰展示镜片层级和价格差异，帮助用户做出选择"
+      }
+    },
+    {
+      "id": 5,
+      "name": "FrameDetails",
+      "locked": "材质/颜色/尺寸/重量",
+      "data": "product.specs",
+      "constraints": {
+        "items": 4
+      },
+      "psych": {
+        "buyer_question": "Is the quality good?",
+        "psychological_job": "quality_assurance",
+        "content_goal": "用材质和工艺细节建立品质信任"
+      }
+    },
+    {
+      "id": 6,
+      "name": "PDMeasure",
+      "locked": "PD 测量工具入口 + 说明",
+      "data": "/measure-pd 路由",
+      "psych": {
+        "buyer_question": "How do I get my PD?",
+        "psychological_job": "friction_reduction",
+        "content_goal": "消除 PD 测量恐惧——手机 30 秒搞定"
+      }
+    },
+    {
+      "id": 7,
+      "name": "ProgressiveGuarantee",
+      "locked": "渐进镜片 3 周适应保障声明",
+      "data": "静态内容",
+      "psych": {
+        "buyer_question": "What if progressives don't work for me?",
+        "psychological_job": "risk_removal",
+        "content_goal": "3 周适应保障消除渐进镜片购买恐惧"
+      }
+    },
+    {
+      "id": 8,
+      "name": "ProductData",
+      "locked": "规格表（镜框尺寸/材质/重量）",
+      "data": "product.specifications",
+      "psych": {
+        "buyer_question": "Will it fit? Are the specs right?",
+        "psychological_job": "fit_verification",
+        "content_goal": "硬核规格消除尺寸恐惧"
+      }
+    },
+    {
+      "id": 9,
+      "name": "ShippingReturns",
+      "locked": "免费配送 + 30 天退换",
+      "data": "静态内容",
+      "psych": {
+        "buyer_question": "Can I trust the delivery?",
+        "psychological_job": "delivery_reassurance",
+        "content_goal": "Free shipping over $69 + 30-day returns（plano）消除物流恐惧"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Reviews",
+      "locked": "评价模块（初期空窗期用 FAQ 兜底）",
+      "data": "reviews 表",
+      "psych": {
+        "buyer_question": "Did anyone else trust this?",
+        "psychological_job": "social_proof",
+        "content_goal": "真实评论/FAQ 建立信任"
+      }
+    },
+    {
+      "id": 11,
+      "name": "FAQ",
+      "locked": "折叠问答（≤8 条）",
+      "data": "faqs 表",
+      "constraints": {
+        "max_rows": 8
+      },
+      "psych": {
+        "buyer_question": "What could still go wrong?",
+        "psychological_job": "objection_clearing",
+        "content_goal": "逐条清掉下单前最后的疑虑"
+      }
+    },
+    {
+      "id": 12,
+      "name": "StickyBuyBar",
+      "locked": "固定底栏（价格+加购按钮）",
+      "data": "price/SKU 联动",
+      "psych": {
+        "buyer_question": "Is now the moment?",
+        "psychological_job": "action_trigger",
+        "content_goal": "零风险感推动此刻下单"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Footer",
+      "locked": "固定壳",
+      "data": "—",
+      "psych": {
+        "buyer_question": "Who is behind this store?",
+        "psychological_job": "legitimacy",
+        "content_goal": "HK Lool Vision 实体可信度兜底"
+      }
+    },
+    {
+      "id": 14,
+      "name": "SEOMeta",
+      "locked": "字段壳",
+      "data": "data.seoTitle / metaDescription / keywords",
+      "constraints": {
+        "title_chars": [50, 70],
+        "description_chars": [150, 210],
+        "note": "loollook 实际 SSR title 落在 63–68 字符，description 约 200 字符；保留 SEO 安全上限而非 Fuzz 通用硬顶"
+      },
+      "psych": {
+        "buyer_question": "Is this what I searched for?",
+        "psychological_job": "intent_match",
+        "content_goal": "搜索承诺与页面兑现完全一致"
+      }
+    }
+  ],
+  "trust_kit": {
+    "trusted_tokens": [
+      "Virtual Try-On",
+      "Free tracked shipping on orders over $69",
+      "30-day returns",
+      "Magnification only",
+      "not a medical device",
+      "Blue light filtering",
+      "UV400",
+      "Scratch-resistant"
+    ],
+    "trusted_numbers": [26, 30, 69, 150, 14],
+    "trusted_numbers_note": "26=reader 基础价($); 30=退换天数; 69=满额包邮门槛; 150=通用镜腿长(mm); 14=语言数(2026-11-02 政策统一 V1.1.0)"
+  },
+  "delivery_rule": {
+    "standard": "Free tracked shipping on orders over $69",
+    "returns": "30-day free returns & exchanges for non-prescription glasses"
+  },
+  "forbidden_words": {
+    "en": [
+      "senior",
+      "elderly",
+      "old",
+      "aging",
+      "anti-aging",
+      "presbyopia",
+      "factory",
+      "handmade",
+      "probably",
+      "maybe",
+      "usually",
+      "suggest",
+      "recommend"
+    ],
+    "zh": ["老人", "老年", " aging", "抗衰老", "老花", "工厂", "手工"]
+  },
+  "ai_vs_real_policy": {
+    "source": "docs/system-kit/library/ai-vs-real.json",
+    "rule": "AI 概念对象只准出现在 Story 段且必须带标注词；VirtualTryOn 文案必须强调真实摄像头而非 AI 换脸/生成。",
+    "r10_gate": "pdp-toolbox.mjs r10AiVsReal() reads ai-vs-real.json"
+  }
+}

@@ -1,11 +1,11 @@
-# lool.work — Modern reading & eyeglasses, direct
+# loollook.com — Modern reading & eyeglasses, direct
 
-DTC 眼镜独立站。设计稿来自 Lovable（fork：`lucasxue2/lool.work`，原仓库 `vwang1630-ctrl/spectacle-style`）。
+DTC 眼镜独立站。设计稿来自 Lovable（fork：`lucasxue2/loollook.com`，原仓库 `vwang1630-ctrl/spectacle-style`）。
 根目录通用约定见 `../CLAUDE.md`。本站点详细文档见 [`docs/`](docs/)。
 
 ## 设计稿来源
 
-- **C 端（用户面）设计稿**：[`vwang1630-ctrl/spectacle-style`](https://github.com/vwang1630-ctrl/spectacle-style)（fork: `lucasxue2/lool.work`）
+- **C 端（用户面）设计稿**：[`vwang1630-ctrl/spectacle-style`](https://github.com/vwang1630-ctrl/spectacle-style)（fork: `lucasxue2/loollook.com`）
 - **后台（admin）页面设计稿**：[`vwang1630-ctrl/glasses-opus-studio`](https://github.com/vwang1630-ctrl/glasses-opus-studio) ← 后台 UI 改造时参照这里
 
 ### 设计稿使用原则（重要）
@@ -30,7 +30,7 @@ DTC 眼镜独立站。设计稿来自 Lovable（fork：`lucasxue2/lool.work`，�
 - **业务**：老花镜（presbyopia）+ 近视镜（myopia），主打"去老年化"。45–60 代际；海外为主。
 - **特色功能**：`/measure-pd`（MediaPipe 量瞳距）、`/try-on`（虚拟试戴）、`/prescription-guide`、`/find-your-fit`、`/choose-eyeglasses`。
 - **栈**：TanStack Start (SSR) + React 19 + Tailwind v4 + Cloudflare Workers + D1 + R2 + Resend + Stripe。
-- **生产**：[https://lool.work](https://lool.work)（+ workers.dev fallback）。
+- **生产**：[https://loollook.com](https://loollook.com)（+ workers.dev fallback）。
 - **收单**：Stripe（HongKong Lool Vision HK 主体）。订单币种 USD，账户结算 HKD（Stripe 自动换汇）。Webhook `POST /api/checkout/stripe-webhook`。前端 Payment Element 在 `/{lang}/checkout` 第二步。
 
 ## 运维注记
@@ -38,15 +38,15 @@ DTC 眼镜独立站。设计稿来自 Lovable（fork：`lucasxue2/lool.work`，�
 - **CF WAF：阻断中国大陆 IP**（2026-05-08 启用）
   - Custom rule `Block mainland China`：表达式 `(ip.src.country eq "CN")` → action `block` → 返回 CF 默认 1020 / HTTP 403
   - 仅大陆 CN，HK / MO / TW 不影响（与市场定位"海外为主"一致）
-  - 修改入口：dash → lool.work → Security → WAF → Custom rules（zone id `16fff3d5eb115e8e2d225641e54ffe48`）
+  - 修改入口：dash → loollook.com → Security → WAF → Custom rules（zone id `16fff3d5eb115e8e2d225641e54ffe48`）
   - **用户报"国内打不开"是预期行为，不当 bug 排查**；如需排错，先到 dash → Security → Events 看是否被这条规则命中
 
 ## 并行开发约定
 
 Lucas 经常同时打开多个窗口处理不同问题。**每个独立话题 / bug / 需求都应该有自己的 git worktree**，不要多个窗口共用主 checkout 改代码。
 
-- 主 checkout `/Users/lucas/code/DTCS/lool.work` 尽量只用于阅读、同步、收口和临时小改。
-- 只要一个问题会持续修改代码，就从 main 拉一个独立 worktree + 独立分支，例如 `../lool.work-<topic>`。
+- 主 checkout `/Users/lucas/code/DTCS/loollook.com` 尽量只用于阅读、同步、收口和临时小改。
+- 只要一个问题会持续修改代码，就从 main 拉一个独立 worktree + 独立分支，例如 `../loollook.com-<topic>`。
 - 不同窗口处理不同问题时，各自只在自己的 worktree 里改、测、提交；不要在同一个工作树里交叉改文件。
 - 这样可以避免并行修改时互相覆盖、lint/build 看到别的问题的半成品、以及提交时把不相关改动混在一起。
 
@@ -89,7 +89,7 @@ git fetch upstream && git merge upstream/main
 ## 文件结构 概览
 
 ```
-lool.work/
+loollook.com/
 ├─ wrangler.jsonc          # Worker + D1 + R2 (RX_BUCKET, PRODUCTS_BUCKET) + vars
 ├─ vite.config.ts          # 直接组合 cloudflare/tanstack-start/react/tailwind/tsconfigPaths
 ├─ tsconfig.json           # @/* → ./src/*

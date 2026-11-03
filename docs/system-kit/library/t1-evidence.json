@@ -1,0 +1,9 @@
+{
+  "manifest": "lool t1-evidence — T1 第一方证据台账（冷启动，从零起）",
+  "version": "V1.0.0",
+  "updated": "2026-10-07",
+  "promotion_rule": "同一画像假设累计 ≥5 条同向 T1 证据（跨来源更佳）→ 该假设从 hypotheses(T4) 升级进对应画像 evidence(T1)。",
+  "screening_rule": "所有订单/收藏/订阅/评论先过 t1-config.json 甄别（owner email/昵称 = 自测，不计）。",
+  "entries": [],
+  "baseline_note": "loollook.com 冷启动。真实客户订单 = 0，首单基线从零起验（曝光→对话→首单）。"
+}

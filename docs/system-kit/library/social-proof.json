@@ -1,0 +1,45 @@
+{
+  "library": "lool social-proof — 眼镜社证库 V1.0",
+  "version": "V1.0.0",
+  "updated": "2026-10-07",
+  "protocol": "Social Proof Wall 只从本库取数。verified 条目可直接上页；pending 条目需站主提供截图/链接确认后入库。",
+  "verified_entries": [],
+  "pending_entries": [
+    {
+      "id": "pending-virtual-tryon-usage",
+      "type": "feature_usage",
+      "claim": "虚拟试戴功能使用数据",
+      "evidence_status": "pending",
+      "needed": "产品上线后从 analytics 获取"
+    },
+    {
+      "id": "pending-pd-measure-accuracy",
+      "type": "tool_accuracy",
+      "claim": "手机 PD 测量精度数据",
+      "evidence_status": "pending",
+      "needed": "MediaPipe 工具上线后实测 ±1mm 精度验证"
+    }
+  ],
+  "market_context": [
+    {
+      "id": "market-presbyopia-global",
+      "type": "market_size",
+      "text": "全球老花眼人群约 18 亿（WHO 2024），45 岁以上人群几乎都会出现老花症状",
+      "source": "WHO Vision Data 2024",
+      "use": "市场规模背书"
+    },
+    {
+      "id": "market-dtc-eyewear-growth",
+      "type": "market_trend",
+      "text": "DTC 眼镜市场预计 2025-2030 CAGR 8.5%，在线配镜渗透率持续上升",
+      "source": "行业报告待补充",
+      "use": "行业趋势背书"
+    }
+  ],
+  "delivery_rule": {
+    "standard": "免费配送全球（Free Shipping Worldwide）",
+    "returns": "30 天退换保障",
+    "progressive_guarantee": "渐进镜片 3 周适应保障",
+    "source": "loollook.com 政策页"
+  }
+}

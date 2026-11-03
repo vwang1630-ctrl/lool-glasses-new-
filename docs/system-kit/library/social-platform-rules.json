@@ -1,0 +1,125 @@
+{
+  "manifest": "lool social-platform-rules — 眼镜社媒平台规则 V1.0",
+  "version": "V1.0.0",
+  "updated": "2026-10-07",
+  "voice_axis": "温暖但专业，自信但不傲慢。去老年化叙事——我们不说 senior/elderly/old/aging。品牌名：小写 lool。",
+  "banned_all_platforms": {
+    "terms": [
+      "senior",
+      "elderly",
+      "old",
+      "aging",
+      "anti-aging",
+      "presbyopia",
+      "old people glasses",
+      "grandma glasses",
+      "grandpa glasses",
+      "factory",
+      "工厂",
+      "handmade",
+      "hand-sculpted"
+    ],
+    "patterns": {
+      "ig_caption_url": "IG Caption 内出现 https://（限流，链接走 Bio）",
+      "comment_gift": "评论区『评论X送Y』诱导互动"
+    }
+  },
+  "enforced_all_platforms": {
+    "ageless_language": "用 'ageless design' / 'redesigned for the 45-60 generation' 替代 senior/elderly/old",
+    "brand_name": "小写 lool（不是 LOOL 或 Lool）",
+    "lens_hierarchy": "lool House < Mingyue < Essilor/ZEISS < Transitions",
+    "trust_tokens": [
+      "Virtual Try-On with real camera",
+      "Measure PD at home",
+      "3-week progressive adaptation guarantee",
+      "Pro-grade lenses at honest prices",
+      "Free shipping worldwide"
+    ]
+  },
+  "instagram": {
+    "algorithm_2026": [
+      "Reels 流量=图文 5-10 倍，轮播不推",
+      "权重：Share > Save > Comment > Like",
+      "完播率：前 3 秒钩子决定分发",
+      "链接：Caption 挂 https:// 限流；Bio 链接",
+      "Location：Shanghai, China（HK Lool Vision 总部）",
+      "标签：精准 3-5 个，不堆泛标签"
+    ],
+    "content_axis": [
+      "虚拟试戴 demo（真实摄像头实时叠加）",
+      "PD 测量教程（手机 MediaPipe）",
+      "产品美学展示（多色/多框型）",
+      "渐进镜片教育（3 周适应叙事）",
+      "用户故事（真实 45-60 代际）"
+    ],
+    "hashtag_policy": {
+      "rules": [
+        "每帖 3-5 个高相关标签",
+        "主战场=caption/屏幕文字/alt text 的 SEO 关键词"
+      ],
+      "target_keywords": [
+        "reading glasses",
+        "progressive lenses",
+        "virtual try on",
+        "ageless eyewear",
+        "glasses for face shape"
+      ]
+    },
+    "posting_time": {
+      "us_audience": "美东 21:00 = 北京 9-10 点（黄金档）",
+      "timezone_note": "受众主力美国 45-60 代际"
+    }
+  },
+  "pinterest": {
+    "algorithm_2026": [
+      "本质=搜索引擎：70% 流量来自搜索非关注",
+      "铁律：每条 Pin 挂 blog 链接",
+      "图：1000x1500 竖图",
+      "标题：≤100 字符，关键词前置",
+      "描述：必须英文，含关键词",
+      "频率：每天 1 条美东 21:00",
+      "长尾：30 天起峰，单 Pin 生命周期 6 个月"
+    ],
+    "boards": [
+      "Reading Glasses Guide",
+      "Progressive Lenses Explained",
+      "Face Shape Frame Guide",
+      "Lens Technology",
+      "Ageless Style"
+    ],
+    "daily_dashboard": {
+      "graded": "出站 CTR：30 天/500+ 曝光后 ≥0.3% 及格、≥1% 优秀",
+      "actions": {
+        "ctr_lt03": "标题关键词重写",
+        "zero_outbound": "查链接是否挂上"
+      }
+    }
+  },
+  "facebook": {
+    "algorithm_2026": [
+      "推有意义对话：一条带问题的评论 > 10 个赞",
+      "≤80 字符防折叠",
+      "链接进评论区（外链帖触达低）",
+      "文案以问题结尾逼回答"
+    ],
+    "daily_dashboard": {
+      "graded": "触达基准=粉丝数×1%-5%",
+      "actions": {
+        "reach_lowno": "文案超 80 字符被折叠",
+        "clicks_low": "OG 未抓到"
+      }
+    }
+  },
+  "youtube": {
+    "status": "待建频道",
+    "strategy": [
+      "产品教程视频（PD 测量/虚拟试戴）",
+      "渐进镜片科普",
+      "GEO 价值：YouTube=Google 自家资产，视频进 Google 视频搜索+AI 概览引用池"
+    ]
+  },
+  "growth_mode": {
+    "mode": "organic_only",
+    "rule": "一切增长只走自然水路；投流需站主显式批预算"
+  }
+}

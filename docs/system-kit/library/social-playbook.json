@@ -1,0 +1,133 @@
+{
+  "_readme": "lool social-playbook — 社交出口层宪法 V1.0。blog 是母体，社交只把 blog 切短发，不另写内容。每平台块按 算法→钩子→留存→转化 四层组织。",
+  "version": "V1.0.0",
+  "updated": "2026-10-07",
+  "principle": "blog 是母体，社交是出口：只写 1 篇 blog，社交自动多 1 张卡。出口链接强制 = blog canonical URL + UTM。",
+  "link_contract": {
+    "pattern": "{origin}/{locale}/blog/{slug}?utm_source={platform}&utm_medium=social&utm_campaign={slug}",
+    "rule": "每个出站链接必须带 utm_source ∈ {pinterest, instagram, facebook}"
+  },
+  "banned_terms": [
+    "senior",
+    "elderly",
+    "old",
+    "aging",
+    "anti-aging",
+    "presbyopia",
+    "factory",
+    "工厂",
+    "Sit on Art"
+  ],
+  "spec_limits": {
+    "pinterest": {
+      "title_chars": 100,
+      "description_chars": 500,
+      "image": "1000x1500 (2:3) JPEG",
+      "per_day": 1,
+      "slot": "21:00 America/New_York"
+    },
+    "instagram": {
+      "caption_chars": 2200,
+      "reel": "15s 快切 MP4"
+    },
+    "facebook": {
+      "text_chars": 80,
+      "image": "直接用 blog hero 图"
+    },
+    "reddit": {
+      "nurture_days": 30,
+      "karma_gate": 500,
+      "per_week": "30 分钟人工"
+    }
+  },
+  "platforms": {
+    "pinterest": {
+      "algorithm": {
+        "hypothesis": "Pinterest 搜索天然问句形态：问句标题吃搜索分发",
+        "evidence": "T2 平台公开行为",
+        "shelf_life_days": 30
+      },
+      "hook": {
+        "title_rule": "≤100 字符，关键词前置+问句钩子",
+        "templates": [
+          "Best reading glasses for your first pair?",
+          "Progressive lenses vs reading glasses — which is right?",
+          "How to choose glasses for your face shape?",
+          "Can you measure PD at home with your phone?",
+          "Are blue light glasses worth it?"
+        ]
+      },
+      "conversion": {
+        "description_rule": "≤500 字符；含关键词 + blog 链接",
+        "link_required": true
+      }
+    },
+    "instagram": {
+      "algorithm": {
+        "hypothesis": "冷启动小号只有 Reels 有自然分发",
+        "evidence": "T2 平台公开行为",
+        "shelf_life_days": 30
+      },
+      "hook": {
+        "first_3s": "产品特写 + 问句字卡（Need reading glasses but don't want to look old?）",
+        "caption_rule": "去老年化叙事 + 虚拟试戴引导 + 链接走 Bio"
+      },
+      "retention": {
+        "reel_structure": "痛点钩子 → 产品展示 → 虚拟试戴 demo → CTA"
+      }
+    },
+    "facebook": {
+      "algorithm": {
+        "hypothesis": "FB 只做 blog 转发承接位",
+        "evidence": "T4 假设",
+        "shelf_life_days": 30
+      },
+      "hook": {
+        "text_rule": "≤80 字符：blog 标题改写 + 1 个问句"
+      }
+    },
+    "reddit": {
+      "role": "口碑与信任背书",
+      "algorithm": {
+        "hypothesis": "Reddit 反营销：新号直发链接必删；先 30 天纯参与攒 Karma",
+        "evidence": "T2 subreddit 规则",
+        "shelf_life_days": 90
+      },
+      "target_subs": [
+        "r/eyeglasses",
+        "r/presbyopia",
+        "r/BuyItForLife",
+        "r/optometry"
+      ]
+    }
+  },
+  "strategy_brain": {
+    "weekly_decision": {
+      "cadence": "每周一",
+      "inputs": ["GSC UTM 出站点击", "平台侧数据", "内容日历", "人工预算"]
+    },
+    "phase_gate": {
+      "now": ["blog 首发 5 篇", "pinterest 日更", "instagram reel 2-3/周"],
+      "week_2_4": ["reddit 养号启动", "youtube 频道建立"],
+      "later": ["tiktok 候选池", "fb group 评估"]
+    }
+  },
+  "signature_language": {
+    "signature_short": {
+      "en": "See clearly, agelessly.",
+      "zh": "清晰视界，不被定义。"
+    },
+    "body_question": {
+      "en": "Not sure which glasses are right for you? Try them on virtually — see yourself clearly.",
+      "zh": "不确定哪副眼镜适合你？虚拟试戴——看清自己。"
+    }
+  },
+  "cta_discipline": {
+    "rule": "每条物料 primary_cta 唯一 + 次级 ≤1",
+    "division": {
+      "reel": "主钩=虚拟试戴引导 / 次钩=Save this",
+      "pinterest": "无 CTA 语句——链接即钩",
+      "facebook": "主钩=问题逼回答"
+    }
+  }
+}

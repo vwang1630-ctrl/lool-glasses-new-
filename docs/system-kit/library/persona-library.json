@@ -1,0 +1,664 @@
+{
+  "manifest": "lool persona-library — 眼镜买家画像反推库 V4.7（Evidence-Based Buyer Persona）",
+  "version": "V4.7.0",
+  "updated": "2026-10-07",
+  "methodology": "Revella Five Rings + JTBD + 证据分级（T1–T4）+ H1–H4 证据级 + V4.7 反循环证伪层",
+  "personas": [
+    {
+      "id": "early-presbyopia-professional",
+      "label": "初老花职场人士",
+      "name": "early-presbyopia-professional",
+      "evidence_level": "H1",
+      "age_range": "45-50",
+      "jtbd": "第一次需要老花镜，但不想承认自己'老了'。需要在会议室里能看清文件但不想戴'老人镜'。",
+      "priority_initiative": "第一次需要老花镜，但绝不想看起来像戴'老人镜'——在不牺牲形象的前提下恢复近距离阅读能力。",
+      "success_factors": "开会/看合同能立刻看清；没人注意到这是老花镜；被同事/客户夸'看起来精神'。",
+      "perceived_barriers": "标签耻辱（老花=老）；不确定该买老花镜还是渐进镜片；担心在线配镜不准；怕虚拟试戴是假效果。",
+      "decision_criteria": "颜值与不显老 > 品牌可信 > 价格 $10-30 > 退换保障 > 镜片品牌。",
+      "buying_journey": "Google 搜 'reading glasses for 45' / 'stylish reading glasses' → 看 PDP 虚拟试戴 → 犹豫'会不会显老' → 比价 2-3 站 → 用真实摄像头试戴 → 下单。",
+      "buying_motivation": "重新享受阅读和工作表现不下降",
+      "buying_barrier": "抗拒'老人'标签；不确定自己是否需要老花镜还是渐进镜片",
+      "decision_cycle": "中等（$10-30 价位，但心理门槛高）",
+      "info_channels": "Google 搜索（主动查询）、朋友推荐",
+      "price_sensitivity": "中等——愿为好看的设计多付钱",
+      "price_tolerance": "中——愿为不显老设计多付 $10-20",
+      "trust_triggers": "虚拟试戴（'这就是我的脸'）、专业处方指南、品牌镜片背书",
+      "triggers": {
+        "theme_keywords": [
+          "reading glasses",
+          "progressive",
+          "office",
+          "professional",
+          "first reading glasses",
+          "stylish",
+          "square",
+          "virtual try on"
+        ],
+        "material_keywords": ["TR90", "acetate", "lightweight"],
+        "price_min": 6,
+        "price_max": 30,
+        "tracks": []
+      },
+      "core_objection": "戴上显老 / 承认自己需要老花镜 = 承认老了",
+      "psychology": {
+        "core_motivation": "保持专业形象的同时解决看不清——视觉升级而非'认老'。",
+        "self_congruity": {
+          "actual": "还是那个不服老、被工作推着走的我",
+          "ideal": "被看见依然年轻干练、从容不迫"
+        },
+        "behavioral_economics": [
+          {
+            "factor": "social proof",
+            "anchor": "'看不出是老花镜'（同伴评价）",
+            "content_use": "去老年化叙事：不写'老花'写'视觉升级'，Hero/Overview 强调像配饰不像医疗器械"
+          },
+          {
+            "factor": "loss aversion",
+            "anchor": "继续眯眼/错文件的隐性代价",
+            "content_use": "职场失误场景（开会看不清投影、文件拿远）"
+          }
+        ],
+        "collector_psychology": "不收藏，但要'不显老'的体面",
+        "trigger_moments": [
+          "开会看不清投影",
+          "手机字号越调越大",
+          "被同事问'你是不是老花了'",
+          "读合同串行"
+        ]
+      },
+      "economic_profile": {
+        "income_benchmark": {
+          "fact": "45-50 岁在职人群收入中位，欧美约 $55k–85k/年",
+          "source": "US BLS 收入统计 / OECD 年龄-收入曲线",
+          "tier": "T3"
+        },
+        "price_position": {
+          "verdict": "$26 命中其价格带（Core $6–29）",
+          "math": "index $26 落在 Core 带中位，心理可接受",
+          "tier": "T2"
+        },
+        "price_band": { "min": 10, "max": 30 },
+        "payment_behavior": "单次支付，偶用分期；下单前会反复试戴"
+      },
+      "evidence": [
+        {
+          "claim": "全球约 22 亿人存在近视力损害，40 岁后发生率陡增，阅读需求刚性",
+          "tier": "T3",
+          "source": "WHO World Report on Vision (2019)"
+        },
+        {
+          "claim": "45-55 人群抗拒显老老花镜，'去老年化/时尚'眼镜需求持续上升",
+          "tier": "T3",
+          "source": "Grand View Research DTC 眼镜市场报告 + 竞品 ZEELOOL 品类扩张"
+        }
+      ],
+      "hypotheses": [
+        {
+          "claim": "职场初老花用户愿为'看不出是老花镜'的设计多付 $10-20",
+          "validation_plan": "A/B：'工作场景+不显老'叙事 vs 纯功能叙事的 PDP 加购率对比（需 200 访客，GSC/热图佐证）"
+        }
+      ],
+      "evidence_status": "documented_external",
+      "market_signals": [
+        {
+          "type": "search",
+          "source": "Google autocomplete: 'reading glasses for 45 50', 'stylish reading glasses'"
+        },
+        {
+          "type": "review",
+          "source": "ZEELOOL / Amazon reading glasses 评论区：'looks young' 高频正面词"
+        }
+      ],
+      "buyer_psychology": {
+        "want": "看清且不像老人",
+        "desire": "职场自信不下降、被夸精神",
+        "fear": "被人看出戴老花镜 = 承认老了",
+        "doubt": "我不确定要老花镜还是渐进镜片",
+        "trigger": "开会看不清投影 / 手机字太小 / 被同事点破",
+        "proof": "真实摄像头虚拟试戴 + 3 周渐进保障",
+        "action": "先试戴再下单，下单时加购渐进"
+      },
+      "falsification_status": "UNFALSIFIED",
+      "last_challenged": "2026-10-07",
+      "counter_evidence": [],
+      "coverage_tokens": [
+        "reading glasses",
+        "virtual try on",
+        "stylish",
+        "work",
+        "office",
+        "professional"
+      ],
+      "content_angles": ["去老年化叙事", "职场场景", "虚拟试戴引导"],
+      "trust_evidence_priority": [
+        "Virtual Try-On",
+        "3-week progressive guarantee",
+        "Essilor",
+        "ZEISS"
+      ],
+      "habitats": ["Google Search", "LinkedIn", "办公室", "Reddit r/glasses"]
+    },
+    {
+      "id": "progressive-curious",
+      "label": "渐进镜片好奇者",
+      "name": "progressive-curious",
+      "evidence_level": "H1",
+      "age_range": "50-55",
+      "jtbd": "已有老花镜，但频繁摘戴很烦。听说渐进镜片可以一副搞定，但担心适应不了。",
+      "priority_initiative": "用一副渐进镜片替换'近视镜+老花镜'两副切换，恢复'一副搞定远近'的便利。",
+      "success_factors": "看远看近一副搞定；适应期短、不晕；配镜数据准确。",
+      "perceived_barriers": "渐进适应焦虑（'听说要适应很久'）；不确定度数是否适合渐进；在线配镜怕测量不准。",
+      "decision_criteria": "3 周适应保障 > 镜片品牌（ZEISS/Essilor）> 口碑/评测 > 价格 $22-35。",
+      "buying_journey": "Reddit r/glasses 搜 'progressive adaptation how long' → 读渐进科普 → 比保障条款 → 用 PD 工具 → 下单。",
+      "buying_motivation": "一副眼镜解决看远看近，不再频繁摘戴",
+      "buying_barrier": "渐进镜片适应焦虑（'听说要适应很久'）；不确定自己的度数是否适合",
+      "decision_cycle": "较长（需要教育内容建立信心）",
+      "info_channels": "Google 搜索、眼科医生建议、Reddit 论坛",
+      "price_sensitivity": "中低——渐进镜片本身价格较高，愿为品质付费",
+      "price_tolerance": "低——愿为渐进品质与保障付费",
+      "trust_triggers": "3 周适应保障承诺、渐进镜片科普内容、PD 测量工具",
+      "triggers": {
+        "theme_keywords": [
+          "progressive",
+          "progressive glasses",
+          "bifocal",
+          "reading glasses",
+          "no more switching",
+          "adaptation",
+          "prescription"
+        ],
+        "material_keywords": ["lightweight", "TR90"],
+        "price_min": 22,
+        "price_max": 35,
+        "tracks": []
+      },
+      "core_objection": "花了钱但适应不了，浪费了",
+      "psychology": {
+        "core_motivation": "生活便利性——不再来回换眼镜，恢复从容。",
+        "self_congruity": {
+          "actual": "频繁摘戴、将就着看的疲惫者",
+          "ideal": "一副搞定远近、从容优雅的使用者"
+        },
+        "behavioral_economics": [
+          {
+            "factor": "risk reversal",
+            "anchor": "3 周适应保障",
+            "content_use": "ProgressiveGuarantee 区：'不适应 3 周内免费换'逐字承诺"
+          },
+          {
+            "factor": "status quo bias",
+            "anchor": "现在摘戴已经习惯了",
+            "content_use": "点出频繁摘戴的隐性成本（丢、划、烦），激活改变意愿"
+          }
+        ],
+        "collector_psychology": "不收藏，追求'一副到位'",
+        "trigger_moments": [
+          "频繁摘戴眼镜的烦躁",
+          "看远看近都得换",
+          "眼科医生建议渐进",
+          "刷到渐进科普"
+        ]
+      },
+      "economic_profile": {
+        "income_benchmark": {
+          "fact": "50-55 岁人群收入仍处职业高点，欧美中位约 $50k–80k/年",
+          "source": "US BLS / OECD 年龄-收入曲线",
+          "tier": "T3"
+        },
+        "price_position": {
+          "verdict": "愿为渐进镜片付溢价到 $30-35",
+          "math": "$26 框架 + 渐进镜片总价落在 $30-40 区间，可接受",
+          "tier": "T2"
+        },
+        "price_band": { "min": 22, "max": 35 },
+        "payment_behavior": "可能使用分期/月付；决策前重度阅读科普"
+      },
+      "evidence": [
+        {
+          "claim": "渐进镜片市场需求持续增长，'一副搞定远近'是核心卖点",
+          "tier": "T3",
+          "source": "Grand View Research 渐进镜片市场报告"
+        },
+        {
+          "claim": "社区讨论普遍担忧渐进适应期（数天到数周不等），保障机制是强说服点",
+          "tier": "T2",
+          "source": "Reddit r/glasses 渐进镜片主题帖"
+        }
+      ],
+      "hypotheses": [
+        {
+          "claim": "3 周适应保障话术能显著降低渐进下单顾虑",
+          "validation_plan": "A/B：带保障 vs 不带保障的渐进加购率对比（需 150 访客）"
+        }
+      ],
+      "evidence_status": "documented_external",
+      "market_signals": [
+        {
+          "type": "question",
+          "source": "Reddit r/glasses 'progressive adaptation how long' 高赞提问"
+        },
+        { "type": "competitor", "source": "ZEELOOL 渐进镜片产品页保障条款" }
+      ],
+      "buyer_psychology": {
+        "want": "一副搞定远近",
+        "desire": "方便、自由、不用来回换眼镜",
+        "fear": "花了钱但适应不了，浪费了",
+        "doubt": "我的度数适合渐进吗 / 在线测量准吗",
+        "trigger": "来回摘戴眼镜的烦躁 / 医生建议",
+        "proof": "3 周适应保障 + PD 工具 + 镜片品牌",
+        "action": "选渐进镜片下单"
+      },
+      "falsification_status": "UNFALSIFIED",
+      "last_challenged": "2026-10-07",
+      "counter_evidence": [],
+      "coverage_tokens": [
+        "progressive",
+        "adapt",
+        "3-week",
+        "prescription",
+        "PD"
+      ],
+      "content_angles": ["渐进镜片科普", "适应保障", "PD 测量引导"],
+      "trust_evidence_priority": [
+        "3-week progressive guarantee",
+        "Measure PD at home",
+        "ZEISS",
+        "Essilor"
+      ],
+      "habitats": ["Reddit r/glasses", "Google Search", "眼科诊室"]
+    },
+    {
+      "id": "style-conscious-reader",
+      "label": "时尚阅读者",
+      "name": "style-conscious-reader",
+      "evidence_level": "H2",
+      "age_range": "45-55",
+      "jtbd": "需要老花镜但不想牺牲风格。要一副既好看又实用的眼镜，能搭配日常穿着。",
+      "priority_initiative": "找到一副既好看又实用的老花镜，戴出门像配饰而不是医疗器械。",
+      "success_factors": "被夸'你的眼镜好漂亮'；颜色百搭能配多套衣服；拍照上镜。",
+      "perceived_barriers": "市面老花镜'丑/显老'；款式太多选择困难；怕虚拟试戴效果不真实。",
+      "decision_criteria": "颜值与配色 > 款式 > 价格 $6-26 > 材质做工 > 品牌。",
+      "buying_journey": "Instagram/Pinterest 刷到种草 → 看色卡与材质 → 虚拟试戴 → 选色下单。",
+      "buying_motivation": "好看 + 实用，不被老年标签束缚",
+      "buying_barrier": "市面上老花镜大多'丑'或'显老'",
+      "decision_cycle": "短——看到好看的就买",
+      "info_channels": "Pinterest / Instagram / 朋友推荐",
+      "price_sensitivity": "低——愿为设计感付溢价",
+      "price_tolerance": "低——为设计感付溢价至 $26",
+      "trust_triggers": "产品美图、虚拟试戴、多色选择、材质信息",
+      "triggers": {
+        "theme_keywords": [
+          "stylish",
+          "fashionable reading glasses",
+          "designer readers",
+          "tortoise",
+          "square",
+          "colour",
+          "virtual try on",
+          "cute"
+        ],
+        "material_keywords": ["acetate", "tortoise", "TR90"],
+        "price_min": 6,
+        "price_max": 26,
+        "tracks": []
+      },
+      "core_objection": "戴上像奶奶/爷爷",
+      "psychology": {
+        "core_motivation": "眼镜=配饰，不是医疗器械——用配饰逻辑选眼镜。",
+        "self_congruity": {
+          "actual": "挑剔穿搭、怕被'老人镜'拉低颜值的我",
+          "ideal": "戴什么都好看、被夸有品味的我"
+        },
+        "behavioral_economics": [
+          {
+            "factor": "choice architecture",
+            "anchor": "多色/多材质一目了然",
+            "content_use": "色卡+FrameDetails 材质详情区：把选择做成'挑配饰'而非'配眼镜'"
+          },
+          {
+            "factor": "ownership imagination",
+            "anchor": "试戴后像自己的脸",
+            "content_use": "虚拟试戴区：真实摄像头 'see it on your face'，建立拥有感"
+          }
+        ],
+        "collector_psychology": "可能收藏 2-3 副换搭，按颜色/场合收集",
+        "trigger_moments": [
+          "看到种草图/博主佩戴",
+          "朋友戴了好看",
+          "要出席场合想搭新配饰"
+        ]
+      },
+      "economic_profile": {
+        "income_benchmark": {
+          "fact": "45-55 消费者可支配收入稳定，服装配饰支出仍在",
+          "source": "OECD 家庭消费结构数据",
+          "tier": "T3"
+        },
+        "price_position": {
+          "verdict": "愿为设计感付溢价至 $26",
+          "math": "$26 落在时尚带（$6-26）上限，颜值够可接受",
+          "tier": "T2"
+        },
+        "price_band": { "min": 6, "max": 26 },
+        "payment_behavior": "冲动单一支付；决策快速"
+      },
+      "evidence": [
+        {
+          "claim": "时尚老花镜需求旺盛，'好看不显老'是选购核心词",
+          "tier": "T2",
+          "source": "Instagram #readingglasses 话题盘点 + ZEELOOL 时尚款评论"
+        },
+        {
+          "claim": "多色/材质选择显著影响老花镜决策",
+          "tier": "T2",
+          "source": "Amazon reading glasses 评论区选色讨论"
+        }
+      ],
+      "hypotheses": [
+        {
+          "claim": "多色展示+真实摄像头试戴提升时尚画像转化",
+          "validation_plan": "A/B：单色 PDP vs 多色 PDP 的加购率（需 150 访客）"
+        }
+      ],
+      "evidence_status": "documented_external",
+      "market_signals": [
+        {
+          "type": "social",
+          "source": "Instagram #readingglasses / Pinterest 内容盘点"
+        },
+        { "type": "review", "source": "ZEELOOL / Amazon 时尚款评论" }
+      ],
+      "buyer_psychology": {
+        "want": "好看的眼镜",
+        "desire": "被夸'你的眼镜好漂亮'",
+        "fear": "戴上像奶奶/爷爷",
+        "doubt": "这颜色配我的脸吗",
+        "trigger": "看到种草图 / 朋友戴了被夸",
+        "proof": "虚拟试戴 + 多色实拍 + 材质信息",
+        "action": "选色直接下单"
+      },
+      "falsification_status": "UNFALSIFIED",
+      "last_challenged": "2026-10-07",
+      "counter_evidence": [],
+      "coverage_tokens": [
+        "stylish",
+        "tortoise",
+        "colour",
+        "color",
+        "virtual try on",
+        "frame"
+      ],
+      "content_angles": ["产品美学", "搭配建议", "多色展示", "虚拟试戴"],
+      "trust_evidence_priority": ["Virtual Try-On", "30-day returns"],
+      "habitats": ["Instagram", "Pinterest", "TikTok"]
+    },
+    {
+      "id": "value-seeking-couple",
+      "label": "务实夫妻配镜",
+      "name": "value-seeking-couple",
+      "evidence_level": "H2",
+      "age_range": "55-60",
+      "jtbd": "夫妻两人都需要老花镜或渐进镜片，想要性价比高、质量好的选择。",
+      "priority_initiative": "夫妻两人一次配齐性价比高、质量可靠的老花镜，不用跑实体店。",
+      "success_factors": "质量好+价格实在+退换省心；两人都满意；到货快。",
+      "perceived_barriers": "不确定在线配镜是否准确；担心退换麻烦；怕买到劣质镜架。",
+      "decision_criteria": "价格 > 质量口碑 > 退换保障 > 镜片品牌 > 品牌知名度。",
+      "buying_journey": "Google 搜 'affordable reading glasses online' → 比价 2-3 站 → 看 FAQ/退换 → 夫妻一起下单。",
+      "buying_motivation": "质量好 + 价格实在 + 方便（在线配镜不用跑实体店）",
+      "buying_barrier": "不确定在线配镜是否准确；担心退换麻烦",
+      "decision_cycle": "中等——会比较几个网站",
+      "info_channels": "Google 搜索、朋友推荐、Facebook",
+      "price_sensitivity": "高——$10-30 价位正好命中",
+      "price_tolerance": "高——$10-30 正好命中，超过 $35 就流失",
+      "trust_triggers": "退换保障、清晰的价格对比、镜片品牌背书、FAQ",
+      "triggers": {
+        "theme_keywords": [
+          "reading glasses",
+          "affordable",
+          "cheap",
+          "value",
+          "online",
+          "couple",
+          "free shipping",
+          "30-day returns"
+        ],
+        "material_keywords": ["TR90", "durable"],
+        "price_min": 6,
+        "price_max": 29,
+        "tracks": []
+      },
+      "core_objection": "在线配镜准不准 / 退换麻烦 / 性价比",
+      "psychology": {
+        "core_motivation": "省事省心省钱——全流程在家搞定，夫妻一起配齐。",
+        "self_congruity": {
+          "actual": "精打细算、货比三家的家庭采购者",
+          "ideal": "买到'赚到'的聪明消费者"
+        },
+        "behavioral_economics": [
+          {
+            "factor": "price anchoring",
+            "anchor": "对比实体店/竞品价格",
+            "content_use": "价格透明+镜片品牌背书区：'在线比实体店省一半'类锚定"
+          },
+          {
+            "factor": "risk reversal",
+            "anchor": "30 天退换",
+            "content_use": "ShippingReturns 区逐字口径 '30-day returns'"
+          }
+        ],
+        "collector_psychology": "不收藏，务实购买",
+        "trigger_moments": [
+          "实体店配镜太贵",
+          "朋友推荐在线配镜",
+          "夫妻同时需要换镜"
+        ]
+      },
+      "economic_profile": {
+        "income_benchmark": {
+          "fact": "55-60 岁收入仍稳定但支出谨慎，欧美中位约 $45k–70k/年",
+          "source": "US BLS / OECD 年龄-收入曲线",
+          "tier": "T3"
+        },
+        "price_position": {
+          "verdict": "$26 命中其价格带（Core $6-29）",
+          "math": "$6-29 是主流老花镜价格带，$26 处中位",
+          "tier": "T2"
+        },
+        "price_band": { "min": 6, "max": 29 },
+        "payment_behavior": "单次支付，货比三家后一次性下单"
+      },
+      "evidence": [
+        {
+          "claim": "55-60 消费者价格敏感，$10-30 是主流老花镜成交价位",
+          "tier": "T2",
+          "source": "EyeBuyDirect / Zenni 老花镜价格带盘点"
+        },
+        {
+          "claim": "在线配镜最大顾虑是准确性与退换流程",
+          "tier": "T2",
+          "source": "Amazon 评论 + Reddit r/glasses 在线配镜讨论"
+        }
+      ],
+      "hypotheses": [
+        {
+          "claim": "清晰退换+价格透明文案提升夫妻画像信任",
+          "validation_plan": "A/B：退换保障前置 vs 后置的转化（需 200 访客）"
+        }
+      ],
+      "evidence_status": "documented_external",
+      "market_signals": [
+        {
+          "type": "search",
+          "source": "Google 'affordable reading glasses online' 联想词"
+        },
+        {
+          "type": "review",
+          "source": "Zenni / EyeBuyDirect 评论区质量/退换讨论"
+        }
+      ],
+      "buyer_psychology": {
+        "want": "好的眼镜+实在的价格",
+        "desire": "省心省事，被认可会过日子",
+        "fear": "钱花了配错了镜",
+        "doubt": "在线配准吗 / 退换麻烦吗",
+        "trigger": "实体店太贵 / 被朋友推荐",
+        "proof": "退换保障 + FAQ + 镜片品牌背书",
+        "action": "对比后放心下单"
+      },
+      "falsification_status": "UNFALSIFIED",
+      "last_challenged": "2026-10-07",
+      "counter_evidence": [],
+      "coverage_tokens": [
+        "free shipping",
+        "30-day returns",
+        "affordable",
+        "value",
+        "prescription"
+      ],
+      "content_angles": ["价格对比", "退换保障", "镜片品牌背书", "FAQ"],
+      "trust_evidence_priority": [
+        "Free shipping worldwide",
+        "30-day returns",
+        "Essilor",
+        "Transitions"
+      ],
+      "habitats": ["Google Search", "Facebook", "Email newsletters"]
+    },
+    {
+      "id": "tech-savvy-presbyope",
+      "label": "科技尝鲜者",
+      "name": "tech-savvy-presbyope",
+      "evidence_level": "H1",
+      "age_range": "45-50",
+      "jtbd": "喜欢尝试新技术。看到手机量瞳距和虚拟试戴觉得酷，愿意在线配镜。",
+      "priority_initiative": "用手机完成试戴+量瞳距全流程，在线配镜不跑店。",
+      "success_factors": "测量准确、试戴真实、全流程在线可追踪。",
+      "perceived_barriers": "工具精度存疑（'手机能量准？'）；怕数据不准配错镜。",
+      "decision_criteria": "工具专业度 > 便利性 > 品牌 > 价格 $6-30。",
+      "buying_journey": "看到手机量瞳距/虚拟试戴功能 → 体验 PD 工具 → 虚拟试戴 → 下单。",
+      "buying_motivation": "技术创新 + 便利性 + 新奇体验",
+      "buying_barrier": "工具是否准确？测量结果靠谱吗？",
+      "decision_cycle": "短——被功能吸引就直接试",
+      "info_channels": "Tech blogs / YouTube / Product Hunt / Reddit",
+      "price_sensitivity": "低——为技术付费",
+      "price_tolerance": "低——功能足够新则超值感强",
+      "trust_triggers": "MediaPipe 技术说明、测量精度数据、PWA/App 体验",
+      "triggers": {
+        "theme_keywords": [
+          "virtual try on",
+          "measure pd",
+          "online",
+          "tech",
+          "smart",
+          "camera",
+          "app",
+          "digital"
+        ],
+        "material_keywords": ["TR90", "lightweight"],
+        "price_min": 6,
+        "price_max": 30,
+        "tracks": []
+      },
+      "core_objection": "工具不靠谱，测量不准",
+      "psychology": {
+        "core_motivation": "用科技优雅解决生活问题，做'未来已来'的尝鲜者。",
+        "self_congruity": {
+          "actual": "工具党、什么都想先试的人",
+          "ideal": "被认可为懂行、前沿的使用者"
+        },
+        "behavioral_economics": [
+          {
+            "factor": "novelty",
+            "anchor": "手机就是你的验光师",
+            "content_use": "PD 测量区：'Measure your PD at home in 30 seconds' 技术叙事"
+          },
+          {
+            "factor": "competence trust",
+            "anchor": "测量精度说明",
+            "content_use": "PD 区+FAQ 精度话术（真实摄像头非 AI 换脸）"
+          }
+        ],
+        "collector_psychology": "不收藏，追新功能",
+        "trigger_moments": [
+          "刷到虚拟试戴/量瞳距功能",
+          "新 iPhone/App 体验欲",
+          "在线配镜话题"
+        ]
+      },
+      "economic_profile": {
+        "income_benchmark": {
+          "fact": "45-50 科技消费者收入中位约 $55k–85k/年",
+          "source": "US BLS 收入统计",
+          "tier": "T3"
+        },
+        "price_position": {
+          "verdict": "为技术便利付费 $6-30",
+          "math": "$26 命中（功能足够新则超值感强）",
+          "tier": "T2"
+        },
+        "price_band": { "min": 6, "max": 30 },
+        "payment_behavior": "在线支付，常用 Apple Pay/快捷支付"
+      },
+      "evidence": [
+        {
+          "claim": "在线验光/量瞳距工具降低线上配镜门槛，行业主推虚拟试戴",
+          "tier": "T3",
+          "source": "DTC 眼镜行业报告（Warby Home Try-On / ZEELOOL VTO 模式）"
+        },
+        {
+          "claim": "用户对手机量瞳距工具好奇但疑虑精度",
+          "tier": "T2",
+          "source": "Product Hunt / Reddit 量瞳距工具讨论"
+        }
+      ],
+      "hypotheses": [
+        {
+          "claim": "'手机 30 秒量 PD'话术提升科技画像信任",
+          "validation_plan": "PD 工具页 → PDP 转化漏斗测试（需 100 次工具使用）"
+        }
+      ],
+      "evidence_status": "documented_external",
+      "market_signals": [
+        {
+          "type": "search",
+          "source": "Google 'measure pd at home app' 联想词"
+        },
+        { "type": "social", "source": "Product Hunt 量瞳距工具讨论" }
+      ],
+      "buyer_psychology": {
+        "want": "用手机搞定一切",
+        "desire": "分享新科技体验",
+        "fear": "工具不准配错镜",
+        "doubt": "这测量靠谱吗",
+        "trigger": "刷到 PD/虚拟试戴功能",
+        "proof": "精度说明 + 真实摄像头试戴",
+        "action": "体验工具后下单"
+      },
+      "falsification_status": "UNFALSIFIED",
+      "last_challenged": "2026-10-07",
+      "counter_evidence": [],
+      "coverage_tokens": [
+        "virtual try on",
+        "measure",
+        "PD",
+        "camera",
+        "online",
+        "phone"
+      ],
+      "content_angles": ["技术创新叙事", "工具教程", "体验分享"],
+      "trust_evidence_priority": ["Virtual Try-On", "Measure PD at home"],
+      "habitats": ["Product Hunt", "YouTube", "Reddit r/glasses", "Tech blogs"]
+    }
+  ],
+  "shadow_personas": [
+    {
+      "id": "gift-buyer-adult-child",
+      "label": "子女送礼者",
+      "name": "gift-buyer-adult-child",
+      "evidence_level": "H1",
+      "age_range": "20-35",
+      "jtbd": "给 45-60 岁的父母买老花镜当礼物，既实用又不显老。",
+      "note": "45-60 岁的人的子女（20-35 岁）为父母买老花镜作为礼物。节日季（圣诞/母亲节/父亲节）高峰。"
+    }
+  ]
+}

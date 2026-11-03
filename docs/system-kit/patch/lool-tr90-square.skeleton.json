@@ -1,0 +1,333 @@
+{
+  "slug": "lool-tr90-square",
+  "price": 26,
+  "approved_numbers": [26, 53, 19, 150, 130, 19.1],
+  "seo": {
+    "title": "[PLACEHOLDER-title 50-60chars]",
+    "description": "[PLACEHOLDER-meta-description]",
+    "h1": "[PLACEHOLDER-h1]",
+    "keywords": []
+  },
+  "content": {
+    "gallery": [
+      "https://loollook.com/api/admin/r2/product/miNyp0WIEyAGZrrnBpbOj.jpg",
+      "https://loollook.com/api/admin/r2/product/FACWNaC2D7r9ZgKHn5gtI.jpg",
+      "https://loollook.com/api/admin/r2/product/qFmRldixU4GaKiREvCp9y.jpg",
+      "https://loollook.com/api/admin/r2/product/jkfTtl3vM5bhFRtXkYnAJ.jpg",
+      "https://loollook.com/api/admin/r2/product/6OQXqZBH9tk55wLN7McV3.jpg",
+      "https://loollook.com/api/admin/r2/product/xZAymtAohLB3AS9CjM4mf.jpg"
+    ],
+    "overview": {
+      "heading": "[PLACEHOLDER-overview-heading]",
+      "body": "[PLACEHOLDER-overview-body]"
+    },
+    "vto": {
+      "heading": "Try them on — with your real camera",
+      "text": "Virtual Try-On uses your real camera so you can see exactly how they sit on your face. Not AI face-swap."
+    },
+    "frame_details": [
+      {
+        "label": "Material",
+        "value": "[PLACEHOLDER]"
+      },
+      {
+        "label": "Shape",
+        "value": "square"
+      },
+      {
+        "label": "Dimensions",
+        "value": "Lens 53×41mm · Bridge 19mm · Temple 150mm · Frame 130mm · 19.1g"
+      },
+      {
+        "label": "Weight",
+        "value": "19.1g"
+      }
+    ],
+    "lens_options": {
+      "brands": ["lool House", "Mingyue", "Essilor", "ZEISS", "Transitions"],
+      "note": "Progressive-ready — add your prescription at checkout."
+    },
+    "pd_measure": {
+      "text": "Measure your PD at home in 30 seconds with your phone — no ruler needed."
+    },
+    "progressive_guarantee": {
+      "text": "3-week progressive guarantee — if progressives don't adapt, exchange within 3 weeks.",
+      "note": "Free returns within 30 days."
+    },
+    "shipping_returns": {
+      "text": "Free shipping worldwide · 30-day returns"
+    },
+    "faq": [
+      {
+        "question": "[PLACEHOLDER]",
+        "answer": "[PLACEHOLDER]"
+      },
+      {
+        "question": "[PLACEHOLDER]",
+        "answer": "[PLACEHOLDER]"
+      },
+      {
+        "question": "[PLACEHOLDER]",
+        "answer": "[PLACEHOLDER]"
+      },
+      {
+        "question": "[PLACEHOLDER]",
+        "answer": "[PLACEHOLDER]"
+      }
+    ],
+    "reviews": {
+      "note": "[PLACEHOLDER-reviews-note（空窗期用 FAQ 兜底，禁社媒数字 r11）]"
+    },
+    "ldProperties": [
+      {
+        "name": "Frame",
+        "value": "? square · Lens 53×41mm · Bridge 19mm · Temple 150mm · Frame 130mm · 19.1g"
+      }
+    ],
+    "quote": {
+      "text": "[PLACEHOLDER 用户原话]",
+      "source": "[PLACEHOLDER post-id + 日期]"
+    }
+  },
+  "must_not_contain": [],
+  "personas": [
+    "early-presbyopia-professional",
+    "progressive-curious",
+    "style-conscious-reader",
+    "value-seeking-couple",
+    "tech-savvy-presbyope"
+  ],
+  "persona_report": [
+    "● early-presbyopia-professional — 初老花职场人士（匹配 5 项）",
+    "    · 主题命中 \"reading glasses\"",
+    "    · 材质命中 \"TR90\"",
+    "    · 价格 $26 ≥ $6（价格容忍：中——愿为不显老设计多付 $10-20）",
+    "    · 价格 $26 ≤ $30",
+    "    任务 (JTBD): 第一次需要老花镜，但不想承认自己'老了'。需要在会议室里能看清文件但不想戴'老人镜'。",
+    "    核心疑虑: 戴上显老 / 承认自己需要老花镜 = 承认老了",
+    "    心理结构: 保持专业形象的同时解决看不清——视觉升级而非'认老'。",
+    "    自我一致: 现实「还是那个不服老、被工作推着走的我」→ 理想「被看见依然年轻干练、从容不迫」",
+    "    收藏心理: 不收藏，但要'不显老'的体面",
+    "    行为要素: social proof → 去老年化叙事：不写'老花'写'视觉升级'，Hero/Overview 强调像配饰不像医疗器械 · loss aversion → 职场失误场景（开会看不清投影、文件拿远）",
+    "    触发时刻: 开会看不清投影 / 手机字号越调越大 / 被同事问'你是不是老花了' / 读合同串行",
+    "    经济对标: $26 命中其价格带（Core $6–29）（index $26 落在 Core 带中位，心理可接受）〔T2〕",
+    "    经济基准: 45-50 岁在职人群收入中位，欧美约 $55k–85k/年〔T3〕",
+    "    支付行为: 单次支付，偶用分期；下单前会反复试戴",
+    "    证据分级: T3×2 · 待验证假设 1 条",
+    "    信任证据优先级: Virtual Try-On > 3-week progressive guarantee > Essilor > ZEISS",
+    "    内容角度: 去老年化叙事 / 职场场景 / 虚拟试戴引导",
+    "    出没: Google Search, LinkedIn, 办公室, Reddit r/glasses",
+    "● progressive-curious — 渐进镜片好奇者（匹配 5 项）",
+    "    · 主题命中 \"progressive\"",
+    "    · 材质命中 \"TR90\"",
+    "    · 价格 $26 ≥ $22（价格容忍：低——愿为渐进品质与保障付费）",
+    "    · 价格 $26 ≤ $35",
+    "    任务 (JTBD): 已有老花镜，但频繁摘戴很烦。听说渐进镜片可以一副搞定，但担心适应不了。",
+    "    核心疑虑: 花了钱但适应不了，浪费了",
+    "    心理结构: 生活便利性——不再来回换眼镜，恢复从容。",
+    "    自我一致: 现实「频繁摘戴、将就着看的疲惫者」→ 理想「一副搞定远近、从容优雅的使用者」",
+    "    收藏心理: 不收藏，追求'一副到位'",
+    "    行为要素: risk reversal → ProgressiveGuarantee 区：'不适应 3 周内免费换'逐字承诺 · status quo bias → 点出频繁摘戴的隐性成本（丢、划、烦），激活改变意愿",
+    "    触发时刻: 频繁摘戴眼镜的烦躁 / 看远看近都得换 / 眼科医生建议渐进 / 刷到渐进科普",
+    "    经济对标: 愿为渐进镜片付溢价到 $30-35（$26 框架 + 渐进镜片总价落在 $30-40 区间，可接受）〔T2〕",
+    "    经济基准: 50-55 岁人群收入仍处职业高点，欧美中位约 $50k–80k/年〔T3〕",
+    "    支付行为: 可能使用分期/月付；决策前重度阅读科普",
+    "    证据分级: T3×1 T2×1 · 待验证假设 1 条",
+    "    信任证据优先级: 3-week progressive guarantee > Measure PD at home > ZEISS > Essilor",
+    "    内容角度: 渐进镜片科普 / 适应保障 / PD 测量引导",
+    "    出没: Reddit r/glasses, Google Search, 眼科诊室",
+    "● style-conscious-reader — 时尚阅读者（匹配 5 项）",
+    "    · 主题命中 \"square\"",
+    "    · 材质命中 \"TR90\"",
+    "    · 价格 $26 ≥ $6（价格容忍：低——为设计感付溢价至 $26）",
+    "    · 价格 $26 ≤ $26",
+    "    任务 (JTBD): 需要老花镜但不想牺牲风格。要一副既好看又实用的眼镜，能搭配日常穿着。",
+    "    核心疑虑: 戴上像奶奶/爷爷",
+    "    心理结构: 眼镜=配饰，不是医疗器械——用配饰逻辑选眼镜。",
+    "    自我一致: 现实「挑剔穿搭、怕被'老人镜'拉低颜值的我」→ 理想「戴什么都好看、被夸有品味的我」",
+    "    收藏心理: 可能收藏 2-3 副换搭，按颜色/场合收集",
+    "    行为要素: choice architecture → 色卡+FrameDetails 材质详情区：把选择做成'挑配饰'而非'配眼镜' · ownership imagination → 虚拟试戴区：真实摄像头 'see it on your face'，建立拥有感",
+    "    触发时刻: 看到种草图/博主佩戴 / 朋友戴了好看 / 要出席场合想搭新配饰",
+    "    经济对标: 愿为设计感付溢价至 $26（$26 落在时尚带（$6-26）上限，颜值够可接受）〔T2〕",
+    "    经济基准: 45-55 消费者可支配收入稳定，服装配饰支出仍在〔T3〕",
+    "    支付行为: 冲动单一支付；决策快速",
+    "    证据分级: T2×2 · 待验证假设 1 条",
+    "    信任证据优先级: Virtual Try-On > 30-day returns",
+    "    内容角度: 产品美学 / 搭配建议 / 多色展示 / 虚拟试戴",
+    "    出没: Instagram, Pinterest, TikTok",
+    "● value-seeking-couple — 务实夫妻配镜（匹配 5 项）",
+    "    · 主题命中 \"reading glasses\"",
+    "    · 材质命中 \"TR90\"",
+    "    · 价格 $26 ≥ $6（价格容忍：高——$10-30 正好命中，超过 $35 就流失）",
+    "    · 价格 $26 ≤ $29",
+    "    任务 (JTBD): 夫妻两人都需要老花镜或渐进镜片，想要性价比高、质量好的选择。",
+    "    核心疑虑: 在线配镜准不准 / 退换麻烦 / 性价比",
+    "    心理结构: 省事省心省钱——全流程在家搞定，夫妻一起配齐。",
+    "    自我一致: 现实「精打细算、货比三家的家庭采购者」→ 理想「买到'赚到'的聪明消费者」",
+    "    收藏心理: 不收藏，务实购买",
+    "    行为要素: price anchoring → 价格透明+镜片品牌背书区：'在线比实体店省一半'类锚定 · risk reversal → ShippingReturns 区逐字口径 '30-day returns'",
+    "    触发时刻: 实体店配镜太贵 / 朋友推荐在线配镜 / 夫妻同时需要换镜",
+    "    经济对标: $26 命中其价格带（Core $6-29）（$6-29 是主流老花镜价格带，$26 处中位）〔T2〕",
+    "    经济基准: 55-60 岁收入仍稳定但支出谨慎，欧美中位约 $45k–70k/年〔T3〕",
+    "    支付行为: 单次支付，货比三家后一次性下单",
+    "    证据分级: T2×2 · 待验证假设 1 条",
+    "    信任证据优先级: Free shipping worldwide > 30-day returns > Essilor > Transitions",
+    "    内容角度: 价格对比 / 退换保障 / 镜片品牌背书 / FAQ",
+    "    出没: Google Search, Facebook, Email newsletters",
+    "● tech-savvy-presbyope — 科技尝鲜者（匹配 5 项）",
+    "    · 主题命中 \"virtual try on\"",
+    "    · 材质命中 \"TR90\"",
+    "    · 价格 $26 ≥ $6（价格容忍：低——功能足够新则超值感强）",
+    "    · 价格 $26 ≤ $30",
+    "    任务 (JTBD): 喜欢尝试新技术。看到手机量瞳距和虚拟试戴觉得酷，愿意在线配镜。",
+    "    核心疑虑: 工具不靠谱，测量不准",
+    "    心理结构: 用科技优雅解决生活问题，做'未来已来'的尝鲜者。",
+    "    自我一致: 现实「工具党、什么都想先试的人」→ 理想「被认可为懂行、前沿的使用者」",
+    "    收藏心理: 不收藏，追新功能",
+    "    行为要素: novelty → PD 测量区：'Measure your PD at home in 30 seconds' 技术叙事 · competence trust → PD 区+FAQ 精度话术（真实摄像头非 AI 换脸）",
+    "    触发时刻: 刷到虚拟试戴/量瞳距功能 / 新 iPhone/App 体验欲 / 在线配镜话题",
+    "    经济对标: 为技术便利付费 $6-30（$26 命中（功能足够新则超值感强））〔T2〕",
+    "    经济基准: 45-50 科技消费者收入中位约 $55k–85k/年〔T3〕",
+    "    支付行为: 在线支付，常用 Apple Pay/快捷支付",
+    "    证据分级: T3×1 T2×1 · 待验证假设 1 条",
+    "    信任证据优先级: Virtual Try-On > Measure PD at home",
+    "    内容角度: 技术创新叙事 / 工具教程 / 体验分享",
+    "    出没: Product Hunt, YouTube, Reddit r/glasses, Tech blogs"
+  ],
+  "psych_jobs": [
+    {
+      "section": "Hero",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Is this the right pair for me?",
+      "psychological_job": "desire_capture",
+      "content_goal": "3 秒内建立产品认知：好看、专业、值得买",
+      "evidence_required": [],
+      "desired_action": "[PLACEHOLDER-这一节要让买家做什么]"
+    },
+    {
+      "section": "VirtualTryOn",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Can I see it on my face?",
+      "psychological_job": "ownership_imagination",
+      "content_goal": "引导用户用真实摄像头试戴，建立拥有感",
+      "evidence_required": [],
+      "desired_action": "[PLACEHOLDER-这一节要让买家做什么]"
+    },
+    {
+      "section": "Overview",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "What exactly am I getting?",
+      "psychological_job": "comprehension",
+      "content_goal": "30 秒建立完整产品认知：镜框+镜片+价格+配送",
+      "evidence_required": [],
+      "desired_action": "[PLACEHOLDER-这一节要让买家做什么]"
+    },
+    {
+      "section": "LensOptions",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Which lens is right for me?",
+      "psychological_job": "value_justification",
+      "content_goal": "清晰展示镜片层级和价格差异，帮助用户做出选择",
+      "evidence_required": [],
+      "desired_action": "[PLACEHOLDER-这一节要让买家做什么]"
+    },
+    {
+      "section": "FrameDetails",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Is the quality good?",
+      "psychological_job": "quality_assurance",
+      "content_goal": "用材质和工艺细节建立品质信任",
+      "evidence_required": [],
+      "desired_action": "[PLACEHOLDER-这一节要让买家做什么]"
+    },
+    {
+      "section": "PDMeasure",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "How do I get my PD?",
+      "psychological_job": "friction_reduction",
+      "content_goal": "消除 PD 测量恐惧——手机 30 秒搞定",
+      "evidence_required": [],
+      "desired_action": "[PLACEHOLDER-这一节要让买家做什么]"
+    },
+    {
+      "section": "ProgressiveGuarantee",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "What if progressives don't work for me?",
+      "psychological_job": "risk_removal",
+      "content_goal": "3 周适应保障消除渐进镜片购买恐惧",
+      "evidence_required": [],
+      "desired_action": "[PLACEHOLDER-这一节要让买家做什么]"
+    },
+    {
+      "section": "ProductData",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Will it fit? Are the specs right?",
+      "psychological_job": "fit_verification",
+      "content_goal": "硬核规格消除尺寸恐惧",
+      "evidence_required": [],
+      "desired_action": "[PLACEHOLDER-这一节要让买家做什么]"
+    },
+    {
+      "section": "ShippingReturns",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Can I trust the delivery?",
+      "psychological_job": "delivery_reassurance",
+      "content_goal": "Free shipping worldwide + 30-day returns 消除物流恐惧",
+      "evidence_required": [],
+      "desired_action": "[PLACEHOLDER-这一节要让买家做什么]"
+    },
+    {
+      "section": "Reviews",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Did anyone else trust this?",
+      "psychological_job": "social_proof",
+      "content_goal": "真实评论/FAQ 建立信任",
+      "evidence_required": [],
+      "desired_action": "[PLACEHOLDER-这一节要让买家做什么]"
+    },
+    {
+      "section": "FAQ",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "What could still go wrong?",
+      "psychological_job": "objection_clearing",
+      "content_goal": "逐条清掉下单前最后的疑虑",
+      "evidence_required": [],
+      "desired_action": "[PLACEHOLDER-这一节要让买家做什么]"
+    },
+    {
+      "section": "StickyBuyBar",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Is now the moment?",
+      "psychological_job": "action_trigger",
+      "content_goal": "零风险感推动此刻下单",
+      "evidence_required": [],
+      "desired_action": "[PLACEHOLDER-这一节要让买家做什么]"
+    },
+    {
+      "section": "Footer",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Who is behind this store?",
+      "psychological_job": "legitimacy",
+      "content_goal": "HK Lool Vision 实体可信度兜底",
+      "evidence_required": [],
+      "desired_action": "[PLACEHOLDER-这一节要让买家做什么]"
+    },
+    {
+      "section": "SEOMeta",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Is this what I searched for?",
+      "psychological_job": "intent_match",
+      "content_goal": "搜索承诺与页面兑现完全一致",
+      "evidence_required": [],
+      "desired_action": "[PLACEHOLDER-这一节要让买家做什么]"
+    }
+  ],
+  "images": [
+    "https://loollook.com/api/admin/r2/product/miNyp0WIEyAGZrrnBpbOj.jpg",
+    "https://loollook.com/api/admin/r2/product/FACWNaC2D7r9ZgKHn5gtI.jpg",
+    "https://loollook.com/api/admin/r2/product/qFmRldixU4GaKiREvCp9y.jpg",
+    "https://loollook.com/api/admin/r2/product/jkfTtl3vM5bhFRtXkYnAJ.jpg",
+    "https://loollook.com/api/admin/r2/product/6OQXqZBH9tk55wLN7McV3.jpg",
+    "https://loollook.com/api/admin/r2/product/xZAymtAohLB3AS9CjM4mf.jpg"
+  ]
+}

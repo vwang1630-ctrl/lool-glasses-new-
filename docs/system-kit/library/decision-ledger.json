@@ -1,0 +1,126 @@
+{
+  "manifest": "decision-ledger — 待裁决台账+授权分级（loollook.com 眼镜 DTC）",
+  "version": "V1.1.0",
+  "updated": "2026-10-08",
+  "method": "①每条待裁决事项标：能否阈值化/建议授权级别 ②站主拍板后记录进 history ③同类决策连续 30 天同向 → 自动提议升授权级",
+  "levels": {
+    "0": "逐条问（现行默认）",
+    "1": "阈值提议：系统自动起草+排队，站主批量批（一次一周）",
+    "2": "类别授权：某类变更永久免问，事后抽审（需站主签授权，数据：同类30天连续同向）",
+    "3": "全自治：永外——公域首发/花钱/对外承诺必须留人"
+  },
+  "authorizations": [
+    {
+      "class": "数据任务类",
+      "scope": "报告/扫描/排队/草案起草（GSC拉取/AI采样/内容draft落库）",
+      "level": "第2级（建议授予）",
+      "status": "待站主签授",
+      "granted_at": null
+    }
+  ],
+  "pending": [
+    {
+      "id": "d-resend-api-key",
+      "question": "RESEND_API_KEY 配置：Admin OTP 邮件发送依赖 Resend，当前未配置导致后台无法登录",
+      "can_automate": false,
+      "why": "需要站主提供 Resend API Key（resend.com 注册获取）",
+      "awaiting": "站主",
+      "since": "2026-10-07"
+    },
+    {
+      "id": "d-admin-email-routing",
+      "question": "admin@loollook.com 邮件路由：OTP 发到这个地址，需确认邮件路由已配置（CF Email Routing 或自建）",
+      "can_automate": false,
+      "why": "邮件路由属基础设施配置，需站主确认",
+      "awaiting": "站主",
+      "since": "2026-10-07"
+    },
+    {
+      "id": "d-gsc-verification",
+      "question": "Google Search Console 验证：sitemap.xml 需提交到 GSC，需站主确认 GSC 是否已验证 loollook.com",
+      "can_automate": false,
+      "why": "GSC 验证属站主域名所有权操作",
+      "awaiting": "站主",
+      "since": "2026-10-07"
+    },
+    {
+      "id": "d-homepage-images",
+      "question": "首页真实产品图片上传：当前首页为 Lovable 原型占位图，需上传真实产品照",
+      "can_automate": false,
+      "why": "产品图片属品牌资产，需站主提供或授权拍摄",
+      "awaiting": "站主",
+      "since": "2026-10-07"
+    },
+    {
+      "id": "d-stripe-webhook",
+      "question": "Stripe Webhook 配置：生产环境需配置 webhook endpoint 指向 /api/checkout/stripe-webhook",
+      "can_automate": false,
+      "why": "Stripe webhook 需在 Stripe Dashboard 配置，涉及支付安全",
+      "awaiting": "站主",
+      "since": "2026-10-07"
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-11-02",
+      "question": "Fuzz Sofa SYSTEM-KIT v0.2 全系统标准化 Phase A：数据层 + L1 活库补齐",
+      "answer": "已执行：① D1 migrations 0087/0088 创建 consult_events 与 ai_bot_hits 表；② 新建 /api/public/consult-track 路由接收 consult-track.ts beacon；③ 新建 ai-vs-real.json（AI 概念对象/标注词/证据级）并更新 pdp-toolbox.mjs r10 读取该库；④ 新建 capability-radar.md + capability-usage-map.md 并登记到 INDEX.md/system-versions.json；⑤ blog-framework-lock.json 修正表名 site_articles→blog_posts 并新增 ai_subjects/ai_label_tokens；⑥ framework-lock.json 新增 ai_vs_real_policy；⑦ INDEX.md / seo-geo-monthly.json / content-master.md 移除 stale llms.txt 缺失描述（实际已部署）。未动：L3/L4 站点专属层其它部分、L5 部署脚本改造、L6 监控上线，待 Phase B/C。",
+      "pattern": "系统标准化"
+    },
+    {
+      "date": "2026-10-07",
+      "question": "操盘手系统库文件从 Fuzz Sofa 切换到 loollook.com",
+      "answer": "确认，已执行全量重写",
+      "pattern": "系统适配新业务"
+    },
+    {
+      "date": "2026-10-07",
+      "question": "admin_users 表插入首条管理员记录",
+      "answer": "确认，admin@loollook.com (owner, active=1) 已插入",
+      "pattern": "基础设施搭建"
+    },
+    {
+      "date": "2026-10-08",
+      "question": "2号位定位裁决：全站老花镜产品按 Fashion Readers / Fashion Cheaters 口径出海",
+      "answer": "已定方向。lool-tr90-square 为首个落地 SKU：title≤68 + H1 + AI定义句 + HTML参数表 + 5条时尚FAQ + Schema(category=Fashion Readers, isAccessoryOrSparePartFor) + 免责声明上线；代码层 productSchema 去医疗化 + 静态规格区改 Diopter/Magnification；keyword-library V1.1.0 登记词族 + banned_terms。后续 SKU 直接套用模板。",
+      "pattern": "定位裁决"
+    },
+    {
+      "date": "2026-10-08",
+      "question": "全站接线启动：停止产品上传，操盘手先跑遍网站每个角落，把操盘手系统与每个区域对接",
+      "answer": "已裁决并执行 Phase 1（首页+全局壳）：建桥接层 src/lib/operator/index.ts（keyword/glossary/framework-lock/brand/seo-meta 运行时消费）；首页 head 接 seo-meta+keyword 库（title/desc/keywords/og:image）+ FAQPage JSON-LD（glossary 教育词）+ ItemList；Shop by Frame Shape / Trust / Knowledge Hub 接 glossary / framework-lock / content_matrix；__root 接 brand 口径 + GA4（G-FD4MN4RM7G）部署；llms.txt 路由上线（HTTP 200）。D1 修复 8668/8673 死链 + bestseller/is_new 标记。列表页/PDP/博客/工具/静态页按 Phase 2/3 分批接线。",
+      "pattern": "全站接线"
+    },
+    {
+      "date": "2026-10-08",
+      "question": "PDP 产品标题 3 行 → 2 行（不变字数，字体大小优先）",
+      "answer": "已执行（纯字号方案，图片保持原 50/50 不动）：H1 字号阶梯 text-xl md:text-3xl lg:text-[19px] xl:text-2xl（移动端 sticky 16px 单行截断不变；768-1023 单列 30px；1024-1279 双列 19px；1280+ 24px）。站主否决加宽 info 栏的 0.8fr/1.2fr 网格改法（图片变小），退回原 grid lg:grid-cols-2。约束：最紧的 1024px 双列下 71 字标题须 ≤19px 才能压进 2 行；Tailwind v4 编译后变体按 min-width 升序（md→lg→xl），xl 在 lg 之后保证 1280+ 24px 覆盖 19px。真机 Playwright 320-1536 双 SKU 实测：桌面全部 2 行、移动 sticky 1 行、零横向溢出、1024px 下 gallery/info=456/456（50/50 复原）。注意：8663 的 seo.h1 71 字超 68 字标题纪律，后续上新需压标题长度。",
+      "pattern": "设计界面修复"
+    },
+    {
+      "date": "2026-10-08",
+      "question": "PDP 信任区改造：服务与保障并入现货/促销行三并存，点箭头弹窗代替原下拉手风琴",
+      "answer": "已执行并上线（Version df797a77）：信任行改三项并存（现货·5–8天发货 / 买1副再购50% / 服务与保障+chevron 保留），服务与保障改点击弹窗（GuaranteesModal：fixed 遮罩 z-60 + 5 条保障卡片 + 背板/×均可关闭），删除原手风琴下拉卡。收益：信息栏不再被手风琴撑高，图片下方空隙归零（1280+/1440 下 gridBottom=imgBottom 间隙 0；1024 下剩余 55px 为 info 栏自身内容高度）。真机 Playwright 双 SKU（lool-tr90-square / lool-8663）× 1024/1280/1440 全 PASS：三项并存、弹窗 5 项、背板关/×关均生效、零横向溢出。注意：React 19 水合需 ~3s，首次交互前须等水合完成；弹窗/遮罩沿用文件内 SizeChartModal 既有模态模式。",
+      "pattern": "设计界面修复"
+    },
+    {
+      "date": "2026-10-08",
+      "question": "PDP 标题行距过小：两行标题上下贴字（line-height=1），与其它文字行距不协调",
+      "answer": "已执行并上线（Version 99f53ce5）：H1 从 leading-none(1.0) 改为 leading-snug(1.375)。行盒高度 19px→26.1px（1024-1279）/ 24px→33px（1280+），两行标题有清晰呼吸间隙；换行不受行高影响，仍维持 2 行。真机 Playwright 双 SKU × 1024/1280/1440 全 PASS：ratio=1.375、lines=2、零横向溢出。约束：后续若再加行高需复核 1024px 双列最紧场景，且 -mt-1 上偏移保留以对齐上方 tag。",
+      "pattern": "设计界面修复"
+    },
+    {
+      "date": "2026-10-08",
+      "question": "PDP Product details 区框架改造：按 Pdp-Exact-Clone 设计稿重排（米白圆角卡 + 左规格组 / 右产品卡）",
+      "answer": "已执行并上线（Version 4946e7e7）：详情 Tab 改为设计稿排版——米白卡（bg-secondary/60，rounded-2xl，lg 下 grid-cols-[1fr_348px] gap-14）左栏 3 个规格组（Core Dimensions 5 行 / Fit & Comfort 5 行 / Material & Function 6 行，label 宽 138px 右对齐 + 组间 1px 分隔线）；右栏产品名（18.5px/800）+ tagline（<strong> 加粗破折号前半句）+ 3 个白底圆角 chips + 白卡含产品图（img-box，加载失败 onError 隐藏）+ 尺寸示意图（diagram-box SVG）。根因修复：adaptProduct 此前丢弃 intro 字段致 tagline 不渲染，已补 Product/ApiProduct 类型 + 映射；i18n 新增 3 个组标题键（en/zh）。真机 Playwright 双 SKU × 1024/1280/1440 + 中英 3 连跑 89/89 全 PASS（含 tab 切换、规格行、chips、diagram、零横向溢出）。zh tagline 无破折号→整句渲染不加粗，属正常回退。注意：lool-8663 的 4 个颜色图在 R2 全部 404（商品 id s7SilXJaoi8J6zAtb2bLX，历史数据未上传，Hero gallery 与新详情卡均受影响），当前靠 onError 隐藏兜底，需站主补传真实产品图。",
+      "pattern": "设计界面修复"
+    },
+    {
+      "date": "2026-10-08",
+      "question": "PDP 底部重复区块移除：去掉页面底部与上方 Tab 切换详情重复的长内容块（The 19.1g Oversized Square Cheater…/Try them on 虚拟试戴/镜片说明/配送与退换/常见问题/评价），保留上方 Tab 详情页为唯一内容源",
+      "answer": "已执行并上线（Version 7cc2b490）：移除 ProductContentSections 无条件渲染的 DB sections 长内容块（overview/vto/frame spec/lens/shipping/FAQ/reviews/quote 共 189 行），替换为注释说明；顶部 6 Tab（商品详情/商品描述/镜片说明/配送与退换/常见问题/评价）成为唯一内容出口。内容保全：FAQ 经 faq Tab + 头部 FAQPage JSON-LD 保留，配送 V1.1 框架锁定文案经 shipping Tab 保留，Reviews Tab 为真实评价组件（tr90 已有 1 条真实评价 cici·2026-10-08）。详情页按 Pdp-Unified-Keep-Icons.html 对齐：grid 右栏 348px→360px、分隔线色改 #EDE3DA、chip/img-box/diagram-box 圆角与留白精确匹配设计稿。真机 Playwright 双 SKU（lool-tr90-square / lool-8663）× 1024/1280/1440 + 中英 101/101 全 PASS：底部重复块 4 条特征字符串 0 命中、6 Tab 各自内容可切换（描述/镜片/配送 V1.1/FAQ/Reviews 面板）、详情页 360px 双列、零横向溢出。SEO 注：DB sections 不再出现在 SSR 源码，但内容已由 Tab + FAQPage JSON-LD 覆盖，无信息丢失。遗留：lool-8663 4 个颜色图在 R2 仍 404，需站主补传真实产品图。",
+      "pattern": "设计界面修复"
+    }
+  ],
+  "review_cadence": "周日复盘随 operator-next 过一遍 pending+history；30 天模式识别自动提议升授权级"
+}

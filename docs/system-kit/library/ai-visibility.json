@@ -1,0 +1,74 @@
+{
+  "manifest": "lool ai-visibility — GEO 采样台账 V1.0（零成本版：手工 prompt 采样替代 Profound/Otterly 监测回路）",
+  "version": "V1.0.0",
+  "updated": "2026-10-07",
+  "method": "每月 1 次：prompt_bank 全量在 ChatGPT / Perplexity / Gemini 免费版各跑一遍 → 记录每问：我们是否被引用、引用我们的域名、我们排位。写入 check_log。连续 2 次未引用的关键词 → 查该词落地页内容缺口（对照 keyword-library）",
+  "prompt_bank": [
+    {
+      "persona_link": "early-presbyopia-professional",
+      "prompts": [
+        "best reading glasses for professionals over 45",
+        "how to choose reading glasses if you don't look old",
+        "stylish reading glasses for work"
+      ]
+    },
+    {
+      "persona_link": "progressive-curious",
+      "prompts": [
+        "progressive lenses vs reading glasses",
+        "how long does it take to adapt to progressive lenses",
+        "are progressive lenses worth it"
+      ]
+    },
+    {
+      "persona_link": "style-conscious-reader",
+      "prompts": [
+        "fashionable reading glasses",
+        "reading glasses that don't make you look old",
+        "best frame styles for reading glasses"
+      ]
+    },
+    {
+      "persona_link": "value-seeking-couple",
+      "prompts": [
+        "affordable reading glasses online",
+        "best value progressive lenses",
+        "cheap glasses with good quality"
+      ]
+    },
+    {
+      "persona_link": "tech-savvy-presbyope",
+      "prompts": [
+        "virtual try on glasses online",
+        "how to measure pupillary distance at home",
+        "apps for measuring PD"
+      ]
+    },
+    {
+      "persona_link": "gift-buyer-adult-child",
+      "prompts": [
+        "best reading glasses gift for parents",
+        "progressive lenses gift ideas",
+        "stylish glasses for mom over 50"
+      ]
+    },
+    {
+      "persona_link": null,
+      "prompts": [
+        "best reading glasses brands 2026",
+        "lool glasses",
+        "loollook.com reviews",
+        "ageless eyewear brands"
+      ]
+    }
+  ],
+  "check_log": [
+    {
+      "date": "2026-10-07",
+      "engine": "baseline（首测，尚未采样）",
+      "prompts": [],
+      "baseline": "GEO 基线待建立——首次全量采样在下次月度执行",
+      "new_competitors": []
+    }
+  ]
+}

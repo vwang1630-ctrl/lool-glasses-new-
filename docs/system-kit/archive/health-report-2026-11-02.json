@@ -1,0 +1,107 @@
+{
+  "origin": "https://loollook.com",
+  "generated_at": "2026-11-02T16:19:40.425Z",
+  "checks": [
+    {
+      "name": "首页",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "PLP",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "PDP",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "博客列表",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "博客首文",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "虚拟试戴",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "量瞳距",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "llms.txt",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "sitemap.xml",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "robots.txt",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "PDP Product JSON-LD",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "Blog Index ItemList JSON-LD",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "Blog Article JSON-LD",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "/api/catalog",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "products",
+      "ok": true,
+      "detail": "SKIP: no CLOUDFLARE_API_TOKEN"
+    },
+    {
+      "name": "active blog posts",
+      "ok": true,
+      "detail": "SKIP: no CLOUDFLARE_API_TOKEN"
+    },
+    {
+      "name": "consult_events 24h",
+      "ok": true,
+      "detail": "SKIP: no CLOUDFLARE_API_TOKEN"
+    },
+    {
+      "name": "ai_bot_hits 24h",
+      "ok": true,
+      "detail": "SKIP: no CLOUDFLARE_API_TOKEN"
+    },
+    {
+      "name": "orders 24h",
+      "ok": true,
+      "detail": "SKIP: no CLOUDFLARE_API_TOKEN"
+    }
+  ],
+  "summary": {
+    "pass": 19,
+    "fail": 0,
+    "total": 19
+  },
+  "ok": true
+}

@@ -1,0 +1,30 @@
+{
+  "$schema_note": "AR 试戴商品参数规范 v0.1 —— 每款眼镜一条记录。前端插件读取 params 把商品图合成到人脸上;数值由运营在 demo 页滑杆调出后回填。可选参数(2026-10-11 追加):templeColor(镜腿颜色,缺省取商品图边缘主色)、templeWidthRatio(镜腿粗细比,缺省 0.04,即瞳距的 4%)。",
+  "products": [
+    {
+      "sku": "DEMO-BLACK-01",
+      "name": "方框·黑",
+      "image": "assets/demo-black.png",
+      "type": "2D",
+      "params": {
+        "widthRatio": 2.15,
+        "offsetRatio": 0,
+        "rotFollow": 0.95,
+        "templeColor": "#141414",
+        "templeWidthRatio": 0.04
+      }
+    },
+    {
+      "sku": "ZJGT285314-01",
+      "name": "Zeelool Jacqui 方框(参数示意,数值需实调)",
+      "image": "assets/jacqui.png",
+      "type": "2D",
+      "params": {
+        "widthRatio": 2.2,
+        "offsetRatio": 0,
+        "rotFollow": 0.95,
+        "templeWidthRatio": 0.04
+      }
+    }
+  ]
+}

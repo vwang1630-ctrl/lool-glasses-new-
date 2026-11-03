@@ -1,0 +1,45 @@
+{
+  "manifest": "lool 部门编制表（loollook.com DTC 眼镜）",
+  "version": "V1.0.0",
+  "updated": "2026-10-07",
+  "departments": [
+    {
+      "id": "dept-content",
+      "name": "内容部",
+      "full_name": "内容部（blog + 社媒出口）",
+      "established": "2026-10-07",
+      "mandate": "blog 是母体，社媒是出口。每篇 blog 自动切发各平台 native 形状，每发必带 UTM，每篇可归因。",
+      "reports_to": "操盘手系统",
+      "jurisdiction": {
+        "green_直接执行": [
+          "每篇 blog 的全套社媒出口产稿",
+          "social-calendar 排期与执行",
+          "按 social-platform-rules 执行评论区互动",
+          "周度数据复盘",
+          "Pinterest 日更 + Instagram Reels 2-3/周 + Facebook 2/周"
+        ],
+        "yellow_提案待批": [
+          "新平台开通（TikTok/Reddit 待站主批）",
+          "playbook 规则修订",
+          "对外 Collab 邀请"
+        ],
+        "red_永不越界": [
+          "不碰 PDP/价格/站内文案",
+          "不自导自演：禁伪装买家身份",
+          "涉钱投放一律站主拍板",
+          "IG caption 挂链接（限流红线）",
+          "禁用 senior/elderly/old/aging/presbyopia"
+        ]
+      },
+      "kpi": {
+        "primary": "出站 CTR（社媒→blog→站内会话）",
+        "channels": [
+          "Pinterest (organic)",
+          "Instagram (organic)",
+          "Facebook (organic)"
+        ]
+      }
+    }
+  ],
+  "expansion_rule": "新部门由站主命名+裁决设立；编制与预算变化属站主裁决区"
+}

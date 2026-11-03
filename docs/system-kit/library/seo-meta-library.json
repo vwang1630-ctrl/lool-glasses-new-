@@ -1,0 +1,164 @@
+{
+  "manifest": "lool seo-meta-library — 眼镜 SEO meta 库 V1.0",
+  "version": "V1.0.0",
+  "updated": "2026-10-07",
+  "tracks": {
+    "reading_glasses_main": {
+      "primary": "reading glasses",
+      "secondary": [
+        "best reading glasses",
+        "reading glasses for women",
+        "reading glasses for men"
+      ],
+      "funnel_stage": "attract"
+    },
+    "progressive_lenses": {
+      "primary": "progressive lenses",
+      "secondary": [
+        "progressive vs reading glasses",
+        "how to adapt to progressive lenses"
+      ],
+      "funnel_stage": "trust"
+    }
+  },
+  "keyword_clusters": {
+    "en": [
+      {
+        "id": "cluster-reading-glasses",
+        "primary": "reading glasses",
+        "keywords": [
+          "best reading glasses",
+          "reading glasses for women",
+          "reading glasses for men",
+          "stylish reading glasses",
+          "buy reading glasses online"
+        ],
+        "search_volume_estimate": "high",
+        "competition": "high",
+        "assigned_pillar": "journal:reading-glasses-guide"
+      },
+      {
+        "id": "cluster-progressive-lenses",
+        "primary": "progressive lenses",
+        "keywords": [
+          "progressive vs reading glasses",
+          "how to adapt to progressive lenses",
+          "progressive lenses cost",
+          "are progressive lenses worth it"
+        ],
+        "search_volume_estimate": "medium",
+        "competition": "medium",
+        "assigned_pillar": "journal:progressive-lenses-explained"
+      },
+      {
+        "id": "cluster-face-shape",
+        "primary": "glasses for face shape",
+        "keywords": [
+          "glasses for round face",
+          "glasses for square face",
+          "how to choose glasses frames",
+          "best frame shapes"
+        ],
+        "search_volume_estimate": "high",
+        "competition": "medium",
+        "assigned_pillar": "journal:face-shape-frame-guide"
+      },
+      {
+        "id": "cluster-blue-light",
+        "primary": "blue light glasses",
+        "keywords": [
+          "do blue light glasses work",
+          "blue light glasses for computer",
+          "blue light blocking lenses"
+        ],
+        "search_volume_estimate": "high",
+        "competition": "high",
+        "assigned_pillar": "journal:lens-tech-buyers-guide"
+      },
+      {
+        "id": "cluster-virtual-tryon",
+        "primary": "virtual try on glasses",
+        "keywords": [
+          "try glasses online",
+          "virtual eyeglass try on",
+          "see glasses on my face"
+        ],
+        "search_volume_estimate": "medium",
+        "competition": "low",
+        "assigned_pillar": "/try-on",
+        "note": "差异化功能词，竞争低，lool 有真实摄像头试戴优势"
+      },
+      {
+        "id": "cluster-fashion-readers",
+        "primary": "fashion readers",
+        "keywords": [
+          "fashion cheaters",
+          "oversized cheaters",
+          "square fashion readers",
+          "buy fashion readers online",
+          "vintage round fashion readers",
+          "Boston oval fashion readers",
+          "acetate fashion readers",
+          "TR90 fashion readers"
+        ],
+        "search_volume_estimate": "medium",
+        "competition": "medium",
+        "assigned_pillar": "/products",
+        "note": "Fashion Readers / Cheaters 定位词簇（2026-11-02 政策统一 V1.1.0）"
+      }
+    ],
+    "zh": [
+      {
+        "id": "cluster-老花镜",
+        "primary": "老花镜",
+        "keywords": [
+          "老花镜品牌",
+          "防疲劳老花镜",
+          "时尚老花镜",
+          "渐进多焦点镜片"
+        ],
+        "search_volume_estimate": "medium",
+        "competition": "medium",
+        "note": "中文关键词，但目标市场是海外，优先级低于 EN"
+      }
+    ]
+  },
+  "deprecated_fake_words": [
+    "reading glasses that make you look 10 years younger",
+    "anti-aging eyeglasses",
+    "glasses for old people",
+    "senior reading glasses"
+  ],
+  "meta_patterns": {
+    "title": {
+      "rule": "50-60 字符，包含主关键词 + 品牌名",
+      "pattern": "{keyword} — {benefit} | lool",
+      "examples": [
+        "Reading Glasses — Stylish Frames for 45+ | lool",
+        "Progressive Lenses — 3-Week Adaptation Guarantee | lool",
+        "Virtual Try-On — See Glasses on Your Face | lool"
+      ]
+    },
+    "description": {
+      "rule": "150-160 字符，包含行动号召",
+      "pattern": "{benefit_statement}. {feature}. {cta}.",
+      "examples": [
+        "Ageless reading glasses redesigned for the 45-60 generation. Pro-grade lenses, virtual try-on, free shipping. Find your perfect pair.",
+        "Progressive lenses with a 3-week adaptation guarantee. Essilor & ZEISS brands. Try them virtually before you buy."
+      ]
+    }
+  },
+  "price_ladder": {
+    "frames": {
+      "entry": "$6-10（Lumen Clear Square, Iris Tortoise Round）",
+      "mid": "$22-26（Noir Matte Black, Aurora Tortoise）",
+      "premium": "$28-29（Halo Gold Aviator, Atlas Slim Metal）"
+    },
+    "lenses": {
+      "house": "lool House — 自有品牌，最优性价比",
+      "mainstream": "Mingyue — 中国领先制造商",
+      "premium": "Essilor（Crizal）/ ZEISS（DuraVision）",
+      "functional": "Transitions — 光致变色技术"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "origin": "https://loollook.com",
+  "generated_at": "2026-11-02T13:53:06.054Z",
+  "results": [
+    {
+      "name": "make-system-kit",
+      "status": "PASS",
+      "note": "exit 0"
+    },
+    {
+      "name": "lint",
+      "status": "PASS",
+      "note": "exit 0"
+    },
+    {
+      "name": "build",
+      "status": "PASS",
+      "note": "exit 0"
+    },
+    {
+      "name": "D1 migrations dry-run",
+      "status": "SKIP",
+      "note": "CLOUDFLARE_API_TOKEN not set"
+    },
+    {
+      "name": "deploy-smoke",
+      "status": "SKIP",
+      "note": "origin unreachable from this environment"
+    },
+    {
+      "name": "system files",
+      "status": "SKIP",
+      "note": "origin unreachable"
+    },
+    {
+      "name": "blog article in sitemap",
+      "status": "SKIP",
+      "note": "origin unreachable"
+    }
+  ],
+  "summary": {
+    "pass": 3,
+    "fail": 0,
+    "skip": 4,
+    "total": 7
+  },
+  "ok": true
+}

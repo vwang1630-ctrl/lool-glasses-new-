@@ -1,0 +1,25 @@
+[PASS] title == seo.title
+[PASS] meta description 匹配
+[PASS] H1 在 DOM
+[PASS] Hero 图在线上: JxSqme9fOvlspPYXyG0si.jpg
+[PASS] Hero 图在线上: t4pcTmciSSwLSeQSXmljA.jpg
+[PASS] Hero 图在线上: 4I1greYvANq8HjSkfeCqp.jpg
+[PASS] Hero 图在线上: g2TK1cshrzzq7dtNp8YdR.jpg
+[PASS] Hero 图在线上: 7kpJHlqZ6MPK6tieV6uwx.jpg
+[PASS] Hero 图在线上: coNUjqF1rzinqu0EnCo9M.jpg
+[PASS] Hero 图在线上: Pq61t2qlokakH0YXW5rBa.jpg
+[PASS] Hero 图在线上: raVkU2dliCMpOcHtZqLkZ.jpg
+[PASS] 信任令牌在 DOM: Virtual Try-On
+[PASS] 信任令牌在 DOM: Free tracked shipping on orders over $69
+[PASS] 信任令牌在 DOM: 30-day returns
+[PASS] 信任令牌在 DOM: Magnification only
+[PASS] 信任令牌在 DOM: not a medical device
+[PASS] 信任令牌在 DOM: Blue light filtering
+[PASS] 信任令牌在 DOM: UV400
+[PASS] 信任令牌在 DOM: Scratch-resistant
+[PASS] 配送口径在 DOM: Free tracked shipping on orders over $69
+[PASS] 配送口径在 DOM: 30-day free returns & exchanges for non-prescription glasses
+[PASS] Product JSON-LD
+[PASS] FAQPage JSON-LD
+
+VERIFY: PASS

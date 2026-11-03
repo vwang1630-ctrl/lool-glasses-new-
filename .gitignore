@@ -1,0 +1,20 @@
+# Secrets & env
+.dev.vars
+secrets/
+
+# Dependencies & build
+node_modules/
+dist/
+.wrangler/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Test artifacts
+test-results/
+todo-attachments/

@@ -10,7 +10,12 @@
     "build:dev": "vite build --mode development",
     "preview": "node scripts/sync-dev-vars.mjs && vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "system-kit:make-system-kit": "node scripts/system-kit/make-system-kit.mjs",
+    "system-kit:qa-walk": "node scripts/system-kit/qa-walk.mjs",
+    "system-kit:smoke": "node scripts/system-kit/deploy-smoke.mjs",
+    "system-kit:deploy-workers": "node scripts/system-kit/deploy-workers.mjs",
+    "system-kit:daily-health-audit": "node scripts/system-kit/daily-health-audit-workers.mjs"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",
@@ -67,6 +72,7 @@
     "stripe": "^22.1.1",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.1",
+    "three": "^0.160.0",
     "tw-animate-css": "^1.3.4",
     "vaul": "^1.1.2",
     "vite-tsconfig-paths": "^6.0.2",

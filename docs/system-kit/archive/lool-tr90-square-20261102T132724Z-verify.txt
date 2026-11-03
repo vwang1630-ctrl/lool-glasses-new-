@@ -1,0 +1,23 @@
+[PASS] title == seo.title
+[PASS] meta description 匹配
+[PASS] H1 在 DOM
+[PASS] Hero 图在线上: tr90-square-reading-glasses-1.jpg
+[PASS] Hero 图在线上: tr90-square-reading-glasses-2.jpg
+[PASS] Hero 图在线上: tr90-square-reading-glasses-3.jpg
+[PASS] Hero 图在线上: tr90-square-reading-glasses-4.jpg
+[PASS] Hero 图在线上: tr90-square-reading-glasses-5.jpg
+[PASS] Hero 图在线上: tr90-square-reading-glasses-6.jpg
+[PASS] 信任令牌在 DOM: Virtual Try-On
+[PASS] 信任令牌在 DOM: Free tracked shipping on orders over $69
+[PASS] 信任令牌在 DOM: 30-day returns
+[PASS] 信任令牌在 DOM: Magnification only
+[PASS] 信任令牌在 DOM: not a medical device
+[PASS] 信任令牌在 DOM: Blue light filtering
+[PASS] 信任令牌在 DOM: UV400
+[PASS] 信任令牌在 DOM: Scratch-resistant
+[PASS] 配送口径在 DOM: Free tracked shipping on orders over $69
+[PASS] 配送口径在 DOM: 30-day free returns & exchanges for non-prescription glasses
+[PASS] Product JSON-LD
+[PASS] FAQPage JSON-LD
+
+VERIFY: PASS

@@ -1,0 +1,67 @@
+{
+  "manifest": "lool ai-vs-real — AI 概念对象与标注词库（眼镜版）",
+  "version": "V1.0.0",
+  "updated": "2026-11-02",
+  "source": "Fuzz Sofa SYSTEM-KIT r10/rb9 移植 + loollook 品牌红线",
+  "policy": "虚拟试戴使用真实摄像头画面，不是 AI 换脸/生成脸。任何 AI 概念对象只准出现在 Story 段且必须带标注词。",
+  "ai_concept_families": [
+    {
+      "id": "ai-face-swap",
+      "concept": "AI 换脸 / AI face swap",
+      "subjects": ["AI face swap", "face swap", "AI 换脸", "换脸", "deepfake"],
+      "label_tokens": [
+        "AI-generated face",
+        "simulated face",
+        "not a real wearer"
+      ],
+      "story_only": true,
+      "academic_evidence": [],
+      "source": "lool brand policy 2026-09-14",
+      "evidence_status": "brand_policy"
+    },
+    {
+      "id": "ai-generated-image",
+      "concept": "AI 生成图 / AI-generated image",
+      "subjects": [
+        "AI-generated image",
+        "generated image",
+        "AI 生成图",
+        "合成图",
+        "AI rendering"
+      ],
+      "label_tokens": ["AI-generated", "rendered by AI", "not a real photo"],
+      "story_only": true,
+      "academic_evidence": [],
+      "source": "lool brand policy 2026-09-14",
+      "evidence_status": "brand_policy"
+    },
+    {
+      "id": "ai-virtual-tryon",
+      "concept": "AI 虚拟试戴（混淆真实摄像头）",
+      "subjects": ["AI try-on", "AI virtual try-on", "AI 试戴", "AI 虚拟试戴"],
+      "label_tokens": [
+        "uses your real camera",
+        "real-camera preview",
+        "not AI-generated"
+      ],
+      "story_only": true,
+      "academic_evidence": [],
+      "source": "lool VTO policy 2026-10-08",
+      "evidence_status": "brand_policy"
+    },
+    {
+      "id": "ai-model",
+      "concept": "AI 模特 / AI model",
+      "subjects": ["AI model", "AI 模特", "digital model", "虚拟模特"],
+      "label_tokens": [
+        "AI-generated model",
+        "digital rendering",
+        "not a real person"
+      ],
+      "story_only": true,
+      "academic_evidence": [],
+      "source": "lool brand policy 2026-09-14",
+      "evidence_status": "brand_policy"
+    }
+  ]
+}

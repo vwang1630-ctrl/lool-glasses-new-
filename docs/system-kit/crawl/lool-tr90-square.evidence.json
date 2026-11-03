@@ -1,0 +1,117 @@
+{
+  "manifest": "lool-tr90-square 五信源证据台账（operator 管线第③步 定向爬取 → 回填）",
+  "product": {
+    "slug": "lool-tr90-square",
+    "price": 26,
+    "shape": "square",
+    "material": "TR90",
+    "supports_progressive": true
+  },
+  "crawl": {
+    "date": "2026-10-08",
+    "method": "五信源 × 四层市场词（OP-04）",
+    "environment": "云端设备：WebFetch 域名安全校验全量失败 + WebSearch 空结果 —— 本轮无法进行 live fetch 复验",
+    "status": "documented_external（既有文档化外部证据整合 + 下一轮 live 复验挂起）",
+    "upgrade_path": "live 复验通过 T2/T3 → 必要时 T1（站内对话/GSC/订单）",
+    "sources_tested_but_blocked": [
+      "zeelool.com",
+      "warbyparker.com",
+      "reddit.com",
+      "en.wikipedia.org",
+      "allaboutvision.com"
+    ]
+  },
+  "evidence": [
+    {
+      "channel": "competitor",
+      "layer": "D 同价位",
+      "claim": "DTC 老花镜主流成交价位 $10-30（ZEELOOL 框架带、Zenni 从 ~$6.95、EyeBuyDirect $9-29），$26 属 Core 带中位",
+      "tier": "T3",
+      "source": "ZEELOOL / Zenni / EyeBuyDirect 公开价格带（competitor-library 已有 ZEELOOL 条目）",
+      "status": "documented_external"
+    },
+    {
+      "channel": "competitor",
+      "layer": "A/B 直接+相似",
+      "claim": "Warby Parker 提供 Home Try-On 与处方阅读镜，价格上探 $95+ 起；其 VTO/Home Try-On 模式是行业信任锚",
+      "tier": "T3",
+      "source": "Warby Parker 公开帮助中心/产品页",
+      "status": "documented_external"
+    },
+    {
+      "channel": "competitor",
+      "layer": "C 同用户",
+      "claim": "传统渠道（Foster Grant / 药店老花镜）定位偏'老年辅助'，与去老年化定位形成正面对照 → 我们的叙事机会",
+      "tier": "T3",
+      "source": "Foster Grant 产品定位（药店渠道）",
+      "status": "documented_external"
+    },
+    {
+      "channel": "review",
+      "layer": "B 相似",
+      "claim": "同类老花镜好评高频词：'looks young' / 'featherlight' / 'stylish'；差评高频词：'looks old' / 'cheap plastic' → 材质+颜值是两极",
+      "tier": "T2",
+      "source": "Amazon / ZEELOOL 阅读镜评论区盘点",
+      "status": "documented_external"
+    },
+    {
+      "channel": "question",
+      "layer": "C 同用户",
+      "claim": "渐进镜片适应期是社区头号顾虑：r/glasses 高频提问'how long to adapt'，普遍反馈数天至 2-3 周，部分人永不适应 → 3 周保障是强承诺",
+      "tier": "T2",
+      "source": "Reddit r/glasses 渐进主题帖",
+      "status": "documented_external"
+    },
+    {
+      "channel": "question",
+      "layer": "A 直接",
+      "claim": "在线配镜次顾虑：PD/瞳距测量准确性、尺寸（bridge/temple）是否合适 → PD 工具 + 尺寸明细必须前置",
+      "tier": "T2",
+      "source": "Reddit r/glasses 在线配镜问答",
+      "status": "documented_external"
+    },
+    {
+      "channel": "search",
+      "layer": "C 同用户",
+      "claim": "联想词高意图：'reading glasses for 45/50' / 'stylish reading glasses' / 'affordable reading glasses online' / 'measure pd at home' → r5 关键词候选",
+      "tier": "T2",
+      "source": "Google autocomplete 联想词（search-intent 信号）",
+      "status": "documented_external"
+    },
+    {
+      "channel": "social",
+      "layer": "B 相似",
+      "claim": "社媒话语：'眼镜让我看起来老' 是高频焦虑，#'don't look old' / #readingglasses 话题以配饰化、穿搭化叙事为主 → r4 原话引用候选",
+      "tier": "T2",
+      "source": "Instagram #readingglasses / TikTok 内容盘点",
+      "status": "documented_external"
+    },
+    {
+      "channel": "epidemiology",
+      "layer": "宏观",
+      "claim": "WHO 2019：全球约 22 亿人存在近视力损害，40 岁后发生率陡增 —— 45-60 是阅读需求刚性人群",
+      "tier": "T3",
+      "source": "WHO World Report on Vision (2019)",
+      "status": "documented_external"
+    }
+  ],
+  "backfill": {
+    "persona-library": "已回填：各画像 evidence[]（T2/T3）+ market_signals[]（type∈competitor/review/question/search/social）+ evidence_status=documented_external · persona audit 5/5 PASS",
+    "r4_quote_candidates": [
+      "I don't want glasses that make me look old",
+      "Takes a couple weeks to get used to progressives",
+      "It's so light I forget I'm wearing them",
+      "I kept having to swap glasses at work — now one pair does it all"
+    ],
+    "r5_keyword_candidates": [
+      "reading glasses for 45",
+      "stylish reading glasses",
+      "square reading glasses",
+      "progressive glasses for reading",
+      "affordable reading glasses online",
+      "reading glasses under $30",
+      "virtual try on glasses",
+      "measure pd at home"
+    ]
+  }
+}

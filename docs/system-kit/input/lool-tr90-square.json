@@ -1,0 +1,47 @@
+{
+  "slug": "lool-tr90-square",
+  "name": "Modern Square TR90 Frame",
+  "category": "reading glasses / eyeglasses",
+  "concept": "reading glasses — Modern Square TR90 Frame. A featherlight TR90 square frame with progressive-ready optics. Ageless design, modern fit. Featherlight TR90 with a crisp square profile. Fully supports single vision, blue light, and progressive lenses from -20.00 to +10.00 diopters. Scratch-resistant and UV400 protection come standard; upgrade to 1.61 or 1.67 high-index for a thinner, lighter lens. Featherlight TR90 (19.1 g). Crisp square profile, medium fit. Progressive-ready: -20.00 to +10.00 diopters. Scratch-resistant + UV400 protection standard. 1.61 / 1.67 high-index upgrade available. Virtual Try-On uses your real camera. Measure PD at home with your phone.",
+  "price": 26,
+  "currency": "USD",
+  "materials": ["TR90"],
+  "shape": "square",
+  "rim_type": "full-rim",
+  "lens_width_mm": 53,
+  "bridge_mm": 19,
+  "temple_mm": 150,
+  "frame_width_mm": 130,
+  "lens_height_mm": 41,
+  "weight_g": 19.1,
+  "supports_progressive": true,
+  "supports_transitions": true,
+  "supports_reader": true,
+  "supports_single_vision": true,
+  "supports_non_prescription": true,
+  "color": "Havana",
+  "style": "Contemporary square tortoise",
+  "face_shape_tags": ["oval", "round"],
+  "features": [
+    "Virtual Try-On",
+    "Measure PD at home",
+    "Progressive-ready",
+    "UV400 protection"
+  ],
+  "images": [
+    "https://loollook.com/api/admin/r2/product/miNyp0WIEyAGZrrnBpbOj.jpg",
+    "https://loollook.com/api/admin/r2/product/FACWNaC2D7r9ZgKHn5gtI.jpg",
+    "https://loollook.com/api/admin/r2/product/qFmRldixU4GaKiREvCp9y.jpg",
+    "https://loollook.com/api/admin/r2/product/jkfTtl3vM5bhFRtXkYnAJ.jpg",
+    "https://loollook.com/api/admin/r2/product/6OQXqZBH9tk55wLN7McV3.jpg",
+    "https://loollook.com/api/admin/r2/product/xZAymtAohLB3AS9CjM4mf.jpg"
+  ],
+  "theme_keywords": [
+    "reading glasses",
+    "progressive glasses",
+    "virtual try on",
+    "measure pd",
+    "square"
+  ],
+  "track": ""
+}

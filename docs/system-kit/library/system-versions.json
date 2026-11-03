@@ -1,0 +1,138 @@
+{
+  "_manifest": "system-versions — loollook.com 操盘手系统版本对账（2026-10-07 重写）",
+  "rule": [
+    "1. 任何源文件升版 → 本清单该行 updated 同步改",
+    "2. 依赖它的下游 artifacts → last_audit 章重盖",
+    "3. 操盘手每次给站主产出前，先查本清单有无未同步行",
+    "4. 站长抽查路径:只看本文件,'pending_resync' 非空=有拖欠"
+  ],
+  "sources": [
+    {
+      "file": "../operator-flows.md",
+      "version": "V1.0.0",
+      "updated": "2026-10-15",
+      "note": "loollook 全系统工作流总纲（五幕十三流 A1-E4，§22 母版 → loollook 全资产对账，四张核销表）"
+    },
+    {
+      "file": "operator-library.json",
+      "version": "V2.1.0",
+      "updated": "2026-10-15",
+      "note": "战略板主文件（V2.1.0：登记 operator-flows.md 总纲，版本+0.1 bump）"
+    },
+    {
+      "file": "keyword-library.json",
+      "version": "V1.1.0",
+      "updated": "2026-10-08",
+      "note": "Fashion Readers 词族 +13 关键词 + banned_terms 7 条（2号位定位）"
+    },
+    {
+      "file": "eyewear-glossary-library.json",
+      "version": "V1.1.0",
+      "updated": "2026-11-02",
+      "note": "眼镜款式/材质/时尚术语 GEO 弹药库（搜索意图分，非工厂目录分）"
+    },
+    {
+      "file": "brand-library.json",
+      "version": "V1.1.0",
+      "updated": "2026-10-07",
+      "note": "品牌运营库（同价竞争策略，ZEELOOL为唯一靶心）"
+    },
+    {
+      "file": "persona-library.json",
+      "version": "V1.0.0",
+      "updated": "2026-10-07",
+      "note": "买家画像"
+    },
+    {
+      "file": "seo-meta-library.json",
+      "version": "V1.0.0",
+      "updated": "2026-10-07",
+      "note": "SEO meta 模板"
+    },
+    {
+      "file": "competitor-library.json",
+      "version": "V1.2.1",
+      "updated": "2026-10-07",
+      "note": "ZEELOOL 条目新增 traffic_structure（SEMrush/Similarweb 2026.08 流量结构数据）"
+    },
+    {
+      "file": "competitor-library-zeelool.md",
+      "version": "V1.1.0",
+      "updated": "2026-10-07",
+      "note": "新增 §7 流量结构拆解（SEO偏科品牌词/GEO几乎为零/社媒真正主战场/攻击面/首篇blog调整）"
+    },
+    {
+      "file": "blog-framework-lock.json",
+      "version": "V1.0.0",
+      "updated": "2026-10-07",
+      "note": "博客模板锁"
+    },
+    {
+      "file": "ai-visibility.json",
+      "version": "V1.0.0",
+      "updated": "2026-10-07",
+      "note": "GEO 采样台账"
+    },
+    {
+      "file": "seo-geo-monthly.json",
+      "version": "V1.1.0",
+      "updated": "2026-11-02",
+      "note": "llms.txt 状态更新为已部署"
+    },
+    {
+      "file": "content-master.md",
+      "version": "V1.3.0",
+      "updated": "2026-11-02",
+      "note": "阻塞项中 llms.txt 标记为已部署"
+    },
+    {
+      "file": "decision-ledger.json",
+      "version": "V1.2.0",
+      "updated": "2026-11-02",
+      "note": "登记 Fuzz SYSTEM-KIT v0.2 Phase A 标准化执行记录"
+    },
+    {
+      "file": "social-platform-rules.json",
+      "version": "V1.0.0",
+      "updated": "2026-10-07",
+      "note": "社媒平台规则"
+    },
+    {
+      "file": "social-playbook.json",
+      "version": "V1.0.0",
+      "updated": "2026-10-07",
+      "note": "社交出口宪法"
+    },
+    {
+      "file": "social-calendar.json",
+      "version": "V1.0.0",
+      "updated": "2026-10-07",
+      "note": "14 天测试日历"
+    },
+    {
+      "file": "framework-lock.json",
+      "version": "V1.2.0",
+      "updated": "2026-11-02",
+      "note": "新增 ai_vs_real_policy，指向 ai-vs-real.json；r10 读取该库"
+    },
+    {
+      "file": "ai-vs-real.json",
+      "version": "V1.0.0",
+      "updated": "2026-11-02",
+      "note": "AI 概念对象与标注词库（眼镜版），r10/rb9 闸门消费"
+    },
+    {
+      "file": "capability-radar.md",
+      "version": "V1.0.0",
+      "updated": "2026-11-02",
+      "note": "能力等级雷达（L0–L3 证据级）"
+    },
+    {
+      "file": "capability-usage-map.md",
+      "version": "V1.0.0",
+      "updated": "2026-11-02",
+      "note": "反货架卷曲台账（触发点 / 死线 / 退役）"
+    }
+  ],
+  "pending_resync": []
+}

@@ -17,7 +17,9 @@ import tsconfigPaths from "vite-tsconfig-paths";
 // isn't available (e.g. a built tarball without history).
 function readGitSha(): string {
   try {
-    return execSync("git rev-parse --short HEAD", { stdio: ["ignore", "pipe", "ignore"] })
+    return execSync("git rev-parse --short HEAD", {
+      stdio: ["ignore", "pipe", "ignore"],
+    })
       .toString()
       .trim();
   } catch {

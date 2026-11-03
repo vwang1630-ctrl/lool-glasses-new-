@@ -1,0 +1,219 @@
+{
+  "manifest": "lool competitor-library — 三层竞品架构 V1.2.0",
+  "version": "V1.2.0",
+  "updated": "2026-10-07",
+  "v1.2_change_log": "重构为三层架构：Tier1同价DTC(7家) + Tier2高端背书(4家) + Tier3线下恐惧。ZEELOOL为Tier1唯一深度拆解靶心。",
+  "architecture": {
+    "tier1_same_price": "7家 DTC $7-$60，同价同模式，打 ageless + 真工具。ZEELOOL为唯一深度拆解靶心，其余6家一键复制。",
+    "tier2_premium": "4家 高端 $80-$299，不打，拿来背书镜片（'Warby用Essilor，我们也用，但框$19'）。",
+    "tier3_offline": "线下 $200-$500，真正的敌人。用户恐惧在线配不准——用 MediaPipe + 30天退 + 3周保障 解除。",
+    "detailed_analysis": "见 competitor-library-zeelool.md（ZEELOOL 全维度拆解 + 6维对位 + 6篇blog母体 + Tier1复制模板）"
+  },
+  "tier1_same_price": {
+    "description": "7家DTC同价竞品，$7-$60，模板一模一样。ZEELOOL拆透后，其余6家只需各家1条opportunity。",
+    "shared_template": {
+      "common_traits": [
+        "DTC砍中间商",
+        "$7起新客引流",
+        "Free shipping over $59",
+        "30天退货",
+        "AR虚拟试戴（视觉展示级）",
+        "卡尺/PD工具（非医疗级）",
+        "无渐进镜片适应保障",
+        "目标用户偏年轻（18-35多副党）"
+      ],
+      "lool_differentiation": [
+        "ageless设计定位（45-60代际）",
+        "MediaPipe真PD测量（30秒摄像头）",
+        "真实摄像头虚拟试戴（非AR换脸）",
+        "3周渐进适应保障",
+        "镜片层级透明定价（lool House → 明月 → Essilor/ZEISS → Transitions）",
+        "14语言原生支持"
+      ]
+    },
+    "entries": [
+      {
+        "id": "comp-zeelool",
+        "brand": "ZEELOOL",
+        "url": "https://www.zeelool.com",
+        "price_band": [7, 59.95],
+        "since": 2015,
+        "customers": "3M+",
+        "positioning": "Daily Optical Stylist / Frame Your Vibe",
+        "target_audience": "18-35 多副党",
+        "pd_tool": "App拍照 + 信用卡尺子量（用户反馈差2mm）",
+        "try_on": "AR视觉叠加（does not measure fit）",
+        "progressive_guarantee": false,
+        "quality_signals": "TrustScore 9.2 但 Reddit 'broke within months' + Trustpilot fake review suspicion",
+        "lens_brands": "自有品牌镜片为主，无Essilor/ZEISS第三方",
+        "opportunity_for_lool": "全6维打击（PD工具/试戴/渐进保障/规格透明/去老年化/镜片层级）— 唯一深度拆解靶心",
+        "traffic_structure": {
+          "monthly_visits": "6.3M",
+          "global_rank": 9099,
+          "us_rank": 2134,
+          "top_keyword_brand_pct": "52.55% (zeelool 246K searches)",
+          "organic_keywords_google": 54743,
+          "effective_keywords_similarweb": 9500,
+          "traffic_model": "社媒→品牌搜索→进站（非品牌SEO弱，GEO几乎为零）",
+          "geo_chatgpt_visits": "16K (0.25%)",
+          "social_tiktok_followers": "920K",
+          "user_demo": "Female 73.27%, bounce 47.4%, pages 6.11, avg 4:02",
+          "paid_dependency": "Display 1st / Paid Search 2nd / Direct 3rd"
+        },
+        "detailed_doc": "competitor-library-zeelool.md",
+        "source": "zeelool.com · Reddit · Trustpilot · SEMrush 2026.08 · Similarweb 2026.08"
+      },
+      {
+        "id": "comp-zenni",
+        "brand": "Zenni Optical",
+        "url": "https://www.zennioptical.com",
+        "price_band": [6.95, 60],
+        "customers": "最大量（4000+款）",
+        "positioning": "最低价在线配镜",
+        "pd_tool": "在线PD工具（未公开技术）",
+        "try_on": "AR试戴",
+        "progressive_guarantee": false,
+        "opportunity_for_lool": "PD精度 + 去老年化定位（Zenni无品牌叙事）",
+        "source": "zennioptical.com · 2026-10-07"
+      },
+      {
+        "id": "comp-eyebuydirect",
+        "brand": "EyeBuyDirect",
+        "url": "https://www.eyebuydirect.com",
+        "price_band": [6, 150],
+        "positioning": "Essilor亲儿子（Essilor旗下）",
+        "pd_tool": "在线工具",
+        "try_on": "AR试戴",
+        "progressive_guarantee": "14天fit guarantee",
+        "opportunity_for_lool": "渐进保障更长（lool 3周 vs EBD 14天）+ 去老年化",
+        "note": "有Essilor/ZEISS镜片——同层，但价格差大（$150 vs $29）",
+        "source": "eyebuydirect.com · 2026-10-07"
+      },
+      {
+        "id": "comp-firmoo",
+        "brand": "Firmoo",
+        "url": "https://www.firmoo.com",
+        "price_band": [8, 60],
+        "positioning": "老牌DTC，退货狠",
+        "pd_tool": "无独立PD工具",
+        "try_on": "AR试戴",
+        "progressive_guarantee": false,
+        "opportunity_for_lool": "真PD + 真试戴（Firmoo两者都无）",
+        "source": "firmoo.com · 2026-10-07"
+      },
+      {
+        "id": "comp-payneglasses",
+        "brand": "Payne Glasses",
+        "url": "https://www.payneglasses.com",
+        "price_band": [9, 50],
+        "positioning": "更便宜，质量更赌",
+        "pd_tool": "无",
+        "try_on": "AR试戴",
+        "progressive_guarantee": false,
+        "opportunity_for_lool": "全工具差异（PD+试戴+渐进保障）",
+        "source": "payneglasses.com · 2026-10-07"
+      },
+      {
+        "id": "comp-vooglam",
+        "brand": "Vooglam",
+        "url": "https://www.vooglam.com",
+        "price_band": [10, 60],
+        "positioning": "网红款多",
+        "pd_tool": "AR工具",
+        "try_on": "AR试戴",
+        "progressive_guarantee": false,
+        "opportunity_for_lool": "真工具 + 质量透明（Vooglam偏网红，质量争议）",
+        "source": "vooglam.com · 2026-10-07"
+      },
+      {
+        "id": "comp-yesglasses",
+        "brand": "YesGlasses",
+        "url": "https://www.yesglasses.com",
+        "price_band": [10, 70],
+        "positioning": "欧美仓发货",
+        "pd_tool": "在线工具",
+        "try_on": "AR试戴",
+        "progressive_guarantee": false,
+        "opportunity_for_lool": "真PD + 渐进保障 + 去老年化",
+        "source": "yesglasses.com · 2026-10-07"
+      }
+    ]
+  },
+  "tier2_premium": {
+    "description": "4家高端品牌，$80-$299，5-10倍价差。不打他们，拿他们当镜片背书锚点。",
+    "anchoring_strategy": "'Warby用Essilor，我们也用Essilor，但框只要$19。' 同品质，价格1/5。",
+    "entries": [
+      {
+        "id": "comp-warby-parker",
+        "brand": "Warby Parker",
+        "url": "https://www.warbyparker.com",
+        "price_band": [95, 195],
+        "positioning": "DTC先驱 + 社会使命",
+        "lens_brands_used": "自有 + Essilor",
+        "anchoring_use": "镜片同源锚点（'same Essilor lenses, 1/5 price'）",
+        "source": "warbyparker.com · 2026-10-07"
+      },
+      {
+        "id": "comp-quay",
+        "brand": "Quay Australia",
+        "url": "https://www.quayaustralia.com",
+        "price_band": [80, 180],
+        "positioning": "社媒时尚眼镜",
+        "lens_brands_used": "自有",
+        "anchoring_use": "设计感锚点（社媒策略可借鉴，但人群完全不同）",
+        "source": "quayaustralia.com · 2026-10-07"
+      },
+      {
+        "id": "comp-felix-gray",
+        "brand": "Felix Gray",
+        "url": "https://www.felixgray.com",
+        "price_band": [95, 195],
+        "positioning": "蓝光眼镜专家",
+        "lens_brands_used": "自有防蓝光",
+        "anchoring_use": "品类差异锚点（Felix Gray只做蓝光，lool全品类）",
+        "source": "felixgray.com · 2026-10-07"
+      },
+      {
+        "id": "comp-topology",
+        "brand": "TOPology",
+        "url": "https://www.topologyeyewear.com",
+        "price_band": [99, 299],
+        "positioning": "AI个性化配镜（新加坡）",
+        "lens_brands_used": "自有 + 高端",
+        "anchoring_use": "技术同源锚点（AR试戴类似，但lool价格低10x + 真PD）",
+        "source": "topologyeyewear.com · 2026-10-07"
+      }
+    ]
+  },
+  "tier3_offline": {
+    "description": "线下眼镜店 $200-$500。真正的敌人不是线上7家，是用户对'在线配不准'的恐惧。",
+    "user_fears": [
+      "在线PD量不准 → 渐进镜片晕",
+      "看不到实物 → 框型不合脸型",
+      "退不了 → 钱打水漂",
+      "不专业 → 处方配错伤眼睛"
+    ],
+    "lool_counters": [
+      "MediaPipe 30秒真PD测量（vs 到店量）",
+      "真实摄像头虚拟试戴（vs 到店试）",
+      "30天退货 + 365天保修（vs 到店不退）",
+      "/prescription-guide + /measure-pd + FAQ + AI chat（vs 到店问店员）",
+      "3周渐进适应保障（vs 到店不保适应）"
+    ],
+    "key_offline_brands": ["LensCrafters", "Specsavers", "街边眼镜店"],
+    "price_range": [200, 500],
+    "strategy": "用工具和保障消除恐惧，让用户敢在线配镜"
+  },
+  "write_rules": [
+    "Tier1 每家只记1条 opportunity_for_lool（ZEELOOL除外，ZEELOOL有独立详细文档）",
+    "Tier2 只记镜片品牌，用于锚定背书",
+    "Tier3 只记用户恐惧点，用于内容策略",
+    "禁止写'我们更便宜'——同价竞争，差异在工具+定位+保障",
+    "详细竞品拆解只写ZEELOOL一家，其余6家一键复制"
+  ],
+  "known_gaps": [
+    "Tier1 其余6家的具体PD工具技术细节",
+    "ZEELOOL退货率/投诉率精确数据（需Reddit/Trustpilot持续跟踪）",
+    "Tier3 线下各品牌用户评价对比"
+  ]
+}

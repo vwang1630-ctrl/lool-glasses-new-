@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "created": "2026-10-07",
+  "note": "14 天社交/渠道测试日历 — loollook.com 眼镜 DTC 冷启动",
+  "calendars": [
+    {
+      "id": "CAL-20261007-PINTEREST",
+      "channel": "Pinterest (有机)",
+      "start": "2026-10-14",
+      "end": "2026-10-28",
+      "cadence": "每天 1 条",
+      "assets": "产品图 + 搭配建议图 + 虚拟试戴截图",
+      "posts": [
+        {
+          "day": 1,
+          "type": "产品图",
+          "ref": "Reading Glasses 主图",
+          "title": "Best reading glasses for your first pair?"
+        },
+        {
+          "day": 2,
+          "type": "搭配图",
+          "ref": "Face Shape Guide",
+          "title": "How to choose glasses for your face shape?"
+        },
+        {
+          "day": 3,
+          "type": "功能图",
+          "ref": "Virtual Try-On",
+          "title": "Try glasses on your face — before you buy?"
+        },
+        {
+          "day": 4,
+          "type": "教育图",
+          "ref": "Progressive Lenses",
+          "title": "Progressive vs reading glasses — which is right?"
+        },
+        {
+          "day": 5,
+          "type": "工具图",
+          "ref": "PD Measure",
+          "title": "Can you measure PD at home with your phone?"
+        },
+        {
+          "day": 6,
+          "type": "产品图",
+          "ref": "Frame Collection",
+          "title": "Which frame shape suits your style?"
+        },
+        {
+          "day": 7,
+          "type": "教育图",
+          "ref": "Lens Guide",
+          "title": "Blue light glasses — do they actually work?"
+        }
+      ],
+      "hashtags": "#readingglasses #progressivelenses #virtualtryon #agelesseyewear #glassesforfaceshape",
+      "judge": "14 天内 pinterest.com 来源会话 ≥3 → PASS"
+    },
+    {
+      "id": "CAL-20261007-IG",
+      "channel": "Instagram (有机)",
+      "start": "2026-10-14",
+      "end": "2026-10-28",
+      "cadence": "Reels 2-3/周",
+      "posts": [
+        {
+          "day": 1,
+          "type": "Reel",
+          "ref": "虚拟试戴 demo",
+          "hook": "This is your face. With glasses. See it live."
+        },
+        {
+          "day": 3,
+          "type": "Reel",
+          "ref": "PD 测量教程",
+          "hook": "Measure your PD in 30 seconds — no doctor needed."
+        },
+        {
+          "day": 5,
+          "type": "Carousel",
+          "ref": "Frame shapes for face shapes",
+          "hook": "Round face? Square face? Here's your match."
+        },
+        {
+          "day": 7,
+          "type": "Reel",
+          "ref": "渐进镜片教育",
+          "hook": "Progressive lenses — 3 weeks to never take them off."
+        }
+      ],
+      "hashtags": "#readingglasses #agelesseyewear #virtualtryon #lool",
+      "judge": "14 天内 instagram.com 来源会话 ≥3 → PASS"
+    }
+  ]
+}

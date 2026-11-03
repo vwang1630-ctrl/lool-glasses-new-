@@ -1,0 +1,388 @@
+{
+  "_manifest": "lool eyewear-glossary — 眼镜款式/材质/时尚术语 GEO 弹药库 V1.0.0（按搜索意图分，不按工厂目录分）",
+  "version": "V1.1.0",
+  "updated": "2026-10-08",
+  "basis": "站主 2026 海外趋势报告 + Vint&York 2026 Trends / Accio ecom data / Vicci Eyewear 转述。流量一律定性等级（high/medium/rising），未经 GSC 或第三方工具核验前不写死具体搜索量数字（operator-protocol 红线4：无出处数字不入库）。",
+  "positioning_lock": {
+    "note": "2号位 Fashion Readers/Cheaters 口径（keyword-library V1.1.0 + decision-ledger 2026-10-08）",
+    "write_rules": [
+      "老花一律 ageless reading / fashion readers 框架，禁用 medical 词库：Reading Glasses for Presbyopia / Vision Correction / presbyopia / Rx Range 当产品定性",
+      "blue light 写 filtering tech，不写 blocking（差评多）",
+      "禁用词红线（operator-protocol）：senior / elderly / old / aging / anti-aging / factory / handmade",
+      "别写 round glasses（流量低一级），写 Panto - Vintage Round；别写 plastic，写 Premium Acetate"
+    ]
+  },
+  "categories": {
+    "frame_styles": [
+      {
+        "term": "Panto",
+        "alias": ["Vintage Round", "Round Vintage", "Classic Frame"],
+        "search_level": "high",
+        "trend_2026": "Classic Comeback — Men's #1",
+        "gate": "G1-reading-main",
+        "geo_hook": "What is a Panto frame? A vintage round silhouette with a flatter top edge — the classic frame that reads as style, not as an aid.",
+        "example_skus": ["lool-8663"],
+        "note": "8663 主款标签：别写 round glasses，写 Panto - Vintage Round，流量高一级"
+      },
+      {
+        "term": "Oversized / Square",
+        "alias": ["Oversized Square"],
+        "search_level": "high",
+        "trend_2026": "Fashion-forward intellectual — Women's top 2026",
+        "gate": "G1-reading-main",
+        "geo_hook": "Oversized square fashion readers — the fashion-forward intellectual look, featherlight TR90.",
+        "example_skus": ["lool-tr90-square"],
+        "note": "tr90-square 已按此定位上线（Title/H1/Schema 全部 Fashion Readers）"
+      },
+      {
+        "term": "Cat-Eye",
+        "alias": ["Upswept"],
+        "search_level": "high",
+        "trend_2026": "#1 Women 2026, sustained peak",
+        "gate": "G1-secondary",
+        "geo_hook": "Cat-eye frames for women over 40 — upswept corners that lift the face, styled not medical.",
+        "note": "副线，等有猫眼 SKU 再打；可先占词（blog/FAQ）"
+      },
+      {
+        "term": "Clear Frame",
+        "alias": ["Transparent", "Crystal"],
+        "search_level": "high",
+        "trend_2026": "Still in style 2026 (3rd consecutive year)",
+        "gate": "G1-ageless",
+        "geo_hook": "Clear frame glasses — the ageless pick: transparent acetate that disappears on the face.",
+        "note": "ageless 神器；产品无透明框，先占词（blog/FAQ）"
+      },
+      {
+        "term": "Browline",
+        "alias": ["Clubmaster"],
+        "search_level": "medium",
+        "trend_2026": "50s retro — very popular again",
+        "gate": "G2",
+        "geo_hook": "Browline glasses — bold top bar, thin lower rim, the 50s clubmaster revival."
+      },
+      {
+        "term": "Aviator",
+        "search_level": "high",
+        "trend_2026": "Oversized aviator driving luxury",
+        "gate": "G2-secondary",
+        "geo_hook": "Aviator eyeglasses — teardrop lenses, oversized shield styling.",
+        "note": "近视副用，G4 太阳镜也可用"
+      },
+      {
+        "term": "Geometric",
+        "alias": ["Hexagon", "Octagon"],
+        "search_level": "medium",
+        "trend_2026": "Bold angular, designer 2026",
+        "gate": "G4-sunglasses",
+        "geo_hook": "Geometric frames — hexagon and octagon lines for a designer statement."
+      },
+      {
+        "term": "Shield / Mask",
+        "search_level": "rising",
+        "trend_2026": "Luxury sports sunglasses 2026",
+        "gate": "G4-sunglasses",
+        "geo_hook": "Shield sunglasses — continuous lens, sport-luxe edge.",
+        "note": "太阳镜用，低优先"
+      },
+      {
+        "term": "Bayonetta",
+        "search_level": "rising",
+        "trend_2026": "TikTok viral 2026 — young audience",
+        "gate": "G4-young",
+        "geo_hook": "Bayonetta glasses — the TikTok viral sharp-angle look.",
+        "note": "年轻向，降低主次不拒绝：不进主攻词、不打主内容，仅在社媒/长尾占词可选引用，不投入 G1 主链路"
+      }
+    ],
+    "materials": [
+      {
+        "term": "Acetate",
+        "search_level": "high",
+        "trend_2026": "Forever first — colorful & flexible",
+        "gate": "G1",
+        "geo_hook": "Plant-based acetate — flexible, colorful, hypoallergenic.",
+        "note": "材质是产品实参，随 SKU 变化，本库不固定任何产品材质。写文案时按产品实参取词：当前 8663 实参 material=acetate（银芯 Premium Acetate with Stainless Steel Core + Double Rivet 为站主口径，待 DB 确认）；其他 SKU 有钛/不锈钢等各自实参，各自取词"
+      },
+      {
+        "term": "TR90",
+        "search_level": "high",
+        "trend_2026": "Ultra-light standard — zeelool comparison line",
+        "gate": "G1-reading-main",
+        "geo_hook": "TR90 is ultra-light (19.1g) and crack-proof with spring-back memory.",
+        "vs": "zeelool TR90 comparison",
+        "example_skus": ["lool-tr90-square"]
+      },
+      {
+        "term": "Titanium",
+        "search_level": "medium",
+        "trend_2026": "35-45% of non-plastic market (2026 report)",
+        "gate": "G2-G3",
+        "geo_hook": "Titanium frames — lightweight, hypoallergenic, premium."
+      },
+      {
+        "term": "Stainless Steel",
+        "search_level": "medium",
+        "trend_2026": "Thin metal frames — Women's top 2026",
+        "gate": "G2",
+        "geo_hook": "Stainless steel core frames — minimalist wire lines.",
+        "example_skus": ["lool-8663"]
+      },
+      {
+        "term": "Bio-acetate / Recycled",
+        "search_level": "rising",
+        "trend_2026": "Sustainable eyewear trend 2026",
+        "gate": "G2",
+        "geo_hook": "Bio-acetate — recycled, eco-conscious materials.",
+        "note": "产品未覆盖，先占词"
+      }
+    ],
+    "lens_types": [
+      {
+        "term": "Reading Glasses",
+        "search_level": "high",
+        "gate": "G1-reading-main",
+        "framing": "永远 ageless reading / fashion readers 框架；严禁 'reading glasses for presbyopia'",
+        "geo_hook": "Ageless reading glasses for the 45-60 generation — magnification only, styled as fashion readers."
+      },
+      {
+        "term": "Blue Light Filtering",
+        "search_level": "high",
+        "gate": "G1",
+        "framing": "写 filtering tech，不写 blocking（差评多）",
+        "geo_hook": "Blue light filtering tech, built into magnification-only fashion readers."
+      },
+      {
+        "term": "Progressive / No-Line Bifocal",
+        "search_level": "high",
+        "gate": "G3",
+        "framing": "教育内容 + 3 周适应保障；不当产品定性词（2号位外）",
+        "geo_hook": "No-line progressive lenses — progressive glasses adaptation, with our 3-week guarantee."
+      },
+      {
+        "term": "Transitions / Photochromic",
+        "search_level": "medium",
+        "gate": "G4-sunglasses",
+        "framing": "light-adaptive",
+        "geo_hook": "Light-adaptive lenses — photochromic that darkens outdoors, clear indoors."
+      },
+      {
+        "term": "Polarized",
+        "search_level": "high",
+        "gate": "G4-sunglasses",
+        "geo_hook": "Polarized lenses — glare-free clarity for sun and water."
+      }
+    ],
+    "fashion_keywords": [
+      {
+        "term": "Tortoiseshell / Havana",
+        "search_level": "high",
+        "trend_2026": "2026 retro comeback",
+        "gate": "G1-reading-main",
+        "geo_hook": "Warm Havana tortoise — the 2026 retro comeback for fashion readers.",
+        "example_skus": ["lool-tr90-square"],
+        "note": "tr90-square 实色 #6B4A32 Havana tortoise，PDP 已用"
+      },
+      {
+        "term": "Oversized / Nude / Blush tones",
+        "search_level": "high",
+        "trend_2026": "2026 Women's top tones",
+        "gate": "G1",
+        "geo_hook": "Oversized nude and blush acetate — soft statement for everyday wear."
+      },
+      {
+        "term": "Minimalist / Statement Chains",
+        "search_level": "high",
+        "trend_2026": "2026 two-pole trend (minimal OR statement)",
+        "gate": "G1",
+        "geo_hook": "Minimalist frames or statement chains — the 2026 two-pole eyewear trend."
+      },
+      {
+        "term": "Vintage-inspired / Retro-leaning",
+        "search_level": "medium",
+        "trend_2026": "Classic comeback",
+        "gate": "G1",
+        "example_skus": ["lool-8663"],
+        "geo_hook": "Vintage-inspired, retro-leaning frames — classic silhouettes, modern materials."
+      },
+      {
+        "term": "Ageless",
+        "search_level": "high",
+        "trend_2026": "Brand-level lock (red line)",
+        "gate": "G1",
+        "geo_hook": "Designed for the 45-60 generation — ageless eyewear, not 'old-person glasses'.",
+        "note": "品牌红线词（brand-library / operator-protocol）"
+      }
+    ],
+    "face_shape_age": [
+      {
+        "term": "glasses for oval face",
+        "search_level": "high",
+        "gate": "G1",
+        "paa": true,
+        "geo_hook": "Oval faces suit square, panto and cat-eye frames — see our size guide.",
+        "example_skus": ["lool-tr90-square"]
+      },
+      {
+        "term": "glasses for round face",
+        "search_level": "high",
+        "gate": "G1",
+        "paa": true,
+        "geo_hook": "Round faces suit angular and oversized square frames to add definition.",
+        "example_skus": ["lool-tr90-square"]
+      },
+      {
+        "term": "glasses for over 40",
+        "search_level": "high",
+        "gate": "G1",
+        "paa": true,
+        "geo_hook": "The best glasses for over 40 — ageless readers for close-up work and everyday style."
+      },
+      {
+        "term": "glasses for over 60",
+        "search_level": "medium",
+        "gate": "G1",
+        "paa": true,
+        "geo_hook": "Comfortable, featherlight readers for over 60 — ease and style without the 'aid' look."
+      },
+      {
+        "term": "best glasses for women over 40 fall 2026",
+        "search_level": "rising",
+        "trend_2026": "Vicci Eyewear 2026.10 new post",
+        "gate": "G1",
+        "paa": true,
+        "geo_hook": "Best glasses for women over 40, fall 2026 — oversized square and panto lead the trend."
+      },
+      {
+        "term": "reading glasses for men over 50",
+        "search_level": "medium",
+        "gate": "G1",
+        "paa": true,
+        "geo_hook": "Ageless reading glasses for men over 50 — classic panto and square readers.",
+        "example_skus": ["lool-8663"],
+        "note": "8663 unisex 主攻"
+      }
+    ]
+  },
+  "product_tags": {
+    "_note": "产品词条是当前 SKU 已知实参的索引，不是固定约束。材质/款式随 SKU 实参变化：新 SKU 按实参打标（参考本库话术取词），不反向把产品钉死为某材质/款式。",
+    "lool-tr90-square": {
+      "frame_styles": ["Oversized", "Square"],
+      "materials": ["TR90"],
+      "lens": ["Reading Glasses", "Blue Light Filtering"],
+      "fashion": ["Tortoiseshell / Havana", "Ageless"],
+      "face_shape_age": ["oval", "round"],
+      "gate": "G1-reading-main",
+      "status": "已上线 Fashion Readers（title/H1/Schema/FAQ 全达标；2026-10-08 FAQ 扩至 8 条含 TR90/Tortoiseshell/Face-shape 教育词）",
+      "url": "/en/product/lool-tr90-square"
+    },
+    "lool-8663": {
+      "frame_styles": ["Vintage Round", "Classic Frame", "Oval"],
+      "materials": ["Acetate"],
+      "lens": ["Reading Glasses"],
+      "fashion": ["Vintage-inspired", "Retro-leaning", "Classic"],
+      "face_shape_age": ["unisex"],
+      "gate": "G1-reading-main",
+      "status": "已上线 Fashion Readers（2026-10-08：Vintage Round Boston Oval 口径，6 FAQ 含 Panto 教育词）",
+      "db_note": "产品实态=Boston Oval（DB shape=Oval/material=acetate，无图可证银芯）。Panto 降为 FAQ 教育词，产品自身不标 Panto；Stainless Steel 银芯未写入（无据）。Panto 正主是 lool-8662「Atelier Panto」（i18n 硬编码名）。"
+    }
+  },
+  "rejected_terms": [
+    {
+      "term": "Anti-aging glasses",
+      "reason": "品牌红线词（operator-protocol / brand-library），一律用 ageless"
+    },
+    {
+      "term": "Reading Glasses for Presbyopia",
+      "reason": "2号位禁 medical 词库（keyword-library banned_terms V1.1.0）"
+    },
+    { "term": "Vision Correction", "reason": "医疗功效承诺，2号位禁词" },
+    {
+      "term": "presbyopia",
+      "reason": "operator-protocol 禁用词红线（营销输出）"
+    }
+  ],
+  "degraded_terms": [
+    {
+      "term": "Bayonetta",
+      "gate": "G4-young",
+      "reason": "年轻向 TikTok viral，降低主次不拒绝：不进 G1 主攻词/主内容，仅社媒/长尾占词可选"
+    }
+  ],
+  "zero_state_priority": {
+    "note": "0 状态只用刀尖，别全做（zero-state-strategy THE ONE）。只做 G1 老花主 8 个词，每个写 1 段 'What is X?' FAQ Schema 注入 PDP 14 节（FAQ section），ChatGPT 搜该词即引用我们——zeelool 没有这个词库。",
+    "terms": [
+      {
+        "term": "Panto",
+        "action": "FAQ 'What is a Panto frame?' → lool-8663 PDP 14 节",
+        "status": "8663 待重定位后注入"
+      },
+      {
+        "term": "Vintage Round / Classic Frame",
+        "action": "与 Panto 同一 FAQ 簇",
+        "status": "同上"
+      },
+      {
+        "term": "Oversized Square",
+        "action": "FAQ 'Are oversized square readers in style 2026?' → lool-tr90-square 14 节",
+        "status": "已上线（现有 FAQ Q1 已含）"
+      },
+      {
+        "term": "Clear Frame / Transparent",
+        "action": "FAQ 'What are clear frame glasses?' → 占词（blog/FAQ）",
+        "status": "待产（无透明框 SKU，先占词）"
+      },
+      {
+        "term": "Acetate / Premium Acetate",
+        "action": "FAQ 'What is acetate?' → lool-8663 材质段",
+        "status": "8663 待重定位"
+      },
+      {
+        "term": "TR90",
+        "action": "FAQ 'What is TR90?' → lool-tr90-square 14 节（19.1g 已含）",
+        "status": "可注入（现有 frame_details 已含材料行）"
+      },
+      {
+        "term": "Havana / Tortoiseshell",
+        "action": "FAQ 'Is tortoiseshell in style 2026?' → lool-tr90-square 14 节",
+        "status": "可注入"
+      },
+      {
+        "term": "Glasses for oval / round face",
+        "action": "PAA FAQ → lool-tr90-square（face_shape_tags 已有）",
+        "status": "可注入"
+      },
+      {
+        "term": "Fashion Readers（主词）",
+        "action": "已全线落地",
+        "status": "已上线"
+      },
+      {
+        "term": "Ageless reading",
+        "action": "品牌口径，所有内容默认携带",
+        "status": "已上线"
+      }
+    ],
+    "blog_link": "首篇 blog 'Best Reading Glasses for 45-Year-Old Professionals' 内链 Panto 解释页（content-master §B 优先级1，状态：待写）"
+  },
+  "sources": [
+    {
+      "source": "站主 2026 海外趋势报告转述",
+      "confidence": "T3 转述，待验证",
+      "note": "搜索量数字一律定性，不写死"
+    },
+    {
+      "source": "Vint&York 2026 Trends",
+      "confidence": "T3",
+      "note": "Panto/Cat-Eye/Browline 等框型趋势"
+    },
+    {
+      "source": "Accio ecom data",
+      "confidence": "T3",
+      "note": "Cat-Eye 流量等级"
+    },
+    {
+      "source": "Vicci Eyewear 2026.10",
+      "confidence": "T3",
+      "note": "best glasses for women over 40 fall 2026 趋势词"
+    }
+  ]
+}

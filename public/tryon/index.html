@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AR 试戴插件 Demo</title>
+    <style>
+      :root {
+        --bg: #0f1115;
+        --panel: #171a21;
+        --line: #2a2f3a;
+        --text: #e8eaf0;
+        --dim: #9aa3b2;
+        --acc: #4f8cff;
+        --ok: #3ecf8e;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        font:
+          15px/1.6 "Segoe UI",
+          "Microsoft YaHei",
+          system-ui,
+          sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 16px 48px;
+      }
+      h1 {
+        font-size: 20px;
+        margin: 8px 0 2px;
+      }
+      .sub {
+        color: var(--dim);
+        font-size: 13px;
+        margin-bottom: 16px;
+      }
+      .stage {
+        position: relative;
+        width: min(720px, 100%);
+        aspect-ratio: 16/9;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      .stage video,
+      .stage canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .stage.mirror video,
+      .stage.mirror canvas {
+        transform: scaleX(-1);
+      }
+      .badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 3;
+        background: rgba(0, 0, 0, 0.55);
+        padding: 4px 10px;
+        border-radius: 99px;
+        font-size: 12px;
+        color: var(--text);
+      }
+      .stage video {
+        display: none;
+      }
+      .stage.live video {
+        display: block;
+      }
+      .startpanel {
+        position: absolute;
+        inset: 0;
+        z-index: 4;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        text-align: center;
+        padding: 20px;
+      }
+      .stage.live .startpanel {
+        display: none;
+      }
+      button {
+        background: var(--acc);
+        color: #fff;
+        border: 0;
+        border-radius: 10px;
+        padding: 10px 22px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      button.ghost {
+        background: transparent;
+        border: 1px solid var(--line);
+        color: var(--text);
+      }
+      button:disabled {
+        opacity: 0.5;
+        cursor: default;
+      }
+      .panel {
+        width: min(720px, 100%);
+        margin-top: 14px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 14px 16px;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+      .chips {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+      }
+      .chip {
+        border: 1px solid var(--line);
+        border-radius: 99px;
+        padding: 5px 14px;
+        font-size: 13px;
+        color: var(--dim);
+        cursor: pointer;
+        user-select: none;
+      }
+      .chip.on {
+        border-color: var(--acc);
+        color: var(--text);
+        background: rgba(79, 140, 255, 0.12);
+      }
+      .slider {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        color: var(--dim);
+      }
+      .slider input {
+        width: 110px;
+        accent-color: var(--acc);
+      }
+      .slider b {
+        color: var(--text);
+        min-width: 34px;
+        font-weight: 600;
+      }
+      label.upload {
+        border: 1px solid var(--line);
+        border-radius: 99px;
+        padding: 5px 14px;
+        font-size: 13px;
+        color: var(--dim);
+        cursor: pointer;
+      }
+      label.upload:hover {
+        color: var(--text);
+      }
+      label.upload input {
+        display: none;
+      }
+      #status {
+        font-size: 13px;
+        color: var(--dim);
+        margin-top: 10px;
+        min-height: 20px;
+      }
+      #status.err {
+        color: #ff7a7a;
+      }
+      .hint {
+        font-size: 12px;
+        color: var(--dim);
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      AR 眼镜试戴插件
+      <span style="color: var(--dim); font-size: 13px">(Demo v0.1)</span>
+    </h1>
+    <div class="sub">
+      MediaPipe FaceLandmarker(Apache-2.0)· 全程本地运行,画面不上传任何服务器
+    </div>
+
+    <div class="stage" id="stage">
+      <div class="badge" id="faceDot">待启动</div>
+      <video id="cam" playsinline muted></video>
+      <canvas id="overlay"></canvas>
+      <div class="startpanel">
+        <div style="color: var(--dim); max-width: 420px">
+          点击下方按钮授权摄像头。需要
+          <b>HTTPS 或 localhost</b> 环境<br />(浏览器安全策略,与插件无关)。
+        </div>
+        <button id="startBtn">开启 AR 试戴</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="chips" id="chips"></div>
+      <div class="row" style="gap: 18px">
+        <div class="slider">
+          镜框宽
+          <input
+            type="range"
+            id="pWidth"
+            min="1.6"
+            max="2.6"
+            step="0.01"
+            value="2.15"
+          /><b id="vWidth">2.15</b>
+        </div>
+        <div class="slider">
+          垂直
+          <input
+            type="range"
+            id="pOffset"
+            min="-0.3"
+            max="0.5"
+            step="0.01"
+            value="0"
+          /><b id="vOffset">0.00</b>
+        </div>
+        <div class="slider">
+          旋转
+          <input
+            type="range"
+            id="pRot"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.95"
+          /><b id="vRot">0.95</b>
+        </div>
+        <div class="slider">
+          镜腿
+          <input
+            type="range"
+            id="pTemple"
+            min="0.02"
+            max="0.08"
+            step="0.005"
+            value="0.04"
+          /><b id="vTemple">0.04</b>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 12px">
+        <button id="snapBtn" class="ghost" disabled>📸 拍照保存</button>
+        <button id="mirrorBtn" class="ghost">🔄 镜像</button>
+        <span class="hint" style="margin: 0"
+          >滑杆即"商品参数":每款眼镜只需一组 (宽, 垂直, 旋转, 镜腿) 数值。</span
+        >
+      </div>
+      <div id="status"></div>
+    </div>
+
+    <script type="module">
+      import {
+        FaceLandmarker,
+        FilesetResolver,
+      } from "./vendor/vision_bundle.mjs";
+
+      const $ = (id) => document.getElementById(id);
+      const video = $("cam"),
+        canvas = $("overlay"),
+        ctx = canvas.getContext("2d");
+      const stage = $("stage"),
+        statusEl = $("status"),
+        faceDot = $("faceDot");
+
+      let landmarker = null,
+        running = false,
+        lastVideoTime = -1;
+      let overlayImg = null; // 当前镜框图(canvas 或 img)
+      let P = {
+        width: 2.15,
+        offset: 0,
+        rot: 0.95,
+        templeColor: null,
+        templeWidthRatio: 0.04,
+      }; // 商品参数(瞳距比/垂直比/旋转跟随/镜腿色/镜腿粗细)
+      let mirrored = true;
+
+      /* ---------- 示例镜框:程序绘制,零素材即可演示 ---------- */
+      function sampleFrame(style) {
+        const c = document.createElement("canvas");
+        c.width = 600;
+        c.height = 210;
+        const g = c.getContext("2d");
+        const lensW = 235,
+          lensH = 158,
+          gap = 46,
+          y = 26;
+        const x1 = (600 - gap) / 2 - lensW,
+          x2 = (600 - gap) / 2;
+        g.lineWidth = 16;
+        g.strokeStyle = style === "gold" ? "#c9a86a" : "#141414";
+        g.fillStyle =
+          style === "gold" ? "rgba(201,168,106,.10)" : "rgba(20,20,20,.14)";
+        const rrect = (x, y, w, h, r) => {
+          g.beginPath();
+          g.moveTo(x + r, y);
+          g.arcTo(x + w, y, x + w, y + h, r);
+          g.arcTo(x + w, y + h, x, y + h, r);
+          g.arcTo(x, y + h, x, y, r);
+          g.arcTo(x, y, x + w, y, r);
+          g.closePath();
+        };
+        rrect(x1, y, lensW, lensH, 44);
+        g.fill();
+        g.stroke();
+        rrect(x2, y, lensW, lensH, 44);
+        g.fill();
+        g.stroke();
+        // 鼻梁
+        g.strokeStyle = style === "gold" ? "#b8945a" : "#141414";
+        g.beginPath();
+        g.moveTo(x1 + lensW - 8, y + 52);
+        g.lineTo(x2 + 8, y + 52);
+        g.stroke();
+        // 镜腿根(2D 叠加示意)
+        g.lineWidth = 12;
+        g.beginPath();
+        g.moveTo(x1 + 6, y + 40);
+        g.lineTo(x1 - 34, y + 30);
+        g.stroke();
+        g.beginPath();
+        g.moveTo(x2 + lensW - 6, y + 40);
+        g.lineTo(x2 + lensW + 34, y + 30);
+        g.stroke();
+        return c;
+      }
+
+      const PRODUCTS = [
+        {
+          id: "demo-black",
+          name: "方框·黑(示例)",
+          img: sampleFrame("black"),
+          params: {
+            width: 2.15,
+            offset: 0,
+            rot: 0.95,
+            templeColor: "#141414",
+            templeWidthRatio: 0.04,
+          },
+        },
+        {
+          id: "demo-gold",
+          name: "金丝圆框(示例)",
+          img: sampleFrame("gold"),
+          params: {
+            width: 2.15,
+            offset: 0,
+            rot: 0.95,
+            templeColor: "#c9a86a",
+            templeWidthRatio: 0.04,
+          },
+        },
+      ];
+
+      // 镜腿颜色兜底:取商品图"外轮廓(镜框边缘)主色"。读不到(跨域/CORS 污染)时返回 null,由调用方回退深色。
+      function sampleTempleColor(src) {
+        try {
+          const c = document.createElement("canvas");
+          const sw = src.naturalWidth || src.width || 200;
+          const sh = src.naturalHeight || src.height || 200;
+          const scale = Math.min(1, 200 / Math.max(sw, sh));
+          c.width = Math.max(1, Math.round(sw * scale));
+          c.height = Math.max(1, Math.round(sh * scale));
+          const g = c.getContext("2d");
+          if (!g) return null;
+          g.drawImage(src, 0, 0, c.width, c.height);
+          const d = g.getImageData(0, 0, c.width, c.height).data;
+          const at = (x, y) => d[(y * c.width + x) * 4 + 3];
+          let rs = 0,
+            gs = 0,
+            bs = 0,
+            n = 0;
+          for (let y = 1; y < c.height - 1; y++)
+            for (let x = 1; x < c.width - 1; x++) {
+              const a = at(x, y);
+              if (a < 80) continue;
+              if (
+                at(x - 1, y) < 30 ||
+                at(x + 1, y) < 30 ||
+                at(x, y - 1) < 30 ||
+                at(x, y + 1) < 30
+              ) {
+                const i = (y * c.width + x) * 4;
+                rs += d[i];
+                gs += d[i + 1];
+                bs += d[i + 2];
+                n++;
+              }
+            }
+          if (n < 10) return null;
+          return (
+            "rgb(" +
+            Math.round(rs / n) +
+            "," +
+            Math.round(gs / n) +
+            "," +
+            Math.round(bs / n) +
+            ")"
+          );
+        } catch (_) {
+          return null;
+        }
+      }
+
+      /* ---------- UI 初始化 ---------- */
+      const chipsEl = $("chips");
+      function renderChips() {
+        chipsEl.innerHTML = "";
+        PRODUCTS.forEach((p) => {
+          const d = document.createElement("div");
+          d.className = "chip" + (overlayImg === p.img ? " on" : "");
+          d.textContent = p.name;
+          d.onclick = () => {
+            overlayImg = p.img;
+            P = { ...(p.params || P) };
+            syncSliders();
+            renderChips();
+          };
+          chipsEl.appendChild(d);
+        });
+        const lab = document.createElement("label");
+        lab.className = "chip";
+        lab.innerHTML =
+          '📁 上传商品图(透明 PNG)<input type="file" accept="image/png,image/webp">';
+        lab.querySelector("input").onchange = (e) =>
+          loadUpload(e.target.files[0]);
+        chipsEl.appendChild(lab);
+      }
+
+      function loadUpload(file) {
+        if (!file) return;
+        const img = new Image();
+        img.onload = () => {
+          // 裁掉透明边(商品图常带留白,不裁会导致比例参数失真)
+          const c = document.createElement("canvas");
+          c.width = img.naturalWidth;
+          c.height = img.naturalHeight;
+          const g = c.getContext("2d");
+          g.drawImage(img, 0, 0);
+          try {
+            const d = g.getImageData(0, 0, c.width, c.height).data;
+            let minX = c.width,
+              minY = c.height,
+              maxX = 0,
+              maxY = 0,
+              found = false;
+            for (let y = 0; y < c.height; y++)
+              for (let x = 0; x < c.width; x++) {
+                if (d[(y * c.width + x) * 4 + 3] > 10) {
+                  found = true;
+                  if (x < minX) minX = x;
+                  if (x > maxX) maxX = x;
+                  if (y < minY) minY = y;
+                  if (y > maxY) maxY = y;
+                }
+              }
+            if (found) {
+              const cc = document.createElement("canvas");
+              cc.width = maxX - minX + 1;
+              cc.height = maxY - minY + 1;
+              cc.getContext("2d").drawImage(
+                c,
+                minX,
+                minY,
+                cc.width,
+                cc.height,
+                0,
+                0,
+                cc.width,
+                cc.height,
+              );
+              overlayImg = cc;
+            } else overlayImg = c;
+          } catch (_) {
+            overlayImg = c;
+          }
+          P = {
+            width: 2.15,
+            offset: 0,
+            rot: 0.95,
+            templeColor: sampleTempleColor(overlayImg),
+            templeWidthRatio: 0.04,
+          }; // 新图回落默认参数,再手动微调;镜腿色取商品图边缘主色
+          syncSliders();
+          renderChips();
+          statusEl.className = "";
+          statusEl.textContent =
+            "已载入商品图,请用滑杆微调到贴合,记下四格数值即该商品参数。";
+        };
+        img.src = URL.createObjectURL(file);
+      }
+
+      function syncSliders() {
+        $("pWidth").value = P.width;
+        $("vWidth").textContent = P.width.toFixed(2);
+        $("pOffset").value = P.offset;
+        $("vOffset").textContent = P.offset.toFixed(2);
+        $("pRot").value = P.rot;
+        $("vRot").textContent = P.rot.toFixed(2);
+        $("pTemple").value = P.templeWidthRatio;
+        $("vTemple").textContent = P.templeWidthRatio.toFixed(3);
+      }
+      $("pWidth").oninput = (e) => {
+        P.width = +e.target.value;
+        $("vWidth").textContent = P.width.toFixed(2);
+      };
+      $("pOffset").oninput = (e) => {
+        P.offset = +e.target.value;
+        $("vOffset").textContent = P.offset.toFixed(2);
+      };
+      $("pRot").oninput = (e) => {
+        P.rot = +e.target.value;
+        $("vRot").textContent = P.rot.toFixed(2);
+      };
+      $("pTemple").oninput = (e) => {
+        P.templeWidthRatio = +e.target.value;
+        $("vTemple").textContent = P.templeWidthRatio.toFixed(3);
+      };
+      $("mirrorBtn").onclick = () => {
+        mirrored = !mirrored;
+        stage.classList.toggle("mirror", mirrored);
+      };
+
+      /* ---------- 启动:模型 + 摄像头 ---------- */
+      $("startBtn").onclick = start;
+      async function start() {
+        $("startBtn").disabled = true;
+        try {
+          if (!navigator.mediaDevices?.getUserMedia) {
+            throw new Error(
+              "此环境不允许用摄像头:需 HTTPS 或 localhost(当前是 file:// 直开会失败)。",
+            );
+          }
+          statusEl.className = "";
+          statusEl.textContent = "⏳ 正在加载 AI 模型(本地文件,约 4MB)…";
+          const vision = await FilesetResolver.forVisionTasks("./vendor/wasm");
+          landmarker = await FaceLandmarker.createFromOptions(vision, {
+            baseOptions: {
+              modelAssetPath: "./vendor/wasm/face_landmarker.task",
+              delegate: "GPU",
+            },
+            runningMode: "VIDEO",
+            numFaces: 1,
+            outputFacialTransformationMatrixes: true,
+          });
+          statusEl.textContent = "模型就绪,请求摄像头…";
+          const stream = await navigator.mediaDevices.getUserMedia({
+            video: {
+              facingMode: "user",
+              width: { ideal: 1280 },
+              height: { ideal: 720 },
+            },
+            audio: false,
+          });
+          video.srcObject = stream;
+          await video.play();
+          canvas.width = video.videoWidth;
+          canvas.height = video.videoHeight;
+          stage.classList.add("live");
+          if (mirrored) stage.classList.add("mirror");
+          $("snapBtn").disabled = false;
+          overlayImg = overlayImg || PRODUCTS[0].img;
+          renderChips();
+          running = true;
+          statusEl.textContent = "✅ 运行中。选镜框 → 调滑杆 → 拍照。";
+          requestAnimationFrame(loop);
+        } catch (err) {
+          statusEl.className = "err";
+          statusEl.textContent = "启动失败:" + err.message;
+          $("startBtn").disabled = false;
+        }
+      }
+
+      /* ---------- 主循环:检测 → 定位 → 合成 ---------- */
+      function loop() {
+        if (!running) return;
+        if (video.readyState >= 2 && video.currentTime !== lastVideoTime) {
+          lastVideoTime = video.currentTime;
+          let res = null;
+          try {
+            res = landmarker.detectForVideo(video, performance.now());
+          } catch (_) {}
+          draw(res);
+        }
+        requestAnimationFrame(loop);
+      }
+
+      function draw(res) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const faces = res && res.faceLandmarks;
+        if (!faces || !faces.length || !overlayImg) {
+          faceDot.textContent = running ? "🔍 请正对镜头" : "待启动";
+          return;
+        }
+        faceDot.textContent = "✅ 检测到人脸";
+        const lm = faces[0],
+          W = canvas.width,
+          H = canvas.height;
+
+        // 两个虹膜中心(468/473);按屏幕 x 排序,保证 dx 恒正、角度语义稳定
+        let a = lm[468],
+          b = lm[473];
+        const pL = a.x < b.x ? a : b,
+          pR = a.x < b.x ? b : a;
+        const ex = ((pL.x + pR.x) / 2) * W; // 瞳孔中点 = 眼镜锚点
+        const ey = ((pL.y + pR.y) / 2) * H;
+        const dx = (pR.x - pL.x) * W,
+          dy = (pR.y - pL.y) * H;
+        const pd = Math.hypot(dx, dy); // 屏上瞳距(px) → 自动随远近缩放
+        const roll = Math.atan2(dy, dx); // 头部侧倾角
+
+        const w = pd * P.width; // 商品参数在这里生效
+        const h = (w * overlayImg.height) / overlayImg.width;
+
+        // ---- 动态镜腿(镜腿架耳,2026-10-11):先画腿、后画框,图层在镜框之下 ----
+        // 铰链点 = 镜框左右外缘,垂直中心偏上 15%,随镜框旋转角同步转动。
+        // 耳锚点 = MediaPipe 耳前轮廓点(234 佩戴者右耳/454 左耳)。
+        // 偏航自动透视:耳点随头部转向在投影里外移/内收;再用"鼻尖→眼外角
+        // 水平距离比"把远侧镜腿进一步收短,避免远腿横穿脸颊(穿模)。
+        const cy = ey + pd * P.offset;
+        const theta = roll * P.rot;
+        const cosT = Math.cos(theta),
+          sinT = Math.sin(theta);
+        const hly = h * -0.15;
+        const hxL = ex + (-w / 2) * cosT - hly * sinT,
+          hyL = cy + (-w / 2) * sinT + hly * cosT;
+        const hxR = ex + (w / 2) * cosT - hly * sinT,
+          hyR = cy + (w / 2) * sinT + hly * cosT;
+        const dR = Math.abs(lm[33].x - lm[1].x) * W;
+        const dL = Math.abs(lm[263].x - lm[1].x) * W;
+        const yaw = dR + dL > 0 ? (dR - dL) / (dR + dL) : 0; // >0 = 头转向佩戴者左侧(右侧靠近镜头)
+        const farShrink = Math.max(0.35, 1 - Math.min(Math.abs(yaw), 0.6));
+        const eR = { x: lm[234].x * W, y: lm[234].y * H }; // 佩戴者右耳(屏幕左)
+        const eL = { x: lm[454].x * W, y: lm[454].y * H }; // 佩戴者左耳(屏幕右)
+        ctx.save();
+        ctx.lineCap = "round";
+        ctx.lineWidth = pd * (P.templeWidthRatio ?? 0.04);
+        ctx.strokeStyle = P.templeColor || "#1a1a1a";
+        ctx.beginPath();
+        ctx.moveTo(hxL, hyL); // 佩戴者右腿(近侧在 yaw>0)
+        ctx.lineTo(
+          hxL + (eR.x - hxL) * (yaw > 0 ? 1 : farShrink),
+          hyL + (eR.y - hyL) * (yaw > 0 ? 1 : farShrink),
+        );
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(hxR, hyR); // 佩戴者左腿(近侧在 yaw<0)
+        ctx.lineTo(
+          hxR + (eL.x - hxR) * (yaw < 0 ? 1 : farShrink),
+          hyR + (eL.y - hyR) * (yaw < 0 ? 1 : farShrink),
+        );
+        ctx.stroke();
+        ctx.restore();
+
+        ctx.save();
+        // 接触阴影:镜框下方轻微投影,避免"悬浮"观感(站主测试结果修改 2026-10-11)
+        ctx.shadowColor = "rgba(0,0,0,0.35)";
+        ctx.shadowBlur = W * 0.02;
+        ctx.shadowOffsetY = W * 0.008;
+        ctx.translate(ex, cy);
+        ctx.rotate(theta);
+        ctx.drawImage(overlayImg, -w / 2, -h / 2, w, h);
+        ctx.restore();
+      }
+
+      /* ---------- 拍照:镜像视图合成导出 ---------- */
+      $("snapBtn").onclick = () => {
+        if (!running) return;
+        const out = document.createElement("canvas");
+        out.width = canvas.width;
+        out.height = canvas.height;
+        const g = out.getContext("2d");
+        if (mirrored) {
+          g.translate(out.width, 0);
+          g.scale(-1, 1);
+        }
+        g.drawImage(video, 0, 0, out.width, out.height);
+        g.drawImage(canvas, 0, 0);
+        const a = document.createElement("a");
+        a.download = "ar-tryon-" + Date.now() + ".png";
+        a.href = out.toDataURL("image/png");
+        a.click();
+      };
+
+      renderChips();
+      syncSliders();
+    </script>
+  </body>
+</html>

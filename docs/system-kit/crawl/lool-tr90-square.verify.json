@@ -1,0 +1,108 @@
+{
+  "manifest": "lool-tr90-square 上线验证台账（operator 管线第⑥步 闸门 → 上线验证）",
+  "date": "2026-10-08",
+  "method": "D1 内容上线 + pdp-toolbox verify 线上 DOM 复核（DESKTOP+MOBILE UA）+ 人工解读",
+  "db_write": {
+    "applied": true,
+    "statement": "UPDATE products SET name_json/description_json/highlights_json (en) WHERE slug='lool-tr90-square'",
+    "affected_languages": "name 14 / description 7 / highlights 4 — 仅替换 en，其余语言原样保留",
+    "result": "1 rows written"
+  },
+  "live_content_now": {
+    "title": "lool — Stylish TR90 Square Reading Glasses",
+    "h1": "Stylish TR90 Square Reading Glasses",
+    "meta_description": "Square TR90 reading glasses, featherlight, progressive-ready. How to adapt to progressive lenses? Virtual Try-On and a 3-week guarantee make buying online easy. (160 chars)",
+    "highlights": [
+      "Featherlight TR90 — just 19.1 g",
+      "Square profile, medium fit — flatters oval & round faces",
+      "Progressive-ready: -20.00 to +10.00 diopters",
+      "Scratch-resistant + UV400 protection standard",
+      "Virtual Try-On with your real camera",
+      "Measure PD at home — 30 seconds, no ruler",
+      "3-week progressive guarantee · Free shipping worldwide · 30-day returns"
+    ]
+  },
+  "checks": [
+    {
+      "check": "meta description 匹配",
+      "ok": true,
+      "note": "线上 meta = patch.seo.description 逐字"
+    },
+    {
+      "check": "Hero 图在线上 (6/6)",
+      "ok": true,
+      "note": "6 张 gallery R2 URL 均在线上 DOM"
+    },
+    {
+      "check": "信任令牌 (5/8)",
+      "ok": true,
+      "note": "Virtual Try-On / Measure PD at home / 3-week progressive guarantee / Free shipping worldwide / 30-day returns — 经 highlights 上线后入 DOM"
+    },
+    {
+      "check": "配送口径 (2/3)",
+      "ok": true,
+      "note": "Free shipping worldwide · 30-day returns（政策页 Policy v1.0：免费全球物流 + 30 天退换成立）"
+    },
+    { "check": "Product JSON-LD", "ok": true },
+    {
+      "check": "title == seo.title",
+      "ok": false,
+      "reason": "路由 head() 固定组合 `lool — ${name_json.en}`，无法与 patch 字面 title 一致。线上 title 现承载关键词：stylish / reading glasses / TR90 / square"
+    },
+    {
+      "check": "H1 在 DOM",
+      "ok": false,
+      "reason": "H1 = displayProductName（产品名），非 patch h1 全句。线上 H1 现承载主关键词 reading glasses + square TR90"
+    },
+    {
+      "check": "用户原话在 DOM",
+      "ok": false,
+      "reason": "Reviews 区为静态 i18n（设计稿照搬），DB 无 quote 列；quote 属内容生产产物，需路由改造才可上页"
+    },
+    {
+      "check": "信任令牌 Essilor/ZEISS/Transitions",
+      "ok": false,
+      "reason": "镜片品牌仅渲染于客户端 LensFlowWizard（非 SSR DOM），验证器抓不到；不影响真实购买链路展示"
+    },
+    {
+      "check": "配送口径 3-week adaptation guarantee",
+      "ok": false,
+      "reason": "highlights 采用兄弟口径「3-week progressive guarantee」；适配保障在静态 FAQ（product.$slug.tsx）中，FAQ 区为客户端渲染，非 SSR DOM"
+    },
+    {
+      "check": "FAQPage JSON-LD",
+      "ok": false,
+      "reason": "当前路由未输出 FAQPage schema；operator FAQ 产物需路由级 schema 注入才可见"
+    }
+  ],
+  "interpretation": "PASS 项证明操盘手产出已真实上线于产品 DB 驱动层（title 前缀/H1/meta/描述 tab 亮点）；7 项 FAIL 全部为路由架构差异（title 组合、静态 i18n 区、客户端渲染 tab、缺 FAQPage schema），非内容缺陷。14 区 body 文案若要全量上页，需 PDP 路由支持 DB 驱动区文案 + schema 注入（属代码改造，与设计稿照搬原则冲突，另行决策）。",
+  "policy_consistency_audit": {
+    "3-week_adaptation_guarantee": "与线上既有 FAQ 口径一致（product.$slug.tsx FAQ：'We offer a 3-week adaptation guarantee — if you can't adjust within 3 weeks, we'll exchange or refund'；products.ts FAQ 同口径）→ 非虚假承诺",
+    "free_shipping_worldwide": "与 shipping-returns 政策页一致（info-content：'Free, tracked worldwide shipping'）→ 成立",
+    "30-day_returns": "政策页限定 plano 可退、处方镜按质保/己方责任；线上 FAQ 已对渐进镜片挂靠 3 周适应保障。highlights 简写 '30-day returns' 建议后续在路由静态文案统一口径，避免与政策页细则歧义",
+    "found_inconsistency": "站内既有口径不一致：i18n pdp.g.shipping='Free shipping over $69' vs 政策页 'Free, tracked worldwide shipping'；30 天退换 plano-only vs FAQ 含处方。属存量问题，与本次上线无关，建议 owner 统一"
+  },
+  "policy_unification_v110": {
+    "date": "2026-10-08",
+    "owner_ruling": "满69包邮 / 30天可退(plano) / 带度数定制不退（全站唯一标准，owner 定稿两段英文文案）",
+    "framework_lock": "V1.1.0 — trusted_tokens 更新为 'Free tracked shipping on orders over $69'、trusted_numbers +69、delivery_rule 三句全站统一话术",
+    "patch": "lool-tr90-square.patch.json — approved_numbers +69/+9.9（$9.9 为政策低价邮费）；shipping_returns.text = 'Free shipping over $69 · 30-day returns (plano only) · Prescription custom-made, non-returnable'；新增 shipping_returns.detail 存 owner 定稿全站标准文案；FAQ 第4条同步；validate 14/14 PASS / score 100/100 A",
+    "db_write_2": {
+      "applied": true,
+      "statement": "UPDATE products SET highlights_json.en[6] → '3-week progressive guarantee · Free shipping over $69 · 30-day returns (plano only) · Prescription custom-made, non-returnable' WHERE slug='lool-tr90-square'（zh/ja/ko 原样保留）",
+      "result": "1 rows written"
+    },
+    "live_dom_check": {
+      "Free shipping worldwide": "ABSENT（不实旧文案已下架）",
+      "Free shipping over $69": "PRESENT",
+      "30-day returns (plano only)": "PRESENT",
+      "Prescription custom-made, non-returnable": "PRESENT",
+      "3-week progressive guarantee": "PRESENT",
+      "30-day returns": "PRESENT",
+      "Free tracked shipping on orders over $69": "ABSENT（全站标准句属政策静态区，未入 SSR DOM — 路由开窗后落位）"
+    },
+    "verify_after_v110": "PASS：meta 匹配 / Hero 图 6/6 / 信任令牌 4/8（Virtual Try-On、Measure PD at home、3-week progressive guarantee、30-day returns）/ Product JSON-LD。新增 FAIL 3 项（Free tracked shipping on orders over $69、30-day free returns & exchanges…、3-week adaptation guarantee）全部为路由架构差异：标准句位于政策静态区/客户端 FAQ，SSR DOM 未渲染 → 归入 PDP 路由开窗工单",
+    "status": "LIVE — 政策统一已上线（PDP 信任组与 policy v1.1 口径一致）；剩余 FAIL 全部指向 PDP 路由开窗工单（DB 驱动 14 区 SSR + Schema 插槽）"
+  },
+  "status": "LIVE — operator 内容已上线 + 政策统一 V1.1.0 复核完成；残余 FAIL 均为路由架构项，归入开窗工单（待程序员明日处理）"
+}

@@ -1,0 +1,41 @@
+{
+  "manifest": "lool-tr90-square 关键词裁决台账（operator 管线第④步）",
+  "date": "2026-10-08",
+  "method": "cannibal 扫描（DB 实查 products.slug + name_json，8 款在库）+ deprecated_fake_words 比对",
+  "db": "wrangler d1 execute lool-work --remote · 8 rows",
+  "adjudications": [
+    {
+      "keyword": "square reading glasses",
+      "verdict": "CLEAR",
+      "note": "PDP 持有: /en/product/lumen-square-clear（同形状另一款）+ 本款 lool-tr90-square。形状词多 PDP 持有属正常，无文章抢词 → 无 CONFLICT"
+    },
+    {
+      "keyword": "progressive glasses for reading",
+      "verdict": "CLEAR",
+      "note": "无其他产品 slug/name 含 progressive；本款渐进支撑词，无人占用"
+    },
+    {
+      "keyword": "reading glasses for 45",
+      "verdict": "CLEAR",
+      "note": "无人占用（年龄人群词，博客信息角度可承接）"
+    },
+    {
+      "keyword": "reading glasses for 50",
+      "verdict": "CLEAR",
+      "note": "无人占用"
+    },
+    {
+      "keyword": "affordable reading glasses online",
+      "verdict": "CLEAR",
+      "note": "无人占用（Layer D 同价位词）"
+    },
+    {
+      "keyword": "reading glasses under $30",
+      "verdict": "CLEAR",
+      "note": "无人占用，命中 $26 价格锚点"
+    }
+  ],
+  "deprecated_check": "6/6 未命中 deprecated_fake_words（oversized reading glasses that look young / glasses that make you look younger / anti-aging glasses）",
+  "overall": "NO CONFLICT · 6/6 CLEAR",
+  "registration": "keyword-library.json 新增 kw-square-reading-glasses / kw-progressive-for-reading / kw-reading-glasses-45 / kw-reading-glasses-50 / kw-affordable-reading-glasses / kw-reading-under-30（合计 28 关键词）"
+}

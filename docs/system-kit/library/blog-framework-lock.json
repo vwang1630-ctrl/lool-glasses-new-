@@ -1,0 +1,94 @@
+{
+  "manifest": "lool blog-framework-lock — 眼镜博客模板锁 V1.0",
+  "version": "V1.0.0",
+  "updated": "2026-10-07",
+  "source": "src/routes/blog.$slug.tsx + blog.index.tsx 实测",
+  "template": {
+    "route": "/blog/<slug>",
+    "implementation": [
+      "src/routes/$lang/blog.tsx",
+      "src/routes/$lang/blog.$slug.tsx"
+    ],
+    "locked": "模板壳不可改：分类 eyebrow → serif H1 → 日期 → hero 图 → markdown 正文 → 页脚 CTA；背景/字体继承全站；SSR 仅渲染 status=published",
+    "canonical_url": "/<lang>/blog/<slug>.html"
+  },
+  "storage": {
+    "table": "blog_posts",
+    "columns": [
+      "id",
+      "slug",
+      "cover_image_url",
+      "title_json",
+      "content_json",
+      "published_at",
+      "sort_order",
+      "active",
+      "created_at",
+      "updated_at"
+    ]
+  },
+  "renderer_limits": {
+    "engine": "react-markdown（非 GFM）",
+    "supported": [
+      "h2/h3",
+      "bold/italic",
+      "hr",
+      "lists",
+      "links",
+      "图片（自动 figure+figcaption，alt 必填）",
+      "blockquote"
+    ],
+    "forbidden_syntax": [
+      "markdown 表格（无 GFM 不渲染）",
+      "HTML 标签",
+      "正文 h1（H1 由 title 字段渲染，正文从 h2 起）"
+    ]
+  },
+  "content_contract": {
+    "title_chars": [40, 60],
+    "title_note": "head 自动拼 ' | Blog | lool'（15 字符）→ SERP 总长 ≤60",
+    "excerpt_chars": [150, 160],
+    "excerpt_note": "excerpt 即 meta description 与列表卡摘要",
+    "categories": [
+      "Reading Glasses",
+      "Progressive Lenses",
+      "Frame Guide",
+      "Lens Technology",
+      "Lifestyle"
+    ],
+    "h2_sections": [3, 6],
+    "lede_rule": "目标关键词必须出现在正文前 100 词",
+    "product_links_min": 2,
+    "product_links_note": "正文 ≥2 条 /<lang>/products/<slug> 内链（不同产品）",
+    "blog_links_min": 2,
+    "blog_links_note": "话题簇内链：正文 ≥2 条 blog 内链",
+    "hero_image_required": true,
+    "kpi": {
+      "statement": "Blog = 为 PDP 送水的副产线",
+      "唯一 KPI": "正文中至少一根内链让人『点了就想买』——开头痛点 → 产品当解法 → CTA 回 PDP",
+      "skeleton": "开头痛点钩子 → 中段产品=解法(≥2 内链) → 结尾 CTA 回 PDP"
+    }
+  },
+  "meta_rules": {
+    "ageless_narrative": "禁用 senior/elderly/old/aging 等老年标签词",
+    "delivery": "渐进镜片适应期承诺不超过 3 周"
+  },
+  "ai_subjects": [
+    "AI face swap",
+    "face swap",
+    "AI-generated image",
+    "AI model",
+    "AI try-on",
+    "AI virtual try-on"
+  ],
+  "ai_label_tokens": [
+    "AI-generated",
+    "rendered by AI",
+    "not a real photo",
+    "not a real person",
+    "uses your real camera",
+    "real-camera preview",
+    "not AI-generated"
+  ],
+  "seo_auto": "head 自动生成：title=标题+后缀 · description=excerpt · Article JSON-LD · canonical /<lang>/blog/<slug>"
+}

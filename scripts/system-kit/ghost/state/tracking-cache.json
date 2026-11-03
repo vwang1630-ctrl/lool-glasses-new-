@@ -1,0 +1,16 @@
+{
+  "SF123456": {
+    "fetchedAt": 1791338404268,
+    "result": {
+      "ok": false,
+      "error": "fetch failed"
+    }
+  },
+  "SF123456789": {
+    "fetchedAt": 1791338404268,
+    "result": {
+      "ok": false,
+      "error": "未知承运商（carrier=Other）——手动查"
+    }
+  }
+}

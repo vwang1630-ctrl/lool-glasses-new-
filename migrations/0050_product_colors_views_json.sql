@@ -1,0 +1,23 @@
+-- 0050_product_colors_views_json.sql
+--
+-- Add a structured `views_json` column to product_colors that names each
+-- per-color photo by its viewing angle. Replaces the prior implicit "images[0]
+-- is the hero" convention with explicit slots so PDP and ProductCard can
+-- request a specific view by name and fall back deterministically.
+--
+-- Shape: {"front": url|null, "side": url|null, "angle": url|null,
+--         "folded": url|null, "hover": url|null}
+--   front  — head-on, no model. Required for new SKUs.
+--   side   — 90° profile, full temple. Required for new SKUs.
+--   angle  — 3/4 view, the e-commerce default cover.
+--   folded — top-down, glasses folded.
+--   hover  — image shown on ProductCard hover-flip back face.
+--
+-- images_json continues to back the PDP thumbnail strip (full image bag).
+-- tryon_image_url remains the transparent-PNG AR source (untouched).
+--
+-- New rows MUST set views_json with at least the 5 expected keys present
+-- (nulls allowed only for front/side during pre-launch). Backfilled rows for
+-- existing SKUs use a best-effort mapping; admins can refine in the editor.
+
+ALTER TABLE product_colors ADD COLUMN views_json TEXT;

@@ -1,0 +1,12 @@
+{
+  "manifest": "lool operator-dashboard — 驾驶舱（每周更新主推产品）",
+  "version": "V1.0.0",
+  "updated": "2026-10-07",
+  "featured_sku": {
+    "slug": null,
+    "label": null,
+    "reason": "冷启动期——blog 首发 5 篇待写，暂无主推产品",
+    "until": "blog 首发后确定"
+  },
+  "rules": "每周更新一次(周报时顺带);featured_sku 与 content-master 排产同频;主推产品优先排产社媒出口"
+}

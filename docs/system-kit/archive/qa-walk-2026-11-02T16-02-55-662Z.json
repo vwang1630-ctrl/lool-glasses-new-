@@ -1,0 +1,48 @@
+{
+  "origin": "https://loollook.com",
+  "generated_at": "2026-11-02T16:04:02.464Z",
+  "results": [
+    {
+      "name": "make-system-kit",
+      "status": "PASS",
+      "note": "exit 0"
+    },
+    {
+      "name": "lint",
+      "status": "PASS",
+      "note": "exit 0"
+    },
+    {
+      "name": "build",
+      "status": "PASS",
+      "note": "exit 0"
+    },
+    {
+      "name": "D1 migrations dry-run",
+      "status": "FAIL",
+      "note": "exit 1"
+    },
+    {
+      "name": "deploy-smoke",
+      "status": "FAIL",
+      "note": "exit 1"
+    },
+    {
+      "name": "system files",
+      "status": "PASS",
+      "note": "robots=200 sitemap=200 llms=200"
+    },
+    {
+      "name": "blog article in sitemap",
+      "status": "PASS",
+      "note": "found"
+    }
+  ],
+  "summary": {
+    "pass": 5,
+    "fail": 2,
+    "skip": 0,
+    "total": 7
+  },
+  "ok": false
+}

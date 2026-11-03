@@ -1,0 +1,416 @@
+{
+  "manifest": "lool keyword-library — 眼镜关键词库 V1.1.0（2号位 Fashion Readers 定位上线）",
+  "version": "V1.1.0",
+  "updated": "2026-10-08",
+  "keywords": [
+    {
+      "id": "kw-reading-glasses",
+      "term": "reading glasses",
+      "market_layer": "A",
+      "intent": "transactional",
+      "assigned_to": "cluster-reading-glasses",
+      "evidence_tier": "T2",
+      "note": "核心品类词，搜索量最大"
+    },
+    {
+      "id": "kw-best-reading-glasses",
+      "term": "best reading glasses",
+      "market_layer": "A",
+      "intent": "commercial",
+      "assigned_to": "cluster-reading-glasses",
+      "evidence_tier": "T2",
+      "note": "购买意向词，适合 blog 评测内容"
+    },
+    {
+      "id": "kw-reading-glasses-women",
+      "term": "reading glasses for women",
+      "market_layer": "A",
+      "intent": "transactional",
+      "assigned_to": "cluster-reading-glasses",
+      "evidence_tier": "T2",
+      "note": "性别细分词"
+    },
+    {
+      "id": "kw-reading-glasses-men",
+      "term": "reading glasses for men",
+      "market_layer": "A",
+      "intent": "transactional",
+      "assigned_to": "cluster-reading-glasses",
+      "evidence_tier": "T2",
+      "note": "性别细分词"
+    },
+    {
+      "id": "kw-progressive-lenses",
+      "term": "progressive lenses",
+      "market_layer": "A",
+      "intent": "informational",
+      "assigned_to": "cluster-progressive-lenses",
+      "evidence_tier": "T2",
+      "note": "渐进镜片核心词，教育内容适配"
+    },
+    {
+      "id": "kw-progressive-vs-reading",
+      "term": "progressive vs reading glasses",
+      "market_layer": "A",
+      "intent": "informational",
+      "assigned_to": "cluster-progressive-lenses",
+      "evidence_tier": "T2",
+      "note": "对比词，适合 guide 内容"
+    },
+    {
+      "id": "kw-adapt-progressive-lenses",
+      "term": "how to adapt to progressive lenses",
+      "market_layer": "A",
+      "intent": "informational",
+      "assigned_to": "cluster-progressive-lenses",
+      "evidence_tier": "T2",
+      "note": "适应焦虑词，3 周保障叙事切入点"
+    },
+    {
+      "id": "kw-ageless-eyewear",
+      "term": "ageless eyewear",
+      "market_layer": "C",
+      "intent": "informational",
+      "assigned_to": "cluster-ageless-eyewear",
+      "evidence_tier": "T1",
+      "note": "品牌定位词，去老年化核心"
+    },
+    {
+      "id": "kw-stylish-reading-glasses",
+      "term": "stylish reading glasses",
+      "market_layer": "C",
+      "intent": "commercial",
+      "assigned_to": "cluster-ageless-eyewear",
+      "evidence_tier": "T2",
+      "note": "时尚诉求词，去老年化情感共鸣"
+    },
+    {
+      "id": "kw-not-old-glasses",
+      "term": "reading glasses that don't look old",
+      "market_layer": "C",
+      "intent": "informational",
+      "assigned_to": "cluster-ageless-eyewear",
+      "evidence_tier": "T1",
+      "note": "痛点词，直接对应去老年化品牌叙事"
+    },
+    {
+      "id": "kw-face-shape-glasses",
+      "term": "glasses for my face shape",
+      "market_layer": "B",
+      "intent": "informational",
+      "assigned_to": "cluster-frame-fit-guide",
+      "evidence_tier": "T2",
+      "note": "选框工具配套 SEO 词"
+    },
+    {
+      "id": "kw-how-to-choose-frames",
+      "term": "how to choose eyeglass frames",
+      "market_layer": "B",
+      "intent": "informational",
+      "assigned_to": "cluster-frame-fit-guide",
+      "evidence_tier": "T2",
+      "note": "指南类词，引导到 /choose-eyeglasses"
+    },
+    {
+      "id": "kw-glasses-for-round-face",
+      "term": "best glasses for round face",
+      "market_layer": "B",
+      "intent": "commercial",
+      "assigned_to": "cluster-frame-fit-guide",
+      "evidence_tier": "T2",
+      "note": "脸型细分词，引导到 /find-your-fit"
+    },
+    {
+      "id": "kw-blue-light-glasses",
+      "term": "blue light glasses",
+      "market_layer": "B",
+      "intent": "transactional",
+      "assigned_to": "cluster-lens-tech",
+      "evidence_tier": "T2",
+      "note": "防蓝光品类词"
+    },
+    {
+      "id": "kw-photochromic-lenses",
+      "term": "photochromic lenses",
+      "market_layer": "A",
+      "intent": "informational",
+      "assigned_to": "cluster-lens-tech",
+      "evidence_tier": "T2",
+      "note": "光致变色镜片，Transitions 品牌关联"
+    },
+    {
+      "id": "kw-high-index-lenses",
+      "term": "high index lenses",
+      "market_layer": "A",
+      "intent": "informational",
+      "assigned_to": "cluster-lens-tech",
+      "evidence_tier": "T2",
+      "note": "高折射率镜片，Lens Wizard 折射率选择配套"
+    },
+    {
+      "id": "kw-virtual-try-on-glasses",
+      "term": "virtual try on glasses online",
+      "market_layer": "B",
+      "intent": "informational",
+      "assigned_to": "",
+      "evidence_tier": "T2",
+      "note": "虚拟试戴功能词，差异化卖点"
+    },
+    {
+      "id": "kw-measure-pd-at-home",
+      "term": "how to measure pupil distance at home",
+      "market_layer": "B",
+      "intent": "informational",
+      "assigned_to": "",
+      "evidence_tier": "T2",
+      "note": "PD 测量工具配套词，降低购买门槛"
+    },
+    {
+      "id": "kw-lool-glasses-review",
+      "term": "lool glasses review",
+      "market_layer": "A",
+      "intent": "commercial",
+      "assigned_to": "",
+      "evidence_tier": "T1",
+      "note": "品牌评价词，需真实评价积累"
+    },
+    {
+      "id": "kw-老花镜",
+      "term": "老花镜",
+      "market_layer": "A",
+      "intent": "transactional",
+      "assigned_to": "cluster-reading-glasses",
+      "evidence_tier": "T2",
+      "note": "中文核心品类词"
+    },
+    {
+      "id": "kw-渐进多焦点",
+      "term": "渐进多焦点镜片",
+      "market_layer": "A",
+      "intent": "informational",
+      "assigned_to": "cluster-progressive-lenses",
+      "evidence_tier": "T2",
+      "note": "中文渐进镜片词"
+    },
+    {
+      "id": "kw-防蓝光眼镜",
+      "term": "防蓝光眼镜",
+      "market_layer": "B",
+      "intent": "transactional",
+      "assigned_to": "cluster-lens-tech",
+      "evidence_tier": "T2",
+      "note": "中文防蓝光品类词"
+    },
+    {
+      "id": "kw-square-reading-glasses",
+      "term": "square reading glasses",
+      "market_layer": "A",
+      "intent": "transactional",
+      "assigned_to": "cluster-frame-fit-guide",
+      "evidence_tier": "T2",
+      "note": "operator-intake Layer A · lool-tr90-square 形状词，PDP 直接承接"
+    },
+    {
+      "id": "kw-progressive-for-reading",
+      "term": "progressive glasses for reading",
+      "market_layer": "A",
+      "intent": "commercial",
+      "assigned_to": "cluster-progressive-lenses",
+      "evidence_tier": "T2",
+      "note": "operator-intake Layer A · 渐进+阅读双意图词"
+    },
+    {
+      "id": "kw-reading-glasses-45",
+      "term": "reading glasses for 45",
+      "market_layer": "C",
+      "intent": "informational",
+      "assigned_to": "cluster-ageless-eyewear",
+      "evidence_tier": "T2",
+      "note": "operator-intake Layer C · 同用户市场（45-50 初老花人群）"
+    },
+    {
+      "id": "kw-reading-glasses-50",
+      "term": "reading glasses for 50",
+      "market_layer": "C",
+      "intent": "informational",
+      "assigned_to": "cluster-ageless-eyewear",
+      "evidence_tier": "T2",
+      "note": "operator-intake Layer C · 50+ 渐进好奇人群"
+    },
+    {
+      "id": "kw-affordable-reading-glasses",
+      "term": "affordable reading glasses online",
+      "market_layer": "D",
+      "intent": "transactional",
+      "assigned_to": "cluster-ageless-eyewear",
+      "evidence_tier": "T2",
+      "note": "operator-intake Layer D · Core $6-29 同价位市场"
+    },
+    {
+      "id": "kw-reading-under-30",
+      "term": "reading glasses under $30",
+      "market_layer": "D",
+      "intent": "transactional",
+      "assigned_to": "cluster-reading-glasses",
+      "evidence_tier": "T2",
+      "note": "operator-intake Layer D · 价格锚点词，命中 $26"
+    },
+    {
+      "id": "kw-fashion-readers",
+      "term": "fashion readers",
+      "market_layer": "A",
+      "intent": "transactional",
+      "assigned_to": "cluster-fashion-readers",
+      "evidence_tier": "T2",
+      "note": "2号位主词——PDP 标题/H1/图片 alt/Schema 首选"
+    },
+    {
+      "id": "kw-fashion-cheaters",
+      "term": "fashion cheaters",
+      "market_layer": "A",
+      "intent": "transactional",
+      "assigned_to": "cluster-fashion-readers",
+      "evidence_tier": "T2",
+      "note": "2号位主词同义双拼，美区更常用 cheaters"
+    },
+    {
+      "id": "kw-fashion-readers-women",
+      "term": "fashion readers women",
+      "market_layer": "A",
+      "intent": "transactional",
+      "assigned_to": "cluster-fashion-readers",
+      "evidence_tier": "T2",
+      "note": "性别辅词，模板标题结构含 Women"
+    },
+    {
+      "id": "kw-oversized-cheaters",
+      "term": "oversized cheaters",
+      "market_layer": "B",
+      "intent": "commercial",
+      "assigned_to": "cluster-fashion-readers",
+      "evidence_tier": "T2",
+      "note": "辅词——oversized 放大风格，PDP 副标题"
+    },
+    {
+      "id": "kw-oversized-readers",
+      "term": "oversized readers",
+      "market_layer": "B",
+      "intent": "commercial",
+      "assigned_to": "cluster-fashion-readers",
+      "evidence_tier": "T2",
+      "note": "辅词同义"
+    },
+    {
+      "id": "kw-square-fashion-readers",
+      "term": "square fashion readers",
+      "market_layer": "B",
+      "intent": "transactional",
+      "assigned_to": "cluster-fashion-readers",
+      "evidence_tier": "T2",
+      "note": "辅词——shape 维度，入 URL/标题"
+    },
+    {
+      "id": "kw-stylish-cheaters-women",
+      "term": "stylish cheaters for women",
+      "market_layer": "C",
+      "intent": "commercial",
+      "assigned_to": "cluster-fashion-readers",
+      "evidence_tier": "T2",
+      "note": "情感辅词——stylish 去老年化心智"
+    },
+    {
+      "id": "kw-tr90-readers",
+      "term": "TR90 readers",
+      "market_layer": "C",
+      "intent": "transactional",
+      "assigned_to": "cluster-fashion-readers",
+      "evidence_tier": "T2",
+      "note": "材质维度——按实际 SKU 色套用（如 Havana TR90 readers / black TR90 readers）"
+    },
+    {
+      "id": "kw-fashion-readers-diopter",
+      "term": "fashion readers +2.0",
+      "market_layer": "C",
+      "intent": "transactional",
+      "assigned_to": "cluster-fashion-readers",
+      "evidence_tier": "T3",
+      "note": "度数参数化词——diopter 入标题/参数表/Schema"
+    },
+    {
+      "id": "kw-fashion-readers-online",
+      "term": "buy fashion readers online",
+      "market_layer": "D",
+      "intent": "transactional",
+      "assigned_to": "cluster-fashion-readers",
+      "evidence_tier": "T3",
+      "note": "GEO 长尾——交易意图"
+    },
+    {
+      "id": "kw-oversized-fashion-readers-2026",
+      "term": "oversized fashion readers for women 2026",
+      "market_layer": "D",
+      "intent": "informational",
+      "assigned_to": "cluster-fashion-readers",
+      "evidence_tier": "T3",
+      "note": "GEO 长尾——年度潮流句式，FAQ Q1 对应"
+    },
+    {
+      "id": "kw-lightweight-tr90-readers",
+      "term": "lightweight TR90 fashion readers",
+      "market_layer": "D",
+      "intent": "commercial",
+      "assigned_to": "cluster-fashion-readers",
+      "evidence_tier": "T3",
+      "note": "GEO 长尾——轻量化卖点（19.1g），FAQ Q4 对应"
+    },
+    {
+      "id": "kw-fashion-readers-not-medical",
+      "term": "fashion readers that don't look like reading glasses",
+      "market_layer": "D",
+      "intent": "informational",
+      "assigned_to": "cluster-fashion-readers",
+      "evidence_tier": "T3",
+      "note": "GEO 长尾——去医疗化心智，对应 AI 定义句"
+    }
+  ],
+  "deprecated_fake_words": [
+    "oversized reading glasses that look young",
+    "glasses that make you look younger",
+    "anti-aging glasses"
+  ],
+  "watchlist": [
+    "smart glasses 2026",
+    "AI powered eyeglasses",
+    "adjustable focus glasses"
+  ],
+  "banned_terms": [
+    {
+      "term": "Reading Glasses for Presbyopia",
+      "why": "医疗词库——严禁出现在 PDP 标题/H1/desc/Schema/正文/图片 alt"
+    },
+    {
+      "term": "Vision Correction",
+      "why": "医疗功效承诺——严禁任何页面宣称"
+    },
+    {
+      "term": "presbyopia reading glasses",
+      "why": "医疗属性组合词——严禁"
+    },
+    {
+      "term": "medical reading glasses",
+      "why": "医疗定性——严禁（产品定性为 fashion accessory）"
+    },
+    {
+      "term": "Rx Range",
+      "why": "处方词——fashion reader SKU 静态规格区已改为 Diopter (magnification only)"
+    },
+    {
+      "term": "Progressive: Yes",
+      "why": "渐进词——fashion reader SKU 静态规格区已改为 Magnification +1.0 to +3.5"
+    },
+    {
+      "term": "-20.00 ~ +10.00",
+      "why": "处方度数范围——已从 fashion reader SKU 静态规格区移除"
+    }
+  ]
+}

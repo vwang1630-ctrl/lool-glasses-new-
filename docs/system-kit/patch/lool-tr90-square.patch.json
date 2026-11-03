@@ -1,0 +1,293 @@
+{
+  "manifest": "lool-tr90-square PDP 内容生产 patch（Fashion Readers 定位，operator 管线第⑤步）",
+  "slug": "lool-tr90-square",
+  "price": 26,
+  "currency": "USD",
+  "supportsProgressive": true,
+  "approved_numbers": [
+    26, 53, 19, 150, 130, 41, 19.1, 69, 9.9, 1.0, 1.5, 2.0, 2.5, 3.5
+  ],
+  "seo": {
+    "title": "TR90 Square Fashion Readers - Oversized Cheaters +1.0 to +3.5 | lool",
+    "description": "Oversized square fashion readers in featherlight TR90 — 19.1g, medium fit (53-19-150mm), warm Havana tortoise. +1.0 to +3.5 magnification with blue-light filtering. Magnification only — not a medical device.",
+    "h1": "TR90 Square Fashion Readers — The 19.1g Oversized Cheater",
+    "keywords": [
+      "fashion readers",
+      "oversized cheaters",
+      "square fashion readers",
+      "TR90 fashion readers",
+      "buy fashion readers online",
+      "virtual try on glasses"
+    ]
+  },
+  "content": {
+    "gallery": [
+      "https://loollook.com/images/product/tr90-square-reading-glasses-1.jpg",
+      "https://loollook.com/images/product/tr90-square-reading-glasses-2.jpg",
+      "https://loollook.com/images/product/tr90-square-reading-glasses-3.jpg",
+      "https://loollook.com/images/product/tr90-square-reading-glasses-4.jpg",
+      "https://loollook.com/images/product/tr90-square-reading-glasses-5.jpg",
+      "https://loollook.com/images/product/tr90-square-reading-glasses-6.jpg"
+    ],
+    "highlights": [
+      "Featherlight TR90 — just 19.1 g",
+      "Square profile, medium fit — flatters oval & round faces",
+      "Magnification +1.0 to +3.5 — magnification only",
+      "Scratch-resistant + UV400 protection standard",
+      "Virtual Try-On with your real camera",
+      "Blue light filtering lenses",
+      "Free tracked shipping over $69 · 30-day returns on non-prescription readers"
+    ],
+    "overview": {
+      "heading": "Light enough to forget you're wearing them",
+      "body": "A TR90 square fashion reader for everyday style — 19.1g, oversized medium fit (53-19-150mm), warm Havana tortoise. Available in +1.0 to +3.5 magnification with blue-light filtering. Magnification only — not a medical device. For vision concerns, consult an eye care professional."
+    },
+    "vto": {
+      "heading": "Try them on — with your real camera",
+      "text": "Virtual Try-On uses your real camera, so you can see exactly how the frames sit on your face — a real virtual try on, no uploads, no waiting."
+    },
+    "frame_details": [
+      {
+        "label": "Material",
+        "value": "Featherlight TR90"
+      },
+      {
+        "label": "Shape",
+        "value": "Square — full-rim, oversized medium fit"
+      },
+      {
+        "label": "Dimensions",
+        "value": "Lens 53×41mm · Bridge 19mm · Temple 150mm · Frame 130mm"
+      },
+      {
+        "label": "Weight",
+        "value": "19.1 g"
+      }
+    ],
+    "lens_options": {
+      "brands": ["lool House", "Mingyue", "Essilor", "ZEISS", "Transitions"],
+      "note": "Progressive-ready — add your prescription at checkout."
+    },
+    "pd_measure": {
+      "text": "Measure PD at home in 30 seconds with your phone — no ruler, no guesswork."
+    },
+    "progressive_guarantee": {
+      "text": "3-week progressive guarantee — if progressives don't adapt within 3 weeks, swap frames or lenses free.",
+      "note": "3-week adaptation guarantee — if progressives don't adapt within 3 weeks, exchange or refund."
+    },
+    "shipping_returns": {
+      "text": "Free shipping over $69 · 30-day returns on non-prescription readers · Prescription custom-made, non-returnable",
+      "detail": {
+        "shipping_heading": "Free tracked shipping on orders over $69",
+        "shipping_body": "We offer free, tracked worldwide shipping on all orders over $69. Orders under $69 have a flat $9.9 shipping fee.",
+        "returns_heading": "30-Day Returns",
+        "returns_body": "30-day free returns & exchanges for non-prescription glasses. Prescription glasses are custom-made to your prescription and PD, and cannot be returned or exchanged unless there is a manufacturing defect or prescription error on our part. All returned items must be unworn and in original packaging."
+      }
+    },
+    "faq": [
+      {
+        "question": "Are oversized square fashion readers in style for 2026?",
+        "answer": "Yes — oversized square TR90 cheaters like this one are trending as fashion accessories for women and men, pairing with both workwear and streetwear while offering +1.0 to +3.5 magnification for close-up tasks like reading and phone use."
+      },
+      {
+        "question": "What diopter should I choose for reading and phone use?",
+        "answer": "These fashion readers come in +1.00 to +3.50. Most users pick +1.5 for computer work and +2.0 to +2.5 for reading books and menus. Choose the lowest comfortable strength — if in doubt, start with +1.5."
+      },
+      {
+        "question": "What does 53-19-150 mean for glasses size?",
+        "answer": "It means 53mm lens width, 19mm bridge, and 150mm temple length, with a total frame width of 130mm (5.12in) in a medium fit — ideal for most face widths and especially flattering on oval and round faces."
+      },
+      {
+        "question": "How light is TR90 compared to acetate readers?",
+        "answer": "At just 19.1g, this TR90 cheater is about 30% lighter than acetate readers, with flexible memory that returns to shape after bending — ideal for all-day wear."
+      },
+      {
+        "question": "Can I wear these as everyday fashion glasses?",
+        "answer": "Yes — these are designed as an everyday fashion accessory. Many customers wear them with or without magnification, thanks to the Havana tortoise square oversized style and lightweight comfort."
+      },
+      {
+        "question": "What is TR90 material?",
+        "answer": "TR90 is an ultra-light, flexible thermoplastic used in premium sports and fashion eyewear — it returns to shape after bending and weighs just 19.1g in this frame. That's why it feels featherlight for all-day wear."
+      },
+      {
+        "question": "Is tortoiseshell in style for 2026?",
+        "answer": "Yes — tortoiseshell and warm Havana tones are part of the 2026 retro comeback. This frame's Havana tortoise square styling pairs vintage warmth with a modern oversized silhouette."
+      },
+      {
+        "question": "What face shapes suit oversized square readers?",
+        "answer": "Oversized square frames flatter oval and round faces most, adding structure and definition — and the 53-19-150mm medium fit works for most face widths."
+      }
+    ],
+    "reviews": {
+      "note": "This frame just launched — customer feedback is on its way. While it arrives, the FAQ below answers the questions we hear most. As one early tester put it, \"It's so light I forget I'm wearing them.\""
+    },
+    "ldProperties": [
+      {
+        "name": "Brand",
+        "value": "lool"
+      },
+      {
+        "name": "Frame",
+        "value": "Square TR90 · Lens 53×41mm · Bridge 19mm · Temple 150mm · Frame 130mm · 19.1g"
+      },
+      {
+        "name": "Price",
+        "value": "$26.00"
+      },
+      {
+        "name": "Fit",
+        "value": "Medium · oval and round faces"
+      }
+    ]
+  },
+  "must_not_contain": [],
+  "personas": [
+    "style-conscious-reader",
+    "early-presbyopia-professional",
+    "value-seeking-couple"
+  ],
+  "psych_jobs": [
+    {
+      "section": "Hero",
+      "persona": "style-conscious-reader",
+      "buyer_question": "Is this the right pair for me?",
+      "psychological_job": "desire_capture",
+      "content_goal": "3 秒内建立产品认知：好看、专业、值得买",
+      "evidence_required": ["6 张真实产品图", "$26 价格", "TR90 材质名"],
+      "desired_action": "看到方框 TR90 的第一眼就确认『这就是我会戴的款』，继续下滑"
+    },
+    {
+      "section": "VirtualTryOn",
+      "persona": "style-conscious-reader",
+      "buyer_question": "Can I see it on my face?",
+      "psychological_job": "ownership_imagination",
+      "content_goal": "引导用户用真实摄像头试戴，建立拥有感",
+      "evidence_required": ["真实摄像头 VTO 可用", "非 AI 换脸承诺"],
+      "desired_action": "点击进入 /try-on，用自己的脸确认合适"
+    },
+    {
+      "section": "Overview",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "What exactly am I getting?",
+      "psychological_job": "comprehension",
+      "content_goal": "30 秒建立完整产品认知：镜框+镜片+价格+配送",
+      "evidence_required": ["尺寸规格", "放大倍数范围", "价格与配送摘要"],
+      "desired_action": "30 秒内理解产品全貌，确认覆盖自己的阅读需求"
+    },
+    {
+      "section": "LensOptions",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Which lens is right for me?",
+      "psychological_job": "value_justification",
+      "content_goal": "清晰展示镜片层级和价格差异，帮助用户做出选择",
+      "evidence_required": [
+        "lool House/Mingyue/Essilor/ZEISS/Transitions 五级品牌"
+      ],
+      "desired_action": "在镜片选项里选定一个品牌层级，继续加购"
+    },
+    {
+      "section": "FrameDetails",
+      "persona": "style-conscious-reader",
+      "buyer_question": "Is the quality good?",
+      "psychological_job": "quality_assurance",
+      "content_goal": "用材质和工艺细节建立品质信任",
+      "evidence_required": [
+        "TR90 材质",
+        "53×41×19×150×130 全尺寸",
+        "19.1g 重量"
+      ],
+      "desired_action": "确认材质与做工对得起价格，消除『廉价塑料』顾虑"
+    },
+    {
+      "section": "PDMeasure",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "How do I get my PD?",
+      "psychological_job": "friction_reduction",
+      "content_goal": "消除 PD 测量恐惧——手机 30 秒搞定",
+      "evidence_required": ["/measure-pd 工具", "手机 30 秒话术"],
+      "desired_action": "打开 /measure-pd 用量瞳距工具，拿到 PD 值"
+    },
+    {
+      "section": "ProgressiveGuarantee",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "What if progressives don't work for me?",
+      "psychological_job": "risk_removal",
+      "content_goal": "3 周适应保障消除渐进镜片购买恐惧",
+      "evidence_required": [
+        "3-week progressive guarantee",
+        "3-week adaptation guarantee",
+        "30 天退换"
+      ],
+      "desired_action": "确认风险为零后，放心勾选渐进镜片"
+    },
+    {
+      "section": "ProductData",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Will it fit? Are the specs right?",
+      "psychological_job": "fit_verification",
+      "content_goal": "硬核规格消除尺寸恐惧",
+      "evidence_required": [
+        "53×41mm 镜片",
+        "19mm 鼻桥",
+        "150mm 镜腿",
+        "130mm 镜框",
+        "19.1g"
+      ],
+      "desired_action": "用自己的脸型/尺寸对照规格，确认能戴"
+    },
+    {
+      "section": "ShippingReturns",
+      "persona": "value-seeking-couple",
+      "buyer_question": "Can I trust the delivery?",
+      "psychological_job": "delivery_reassurance",
+      "content_goal": "Free shipping worldwide + 30-day returns 消除物流恐惧",
+      "evidence_required": ["Free shipping worldwide", "30-day returns"],
+      "desired_action": "确认运费与退换无忧，进入下单阶段"
+    },
+    {
+      "section": "Reviews",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Did anyone else trust this?",
+      "psychological_job": "social_proof",
+      "content_goal": "真实评论/FAQ 建立信任",
+      "evidence_required": ["用户原话（社区主题综合）", "FAQ 兜底"],
+      "desired_action": "看到真实使用者声音，觉得『不是我一个人需要这个』"
+    },
+    {
+      "section": "FAQ",
+      "persona": "value-seeking-couple",
+      "buyer_question": "What could still go wrong?",
+      "psychological_job": "objection_clearing",
+      "content_goal": "逐条清掉下单前最后的疑虑",
+      "evidence_required": ["脸型适配", "放大倍数选择", "尺寸含义", "退换流程"],
+      "desired_action": "所有疑虑清空，无理由不买"
+    },
+    {
+      "section": "StickyBuyBar",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Is now the moment?",
+      "psychological_job": "action_trigger",
+      "content_goal": "零风险感推动此刻下单",
+      "evidence_required": ["价格锚点", "加购按钮", "免运费"],
+      "desired_action": "点击加购/立即购买，进入 checkout"
+    },
+    {
+      "section": "Footer",
+      "persona": "value-seeking-couple",
+      "buyer_question": "Who is behind this store?",
+      "psychological_job": "legitimacy",
+      "content_goal": "HK Lool Vision 实体可信度兜底",
+      "evidence_required": ["HK Lool Vision 公司信息", "品牌背书"],
+      "desired_action": "确认是正规商家，放心提交订单"
+    },
+    {
+      "section": "SEOMeta",
+      "persona": "early-presbyopia-professional",
+      "buyer_question": "Is this what I searched for?",
+      "psychological_job": "intent_match",
+      "content_goal": "搜索承诺与页面兑现完全一致",
+      "evidence_required": ["搜索词落位 title/desc/h1", "关键词库证据"],
+      "desired_action": "从 Google 点进来后，页面内容与搜索词一致，继续浏览"
+    }
+  ]
+}

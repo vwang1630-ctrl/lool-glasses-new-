@@ -1,0 +1,43 @@
+{
+  "manifest": "SEO/GEO 月度收录基线台账 — loollook.com 每月例会对比（数据源：GSC + ai-visibility.json 采样），首月 2026-10",
+  "version": "V1.0",
+  "created": "2026-10-07",
+  "entries": [
+    {
+      "month": "2026-10",
+      "gsc": {
+        "range": "待接入",
+        "clicks": 0,
+        "impressions": 0,
+        "ctr_pct": 0,
+        "avg_position": 0,
+        "baseline_note": "基线月——站点刚完成系统库重写，SEO 从冷启动开始",
+        "source": "待接入 GSC"
+      },
+      "geo": {
+        "engines_tested": "待首次采样（ChatGPT / Perplexity / Gemini）",
+        "prompts_tested": 0,
+        "cited": false,
+        "cited_domains_instead": [],
+        "full_sampling": "方法在 ai-visibility.json，7 个 persona prompt 组",
+        "llms_txt": "已部署（src/routes/llms[.]txt.ts，2026-10-08 上线）",
+        "source": "待手工采样"
+      },
+      "top_keywords": [],
+      "next_review": "2026-11 例会：对比本基线，同口径",
+      "channels_baseline": {
+        "note": "2026-10-07 各渠道冷启动基线——全部为零或接近零",
+        "pinterest": "未入场",
+        "instagram": "未入场",
+        "facebook": "未入场",
+        "youtube": {
+          "subs": 0,
+          "videos": 0,
+          "views": 0,
+          "clicks": 0
+        },
+        "reddit": "未入场"
+      }
+    }
+  ]
+}

@@ -1,0 +1,674 @@
+{
+  "manifest": "lool operator-library — DTC eyeglasses 战略板（第 0 层：战略层。一号战略原则 Every product starts with itself：PRODUCT→MARKET→HUMAN→PSYCHOLOGY→CONTENT→CONVERSION。漏斗图×内容矩阵×CRO 台账(ICE)×工单台账×AB 纪律×品牌资产×E-E-A-T 审计×strategy 链。命令：operator 审计 / operator-intel 情报 / operator-next 排序 / operator-intake 产品逆向推导 / operator-selftest 自检）",
+  "version": "V2.1.0",
+  "updated": "2026-10-15",
+  "manifest_note": "五幕十三流全系统索引见 docs/system-kit/operator-flows.md（V1.0，2026-10-15 立）——本板战略判断与台账归属不变，新资产进哪条流查总纲",
+  "business_model": {
+    "model": "inventory",
+    "catalog": "fixed（固版目录：自有设计老花镜+近视镜，不接来图定制/OEM）",
+    "statement": "DTC 眼镜独立站。老花镜（presbyopia）+ 近视镜（myopia），主打去老年化。45-60 代际；海外为主。价格 $6-$29，Stripe 收单（HK 主体），全球发货（中国大陆 WAF 屏蔽）。",
+    "source": "站点代码 + CLAUDE.md（T1，所有者）",
+    "implications": {
+      "decision": "低客单价 + 渐进镜片适配焦虑 → decision 阶段核心是降低风险：虚拟试戴 + PD 测量 + 处方指南 + 退换保障",
+      "trust": "在线配镜信任门槛高 → 镜片品牌背书（Essilor/ZEISS/Transitions）+ FAQ + 真实评价是核心信任资产",
+      "brand": "去老年化 ≠ 老年品牌 → 所有文案禁用 senior/elderly/old，叙事核心是 ageless design + 重新享受阅读",
+      "guardrails": [
+        "禁假稀缺（库存倒计时/仅剩N件）",
+        "禁 senior/elderly/old/aging 等老年标签词",
+        "镜片品牌层级不可乱（house < mainstream < premium < luxury）",
+        "渐进镜片适应期承诺不超过 3 周"
+      ]
+    }
+  },
+  "write_rules": [
+    "cro_backlog 每条必带 hypothesis + evidence_tier（T1–T4）+ metric；T4 必带 validation_plan（铁律#2），无度量不开假设",
+    "ab_tests 一次一个变量（铁律#7）：max_concurrent=1，每条必带 single_variable + decision_rule，先定判停规则再开测",
+    "content_matrix 关键词只准挂 keyword-library 在册 id（禁假词）；pillar 只准是 journal: 簇；开写新文章前先 keyword-library 登记 + cannibal 裁决",
+    "funnel_map 六阶段（attract/resonate/trust/decision/retain/refer）每个阶段必有 assets + metrics；数据源未接的阶段如实标 blind",
+    "与库/记忆冲突时：库为准；本板只存战略判断与台账，事实（镜片参数/材质/退换政策）归各专库",
+    "cro_backlog open/testing 项必带 ice{i,c,e}（1–5 整数）：i 影响 / c 信心（锚证据级 T1=4–5，T4=2）/ e 易行——operator next 的排序输入，缺分审计拦截",
+    "工单必走 work_orders 台账：id（WO-YYYYMMDD-序号）+ title + ruling（pending/accepted/lost/parked/absorbed）+ proposed；accepted 必记 executed_commit，裁决原文入 user_ruling——提案到落地跨会话可审计"
+  ],
+  "funnel_map": {
+    "attract": {
+      "jobs": "让『没听说过 lool 的人』第一次到站：品类大词 SEO 内容 + AI 引擎引用（GEO）+ 社媒",
+      "assets": [
+        "/blog（eyeglasses topic clusters）",
+        "homepage（hero banners from R2）",
+        "SEO：14 语言 hreflang + dynamic sitemap",
+        "GEO：llms.txt（待部署）+ robots.txt 允许 AI 爬虫",
+        "社媒：Pinterest / Instagram / Facebook（待建立）"
+      ],
+      "metrics": [
+        "GSC organic clicks（待接入）",
+        "AI citation 计数（ai-visibility.check_log）",
+        "社媒 outbound clicks"
+      ],
+      "data_status": "blind（GSC 刚发布到 production，内容 0 published，社媒未建立）",
+      "leaks": [
+        "blog 0 篇 published",
+        "llms.txt 路由缺失（代码有 guard 但无实际文件）",
+        "GSC sitemap 未确认提交",
+        "社媒账号未建立"
+      ],
+      "next_action": "部署 llms.txt；提交 sitemap 到 GSC；首篇 blog published；建立社媒账号"
+    },
+    "resonate": {
+      "jobs": "让『到了产品页的人』认出自己：画像共鸣 + 场景代入 + 去老年化叙事",
+      "assets": [
+        "PDP（产品详情：多图 + 试戴图 + 规格参数）",
+        "/try-on（虚拟试戴：摄像头实时叠加）",
+        "/find-your-fit（脸型推荐选框工具）",
+        "/presbyopia + /myopia（品类着陆页）",
+        "Homepage hero banners（R2 动态管理）"
+      ],
+      "metrics": [
+        "scroll depth / 停留（GA4 未装）",
+        "try-on 打开率（未埋点）",
+        "find-your-fit 完成率（未埋点）"
+      ],
+      "data_status": "blind（无行为分析工具）",
+      "leaks": [
+        "首页图片仍是旧的 Lovable 原型 fallback 图",
+        "无热力图/停留数据——中段优化只能靠 T1 质性证据",
+        "GA4 / Clarity 未装"
+      ],
+      "next_action": "通过 Admin 后台上传新 hero 图片；接 GA4+Clarity；埋 try-on 打开事件"
+    },
+    "trust": {
+      "jobs": "让『心动的人』敢信：镜片品牌背书 + 专业内容 + 真实评价",
+      "assets": [
+        "镜片品牌（Essilor / ZEISS / Transitions / Mingyue / lool House）",
+        "FAQ 100+ 条（5 大类，14 语言）",
+        "/prescription-guide（处方指南：度数估算 + 镜片选择）",
+        "/measure-pd（MediaPipe 手机量瞳距）",
+        "/help（Help Center）",
+        "Lens Flow Wizard（多步配镜向导）"
+      ],
+      "metrics": [
+        "FAQ 展开率（未埋点）",
+        "AI chat 转人工量",
+        "PD 测量完成率（未埋点）"
+      ],
+      "data_status": "半盲（有 FAQ 内容，无量化数据）",
+      "leaks": [
+        "Reviews 模块空——真实评价体系未建立（0 真实订单）",
+        "PD 测量工具未做完成度追踪"
+      ],
+      "next_action": "真实首评回流机制（随首单建立）；埋 PD 测量完成事件"
+    },
+    "decision": {
+      "jobs": "让『信了的人』敢下单：配镜流程零悬念 + 支付安全 + 退换保障",
+      "assets": [
+        "Lens Flow Wizard（处方类型 → 处方填写 → 功能 → 折射率 → 渐进选项）",
+        "Stripe Payment Element（/checkout 第二步）",
+        "/choose-eyeglasses（选镜指南）",
+        "/shipping-returns（退换政策页）",
+        "PDP 价格展示 + lens tier 对比"
+      ],
+      "metrics": [
+        "Cart → Checkout 转化率",
+        "Lens Wizard 完成率",
+        "Stripe 支付成功率"
+      ],
+      "data_status": "blind（无转化数据）",
+      "leaks": ["Lens Wizard 完成率未知", "Cart abandonment rate 未知"],
+      "next_action": "接 GA4 事件追踪（cart_add / checkout_start / purchase）"
+    },
+    "retain": {
+      "jobs": "让买过的人再来：订单追踪 + 复购提醒 + 会员体系",
+      "assets": [
+        "/account（订单追踪，OTP 登录）",
+        "/rewards（积分体系页）",
+        "/education-discount（教育折扣页）",
+        "邮件（Resend 交易邮件，RESEND_API_KEY 待配置）"
+      ],
+      "metrics": [
+        "复购率（0 真实订单，暂无数据）",
+        "邮件打开率（Resend 未配置）"
+      ],
+      "data_status": "blind（0 真实订单）",
+      "leaks": [
+        "RESEND_API_KEY 未配置 → 交易邮件无法发送",
+        "Admin 后台不可访问（无管理员账号——已修复）"
+      ],
+      "next_action": "配置 RESEND_API_KEY；首单后验证邮件流程"
+    },
+    "refer": {
+      "jobs": "让满意买家主动推荐：联盟计划 + 推荐奖励 + 社媒分享",
+      "assets": [
+        "/affiliate（联盟计划页）",
+        "/refer（推荐奖励页）",
+        "PWA install（桌面 App 安装引导）"
+      ],
+      "metrics": ["Affiliate 注册数", "Referral 转化率", "PWA install 数"],
+      "data_status": "not-built（联盟/推荐系统代码已写好，未上线推广）",
+      "leaks": [
+        "Affiliate 系统未推广",
+        "PWA 图标和 manifest 已就位但未测试安装流程"
+      ],
+      "next_action": "Admin 后台可用后，配置 Affiliate 计划参数；测试 PWA install"
+    }
+  },
+  "content_matrix": [
+    {
+      "id": "cluster-reading-glasses",
+      "name": "老花镜主词簇",
+      "keywords": [
+        "kw-reading-glasses",
+        "kw-best-reading-glasses",
+        "kw-reading-glasses-women",
+        "kw-reading-glasses-men"
+      ],
+      "pillar": "journal:reading-glasses-guide",
+      "supporting": ["products:aurora-tortoise", "products:noir-rectangle"],
+      "persona_link": "early-presbyopia-professional",
+      "funnel_stage": "attract",
+      "status": "planned",
+      "note": "老花镜品类核心 SEO 簇，覆盖 best/buy/how-to-choose 等交易词"
+    },
+    {
+      "id": "cluster-progressive-lenses",
+      "name": "渐进镜片簇",
+      "keywords": [
+        "kw-progressive-lenses",
+        "kw-progressive-vs-reading",
+        "kw-adapt-progressive-lenses"
+      ],
+      "pillar": "journal:progressive-lenses-explained",
+      "supporting": ["products:halo-gold-aviator", "products:atlas-gold-metal"],
+      "persona_link": "progressive-curious",
+      "funnel_stage": "trust",
+      "status": "planned",
+      "note": "渐进镜片教育内容，解答适应焦虑，引导升级购买"
+    },
+    {
+      "id": "cluster-ageless-eyewear",
+      "name": "去老年化生活方式簇",
+      "keywords": [
+        "kw-ageless-eyewear",
+        "kw-stylish-reading-glasses",
+        "kw-not-old-glasses"
+      ],
+      "pillar": "journal:ageless-design-philosophy",
+      "supporting": [
+        "products:aurora-tortoise",
+        "products:iris-tortoise-round"
+      ],
+      "persona_link": "style-conscious-reader",
+      "funnel_stage": "resonate",
+      "status": "planned",
+      "note": "品牌叙事核心内容，去老年化定位的情感共鸣"
+    },
+    {
+      "id": "cluster-frame-fit-guide",
+      "name": "选框指南簇",
+      "keywords": [
+        "kw-face-shape-glasses",
+        "kw-how-to-choose-frames",
+        "kw-glasses-for-round-face"
+      ],
+      "pillar": "journal:face-shape-frame-guide",
+      "supporting": [
+        "products:lumen-square-clear",
+        "products:atlas-gold-metal"
+      ],
+      "persona_link": "多画像共享",
+      "funnel_stage": "resonate",
+      "status": "planned",
+      "note": "脸型选框工具配合的 SEO 内容，引导到 /find-your-fit"
+    },
+    {
+      "id": "cluster-lens-tech",
+      "name": "镜片科技簇",
+      "keywords": [
+        "kw-blue-light-glasses",
+        "kw-photochromic-lenses",
+        "kw-high-index-lenses"
+      ],
+      "pillar": "journal:lens-tech-buyers-guide",
+      "supporting": [
+        "products:halo-gold-aviator",
+        "products:lumen-square-clear"
+      ],
+      "persona_link": "tech-savvy-presbyope",
+      "funnel_stage": "trust",
+      "status": "planned",
+      "note": "镜片材质/功能科普，品牌背书（Essilor/ZEISS），引导到 Lens Wizard"
+    }
+  ],
+  "cro_backlog": [
+    {
+      "id": "cro-admin-access",
+      "hypothesis": "Admin 后台可用是内容管理和运营的前提条件",
+      "evidence_tier": "T1",
+      "evidence": "admin_users 表为空，RESEND_API_KEY 未配置，OTP 邮件无法发送",
+      "metric": "Admin 后台可登录 + 可上传图片",
+      "status": "open",
+      "next_action": "管理员账号已创建(admin@loollook.com)，需配置 Resend API Key + 确认邮件路由",
+      "ice": {
+        "i": 5,
+        "c": 5,
+        "e": 4
+      }
+    },
+    {
+      "id": "cro-homepage-images",
+      "hypothesis": "首页 hero 图片从旧的 Lovable 原型替换为真实产品图后，bounce rate 下降",
+      "evidence_tier": "T1",
+      "evidence": "首页 fallback 到 Lovable 原型图片，非 lool 品牌产品",
+      "metric": "首页 bounce rate + hero CTR",
+      "status": "open",
+      "next_action": "Admin 后台可用后通过 Home Banners 管理页上传新图",
+      "ice": {
+        "i": 5,
+        "c": 4,
+        "e": 3
+      }
+    },
+    {
+      "id": "cro-llms-txt",
+      "hypothesis": "部署 llms.txt 可提升 AI 引擎（ChatGPT/Perplexity/Gemini）对 lool 的引用率",
+      "evidence_tier": "T2",
+      "evidence": "代码有 llms.txt guard 但无路由文件；robots.txt 已允许所有 AI 爬虫",
+      "metric": "AI citation 计数（ai-visibility.check_log）",
+      "status": "done",
+      "done_at": "2026-10-08",
+      "note": "已上线：src/routes/llms[.]txt.ts 路由，线上 HTTP 200，13 个真实 URL + 5 cluster roadmap（planned 标注）",
+      "next_action": "后续：观察 AI citation 引用率",
+      "ice": {
+        "i": 4,
+        "c": 4,
+        "e": 5
+      }
+    },
+    {
+      "id": "cro-blog-publish",
+      "hypothesis": "首篇 blog published 是 attract 阶段 SEO/GEO 的基础",
+      "evidence_tier": "T1",
+      "evidence": "blog 0 篇 published；attract 阶段 data_status=blind",
+      "metric": "GSC organic clicks + blog pageviews",
+      "status": "open",
+      "next_action": "通过 Admin Blog 管理页创建首篇 blog post",
+      "ice": {
+        "i": 5,
+        "c": 3,
+        "e": 4
+      }
+    },
+    {
+      "id": "cro-ga4-wiring",
+      "hypothesis": "GA4 接入后可量化全漏斗行为数据",
+      "evidence_tier": "T1",
+      "evidence": "GA4 未安装（G-FD4MN4RM7G tag 已有但未部署到代码）",
+      "metric": "GA4 events（page_view / cart_add / checkout_start / purchase）",
+      "status": "done",
+      "done_at": "2026-10-08",
+      "note": "已部署：G-FD4MN4RM7G 注入 __root head scripts，线上 HTML 确认 tag 存在",
+      "next_action": "后续：确认 GTM event 流（cart_add / checkout_start / purchase）埋点",
+      "ice": {
+        "i": 4,
+        "c": 5,
+        "e": 4
+      }
+    },
+    {
+      "id": "cro-gsc-submit",
+      "hypothesis": "确认 GSC sitemap 提交后 Google 可正常索引所有 14 语言页面",
+      "evidence_tier": "T1",
+      "evidence": "GSC 已发布到 production，但 sitemap 提交状态未确认",
+      "metric": "GSC indexed pages + coverage errors",
+      "status": "open",
+      "next_action": "在 GSC 控制台提交 https://loollook.com/sitemap.xml",
+      "ice": {
+        "i": 4,
+        "c": 5,
+        "e": 5
+      }
+    },
+    {
+      "id": "cro-resend-config",
+      "hypothesis": "配置 Resend API Key 后交易邮件（OTP/订单确认）可正常发送",
+      "evidence_tier": "T1",
+      "evidence": "wrangler secret list 返回空数组，RESEND_API_KEY 未配置",
+      "metric": "OTP 邮件到达率 + 订单确认邮件发送成功率",
+      "status": "blocked",
+      "next_action": "等待用户提供 Resend API Key → wrangler secret put RESEND_API_KEY",
+      "ice": {
+        "i": 5,
+        "c": 5,
+        "e": 5
+      }
+    },
+    {
+      "id": "cro-pwa-install",
+      "hypothesis": "PWA 桌面安装引导可提升回访率",
+      "evidence_tier": "T2",
+      "evidence": "manifest.webmanifest + service worker + icons 已创建，use-pwa-install hook 已有",
+      "metric": "PWA install prompt 接受率",
+      "status": "open",
+      "next_action": "部署后测试 PWA install 流程（Chrome/Edge/Safari）",
+      "ice": {
+        "i": 3,
+        "c": 4,
+        "e": 4
+      }
+    },
+    {
+      "id": "cro-article-jsonld",
+      "hypothesis": "Blog 页接入 Article JSON-LD 后可提升 Google 富摘要展示",
+      "evidence_tier": "T2",
+      "evidence": "articleSchema() 在 jsonld.tsx 已定义但未被任何路由调用",
+      "metric": "Google Search Console rich results count",
+      "status": "parked",
+      "next_action": "Blog published 后在 blog route 中调用 articleSchema"
+    },
+    {
+      "id": "cro-og-image",
+      "hypothesis": "OG image 从旧 R2 URL 更新为新 bucket 后社交分享预览正确显示",
+      "evidence_tier": "T1",
+      "evidence": "__root.tsx 中 og:image 指向 pub-*.r2.dev 旧地址",
+      "metric": "社交分享预览正确率",
+      "status": "open",
+      "note": "Phase 1 进展：首页 og:image 已接入桥接层 resolveHeadMeta（此前首页 head 无 og:image）；bucket 迁移未做，待站主上传新图后换 URL",
+      "next_action": "上传 OG image 到新 R2 bucket → 更新桥接层 OG_IMAGE 常量",
+      "ice": {
+        "i": 3,
+        "c": 5,
+        "e": 4
+      }
+    },
+    {
+      "id": "cro-pdp-route-open",
+      "hypothesis": "PDP 14 区内容 DB 驱动 SSR 直出 + Schema 注入 → 操盘手产物全量可上线、搜索可见",
+      "evidence_tier": "T1",
+      "evidence": "lool-tr90-square verify：21 项中 FAIL 均为路由架构差异（title 组合/H1/静态 i18n 区/客户端 FAQ/无 FAQPage Schema）；highlights 已验证 DB→SSR 可渲染（Free shipping over $69 已在 SSR DOM）",
+      "metric": "lool-tr90-square verify 全部 PASS（title==seo.title、H1、quote、Essilor/ZEISS/Transitions、3-week adaptation guarantee、配送口径、FAQPage JSON-LD）",
+      "status": "open",
+      "next_action": "WO-20261008-01：/en/product/[slug] 路由改 DB 驱动 14 区 + 每区独立 H2 + SSR 直出 + FAQPage/Product/Breadcrumb Schema 注入",
+      "ice": {
+        "i": 5,
+        "c": 3,
+        "e": 3
+      }
+    }
+  ],
+  "ab_tests": {
+    "policy": {
+      "max_concurrent": 1,
+      "min_days": 14,
+      "rule": "一次一个变量；GSC 积累 90 天数据前不做统计显著性判断，只看方向",
+      "prerequisite": "GA4 + GSC 接入后才可开始 AB 测试"
+    },
+    "tests": []
+  },
+  "brand_equity": {
+    "archetype": "The Sage x The Innocent — 专业但不冰冷，去老年化但不装嫩",
+    "voice_rules_source": "brand-library.json writing_rules",
+    "moat_claims": [
+      {
+        "claim": "去老年化设计 — 45-60 代际专属（非通用品牌）",
+        "evidence_tier": "T1",
+        "source": "CLAUDE.md 品牌定位"
+      },
+      {
+        "claim": "渐进镜片 3 周适应保障 — DTC 中罕见",
+        "evidence_tier": "T1",
+        "source": "用户口径"
+      },
+      {
+        "claim": "真实虚拟试戴 — 摄像头实时叠加，非 AI 换脸",
+        "evidence_tier": "T1",
+        "source": "/try-on 路由实现"
+      },
+      {
+        "claim": "手机 PD 测量 — MediaPipe 技术降低购买门槛",
+        "evidence_tier": "T1",
+        "source": "/measure-pd 路由实现"
+      },
+      {
+        "claim": "14 语言原生支持 — 全球可达",
+        "evidence_tier": "T1",
+        "source": "src/lib/i18n.tsx 14 语言定义"
+      }
+    ],
+    "consistency_rules": [
+      "禁用 senior/elderly/old/aging 等老年标签词",
+      "不做价格战叙事（'最便宜'/'打折'不是品牌语言）",
+      "镜片品牌层级必须准确（house < mainstream < premium < luxury）",
+      "虚拟试戴必须强调'真实摄像头'而非'AI 换脸'"
+    ]
+  },
+  "eeat_audit": [
+    {
+      "surface": "homepage",
+      "experience": "首页展示产品图 + 品牌叙事，但图片仍是旧 fallback",
+      "expertise": "镜片品牌（Essilor/ZEISS）背书，处方指南内容专业",
+      "authoritativeness": "域名 loollook.com 新注册，GSC 数据薄弱（4 clicks）",
+      "trustworthiness": "有退换政策页 + 隐私政策 + 条款页，但无真实评价"
+    },
+    {
+      "surface": "PDP (product detail page)",
+      "experience": "产品图 + 规格参数 + 试戴图 + 多色展示",
+      "expertise": "镜片参数详实，Lens Wizard 引导专业选镜",
+      "authoritativeness": "镜片品牌 tier 展示（Essilor/ZEISS/Transitions）",
+      "trustworthiness": "价格透明，有 shipping-returns 链接，但无真实 reviews"
+    },
+    {
+      "surface": "/try-on (virtual try-on)",
+      "experience": "摄像头实时试戴，非 AI 换脸——体验真实",
+      "expertise": "Canvas 技术实现，帧叠加算法",
+      "authoritativeness": "创新功能，DTC 眼镜中少见",
+      "trustworthiness": "用户可直观看到效果，降低购买不确定性"
+    },
+    {
+      "surface": "/measure-pd (PD measurement)",
+      "experience": "MediaPipe 技术量瞳距，降低去眼镜店的门槛",
+      "expertise": "Google MediaPipe 面部识别技术",
+      "authoritativeness": "技术创新，降低配镜门槛",
+      "trustworthiness": "测量结果可直接关联到处方/订单"
+    },
+    {
+      "surface": "/prescription-guide",
+      "experience": "度数估算（按年龄）+ 镜片选择指南 + 折射率对比",
+      "expertise": "专业光学知识，渐进镜片 vs 老花镜区别",
+      "authoritativeness": "教育内容建立专业形象",
+      "trustworthiness": "帮助用户理解自己的需求，降低决策焦虑"
+    },
+    {
+      "surface": "/help (help center)",
+      "experience": "100+ FAQ，5 大类，14 语言全覆盖",
+      "expertise": "覆盖老花/近视/镜框/物流/账户全链路问题",
+      "authoritativeness": "FAQ 内容详实，含处方/镜片参数专业信息",
+      "trustworthiness": "FAQ + JSON-LD FAQPage 结构化数据"
+    }
+  ],
+  "cadence": {
+    "weekly": "operator intel → operator audit → operator next（ICE 排序）→ 出工单入 work_orders 台账 → GSC pull + 验证 → 对用户集中喊话 blocked/parked 项",
+    "monthly": "t1 inventory → ai-visibility 采样 → content_matrix 刷新（cluster 升降级）→ eeat_audit 更新 → keyword expiry sweep → persona falsification challenge → operator-library bump（version minor +0.1）"
+  },
+  "decision_rights": {
+    "operator_decides": [
+      "漏斗优先级排序",
+      "内容角度和 cluster 规划",
+      "CRO 假设优先级（ICE 排序）",
+      "页面模块信息职责划分（闸门约束内）",
+      "工单优先级",
+      "数据库写入（关键词登记/翻译修正/证据升级）"
+    ],
+    "user_decides": [
+      "一切 published 内容",
+      "涉钱决策（优惠/定价/运费）",
+      "模板锁改动",
+      "画像 deprecated",
+      "商业口径（运费/退换/保修）",
+      "品牌文案/tagline",
+      "API keys 和凭证"
+    ],
+    "operator_decides_note": "闸门（validate/score）说了算，理由必须给人看。operator 不绕闸门。",
+    "auto_ruling": {
+      "created": "2026-10-07",
+      "green_zone": "数据库写入（关键词登记/翻译修正/证据升级/库 bump）、工单台账维护、SEO meta 修正、GEO 采样、结构化数据修正",
+      "yellow_zone": "blog 草稿 published、社媒发布、work order 提案、persona 变更——operator 提出等用户裁决；沉默 ≠ 同意",
+      "red_zone": "一切涉钱/涉 published/涉外部承诺——强制用户裁决，无自动路径"
+    }
+  },
+  "work_orders": [
+    {
+      "id": "WO-20261007-01",
+      "title": "创建管理员账号 + 配置 Resend API Key",
+      "target": "cro-admin-access",
+      "line": "D",
+      "proposed": "2026-10-07",
+      "ruling": "pending",
+      "note": "admin@loollook.com 已创建，需 Resend API Key"
+    },
+    {
+      "id": "WO-20261007-02",
+      "title": "上传首页 hero 图片替换旧 Lovable 原型",
+      "target": "cro-homepage-images",
+      "line": "A",
+      "proposed": "2026-10-07",
+      "ruling": "pending",
+      "note": "依赖 WO-20261007-01 完成"
+    },
+    {
+      "id": "WO-20261007-03",
+      "title": "部署 llms.txt 路由",
+      "target": "cro-llms-txt",
+      "line": "A",
+      "proposed": "2026-10-07",
+      "ruling": "pending",
+      "note": "创建 src/routes/llms[.]txt.ts"
+    },
+    {
+      "id": "WO-20261007-04",
+      "title": "提交 sitemap 到 GSC",
+      "target": "cro-gsc-submit",
+      "line": "B",
+      "proposed": "2026-10-07",
+      "ruling": "pending",
+      "note": "在 GSC 控制台提交 https://loollook.com/sitemap.xml"
+    },
+    {
+      "id": "WO-20261007-05",
+      "title": "重写 system-kit 库文件适配眼镜业务",
+      "target": "",
+      "line": "D",
+      "proposed": "2026-10-07",
+      "ruling": "accepted",
+      "user_ruling": "用户 2026-10-07：「就是为了让操盘手为loollook.com去工作。整个系统的跑。」",
+      "executed_commit": "pending"
+    },
+    {
+      "id": "WO-20261008-01",
+      "title": "PDP 路由开窗：DB 驱动 14 区 SSR 全量上页 + Schema 注入",
+      "target": "cro-pdp-route-open",
+      "line": "A",
+      "proposed": "2026-10-08",
+      "ruling": "accepted",
+      "user_ruling": "用户 2026-10-08 定稿并批准：/en/product/[slug] 路由改 DB 驱动、循环渲染 14 sections 每区独立 H2、SSR/SSG 直出（验收=查看源代码能搜到 FAQ 文字）、注入 FAQPage/Product/Breadcrumb Schema；路由完成后全量推 14 区内容",
+      "note": "先决（今日已完成）：政策统一 V1.1.0 — framework-lock + patch + D1 highlights + 线上复核。路由改造后回填 lool-tr90-square 全量 patch 内容（overview/vto/frame_details/lens_options/pd_measure/progressive_guarantee/shipping_returns/faq/reviews/quote）并部署 【已上线 2026-10-08】路由开窗完成并部署（CF Version 16651715）。D1 products.content_json 已写入 lool-tr90-square 全量 14 区（overview/vto/frame_details/lens_options/pd_measure/progressive_guarantee/shipping_returns/faq/reviews/quote，gallery/highlights 除外）。验收 5/5：FAQ SSR 直出可见源码、9 区独立 H2 来自 DB、head 注入 FAQPage+Product+Breadcrumb JSON-LD、title/H1 DB 覆盖、verify 23/23 PASS。",
+      "acceptance": [
+        "view-source 可搜到 FAQ 逐字文案（SSR 直出，非客户端渲染） ✅ 2026-10-08 verify PASS",
+        "14 区每区独立 H2，内容来自 DB（product JSON 扩展列 content_json） ✅ 2026-10-08 9 个 H2 独立渲染",
+        "head() 注入 FAQPage + Product + Breadcrumb JSON-LD ✅ 2026-10-08",
+        "title / H1 支持 DB 覆盖（seo.title / seo.h1） ✅ 2026-10-08 title==patch.seo.title",
+        "lool-tr90-square verify 21/21 PASS ✅ 2026-10-08 VERIFY: PASS（23 项）"
+      ],
+      "executed_commit": "16651715-9946-443b-91c0-cef3a55e99b7"
+    }
+  ],
+  "strategy": {
+    "principle_1": "Every product starts with itself. —— 不从竞品出发，从产品 DNA 出发逆向推导市场。",
+    "chain": [
+      "PRODUCT DNA：镜片参数（SPH/CYL/ADD/PD）+ 镜框材质（acetate/titanium/TR90/metal）+ 功能（progressive/blue-light/photochromic）",
+      "MARKET REVERSE（四层市场）：A 直接产品（reading glasses/progressive lenses）/ B 相似产品（presbyopia solutions/blue light glasses）/ C 相同用户（ageless fashion/lifestyle accessories 45+）/ D 相同价格带（premium DTC eyewear $100-300）",
+      "USER SIGNALS（五信源）：competitor / review / question / search / social",
+      "PERSONA（H1-H4 证据级）：early-presbyopia-professional / progressive-curious / style-conscious-reader / value-seeking-couple / tech-savvy-presbyope",
+      "BUYER PSYCHOLOGY（七字段）：JTBD / 购买动机 / 购买障碍 / 决策周期 / 信息渠道 / 价格敏感度 / 信任触发点",
+      "CONTENT（每节 psychological_job：内容=回答买家问题）→ CONVERSION",
+      "五区块投喂策略：VirtualTryOn=真实代入感 / LensTech=渐进镜片适应保障建立信任 / ProductData=理性详参 / PDMeasure=手机量瞳距降低门槛 / Reviews+FAQ=社证临门一脚"
+    ],
+    "market_layers": {
+      "A_direct": "reading glasses, progressive lenses, presbyopia glasses, blue light glasses",
+      "B_similar": "presbyopia solutions, computer glasses, anti-fatigue lenses, magnifying glasses",
+      "C_same_user": "ageless fashion, lifestyle accessories 45+, anti-aging products, wellness 45-60",
+      "D_same_price": "premium DTC eyewear $100-300: Warby Parker, Zenni Optical, EyeBuyDirect"
+    },
+    "market_signal_sources": {
+      "competitor": "Warby Parker / Zenni / EyeBuyDirect / Felix + 中国品牌",
+      "review": "Trustpilot / Google Reviews / Reddit r/glasses",
+      "question": "Reddit r/PrescriptionGlasses / Quora / AI engine prompts",
+      "search": "GSC (待接入) / Google Trends / Ahrefs",
+      "social": "Pinterest / Instagram / Facebook / TikTok (待建立)"
+    },
+    "persona_evidence_levels": {
+      "H1": "推测——操盘手基于产品特性推导，未经验证",
+      "H2": "市场支持——有搜索量/竞品数据支撑",
+      "H3": "行为支持——有 GA4/Clarity 行为数据",
+      "H4": "买家验证——有真实客户访谈/订单数据"
+    },
+    "op_flow": [
+      "OP-01: Product Intake — 产品 DNA 采集",
+      "OP-02: Market Reverse — 四层市场搜索",
+      "OP-03: User Signals — 五信源汇总",
+      "OP-04: Persona Skeleton — 画像骨架",
+      "OP-05: Buyer Psychology — 心理字段填充",
+      "OP-06: Content Draft — 内容草案",
+      "OP-07: Validate — 闸门校验",
+      "OP-08: Score — 内容评分",
+      "OP-09: Work Order — 出工单",
+      "OP-10: Execute — 执行",
+      "OP-11: Verify — 验证",
+      "OP-12: Archive — 归档 + 库更新"
+    ],
+    "score_note": "Score 权重冻结至 GSC 积累 90 天数据后调整。",
+    "pdp_feeding_playbook": {
+      "block_1": "VirtualTryOn — 真实摄像头代入感（'这就是我的脸'）",
+      "block_2": "LensTech — 渐进镜片适应保障建立信任",
+      "block_3": "ProductData — 理性详参（规格/材质/尺寸）",
+      "block_4": "PDMeasure — 手机量瞳距降低购买门槛",
+      "block_5": "Reviews + FAQ — 真实社证临门一脚"
+    },
+    "score_discipline": "草案 → validate → score → 不符合投喂逻辑的区块自己修改重跑 → score A 级才出工单",
+    "moratorium": {
+      "note": "系统初始化期，暂不设冻结。",
+      "start": "2026-10-07",
+      "end": "2026-11-07"
+    },
+    "social_ops": {
+      "charter": "社媒 = 操盘手的新器官；发布动作 = 用户人工复制黏贴（恒人工）。",
+      "commands": [
+        "social-outlet：从 blog/product slug 生产社媒内容",
+        "social-review：周数据循环"
+      ],
+      "platforms": {
+        "pinterest": "待建立——长尾 SEO + 产品图",
+        "instagram": "待建立——品牌视觉 + Reels",
+        "facebook": "待建立——社群 + 中年用户覆盖",
+        "tiktok": "待建立——短视频 + 试戴展示",
+        "reddit": "待建立——AMA + 真实口碑"
+      }
+    },
+    "partner_charter": {
+      "effective": "2026-10-07",
+      "nature": "经营合伙定位。AI 是大脑，用户是决策者。",
+      "ai_owns": "内容生产、SEO/GEO、校准、数据基建、闸门、自愈、库治理",
+      "user_reserved": "钱、法务、published 品牌面孔、模板锁、凭证、API keys",
+      "honesty_clauses": [
+        "如实报告失败，不美化数据",
+        "不刷虚荣指标",
+        "沉默 ≠ 裁决",
+        "AI 不假装记得不存在的事"
+      ],
+      "five_questions": {
+        "q1_money": "这周赚钱还是烧钱？—— metric: 收入/支出/ROI",
+        "q2_risk": "最大的雷在哪？—— rolling risk register",
+        "q3_human": "客户为什么不买？—— rolling fear list",
+        "q4_future": "下月风口？—— 季节性 + 关键词趋势",
+        "q5_autonomy": "什么可以不问直接干？—— green zone 扩展"
+      }
+    }
+  }
+}
