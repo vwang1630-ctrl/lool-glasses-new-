@@ -33,6 +33,16 @@ type DbRow = {
   published_at: number;
 };
 
+/** Extract the first <p>...</p> from an HTML string for use as a listing excerpt.
+ *  Falls back to a 200-char plain-text snippet when no <p> tag is found. */
+function extractFirstParagraph(html: string): string {
+  const match = html.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
+  if (match) return match[0];
+  // Fallback: strip all tags and truncate
+  const text = html.replace(/<[^>]+>/g, "").trim();
+  return text.length > 200 ? text.slice(0, 200) + "…" : text;
+}
+
 const fetchBlogIndex = createServerFn({ method: "GET" }).handler(async () => {
   // 1) Try D1 first.
   try {
@@ -46,14 +56,24 @@ const fetchBlogIndex = createServerFn({ method: "GET" }).handler(async () => {
           ORDER BY sort_order, published_at DESC, id`,
       )
       .all<DbRow>();
-    const dbPosts = (res.results ?? []).map((r) => ({
-      image: r.cover_image_url,
-      date: formatApiDate(r.published_at),
-      tag: null,
-      title: parseLangJson(r.title_json),
-      content: parseLangJson(r.content_json),
-      slug: r.slug,
-    }));
+    const dbPosts = (res.results ?? []).map((r) => {
+      const content = parseLangJson(r.content_json);
+      const excerpt: Record<string, string> = {};
+      for (const [lang, body] of Object.entries(content)) {
+        if (typeof body === "string" && body) {
+          excerpt[lang] = extractFirstParagraph(body);
+        }
+      }
+      return {
+        image: r.cover_image_url,
+        date: formatApiDate(r.published_at),
+        tag: null,
+        title: parseLangJson(r.title_json),
+        excerpt,
+        content,
+        slug: r.slug,
+      };
+    });
     if (dbPosts.length > 0) return { db: true, posts: dbPosts };
   } catch {
     // D1 unavailable locally or unbound — fall through to static registry.
@@ -68,6 +88,7 @@ const fetchBlogIndex = createServerFn({ method: "GET" }).handler(async () => {
         date: formatApiDate(staticArticle.publishedAt),
         tag: TAGS.styleGuide,
         title: staticArticle.title as Record<Lang, string>,
+        excerpt: staticArticle.excerpt as Record<Lang, string>,
         content: staticArticle.excerpt as Record<Lang, string>,
         slug: staticArticle.slug,
       }
@@ -201,6 +222,8 @@ type Post = {
   /** null when the post comes from admin/D1 (tag system only applies to legacy静态示例). */
   tag: Record<Lang, string> | null;
   title: Record<Lang, string>;
+  /** Short HTML excerpt (first paragraph) for listing preview. */
+  excerpt: Record<Lang, string>;
   content: Record<Lang, string>;
   /** Optional slug for linking to the dedicated /blog/$slug article page. */
   slug?: string;
@@ -637,7 +660,7 @@ function BlogPage() {
             const open = openIdx === i;
             const postTitle = pickLang(p.title, lang);
             const postTag = p.tag ? pickLang(p.tag, lang) : null;
-            const postContent = pickLang(p.content, lang);
+            const postExcerpt = pickLang(p.excerpt, lang);
             return (
               <li key={`${p.title.en ?? p.title.zh ?? "post"}-${i}`}>
                 <div className="flex items-center gap-4 py-4 px-2">
@@ -691,9 +714,13 @@ function BlogPage() {
                         loading="lazy"
                         className="w-full max-h-80 object-cover rounded-lg mb-4"
                       />
-                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
-                        {postContent}
-                      </p>
+                      <style>{`
+                        .blog-excerpt p { margin: 0; line-height: 1.7; }
+                      `}</style>
+                      <div
+                        className="blog-excerpt text-sm md:text-base text-muted-foreground leading-relaxed"
+                        dangerouslySetInnerHTML={{ __html: postExcerpt }}
+                      />
                       {p.slug && (
                         <div className="mt-4">
                           <LangLink
