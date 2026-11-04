@@ -3,21 +3,21 @@ import { readFileSync } from "node:fs";
 const UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1";
 const PAGES = [
   ["首页", "/en"],
-  ["商品列表(动物系列)", "/en/animal-sofa-collection"],
-  ["PDP 金刚", "/en/kong-tender-titan-monumental-sculpture-sofa.html"],
-  ["PDP 猫头鹰", "/en/noctua-owl-armchair.html"],
-  ["PDP Mofu", "/en/mofu-cat-sofa-tender-hug-sculpture.html"],
+  ["商品列表", "/en/products"],
+  ["PDP TR90 方框", "/en/product/lool-tr90-square"],
+  ["PDP 波士顿椭圆", "/en/product/lool-8663"],
+  ["Blog 列表", "/en/blog"],
+  ["Blog 首文", "/en/blog/best-reading-glasses-45-professionals-2026"],
   ["购物车", "/en/cart"],
   ["结账", "/en/checkout"],
-  ["登录", "/en/login"],
+  ["虚拟试戴", "/en/try-on"],
+  ["量瞳距", "/en/measure-pd"],
   ["个人中心", "/en/account"],
-  ["订单详情", "/en/order/detail"],
-  ["Contact", "/en/contact"],
-  ["Journal", "/en/journal"],
-  ["关于我们", "/en/about"],
-  ["工作室", "/en/studio"],
-  ["场景页(别墅)", "/en/luxury-villa-interior"],
-  ["政策(退款)", "/en/returns-refunds"],
+  ["Help Center", "/en/help"],
+  ["老花镜品类", "/en/presbyopia"],
+  ["近视镜品类", "/en/myopia"],
+  ["关于", "/en/about"],
+  ["政策(物流退换)", "/en/shipping-returns"],
 ];
 
 const out = [];
@@ -27,7 +27,7 @@ for (const [name, path] of PAGES) {
   try {
     const ctl = new AbortController();
     const timer = setTimeout(() => ctl.abort(), 25000);
-    const res = await fetch(`https://fuzzsofa.com${path}`, {
+    const res = await fetch(`https://loollook.com${path}`, {
       headers: { "User-Agent": UA, "Accept": "text/html" },
       signal: ctl.signal,
       redirect: "follow",

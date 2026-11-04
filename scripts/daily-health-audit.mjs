@@ -7,7 +7,7 @@ import fs from "node:fs";
 import http from "node:http";
 
 const ORIGIN = process.argv[2] || "http://localhost:80";
-const PUBLIC = "https://fuzzsofa.com";
+const PUBLIC = "https://loollook.com";
 const out = { at: new Date().toISOString(), origin: ORIGIN, checks: {}, problems: [], fixedHint: [] };
 const P = (c, name, detail) => {
   out.checks[name] = { ok: c, ...(detail ? { detail } : {}) };
@@ -93,7 +93,7 @@ try {
 } catch (e) { P(false, "ga4-proxy", `查询异常 ${e.message}`); }
 
 /* ---------- ③ SSL / Cloudflare ---------- */
-const httpProbe = await fetchText("http://fuzzsofa.com/en");
+const httpProbe = await fetchText("http://loollook.com/en");
 const httpsHome = await fetchText(PUBLIC + "/en");
 const hsts = httpsHome.headers?.get("strict-transport-security") || null;
 out.checks.ssl = {
@@ -154,7 +154,7 @@ try {
 /* ---------- ⑦ GSC 搜索表现（WO-20260923-03，服务账号只读） ---------- */
 try {
   const { execSync } = await import("node:child_process");
-  execSync("node scripts/gsc-report.mjs --quiet", { stdio: "pipe", timeout: 60000 });
+  execSync("node scripts/system-kit/gsc-report.mjs --quiet", { stdio: "pipe", timeout: 60000 });
   const g = JSON.parse(fs.readFileSync("docs/library/gsc-latest.json", "utf8"));
   out.checks.gsc = { totals: g.totals, topQueries: g.topQueries.slice(0, 5), at: g.at };
 } catch (e) {

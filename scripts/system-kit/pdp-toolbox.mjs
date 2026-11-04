@@ -14,7 +14,7 @@
 //   node scripts/pdp-toolbox.mjs score <patch.json>           内容评分 0–100（溯源/结构/关键词落位/画像覆盖加权）
 //   node scripts/pdp-toolbox.mjs cannibal <patch.json|kw>     关键词蚕食检测（DB 实查 products + blog_posts）
 //
-// 补丁文件形状（patch shape）见 docs/fuzz-produce-manual.md §3.1，现成样本在 docs/library/fixtures/。
+// 补丁文件形状（patch shape）见 docs/system-kit/fuzz-produce-manual.md §3.1，现成样本在 docs/system-kit/library/fixtures/。
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -2350,7 +2350,7 @@ async function craftScan() {
   const tables = [
     ["blog_posts", "slug", "content_json"],
     ["products", "slug", "content_json"],
-    // content_blocks / site_pages 为 Fuzz Sofa 专用表，loollook 未建，保留结构便于后续扩展
+    // content_blocks / site_pages 为上游模板专用表，loollook 未建，保留结构便于后续扩展
   ];
   let fail = 0;
   for (const [table, idcol, textcol] of tables) {
@@ -2474,7 +2474,7 @@ async function cannibalCheck(patch, mode) {
 }
 
 // ---------- 操盘手战略板审计（2026-09-13 操盘手层落位）----------
-// 操盘手 = fuzz-produce 之上的战略层；本命令只做确定性审计：
+// 操盘手 = 内容生产线之上的战略层；本命令只做确定性审计：
 // 漏斗六阶段完整 + 覆盖全部在库产品 / 内容矩阵只挂 keyword-library 真词 / CRO 假设带证据级（T4 必带验证计划）/ AB 测试一次一个变量
 function operatorAudit(board) {
   const lines = [],

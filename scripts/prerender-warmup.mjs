@@ -32,7 +32,7 @@ async function get(url) {
     return await fetch(url, {
       redirect: "follow",
       signal: controller.signal,
-      headers: { accept: "text/html", "user-agent": "fuzzsofa-warmup/1.0" },
+      headers: { accept: "text/html", "user-agent": "loollook-warmup/1.0" },
     });
   } finally {
     clearTimeout(timer);

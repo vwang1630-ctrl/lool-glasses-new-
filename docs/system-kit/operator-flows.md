@@ -3,7 +3,7 @@
 > **编制方法**：本节不是增量拼出来的。按《fuzz-produce-manual.md》§22 的方法（"整个系统一次整理，不是逐个补"）对 loollook.com 全仓扫描重整——4 个技能、25+ 脚本、31 个活库文件、~53 张运行时建表（90 个 migration），逐件归属到流。
 > **组织法**：按系统的生命周期分五幕——**建（一次）→ 造（供给环）→ 卖（变现环）→ 学（进化环）→ 守（底层闸）**。
 > 每条流统一格式：触发 → 步骤 → 门 → 输出 → 回流。
-> **与本说明书的关系**：系统手册仍是 `docs/system-kit/fuzz-produce-manual.md`（命令 §3 · 闸门 §4 · 活库 §5 · 数据库通道 §6 · 部署 §7 · 裁决 §8 · 模板锁+IP §11 · GEO+画像 §12 · 工作流总纲 §22 即本文件母版）。本文件只登记 **loollook 实际资产** 的归属，不重复说明书内规则。
+> **与本说明书的关系**：系统手册仍是 `docs/system-kit/system-manual.md`（命令 §3 · 闸门 §4 · 活库 §5 · 数据库通道 §6 · 部署 §7 · 裁决 §8 · 模板锁+IP §11 · GEO+画像 §12 · 工作流总纲 §22 即本文件母版）。本文件只登记 **loollook 实际资产** 的归属，不重复说明书内规则。
 > **完整性承诺**：章尾四张对账表逐件核销。今后任何新东西只问一句话：「进哪条流？」——答不出=系统有洞，立流或并流，不再零散加。
 
 ---
@@ -160,8 +160,8 @@ GSC 拉数 → 健康审计 → watchdog → cron-tick → tracking/payments 对
 | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `.claude/skills/lool-operator`（战略层）             | A3/D4（发工单、授权、周月循环）                                                                                          |
 | `.claude/skills/lool-produce`（调度层）              | A3/B2/B4/D1（A/B/C/D 四线执行）                                                                                          |
-| `.claude/skills/fuzz-operator / fuzz-produce`        | 残留，见 §差异（指向 fuzzsofa.com / docs/library，本仓库无对应路径）                                                     |
-| `docs/system-kit/fuzz-produce-manual.md`（系统手册） | 全流共用（命令 §3→E2/E3 · 闸门 §4→B2 · 活库 §5→E4 · 部署 §7→E2 · 裁决 §8→B2 门 · 模板锁 §11→B2/B4 · GEO+画像 §12→B1/B8） |
+| `fuzz-operator / fuzz-produce 技能` | 已删除（2026-11-04 fuzzsofa 污染治理） | - |
+| `docs/system-kit/system-manual.md`（系统手册） | 全流共用（命令 §3→E2/E3 · 闸门 §4→B2 · 活库 §5→E4 · 部署 §7→E2 · 裁决 §8→B2 门 · 模板锁 §11→B2/B4 · GEO+画像 §12→B1/B8） |
 | `docs/system-kit/operator-flows.md`（本文件）        | 全流索引（本文件）                                                                                                       |
 | `docs/system-kit/library/operator-protocol.md`       | A3/D4/C1/C2（Current Truth）                                                                                             |
 | `docs/system-kit/library/INDEX.md`                   | E4（活库入口）                                                                                                           |

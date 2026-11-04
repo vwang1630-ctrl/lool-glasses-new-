@@ -1,6 +1,6 @@
-// deploy-smoke.mjs — 部署后冒烟测试(2026-10-01 稳定性三件套之二)
+// deploy-smoke.mjs — 部署后冒烟测试（loollook.com 版）
 // 用法: node scripts/deploy-smoke.mjs [origin,默认 http://localhost]
-// 每次部署重启后必跑:五项全过才算部署成功;任一失败 exit 1(看门狗兜底)
+// 每次部署后必跑:全部通过才算部署成功;任一失败 exit 1(看门狗兜底)
 const ORIGIN = (process.argv[2] || "http://localhost").replace(/\/$/, "");
 let fail = 0;
 
@@ -21,28 +21,45 @@ async function check(name, url, expect, opts = {}) {
 (async () => {
   console.log(`=== 部署冒烟测试 ${ORIGIN} ===`);
   await check("首页", "/", [200, 301, 302, 307]);
-  const pdp = await check("PDP(Kong)", "/en/kong-tender-titan-monumental-sculpture-sofa.html", [200]);
+  await check("商品列表", "/en/products", [200]);
+  const pdp = await check("PDP(TR90 方框)", "/en/product/lool-tr90-square", [200]);
   if (pdp) {
     const html = await pdp.text();
     const hasSchema = html.includes('"@type":"Product"') || html.includes('"@type": "Product"');
     console.log(`${hasSchema ? "✓" : "✗"} PDP Product JSON-LD`);
     if (!hasSchema) fail = 1;
   }
-  await check("集合页", "/en/animal-sofa-collection.html", [200]);
-  await check("Journal 列表", "/en/journal.html", [200]);
-  await check("Room Preview", "/en/ai-room-preview.html", [200]);
-  // 登录接口存活(400=正常拒绝空凭据;500=坏了)
+  await check("Blog 列表", "/en/blog", [200]);
+  await check("Blog 首文", "/en/blog/best-reading-glasses-45-professionals-2026", [200]);
+  await check("虚拟试戴", "/en/try-on", [200]);
+  await check("量瞳距", "/en/measure-pd", [200]);
+  await check("Help Center", "/en/help", [200]);
+  await check("sitemap.xml", "/sitemap.xml", [200]);
+  await check("robots.txt", "/robots.txt", [200]);
+  await check("llms.txt", "/llms.txt", [200]);
+  // catalog API 存活(200 且 JSON 含 products 数组)
   try {
-    const res = await fetch(ORIGIN + "/api/auth/v1/token?grant_type=password", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: "smoke@fuzzsofa.com", password: "x" }),
-    });
-    const ok = res.status === 400 || res.status === 429;
-    console.log(`${ok ? "✓" : "✗"} 登录接口: ${res.status}`);
+    const res = await fetch(ORIGIN + "/api/catalog");
+    const ok = res.status === 200;
+    let hasProducts = false;
+    if (ok) {
+      const j = await res.json();
+      hasProducts = Array.isArray(j.products) && j.products.length > 0;
+    }
+    console.log(`${ok && hasProducts ? "✓" : "✗"} catalog API: ${res.status}${hasProducts ? ` (${j.products.length} products)` : " 无产品!"}`);
+    if (!ok || !hasProducts) fail = 1;
+  } catch (e) {
+    console.log(`✗ catalog API: ${e.message}`);
+    fail = 1;
+  }
+  // admin OTP 请求接口存活(401/400=正常拒绝;500=坏了)
+  try {
+    const res = await fetch(ORIGIN + "/api/admin/me", { headers: { Accept: "application/json" } });
+    const ok = res.status === 401 || res.status === 400 || res.status === 403;
+    console.log(`${ok ? "✓" : "✗"} admin 鉴权接口: ${res.status}`);
     if (!ok) fail = 1;
   } catch (e) {
-    console.log(`✗ 登录接口: ${e.message}`);
+    console.log(`✗ admin 鉴权接口: ${e.message}`);
     fail = 1;
   }
   console.log(fail ? "\nSMOKE: FAIL — 部署存在问题,检查上方 ✗ 项" : "\nSMOKE: ALL PASS — 部署成功");

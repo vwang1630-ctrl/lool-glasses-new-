@@ -3,7 +3,7 @@
 //
 // 用法：
 //   node scripts/gsc-pull.mjs auth          # 一次性：起本地回环口，打开浏览器让你点同意，token 缓存本地
-//   node scripts/gsc-pull.mjs sites         # 列出账号下已验证的站点（确认 fuzzsofa.com 在）
+//   node scripts/gsc-pull.mjs sites         # 列出账号下已验证的站点（确认 loollook.com 在）
 //   node scripts/gsc-pull.mjs pull [天数]   # 拉查询×页面数据（默认 90 天）→ docs/library/gsc-export.json
 //   node scripts/gsc-pull.mjs verify        # 只读复核：关键词库 11 词 vs 真实查询数据，出 T3→T1 建议表
 //   node scripts/gsc-pull.mjs apply         # 按建议表升级 keyword-library（T1 升级 + 证据回填，写库动作）
@@ -11,7 +11,7 @@
 // 前置（用户亲自，一次性 5 分钟）：
 //   console.cloud.google.com → 建项目 → 启用 Search Console API → OAuth 同意屏(外部,加自己为测试用户)
 //   → 凭据 → 创建 OAuth 客户端 ID → 桌面应用 → 下载 JSON 存为 scripts/gsc/client_secret.json
-// 前提：fuzzsofa.com 已在 search.google.com/search-console 验证为资源
+// 前提：loollook.com 已在 search.google.com/search-console 验证为资源
 import fs from "fs";
 import path from "path";
 import http from "http";
@@ -76,7 +76,7 @@ async function auth() {
   url.searchParams.set("scope", SCOPE);
   url.searchParams.set("access_type", "offline");
   url.searchParams.set("prompt", "consent");
-  log("\n浏览器将打开 Google 授权页（或手动复制下面的地址）——用拥有 fuzzsofa.com GSC 资源的账号点『允许』：\n\n" + url.toString() + "\n");
+  log("\n浏览器将打开 Google 授权页（或手动复制下面的地址）——用拥有 loollook.com GSC 资源的账号点『允许』：\n\n" + url.toString() + "\n");
   import("child_process").then(({ exec }) => exec(`start "" "${url.toString()}"`, { shell: "cmd.exe" }, () => {}));
   const code = await new Promise((resolve, reject) => {
     const server = http.createServer((req, res) => {
@@ -122,14 +122,14 @@ async function exchangeAndSave(code, redirect) {
 async function sites() {
   const j = await api("/sites");
   const rows = (j.siteEntry || []).map((s) => `${s.permissionLevel.padEnd(10)} ${s.siteUrl}`);
-  log(rows.length ? rows.join("\n") : "（账号下没有已验证站点——先去 search.google.com/search-console 添加 fuzzsofa.com）");
+  log(rows.length ? rows.join("\n") : "（账号下没有已验证站点——先去 search.google.com/search-console 添加 loollook.com）");
 }
 
 // ── pull ──
 async function pull(days = 90) {
   const j = await api("/sites");
-  const site = (j.siteEntry || []).find((s) => s.siteUrl.includes("fuzzsofa.com"));
-  if (!site) die("fuzzsofa.com 不在已验证站点列表——先跑 sites 看看");
+  const site = (j.siteEntry || []).find((s) => s.siteUrl.includes("loollook.com"));
+  if (!site) die("loollook.com 不在已验证站点列表——先跑 sites 看看");
   const siteUrl = site.siteUrl;
   const end = new Date(); const start = new Date(Date.now() - days * 86400000);
   const iso = (d) => d.toISOString().slice(0, 10);

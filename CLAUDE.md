@@ -38,7 +38,7 @@ DTC 眼镜独立站。设计稿来自 Lovable（fork：`lucasxue2/loollook.com`�
 - **CF WAF：阻断中国大陆 IP**（2026-05-08 启用）
   - Custom rule `Block mainland China`：表达式 `(ip.src.country eq "CN")` → action `block` → 返回 CF 默认 1020 / HTTP 403
   - 仅大陆 CN，HK / MO / TW 不影响（与市场定位"海外为主"一致）
-  - 修改入口：dash → loollook.com → Security → WAF → Custom rules（zone id `16fff3d5eb115e8e2d225641e54ffe48`）
+  - 修改入口：dash → loollook.com → Security → WAF → Custom rules（zone id `d51d09b5c7f4608e01b2d08e66dff5ab`）
   - **用户报"国内打不开"是预期行为，不当 bug 排查**；如需排错，先到 dash → Security → Events 看是否被这条规则命中
 
 ## 并行开发约定

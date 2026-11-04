@@ -17,7 +17,7 @@ description: loollook.com 内容生产总闸门。凡「做产品详情页 / 写
 
 - **战略层（操盘手）** → `.claude/skills/lool-operator/SKILL.md`（`/lool-operator`：漏斗/内容矩阵/CRO 战略板）
 - **系统总纲** → `docs/system-kit/operator-flows.md`：loollook 全系统工作流总纲 V1.0（五幕十三流 A1–E4，四张对账表）。新东西只答「进哪条流」；B2 内容生产流/闸门顺序在总纲第二幕，与本文档一致
-- **系统手册** → `docs/system-kit/fuzz-produce-manual.md`：命令详解 §3 · 闸门规则 §4 · 活库 §5 · 数据库通道 §6 · 部署 §7 · 裁决 §8 · 模板锁+IP 纪律 §11 · GEO+画像架构蓝图 §12 · 工作流总纲 §22（operator-flows.md 母版）
+- **系统手册** → `docs/system-kit/system-manual.md`：命令详解 §3 · 闸门规则 §4 · 活库 §5 · 数据库通道 §6 · 部署 §7 · 裁决 §8 · 模板锁+IP 纪律 §11 · GEO+画像架构蓝图 §12 · 工作流总纲 §22（operator-flows.md 母版）
 - PDP 模板锁契约 → `docs/system-kit/library/framework-lock.json`
 - blog 模板锁 → `docs/system-kit/library/blog-framework-lock.json`
 

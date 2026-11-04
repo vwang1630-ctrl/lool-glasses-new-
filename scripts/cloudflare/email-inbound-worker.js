@@ -1,7 +1,7 @@
 /**
- * FUZZ SOFA — 邮件入站中继（Cloudflare Email Worker）
+ * LOOLLOOK — 邮件入站中继（Cloudflare Email Worker）
  *
- * 作用：任何寄到 fuzzsofa.com 的邮件（info@ / hello@ / support@ / trade@ / 任意地址）
+ * 作用：任何寄到 loollook.com 的邮件（info@ / hello@ / support@ / trade@ / 任意地址）
  *  1. 转发一份副本到站主私人信箱（FORWARD_TO）
  *  2. 把原始 MIME 转投给站点端点，落进后台「咨询留言」
  *
@@ -9,7 +9,7 @@
  *       绑定 Email Routing 规则。完整步骤见 docs/email-inbound-setup.md。
  *
  * 环境变量（Worker → Settings → Variables）：
- *   INBOUND_URL    = https://fuzzsofa.com/api/public/email-inbound
+ *   INBOUND_URL    = https://loollook.com/api/public/email-inbound
  *   INBOUND_SECRET = 与站点 .env 的 EMAIL_INBOUND_SECRET 相同
  *   FORWARD_TO     = 站主私人信箱（收副本）
  */

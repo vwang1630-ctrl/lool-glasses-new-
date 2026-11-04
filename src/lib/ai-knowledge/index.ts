@@ -1,5 +1,5 @@
 // Portable knowledge module for the lool AI Field Deployment Engineer.
-// Following the "portable OS brain" pattern from fuzzsofa-kit:
+// "Portable OS brain" pattern（自 fuzzsofa-kit 移植后已全面 lool 化）:
 // all domain knowledge the AI needs to operate autonomously,
 // structured as typed data the system prompt can consume.
 //
