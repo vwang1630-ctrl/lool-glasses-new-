@@ -17,6 +17,7 @@
 // the whole cart.
 
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { pageTitle } from "@/lib/page-titles";
 import { useCart } from "@/contexts/CartContext";
 import { useI18n } from "@/lib/i18n";
 import { pickLang } from "@/lib/lang";
@@ -35,7 +36,7 @@ import {
 import { getCustomerClientId, trackCustomerEvent } from "@/lib/customer-audit";
 
 export const Route = createFileRoute("/$lang/checkout")({
-  head: () => ({ meta: [{ title: "lool — Checkout" }] }),
+  head: ({ params }) => ({ meta: [{ title: pageTitle("checkout", params.lang) }] }),
   component: CheckoutPage,
 });
 

@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
+import { pageTitle } from "@/lib/page-titles";
 import {
   ProductListPage,
   type PreselectFilters,
@@ -11,26 +13,26 @@ export const Route = createFileRoute("/$lang/myopia")({
     style: typeof s.style === "string" ? s.style : undefined,
     color: typeof s.color === "string" ? s.color : undefined,
   }),
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
-      { title: "lool — Everyday Eyeglasses" },
+      { title: pageTitle("myopia", params.lang) },
       {
         name: "description",
         content:
-          "lool everyday eyeglasses: blue-light protection, ultra-thin lenses, and teen myopia-control frames. Beautifully crafted, professionally fitted.",
+          pageDesc("myopia", params.lang),
       },
-      { property: "og:title", content: "Everyday Eyeglasses — lool" },
+      { property: "og:title", content: pageTitle("myopia", params.lang) },
       {
         property: "og:description",
         content:
-          "Blue-light, ultra-thin and teen myopia-control glasses, beautifully made.",
+          pageOgDesc("myopia", params.lang),
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:title", content: "Everyday Eyeglasses — lool" },
+      { name: "twitter:title", content: pageTitle("myopia", params.lang) },
       {
         name: "twitter:description",
         content:
-          "Blue-light, ultra-thin and teen myopia-control glasses, beautifully made.",
+          pageOgDesc("myopia", params.lang),
       },
     ],
   }),

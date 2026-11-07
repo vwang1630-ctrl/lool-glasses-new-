@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageTitle } from "@/lib/page-titles";
+import { headTranslator } from "@/lib/page-descriptions";
 import { useI18n } from "@/lib/i18n";
 import { pickLang } from "@/lib/lang";
 import { faqs } from "@/data/products";
@@ -7,7 +9,19 @@ import { Search, ChevronDown } from "lucide-react";
 import { JsonLd, faqSchema } from "@/lib/jsonld";
 
 export const Route = createFileRoute("/$lang/help")({
-  head: () => ({ meta: [{ title: "lool — Help Center" }] }),
+  head: ({ params }) => {
+    // description = the page's own hero subtitle (design-source copy, already
+    // translated in the i18n dictionary).
+    const desc = headTranslator(params.lang)("help.sub");
+    return {
+      meta: [
+        { title: pageTitle("help", params.lang) },
+        { name: "description", content: desc },
+        { property: "og:description", content: desc },
+        { name: "twitter:description", content: desc },
+      ],
+    };
+  },
   component: HelpPage,
 });
 

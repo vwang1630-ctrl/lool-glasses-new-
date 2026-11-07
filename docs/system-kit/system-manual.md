@@ -667,7 +667,7 @@ curl.exe -sL http://localhost/ -o NUL -w "%{http_code}"   # 200
 | ---------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 传统 SEO   | Google Search Console + Bing Webmaster    | 验证域名（Cloudflare 一键）→ 提交 sitemap.xml                                                                                                                                                                              |
 | AI 可见性  | 每月在 ChatGPT/Perplexity/Gemini 问产品词 | 记录是否引用 loollook.com（llms.txt + FAQ 是饵；台账 ai-visibility.json）                                                                                                                                                  |
-| 流量转化   | GA4 或 Plausible                          | **已接入（2026-09-21，WO-14，G-FD4MN4RM7G）**：严格延迟加载（点「全部接受」才加载 gtag.js，遵循 consent 契约）；事件=page_view（SPA 补发）/ preview_open（三入口）/ whatsapp_click；建议在 GA4 后台把后两个标为 key events |
+| 流量转化   | GA4 或 Plausible                          | **2026-11-06 更正**：ID 已换成 loollook 自己的 `G-7LWMJZP0YE`（原 G-FD4MN4RM7G 是 FUZZ 的，导致混数）；且现行代码 `__root.tsx` 无条件加载 gtag，**没有 consent 闸门**，下述"严格延迟加载"与线上不符。原记录 → **已接入（2026-09-21，WO-14，G-FD4MN4RM7G）**：严格延迟加载（点「全部接受」才加载 gtag.js，遵循 consent 契约）；事件=page_view（SPA 补发）/ preview_open（三入口）/ whatsapp_click；建议在 GA4 后台把后两个标为 key events |
 | 结构化健康 | Google Rich Results Test                  | 对每个 PDP 跑一次，0 错误为准                                                                                                                                                                                              |
 
 ---

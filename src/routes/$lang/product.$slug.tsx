@@ -58,6 +58,7 @@ import {
 } from "@/components/ui/accordion";
 import { productSchema, breadcrumbSchema, faqSchema } from "@/lib/jsonld";
 import { pickLang, pickLangArray } from "@/lib/lang";
+import { pageTitle } from "@/lib/page-titles";
 import { finishDef, type FinishId } from "@/lib/color-palette";
 import type {
   ProductContentMap,
@@ -195,23 +196,45 @@ export const Route = createFileRoute("/$lang/product/$slug")({
   // fetch on mount to populate the "recommended" list.
   loader: async ({ params }) => {
     const product = await fetchProductBySlug({ data: params.slug });
+    // Unknown / archived slug → real 404 (not a 200 empty shell that search
+    // engines would index). Same pattern as /$lang/blog/$slug.
+    if (!product) throw notFound();
     return { slug: params.slug, lang: params.lang, ssrProduct: product };
   },
   head: ({ loaderData }) => {
     const p = loaderData?.ssrProduct;
-    if (!p) return { meta: [{ title: "lool — Product" }] };
+    if (!p) return { meta: [{ title: pageTitle("product", loaderData?.lang) }] };
     const lang = loaderData?.lang ?? "en";
     const content = p.content?.[lang] ?? p.content?.en ?? null;
     const seo = content?.seo;
     const name = p.name.en ?? p.name.zh ?? p.slug;
+    // <title>: this lang's own SEO title if the content has one; otherwise a
+    // non-en page gets "lool — <name in this lang>" instead of borrowing the
+    // English SEO title. en behavior is unchanged.
+    const ownSeoTitle = p.content?.[lang]?.seo?.title;
+    const localName = pickLang(p.name, lang) || name;
+    // description: non-en pages prefer this lang's own SEO description /
+    // description / intro; only when the content has none in this lang do they
+    // fall back to the English chain below (en behavior is unchanged).
+    const ownDesc =
+      lang === "en"
+        ? ""
+        : p.content?.[lang]?.seo?.description ||
+          p.description?.[lang] ||
+          p.intro?.[lang] ||
+          "";
     const desc =
+      ownDesc ||
       seo?.description ||
       p.description?.en ||
       p.description?.zh ||
       p.intro?.en ||
       p.intro?.zh ||
       `${name} — modern eyewear from lool. ${p.shape ?? ""} ${p.material ?? ""} frame, $${(p.priceCents / 100).toFixed(0)}.`.trim();
-    const title = seo?.title || `lool — ${name}`;
+    const title =
+      lang === "en"
+        ? seo?.title || `lool — ${name}`
+        : ownSeoTitle || `lool — ${localName}`;
     const heroImg = p.colors[0]?.images[0];
     const ogImg = heroImg
       ? heroImg.startsWith("http")

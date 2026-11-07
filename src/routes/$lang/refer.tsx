@@ -1,17 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
+import { pageTitle } from "@/lib/page-titles";
 import { InfoPage } from "@/components/layout/InfoPage";
 import { getInfoContent } from "@/lib/info-content";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/$lang/refer")({
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
-      { title: "lool — Refer a Friend, Give $20 Get $20" },
+      { title: pageTitle("refer", params.lang) },
       {
         name: "description",
         content:
-          "Share lool with friends. They get $20 off their first frame, you get $20 in store credit when their order ships.",
+          pageDesc("refer", params.lang),
       },
+      { property: "og:description", content: pageOgDesc("refer", params.lang) },
+      { name: "twitter:description", content: pageOgDesc("refer", params.lang) },
     ],
   }),
   component: ReferPage,

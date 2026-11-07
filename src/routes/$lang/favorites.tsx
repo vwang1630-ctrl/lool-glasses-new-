@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
+import { pageTitle } from "@/lib/page-titles";
 import { useI18n } from "@/lib/i18n";
 import { useFavorites } from "@/contexts/FavoritesContext";
 import { useCatalogProducts } from "@/lib/use-catalog-products";
@@ -7,15 +9,16 @@ import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 
 export const Route = createFileRoute("/$lang/favorites")({
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
-      { title: "lool — Favorites" },
+      { title: pageTitle("favorites", params.lang) },
       {
         name: "description",
-        content: "Your saved lool frames — ready when you are.",
+        content: pageDesc("favorites", params.lang),
       },
-      { property: "og:title", content: "Favorites — lool" },
-      { property: "og:description", content: "Your saved lool frames." },
+      { name: "twitter:description", content: pageOgDesc("favorites", params.lang) },
+      { property: "og:title", content: pageTitle("favorites", params.lang) },
+      { property: "og:description", content: pageOgDesc("favorites", params.lang) },
     ],
   }),
   component: FavoritesPage,

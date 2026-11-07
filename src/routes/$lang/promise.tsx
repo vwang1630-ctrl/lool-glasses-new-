@@ -1,17 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
+import { pageTitle } from "@/lib/page-titles";
 import { InfoPage } from "@/components/layout/InfoPage";
 import { getInfoContent } from "@/lib/info-content";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/$lang/promise")({
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
-      { title: "lool — The Promise, 365-day warranty & free fixes" },
+      { title: pageTitle("promise", params.lang) },
       {
         name: "description",
         content:
-          "Every lool frame is backed by a 365-day warranty against manufacturer defects, plus free adjustments for life.",
+          pageDesc("promise", params.lang),
       },
+      { property: "og:description", content: pageOgDesc("promise", params.lang) },
+      { name: "twitter:description", content: pageOgDesc("promise", params.lang) },
     ],
   }),
   component: PromisePage,

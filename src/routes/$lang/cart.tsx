@@ -1,4 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { pageTitle } from "@/lib/page-titles";
 import { useCart } from "@/contexts/CartContext";
 import { useI18n } from "@/lib/i18n";
 import { pickLang } from "@/lib/lang";
@@ -6,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Trash2, Minus, Plus, Truck, PartyPopper, Check } from "lucide-react";
 
 export const Route = createFileRoute("/$lang/cart")({
-  head: () => ({ meta: [{ title: "lool — Cart" }] }),
+  head: ({ params }) => ({ meta: [{ title: pageTitle("cart", params.lang) }] }),
   component: CartPage,
 });
 

@@ -1,17 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
+import { pageTitle } from "@/lib/page-titles";
 import { InfoPage } from "@/components/layout/InfoPage";
 import { getInfoContent } from "@/lib/info-content";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/$lang/terms")({
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
-      { title: "lool — Terms & Conditions" },
+      { title: pageTitle("terms", params.lang) },
       {
         name: "description",
         content:
-          "The terms that govern your use of lool.com and any purchase you make.",
+          pageDesc("terms", params.lang),
       },
+      { property: "og:description", content: pageOgDesc("terms", params.lang) },
+      { name: "twitter:description", content: pageOgDesc("terms", params.lang) },
     ],
   }),
   component: TermsPage,

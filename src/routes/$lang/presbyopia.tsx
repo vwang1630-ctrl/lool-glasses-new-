@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
+import { pageTitle } from "@/lib/page-titles";
 import {
   ProductListPage,
   type PreselectFilters,
@@ -11,24 +13,24 @@ export const Route = createFileRoute("/$lang/presbyopia")({
     style: typeof s.style === "string" ? s.style : undefined,
     color: typeof s.color === "string" ? s.color : undefined,
   }),
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
-      { title: "lool — Modern Reading Glasses" },
+      { title: pageTitle("presbyopia", params.lang) },
       {
         name: "description",
         content:
-          "lool modern reading glasses — ageless designs for the 45–60 generation. Lightweight frames in minimal, business, and statement styles. Pro-grade lenses, fair prices.",
+          pageDesc("presbyopia", params.lang),
       },
-      { property: "og:title", content: "Modern Reading Glasses — lool" },
+      { property: "og:title", content: pageTitle("presbyopia", params.lang) },
       {
         property: "og:description",
-        content: "Ageless reading glasses for the modern 45–60 generation.",
+        content: pageOgDesc("presbyopia", params.lang),
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:title", content: "Modern Reading Glasses — lool" },
+      { name: "twitter:title", content: pageTitle("presbyopia", params.lang) },
       {
         name: "twitter:description",
-        content: "Ageless reading glasses for the modern 45–60 generation.",
+        content: pageOgDesc("presbyopia", params.lang),
       },
     ],
   }),

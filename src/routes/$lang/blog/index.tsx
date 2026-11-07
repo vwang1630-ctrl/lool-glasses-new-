@@ -3,6 +3,7 @@
 // the table is empty or unbound.
 
 import { createFileRoute } from "@tanstack/react-router";
+import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
 import { createServerFn } from "@tanstack/react-start";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import { useState } from "react";
@@ -10,6 +11,7 @@ import { useI18n, type Lang } from "@/lib/i18n";
 import { pickLang, parseLangJson } from "@/lib/lang";
 import { JsonLd } from "@/lib/jsonld";
 import { LangLink } from "@/components/LangLink";
+import { pageTitle } from "@/lib/page-titles";
 import imgAurora from "@/assets/gallery/tortoise-angle.jpg";
 import imgHalo from "@/assets/gallery/gold-side.jpg";
 import imgStyle1 from "@/assets/hero-2.jpg";
@@ -98,16 +100,18 @@ const fetchBlogIndex = createServerFn({ method: "GET" }).handler(async () => {
 
 export const Route = createFileRoute("/$lang/blog/")({
   loader: async () => fetchBlogIndex(),
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     const posts = loaderData?.posts ?? [];
     return {
       meta: [
-        { title: "lool — Journal, new launches, design notes & style" },
+        { title: pageTitle("blog", params.lang) },
         {
           name: "description",
           content:
-            "New launches, design notes, style guides and brand stories from lool.",
+            pageDesc("blog", params.lang),
         },
+        { property: "og:description", content: pageOgDesc("blog", params.lang) },
+        { name: "twitter:description", content: pageOgDesc("blog", params.lang) },
       ],
     };
   },

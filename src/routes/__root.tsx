@@ -102,7 +102,7 @@ export const Route = createRootRoute({
       { name: "twitter:image", content: OG_IMAGE },
     ],
     scripts: [
-      // GA4 — G-FD4MN4RM7G (registered in operator-library cro-ga4-wiring).
+      // GA4 — loollook's own property (GA4_TAG in src/lib/operator).
       // <head> snippet is the standard gtag bootstrap; the async loader keeps
       // first paint unblocked.
       {

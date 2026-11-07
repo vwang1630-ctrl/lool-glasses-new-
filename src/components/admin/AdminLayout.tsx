@@ -98,7 +98,10 @@ const groups: NavGroup[] = [
   },
   {
     label: "Debug",
-    items: [{ to: "/admin/debug", label: "业务数据清理", icon: Bug }],
+    items: [
+      { to: "/admin/debug", label: "业务数据清理", icon: Bug },
+      { to: "/admin/tryon-lab", label: "试戴实验室 v7", icon: Sparkles },
+    ],
   },
 ];
 

@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
+import { pageTitle } from "@/lib/page-titles";
 import { useI18n, type Lang } from "@/lib/i18n";
 import {
   ChevronRight,
@@ -16,14 +18,15 @@ import {
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/$lang/choose-eyeglasses")({
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
-      { title: "lool — Lens Guide, daily eye care & lens science" },
+      { title: pageTitle("chooseEyeglasses", params.lang) },
       {
         name: "description",
         content:
-          "Understand daily eye care and choose the right lens — Ordinary, Mingyue, or Zeiss. Transmittance, coatings, blue-light filtering, UV400 and high-index options compared.",
+          pageDesc("chooseEyeglasses", params.lang),
       },
+      { name: "twitter:description", content: pageOgDesc("chooseEyeglasses", params.lang) },
       {
         property: "og:title",
         content: "Lens Guide — Daily Eye Care & Lens Science | lool",
@@ -31,7 +34,7 @@ export const Route = createFileRoute("/$lang/choose-eyeglasses")({
       {
         property: "og:description",
         content:
-          "A complete lens science guide: ordinary, Mingyue and Zeiss compared, with scenario-based recommendations.",
+          pageOgDesc("chooseEyeglasses", params.lang),
       },
     ],
   }),

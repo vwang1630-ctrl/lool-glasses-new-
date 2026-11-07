@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
+import { pageTitle } from "@/lib/page-titles";
 import { LangLink } from "@/components/LangLink";
 import { useI18n, type Lang } from "@/lib/i18n";
 import {
@@ -13,14 +15,16 @@ import {
 import type { ComponentType, ReactNode } from "react";
 
 export const Route = createFileRoute("/$lang/why-lool")({
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
-      { title: "lool — Why choose us, fair-priced featherlight eyewear" },
+      { title: pageTitle("whyLool", params.lang) },
       {
         name: "description",
         content:
-          "Why people choose lool: a fair price for the eyewear you actually want — featherlight frames, all-inclusive lenses, AI try-on, free tracked shipping on orders over $69, and a 365-day warranty.",
+          pageDesc("whyLool", params.lang),
       },
+      { property: "og:description", content: pageOgDesc("whyLool", params.lang) },
+      { name: "twitter:description", content: pageOgDesc("whyLool", params.lang) },
     ],
   }),
   component: WhyLoolPage,

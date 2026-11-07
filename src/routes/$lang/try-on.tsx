@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { pageTitle } from "@/lib/page-titles";
+import { headTranslator } from "@/lib/page-descriptions";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useI18n } from "@/lib/i18n";
 import { pickLang } from "@/lib/lang";
@@ -19,13 +21,27 @@ import { FilesetResolver, FaceLandmarker } from "@mediapipe/tasks-vision";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { trackCustomerEvent } from "@/lib/customer-audit";
+import { FACE_LANDMARKER_MODEL, MEDIAPIPE_WASM_BASE } from "@/lib/mediapipe-assets";
 
 interface TryOnSearch {
   frame?: string;
 }
 
 export const Route = createFileRoute("/$lang/try-on")({
-  head: () => ({ meta: [{ title: "lool — Virtual Try-On" }] }),
+  head: ({ params }) => {
+    // description = the page's own heading + tip line (design-source copy,
+    // already translated in the i18n dictionary).
+    const t = headTranslator(params.lang);
+    const desc = `${t("tryon.title")} — ${t("tryon.tip")}`;
+    return {
+      meta: [
+        { title: pageTitle("tryOn", params.lang) },
+        { name: "description", content: desc },
+        { property: "og:description", content: desc },
+        { name: "twitter:description", content: desc },
+      ],
+    };
+  },
   validateSearch: (s: Record<string, unknown>): TryOnSearch => ({
     frame: typeof s.frame === "string" ? s.frame : undefined,
   }),
@@ -558,13 +574,14 @@ function TryOn() {
     setError(null);
     setLoading(true);
     try {
+      // Engine files are self-hosted (see @/lib/mediapipe-assets) — no
+      // jsdelivr / Google Storage dependency.
       const fileset = await FilesetResolver.forVisionTasks(
-        "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.34/wasm",
+        MEDIAPIPE_WASM_BASE,
       );
       const lm = await FaceLandmarker.createFromOptions(fileset, {
         baseOptions: {
-          modelAssetPath:
-            "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task",
+          modelAssetPath: FACE_LANDMARKER_MODEL,
         },
         runningMode: "VIDEO",
         numFaces: 1,

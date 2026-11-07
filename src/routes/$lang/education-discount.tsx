@@ -1,17 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
+import { pageTitle } from "@/lib/page-titles";
 import { InfoPage } from "@/components/layout/InfoPage";
 import { getInfoContent } from "@/lib/info-content";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/$lang/education-discount")({
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
-      { title: "lool — Education Discount, 15% off for students & educators" },
+      { title: pageTitle("educationDiscount", params.lang) },
       {
         name: "description",
         content:
-          "Verified students, teachers, and faculty save 15% on every lool order — including frames, lenses, and add-ons.",
+          pageDesc("educationDiscount", params.lang),
       },
+      { property: "og:description", content: pageOgDesc("educationDiscount", params.lang) },
+      { name: "twitter:description", content: pageOgDesc("educationDiscount", params.lang) },
     ],
   }),
   component: EduPage,

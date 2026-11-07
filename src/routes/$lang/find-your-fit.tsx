@@ -1,17 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
+import { pageTitle } from "@/lib/page-titles";
 import { InfoPage } from "@/components/layout/InfoPage";
 import { getInfoContent } from "@/lib/info-content";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/$lang/find-your-fit")({
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
-      { title: "lool — Three Key Frame Dimensions" },
+      { title: pageTitle("findYourFit", params.lang) },
       {
         name: "description",
         content:
-          "Read lens width, bridge width, and temple length to choose frames that fit your face shape and existing glasses size.",
+          pageDesc("findYourFit", params.lang),
       },
+      { property: "og:description", content: pageOgDesc("findYourFit", params.lang) },
+      { name: "twitter:description", content: pageOgDesc("findYourFit", params.lang) },
     ],
   }),
   component: FitPage,

@@ -1,18 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
+import { pageTitle } from "@/lib/page-titles";
 import { InfoPage, type InfoSection } from "@/components/layout/InfoPage";
 import { ContactForm } from "@/components/ContactForm";
 import { getInfoContent } from "@/lib/info-content";
 import { useI18n, type Lang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/$lang/contact")({
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
-      { title: "lool — Contact Customer Care" },
+      { title: pageTitle("contact", params.lang) },
       {
         name: "description",
         content:
-          "Reach the lool team via live chat, email, or phone — most messages get a real reply within hours.",
+          pageDesc("contact", params.lang),
       },
+      { property: "og:description", content: pageOgDesc("contact", params.lang) },
+      { name: "twitter:description", content: pageOgDesc("contact", params.lang) },
     ],
   }),
   component: ContactPage,

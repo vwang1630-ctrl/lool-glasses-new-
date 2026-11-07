@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
+import { pageTitle } from "@/lib/page-titles";
 import {
   ProductListPage,
   type PreselectFilters,
@@ -25,26 +27,26 @@ export const Route = createFileRoute("/$lang/products")({
         ? (s.sort as SortValue)
         : undefined,
   }),
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
-      { title: "lool — All Products" },
+      { title: pageTitle("products", params.lang) },
       {
         name: "description",
         content:
-          "Browse the full lool collection — modern fashion readers and everyday eyeglasses, professionally crafted with pro-grade lenses and free tracked shipping on orders over $69.",
+          pageDesc("products", params.lang),
       },
-      { property: "og:title", content: "All Products — lool" },
+      { property: "og:title", content: pageTitle("products", params.lang) },
       {
         property: "og:description",
         content:
-          "Reading glasses & everyday eyewear, redesigned. Pro lenses, fair prices.",
+          pageOgDesc("products", params.lang),
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:title", content: "All Products — lool" },
+      { name: "twitter:title", content: pageTitle("products", params.lang) },
       {
         name: "twitter:description",
         content:
-          "Reading glasses & everyday eyewear, redesigned. Pro lenses, fair prices.",
+          pageOgDesc("products", params.lang),
       },
     ],
   }),

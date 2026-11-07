@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { useCatalogProducts } from "@/lib/use-catalog-products";
 import { ProductCard } from "@/components/product/ProductCard";
 import { JsonLd, faqSchema } from "@/lib/jsonld";
+import { pageName } from "@/lib/page-titles";
+import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
 import {
   resolveHeadMeta,
   glossaryFaq,
@@ -49,18 +51,24 @@ import reviewUser5 from "@/assets/review-user-5.jpg";
 import reviewUser6 from "@/assets/review-user-6.jpg";
 
 export const Route = createFileRoute("/$lang/")({
-  head: () => {
+  head: ({ params }) => {
     // head 走操盘手系统：keyword-library 主词 + seo-meta 模式 + brand 口径
     // （resolveHeadMeta）。FAQPage JSON-LD 放在 body 内 <JsonLd> 输出
     // （与 __root 的 Organization/WebSite 同模式），不走 head() scripts。
+    // en 用 keyword-library 生成的标题；其他语言用 page-titles 的译文。
     const meta = resolveHeadMeta("home");
+    const isEn = !params.lang || params.lang === "en";
+    const title = isEn ? meta.title : `${pageName("home", params.lang)} | lool`;
+    const description = isEn ? meta.description : pageDesc("home", params.lang);
+    const ogDescription = isEn ? meta.ogDescription : pageOgDesc("home", params.lang);
     return {
       meta: [
-        { title: meta.title },
-        { name: "description", content: meta.description },
+        { title },
+        { name: "description", content: description },
         { name: "keywords", content: meta.keywords },
-        { property: "og:title", content: meta.ogTitle },
-        { property: "og:description", content: meta.ogDescription },
+        { property: "og:title", content: title },
+        { property: "og:description", content: ogDescription },
+        { name: "twitter:description", content: ogDescription },
         { property: "og:image", content: meta.ogImage },
       ],
     };

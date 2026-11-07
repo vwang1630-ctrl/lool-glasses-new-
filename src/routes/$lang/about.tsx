@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
+import { pageTitle } from "@/lib/page-titles";
 import { LangLink } from "@/components/LangLink";
 import { useI18n, type Lang } from "@/lib/i18n";
 import {
@@ -25,14 +27,16 @@ import reviewUser5 from "@/assets/review-user-5.jpg";
 import reviewUser6 from "@/assets/review-user-6.jpg";
 
 export const Route = createFileRoute("/$lang/about")({
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
-      { title: "lool — Style belongs to everyone" },
+      { title: pageTitle("about", params.lang) },
       {
         name: "description",
         content:
-          "lool brings on-trend eyewear within reach. Fresh drops every month, AI try-on that actually fits, fair prices — no middlemen, just your style.",
+          pageDesc("about", params.lang),
       },
+      { property: "og:description", content: pageOgDesc("about", params.lang) },
+      { name: "twitter:description", content: pageOgDesc("about", params.lang) },
     ],
   }),
   component: AboutPage,

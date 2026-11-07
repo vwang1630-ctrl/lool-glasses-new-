@@ -13,6 +13,7 @@
 //     though the user was effectively still signed in)
 
 import { createFileRoute } from "@tanstack/react-router";
+import { pageTitle } from "@/lib/page-titles";
 import { useI18n } from "@/lib/i18n";
 import { pickLang } from "@/lib/lang";
 import { useEffect, useRef, useState } from "react";
@@ -148,7 +149,7 @@ const ACCOUNT_INSET_CLASS =
   "rounded-[20px] border border-border/80 bg-[#faf8f5]";
 
 export const Route = createFileRoute("/$lang/account")({
-  head: () => ({ meta: [{ title: "lool — Account" }] }),
+  head: ({ params }) => ({ meta: [{ title: pageTitle("account", params.lang) }] }),
   component: AccountPage,
 });
 

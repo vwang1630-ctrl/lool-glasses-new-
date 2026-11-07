@@ -29,6 +29,7 @@ import { Route as ApiBlogRouteImport } from './routes/api/blog'
 import { Route as ApiAudienceBannersRouteImport } from './routes/api/audience-banners'
 import { Route as AffiliateLoginRouteImport } from './routes/affiliate_.login'
 import { Route as AdminLoginRouteImport } from './routes/admin_.login'
+import { Route as AdminTryonLabRouteImport } from './routes/admin/tryon-lab'
 import { Route as AdminTrackerUsersRouteImport } from './routes/admin/tracker-users'
 import { Route as AdminSuppliersProductRouteImport } from './routes/admin/suppliers-product'
 import { Route as AdminSuppliersPaymentRouteImport } from './routes/admin/suppliers-payment'
@@ -279,6 +280,11 @@ const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/admin_/login',
   path: '/admin/login',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AdminTryonLabRoute = AdminTryonLabRouteImport.update({
+  id: '/tryon-lab',
+  path: '/tryon-lab',
+  getParentRoute: () => AdminRoute,
 } as any)
 const AdminTrackerUsersRoute = AdminTrackerUsersRouteImport.update({
   id: '/tracker-users',
@@ -1100,6 +1106,7 @@ export interface FileRoutesByFullPath {
   '/admin/suppliers-payment': typeof AdminSuppliersPaymentRoute
   '/admin/suppliers-product': typeof AdminSuppliersProductRoute
   '/admin/tracker-users': typeof AdminTrackerUsersRoute
+  '/admin/tryon-lab': typeof AdminTryonLabRoute
   '/admin/login': typeof AdminLoginRoute
   '/affiliate/login': typeof AffiliateLoginRoute
   '/api/audience-banners': typeof ApiAudienceBannersRoute
@@ -1268,6 +1275,7 @@ export interface FileRoutesByTo {
   '/admin/suppliers-payment': typeof AdminSuppliersPaymentRoute
   '/admin/suppliers-product': typeof AdminSuppliersProductRoute
   '/admin/tracker-users': typeof AdminTrackerUsersRoute
+  '/admin/tryon-lab': typeof AdminTryonLabRoute
   '/admin/login': typeof AdminLoginRoute
   '/affiliate/login': typeof AffiliateLoginRoute
   '/api/audience-banners': typeof ApiAudienceBannersRoute
@@ -1441,6 +1449,7 @@ export interface FileRoutesById {
   '/admin/suppliers-payment': typeof AdminSuppliersPaymentRoute
   '/admin/suppliers-product': typeof AdminSuppliersProductRoute
   '/admin/tracker-users': typeof AdminTrackerUsersRoute
+  '/admin/tryon-lab': typeof AdminTryonLabRoute
   '/admin_/login': typeof AdminLoginRoute
   '/affiliate_/login': typeof AffiliateLoginRoute
   '/api/audience-banners': typeof ApiAudienceBannersRoute
@@ -1615,6 +1624,7 @@ export interface FileRouteTypes {
     | '/admin/suppliers-payment'
     | '/admin/suppliers-product'
     | '/admin/tracker-users'
+    | '/admin/tryon-lab'
     | '/admin/login'
     | '/affiliate/login'
     | '/api/audience-banners'
@@ -1783,6 +1793,7 @@ export interface FileRouteTypes {
     | '/admin/suppliers-payment'
     | '/admin/suppliers-product'
     | '/admin/tracker-users'
+    | '/admin/tryon-lab'
     | '/admin/login'
     | '/affiliate/login'
     | '/api/audience-banners'
@@ -1955,6 +1966,7 @@ export interface FileRouteTypes {
     | '/admin/suppliers-payment'
     | '/admin/suppliers-product'
     | '/admin/tracker-users'
+    | '/admin/tryon-lab'
     | '/admin_/login'
     | '/affiliate_/login'
     | '/api/audience-banners'
@@ -2318,6 +2330,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/admin/login'
       preLoaderRoute: typeof AdminLoginRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/admin/tryon-lab': {
+      id: '/admin/tryon-lab'
+      path: '/tryon-lab'
+      fullPath: '/admin/tryon-lab'
+      preLoaderRoute: typeof AdminTryonLabRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/admin/tracker-users': {
       id: '/admin/tracker-users'
@@ -3473,6 +3492,7 @@ interface AdminRouteChildren {
   AdminSuppliersPaymentRoute: typeof AdminSuppliersPaymentRoute
   AdminSuppliersProductRoute: typeof AdminSuppliersProductRoute
   AdminTrackerUsersRoute: typeof AdminTrackerUsersRoute
+  AdminTryonLabRoute: typeof AdminTryonLabRoute
   AdminIndexRoute: typeof AdminIndexRoute
   AdminLensSkusIdRoute: typeof AdminLensSkusIdRoute
   AdminLensSkusNewRoute: typeof AdminLensSkusNewRoute
@@ -3504,6 +3524,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminSuppliersPaymentRoute: AdminSuppliersPaymentRoute,
   AdminSuppliersProductRoute: AdminSuppliersProductRoute,
   AdminTrackerUsersRoute: AdminTrackerUsersRoute,
+  AdminTryonLabRoute: AdminTryonLabRoute,
   AdminIndexRoute: AdminIndexRoute,
   AdminLensSkusIdRoute: AdminLensSkusIdRoute,
   AdminLensSkusNewRoute: AdminLensSkusNewRoute,

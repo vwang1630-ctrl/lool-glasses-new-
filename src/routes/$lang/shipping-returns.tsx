@@ -1,17 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
+import { pageTitle } from "@/lib/page-titles";
 import { InfoPage } from "@/components/layout/InfoPage";
 import { getInfoContent } from "@/lib/info-content";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/$lang/shipping-returns")({
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
-      { title: "lool — Shipping & Returns" },
+      { title: pageTitle("shippingReturns", params.lang) },
       {
         name: "description",
         content:
-          "Free tracked shipping on orders over $69, 365-day quality warranty, and 30-day free returns & exchanges for non-prescription glasses. Policy v1.1, effective 2026-10-08.",
+          pageDesc("shippingReturns", params.lang),
       },
+      { property: "og:description", content: pageOgDesc("shippingReturns", params.lang) },
+      { name: "twitter:description", content: pageOgDesc("shippingReturns", params.lang) },
     ],
   }),
   component: ShippingPage,

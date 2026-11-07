@@ -1,10 +1,10 @@
 {
-  "at": "2026-11-03T17:25:54.961Z",
+  "at": "2026-11-04T00:41:56.185Z",
   "site": "sc-domain:loollook.com",
   "permission": "siteFullUser",
   "range": {
-    "startDate": "2026-10-03",
-    "endDate": "2026-10-31"
+    "startDate": "2026-10-04",
+    "endDate": "2026-11-01"
   },
   "totals": {
     "clicks": 0,

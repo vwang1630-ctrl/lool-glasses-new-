@@ -85,8 +85,11 @@ interface ContentClusterItem {
 export const OG_IMAGE =
   "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/80742e2b-540f-4ed9-9b1c-65e5c2551b39/id-preview-3046f0b1--4b6f1bc2-16c9-4dff-8e66-25193bcba9c8.lovable.app-1776927976073.png";
 
-/** GA4 tag —— 来自 operator-library cro-ga4-wiring（已登记未部署）。 */
-export const GA4_TAG = "G-FD4MN4RM7G";
+/**
+ * GA4 tag —— loollook 自己的 GA4 媒体资源（2026-11-02 定）。
+ * 曾误用 FUZZ 的 G-FD4MN4RM7G，导致眼镜站流量混进 fuzzsofa 报表；勿改回。
+ */
+export const GA4_TAG = "G-7LWMJZP0YE";
 
 /** brand-library V1.1 品牌口径。 */
 export const BRAND = {

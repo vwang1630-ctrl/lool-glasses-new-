@@ -11,7 +11,7 @@
 | Keyword cannibal detection       | L1    | `cannibal` command wired to `blog_posts` + `products`; DB config lool-native | 2026-11-02     | next keyword arbitration                |
 | T1 evidence pipeline             | L1    | `t1-config.json` + `t1-evidence.json` schema ready; no real orders yet            | 2026-10-07     | first real order / customer interview   |
 | Content bridge (operator → site) | L2    | `src/lib/operator/index.ts` live; homepage + global shell consuming libraries     | 2026-10-08     | next page wiring (list/PDP/blog)        |
-| GA4 instrumentation              | L2    | tag `G-FD4MN4RM7G` injected in `__root.tsx`                                       | 2026-10-08     | verify live events after traffic        |
+| GA4 instrumentation              | L2    | tag `G-7LWMJZP0YE` (loollook's own; was FUZZ `G-FD4MN4RM7G` until 2026-11-06) | 2026-11-06     | verify live events after traffic        |
 | GSC data pipeline                | L0    | `gsc-pull.mjs` ready; GSC property not verified                                   | 2026-11-02     | GSC verification (owner)                |
 | Resend email pipeline            | L0    | `/api/contact` falls back to log when key missing                                 | 2026-11-02     | Resend key supplied (owner)             |
 | Stripe webhook verification      | L0    | endpoint code exists; webhook not registered                                      | 2026-11-02     | Stripe Dashboard registration (owner)   |

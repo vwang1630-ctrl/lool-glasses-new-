@@ -1,17 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
+import { pageTitle } from "@/lib/page-titles";
 import { InfoPage } from "@/components/layout/InfoPage";
 import { getInfoContent } from "@/lib/info-content";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/$lang/privacy")({
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
-      { title: "lool — Privacy & Security" },
+      { title: pageTitle("privacy", params.lang) },
       {
         name: "description",
         content:
-          "How lool collects, uses, and protects your personal data. GDPR & CCPA compliant.",
+          pageDesc("privacy", params.lang),
       },
+      { property: "og:description", content: pageOgDesc("privacy", params.lang) },
+      { name: "twitter:description", content: pageOgDesc("privacy", params.lang) },
     ],
   }),
   component: PrivacyPage,
