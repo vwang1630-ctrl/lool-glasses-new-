@@ -741,8 +741,8 @@ function ProductDetailRendered({
           ? "配送需要多久？运费多少？"
           : "How long does shipping take? Is it free?",
         a: zh
-          ? "满 $69 全球免运费并附实时追踪，不满 $69 收取 $9.9 固定运费。标准配送 5-7 个工作日，加急配送 2-3 个工作日。"
-          : "Free tracked shipping on orders over $69 — orders under $69 have a flat $9.9 shipping fee. Standard delivery takes 5–7 business days; express delivery 2–3 business days. Real-time tracking included.",
+          ? "满 $69 全球免运费并附实时追踪，不满 $69 收取 $9.9 固定运费。根据所在国家/地区不同，送达时间约 7–30 天。"
+          : "Free tracked shipping on orders over $69 — orders under $69 have a flat $9.9 shipping fee. Delivery takes 7–30 days depending on your country. Real-time tracking included.",
       },
       {
         q: zh ? "退货政策是什么？" : "What is the return policy?",
@@ -1115,7 +1115,7 @@ function ProductDetailRendered({
                             <dt className="w-[102px] shrink-0 text-right pr-3.5 text-[11.5px] text-[#8B7D76]">
                               {k}
                             </dt>
-                            <dd className="text-[13px] font-bold text-[#1E1510] capitalize">
+                            <dd className="text-[13px] font-bold text-[#1E1510] first-letter:uppercase">
                               {v}
                             </dd>
                           </div>
@@ -1612,7 +1612,7 @@ function ProductDetailRendered({
                 <h1 className="text-xl md:text-3xl lg:text-[19px] xl:text-2xl font-semibold font-display leading-snug -mt-1">
                   {headingText}
                 </h1>
-                <p className="text-sm text-muted-foreground mt-1.5 capitalize">
+                <p className="text-sm text-muted-foreground mt-1.5 first-letter:uppercase">
                   {shapeLabel(product.shape, t)} ·{" "}
                   {materialLabel(product.material, t)}
                   {product.finish

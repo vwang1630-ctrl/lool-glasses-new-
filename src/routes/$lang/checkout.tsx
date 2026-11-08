@@ -21,6 +21,7 @@ import { pageTitle } from "@/lib/page-titles";
 import { useCart } from "@/contexts/CartContext";
 import { useI18n } from "@/lib/i18n";
 import { pickLang } from "@/lib/lang";
+import { lensCategoryLabel } from "@/lib/lens-labels";
 import { getCountryName, isValidIsoCountry } from "@/lib/countries";
 import { Button } from "@/components/ui/button";
 import { CountryPicker } from "@/components/CountryPicker";
@@ -85,7 +86,7 @@ interface ShippingRule {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const DEFAULT_SHIPPING_RULE: ShippingRule = {
   country_code: "row",
-  shipping_cents: 800,
+  shipping_cents: 990,
   free_shipping_threshold_cents: 6900,
   country_discount_pct: 0,
 };
@@ -116,6 +117,11 @@ function CheckoutPage() {
   const [submitting, setSubmitting] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const [publishableKey, setPublishableKey] = useState<string | null>(null);
+  // "loading" until /api/checkout/config answers; "unavailable" when the
+  // server has no Stripe key or the request failed — never spin forever.
+  const [paymentStatus, setPaymentStatus] = useState<
+    "loading" | "ready" | "unavailable"
+  >("loading");
   const [shippingRules, setShippingRules] = useState<ShippingRule[]>([
     DEFAULT_SHIPPING_RULE,
   ]);
@@ -201,6 +207,7 @@ function CheckoutPage() {
         } | null;
         const pk = cfg?.publishableKey;
         if (pk) setPublishableKey(pk);
+        setPaymentStatus(pk ? "ready" : "unavailable");
         if (Array.isArray(cfg?.shippingRules) && cfg.shippingRules.length > 0) {
           setShippingRules(cfg.shippingRules);
         }
@@ -222,7 +229,7 @@ function CheckoutPage() {
         }
       })
       .catch(() => {
-        /* offline / network — fall back to a blank form */
+        if (!cancelled) setPaymentStatus("unavailable");
       });
     return () => {
       cancelled = true;
@@ -579,10 +586,17 @@ function CheckoutPage() {
                   </div>
                 </PaymentFlow>
               </StripeElementsWrapper>
+            ) : paymentStatus === "unavailable" ? (
+              <div
+                role="alert"
+                className="rounded-2xl border border-destructive/30 bg-destructive/5 p-6 text-sm text-foreground"
+              >
+                {t("checkout.unavailable")}
+              </div>
             ) : (
               <div className="rounded-2xl border border-border p-6 text-sm text-muted-foreground">
                 <Loader2 className="mr-2 inline h-4 w-4 animate-spin" />
-                {t("checkout.submitting")}
+                {t("checkout.loading")}
               </div>
             )}
           </div>
@@ -594,7 +608,8 @@ function CheckoutPage() {
                   <span className="min-w-0">
                     {pickLang(it.product.name, contentLang)} × {it.qty}{" "}
                     <span className="text-muted-foreground text-xs">
-                      · {it.lens.type} {it.lens.index}
+                      · {lensCategoryLabel(it.lens.type, contentLang)}{" "}
+                      {it.lens.index}
                     </span>
                   </span>
                   <span className="shrink-0">

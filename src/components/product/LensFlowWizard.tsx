@@ -35,7 +35,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useI18n, shapeLabel, type Lang } from "@/lib/i18n";
+import { useI18n, shapeLabel, materialLabel, type Lang } from "@/lib/i18n";
 import { pickLang } from "@/lib/lang";
 import { toast } from "sonner";
 import type { Product } from "@/data/products";
@@ -3999,8 +3999,9 @@ export function LensFlowWizard({
                         <h4 className="font-semibold truncate">
                           {pickLang(product.name, contentLang)}
                         </h4>
-                        <p className="text-xs text-muted-foreground capitalize mt-0.5">
-                          {product.shape} · {product.material}
+                        <p className="text-xs text-muted-foreground mt-0.5">
+                          {shapeLabel(product.shape, t)} ·{" "}
+                          {materialLabel(product.material, t)}
                         </p>
                       </div>
                       <span className="font-semibold">${product.priceUSD}</span>

@@ -157,8 +157,7 @@ const en = {
   "home.trust.eyebrow": "For Your Every Wearing Experience",
   "home.trust.title": "Trusted Brand · Service Guarantee",
   "home.trust.shipping.title": "Free tracked shipping over $69",
-  "home.trust.shipping.desc":
-    "Enjoy free worldwide shipping on orders over $69, with full tracking across 100+ countries.",
+  "home.trust.shipping.desc": "Enjoy free worldwide shipping on orders over $69, with full tracking on every order.",
   "home.trust.returns.title": "Hassle-Free Return Policy",
   "home.trust.returns.desc":
     "30-day free returns & exchanges for non-prescription glasses. Prescription glasses are custom-made to your prescription and PD and are non-returnable except for manufacturing defects or prescription errors.",
@@ -338,7 +337,7 @@ const en = {
   "pdp.color": "Color",
   "pdp.qty": "Quantity",
   "pdp.sku": "SKU",
-  "pdp.inStock": "In stock · ships in 5–8 days",
+  "pdp.inStock": "In stock · delivered in 7–30 days",
   "pdp.lowStock": "Only a few left — order soon",
   "pdp.size.title": "Frame measurements",
   "pdp.size.guide": "Size guide",
@@ -405,8 +404,7 @@ const en = {
   "pdp.lens.feat.tinted.desc":
     "Improves contrast and reduces glare, offering better comfort and clarity in various light conditions.",
   "pdp.desc.measureTitle": "Frame measurements",
-  "pdp.shipping.body":
-    "Free tracked shipping on orders over $69. Most orders ship in 5–8 business days after lens crafting. 30-day free returns & exchanges for non-prescription glasses. Prescription glasses are custom-made to your prescription and PD and are non-returnable except for manufacturing defects or prescription errors.",
+  "pdp.shipping.body": "Free tracked shipping on orders over $69 (flat $9.9 below $69). Delivery takes 7–30 days depending on your country, including lens crafting. 30-day free returns & exchanges for non-prescription glasses. Prescription glasses are custom-made to your prescription and PD and are non-returnable except for manufacturing defects or prescription errors.",
   "pdp.reviews.write": "Write a review",
   "pdp.reviews.stars": "Stars",
   "pdp.reviews.avgTitle": "Average Customer Ratings",
@@ -487,6 +485,11 @@ const en = {
   "checkout.email.hint":
     "We'll send your order confirmation here. Use this same email to sign in at /account.",
   "checkout.submitting": "Placing order…",
+  "checkout.loading": "Loading secure checkout…",
+  "chat.whatsapp": "Chat with us on WhatsApp",
+  "chat.whatsappHint": "Our AI assistant is offline right now. Tap below to message our team on WhatsApp — a real person will get back to you.",
+  "chat.whatsappGreeting": "Hi lool, I have a question:",
+  "checkout.unavailable": "Online payment is temporarily unavailable. Your cart is saved — please try again later or email support@loollook.com and we'll help you complete your order.",
   "checkout.error.required": "Please fill in every field.",
   "checkout.error.network": "Couldn't reach the server. Try again in a moment.",
   "checkout.error.cart": "Your cart is empty.",
@@ -1304,8 +1307,7 @@ const zh: Dict = fill({
   "home.trust.eyebrow": "为你每一次佩戴体验",
   "home.trust.title": "品牌信任 · 服务保障",
   "home.trust.shipping.title": "满 $69 免运费（可追踪）",
-  "home.trust.shipping.desc":
-    "订单满 $69 享全球免费配送，覆盖 100+ 国家全程追踪。",
+  "home.trust.shipping.desc": "订单满 $69 全球免运费，每一单都附完整物流追踪。",
   "home.trust.returns.title": "无忧退换政策",
   "home.trust.returns.desc":
     "非处方眼镜（平光镜）30 天内免费退换；处方眼镜按您的处方与瞳距定制，除非存在制造缺陷或我方配镜错误，否则不接受退换。",
@@ -1464,6 +1466,11 @@ const zh: Dict = fill({
   "checkout.email.hint":
     "下单确认会发到这里。请用同一邮箱在 /account 登录追踪订单。",
   "checkout.submitting": "正在提交…",
+  "checkout.loading": "正在加载安全结账…",
+  "chat.whatsapp": "通过 WhatsApp 联系我们",
+  "chat.whatsappHint": "AI 助手暂时不在线。点击下方按钮，通过 WhatsApp 联系我们的客服，会有真人回复你。",
+  "chat.whatsappGreeting": "你好 lool，我想咨询一下：",
+  "checkout.unavailable": "在线支付暂时不可用。购物车已为你保存——请稍后再试，或发邮件至 support@loollook.com，我们会协助你完成下单。",
   "checkout.error.required": "请填写所有字段。",
   "checkout.error.network": "无法连接服务器，请稍后再试。",
   "checkout.error.cart": "购物车为空。",
@@ -1995,7 +2002,7 @@ const zh: Dict = fill({
   "pdp.color": "颜色",
   "pdp.qty": "数量",
   "pdp.sku": "货号",
-  "pdp.inStock": "现货 · 5–8 天发货",
+  "pdp.inStock": "现货 · 7–30 天送达",
   "pdp.lowStock": "库存紧张 — 请尽快下单",
   "pdp.size.title": "镜框尺寸",
   "pdp.size.guide": "尺码指南",
@@ -2048,8 +2055,7 @@ const zh: Dict = fill({
   "pdp.lens.feat.driving.desc": "降低眩光、增强对比，让驾驶视野更清晰更安全。",
   "pdp.lens.feat.tinted.title": "染色",
   "pdp.lens.feat.tinted.desc": "提升对比、减少眩光，在不同光线下都更清晰舒适。",
-  "pdp.shipping.body":
-    "订单满 $69 享全球免运费并附实时追踪。镜片定制完成后，多数订单在 5–8 个工作日内发出。非处方眼镜（平光镜）30 天内免费退换；处方眼镜按您的处方与瞳距定制，除非存在制造缺陷或我方配镜错误，否则不接受退换。",
+  "pdp.shipping.body": "满 $69 免运费并附实时追踪（不满 $69 收取 $9.9 固定运费）。根据所在国家/地区不同，含镜片定制在内约 7–30 天送达。非处方眼镜 30 天内免费退换；处方眼镜按你的处方和瞳距定制，除制造缺陷或配镜错误外不接受退换。",
   "pdp.reviews.write": "写评价",
   "pdp.reviews.stars": "星",
   "pdp.reviews.avgTitle": "顾客评分细项",
@@ -2345,8 +2351,7 @@ const es: Dict = fill({
   "home.trust.eyebrow": "Para cada momento que las llevas",
   "home.trust.title": "Marca de confianza · Servicio garantizado",
   "home.trust.shipping.title": "Envío gratis y con seguimiento desde $69",
-  "home.trust.shipping.desc":
-    "Envío gratuito mundial en pedidos sobre 69 USD, con seguimiento completo en 100+ países.",
+  "home.trust.shipping.desc": "Envío gratis a todo el mundo en pedidos superiores a $69, con seguimiento completo en cada pedido.",
   "home.trust.returns.title": "Política de devolución sin complicaciones",
   "home.trust.returns.desc":
     "Devoluciones y cambios gratuitos a 30 días para gafas sin graduación. Las gafas graduadas se fabrican a medida según su prescripción y DP y no son devolvibles salvo defecto de fabricación o error nuestro.",
@@ -2510,7 +2515,7 @@ const es: Dict = fill({
   "pdp.color": "Color",
   "pdp.qty": "Cantidad",
   "pdp.sku": "SKU",
-  "pdp.inStock": "En stock · envío en 5–8 días",
+  "pdp.inStock": "En stock · entrega en 7–30 días",
   "pdp.lowStock": "Quedan pocas — date prisa",
   "pdp.size.title": "Medidas de la montura",
   "pdp.size.guide": "Guía de tallas",
@@ -2574,8 +2579,7 @@ const es: Dict = fill({
   "pdp.lens.feat.tinted.desc":
     "Mejoran el contraste y reducen reflejos con un toque de color.",
   "pdp.desc.measureTitle": "Medidas",
-  "pdp.shipping.body":
-    "Envío estándar gratis y con seguimiento a partir de $69. La mayoría de pedidos sale en 5–8 días tras montar las lentes. Devoluciones y cambios gratuitos a 30 días para gafas sin graduación. Las gafas graduadas se fabrican a medida según su prescripción y DP y no son devolvibles salvo defecto de fabricación o error nuestro.",
+  "pdp.shipping.body": "Envío gratis con seguimiento en pedidos superiores a $69 (tarifa plana de $9.9 por debajo). La entrega tarda de 7 a 30 días según tu país, incluido el tallado. Devoluciones y cambios gratis durante 30 días en gafas sin graduación. Las gafas graduadas se fabrican a medida según tu receta y DP y no admiten devolución salvo defecto de fabricación o error de graduación.",
   "pdp.reviews.write": "Escribir una reseña",
   "pdp.reviews.stars": "Estrellas",
   "pdp.reviews.avgTitle": "Valoraciones medias",
@@ -2655,6 +2659,11 @@ const es: Dict = fill({
   "checkout.email.hint":
     "Te enviaremos la confirmación a este correo. Inicia sesión en /account con el mismo para seguir el pedido.",
   "checkout.submitting": "Enviando pedido…",
+  "checkout.loading": "Cargando el pago seguro…",
+  "chat.whatsapp": "Escríbenos por WhatsApp",
+  "chat.whatsappHint": "Nuestro asistente de IA no está disponible ahora. Toca abajo para escribir a nuestro equipo por WhatsApp: te responderá una persona real.",
+  "chat.whatsappGreeting": "Hola lool, tengo una pregunta:",
+  "checkout.unavailable": "El pago en línea no está disponible temporalmente. Tu carrito está guardado: inténtalo más tarde o escribe a support@loollook.com y te ayudaremos a completar el pedido.",
   "checkout.error.required": "Completa todos los campos.",
   "checkout.error.network":
     "No pudimos conectar con el servidor. Inténtalo de nuevo.",
@@ -3388,8 +3397,7 @@ const fr: Dict = fill({
   "home.trust.eyebrow": "Pour chacun de vos moments",
   "home.trust.title": "Marque de confiance · Service garanti",
   "home.trust.shipping.title": "Livraison gratuite et suivie dès $69",
-  "home.trust.shipping.desc":
-    "Livraison gratuite dans le monde dès 69 $, avec suivi complet dans plus de 100 pays.",
+  "home.trust.shipping.desc": "Livraison gratuite dans le monde entier dès 69 $ d'achat, avec suivi complet de chaque commande.",
   "home.trust.returns.title": "Retours sans souci",
   "home.trust.returns.desc":
     "Retours et échanges gratuits à 30 jours pour les lunettes sans prescription. Les lunettes à prescription sont fabriquées sur mesure et ne sont pas retournables sauf défaut de fabrication ou erreur de notre part.",
@@ -3557,7 +3565,7 @@ const fr: Dict = fill({
   "pdp.color": "Couleur",
   "pdp.qty": "Quantité",
   "pdp.sku": "Réf.",
-  "pdp.inStock": "En stock · expédié sous 5–8 jours",
+  "pdp.inStock": "En stock · livré sous 7 à 30 jours",
   "pdp.lowStock": "Plus que quelques pièces — vite !",
   "pdp.size.title": "Mesures de la monture",
   "pdp.size.guide": "Guide des tailles",
@@ -3621,8 +3629,7 @@ const fr: Dict = fill({
   "pdp.lens.feat.tinted.desc":
     "Améliorent le contraste avec une touche de couleur.",
   "pdp.desc.measureTitle": "Mesures",
-  "pdp.shipping.body":
-    "Livraison standard gratuite et suivie dès $69. La plupart des commandes partent sous 5–8 jours après taille des verres. Retours et échanges gratuits à 30 jours pour les lunettes sans prescription. Les lunettes à prescription sont fabriquées sur mesure et ne sont pas retournables sauf défaut de fabrication ou erreur de notre part.",
+  "pdp.shipping.body": "Livraison gratuite et suivie dès 69 $ (9,9 $ en dessous). Délai de 7 à 30 jours selon votre pays, taillage des verres compris. Retours et échanges gratuits sous 30 jours pour les lunettes sans correction. Les lunettes de vue sont fabriquées sur mesure selon votre ordonnance et votre EP et ne sont ni reprises ni échangées, sauf défaut de fabrication ou erreur de correction.",
   "pdp.reviews.write": "Écrire un avis",
   "pdp.reviews.stars": "Étoiles",
   "pdp.reviews.avgTitle": "Notes moyennes",
@@ -3701,6 +3708,11 @@ const fr: Dict = fill({
   "checkout.email.hint":
     "La confirmation sera envoyée à cette adresse. Connectez-vous à /account avec le même e-mail pour suivre la commande.",
   "checkout.submitting": "Envoi de la commande…",
+  "checkout.loading": "Chargement du paiement sécurisé…",
+  "chat.whatsapp": "Écrivez-nous sur WhatsApp",
+  "chat.whatsappHint": "Notre assistant IA est momentanément indisponible. Touchez ci-dessous pour écrire à notre équipe sur WhatsApp — une vraie personne vous répondra.",
+  "chat.whatsappGreeting": "Bonjour lool, j'ai une question :",
+  "checkout.unavailable": "Le paiement en ligne est temporairement indisponible. Votre panier est enregistré — réessayez plus tard ou écrivez à support@loollook.com pour finaliser votre commande.",
   "checkout.error.required": "Veuillez remplir tous les champs.",
   "checkout.error.network":
     "Impossible de joindre le serveur. Réessayez dans un instant.",
@@ -4421,8 +4433,7 @@ const de: Dict = fill({
   "home.trust.eyebrow": "Für jeden Moment deines Tages",
   "home.trust.title": "Vertrauensmarke · Servicegarantie",
   "home.trust.shipping.title": "Kostenloser, nachverfolgbarer Versand ab $69",
-  "home.trust.shipping.desc":
-    "Weltweit kostenloser Versand ab 69 $, mit voller Sendungsverfolgung in 100+ Ländern.",
+  "home.trust.shipping.desc": "Kostenloser weltweiter Versand ab 69 $ – mit vollständiger Sendungsverfolgung für jede Bestellung.",
   "home.trust.returns.title": "Unkomplizierte Rückgabe",
   "home.trust.returns.desc":
     "30-tägige kostenlose Rücksendungen und Umtausch für Brillen ohne Sehstärke. Brillen mit Sehstärke werden individuell nach Ihrer Verordnung gefertigt und sind außer bei Herstellungsfehlern oder Fehlern unsererseits nicht rücksendbar.",
@@ -4581,7 +4592,7 @@ const de: Dict = fill({
   "pdp.color": "Farbe",
   "pdp.qty": "Menge",
   "pdp.sku": "Art.-Nr.",
-  "pdp.inStock": "Auf Lager · Versand in 5–8 Tagen",
+  "pdp.inStock": "Auf Lager · Lieferung in 7–30 Tagen",
   "pdp.lowStock": "Nur noch wenige da — schnell sein",
   "pdp.size.title": "Maße",
   "pdp.size.guide": "Größenführer",
@@ -4645,8 +4656,7 @@ const de: Dict = fill({
   "pdp.lens.feat.tinted.desc":
     "Mehr Kontrast und Komfort mit einem Hauch Farbe.",
   "pdp.desc.measureTitle": "Maße",
-  "pdp.shipping.body":
-    "Kostenloser, nachverfolgbarer Standardversand ab $69. Die meisten Bestellungen verlassen uns nach 5–8 Werktagen Glas-Bearbeitung. 30-tägige kostenlose Rücksendungen und Umtausch für Brillen ohne Sehstärke. Brillen mit Sehstärke werden individuell nach Ihrer Verordnung gefertigt und sind außer bei Herstellungsfehlern oder Fehlern unsererseits nicht rücksendbar.",
+  "pdp.shipping.body": "Kostenloser, nachverfolgbarer Versand ab 69 $ (darunter 9,9 $ Pauschale). Lieferung je nach Land in 7–30 Tagen inklusive Glasfertigung. 30 Tage kostenlose Rückgabe & Umtausch für Brillen ohne Sehstärke. Korrektionsbrillen werden nach Ihrem Rezept und PD gefertigt und sind außer bei Herstellungsfehlern oder Rezeptfehlern vom Umtausch ausgeschlossen.",
   "pdp.reviews.write": "Bewertung schreiben",
   "pdp.reviews.stars": "Sterne",
   "pdp.reviews.avgTitle": "Durchschnittliche Bewertungen",
@@ -4726,6 +4736,11 @@ const de: Dict = fill({
   "checkout.email.hint":
     "Die Bestätigung geht an diese Adresse. Melde dich mit derselben E-Mail unter /account an, um deine Bestellung zu verfolgen.",
   "checkout.submitting": "Bestellung wird gesendet…",
+  "checkout.loading": "Sichere Kasse wird geladen…",
+  "chat.whatsapp": "Schreiben Sie uns auf WhatsApp",
+  "chat.whatsappHint": "Unser KI-Assistent ist gerade offline. Tippen Sie unten, um unserem Team auf WhatsApp zu schreiben – ein echter Mensch antwortet Ihnen.",
+  "chat.whatsappGreeting": "Hallo lool, ich habe eine Frage:",
+  "checkout.unavailable": "Die Online-Zahlung ist vorübergehend nicht verfügbar. Ihr Warenkorb ist gespeichert – bitte versuchen Sie es später erneut oder schreiben Sie an support@loollook.com.",
   "checkout.error.required": "Bitte alle Felder ausfüllen.",
   "checkout.error.network": "Server nicht erreichbar. Bitte erneut versuchen.",
   "checkout.error.cart": "Dein Warenkorb ist leer.",
@@ -5434,8 +5449,7 @@ const it: Dict = fill({
   "home.trust.eyebrow": "Per ogni momento che li indossi",
   "home.trust.title": "Marchio di fiducia · Servizio garantito",
   "home.trust.shipping.title": "Spedizione gratuita e tracciabile sopra $69",
-  "home.trust.shipping.desc":
-    "Spedizione gratuita mondiale sopra $69, con tracciamento in 100+ paesi.",
+  "home.trust.shipping.desc": "Spedizione gratuita in tutto il mondo per ordini superiori a 69 $, con tracciamento completo di ogni ordine.",
   "home.trust.returns.title": "Resi senza pensieri",
   "home.trust.returns.desc":
     "Resi e cambi gratuiti entro 30 giorni per occhiali senza prescrizione. Gli occhiali con prescrizione sono realizzati su misura e non sono restituibili salvo difetti di fabbricazione o errori nostri.",
@@ -5598,7 +5612,7 @@ const it: Dict = fill({
   "pdp.color": "Colore",
   "pdp.qty": "Quantità",
   "pdp.sku": "SKU",
-  "pdp.inStock": "Disponibile · spedizione in 5–8 giorni",
+  "pdp.inStock": "Disponibile · consegna in 7–30 giorni",
   "pdp.lowStock": "Quasi finite — affrettati",
   "pdp.size.title": "Misure",
   "pdp.size.guide": "Guida taglie",
@@ -5662,8 +5676,7 @@ const it: Dict = fill({
   "pdp.lens.feat.tinted.desc":
     "Più contrasto e meno riflessi con un tocco di colore.",
   "pdp.desc.measureTitle": "Misure",
-  "pdp.shipping.body":
-    "Spedizione standard gratuita e tracciabile sopra $69. La maggior parte degli ordini parte in 5–8 giorni dopo la lavorazione delle lenti. Resi e cambi gratuiti entro 30 giorni per occhiali senza prescrizione. Gli occhiali con prescrizione sono realizzati su misura e non sono restituibili salvo difetti di fabbricazione o errori nostri.",
+  "pdp.shipping.body": "Spedizione gratuita e tracciata per ordini superiori a 69 $ (9,9 $ fissi sotto i 69 $). Consegna in 7–30 giorni a seconda del paese, lavorazione lenti inclusa. Resi e cambi gratuiti entro 30 giorni per occhiali senza gradazione. Gli occhiali graduati sono realizzati su misura in base a prescrizione e DP e non sono restituibili salvo difetti di fabbricazione o errori di gradazione.",
   "pdp.reviews.write": "Scrivi una recensione",
   "pdp.reviews.stars": "Stelle",
   "pdp.reviews.avgTitle": "Valutazioni medie",
@@ -5743,6 +5756,11 @@ const it: Dict = fill({
   "checkout.email.hint":
     "Invieremo la conferma a questo indirizzo. Accedi a /account con la stessa e-mail per tracciare l'ordine.",
   "checkout.submitting": "Invio dell'ordine…",
+  "checkout.loading": "Caricamento del checkout sicuro…",
+  "chat.whatsapp": "Scrivici su WhatsApp",
+  "chat.whatsappHint": "Il nostro assistente IA è momentaneamente offline. Tocca qui sotto per scrivere al nostro team su WhatsApp: ti risponderà una persona reale.",
+  "chat.whatsappGreeting": "Ciao lool, ho una domanda:",
+  "checkout.unavailable": "Il pagamento online è temporaneamente non disponibile. Il carrello è salvato: riprova più tardi o scrivi a support@loollook.com e ti aiuteremo a completare l'ordine.",
   "checkout.error.required": "Compila tutti i campi.",
   "checkout.error.network":
     "Impossibile contattare il server. Riprova tra poco.",
@@ -6455,8 +6473,7 @@ const pt: Dict = fill({
   "home.trust.eyebrow": "Para cada momento que você usa",
   "home.trust.title": "Marca confiável · Serviço garantido",
   "home.trust.shipping.title": "Frete grátis e rastreável acima de $69",
-  "home.trust.shipping.desc":
-    "Frete grátis mundial em pedidos acima de $69, com rastreamento em 100+ países.",
+  "home.trust.shipping.desc": "Frete grátis para o mundo todo em pedidos acima de 69 $, com rastreamento completo em todos os pedidos.",
   "home.trust.returns.title": "Política de troca sem complicação",
   "home.trust.returns.desc":
     "Devoluções e trocas gratuitas em até 30 dias para óculos sem grau. Óculos com grau são feitos sob medida e não são devolvíveis, exceto defeito de fabricação ou erro nosso.",
@@ -6616,7 +6633,7 @@ const pt: Dict = fill({
   "pdp.color": "Cor",
   "pdp.qty": "Quantidade",
   "pdp.sku": "SKU",
-  "pdp.inStock": "Em estoque · envio em 5–8 dias",
+  "pdp.inStock": "Em estoque · entrega em 7 a 30 dias",
   "pdp.lowStock": "Restam poucas — peça já",
   "pdp.size.title": "Medidas",
   "pdp.size.guide": "Guia de tamanhos",
@@ -6678,8 +6695,7 @@ const pt: Dict = fill({
   "pdp.lens.feat.tinted.title": "Coloridas",
   "pdp.lens.feat.tinted.desc": "Mais contraste com um toque de cor.",
   "pdp.desc.measureTitle": "Medidas",
-  "pdp.shipping.body":
-    "Frete padrão grátis e rastreável acima de $69. A maioria sai em 5–8 dias úteis depois da montagem das lentes. Devoluções e trocas gratuitas em até 30 dias para óculos sem grau. Óculos com grau são feitos sob medida e não são devolvíveis, exceto defeito de fabricação ou erro nosso.",
+  "pdp.shipping.body": "Frete grátis e rastreado em pedidos acima de 69 $ (taxa fixa de 9,9 $ abaixo disso). Entrega em 7 a 30 dias conforme o seu país, incluindo a confecção das lentes. Devoluções e trocas grátis em 30 dias para óculos sem grau. Óculos de grau são feitos sob medida com sua receita e DP e não aceitam devolução, exceto por defeito de fabricação ou erro de grau.",
   "pdp.reviews.write": "Escrever avaliação",
   "pdp.reviews.stars": "Estrelas",
   "pdp.reviews.avgTitle": "Avaliações médias",
@@ -6759,6 +6775,11 @@ const pt: Dict = fill({
   "checkout.email.hint":
     "A confirmação será enviada para este endereço. Entre em /account com o mesmo e-mail para acompanhar o pedido.",
   "checkout.submitting": "Enviando pedido…",
+  "checkout.loading": "Carregando o checkout seguro…",
+  "chat.whatsapp": "Fale conosco no WhatsApp",
+  "chat.whatsappHint": "Nosso assistente de IA está offline no momento. Toque abaixo para falar com nossa equipe no WhatsApp — uma pessoa de verdade vai responder.",
+  "chat.whatsappGreeting": "Olá lool, tenho uma dúvida:",
+  "checkout.unavailable": "O pagamento online está temporariamente indisponível. Seu carrinho foi salvo — tente mais tarde ou escreva para support@loollook.com e ajudaremos a concluir o pedido.",
   "checkout.error.required": "Preencha todos os campos.",
   "checkout.error.network":
     "Não foi possível contatar o servidor. Tente novamente.",
@@ -7466,8 +7487,7 @@ const ja: Dict = fill({
   "home.trust.eyebrow": "あらゆる装着シーンのために",
   "home.trust.title": "信頼ブランド · 安心サービス",
   "home.trust.shipping.title": "$69以上で送料無料（追跡付き）",
-  "home.trust.shipping.desc":
-    "$69 以上のご注文で世界中に送料無料、100+ カ国で全工程追跡。",
+  "home.trust.shipping.desc": "69ドル以上のご注文で世界中送料無料。すべてのご注文に追跡番号が付きます。",
   "home.trust.returns.title": "わずらわしくない返品ポリシー",
   "home.trust.returns.desc":
     "度なしメガネは30日間無料返品・交換可能。度付きメガネは処方とPDに基づきオーダーメイドのため、製造上の欠陥または当社側のミスを除き返品不可です。",
@@ -7624,7 +7644,7 @@ const ja: Dict = fill({
   "pdp.color": "カラー",
   "pdp.qty": "数量",
   "pdp.sku": "SKU",
-  "pdp.inStock": "在庫あり · 5〜8日で発送",
+  "pdp.inStock": "在庫あり · 7〜30日でお届け",
   "pdp.lowStock": "残りわずか — お早めに",
   "pdp.size.title": "フレーム寸法",
   "pdp.size.guide": "サイズガイド",
@@ -7683,8 +7703,7 @@ const ja: Dict = fill({
   "pdp.lens.feat.tinted.title": "カラーティント",
   "pdp.lens.feat.tinted.desc": "コントラストアップと色味のアクセントを両立。",
   "pdp.desc.measureTitle": "寸法",
-  "pdp.shipping.body":
-    "$69以上のご注文で送料無料（追跡付き）。レンズ加工後5〜8営業日で発送。度なしメガネは30日間無料返品・交換可能。度付きメガネは処方とPDに基づきオーダーメイドのため、製造上の欠陥または当社側のミスを除き返品不可です。",
+  "pdp.shipping.body": "69ドル以上で送料無料・追跡付き（69ドル未満は送料一律9.9ドル）。レンズ加工を含め、国により7〜30日でお届けします。度なしメガネは30日間返品・交換無料。度付きメガネは処方とPDに合わせたオーダーメイドのため、製造上の欠陥や度数の誤り以外は返品・交換できません。",
   "pdp.reviews.write": "レビューを書く",
   "pdp.reviews.stars": "つ星",
   "pdp.reviews.avgTitle": "平均カスタマー評価",
@@ -7763,6 +7782,11 @@ const ja: Dict = fill({
   "checkout.email.hint":
     "ご注文の確認はこちらのメールに送信されます。同じメールで /account にサインインすると注文を追跡できます。",
   "checkout.submitting": "注文を送信中…",
+  "checkout.loading": "安全な決済画面を読み込み中…",
+  "chat.whatsapp": "WhatsApp でお問い合わせ",
+  "chat.whatsappHint": "AI アシスタントは現在ご利用いただけません。下のボタンから WhatsApp でスタッフにご連絡ください。担当者が返信します。",
+  "chat.whatsappGreeting": "こんにちは lool さん、質問があります：",
+  "checkout.unavailable": "オンライン決済は一時的にご利用いただけません。カートは保存されています。時間をおいて再度お試しいただくか、support@loollook.com までご連絡ください。",
   "checkout.error.required": "すべての項目を入力してください。",
   "checkout.error.network":
     "サーバーに接続できません。しばらくしてから再試行してください。",
@@ -8495,8 +8519,7 @@ const ko: Dict = fill({
   "home.trust.eyebrow": "매 순간의 착용을 위해",
   "home.trust.title": "신뢰의 브랜드 · 서비스 보장",
   "home.trust.shipping.title": "$69 이상 무료 추적 배송",
-  "home.trust.shipping.desc":
-    "$69 이상 전 세계 무료 배송, 100+ 국가 전체 추적 가능.",
+  "home.trust.shipping.desc": "$69 이상 주문 시 전 세계 무료 배송, 모든 주문에 배송 추적이 제공됩니다.",
   "home.trust.returns.title": "부담 없는 반품 정책",
   "home.trust.returns.desc":
     "도수 없는 안경은 30일 내 무료 반품·교환 가능. 도수 안경은 처방전과 PD에 따라 주문 제작되어 제조 결함 또는 당사 과실을 제외하고는 반품이 불가합니다.",
@@ -8651,7 +8674,7 @@ const ko: Dict = fill({
   "pdp.color": "컬러",
   "pdp.qty": "수량",
   "pdp.sku": "SKU",
-  "pdp.inStock": "재고 있음 · 5–8일 내 배송",
+  "pdp.inStock": "재고 있음 · 7–30일 내 배송",
   "pdp.lowStock": "수량 한정 — 서두르세요",
   "pdp.size.title": "프레임 치수",
   "pdp.size.guide": "사이즈 가이드",
@@ -8710,8 +8733,7 @@ const ko: Dict = fill({
   "pdp.lens.feat.tinted.title": "컬러 틴트",
   "pdp.lens.feat.tinted.desc": "대비를 높이고 색감으로 포인트.",
   "pdp.desc.measureTitle": "치수",
-  "pdp.shipping.body":
-    "$69 이상 주문 시 무료 추적 배송. 렌즈 가공 후 5–8영업일 내 출고. 도수 없는 안경은 30일 내 무료 반품·교환 가능. 도수 안경은 처방전과 PD에 따라 주문 제작되어 제조 결함 또는 당사 과실을 제외하고는 반품이 불가합니다.",
+  "pdp.shipping.body": "$69 이상 주문 시 무료 추적 배송($69 미만은 고정 배송비 $9.9). 렌즈 가공을 포함해 국가에 따라 7–30일 내 배송됩니다. 무도수 안경은 30일 무료 반품·교환. 도수 안경은 처방과 PD에 맞춰 제작되므로 제조 결함이나 처방 오류가 아닌 경우 반품·교환이 불가합니다.",
   "pdp.reviews.write": "리뷰 작성",
   "pdp.reviews.stars": "점",
   "pdp.reviews.avgTitle": "평균 고객 평점",
@@ -8789,6 +8811,11 @@ const ko: Dict = fill({
   "checkout.email.hint":
     "주문 확인은 이 이메일로 발송됩니다. 같은 이메일로 /account에 로그인하면 주문을 추적할 수 있습니다.",
   "checkout.submitting": "주문 전송 중…",
+  "checkout.loading": "안전한 결제 화면을 불러오는 중…",
+  "chat.whatsapp": "WhatsApp으로 문의하기",
+  "chat.whatsappHint": "AI 도우미가 지금 오프라인입니다. 아래 버튼을 눌러 WhatsApp으로 저희 팀에 문의해 주세요. 담당자가 직접 답변드립니다.",
+  "chat.whatsappGreeting": "안녕하세요 lool, 문의드릴 게 있어요:",
+  "checkout.unavailable": "온라인 결제를 일시적으로 사용할 수 없습니다. 장바구니는 저장되어 있으니 잠시 후 다시 시도하시거나 support@loollook.com 으로 연락해 주세요.",
   "checkout.error.required": "모든 항목을 입력해 주세요.",
   "checkout.error.network":
     "서버에 연결할 수 없습니다. 잠시 후 다시 시도해 주세요.",
@@ -9490,8 +9517,7 @@ const ar: Dict = fill({
   "home.trust.eyebrow": "لكل لحظة ارتداء",
   "home.trust.title": "علامة موثوقة · خدمة مضمونة",
   "home.trust.shipping.title": "شحن مجاني مع تتبع للطلبات فوق 69$",
-  "home.trust.shipping.desc":
-    "شحن مجاني عالمي للطلبات فوق 69 دولاراً، مع تتبع كامل في أكثر من 100 دولة.",
+  "home.trust.shipping.desc": "شحن مجاني إلى جميع أنحاء العالم للطلبات التي تزيد عن 69 دولارًا، مع تتبع كامل لكل طلب.",
   "home.trust.returns.title": "سياسة إرجاع مريحة",
   "home.trust.returns.desc":
     "إرجاع واستبدال مجاني خلال 30 يومًا للنظارات غير الطبية. النظارات الطبية تُصنع حسب الطلب ولا يمكن إرجاعها إلا في حالة عيب تصنيع أو خطأ من جانبنا.",
@@ -9645,7 +9671,7 @@ const ar: Dict = fill({
   "pdp.color": "اللون",
   "pdp.qty": "الكمية",
   "pdp.sku": "الرمز",
-  "pdp.inStock": "متوفر · يُشحن خلال 5–8 أيام",
+  "pdp.inStock": "متوفر · التوصيل خلال 7–30 يومًا",
   "pdp.lowStock": "الكمية محدودة — أسرع",
   "pdp.size.title": "قياسات الإطار",
   "pdp.size.guide": "دليل المقاسات",
@@ -9704,8 +9730,7 @@ const ar: Dict = fill({
   "pdp.lens.feat.tinted.title": "ملوّنة",
   "pdp.lens.feat.tinted.desc": "تباين أعلى ولمسة لون.",
   "pdp.desc.measureTitle": "القياسات",
-  "pdp.shipping.body":
-    "شحن مجاني مع تتبع للطلبات فوق 69$. أغلب الطلبات تُشحن خلال 5–8 أيام عمل بعد تركيب العدسات. إرجاع واستبدال مجاني خلال 30 يومًا للنظارات غير الطبية. النظارات الطبية تُصنع حسب الطلب ولا يمكن إرجاعها إلا في حالة عيب تصنيع أو خطأ من جانبنا.",
+  "pdp.shipping.body": "شحن مجاني مع تتبع للطلبات التي تزيد عن 69 دولارًا (9.9 دولار رسوم ثابتة لما دون ذلك). يستغرق التوصيل 7–30 يومًا حسب بلدك، شاملًا تصنيع العدسات. إرجاع واستبدال مجاني خلال 30 يومًا للنظارات بدون وصفة. النظارات الطبية تُصنع حسب وصفتك ومسافة البؤبؤين ولا تُرجع إلا في حال عيب تصنيع أو خطأ في الوصفة.",
   "pdp.reviews.write": "اكتب تقييماً",
   "pdp.reviews.stars": "نجوم",
   "pdp.reviews.avgTitle": "متوسط تقييمات العملاء",
@@ -9784,6 +9809,11 @@ const ar: Dict = fill({
   "checkout.email.hint":
     "سيُرسَل تأكيد الطلب إلى هذا العنوان. سجّل الدخول إلى /account بنفس البريد لتتبع الطلب.",
   "checkout.submitting": "جارٍ إرسال الطلب…",
+  "checkout.loading": "جارٍ تحميل الدفع الآمن…",
+  "chat.whatsapp": "تواصل معنا عبر واتساب",
+  "chat.whatsappHint": "المساعد الذكي غير متاح حاليًا. اضغط أدناه لمراسلة فريقنا عبر واتساب — سيرد عليك شخص حقيقي.",
+  "chat.whatsappGreeting": "مرحبًا lool، لدي سؤال:",
+  "checkout.unavailable": "الدفع عبر الإنترنت غير متاح مؤقتًا. تم حفظ سلتك — يُرجى المحاولة لاحقًا أو مراسلتنا على support@loollook.com لمساعدتك في إتمام الطلب.",
   "checkout.error.required": "يرجى ملء جميع الحقول.",
   "checkout.error.network": "تعذّر الاتصال بالخادم. يرجى المحاولة لاحقًا.",
   "checkout.error.cart": "سلة التسوق فارغة.",
@@ -10468,8 +10498,7 @@ const vi: Dict = fill({
   "home.trust.eyebrow": "Vì mỗi lần đeo của bạn",
   "home.trust.title": "Thương hiệu uy tín · Cam kết dịch vụ",
   "home.trust.shipping.title": "Miễn phí giao hàng có theo dõi từ $69",
-  "home.trust.shipping.desc":
-    "Miễn phí giao toàn cầu cho đơn trên 69 USD, có mã theo dõi đầy đủ tại hơn 100 quốc gia.",
+  "home.trust.shipping.desc": "Miễn phí vận chuyển toàn cầu cho đơn trên $69, mọi đơn hàng đều có theo dõi đầy đủ.",
   "home.trust.returns.title": "Đổi trả không phiền hà",
   "home.trust.returns.desc":
     "Đổi trả miễn phí trong 30 ngày đối với kính không toa. Kính có toa được sản xuất riêng theo toa thuốc và PD, không thể trả lại trừ khi có lỗi sản xuất hoặc lỗi từ phía chúng tôi.",
@@ -10639,7 +10668,7 @@ const vi: Dict = fill({
   "pdp.color": "Màu sắc",
   "pdp.qty": "Số lượng",
   "pdp.sku": "SKU",
-  "pdp.inStock": "Còn hàng · giao trong 5–8 ngày",
+  "pdp.inStock": "Còn hàng · giao trong 7–30 ngày",
   "pdp.lowStock": "Sắp hết — đặt sớm",
   "pdp.size.title": "Số đo gọng",
   "pdp.size.guide": "Hướng dẫn chọn size",
@@ -10703,8 +10732,7 @@ const vi: Dict = fill({
   "pdp.lens.feat.tinted.desc":
     "Tăng độ tương phản và giảm loá, mang lại sự thoải mái và rõ ràng trong nhiều điều kiện ánh sáng.",
   "pdp.desc.measureTitle": "Số đo gọng",
-  "pdp.shipping.body":
-    "Miễn phí giao tiêu chuẩn có theo dõi cho đơn trên $69. Phần lớn đơn hàng giao trong 5–8 ngày làm việc sau khi chế tác tròng. Đổi trả miễn phí trong 30 ngày đối với kính không toa. Kính có toa được sản xuất riêng theo toa thuốc và PD, không thể trả lại trừ khi có lỗi sản xuất hoặc lỗi từ phía chúng tôi.",
+  "pdp.shipping.body": "Miễn phí vận chuyển có theo dõi cho đơn trên $69 (dưới $69 phí cố định $9.9). Giao hàng 7–30 ngày tùy quốc gia, đã gồm thời gian gia công tròng. Đổi trả miễn phí 30 ngày với kính không độ. Kính có độ được làm riêng theo đơn kính và PD của bạn, không đổi trả trừ khi lỗi sản xuất hoặc sai độ.",
   "pdp.reviews.write": "Viết đánh giá",
   "pdp.reviews.stars": "Sao",
   "pdp.reviews.avgTitle": "Điểm trung bình từ khách hàng",
@@ -10784,6 +10812,11 @@ const vi: Dict = fill({
   "checkout.email.hint":
     "Chúng tôi sẽ gửi xác nhận đơn hàng tới đây. Dùng cùng email này để đăng nhập tại /account.",
   "checkout.submitting": "Đang đặt hàng…",
+  "checkout.loading": "Đang tải trang thanh toán an toàn…",
+  "chat.whatsapp": "Nhắn tin cho chúng tôi qua WhatsApp",
+  "chat.whatsappHint": "Trợ lý AI hiện đang ngoại tuyến. Nhấn bên dưới để nhắn cho đội ngũ của chúng tôi qua WhatsApp — sẽ có nhân viên trả lời bạn.",
+  "chat.whatsappGreeting": "Chào lool, mình có câu hỏi:",
+  "checkout.unavailable": "Thanh toán trực tuyến tạm thời không khả dụng. Giỏ hàng của bạn đã được lưu — vui lòng thử lại sau hoặc email support@loollook.com để chúng tôi hỗ trợ.",
   "checkout.error.required": "Vui lòng điền đầy đủ thông tin.",
   "checkout.error.network": "Không kết nối được máy chủ. Thử lại sau ít phút.",
   "checkout.error.cart": "Giỏ hàng của bạn đang trống.",
@@ -11507,8 +11540,7 @@ const th: Dict = fill({
   "home.trust.eyebrow": "เพื่อทุกการสวมใส่ของคุณ",
   "home.trust.title": "แบรนด์ที่ไว้วางใจ · บริการมีรับประกัน",
   "home.trust.shipping.title": "จัดส่งฟรีพร้อมติดตามพัสดุตั้งแต่ $69",
-  "home.trust.shipping.desc":
-    "จัดส่งฟรีทั่วโลกเมื่อซื้อครบ 69 ดอลลาร์ พร้อมระบบติดตามเต็มรูปแบบกว่า 100 ประเทศ",
+  "home.trust.shipping.desc": "จัดส่งฟรีทั่วโลกเมื่อสั่งซื้อเกิน $69 ทุกคำสั่งซื้อติดตามพัสดุได้ครบถ้วน",
   "home.trust.returns.title": "นโยบายคืนสินค้าไร้ยุ่งยาก",
   "home.trust.returns.desc":
     "เปลี่ยนหรือคืนสินค้าได้ฟรีภายใน 30 วันสำหรับแว่นไร้แว่นสายตา แว่นตามใบสั่งแพทย์ผลิตตามสั่งและไม่สามารถคืนได้ เว้นแต่มีความบกพร่องจากการผลิตหรือความผิดพลาดของเรา",
@@ -11673,7 +11705,7 @@ const th: Dict = fill({
   "pdp.color": "สี",
   "pdp.qty": "จำนวน",
   "pdp.sku": "SKU",
-  "pdp.inStock": "มีสินค้า · จัดส่งภายใน 5–8 วัน",
+  "pdp.inStock": "มีสินค้า · จัดส่งภายใน 7–30 วัน",
   "pdp.lowStock": "เหลือไม่กี่ชิ้น — รีบสั่ง",
   "pdp.size.title": "ขนาดกรอบแว่น",
   "pdp.size.guide": "คู่มือเลือกขนาด",
@@ -11737,8 +11769,7 @@ const th: Dict = fill({
   "pdp.lens.feat.tinted.desc":
     "เพิ่มคอนทราสต์และลดแสงสะท้อน ให้ความสบายและความคมชัดที่ดีในสภาพแสงที่หลากหลาย",
   "pdp.desc.measureTitle": "ขนาดกรอบ",
-  "pdp.shipping.body":
-    "จัดส่งมาตรฐานฟรีพร้อมติดตามพัสดุเมื่อซื้อครบ 69 ดอลลาร์ คำสั่งซื้อส่วนใหญ่จัดส่งภายใน 5–8 วันทำการหลังจากทำเลนส์เสร็จ เปลี่ยนหรือคืนสินค้าได้ฟรีภายใน 30 วันสำหรับแว่นไร้แว่นสายตา แว่นตามใบสั่งแพทย์ผลิตตามสั่งและไม่สามารถคืนได้ เว้นแต่มีความบกพร่องจากการผลิตหรือความผิดพลาดของเรา",
+  "pdp.shipping.body": "จัดส่งฟรีพร้อมติดตามพัสดุเมื่อสั่งซื้อเกิน $69 (ต่ำกว่า $69 ค่าส่งคงที่ $9.9) จัดส่งภายใน 7–30 วันขึ้นอยู่กับประเทศ รวมเวลาผลิตเลนส์ แว่นไม่มีค่าสายตาคืน/เปลี่ยนฟรีภายใน 30 วัน แว่นสายตาผลิตตามใบสั่งและค่า PD ของคุณ จึงไม่รับคืนหรือเปลี่ยน ยกเว้นกรณีผลิตบกพร่องหรือค่าสายตาผิด",
   "pdp.reviews.write": "เขียนรีวิว",
   "pdp.reviews.stars": "ดาว",
   "pdp.reviews.avgTitle": "คะแนนเฉลี่ยจากลูกค้า",
@@ -11816,6 +11847,11 @@ const th: Dict = fill({
   "checkout.email.hint":
     "เราจะส่งการยืนยันคำสั่งซื้อไปที่นี่ ใช้อีเมลเดียวกันนี้เพื่อเข้าสู่ระบบที่ /account",
   "checkout.submitting": "กำลังสั่งซื้อ…",
+  "checkout.loading": "กำลังโหลดหน้าชำระเงินที่ปลอดภัย…",
+  "chat.whatsapp": "แชทกับเราทาง WhatsApp",
+  "chat.whatsappHint": "ผู้ช่วย AI ไม่พร้อมใช้งานในขณะนี้ แตะด้านล่างเพื่อส่งข้อความหาทีมงานทาง WhatsApp — จะมีเจ้าหน้าที่ตอบกลับคุณ",
+  "chat.whatsappGreeting": "สวัสดี lool มีคำถามค่ะ/ครับ:",
+  "checkout.unavailable": "ระบบชำระเงินออนไลน์ไม่พร้อมใช้งานชั่วคราว ตะกร้าของคุณถูกบันทึกไว้แล้ว โปรดลองใหม่ภายหลังหรืออีเมลถึง support@loollook.com",
   "checkout.error.required": "กรุณากรอกข้อมูลให้ครบทุกช่อง",
   "checkout.error.network":
     "ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้ ลองอีกครั้งในอีกสักครู่",
@@ -12521,8 +12557,7 @@ const id: Dict = fill({
   "home.trust.eyebrow": "Untuk setiap pengalaman memakai Anda",
   "home.trust.title": "Merek terpercaya · Jaminan layanan",
   "home.trust.shipping.title": "Gratis ongkir dengan pelacakan di atas $69",
-  "home.trust.shipping.desc":
-    "Nikmati pengiriman gratis ke seluruh dunia untuk pesanan di atas 69 USD, dengan pelacakan penuh di 100+ negara.",
+  "home.trust.shipping.desc": "Gratis ongkir ke seluruh dunia untuk pesanan di atas $69, dengan pelacakan lengkap di setiap pesanan.",
   "home.trust.returns.title": "Kebijakan pengembalian tanpa repot",
   "home.trust.returns.desc":
     "Pengembalian dan penukaran gratis 30 hari untuk kacamata non-resep. Kacamata resep dibuat sesuai pesanan dan tidak dapat dikembalikan kecuali ada cacat produksi atau kesalahan kami.",
@@ -12695,7 +12730,7 @@ const id: Dict = fill({
   "pdp.color": "Warna",
   "pdp.qty": "Jumlah",
   "pdp.sku": "SKU",
-  "pdp.inStock": "Tersedia · dikirim dalam 5–8 hari",
+  "pdp.inStock": "Tersedia · tiba dalam 7–30 hari",
   "pdp.lowStock": "Tinggal sedikit — pesan segera",
   "pdp.size.title": "Ukuran bingkai",
   "pdp.size.guide": "Panduan ukuran",
@@ -12759,8 +12794,7 @@ const id: Dict = fill({
   "pdp.lens.feat.tinted.desc":
     "Meningkatkan kontras dan mengurangi silau, menawarkan kenyamanan dan kejernihan lebih baik di berbagai kondisi cahaya.",
   "pdp.desc.measureTitle": "Ukuran bingkai",
-  "pdp.shipping.body":
-    "Pengiriman standar gratis dengan pelacakan untuk pesanan di atas $69. Sebagian besar pesanan dikirim dalam 5–8 hari kerja setelah pembuatan lensa. Pengembalian dan penukaran gratis 30 hari untuk kacamata non-resep. Kacamata resep dibuat sesuai pesanan dan tidak dapat dikembalikan kecuali ada cacat produksi atau kesalahan kami.",
+  "pdp.shipping.body": "Gratis ongkir dengan pelacakan untuk pesanan di atas $69 (di bawahnya tarif tetap $9,9). Pengiriman 7–30 hari tergantung negara, termasuk pembuatan lensa. Retur & tukar gratis 30 hari untuk kacamata tanpa resep. Kacamata resep dibuat khusus sesuai resep dan PD Anda dan tidak dapat diretur kecuali ada cacat produksi atau kesalahan resep.",
   "pdp.reviews.write": "Tulis ulasan",
   "pdp.reviews.stars": "Bintang",
   "pdp.reviews.avgTitle": "Peringkat rata-rata pelanggan",
@@ -12841,6 +12875,11 @@ const id: Dict = fill({
   "checkout.email.hint":
     "Kami akan mengirim konfirmasi pesanan Anda ke sini. Gunakan email yang sama untuk masuk di /account.",
   "checkout.submitting": "Memproses pesanan…",
+  "checkout.loading": "Memuat pembayaran aman…",
+  "chat.whatsapp": "Chat dengan kami di WhatsApp",
+  "chat.whatsappHint": "Asisten AI kami sedang offline. Ketuk di bawah untuk menghubungi tim kami di WhatsApp — orang sungguhan akan membalas Anda.",
+  "chat.whatsappGreeting": "Halo lool, saya ada pertanyaan:",
+  "checkout.unavailable": "Pembayaran online sementara tidak tersedia. Keranjang Anda tersimpan — coba lagi nanti atau email support@loollook.com dan kami akan membantu menyelesaikan pesanan.",
   "checkout.error.required": "Harap isi setiap kolom.",
   "checkout.error.network":
     "Tidak bisa menghubungi server. Coba lagi sebentar lagi.",
@@ -13570,8 +13609,7 @@ const ms: Dict = fill({
   "home.trust.title": "Jenama dipercayai · Jaminan perkhidmatan",
   "home.trust.shipping.title":
     "Penghantaran percuma dengan penjejakan melebihi $69",
-  "home.trust.shipping.desc":
-    "Nikmati penghantaran percuma ke seluruh dunia untuk pesanan melebihi 69 USD, dengan penjejakan penuh di 100+ negara.",
+  "home.trust.shipping.desc": "Penghantaran percuma ke seluruh dunia untuk pesanan melebihi $69, dengan penjejakan penuh bagi setiap pesanan.",
   "home.trust.returns.title": "Polisi pemulangan tanpa kerenah",
   "home.trust.returns.desc":
     "Pemulangan dan pertukaran percuma 30 hari untuk cermin mata tanpa preskripsi. Cermin mata preskripsi dibuat khas dan tidak boleh dipulangkan kecuali kecacatan pembuatan atau kesilapan kami.",
@@ -13746,7 +13784,7 @@ const ms: Dict = fill({
   "pdp.color": "Warna",
   "pdp.qty": "Kuantiti",
   "pdp.sku": "SKU",
-  "pdp.inStock": "Ada stok · dihantar dalam 5–8 hari",
+  "pdp.inStock": "Ada stok · sampai dalam 7–30 hari",
   "pdp.lowStock": "Tinggal sedikit — pesan segera",
   "pdp.size.title": "Ukuran bingkai",
   "pdp.size.guide": "Panduan saiz",
@@ -13810,8 +13848,7 @@ const ms: Dict = fill({
   "pdp.lens.feat.tinted.desc":
     "Meningkatkan kontras dan mengurangkan silau, menawarkan keselesaan dan kejelasan yang lebih baik dalam pelbagai keadaan cahaya.",
   "pdp.desc.measureTitle": "Ukuran bingkai",
-  "pdp.shipping.body":
-    "Penghantaran standard percuma dengan penjejakan untuk pesanan melebihi $69. Kebanyakan pesanan dihantar dalam 5–8 hari bekerja selepas pembuatan kanta. Pemulangan dan pertukaran percuma 30 hari untuk cermin mata tanpa preskripsi. Cermin mata preskripsi dibuat khas dan tidak boleh dipulangkan kecuali kecacatan pembuatan atau kesilapan kami.",
+  "pdp.shipping.body": "Penghantaran percuma dengan penjejakan untuk pesanan melebihi $69 (bawah $69 yuran tetap $9.9). Penghantaran 7–30 hari bergantung pada negara, termasuk pemprosesan kanta. Pemulangan & pertukaran percuma 30 hari untuk cermin mata tanpa preskripsi. Cermin mata preskripsi dibuat khas mengikut preskripsi dan PD anda dan tidak boleh dipulangkan kecuali kecacatan pembuatan atau ralat preskripsi.",
   "pdp.reviews.write": "Tulis ulasan",
   "pdp.reviews.stars": "Bintang",
   "pdp.reviews.avgTitle": "Penilaian purata pelanggan",
@@ -13892,6 +13929,11 @@ const ms: Dict = fill({
   "checkout.email.hint":
     "Kami akan menghantar pengesahan pesanan anda ke sini. Guna e-mel yang sama untuk log masuk di /account.",
   "checkout.submitting": "Membuat pesanan…",
+  "checkout.loading": "Memuatkan pembayaran selamat…",
+  "chat.whatsapp": "Sembang dengan kami di WhatsApp",
+  "chat.whatsappHint": "Pembantu AI kami sedang di luar talian. Ketik di bawah untuk menghubungi pasukan kami di WhatsApp — orang sebenar akan membalas anda.",
+  "chat.whatsappGreeting": "Hai lool, saya ada soalan:",
+  "checkout.unavailable": "Pembayaran dalam talian tidak tersedia buat sementara. Troli anda telah disimpan — cuba lagi nanti atau e-mel support@loollook.com untuk bantuan.",
   "checkout.error.required": "Sila isi setiap ruangan.",
   "checkout.error.network":
     "Tidak dapat hubungi pelayan. Cuba lagi sebentar lagi.",

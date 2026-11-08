@@ -136,10 +136,12 @@ export function ProductCard({ product }: { product: Product }) {
             ${product.priceUSD}
           </span>
         </div>
-        <div className="mt-1 flex items-center gap-1 text-xs text-muted-foreground">
-          <Star className="w-3 h-3 fill-current text-amber-500" />
-          {product.rating.toFixed(1)} · {product.reviewCount}
-        </div>
+        {product.reviewCount > 0 && (
+          <div className="mt-1 flex items-center gap-1 text-xs text-muted-foreground">
+            <Star className="w-3 h-3 fill-current text-amber-500" />
+            {product.rating.toFixed(1)} · {product.reviewCount}
+          </div>
+        )}
       </div>
     </LangLink>
   );

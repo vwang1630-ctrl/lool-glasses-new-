@@ -19,7 +19,7 @@ export interface ShippingQuote {
 
 export const ROW_SHIPPING_RULE: ShippingRule = {
   country_code: "row",
-  shipping_cents: 800,
+  shipping_cents: 990,
   free_shipping_threshold_cents: 6900,
   country_discount_pct: 0,
 };

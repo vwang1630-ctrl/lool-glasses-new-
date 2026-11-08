@@ -10,13 +10,19 @@ export const Route = createFileRoute("/api/checkout/config")({
         const publishableKey = (
           env as unknown as { STRIPE_PUBLISHABLE_KEY?: string }
         ).STRIPE_PUBLISHABLE_KEY;
+        const shippingRules = await listShippingRules(getDB());
         if (!publishableKey) {
+          // Still return shipping rules so the order summary is correct; the
+          // client shows a "payment unavailable" notice instead of spinning.
           return Response.json(
-            { error: "stripe_publishable_key_missing" },
-            { status: 500 },
+            {
+              publishableKey: null,
+              shippingRules,
+              error: "stripe_publishable_key_missing",
+            },
+            { headers: { "Cache-Control": "no-store" } },
           );
         }
-        const shippingRules = await listShippingRules(getDB());
         return Response.json(
           { publishableKey, shippingRules },
           { headers: { "Cache-Control": "public, max-age=300, s-maxage=300" } },

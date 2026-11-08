@@ -355,7 +355,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Free tracked shipping over $69",
-          body: "Free tracked shipping on all orders over $69. Orders under $69 have a flat $9.9 shipping fee. Duties pre-paid to 60+ countries; 5–9 business days door to door.",
+          body: "Free tracked shipping on orders over $69; orders under $69 have a flat $9.9 shipping fee. Import duties are pre-paid for most destinations. Delivery takes 7–30 days depending on your country.",
         },
         {
           heading: "365-day warranty",
@@ -383,7 +383,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "满 $69 免运费（可追踪）",
-          body: "订单满 $69 全球免运费并附实时追踪；不满 $69 收取 $9.9 固定运费。关税预付，覆盖 60+ 国家，门到门 5–9 个工作日。",
+          body: "订单满 $69 免运费并附实时追踪；不满 $69 收取 $9.9 固定运费。大多数目的地的进口关税由我们预付。根据所在国家/地区不同，送达时间为 7–30 天。",
         },
         {
           heading: "365 天质保",
@@ -412,7 +412,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Envío gratis y con seguimiento desde $69",
-          body: "Envío gratis y con seguimiento en todos los pedidos superiores a $69. Los pedidos inferiores a $69 tienen una tarifa plana de envío de $9.9. Aranceles pagados por adelantado a más de 60 países; 5–9 días hábiles de puerta a puerta.",
+          body: "Envío gratis y con seguimiento en pedidos superiores a $69; los pedidos inferiores a $69 tienen una tarifa plana de $9.9. Los aranceles están prepagados para la mayoría de destinos. La entrega tarda de 7 a 30 días según tu país.",
         },
         {
           heading: "Garantía de 365 días",
@@ -441,7 +441,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Livraison gratuite et suivie dès $69",
-          body: "Livraison gratuite et suivie pour toutes les commandes de plus de 69 $. Les commandes de moins de 69 $ comportent des frais de port fixes de 9,9 $. Droits pré-payés vers plus de 60 pays ; 5–9 jours ouvrés de porte à porte.",
+          body: "Livraison gratuite et suivie dès 69 $ d'achat ; en dessous de 69 $, frais de port fixes de 9,9 $. Les droits de douane sont prépayés pour la plupart des destinations. Délai de livraison : 7 à 30 jours selon votre pays.",
         },
         {
           heading: "Garantie 365 jours",
@@ -470,7 +470,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Kostenloser, nachverfolgbarer Versand ab $69",
-          body: "Kostenloser, nachverfolgbarer Versand für alle Bestellungen über 69 $. Bestellungen unter 69 $ unterliegen einer Pauschalversandgebühr von 9,9 $. Zölle vorausbezahlt in über 60 Länder; 5–9 Werktage Tür zu Tür.",
+          body: "Kostenloser, nachverfolgbarer Versand ab 69 $; unter 69 $ fällt eine Versandpauschale von 9,9 $ an. Einfuhrzölle sind für die meisten Länder vorausbezahlt. Die Lieferung dauert je nach Land 7–30 Tage.",
         },
         {
           heading: "365 Tage Garantie",
@@ -499,7 +499,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Spedizione gratuita e tracciabile sopra $69",
-          body: "Spedizione gratuita e tracciabile per tutti gli ordini superiori a 69 $. Gli ordini inferiori a 69 $ prevedono una tariffa fissa di spedizione di 9,9 $. Dazi pre-pagati verso oltre 60 paesi; 5–9 giorni lavorativi porta a porta.",
+          body: "Spedizione gratuita e tracciata per ordini superiori a 69 $; sotto i 69 $ si applica una tariffa fissa di 9,9 $. I dazi sono prepagati per la maggior parte delle destinazioni. La consegna richiede 7–30 giorni a seconda del paese.",
         },
         {
           heading: "Garanzia 365 giorni",
@@ -528,7 +528,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Frete grátis e rastreável acima de $69",
-          body: "Frete grátis e rastreável em todos os pedidos acima de 69 $. Pedidos abaixo de 69 $ têm uma taxa fixa de frete de 9,9 $. Impostos pré-pagos para mais de 60 países; 5–9 dias úteis de porta a porta.",
+          body: "Frete grátis e rastreado em pedidos acima de 69 $; abaixo de 69 $ há uma taxa fixa de 9,9 $. Os impostos de importação são pré-pagos para a maioria dos destinos. A entrega leva de 7 a 30 dias, conforme o seu país.",
         },
         {
           heading: "Garantia de 365 dias",
@@ -557,7 +557,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "$69以上で送料無料（追跡付き）",
-          body: "69ドル以上のすべてのご注文で、送料無料・追跡付きでお届けします。69ドル未満のご注文は送料一律9.9ドルです。60か国以上へ関税前払い、玄関先まで5〜9営業日。",
+          body: "69ドル以上のご注文は送料無料・追跡付き、69ドル未満は送料一律9.9ドルです。ほとんどの配送先で輸入関税は当社が前払いします。お届けまでの日数は国により異なり、7〜30日です。",
         },
         {
           heading: "365 日保証",
@@ -586,7 +586,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "$69 이상 무료 추적 배송",
-          body: "$69 이상의 모든 주문에 대해 전 세계 무료 추적 배송. $69 미만 주문은 고정 배송비 $9.9. 60개국 이상 관세 선납, 문 앞까지 5~9영업일.",
+          body: "$69 이상 주문은 무료 추적 배송, $69 미만은 고정 배송비 $9.9입니다. 대부분의 배송지에 대해 수입 관세를 선납합니다. 배송 기간은 국가에 따라 7–30일입니다.",
         },
         {
           heading: "365일 보증",
@@ -615,7 +615,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "شحن مجاني مع تتبع للطلبات فوق 69$",
-          body: "شحن مجاني مع تتبع لجميع الطلبات التي تزيد عن 69 دولارًا. الطلبات الأقل من 69 دولارًا تخضع لرسوم شحن ثابتة بقيمة 9.9 دولار. الرسوم مدفوعة مسبقًا إلى أكثر من 60 دولة؛ من الباب إلى الباب خلال 5–9 أيام عمل.",
+          body: "شحن مجاني مع تتبع للطلبات التي تزيد عن 69 دولارًا، ورسوم شحن ثابتة بقيمة 9.9 دولار للطلبات الأقل من ذلك. الرسوم الجمركية مدفوعة مسبقًا لمعظم الوجهات. يستغرق التوصيل من 7 إلى 30 يومًا حسب بلدك.",
         },
         {
           heading: "ضمان 365 يومًا",
@@ -644,7 +644,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Miễn phí vận chuyển có theo dõi từ $69",
-          body: "Miễn phí vận chuyển có theo dõi cho mọi đơn hàng trên $69. Đơn dưới $69 có phí vận chuyển cố định $9.9. Thuế trả trước đến hơn 60 quốc gia; 5–9 ngày làm việc tận nơi.",
+          body: "Miễn phí vận chuyển có theo dõi cho đơn trên $69; đơn dưới $69 có phí cố định $9.9. Thuế nhập khẩu được trả trước cho hầu hết điểm đến. Thời gian giao hàng 7–30 ngày tùy quốc gia.",
         },
         {
           heading: "Bảo hành 365 ngày",
@@ -673,7 +673,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "จัดส่งฟรีพร้อมติดตามพัสดุตั้งแต่ $69",
-          body: "จัดส่งฟรีพร้อมติดตามพัสดุสำหรับทุกคำสั่งซื้อที่มากกว่า $69 คำสั่งซื้อต่ำกว่า $69 มีค่าจัดส่งคงที่ $9.9 ภาษีชำระล่วงหน้าไปยังกว่า 60 ประเทศ ส่งถึงมือภายใน 5–9 วันทำการ",
+          body: "จัดส่งฟรีพร้อมติดตามพัสดุเมื่อสั่งซื้อเกิน $69 ต่ำกว่า $69 มีค่าจัดส่งคงที่ $9.9 ภาษีนำเข้าชำระล่วงหน้าสำหรับปลายทางส่วนใหญ่ ระยะเวลาจัดส่ง 7–30 วัน ขึ้นอยู่กับประเทศของคุณ",
         },
         {
           heading: "รับประกัน 365 วัน",
@@ -702,7 +702,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Gratis ongkir dengan pelacakan di atas $69",
-          body: "Gratis ongkir dengan pelacakan untuk semua pesanan di atas $69. Pesanan di bawah $69 dikenakan biaya pengiriman tetap $9,9. Bea dibayar di muka ke 60+ negara; 5–9 hari kerja sampai pintu.",
+          body: "Gratis ongkir dengan pelacakan untuk pesanan di atas $69; di bawah $69 dikenakan biaya tetap $9,9. Bea masuk dibayar di muka untuk sebagian besar tujuan. Pengiriman memakan waktu 7–30 hari tergantung negara Anda.",
         },
         {
           heading: "Garansi 365 hari",
@@ -731,7 +731,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Penghantaran percuma dengan penjejakan melebihi $69",
-          body: "Penghantaran percuma dengan penjejakan untuk semua pesanan melebihi $69. Pesanan di bawah $69 dikenakan yuran penghantaran tetap $9.9. Duti dibayar awal ke 60+ negara; 5–9 hari bekerja sampai ke pintu.",
+          body: "Penghantaran percuma dengan penjejakan untuk pesanan melebihi $69; bawah $69 dikenakan yuran tetap $9.9. Duti import dibayar awal untuk kebanyakan destinasi. Penghantaran mengambil masa 7–30 hari bergantung pada negara anda.",
         },
         {
           heading: "Jaminan 365 hari",
@@ -4307,7 +4307,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Duties & taxes",
-          body: "For most destinations, lool pre-pays import duties and taxes, but some countries may occasionally require a payment. If you receive a customs duty or tax notice, contact us before paying so we can offer the best solution. Duties paid without lool confirmation are not reimbursable.",
+          body: "For most destinations, lool pre-pays import duties and taxes, but some countries may occasionally require a payment. If you receive a customs duty or tax notice, contact us before paying so we can offer the best solution. Duties paid without lool confirmation are not reimbursable. At checkout, a 5% sales tax is added to the order subtotal (after any discount) and shown as a separate line before you pay.",
         },
         {
           heading: "365-day quality warranty (all products)",
@@ -4351,7 +4351,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "关税与税金",
-          body: "对大多数目的地，lool 会预付进口关税与税金；但少数国家偶尔可能要求缴纳关税或税费。收到缴税通知后，请先联系我们，以便我们为您提供更合适的解决方案。未经 lool 确认而自行支付的关税，我们将不予报销。",
+          body: "对大多数目的地，lool 会预付进口关税与税金；但少数国家偶尔可能要求缴纳关税或税费。收到缴税通知后，请先联系我们，以便我们为您提供更合适的解决方案。未经 lool 确认而自行支付的关税，我们将不予报销。 结账时会按订单商品小计（扣除折扣后）加收 5% 销售税，并在付款前单独列出。",
         },
         {
           heading: "365 天质量保修（所有产品）",
@@ -4396,7 +4396,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Aranceles e impuestos",
-          body: "Para la mayoría de los destinos, lool prepaga los aranceles e impuestos de importación, pero algunos países pueden pedir un pago ocasionalmente. Si recibes un aviso de aduana o impuestos, contáctanos antes de pagar para que podamos ofrecerte la mejor solución. Los pagos realizados sin confirmación de lool no son reembolsables.",
+          body: "Para la mayoría de los destinos, lool prepaga los aranceles e impuestos de importación, pero algunos países pueden pedir un pago ocasionalmente. Si recibes un aviso de aduana o impuestos, contáctanos antes de pagar para que podamos ofrecerte la mejor solución. Los pagos realizados sin confirmación de lool no son reembolsables. Al pagar, se añade un impuesto sobre las ventas del 5 % al subtotal del pedido (tras descuentos), que se muestra en una línea aparte antes de pagar.",
         },
         {
           heading: "Garantía de calidad de 365 días (todos los productos)",
@@ -4441,7 +4441,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Droits & taxes",
-          body: "Pour la plupart des destinations, lool prépaye les droits d’importation et les taxes, mais certains pays peuvent parfois demander un paiement. Si vous recevez un avis de droits ou taxes, contactez-nous avant de payer afin que nous puissions proposer la meilleure solution. Les droits payés sans confirmation de lool ne sont pas remboursables.",
+          body: "Pour la plupart des destinations, lool prépaye les droits d’importation et les taxes, mais certains pays peuvent parfois demander un paiement. Si vous recevez un avis de droits ou taxes, contactez-nous avant de payer afin que nous puissions proposer la meilleure solution. Les droits payés sans confirmation de lool ne sont pas remboursables. Lors du paiement, une taxe de vente de 5 % est ajoutée au sous-total de la commande (après remise) et affichée sur une ligne distincte avant le règlement.",
         },
         {
           heading: "Garantie qualité 365 jours (tous les produits)",
@@ -4486,7 +4486,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Zoll & Steuern",
-          body: "Für die meisten Zielländer zahlt lool Einfuhrzölle und Steuern im Voraus, doch einzelne Länder können gelegentlich eine Zahlung verlangen. Wenn du eine Zoll- oder Steuerbenachrichtigung erhältst, kontaktiere uns bitte vor der Zahlung, damit wir die beste Lösung anbieten können. Ohne Bestätigung von lool gezahlte Abgaben können nicht erstattet werden.",
+          body: "Für die meisten Zielländer zahlt lool Einfuhrzölle und Steuern im Voraus, doch einzelne Länder können gelegentlich eine Zahlung verlangen. Wenn du eine Zoll- oder Steuerbenachrichtigung erhältst, kontaktiere uns bitte vor der Zahlung, damit wir die beste Lösung anbieten können. Ohne Bestätigung von lool gezahlte Abgaben können nicht erstattet werden. Beim Checkout wird auf die Zwischensumme (nach Rabatten) eine Umsatzsteuer von 5 % aufgeschlagen und vor der Zahlung als eigene Zeile angezeigt.",
         },
         {
           heading: "365 Tage Qualitätsgarantie (alle Produkte)",
@@ -4531,7 +4531,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Dazi e tasse",
-          body: "Per la maggior parte delle destinazioni, lool pre-paga dazi e tasse d’importazione, ma alcuni Paesi possono occasionalmente richiedere un pagamento. Se ricevi un avviso di dazi o tasse, contattaci prima di pagare così possiamo offrirti la soluzione migliore. I dazi pagati senza conferma di lool non sono rimborsabili.",
+          body: "Per la maggior parte delle destinazioni, lool pre-paga dazi e tasse d’importazione, ma alcuni Paesi possono occasionalmente richiedere un pagamento. Se ricevi un avviso di dazi o tasse, contattaci prima di pagare così possiamo offrirti la soluzione migliore. I dazi pagati senza conferma di lool non sono rimborsabili. Al checkout viene aggiunta un'imposta sulle vendite del 5% al subtotale dell'ordine (dopo gli sconti), mostrata in una riga separata prima del pagamento.",
         },
         {
           heading: "Garanzia qualità 365 giorni (tutti i prodotti)",
@@ -4576,7 +4576,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Impostos e taxas",
-          body: "Para a maioria dos destinos, a lool pré-paga os impostos e taxas de importação, mas alguns países podem ocasionalmente exigir pagamento. Se você receber um aviso de imposto ou taxa alfandegária, fale conosco antes de pagar para que possamos oferecer a melhor solução. Valores pagos sem confirmação da lool não são reembolsáveis.",
+          body: "Para a maioria dos destinos, a lool pré-paga os impostos e taxas de importação, mas alguns países podem ocasionalmente exigir pagamento. Se você receber um aviso de imposto ou taxa alfandegária, fale conosco antes de pagar para que possamos oferecer a melhor solução. Valores pagos sem confirmação da lool não são reembolsáveis. No checkout, é acrescentado um imposto sobre vendas de 5% ao subtotal do pedido (após descontos), exibido em linha separada antes do pagamento.",
         },
         {
           heading: "Garantia de qualidade de 365 dias (todos os produtos)",
@@ -4621,7 +4621,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "関税・税金",
-          body: "ほとんどの配送先では lool が輸入関税と税金を事前に支払いますが、一部の国ではまれにお支払いを求められる場合があります。関税または税金の通知を受け取った場合は、お支払い前に必ず当社へご連絡ください。lool の確認なしにお支払いされた関税は返金対象外です。",
+          body: "ほとんどの配送先では lool が輸入関税と税金を事前に支払いますが、一部の国ではまれにお支払いを求められる場合があります。関税または税金の通知を受け取った場合は、お支払い前に必ず当社へご連絡ください。lool の確認なしにお支払いされた関税は返金対象外です。 ご注文時には、商品小計（割引適用後）に 5% の販売税が加算され、お支払い前に別行で表示されます。",
         },
         {
           heading: "365 日間品質保証（全商品対象）",
@@ -4665,7 +4665,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "관세 및 세금",
-          body: "대부분의 배송 지역에서는 lool이 수입 관세와 세금을 사전에 부담하지만, 일부 국가에서는 간혹 납부를 요구할 수 있습니다. 관세 또는 세금 납부 통지를 받으면 결제 전에 먼저 저희에게 연락해 주세요. lool의 확인 없이 결제한 관세는 환불되지 않습니다.",
+          body: "대부분의 배송 지역에서는 lool이 수입 관세와 세금을 사전에 부담하지만, 일부 국가에서는 간혹 납부를 요구할 수 있습니다. 관세 또는 세금 납부 통지를 받으면 결제 전에 먼저 저희에게 연락해 주세요. lool의 확인 없이 결제한 관세는 환불되지 않습니다. 결제 시 주문 상품 소계(할인 적용 후)에 5% 판매세가 추가되며, 결제 전에 별도 항목으로 표시됩니다.",
         },
         {
           heading: "365일 품질 보증(전 제품)",
@@ -4709,7 +4709,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "الرسوم والضرائب",
-          body: "في معظم الوجهات، تدفع lool رسوم الاستيراد والضرائب مسبقًا، لكن بعض البلدان قد تطلب الدفع أحيانًا. إذا تلقيت إشعارًا برسوم جمركية أو ضرائب، فتواصل معنا قبل الدفع حتى نقدم لك الحل الأنسب. الرسوم المدفوعة دون تأكيد من lool غير قابلة للاسترداد.",
+          body: "في معظم الوجهات، تدفع lool رسوم الاستيراد والضرائب مسبقًا، لكن بعض البلدان قد تطلب الدفع أحيانًا. إذا تلقيت إشعارًا برسوم جمركية أو ضرائب، فتواصل معنا قبل الدفع حتى نقدم لك الحل الأنسب. الرسوم المدفوعة دون تأكيد من lool غير قابلة للاسترداد. عند الدفع، تُضاف ضريبة مبيعات بنسبة 5% إلى المجموع الفرعي للطلب (بعد الخصم)، وتظهر في سطر منفصل قبل الدفع.",
         },
         {
           heading: "ضمان الجودة 365 يومًا (لجميع المنتجات)",
@@ -4753,7 +4753,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Thuế và phí",
-          body: "Với hầu hết các điểm đến, lool trả trước thuế và phí nhập khẩu, nhưng một số quốc gia đôi khi có thể yêu cầu thanh toán. Nếu bạn nhận được thông báo thuế hoặc phí hải quan, hãy liên hệ với chúng tôi trước khi thanh toán để chúng tôi có thể đưa ra giải pháp tốt nhất. Các khoản đã trả khi chưa có xác nhận của lool sẽ không được hoàn lại.",
+          body: "Với hầu hết các điểm đến, lool trả trước thuế và phí nhập khẩu, nhưng một số quốc gia đôi khi có thể yêu cầu thanh toán. Nếu bạn nhận được thông báo thuế hoặc phí hải quan, hãy liên hệ với chúng tôi trước khi thanh toán để chúng tôi có thể đưa ra giải pháp tốt nhất. Các khoản đã trả khi chưa có xác nhận của lool sẽ không được hoàn lại. Khi thanh toán, thuế bán hàng 5% sẽ được cộng vào tạm tính đơn hàng (sau giảm giá) và hiển thị thành một dòng riêng trước khi bạn trả tiền.",
         },
         {
           heading: "Bảo hành chất lượng 365 ngày (tất cả sản phẩm)",
@@ -4798,7 +4798,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "ภาษีและอากร",
-          body: "สำหรับปลายทางส่วนใหญ่ lool ชำระภาษีและอากรนำเข้าไว้ล่วงหน้า แต่บางประเทศอาจมีการเรียกเก็บเป็นครั้งคราว หากคุณได้รับแจ้งให้ชำระภาษีหรืออากร โปรดติดต่อเราก่อนชำระเงิน เพื่อให้เราหาทางออกที่เหมาะสมที่สุดให้คุณ ค่าภาษีหรืออากรที่ชำระโดยไม่ได้รับการยืนยันจาก lool จะไม่สามารถขอคืนได้",
+          body: "สำหรับปลายทางส่วนใหญ่ lool ชำระภาษีและอากรนำเข้าไว้ล่วงหน้า แต่บางประเทศอาจมีการเรียกเก็บเป็นครั้งคราว หากคุณได้รับแจ้งให้ชำระภาษีหรืออากร โปรดติดต่อเราก่อนชำระเงิน เพื่อให้เราหาทางออกที่เหมาะสมที่สุดให้คุณ ค่าภาษีหรืออากรที่ชำระโดยไม่ได้รับการยืนยันจาก lool จะไม่สามารถขอคืนได้ เมื่อชำระเงิน จะมีการบวกภาษีขาย 5% จากยอดรวมสินค้า (หลังหักส่วนลด) และแสดงเป็นรายการแยกก่อนชำระเงิน",
         },
         {
           heading: "รับประกันคุณภาพ 365 วัน (สินค้าทั้งหมด)",
@@ -4842,7 +4842,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Bea masuk & pajak",
-          body: "Untuk sebagian besar tujuan, lool membayar bea masuk dan pajak impor di muka, tetapi beberapa negara terkadang dapat meminta pembayaran. Jika Anda menerima pemberitahuan bea atau pajak, hubungi kami sebelum membayar agar kami dapat menawarkan solusi terbaik. Bea yang dibayar tanpa konfirmasi lool tidak dapat diganti.",
+          body: "Untuk sebagian besar tujuan, lool membayar bea masuk dan pajak impor di muka, tetapi beberapa negara terkadang dapat meminta pembayaran. Jika Anda menerima pemberitahuan bea atau pajak, hubungi kami sebelum membayar agar kami dapat menawarkan solusi terbaik. Bea yang dibayar tanpa konfirmasi lool tidak dapat diganti. Saat checkout, pajak penjualan 5% ditambahkan ke subtotal pesanan (setelah diskon) dan ditampilkan sebagai baris terpisah sebelum Anda membayar.",
         },
         {
           heading: "Garansi kualitas 365 hari (semua produk)",
@@ -4887,7 +4887,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Duti & cukai",
-          body: "Untuk kebanyakan destinasi, lool membayar duti import dan cukai terlebih dahulu, tetapi sesetengah negara mungkin sekali-sekala meminta bayaran. Jika anda menerima notis duti atau cukai, hubungi kami sebelum membuat bayaran supaya kami boleh menawarkan penyelesaian terbaik. Duti yang dibayar tanpa pengesahan lool tidak boleh dibayar balik.",
+          body: "Untuk kebanyakan destinasi, lool membayar duti import dan cukai terlebih dahulu, tetapi sesetengah negara mungkin sekali-sekala meminta bayaran. Jika anda menerima notis duti atau cukai, hubungi kami sebelum membuat bayaran supaya kami boleh menawarkan penyelesaian terbaik. Duti yang dibayar tanpa pengesahan lool tidak boleh dibayar balik. Semasa pembayaran, cukai jualan 5% ditambah pada subjumlah pesanan (selepas diskaun) dan dipaparkan sebagai baris berasingan sebelum anda membayar.",
         },
         {
           heading: "Jaminan kualiti 365 hari (semua produk)",

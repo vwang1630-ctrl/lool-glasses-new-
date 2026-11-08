@@ -56,7 +56,8 @@ const FRAME_KNOWLEDGE: Record<string, string> = {
 
 const POLICY_KNOWLEDGE: Record<string, string> = {
   en: `LOOL POLICIES:
-- Shipping: Free tracked shipping on orders over $69. Orders under $69 have a flat $9.9 shipping fee.
+- Shipping: Free tracked shipping on orders over $69. Orders under $69 have a flat $9.9 shipping fee. Delivery takes 7–30 days depending on the country (includes 3–5 days lens crafting).
+- Tax: a 5% sales tax is added at checkout on the discounted subtotal, shown as its own line before payment.
 - Returns: 30-day free returns & exchanges for non-prescription glasses. Prescription glasses are custom-made and non-returnable except for manufacturing defects or prescription errors. Progressive lenses have a 3-week adaptation guarantee.
 - Quality: Premium materials, strict QC. Each frame inspected before shipping.
 - Payment: Stripe (credit/debit cards). USD pricing.
@@ -65,7 +66,8 @@ const POLICY_KNOWLEDGE: Record<string, string> = {
 - Support: 24/7 AI chat (you). Human follow-up within 12 business hours.`,
 
   zh: `LOOL 政策：
-- 配送：满 $69 免运费并附实时追踪。不满 $69 收取 $9.9 固定运费。
+- 配送：满 $69 免运费并附实时追踪。不满 $69 收取 $9.9 固定运费。根据国家不同约 7–30 天送达（含 3–5 天镜片定制）。
+- 税费：结账时按折扣后的商品小计加收 5% 销售税，付款前单独列出。
 - 退货：非处方眼镜（平光镜）30 天内免费退换。处方眼镜按处方定制，除非存在制造缺陷或我方配镜错误，否则不接受退换。渐进镜片有 3 周适应保障。
 - 品质：优质材料，严格品控。每副镜架出厂前检测。
 - 支付：Stripe（信用卡/借记卡）。美元定价。
@@ -722,7 +724,7 @@ IF/THEN RULES:
 | price / how much | Price inquiry | "Frames from $22, progressives +$89. DM your country for full quote." | Never full price list in comments |
 | where to buy / link | Purchase intent | "Link in bio — or DM for personal recommendation." | No naked URL in comments |
 | scam / fake / too good | Trust challenge | "Real photos, real customers. Check our reviews — or try virtual try-on yourself." | No emotional/defensive replies |
-| shipping / how long | Logistics | "Free tracked shipping on orders over $69. Orders under $69 have a flat $9.9 shipping fee. 5–9 business days door to door. DM your country for specifics." | No exact delivery date promises |
+| shipping / how long | Logistics | "Free tracked shipping on orders over $69. Orders under $69 have a flat $9.9 shipping fee. Delivery takes 7–30 days depending on your country. DM your country for specifics." | No exact delivery date promises |
 
 UNIVERSAL DISCIPLINE:
 - First reply must contain ONE specific action (DM us / Check bio / Try virtual try-on)

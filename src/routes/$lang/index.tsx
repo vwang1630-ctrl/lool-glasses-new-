@@ -521,7 +521,7 @@ function Index() {
       },
     },
     {
-      img: "/images/review/NAfKKCF64Xtqt8N55GhpG.png",
+      img: "/images/misc/jOMQue6Nciwod6b9pWJtt.jpg",
       name: "Emma W.",
       slug: "lool-tr90-square",
       text: {
@@ -542,7 +542,7 @@ function Index() {
       },
     },
     {
-      img: "/images/review/Py6WkVkbDvidAESgaD0oo.png",
+      img: "/images/misc/e7XSmmHgetQ2rknyVKI2V.jpg",
       name: "Daniel K.",
       slug: "lool-8663",
       text: {

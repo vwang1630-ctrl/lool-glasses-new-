@@ -1,4 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { lensCategoryLabel } from "@/lib/lens-labels";
 import { pageTitle } from "@/lib/page-titles";
 import { useCart } from "@/contexts/CartContext";
 import { useI18n } from "@/lib/i18n";
@@ -23,11 +25,41 @@ function CartPage() {
   } = useCart();
   const { t, lang, contentLang } = useI18n();
   const navigate = useNavigate();
-  const FREE_SHIP_THRESHOLD = 69;
+  // Same source of truth as checkout + /api/orders: the `row` shipping rule
+  // from D1 (admin-editable). Defaults mirror ROW_SHIPPING_RULE until loaded.
+  const [shipRule, setShipRule] = useState({ fee: 9.9, threshold: 69 });
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/checkout/config")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((cfg) => {
+        const rules = (
+          cfg as {
+            shippingRules?: {
+              country_code: string;
+              shipping_cents: number;
+              free_shipping_threshold_cents: number;
+            }[];
+          } | null
+        )?.shippingRules;
+        const row = rules?.find((r) => r.country_code === "row");
+        if (!cancelled && row)
+          setShipRule({
+            fee: row.shipping_cents / 100,
+            threshold: row.free_shipping_threshold_cents / 100,
+          });
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+  const FREE_SHIP_THRESHOLD = shipRule.threshold;
   // All money rows use the SELECTED-items subtotal — unticked rows are still
   // in the cart but don't count toward this checkout.
   const subtotal = selectedSubtotal;
-  const shipping = subtotal > 0 ? (subtotal >= FREE_SHIP_THRESHOLD ? 0 : 8) : 0;
+  const shipping =
+    subtotal > 0 ? (subtotal >= FREE_SHIP_THRESHOLD ? 0 : shipRule.fee) : 0;
   const remaining = Math.max(0, FREE_SHIP_THRESHOLD - subtotal);
   const progress = Math.min(100, (subtotal / FREE_SHIP_THRESHOLD) * 100);
   const reached = subtotal >= FREE_SHIP_THRESHOLD;
@@ -99,7 +131,8 @@ function CartPage() {
                         </span>
                       )}
                       <p className="text-xs text-muted-foreground mt-1">
-                        {it.lens.type} · {it.lens.index}
+                        {lensCategoryLabel(it.lens.type, contentLang)} ·{" "}
+                        {it.lens.index}
                       </p>
                     </div>
                     <p className="font-semibold whitespace-nowrap">
@@ -193,7 +226,7 @@ function CartPage() {
           <Row label={t("cart.subtotal")} value={`$${subtotal.toFixed(2)}`} />
           <Row
             label={t("cart.shipping")}
-            value={shipping === 0 ? t("cart.free") : `$${shipping}`}
+            value={shipping === 0 ? t("cart.free") : `$${shipping.toFixed(2)}`}
           />
           <Row label={t("cart.tax")} value={`$${tax.toFixed(2)}`} />
           <div className="border-t border-border pt-3">

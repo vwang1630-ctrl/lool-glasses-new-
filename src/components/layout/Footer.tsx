@@ -446,7 +446,12 @@ export function Footer() {
             >
               v{BUILD_GIT_SHA}
             </span>
-            <p>{t("footer.copyright")}</p>
+            <p>
+              {t("footer.copyright").replace(
+                /© \d{4}/,
+                `© ${new Date().getFullYear()}`,
+              )}
+            </p>
           </div>
         </div>
       </div>
