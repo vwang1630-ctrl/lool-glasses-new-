@@ -12,7 +12,7 @@ import { Glasses, Loader2 } from "lucide-react";
 export const Route = createFileRoute("/tracker_/login")({
   head: () => ({
     meta: [
-      { title: "lool — 订单跟踪登录" },
+      { title: "loollook — 订单跟踪登录" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),
@@ -103,7 +103,7 @@ function TrackerLoginPage() {
         <div className="flex items-center gap-2 mb-6">
           <Glasses className="h-6 w-6 text-primary" />
           <span className="text-lg font-semibold font-display">
-            lool 订单跟踪
+            loollook 订单跟踪
           </span>
         </div>
         <h1 className="text-2xl font-semibold mb-1">登录</h1>

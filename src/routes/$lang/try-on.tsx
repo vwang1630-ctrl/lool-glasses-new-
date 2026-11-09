@@ -823,7 +823,7 @@ function TryOn() {
     g.drawImage(c, 0, 0);
     const a = document.createElement("a");
     a.href = out.toDataURL("image/png");
-    a.download = `lool-tryon-${Date.now()}.png`;
+    a.download = `loollook-tryon-${Date.now()}.png`;
     a.click();
     setSnapped(true);
     trackCustomerEvent({

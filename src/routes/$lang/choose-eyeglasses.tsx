@@ -29,7 +29,7 @@ export const Route = createFileRoute("/$lang/choose-eyeglasses")({
       { name: "twitter:description", content: pageOgDesc("chooseEyeglasses", params.lang) },
       {
         property: "og:title",
-        content: "Lens Guide — Daily Eye Care & Lens Science | lool",
+        content: "Lens Guide — Daily Eye Care & Lens Science | loollook",
       },
       {
         property: "og:description",

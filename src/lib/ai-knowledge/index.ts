@@ -1,5 +1,5 @@
-// Portable knowledge module for the lool AI Field Deployment Engineer.
-// "Portable OS brain" pattern（自 fuzzsofa-kit 移植后已全面 lool 化）:
+// Portable knowledge module for the loollook AI Field Deployment Engineer.
+// "Portable OS brain" pattern（自 fuzzsofa-kit 移植后已全面 loollook 化）:
 // all domain knowledge the AI needs to operate autonomously,
 // structured as typed data the system prompt can consume.
 //
@@ -55,7 +55,7 @@ const FRAME_KNOWLEDGE: Record<string, string> = {
 // --------------- business policies ---------------
 
 const POLICY_KNOWLEDGE: Record<string, string> = {
-  en: `LOOL POLICIES:
+  en: `LOOLLOOK POLICIES:
 - Shipping: Free tracked shipping on orders over $69. Orders under $69 have a flat $9.9 shipping fee. Delivery takes 7–30 days depending on the country (includes 3–5 days lens crafting).
 - Tax: a 5% sales tax is added at checkout on the discounted subtotal, shown as its own line before payment.
 - Returns: 30-day free returns & exchanges for non-prescription glasses. Prescription glasses are custom-made and non-returnable except for manufacturing defects or prescription errors. Progressive lenses have a 3-week adaptation guarantee.
@@ -65,7 +65,7 @@ const POLICY_KNOWLEDGE: Record<string, string> = {
 - Virtual try-on: /try-on with camera — works best in good lighting, face a window.
 - Support: 24/7 AI chat (you). Human follow-up within 12 business hours.`,
 
-  zh: `LOOL 政策：
+  zh: `LOOLLOOK 政策：
 - 配送：满 $69 免运费并附实时追踪。不满 $69 收取 $9.9 固定运费。根据国家不同约 7–30 天送达（含 3–5 天镜片定制）。
 - 税费：结账时按折扣后的商品小计加收 5% 销售税，付款前单独列出。
 - 退货：非处方眼镜（平光镜）30 天内免费退换。处方眼镜按处方定制，除非存在制造缺陷或我方配镜错误，否则不接受退换。渐进镜片有 3 周适应保障。
@@ -249,14 +249,14 @@ const COMPETITIVE_KNOWLEDGE: Record<string, string> = {
 
 VS TRADITIONAL OPTICIAN (LensCrafters, Pearle Vision, local shops):
 - They: $200-500+ per pair, 1-2 week wait, limited online selection
-- lool: $89-179, free tracked shipping $69+, virtual try-on at home, 30-day free returns (non-prescription)
+- loollook: $89-179, free tracked shipping $69+, virtual try-on at home, 30-day free returns (non-prescription)
 - Key message: "Same quality materials, transparent pricing, try before you buy from home"
 
 VS ONLINE COMPETITORS (Zenni, EyeBuyDirect, Warby Parker):
 - Zenni: Budget ($7-40), but lower build quality, basic styles, no progressive specialization
 - EyeBuyDirect: Mid-range, wide selection, but less curated, no ageless design focus
 - Warby Parker: $95-195, stylish, but progressive +$150, no virtual try-on camera
-- lool advantage: Specialized in 45-60 generation, progressive expertise, ageless design, virtual try-on, multilingual support
+- loollook advantage: Specialized in 45-60 generation, progressive expertise, ageless design, virtual try-on, multilingual support
 
 NEVER badmouth competitors. Instead: "They're great for {their strength}. Where we focus differently is {our differentiation}."
 
@@ -272,14 +272,14 @@ DIFFERENTIATION PILLARS:
 
 VS 传统眼镜店（LensCrafters, 本地门店）：
 - 他们：$200-500+/副，等1-2周，线上选择有限
-- lool：$89-179，$69+免运，在家虚拟试戴，14天退货
+- loollook：$89-179，$69+免运，在家虚拟试戴，14天退货
 - 核心信息："同等品质材料，透明定价，在家先试后买"
 
 VS 在线竞品（Zenni, EyeBuyDirect, Warby Parker）：
 - Zenni：预算型（$7-40），但做工一般，款式基础，无渐进专精
 - EyeBuyDirect：中端，选择广，但不够精选，无去老年化聚焦
 - Warby Parker：$95-195，时尚，但渐进+$150，无摄像头虚拟试戴
-- lool 优势：专注45-60代际，渐进专业知识，去老年化设计，虚拟试戴，14语言支持
+- loollook 优势：专注45-60代际，渐进专业知识，去老年化设计，虚拟试戴，14语言支持
 
 绝不贬低竞品。而是："他们在{对方优势}方面很好。我们的差异化在于{我们的独特之处}。"
 

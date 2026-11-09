@@ -17,7 +17,7 @@ export async function sendEmail({
   text,
 }: SendArgs): Promise<void> {
   const apiKey = (env as unknown as { RESEND_API_KEY?: string }).RESEND_API_KEY;
-  const from = `lool <${env.RESEND_FROM}>`;
+  const from = `loollook <${env.RESEND_FROM}>`;
 
   if (!apiKey) {
     console.warn(

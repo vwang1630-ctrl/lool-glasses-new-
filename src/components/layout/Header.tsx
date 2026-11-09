@@ -111,10 +111,10 @@ export function Header() {
                 <ArrowLeft className="w-[18px] h-[18px]" />
               </button>
             )}
-            <LangLink to="/" className="flex items-center" aria-label="lool">
+            <LangLink to="/" className="flex items-center" aria-label="loollook">
               <img
                 src={loolLogo}
-                alt="lool"
+                alt="loollook"
                 className="h-6 w-auto object-contain"
                 loading="eager"
                 decoding="async"

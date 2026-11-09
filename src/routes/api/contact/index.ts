@@ -134,8 +134,8 @@ export const Route = createFileRoute("/api/contact/")({
         const contactTo =
           (env as unknown as { CONTACT_TO?: string }).CONTACT_TO ||
           "hello@loollook.com";
-        const from = `lool contact form <${env.RESEND_FROM}>`;
-        const mailSubject = `[lool contact] ${subject} — ${name}`;
+        const from = `loollook contact form <${env.RESEND_FROM}>`;
+        const mailSubject = `[loollook contact] ${subject} — ${name}`;
 
         if (!apiKey) {
           console.warn(

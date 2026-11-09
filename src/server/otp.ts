@@ -80,7 +80,7 @@ export async function writeOtpRecord(email: string): Promise<string> {
 export async function sendOtpEmail(email: string, code: string): Promise<void> {
   const html = `
     <div style="font-family: system-ui, -apple-system, sans-serif; max-width: 480px; margin: 0 auto; padding: 24px;">
-      <h2 style="color: #111;">lool 验证码 / Verification code</h2>
+      <h2 style="color: #111;">loollook 验证码 / Verification code</h2>
       <p style="color: #555;">在 10 分钟内输入下面的验证码。<br />
       Enter this code within 10 minutes.</p>
       <p style="font-size: 32px; letter-spacing: 8px; font-weight: 600; padding: 16px 24px; background: #f5f5f4; border-radius: 12px; text-align: center;">${code}</p>
@@ -90,9 +90,9 @@ export async function sendOtpEmail(email: string, code: string): Promise<void> {
 
   await sendEmail({
     to: email,
-    subject: `Your lool verification code: ${code}`,
+    subject: `Your loollook verification code: ${code}`,
     html,
-    text: `Your lool verification code is ${code}. It expires in 10 minutes.`,
+    text: `Your loollook verification code is ${code}. It expires in 10 minutes.`,
   });
 }
 

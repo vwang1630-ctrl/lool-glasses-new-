@@ -15,7 +15,7 @@ type OtpStep = "request" | "verify";
 export const Route = createFileRoute("/admin_/login")({
   head: () => ({
     meta: [
-      { title: "lool — 后台登录" },
+      { title: "loollook — 后台登录" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),
@@ -105,7 +105,7 @@ function AdminLoginPage() {
             <Glasses className="h-6 w-6" />
           </div>
           <div>
-            <div className="text-base font-semibold tracking-wider">LOOL</div>
+            <div className="text-base font-semibold tracking-wider">LOOLLOOK</div>
             <div className="text-[10px] text-muted-foreground">
               EYEWEAR ADMIN
             </div>

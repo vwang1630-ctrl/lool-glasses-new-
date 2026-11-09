@@ -1,4 +1,4 @@
-// PWA install hook — handles three things for the Footer's "Download the lool
+// PWA install hook — handles three things for the Footer's "Download the loollook
 // app" button:
 //
 //   1. Registers /sw.js once per session so Chrome's installability check

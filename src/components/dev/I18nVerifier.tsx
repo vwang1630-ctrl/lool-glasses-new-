@@ -9,7 +9,7 @@ import { ShieldCheck, AlertTriangle, X, RefreshCw } from "lucide-react";
  *  - 命中的卡片会被加上红色虚线边框
  *  - 浮窗给出报告，可一键重新校验或关闭
  *
- * 注意：货币符号、价格、品牌名(lool/Aurora 等)、表情、单位（mm）等会被白名单忽略。
+ * 注意：货币符号、价格、品牌名(loollook/Aurora 等)、表情、单位（mm）等会被白名单忽略。
  */
 
 type Issue = {
@@ -27,7 +27,7 @@ const CJK_LANG_TO_SCRIPT: Record<string, RegExp> = {
 
 // Tokens that legitimately stay in source language across all locales.
 const WHITELIST = new Set([
-  "lool",
+  "loollook",
   "Aurora",
   "Halo",
   "Noir",

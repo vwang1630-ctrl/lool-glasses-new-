@@ -111,7 +111,7 @@ export function AffiliateDashboardPage() {
             </span>
             <span>
               <span className="block font-display text-lg font-semibold">
-                LOOL
+                LOOLLOOK
               </span>
               <span className="block text-xs uppercase tracking-wider text-muted-foreground">
                 Affiliate Admin
@@ -199,7 +199,7 @@ function NotAffiliateCard() {
     <div className="mx-auto max-w-2xl rounded-2xl bg-card p-8 shadow-card space-y-5">
       <h2 className="font-display text-2xl">Affiliate access is not enabled</h2>
       <p className="text-sm text-muted-foreground">
-        lool affiliate accounts are enabled by the admin team. If this email
+        loollook affiliate accounts are enabled by the admin team. If this email
         should have access, ask an admin to add it in the affiliate management
         screen.
       </p>

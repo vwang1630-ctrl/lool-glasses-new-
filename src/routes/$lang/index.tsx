@@ -58,7 +58,7 @@ export const Route = createFileRoute("/$lang/")({
     // en 用 keyword-library 生成的标题；其他语言用 page-titles 的译文。
     const meta = resolveHeadMeta("home");
     const isEn = !params.lang || params.lang === "en";
-    const title = isEn ? meta.title : `${pageName("home", params.lang)} | lool`;
+    const title = isEn ? meta.title : `${pageName("home", params.lang)} | loollook`;
     const description = isEn ? meta.description : pageDesc("home", params.lang);
     const ogDescription = isEn ? meta.ogDescription : pageOgDesc("home", params.lang);
     return {
@@ -1107,7 +1107,7 @@ function Index() {
                     <div className="relative aspect-[4/5] overflow-hidden">
                       <img
                         src={r.img}
-                        alt={`${r.name} wearing lool`}
+                        alt={`${r.name} wearing loollook`}
                         loading="lazy"
                         className="w-full h-full object-cover transition-smooth group-hover:scale-[1.04]"
                       />

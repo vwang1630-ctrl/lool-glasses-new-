@@ -20,7 +20,7 @@ export const STATIC_BLOG_POSTS: Record<string, BlogPost> = {
     slug: "best-reading-glasses-45-professionals-2026",
     coverImageUrl: `${SITE}/images/product/tr90-square-reading-glasses-1.jpg`,
     publishedAt: new Date("2026-11-02T00:00:00Z").getTime(),
-    author: "lool editorial",
+    author: "loollook editorial",
     title: {
       en: "Best Reading Glasses for 45-Year-Old Professionals — 2026 Guide",
       zh: "45 岁职场人士最佳阅读眼镜——2026 选购指南",
@@ -72,14 +72,14 @@ export const STATIC_BLOG_POSTS: Record<string, BlogPost> = {
 <p>Thin wire rims, oversized generic shapes, and clinical color palettes send a signal you may not intend. The fix is not to hide the glasses. It is to treat them like any other accessory: shape, material, and color should match your face and wardrobe.</p>
 <p>For oval and round faces, a square frame adds structure. For sharper jawlines, a round or Boston-oval frame softens angles. Tortoise and matte black are the safest professional neutrals; clear frames read modern and understated.</p>
 
-<h2>Two lool frames that fit the brief</h2>
+<h2>Two loollook frames that fit the brief</h2>
 <h3><a href="/en/product/lool-tr90-square">TR90 Square Fashion Readers</a></h3>
 <p>At 19.1 g, this oversized square frame is light enough to forget during a full day of calls. The TR90 material is flexible and durable, and the 53-19-150 mm medium fit works for most face widths. It is a clean, architectural choice that reads “intentional” rather than “apologetic.”</p>
 <h3><a href="/en/product/lool-8663">Vintage Round Boston Oval Fashion Readers</a></h3>
 <p>For professionals who prefer a softer, more classic line, this acetate round frame delivers a warm, intellectual look. It carries the same magnification range (+1.0 to +3.5) and blue-light filtering, with a shape that pairs well with blazers and knitwear.</p>
 
 <h2>Use the real-camera try-on before you decide</h2>
-<p>Frame shape is personal. The fastest way to remove doubt is to <a href="/en/try-on">try the frames on your own face</a> with your real camera. lool’s virtual try-on shows how the glasses sit on your actual features—not a rendered model—so you can buy with confidence.</p>
+<p>Frame shape is personal. The fastest way to remove doubt is to <a href="/en/try-on">try the frames on your own face</a> with your real camera. loollook’s virtual try-on shows how the glasses sit on your actual features—not a rendered model—so you can buy with confidence.</p>
 
 <h2>How to choose your magnification</h2>
 <ul>
@@ -100,9 +100,9 @@ export const STATIC_BLOG_POSTS: Record<string, BlogPost> = {
 <h3>Can I wear reading glasses all day?</h3>
 <p>Reading glasses are designed for close-up tasks. If you need help at multiple distances, consider progressive lenses or keep separate pairs for screen and reading.</p>
 <h3>Are these reading glasses a medical device?</h3>
-<p>No. lool fashion readers are magnification-only and are not a substitute for professional eye care. For persistent vision concerns, consult an eye care professional.</p>
+<p>No. loollook fashion readers are magnification-only and are not a substitute for professional eye care. For persistent vision concerns, consult an eye care professional.</p>
 <h3>What if the frames do not fit?</h3>
-<p>lool offers free tracked shipping on orders over $69 and 30-day free returns and exchanges on non-prescription glasses, so you can try the fit risk-free.</p>`,
+<p>loollook offers free tracked shipping on orders over $69 and 30-day free returns and exchanges on non-prescription glasses, so you can try the fit risk-free.</p>`,
     },
   },
 };

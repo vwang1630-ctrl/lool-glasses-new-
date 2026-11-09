@@ -585,7 +585,7 @@
 }
 
 /*
- * Chat widget — mobile width safety net (lool customer support popup).
+ * Chat widget — mobile width safety net (loollook customer support popup).
  *
  * On phones the chat must never render at a fixed width wider than the
  * viewport (previously 380px + right:0 forced users to pinch-zoom and drag

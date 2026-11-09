@@ -119,7 +119,7 @@ function ShippingLabelPrintPage() {
         </div>
 
         <div className="mt-8 pt-4 border-t border-dashed border-gray-500 flex justify-between text-xs text-gray-600">
-          <span>FROM: lool eyewear</span>
+          <span>FROM: loollook eyewear</span>
           <span>{fmtDate(Date.now())}</span>
         </div>
       </div>

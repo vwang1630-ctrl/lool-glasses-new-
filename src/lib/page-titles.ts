@@ -4,8 +4,8 @@
 // each route's head()); the other 13 languages are translations of them.
 // Usage in a route:  head: ({ params }) => ({ meta: [{ title: pageTitle("cart", params.lang) }] })
 //
-// Format: "lool — <page>" (brand first, same as the original English titles).
-// Home is the exception: it is "<page> | lool" (see resolveHeadMeta for en).
+// Format: "loollook — <page>" (brand first, same as the original English titles).
+// Home is the exception: it is "<page> | loollook" (see resolveHeadMeta for en).
 
 import type { Lang } from "@/lib/i18n";
 
@@ -488,7 +488,7 @@ export function pageName(key: PageTitleKey, lang: string | undefined): string {
   return map[(lang ?? "en") as Lang] ?? map.en;
 }
 
-/** Full document title: "lool — <page>" in `lang` (fallback English). */
+/** Full document title: "loollook — <page>" in `lang` (fallback English). */
 export function pageTitle(key: PageTitleKey, lang: string | undefined): string {
-  return `lool — ${pageName(key, lang)}`;
+  return `loollook — ${pageName(key, lang)}`;
 }

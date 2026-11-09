@@ -375,7 +375,7 @@ export function Footer() {
           <div className="flex items-center gap-3">
             <img
               src={loolLogo}
-              alt="lool"
+              alt="loollook"
               className="h-6 w-auto object-contain"
               loading="lazy"
               decoding="async"

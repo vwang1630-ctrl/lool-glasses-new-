@@ -7,7 +7,7 @@ type Step = "request" | "verify";
 export const Route = createFileRoute("/affiliate_/login")({
   head: () => ({
     meta: [
-      { title: "lool — Affiliate Login" },
+      { title: "loollook — Affiliate Login" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),
@@ -81,7 +81,7 @@ function AffiliateLoginPage() {
           </span>
           <span>
             <span className="block font-display text-xl font-semibold">
-              LOOL
+              LOOLLOOK
             </span>
             <span className="block text-xs uppercase tracking-wider text-muted-foreground">
               Affiliate Admin

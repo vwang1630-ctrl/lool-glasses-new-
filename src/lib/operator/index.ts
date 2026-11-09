@@ -152,7 +152,7 @@ function titleCase(s: string) {
 
 /**
  * 按页面解析 head meta。主词取 keyword-library 在册词，title 套
- * seo-meta-library meta_patterns.title.pattern（"{keyword} — {benefit} | lool"）。
+ * seo-meta-library meta_patterns.title.pattern（"{keyword} — {benefit} | loollook"）。
  */
 export function resolveHeadMeta(page: string): HeadMeta {
   const cfg = PAGE_META[page] ?? PAGE_META.home;
@@ -339,7 +339,7 @@ export function glossaryFaq(): FaqItem[] {
     {
       question: "How do I measure my PD at home?",
       answer:
-        "Use lool's free Measure PD tool — your phone camera measures your pupil distance in about 30 seconds, no ruler or eye exam needed.",
+        "Use loollook's free Measure PD tool — your phone camera measures your pupil distance in about 30 seconds, no ruler or eye exam needed.",
     },
     {
       question:

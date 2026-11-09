@@ -168,7 +168,7 @@ export function AdminLayout() {
           {!collapsed && (
             <div className="flex flex-col leading-tight">
               <span className="text-sm font-semibold tracking-wider text-foreground">
-                LOOL
+                LOOLLOOK
               </span>
               <span className="text-[10px] text-muted-foreground">
                 EYEWEAR ADMIN

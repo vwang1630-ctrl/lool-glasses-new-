@@ -164,7 +164,7 @@ function WorkOrderPrintPage() {
             加工单 · Work Order
           </h1>
           <p className="text-sm text-gray-600 mt-1">
-            lool eyewear · {fmtDate(Date.now())}
+            loollook eyewear · {fmtDate(Date.now())}
           </p>
         </div>
         <div className="text-right">

@@ -1,5 +1,5 @@
 // /admin/home-promo-banners — editor for the two single-image promo strips on
-// the homepage: AI 虚拟试戴 + LOOL 品牌主张. Bulk PUT on save.
+// the homepage: AI 虚拟试戴 + LOOLLOOK 品牌主张. Bulk PUT on save.
 
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";

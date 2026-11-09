@@ -5,7 +5,7 @@ import { I18nProvider } from "@/lib/i18n";
 export const Route = createFileRoute("/affiliate")({
   head: () => ({
     meta: [
-      { title: "lool — Affiliate Admin" },
+      { title: "loollook — Affiliate Admin" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),

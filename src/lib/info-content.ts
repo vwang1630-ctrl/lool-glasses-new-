@@ -41,13 +41,13 @@ const REGISTRY: Registry = {
   about: {
     en: {
       eyebrow: "Our Story",
-      title: "About lool",
+      title: "About loollook",
       intro:
-        "We started lool because eyewear for the 45+ generation deserved better — lighter frames, sharper lenses, and prices that didn’t insult your intelligence.",
+        "We started loollook because eyewear for the 45+ generation deserved better — lighter frames, sharper lenses, and prices that didn’t insult your intelligence.",
       sections: [
         {
           heading: "A new lens on aging eyes",
-          body: "After 40, eyes change. We refused to accept clunky 'reader' frames as the only option. lool designs eyewear engineered specifically for the modern 45–60 wearer — discreet progressive optics, weightless titanium, and silhouettes that read 'editor', not 'pharmacy'.",
+          body: "After 40, eyes change. We refused to accept clunky 'reader' frames as the only option. loollook designs eyewear engineered specifically for the modern 45–60 wearer — discreet progressive optics, weightless titanium, and silhouettes that read 'editor', not 'pharmacy'.",
         },
         {
           heading: "Direct, on purpose",
@@ -55,20 +55,20 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Designed in studio, made to last",
-          body: "Every lool frame begins as a sketch in our Milan and Tokyo studios. Hinges are tested to 20,000 cycles. Lenses are cut in ISO-certified labs. We back it all with a 365-day warranty and free lifetime adjustments.",
+          body: "Every loollook frame begins as a sketch in our Milan and Tokyo studios. Hinges are tested to 20,000 cycles. Lenses are cut in ISO-certified labs. We back it all with a 365-day warranty and free lifetime adjustments.",
         },
       ],
       cta: { label: "Shop the collection", to: "/products" },
     },
     zh: {
       eyebrow: "品牌故事",
-      title: "关于 lool",
+      title: "关于 loollook",
       intro:
-        "lool 为 45+ 一代而生——更轻盈的镜架、更清晰的镜片、不再侮辱智商的价格。",
+        "loollook 为 45+ 一代而生——更轻盈的镜架、更清晰的镜片、不再侮辱智商的价格。",
       sections: [
         {
           heading: "为成熟双眼重新设计",
-          body: "40 岁后，眼睛在变。我们拒绝把笨重的“老花镜”当作唯一选择。lool 专为 45–60 岁的现代佩戴者打造——隐形渐进光学、无重感钛金属，以及读起来像“主编”而非“药店”的轮廓。",
+          body: "40 岁后，眼睛在变。我们拒绝把笨重的“老花镜”当作唯一选择。loollook 专为 45–60 岁的现代佩戴者打造——隐形渐进光学、无重感钛金属，以及读起来像“主编”而非“药店”的轮廓。",
         },
         {
           heading: "D2C，有目的的直营",
@@ -76,20 +76,20 @@ const REGISTRY: Registry = {
         },
         {
           heading: "工作室设计，经久耐用",
-          body: "每一副 lool 都从米兰与东京工作室的草图开始。铰链经过 20,000 次开合测试，镜片在 ISO 认证实验室切割。我们以 365 天质保和终身免费调整为它背书。",
+          body: "每一副 loollook 都从米兰与东京工作室的草图开始。铰链经过 20,000 次开合测试，镜片在 ISO 认证实验室切割。我们以 365 天质保和终身免费调整为它背书。",
         },
       ],
       cta: { label: "浏览全系列", to: "/products" },
     },
     es: {
       eyebrow: "Nuestra historia",
-      title: "Sobre lool",
+      title: "Sobre loollook",
       intro:
-        "Creamos lool porque las gafas para la generación 45+ merecían algo mejor: monturas más ligeras, lentes más nítidas y precios que no insulten tu inteligencia.",
+        "Creamos loollook porque las gafas para la generación 45+ merecían algo mejor: monturas más ligeras, lentes más nítidas y precios que no insulten tu inteligencia.",
       sections: [
         {
           heading: "Una nueva lente para ojos que maduran",
-          body: "Después de los 40, los ojos cambian. Nos negamos a aceptar las toscas monturas de 'lectura' como única opción. lool diseña gafas pensadas específicamente para quienes tienen entre 45 y 60 años: óptica progresiva discreta, titanio sin peso y siluetas que dicen 'editor', no 'farmacia'.",
+          body: "Después de los 40, los ojos cambian. Nos negamos a aceptar las toscas monturas de 'lectura' como única opción. loollook diseña gafas pensadas específicamente para quienes tienen entre 45 y 60 años: óptica progresiva discreta, titanio sin peso y siluetas que dicen 'editor', no 'farmacia'.",
         },
         {
           heading: "Directos, a propósito",
@@ -97,20 +97,20 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Diseñadas en estudio, hechas para durar",
-          body: "Cada montura lool comienza como un boceto en nuestros estudios de Milan y Tokyo. Las bisagras se prueban con 20.000 ciclos. Las lentes se cortan en laboratorios certificados ISO. Lo respaldamos todo con una garantía de 365 días y ajustes gratuitos de por vida.",
+          body: "Cada montura loollook comienza como un boceto en nuestros estudios de Milan y Tokyo. Las bisagras se prueban con 20.000 ciclos. Las lentes se cortan en laboratorios certificados ISO. Lo respaldamos todo con una garantía de 365 días y ajustes gratuitos de por vida.",
         },
       ],
       cta: { label: "Explorar la colección", to: "/products" },
     },
     fr: {
       eyebrow: "Notre histoire",
-      title: "À propos de lool",
+      title: "À propos de loollook",
       intro:
-        "Nous avons fondé lool parce que les lunettes pour la génération 45+ méritaient mieux — des montures plus légères, des verres plus nets, et des prix qui n’insultent pas votre intelligence.",
+        "Nous avons fondé loollook parce que les lunettes pour la génération 45+ méritaient mieux — des montures plus légères, des verres plus nets, et des prix qui n’insultent pas votre intelligence.",
       sections: [
         {
           heading: "Un nouveau regard sur les yeux qui changent",
-          body: "Après 40 ans, les yeux changent. Nous avons refusé d’accepter les montures « loupes » encombrantes comme seule option. lool dessine des lunettes pensées spécifiquement pour celles et ceux de 45 à 60 ans — optique progressive discrète, titane sans poids, et silhouettes qui évoquent « rédacteur en chef », pas « pharmacie ».",
+          body: "Après 40 ans, les yeux changent. Nous avons refusé d’accepter les montures « loupes » encombrantes comme seule option. loollook dessine des lunettes pensées spécifiquement pour celles et ceux de 45 à 60 ans — optique progressive discrète, titane sans poids, et silhouettes qui évoquent « rédacteur en chef », pas « pharmacie ».",
         },
         {
           heading: "Direct, en toute conscience",
@@ -118,20 +118,20 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Dessinées en studio, conçues pour durer",
-          body: "Chaque monture lool naît d’un croquis dans nos studios de Milan et de Tokyo. Les charnières sont testées sur 20 000 cycles. Les verres sont taillés dans des laboratoires certifiés ISO. Le tout est garanti 365 jours, avec ajustements à vie offerts.",
+          body: "Chaque monture loollook naît d’un croquis dans nos studios de Milan et de Tokyo. Les charnières sont testées sur 20 000 cycles. Les verres sont taillés dans des laboratoires certifiés ISO. Le tout est garanti 365 jours, avec ajustements à vie offerts.",
         },
       ],
       cta: { label: "Voir la collection", to: "/products" },
     },
     de: {
       eyebrow: "Unsere Geschichte",
-      title: "Über lool",
+      title: "Über loollook",
       intro:
-        "Wir haben lool gegründet, weil Brillen für die Generation 45+ Besseres verdient haben — leichtere Fassungen, schärfere Gläser und Preise, die deine Intelligenz nicht beleidigen.",
+        "Wir haben loollook gegründet, weil Brillen für die Generation 45+ Besseres verdient haben — leichtere Fassungen, schärfere Gläser und Preise, die deine Intelligenz nicht beleidigen.",
       sections: [
         {
           heading: "Ein neuer Blick auf reife Augen",
-          body: "Ab 40 verändern sich die Augen. Wir wollten klobige „Lesebrillen“ nicht als einzige Option akzeptieren. lool entwirft Brillen speziell für moderne Trägerinnen und Träger zwischen 45 und 60 — unauffällige Gleitsichtoptik, federleichtes Titan und Silhouetten, die nach „Redakteur“ aussehen, nicht nach „Apotheke“.",
+          body: "Ab 40 verändern sich die Augen. Wir wollten klobige „Lesebrillen“ nicht als einzige Option akzeptieren. loollook entwirft Brillen speziell für moderne Trägerinnen und Träger zwischen 45 und 60 — unauffällige Gleitsichtoptik, federleichtes Titan und Silhouetten, die nach „Redakteur“ aussehen, nicht nach „Apotheke“.",
         },
         {
           heading: "Direkt, mit Absicht",
@@ -139,20 +139,20 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Im Studio entworfen, gemacht zum Tragen",
-          body: "Jede lool-Fassung beginnt als Skizze in unseren Studios in Mailand und Tokio. Scharniere werden 20.000 Zyklen lang getestet. Gläser werden in ISO-zertifizierten Laboren geschliffen. Wir stehen für alles ein — mit 365 Tagen Garantie und lebenslangen kostenlosen Anpassungen.",
+          body: "Jede loollook-Fassung beginnt als Skizze in unseren Studios in Mailand und Tokio. Scharniere werden 20.000 Zyklen lang getestet. Gläser werden in ISO-zertifizierten Laboren geschliffen. Wir stehen für alles ein — mit 365 Tagen Garantie und lebenslangen kostenlosen Anpassungen.",
         },
       ],
       cta: { label: "Zur Kollektion", to: "/products" },
     },
     it: {
       eyebrow: "La nostra storia",
-      title: "Chi è lool",
+      title: "Chi è loollook",
       intro:
-        "Abbiamo creato lool perché gli occhiali per la generazione 45+ meritavano di meglio — montature più leggere, lenti più nitide e prezzi che non insultano la tua intelligenza.",
+        "Abbiamo creato loollook perché gli occhiali per la generazione 45+ meritavano di meglio — montature più leggere, lenti più nitide e prezzi che non insultano la tua intelligenza.",
       sections: [
         {
           heading: "Una nuova lente per occhi che cambiano",
-          body: "Dopo i 40, gli occhi cambiano. Ci siamo rifiutati di accettare le ingombranti montature da “lettura” come unica opzione. lool progetta occhiali pensati specificamente per chi ha tra i 45 e i 60 anni — ottica progressiva discreta, titanio impalpabile e linee che dicono “editor”, non “farmacia”.",
+          body: "Dopo i 40, gli occhi cambiano. Ci siamo rifiutati di accettare le ingombranti montature da “lettura” come unica opzione. loollook progetta occhiali pensati specificamente per chi ha tra i 45 e i 60 anni — ottica progressiva discreta, titanio impalpabile e linee che dicono “editor”, non “farmacia”.",
         },
         {
           heading: "Diretti, per scelta",
@@ -160,20 +160,20 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Disegnati in studio, fatti per durare",
-          body: "Ogni montatura lool nasce come schizzo nei nostri studi di Milano e Tokyo. Le cerniere sono testate per 20.000 cicli. Le lenti vengono tagliate in laboratori certificati ISO. Garantiamo tutto con una garanzia di 365 giorni e regolazioni gratuite a vita.",
+          body: "Ogni montatura loollook nasce come schizzo nei nostri studi di Milano e Tokyo. Le cerniere sono testate per 20.000 cicli. Le lenti vengono tagliate in laboratori certificati ISO. Garantiamo tutto con una garanzia di 365 giorni e regolazioni gratuite a vita.",
         },
       ],
       cta: { label: "Esplora la collezione", to: "/products" },
     },
     pt: {
       eyebrow: "Nossa história",
-      title: "Sobre a lool",
+      title: "Sobre a loollook",
       intro:
-        "A lool nasceu porque os óculos para a geração 45+ mereciam algo melhor — armações mais leves, lentes mais nítidas e preços que não insultem a sua inteligência.",
+        "A loollook nasceu porque os óculos para a geração 45+ mereciam algo melhor — armações mais leves, lentes mais nítidas e preços que não insultem a sua inteligência.",
       sections: [
         {
           heading: "Uma nova lente para olhos que amadurecem",
-          body: "Depois dos 40, os olhos mudam. Nos recusamos a aceitar armações desajeitadas de “leitura” como única opção. A lool desenha óculos pensados especificamente para quem tem entre 45 e 60 anos — óptica progressiva discreta, titânio sem peso e silhuetas que parecem de “editor”, não de “farmácia”.",
+          body: "Depois dos 40, os olhos mudam. Nos recusamos a aceitar armações desajeitadas de “leitura” como única opção. A loollook desenha óculos pensados especificamente para quem tem entre 45 e 60 anos — óptica progressiva discreta, titânio sem peso e silhuetas que parecem de “editor”, não de “farmácia”.",
         },
         {
           heading: "Direto, por propósito",
@@ -181,20 +181,20 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Desenhadas em estúdio, feitas para durar",
-          body: "Cada armação lool começa como um esboço em nossos estúdios em Milan e Tokyo. As dobradiças são testadas em 20.000 ciclos. As lentes são cortadas em laboratórios certificados ISO. Tudo isso vem com garantia de 365 dias e ajustes vitalícios gratuitos.",
+          body: "Cada armação loollook começa como um esboço em nossos estúdios em Milan e Tokyo. As dobradiças são testadas em 20.000 ciclos. As lentes são cortadas em laboratórios certificados ISO. Tudo isso vem com garantia de 365 dias e ajustes vitalícios gratuitos.",
         },
       ],
       cta: { label: "Ver a coleção", to: "/products" },
     },
     ja: {
       eyebrow: "私たちの物語",
-      title: "lool について",
+      title: "loollook について",
       intro:
-        "lool を始めたのは、45 歳以上の世代にふさわしいアイウェアがあるはずだと考えたからです。より軽いフレーム、よりクリアなレンズ、そして知性を侮らない価格を。",
+        "loollook を始めたのは、45 歳以上の世代にふさわしいアイウェアがあるはずだと考えたからです。より軽いフレーム、よりクリアなレンズ、そして知性を侮らない価格を。",
       sections: [
         {
           heading: "年齢を重ねた瞳に新しい視点を",
-          body: "40 歳を過ぎると、目は変化します。私たちは野暮ったい「リーディンググラス」が唯一の選択肢であることを拒みました。lool は 45〜60 歳の現代の装着者のために設計されたアイウェアです。目立たないプログレッシブ光学、重さを感じないチタン、そして「薬局」ではなく「エディター」を思わせるシルエットを実現しました。",
+          body: "40 歳を過ぎると、目は変化します。私たちは野暮ったい「リーディンググラス」が唯一の選択肢であることを拒みました。loollook は 45〜60 歳の現代の装着者のために設計されたアイウェアです。目立たないプログレッシブ光学、重さを感じないチタン、そして「薬局」ではなく「エディター」を思わせるシルエットを実現しました。",
         },
         {
           heading: "あえて、ダイレクトに",
@@ -202,20 +202,20 @@ const REGISTRY: Registry = {
         },
         {
           heading: "スタジオでデザイン、長く使える品質",
-          body: "すべての lool フレームは、ミラノと東京のスタジオでのスケッチから始まります。ヒンジは 20,000 回の開閉試験をクリア。レンズは ISO 認証ラボでカットされます。これらすべてに 365 日保証と生涯無料の調整サービスをお付けしています。",
+          body: "すべての loollook フレームは、ミラノと東京のスタジオでのスケッチから始まります。ヒンジは 20,000 回の開閉試験をクリア。レンズは ISO 認証ラボでカットされます。これらすべてに 365 日保証と生涯無料の調整サービスをお付けしています。",
         },
       ],
       cta: { label: "コレクションを見る", to: "/products" },
     },
     ko: {
       eyebrow: "우리의 이야기",
-      title: "lool 소개",
+      title: "loollook 소개",
       intro:
-        "lool을 시작한 이유는 단순합니다. 45세 이상 세대의 안경은 더 나아져야 했습니다. 더 가벼운 프레임, 더 또렷한 렌즈, 그리고 소비자의 안목을 무시하지 않는 가격으로요.",
+        "loollook을 시작한 이유는 단순합니다. 45세 이상 세대의 안경은 더 나아져야 했습니다. 더 가벼운 프레임, 더 또렷한 렌즈, 그리고 소비자의 안목을 무시하지 않는 가격으로요.",
       sections: [
         {
           heading: "성숙한 눈을 위한 새로운 렌즈",
-          body: "40세가 넘으면 눈은 변합니다. 우리는 투박한 '돋보기' 프레임이 유일한 선택지라는 것을 거부했습니다. lool은 현대적인 45–60세 착용자만을 위해 설계된 안경을 만듭니다. 눈에 띄지 않는 누진 광학, 무게가 느껴지지 않는 티타늄, 그리고 '약국'이 아닌 '에디터'를 떠올리게 하는 실루엣을 갖춥니다.",
+          body: "40세가 넘으면 눈은 변합니다. 우리는 투박한 '돋보기' 프레임이 유일한 선택지라는 것을 거부했습니다. loollook은 현대적인 45–60세 착용자만을 위해 설계된 안경을 만듭니다. 눈에 띄지 않는 누진 광학, 무게가 느껴지지 않는 티타늄, 그리고 '약국'이 아닌 '에디터'를 떠올리게 하는 실루엣을 갖춥니다.",
         },
         {
           heading: "의도된 D2C",
@@ -223,20 +223,20 @@ const REGISTRY: Registry = {
         },
         {
           heading: "스튜디오 디자인, 오래도록 사용",
-          body: "모든 lool 프레임은 밀라노와 도쿄 스튜디오의 스케치에서 출발합니다. 힌지는 20,000회의 개폐 테스트를 거치고, 렌즈는 ISO 인증 실험실에서 가공됩니다. 우리는 365일 품질 보증과 평생 무료 조정으로 이 모든 것을 뒷받침합니다.",
+          body: "모든 loollook 프레임은 밀라노와 도쿄 스튜디오의 스케치에서 출발합니다. 힌지는 20,000회의 개폐 테스트를 거치고, 렌즈는 ISO 인증 실험실에서 가공됩니다. 우리는 365일 품질 보증과 평생 무료 조정으로 이 모든 것을 뒷받침합니다.",
         },
       ],
       cta: { label: "컬렉션 보기", to: "/products" },
     },
     ar: {
       eyebrow: "قصتنا",
-      title: "عن lool",
+      title: "عن loollook",
       intro:
-        "أطلقنا lool لأن النظارات لجيل الـ 45+ تستحق ما هو أفضل — إطارات أخف، عدسات أوضح، وأسعار لا تستخفّ بذكائك.",
+        "أطلقنا loollook لأن النظارات لجيل الـ 45+ تستحق ما هو أفضل — إطارات أخف، عدسات أوضح، وأسعار لا تستخفّ بذكائك.",
       sections: [
         {
           heading: "رؤية جديدة للعيون الناضجة",
-          body: "بعد سن الأربعين تتغيّر العيون. رفضنا أن نقبل إطارات «القراءة» الثقيلة كخيار وحيد. تُصمَّم نظارات lool خصيصًا لمن يرتديها بين عمر 45 و60 — بصريات تقدّمية خفيّة، تيتانيوم بلا وزن يُحَسّ، وأشكال توحي بـ«محرّر مجلة» لا بـ«صيدلية».",
+          body: "بعد سن الأربعين تتغيّر العيون. رفضنا أن نقبل إطارات «القراءة» الثقيلة كخيار وحيد. تُصمَّم نظارات loollook خصيصًا لمن يرتديها بين عمر 45 و60 — بصريات تقدّمية خفيّة، تيتانيوم بلا وزن يُحَسّ، وأشكال توحي بـ«محرّر مجلة» لا بـ«صيدلية».",
         },
         {
           heading: "مباشر، بقصد",
@@ -244,20 +244,20 @@ const REGISTRY: Registry = {
         },
         {
           heading: "مصممة في الاستوديو، صُنعت لتدوم",
-          body: "كل إطار lool يبدأ كرسمة في استوديوهاتنا في Milan وTokyo. تُختبَر المفاصل على 20,000 دورة فتح وإغلاق. وتُقطَع العدسات في مختبرات معتمدة من ISO. ندعم ذلك كله بضمان 365 يومًا وتعديلات مجانية مدى الحياة.",
+          body: "كل إطار loollook يبدأ كرسمة في استوديوهاتنا في Milan وTokyo. تُختبَر المفاصل على 20,000 دورة فتح وإغلاق. وتُقطَع العدسات في مختبرات معتمدة من ISO. ندعم ذلك كله بضمان 365 يومًا وتعديلات مجانية مدى الحياة.",
         },
       ],
       cta: { label: "تسوق المجموعة", to: "/products" },
     },
     vi: {
       eyebrow: "Câu chuyện của chúng tôi",
-      title: "Về lool",
+      title: "Về loollook",
       intro:
-        "Chúng tôi tạo ra lool vì kính mắt cho thế hệ 45+ xứng đáng có một lựa chọn tốt hơn — gọng nhẹ hơn, tròng sắc nét hơn, và mức giá không xem thường trí thông minh của bạn.",
+        "Chúng tôi tạo ra loollook vì kính mắt cho thế hệ 45+ xứng đáng có một lựa chọn tốt hơn — gọng nhẹ hơn, tròng sắc nét hơn, và mức giá không xem thường trí thông minh của bạn.",
       sections: [
         {
           heading: "Một góc nhìn mới cho đôi mắt trưởng thành",
-          body: "Sau tuổi 40, đôi mắt thay đổi. Chúng tôi từ chối chấp nhận những chiếc gọng 'đọc sách' nặng nề như lựa chọn duy nhất. lool thiết kế kính dành riêng cho người đeo hiện đại trong độ tuổi 45–60 — quang học đa tròng kín đáo, titanium nhẹ tênh, và những đường nét trông giống 'tổng biên tập' chứ không phải 'tiệm thuốc'.",
+          body: "Sau tuổi 40, đôi mắt thay đổi. Chúng tôi từ chối chấp nhận những chiếc gọng 'đọc sách' nặng nề như lựa chọn duy nhất. loollook thiết kế kính dành riêng cho người đeo hiện đại trong độ tuổi 45–60 — quang học đa tròng kín đáo, titanium nhẹ tênh, và những đường nét trông giống 'tổng biên tập' chứ không phải 'tiệm thuốc'.",
         },
         {
           heading: "Trực tiếp, có chủ đích",
@@ -265,20 +265,20 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Thiết kế tại studio, làm để bền lâu",
-          body: "Mỗi gọng lool bắt đầu từ một bản phác ở studio của chúng tôi tại Milan và Tokyo. Bản lề được kiểm tra qua 20,000 chu kỳ. Tròng kính được cắt tại các phòng lab đạt chuẩn ISO. Chúng tôi đứng sau tất cả với bảo hành 365 ngày và điều chỉnh miễn phí trọn đời.",
+          body: "Mỗi gọng loollook bắt đầu từ một bản phác ở studio của chúng tôi tại Milan và Tokyo. Bản lề được kiểm tra qua 20,000 chu kỳ. Tròng kính được cắt tại các phòng lab đạt chuẩn ISO. Chúng tôi đứng sau tất cả với bảo hành 365 ngày và điều chỉnh miễn phí trọn đời.",
         },
       ],
       cta: { label: "Khám phá bộ sưu tập", to: "/products" },
     },
     th: {
       eyebrow: "เรื่องราวของเรา",
-      title: "เกี่ยวกับ lool",
+      title: "เกี่ยวกับ loollook",
       intro:
-        "เราเริ่ม lool เพราะแว่นตาสำหรับคนวัย 45+ สมควรได้รับสิ่งที่ดีกว่า — กรอบที่เบากว่า เลนส์ที่คมชัดกว่า และราคาที่ไม่ดูถูกสติปัญญาของคุณ",
+        "เราเริ่ม loollook เพราะแว่นตาสำหรับคนวัย 45+ สมควรได้รับสิ่งที่ดีกว่า — กรอบที่เบากว่า เลนส์ที่คมชัดกว่า และราคาที่ไม่ดูถูกสติปัญญาของคุณ",
       sections: [
         {
           heading: "มุมมองใหม่สำหรับดวงตาที่เปลี่ยนไปตามวัย",
-          body: "หลังอายุ 40 ดวงตาจะเปลี่ยนแปลง เราปฏิเสธที่จะยอมรับว่ากรอบ 'แว่นอ่าน' ที่เทอะทะคือทางเลือกเดียว lool ออกแบบแว่นสำหรับผู้สวมใส่ยุคใหม่วัย 45–60 โดยเฉพาะ — เลนส์โปรเกรสซีฟที่ดูไม่ออก ไทเทเนียมที่เบาราวกับไร้น้ำหนัก และทรงที่ดูเหมือน 'บรรณาธิการ' ไม่ใช่ 'ร้านขายยา'",
+          body: "หลังอายุ 40 ดวงตาจะเปลี่ยนแปลง เราปฏิเสธที่จะยอมรับว่ากรอบ 'แว่นอ่าน' ที่เทอะทะคือทางเลือกเดียว loollook ออกแบบแว่นสำหรับผู้สวมใส่ยุคใหม่วัย 45–60 โดยเฉพาะ — เลนส์โปรเกรสซีฟที่ดูไม่ออก ไทเทเนียมที่เบาราวกับไร้น้ำหนัก และทรงที่ดูเหมือน 'บรรณาธิการ' ไม่ใช่ 'ร้านขายยา'",
         },
         {
           heading: "ตรงถึงคุณอย่างตั้งใจ",
@@ -286,20 +286,20 @@ const REGISTRY: Registry = {
         },
         {
           heading: "ออกแบบในสตูดิโอ ทำมาให้ใช้ทน",
-          body: "ทุกกรอบ lool เริ่มต้นจากภาพร่างในสตูดิโอของเราที่ Milan และ Tokyo บานพับผ่านการทดสอบ 20,000 รอบ เลนส์ถูกตัดในห้องแล็บที่ได้รับการรับรอง ISO เรารับประกันทุกอย่างด้วยการรับประกัน 365 วันและบริการปรับฟิตฟรีตลอดอายุการใช้งาน",
+          body: "ทุกกรอบ loollook เริ่มต้นจากภาพร่างในสตูดิโอของเราที่ Milan และ Tokyo บานพับผ่านการทดสอบ 20,000 รอบ เลนส์ถูกตัดในห้องแล็บที่ได้รับการรับรอง ISO เรารับประกันทุกอย่างด้วยการรับประกัน 365 วันและบริการปรับฟิตฟรีตลอดอายุการใช้งาน",
         },
       ],
       cta: { label: "เลือกซื้อคอลเลกชัน", to: "/products" },
     },
     id: {
       eyebrow: "Kisah Kami",
-      title: "Tentang lool",
+      title: "Tentang loollook",
       intro:
-        "Kami memulai lool karena kacamata untuk generasi 45+ pantas mendapat yang lebih baik — bingkai lebih ringan, lensa lebih tajam, dan harga yang tidak meremehkan kecerdasan Anda.",
+        "Kami memulai loollook karena kacamata untuk generasi 45+ pantas mendapat yang lebih baik — bingkai lebih ringan, lensa lebih tajam, dan harga yang tidak meremehkan kecerdasan Anda.",
       sections: [
         {
           heading: "Pandangan baru untuk mata yang menua",
-          body: "Setelah usia 40, mata mengalami perubahan. Kami menolak menerima bingkai 'baca' yang kaku sebagai satu-satunya pilihan. lool merancang kacamata khusus untuk pemakai modern usia 45–60 — optik progresif yang halus, titanium tanpa beban, dan siluet yang berkesan 'editor', bukan 'apotek'.",
+          body: "Setelah usia 40, mata mengalami perubahan. Kami menolak menerima bingkai 'baca' yang kaku sebagai satu-satunya pilihan. loollook merancang kacamata khusus untuk pemakai modern usia 45–60 — optik progresif yang halus, titanium tanpa beban, dan siluet yang berkesan 'editor', bukan 'apotek'.",
         },
         {
           heading: "Langsung, dengan tujuan",
@@ -307,20 +307,20 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Dirancang di studio, dibuat untuk tahan lama",
-          body: "Setiap bingkai lool dimulai sebagai sketsa di studio kami di Milan dan Tokyo. Engsel diuji hingga 20.000 siklus. Lensa dipotong di laboratorium bersertifikasi ISO. Kami menjamin semuanya dengan garansi 365 hari dan penyetelan gratis seumur hidup.",
+          body: "Setiap bingkai loollook dimulai sebagai sketsa di studio kami di Milan dan Tokyo. Engsel diuji hingga 20.000 siklus. Lensa dipotong di laboratorium bersertifikasi ISO. Kami menjamin semuanya dengan garansi 365 hari dan penyetelan gratis seumur hidup.",
         },
       ],
       cta: { label: "Lihat koleksi", to: "/products" },
     },
     ms: {
       eyebrow: "Kisah Kami",
-      title: "Tentang lool",
+      title: "Tentang loollook",
       intro:
-        "Kami memulakan lool kerana cermin mata untuk generasi 45+ berhak mendapat yang lebih baik — bingkai lebih ringan, kanta lebih tajam, dan harga yang tidak menghina kebijaksanaan anda.",
+        "Kami memulakan loollook kerana cermin mata untuk generasi 45+ berhak mendapat yang lebih baik — bingkai lebih ringan, kanta lebih tajam, dan harga yang tidak menghina kebijaksanaan anda.",
       sections: [
         {
           heading: "Pandangan baharu untuk mata yang menua",
-          body: "Selepas usia 40, mata berubah. Kami enggan menerima bingkai 'baca' yang kekok sebagai satu-satunya pilihan. lool mereka cermin mata khusus untuk pemakai moden berusia 45–60 — optik progresif yang halus, titanium yang seringan bulu, dan bentuk yang kelihatan seperti 'editor', bukan 'farmasi'.",
+          body: "Selepas usia 40, mata berubah. Kami enggan menerima bingkai 'baca' yang kekok sebagai satu-satunya pilihan. loollook mereka cermin mata khusus untuk pemakai moden berusia 45–60 — optik progresif yang halus, titanium yang seringan bulu, dan bentuk yang kelihatan seperti 'editor', bukan 'farmasi'.",
         },
         {
           heading: "Terus kepada anda, dengan tujuan",
@@ -328,7 +328,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Direka di studio, dibuat untuk tahan lama",
-          body: "Setiap bingkai lool bermula sebagai lakaran di studio kami di Milan dan Tokyo. Engsel diuji sehingga 20,000 kitaran. Kanta dipotong di makmal yang diperakui ISO. Kami menyokong semuanya dengan jaminan 365 hari dan pelarasan percuma seumur hidup.",
+          body: "Setiap bingkai loollook bermula sebagai lakaran di studio kami di Milan dan Tokyo. Engsel diuji sehingga 20,000 kitaran. Kanta dipotong di makmal yang diperakui ISO. Kami menyokong semuanya dengan jaminan 365 hari dan pelarasan percuma seumur hidup.",
         },
       ],
       cta: { label: "Lihat koleksi", to: "/products" },
@@ -336,14 +336,14 @@ const REGISTRY: Registry = {
   },
   "why-lool": {
     en: {
-      eyebrow: "The lool Difference",
-      title: "Why choose lool",
+      eyebrow: "The loollook Difference",
+      title: "Why choose loollook",
       intro:
         "Five reasons we’re becoming the eyewear of choice for designers, doctors, and discerning readers.",
       sections: [
         {
           heading: "Featherlight frames",
-          body: "Most lool frames weigh under 12 grams — about half a standard pair. You’ll forget you’re wearing them.",
+          body: "Most loollook frames weigh under 12 grams — about half a standard pair. You’ll forget you’re wearing them.",
         },
         {
           heading: "Lenses included, always",
@@ -365,13 +365,13 @@ const REGISTRY: Registry = {
       cta: { label: "Browse all frames", to: "/products" },
     },
     zh: {
-      eyebrow: "lool 的不同",
-      title: "为什么选择 lool",
+      eyebrow: "loollook 的不同",
+      title: "为什么选择 loollook",
       intro: "我们成为设计师、医生与挑剔读者首选眼镜的五个理由。",
       sections: [
         {
           heading: "羽轻镜架",
-          body: "大多数 lool 镜架重量低于 12 克——约为标准眼镜的一半。戴上去就像没有戴。",
+          body: "大多数 loollook 镜架重量低于 12 克——约为标准眼镜的一半。戴上去就像没有戴。",
         },
         {
           heading: "镜片标配",
@@ -393,14 +393,14 @@ const REGISTRY: Registry = {
       cta: { label: "浏览所有镜架", to: "/products" },
     },
     es: {
-      eyebrow: "La diferencia lool",
-      title: "Por qué elegir lool",
+      eyebrow: "La diferencia loollook",
+      title: "Por qué elegir loollook",
       intro:
         "Cinco razones por las que nos estamos convirtiendo en las gafas favoritas de diseñadores, médicos y lectores exigentes.",
       sections: [
         {
           heading: "Monturas ligeras como una pluma",
-          body: "La mayoría de las monturas lool pesan menos de 12 gramos, aproximadamente la mitad de un par estándar. Olvidarás que las llevas puestas.",
+          body: "La mayoría de las monturas loollook pesan menos de 12 gramos, aproximadamente la mitad de un par estándar. Olvidarás que las llevas puestas.",
         },
         {
           heading: "Cristales incluidos, siempre",
@@ -422,14 +422,14 @@ const REGISTRY: Registry = {
       cta: { label: "Ver todas las monturas", to: "/products" },
     },
     fr: {
-      eyebrow: "La différence lool",
-      title: "Pourquoi choisir lool",
+      eyebrow: "La différence loollook",
+      title: "Pourquoi choisir loollook",
       intro:
         "Cinq raisons pour lesquelles nous devenons les lunettes préférées des designers, des médecins et des lecteurs exigeants.",
       sections: [
         {
           heading: "Montures plumes",
-          body: "La plupart des montures lool pèsent moins de 12 grammes — environ la moitié d’une paire standard. Vous oublierez que vous les portez.",
+          body: "La plupart des montures loollook pèsent moins de 12 grammes — environ la moitié d’une paire standard. Vous oublierez que vous les portez.",
         },
         {
           heading: "Verres toujours inclus",
@@ -451,14 +451,14 @@ const REGISTRY: Registry = {
       cta: { label: "Voir toutes les montures", to: "/products" },
     },
     de: {
-      eyebrow: "Der lool-Unterschied",
-      title: "Warum lool",
+      eyebrow: "Der loollook-Unterschied",
+      title: "Warum loollook",
       intro:
         "Fünf Gründe, warum wir die Brille der Wahl für Designerinnen, Ärzte und anspruchsvolle Leser werden.",
       sections: [
         {
           heading: "Federleichte Fassungen",
-          body: "Die meisten lool-Fassungen wiegen unter 12 Gramm — etwa die Hälfte einer Standardbrille. Du vergisst, dass du sie trägst.",
+          body: "Die meisten loollook-Fassungen wiegen unter 12 Gramm — etwa die Hälfte einer Standardbrille. Du vergisst, dass du sie trägst.",
         },
         {
           heading: "Gläser immer inklusive",
@@ -480,14 +480,14 @@ const REGISTRY: Registry = {
       cta: { label: "Alle Fassungen ansehen", to: "/products" },
     },
     it: {
-      eyebrow: "La differenza lool",
-      title: "Perché scegliere lool",
+      eyebrow: "La differenza loollook",
+      title: "Perché scegliere loollook",
       intro:
         "Cinque ragioni per cui stiamo diventando gli occhiali preferiti di designer, medici e lettori esigenti.",
       sections: [
         {
           heading: "Montature leggerissime",
-          body: "La maggior parte delle montature lool pesa meno di 12 grammi — circa la metà di un paio standard. Ti dimenticherai di indossarle.",
+          body: "La maggior parte delle montature loollook pesa meno di 12 grammi — circa la metà di un paio standard. Ti dimenticherai di indossarle.",
         },
         {
           heading: "Lenti sempre incluse",
@@ -509,14 +509,14 @@ const REGISTRY: Registry = {
       cta: { label: "Tutte le montature", to: "/products" },
     },
     pt: {
-      eyebrow: "A diferença lool",
-      title: "Por que escolher a lool",
+      eyebrow: "A diferença loollook",
+      title: "Por que escolher a loollook",
       intro:
         "Cinco razões pelas quais estamos nos tornando os óculos preferidos de designers, médicos e leitores exigentes.",
       sections: [
         {
           heading: "Armações leves como uma pena",
-          body: "A maior parte das armações lool pesa menos de 12 gramas — cerca da metade de um par padrão. Você vai esquecer que está usando.",
+          body: "A maior parte das armações loollook pesa menos de 12 gramas — cerca da metade de um par padrão. Você vai esquecer que está usando.",
         },
         {
           heading: "Lentes sempre incluídas",
@@ -538,14 +538,14 @@ const REGISTRY: Registry = {
       cta: { label: "Ver todas as armações", to: "/products" },
     },
     ja: {
-      eyebrow: "lool の違い",
-      title: "lool が選ばれる理由",
+      eyebrow: "loollook の違い",
+      title: "loollook が選ばれる理由",
       intro:
-        "デザイナー、医師、目の肥えた読者から lool が選ばれている 5 つの理由をご紹介します。",
+        "デザイナー、医師、目の肥えた読者から loollook が選ばれている 5 つの理由をご紹介します。",
       sections: [
         {
           heading: "羽のような軽さのフレーム",
-          body: "lool のフレームのほとんどは 12 グラム未満。標準的なメガネの約半分の重さです。かけていることを忘れてしまうほどの軽さです。",
+          body: "loollook のフレームのほとんどは 12 グラム未満。標準的なメガネの約半分の重さです。かけていることを忘れてしまうほどの軽さです。",
         },
         {
           heading: "レンズは常に標準装備",
@@ -567,14 +567,14 @@ const REGISTRY: Registry = {
       cta: { label: "すべてのフレームを見る", to: "/products" },
     },
     ko: {
-      eyebrow: "lool의 차이",
-      title: "왜 lool인가",
+      eyebrow: "loollook의 차이",
+      title: "왜 loollook인가",
       intro:
-        "디자이너, 의사, 그리고 까다로운 안목의 독자들이 lool을 선택하는 다섯 가지 이유입니다.",
+        "디자이너, 의사, 그리고 까다로운 안목의 독자들이 loollook을 선택하는 다섯 가지 이유입니다.",
       sections: [
         {
           heading: "깃털처럼 가벼운 프레임",
-          body: "대부분의 lool 프레임은 12g 미만으로, 일반 안경의 약 절반 수준입니다. 쓰고 있다는 사실조차 잊게 됩니다.",
+          body: "대부분의 loollook 프레임은 12g 미만으로, 일반 안경의 약 절반 수준입니다. 쓰고 있다는 사실조차 잊게 됩니다.",
         },
         {
           heading: "렌즈는 언제나 포함",
@@ -596,14 +596,14 @@ const REGISTRY: Registry = {
       cta: { label: "모든 프레임 보기", to: "/products" },
     },
     ar: {
-      eyebrow: "الفرق مع lool",
-      title: "لماذا تختار lool",
+      eyebrow: "الفرق مع loollook",
+      title: "لماذا تختار loollook",
       intro:
         "خمسة أسباب جعلتنا الاختيار الأول للمصمّمين والأطباء والقرّاء أصحاب الذوق الدقيق.",
       sections: [
         {
           heading: "إطارات بخفّة الريشة",
-          body: "معظم إطارات lool يقلّ وزنها عن 12 غرامًا — أي نحو نصف وزن نظارة عادية. ستنسى أنك ترتديها.",
+          body: "معظم إطارات loollook يقلّ وزنها عن 12 غرامًا — أي نحو نصف وزن نظارة عادية. ستنسى أنك ترتديها.",
         },
         {
           heading: "العدسات مشمولة دائمًا",
@@ -625,14 +625,14 @@ const REGISTRY: Registry = {
       cta: { label: "تصفح كل الإطارات", to: "/products" },
     },
     vi: {
-      eyebrow: "Sự khác biệt của lool",
-      title: "Vì sao chọn lool",
+      eyebrow: "Sự khác biệt của loollook",
+      title: "Vì sao chọn loollook",
       intro:
         "Năm lý do khiến chúng tôi trở thành lựa chọn kính mắt của các nhà thiết kế, bác sĩ và những độc giả khó tính.",
       sections: [
         {
           heading: "Gọng nhẹ như lông vũ",
-          body: "Hầu hết gọng lool nặng dưới 12 gram — khoảng nửa trọng lượng của một cặp tiêu chuẩn. Bạn sẽ quên rằng mình đang đeo kính.",
+          body: "Hầu hết gọng loollook nặng dưới 12 gram — khoảng nửa trọng lượng của một cặp tiêu chuẩn. Bạn sẽ quên rằng mình đang đeo kính.",
         },
         {
           heading: "Tròng luôn được bao gồm",
@@ -654,14 +654,14 @@ const REGISTRY: Registry = {
       cta: { label: "Xem tất cả gọng", to: "/products" },
     },
     th: {
-      eyebrow: "ความแตกต่างของ lool",
-      title: "ทำไมต้องเลือก lool",
+      eyebrow: "ความแตกต่างของ loollook",
+      title: "ทำไมต้องเลือก loollook",
       intro:
         "ห้าเหตุผลที่ทำให้เรากลายเป็นแว่นตาที่นักออกแบบ แพทย์ และนักอ่านผู้พิถีพิถันเลือกใช้",
       sections: [
         {
           heading: "กรอบเบาเหมือนขนนก",
-          body: "กรอบ lool ส่วนใหญ่หนักไม่ถึง 12 กรัม — ประมาณครึ่งหนึ่งของแว่นมาตรฐานทั่วไป คุณจะลืมไปว่ากำลังสวมมันอยู่",
+          body: "กรอบ loollook ส่วนใหญ่หนักไม่ถึง 12 กรัม — ประมาณครึ่งหนึ่งของแว่นมาตรฐานทั่วไป คุณจะลืมไปว่ากำลังสวมมันอยู่",
         },
         {
           heading: "เลนส์รวมอยู่แล้วเสมอ",
@@ -683,14 +683,14 @@ const REGISTRY: Registry = {
       cta: { label: "ดูกรอบแว่นทั้งหมด", to: "/products" },
     },
     id: {
-      eyebrow: "Perbedaan lool",
-      title: "Mengapa memilih lool",
+      eyebrow: "Perbedaan loollook",
+      title: "Mengapa memilih loollook",
       intro:
         "Lima alasan kami menjadi kacamata pilihan para desainer, dokter, dan pembaca yang selektif.",
       sections: [
         {
           heading: "Bingkai seringan bulu",
-          body: "Kebanyakan bingkai lool beratnya di bawah 12 gram — sekitar separuh dari kacamata standar. Anda akan lupa sedang mengenakannya.",
+          body: "Kebanyakan bingkai loollook beratnya di bawah 12 gram — sekitar separuh dari kacamata standar. Anda akan lupa sedang mengenakannya.",
         },
         {
           heading: "Lensa selalu termasuk",
@@ -712,14 +712,14 @@ const REGISTRY: Registry = {
       cta: { label: "Jelajahi semua bingkai", to: "/products" },
     },
     ms: {
-      eyebrow: "Perbezaan lool",
-      title: "Mengapa pilih lool",
+      eyebrow: "Perbezaan loollook",
+      title: "Mengapa pilih loollook",
       intro:
         "Lima sebab kami menjadi pilihan cermin mata para pereka, doktor, dan pembaca yang teliti.",
       sections: [
         {
           heading: "Bingkai seringan bulu",
-          body: "Kebanyakan bingkai lool beratnya kurang daripada 12 gram — kira-kira separuh berat cermin mata standard. Anda akan terlupa bahawa anda sedang memakainya.",
+          body: "Kebanyakan bingkai loollook beratnya kurang daripada 12 gram — kira-kira separuh berat cermin mata standard. Anda akan terlupa bahawa anda sedang memakainya.",
         },
         {
           heading: "Kanta sentiasa disertakan",
@@ -744,7 +744,7 @@ const REGISTRY: Registry = {
   blog: {
     en: {
       eyebrow: "Stories",
-      title: "The lool Journal",
+      title: "The loollook Journal",
       intro:
         "Notes on style, science, and seeing well — written by our optometrists, designers, and editors.",
       sections: [
@@ -764,7 +764,7 @@ const REGISTRY: Registry = {
     },
     zh: {
       eyebrow: "故事专栏",
-      title: "lool 专栏",
+      title: "loollook 专栏",
       intro:
         "关于风格、科学与“看清楚”的思考——由我们的视光师、设计师与编辑撰写。",
       sections: [
@@ -784,7 +784,7 @@ const REGISTRY: Registry = {
     },
     es: {
       eyebrow: "Historias",
-      title: "El Diario lool",
+      title: "El Diario loollook",
       intro:
         "Notas sobre estilo, ciencia y ver bien, escritas por nuestros optometristas, diseñadores y editores.",
       sections: [
@@ -804,7 +804,7 @@ const REGISTRY: Registry = {
     },
     fr: {
       eyebrow: "Histoires",
-      title: "Le Journal lool",
+      title: "Le Journal loollook",
       intro:
         "Notes sur le style, la science et le bien-voir — écrites par nos optométristes, designers et rédacteurs.",
       sections: [
@@ -824,7 +824,7 @@ const REGISTRY: Registry = {
     },
     de: {
       eyebrow: "Geschichten",
-      title: "Das lool-Journal",
+      title: "Das loollook-Journal",
       intro:
         "Notizen zu Stil, Wissenschaft und gutem Sehen — geschrieben von unseren Augenoptikerinnen, Designern und Redakteuren.",
       sections: [
@@ -844,7 +844,7 @@ const REGISTRY: Registry = {
     },
     it: {
       eyebrow: "Storie",
-      title: "Il Giornale lool",
+      title: "Il Giornale loollook",
       intro:
         "Note su stile, scienza e visione — scritte dai nostri optometristi, designer ed editor.",
       sections: [
@@ -864,7 +864,7 @@ const REGISTRY: Registry = {
     },
     pt: {
       eyebrow: "Histórias",
-      title: "O Diário lool",
+      title: "O Diário loollook",
       intro:
         "Reflexões sobre estilo, ciência e enxergar bem — escritas por nossos optometristas, designers e editores.",
       sections: [
@@ -884,7 +884,7 @@ const REGISTRY: Registry = {
     },
     ja: {
       eyebrow: "ストーリー",
-      title: "lool ジャーナル",
+      title: "loollook ジャーナル",
       intro:
         "スタイル、サイエンス、そして「よく見る」ことについての記録。当社のオプトメトリスト、デザイナー、エディターが執筆しています。",
       sections: [
@@ -904,7 +904,7 @@ const REGISTRY: Registry = {
     },
     ko: {
       eyebrow: "스토리",
-      title: "lool 저널",
+      title: "loollook 저널",
       intro:
         "스타일, 과학, 그리고 잘 보는 것에 관한 이야기 — 저희 검안의, 디자이너, 에디터가 직접 씁니다.",
       sections: [
@@ -924,7 +924,7 @@ const REGISTRY: Registry = {
     },
     ar: {
       eyebrow: "قصص",
-      title: "مجلة lool",
+      title: "مجلة loollook",
       intro:
         "ملاحظات حول الأناقة والعلم والرؤية الجيدة — يكتبها أخصائيو البصريات والمصمّمون والمحرّرون لدينا.",
       sections: [
@@ -944,7 +944,7 @@ const REGISTRY: Registry = {
     },
     vi: {
       eyebrow: "Câu chuyện",
-      title: "Tạp chí lool",
+      title: "Tạp chí loollook",
       intro:
         "Những ghi chú về phong cách, khoa học và cách nhìn rõ — viết bởi các bác sĩ đo mắt, nhà thiết kế và biên tập viên của chúng tôi.",
       sections: [
@@ -964,7 +964,7 @@ const REGISTRY: Registry = {
     },
     th: {
       eyebrow: "เรื่องราว",
-      title: "lool Journal",
+      title: "loollook Journal",
       intro:
         "บันทึกเรื่องสไตล์ วิทยาศาสตร์ และการมองเห็นที่ดี — เขียนโดยนักทัศนมาตร นักออกแบบ และบรรณาธิการของเรา",
       sections: [
@@ -984,7 +984,7 @@ const REGISTRY: Registry = {
     },
     id: {
       eyebrow: "Cerita",
-      title: "Jurnal lool",
+      title: "Jurnal loollook",
       intro:
         "Catatan tentang gaya, sains, dan melihat dengan baik — ditulis oleh para optometris, desainer, dan editor kami.",
       sections: [
@@ -1004,7 +1004,7 @@ const REGISTRY: Registry = {
     },
     ms: {
       eyebrow: "Cerita",
-      title: "Jurnal lool",
+      title: "Jurnal loollook",
       intro:
         "Nota tentang gaya, sains, dan melihat dengan jelas — ditulis oleh ahli optometri, pereka, dan editor kami.",
       sections: [
@@ -1028,7 +1028,7 @@ const REGISTRY: Registry = {
       eyebrow: "Accessibility",
       title: "Accessibility statement",
       intro:
-        "lool is committed to ensuring lool.com is usable by everyone, including people with disabilities.",
+        "loollook is committed to ensuring loollook.com is usable by everyone, including people with disabilities.",
       sections: [
         {
           heading: "Our standard",
@@ -1047,7 +1047,7 @@ const REGISTRY: Registry = {
     zh: {
       eyebrow: "无障碍",
       title: "无障碍声明",
-      intro: "lool 致力于让 lool.com 对每一位用户都可用，包括残障人士。",
+      intro: "loollook 致力于让 loollook.com 对每一位用户都可用，包括残障人士。",
       sections: [
         {
           heading: "我们的标准",
@@ -1067,7 +1067,7 @@ const REGISTRY: Registry = {
       eyebrow: "Accesibilidad",
       title: "Declaración de accesibilidad",
       intro:
-        "lool se compromete a garantizar que lool.com sea usable por todas las personas, incluidas aquellas con discapacidad.",
+        "loollook se compromete a garantizar que loollook.com sea usable por todas las personas, incluidas aquellas con discapacidad.",
       sections: [
         {
           heading: "Nuestro estándar",
@@ -1087,7 +1087,7 @@ const REGISTRY: Registry = {
       eyebrow: "Accessibilité",
       title: "Déclaration d’accessibilité",
       intro:
-        "lool s’engage à rendre lool.com utilisable par toutes et tous, y compris les personnes en situation de handicap.",
+        "loollook s’engage à rendre loollook.com utilisable par toutes et tous, y compris les personnes en situation de handicap.",
       sections: [
         {
           heading: "Notre standard",
@@ -1107,7 +1107,7 @@ const REGISTRY: Registry = {
       eyebrow: "Barrierefreiheit",
       title: "Erklärung zur Barrierefreiheit",
       intro:
-        "lool setzt sich dafür ein, dass lool.com für alle nutzbar ist — auch für Menschen mit Behinderungen.",
+        "loollook setzt sich dafür ein, dass loollook.com für alle nutzbar ist — auch für Menschen mit Behinderungen.",
       sections: [
         {
           heading: "Unser Standard",
@@ -1127,7 +1127,7 @@ const REGISTRY: Registry = {
       eyebrow: "Accessibilità",
       title: "Dichiarazione di accessibilità",
       intro:
-        "lool si impegna a rendere lool.com utilizzabile da chiunque, comprese le persone con disabilità.",
+        "loollook si impegna a rendere loollook.com utilizzabile da chiunque, comprese le persone con disabilità.",
       sections: [
         {
           heading: "Il nostro standard",
@@ -1147,7 +1147,7 @@ const REGISTRY: Registry = {
       eyebrow: "Acessibilidade",
       title: "Declaração de acessibilidade",
       intro:
-        "A lool tem o compromisso de garantir que o lool.com seja utilizável por todas as pessoas, incluindo pessoas com deficiência.",
+        "A loollook tem o compromisso de garantir que o loollook.com seja utilizável por todas as pessoas, incluindo pessoas com deficiência.",
       sections: [
         {
           heading: "Nosso padrão",
@@ -1167,7 +1167,7 @@ const REGISTRY: Registry = {
       eyebrow: "アクセシビリティ",
       title: "アクセシビリティに関する声明",
       intro:
-        "lool は、障がいのある方を含むすべての方が lool.com をご利用いただけるよう取り組んでいます。",
+        "loollook は、障がいのある方を含むすべての方が loollook.com をご利用いただけるよう取り組んでいます。",
       sections: [
         {
           heading: "基準",
@@ -1187,7 +1187,7 @@ const REGISTRY: Registry = {
       eyebrow: "접근성",
       title: "접근성 선언문",
       intro:
-        "lool은 장애가 있는 분들을 포함해 모든 사용자가 lool.com을 이용할 수 있도록 노력하고 있습니다.",
+        "loollook은 장애가 있는 분들을 포함해 모든 사용자가 loollook.com을 이용할 수 있도록 노력하고 있습니다.",
       sections: [
         {
           heading: "기준",
@@ -1207,7 +1207,7 @@ const REGISTRY: Registry = {
       eyebrow: "إمكانية الوصول",
       title: "بيان إمكانية الوصول",
       intro:
-        "تلتزم lool بضمان أن يكون lool.com قابلًا للاستخدام من قِبل الجميع، بمن فيهم الأشخاص ذوو الإعاقة.",
+        "تلتزم loollook بضمان أن يكون loollook.com قابلًا للاستخدام من قِبل الجميع، بمن فيهم الأشخاص ذوو الإعاقة.",
       sections: [
         {
           heading: "معاييرنا",
@@ -1227,7 +1227,7 @@ const REGISTRY: Registry = {
       eyebrow: "Khả năng tiếp cận",
       title: "Tuyên bố về khả năng tiếp cận",
       intro:
-        "lool cam kết đảm bảo lool.com sử dụng được cho mọi người, bao gồm cả người khuyết tật.",
+        "loollook cam kết đảm bảo loollook.com sử dụng được cho mọi người, bao gồm cả người khuyết tật.",
       sections: [
         {
           heading: "Tiêu chuẩn của chúng tôi",
@@ -1247,7 +1247,7 @@ const REGISTRY: Registry = {
       eyebrow: "การเข้าถึง",
       title: "ข้อความว่าด้วยการเข้าถึง",
       intro:
-        "lool มุ่งมั่นที่จะทำให้ lool.com ใช้งานได้สำหรับทุกคน รวมถึงผู้พิการ",
+        "loollook มุ่งมั่นที่จะทำให้ loollook.com ใช้งานได้สำหรับทุกคน รวมถึงผู้พิการ",
       sections: [
         {
           heading: "มาตรฐานของเรา",
@@ -1267,7 +1267,7 @@ const REGISTRY: Registry = {
       eyebrow: "Aksesibilitas",
       title: "Pernyataan aksesibilitas",
       intro:
-        "lool berkomitmen memastikan lool.com dapat digunakan oleh semua orang, termasuk penyandang disabilitas.",
+        "loollook berkomitmen memastikan loollook.com dapat digunakan oleh semua orang, termasuk penyandang disabilitas.",
       sections: [
         {
           heading: "Standar kami",
@@ -1287,7 +1287,7 @@ const REGISTRY: Registry = {
       eyebrow: "Kebolehcapaian",
       title: "Kenyataan kebolehcapaian",
       intro:
-        "lool komited memastikan lool.com boleh digunakan oleh semua orang, termasuk orang kurang upaya.",
+        "loollook komited memastikan loollook.com boleh digunakan oleh semua orang, termasuk orang kurang upaya.",
       sections: [
         {
           heading: "Standard kami",
@@ -1633,7 +1633,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Coatings worth paying for",
-          body: "Anti-reflective, anti-scratch, and UV-blocking coatings come standard at lool. Add blue-light filtering if you spend more than 4 hours per day on screens.",
+          body: "Anti-reflective, anti-scratch, and UV-blocking coatings come standard at loollook. Add blue-light filtering if you spend more than 4 hours per day on screens.",
         },
         {
           heading: "Color & material",
@@ -1657,7 +1657,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "值得加配的镀膜",
-          body: "防眩光、防刮、UV 防护是 lool 的标配。如果你每天使用屏幕超过 4 小时，再加一层防蓝光。",
+          body: "防眩光、防刮、UV 防护是 loollook 的标配。如果你每天使用屏幕超过 4 小时，再加一层防蓝光。",
         },
         {
           heading: "颜色与材质",
@@ -1682,7 +1682,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Tratamientos que valen la pena",
-          body: "Los tratamientos antirreflejante, antirrayadura y anti-UV vienen de serie en lool. Añade el filtro de luz azul si pasas más de 4 horas diarias frente a pantallas.",
+          body: "Los tratamientos antirreflejante, antirrayadura y anti-UV vienen de serie en loollook. Añade el filtro de luz azul si pasas más de 4 horas diarias frente a pantallas.",
         },
         {
           heading: "Color y material",
@@ -1707,7 +1707,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Traitements qui valent leur prix",
-          body: "Les traitements antireflet, antirayure et anti-UV sont inclus de série chez lool. Ajoutez un filtre lumière bleue si vous passez plus de 4 heures par jour devant un écran.",
+          body: "Les traitements antireflet, antirayure et anti-UV sont inclus de série chez loollook. Ajoutez un filtre lumière bleue si vous passez plus de 4 heures par jour devant un écran.",
         },
         {
           heading: "Couleur & matière",
@@ -1732,7 +1732,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Beschichtungen, die sich lohnen",
-          body: "Entspiegelung, Kratzschutz und UV-Schutz sind bei lool Standard. Ergänze einen Blaulichtfilter, wenn du mehr als 4 Stunden pro Tag am Bildschirm verbringst.",
+          body: "Entspiegelung, Kratzschutz und UV-Schutz sind bei loollook Standard. Ergänze einen Blaulichtfilter, wenn du mehr als 4 Stunden pro Tag am Bildschirm verbringst.",
         },
         {
           heading: "Farbe & Material",
@@ -1757,7 +1757,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Trattamenti che valgono il prezzo",
-          body: "I trattamenti antiriflesso, antigraffio e anti-UV sono di serie su lool. Aggiungi il filtro anti luce blu se passi più di 4 ore al giorno davanti agli schermi.",
+          body: "I trattamenti antiriflesso, antigraffio e anti-UV sono di serie su loollook. Aggiungi il filtro anti luce blu se passi più di 4 ore al giorno davanti agli schermi.",
         },
         {
           heading: "Colore e materiale",
@@ -1782,7 +1782,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Tratamentos que valem o investimento",
-          body: "Tratamentos antirreflexo, antirrisco e anti-UV vêm de série na lool. Adicione filtro de luz azul se você passa mais de 4 horas por dia em telas.",
+          body: "Tratamentos antirreflexo, antirrisco e anti-UV vêm de série na loollook. Adicione filtro de luz azul se você passa mais de 4 horas por dia em telas.",
         },
         {
           heading: "Cor e material",
@@ -1807,7 +1807,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "価値あるコーティング",
-          body: "反射防止、傷防止、UV カットの各コーティングは lool の標準仕様です。1 日 4 時間以上画面を見る方はブルーライトカットを追加することをおすすめします。",
+          body: "反射防止、傷防止、UV カットの各コーティングは loollook の標準仕様です。1 日 4 時間以上画面を見る方はブルーライトカットを追加することをおすすめします。",
         },
         {
           heading: "色と素材",
@@ -1832,7 +1832,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "투자할 만한 코팅",
-          body: "반사 방지, 긁힘 방지, 자외선 차단 코팅은 lool의 기본 사양입니다. 하루 4시간 이상 화면을 본다면 블루라이트 필터링도 추가하세요.",
+          body: "반사 방지, 긁힘 방지, 자외선 차단 코팅은 loollook의 기본 사양입니다. 하루 4시간 이상 화면을 본다면 블루라이트 필터링도 추가하세요.",
         },
         {
           heading: "색상 & 소재",
@@ -1857,7 +1857,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "الطلاءات التي تستحق الدفع",
-          body: "الطلاءات المضادة للانعكاس والمقاومة للخدش والحاجبة للأشعة فوق البنفسجية قياسية لدى lool. أضِف فلتر الضوء الأزرق إذا كنت تقضي أكثر من 4 ساعات يوميًا أمام الشاشات.",
+          body: "الطلاءات المضادة للانعكاس والمقاومة للخدش والحاجبة للأشعة فوق البنفسجية قياسية لدى loollook. أضِف فلتر الضوء الأزرق إذا كنت تقضي أكثر من 4 ساعات يوميًا أمام الشاشات.",
         },
         {
           heading: "اللون والخامة",
@@ -1882,7 +1882,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Lớp phủ đáng để chi",
-          body: "Chống chói, chống xước và chống UV là tiêu chuẩn ở lool. Thêm lớp lọc ánh sáng xanh nếu bạn dùng màn hình hơn 4 tiếng mỗi ngày.",
+          body: "Chống chói, chống xước và chống UV là tiêu chuẩn ở loollook. Thêm lớp lọc ánh sáng xanh nếu bạn dùng màn hình hơn 4 tiếng mỗi ngày.",
         },
         {
           heading: "Màu sắc & chất liệu",
@@ -1907,7 +1907,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "การเคลือบที่คุ้มค่า",
-          body: "การเคลือบป้องกันแสงสะท้อน กันรอย และกัน UV เป็นมาตรฐานของ lool เพิ่มฟิลเตอร์กันแสงสีฟ้าหากคุณใช้หน้าจอเกิน 4 ชั่วโมงต่อวัน",
+          body: "การเคลือบป้องกันแสงสะท้อน กันรอย และกัน UV เป็นมาตรฐานของ loollook เพิ่มฟิลเตอร์กันแสงสีฟ้าหากคุณใช้หน้าจอเกิน 4 ชั่วโมงต่อวัน",
         },
         {
           heading: "สี & วัสดุ",
@@ -1932,7 +1932,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Pelapis yang sebanding dengan biayanya",
-          body: "Lapisan anti-pantul, anti-gores, dan anti-UV sudah standar di lool. Tambahkan filter cahaya biru jika Anda menatap layar lebih dari 4 jam per hari.",
+          body: "Lapisan anti-pantul, anti-gores, dan anti-UV sudah standar di loollook. Tambahkan filter cahaya biru jika Anda menatap layar lebih dari 4 jam per hari.",
         },
         {
           heading: "Warna & material",
@@ -1957,7 +1957,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Salutan yang berbaloi",
-          body: "Salutan anti-pantulan, anti-calar dan anti-UV adalah standard di lool. Tambah penapis cahaya biru jika anda menggunakan skrin lebih daripada 4 jam sehari.",
+          body: "Salutan anti-pantulan, anti-calar dan anti-UV adalah standard di loollook. Tambah penapis cahaya biru jika anda menggunakan skrin lebih daripada 4 jam sehari.",
         },
         {
           heading: "Warna & bahan",
@@ -2617,7 +2617,7 @@ const REGISTRY: Registry = {
   rewards: {
     en: {
       eyebrow: "Loyalty Program",
-      title: "lool Rewards",
+      title: "loollook Rewards",
       intro:
         "Earn 1 point for every $1 you spend, plus bonus points for reviews, referrals, and your birthday. Redeem points for free upgrades, gifts, and exclusive frames.",
       sections: [
@@ -2638,7 +2638,7 @@ const REGISTRY: Registry = {
     },
     zh: {
       eyebrow: "会员计划",
-      title: "lool 会员奖励",
+      title: "loollook 会员奖励",
       intro:
         "每消费 1 美元得 1 积分，再加上评价、推荐与生日的额外奖励。积分可兑换免费升级、礼品与限定镜架。",
       sections: [
@@ -2659,7 +2659,7 @@ const REGISTRY: Registry = {
     },
     es: {
       eyebrow: "Programa de fidelidad",
-      title: "Recompensas lool",
+      title: "Recompensas loollook",
       intro:
         "Gana 1 punto por cada $1 que gastes, además de puntos extra por reseñas, recomendaciones y tu cumpleaños. Canjea puntos por mejoras gratuitas, regalos y monturas exclusivas.",
       sections: [
@@ -2680,7 +2680,7 @@ const REGISTRY: Registry = {
     },
     fr: {
       eyebrow: "Programme de fidélité",
-      title: "Récompenses lool",
+      title: "Récompenses loollook",
       intro:
         "Gagnez 1 point pour chaque $1 dépensé, plus des points bonus pour les avis, les parrainages et votre anniversaire. Échangez vos points contre des upgrades gratuits, des cadeaux et des montures exclusives.",
       sections: [
@@ -2701,7 +2701,7 @@ const REGISTRY: Registry = {
     },
     de: {
       eyebrow: "Treueprogramm",
-      title: "lool Rewards",
+      title: "loollook Rewards",
       intro:
         "Sammle 1 Punkt für jeden ausgegebenen $1, plus Bonuspunkte für Bewertungen, Empfehlungen und deinen Geburtstag. Löse Punkte gegen kostenlose Upgrades, Geschenke und exklusive Fassungen ein.",
       sections: [
@@ -2722,7 +2722,7 @@ const REGISTRY: Registry = {
     },
     it: {
       eyebrow: "Programma fedeltà",
-      title: "Premi lool",
+      title: "Premi loollook",
       intro:
         "Guadagna 1 punto per ogni $1 speso, più punti bonus per recensioni, inviti e per il tuo compleanno. Riscatta i punti per upgrade gratuiti, regali e montature esclusive.",
       sections: [
@@ -2743,7 +2743,7 @@ const REGISTRY: Registry = {
     },
     pt: {
       eyebrow: "Programa de fidelidade",
-      title: "Recompensas lool",
+      title: "Recompensas loollook",
       intro:
         "Ganhe 1 ponto a cada $1 gasto, além de pontos bônus por avaliações, indicações e aniversário. Troque seus pontos por upgrades gratuitos, presentes e armações exclusivas.",
       sections: [
@@ -2764,7 +2764,7 @@ const REGISTRY: Registry = {
     },
     ja: {
       eyebrow: "ロイヤルティプログラム",
-      title: "lool リワード",
+      title: "loollook リワード",
       intro:
         "$1 のお買い物ごとに 1 ポイント獲得、さらにレビュー、紹介、お誕生日にはボーナスポイントも。貯めたポイントは無料アップグレード、ギフト、限定フレームと交換できます。",
       sections: [
@@ -2785,7 +2785,7 @@ const REGISTRY: Registry = {
     },
     ko: {
       eyebrow: "로열티 프로그램",
-      title: "lool 리워드",
+      title: "loollook 리워드",
       intro:
         "$1를 쓸 때마다 1포인트를 적립하세요. 리뷰, 친구 추천, 생일에는 보너스 포인트가 더해집니다. 포인트는 무료 업그레이드, 선물, 한정 프레임으로 교환할 수 있습니다.",
       sections: [
@@ -2806,7 +2806,7 @@ const REGISTRY: Registry = {
     },
     ar: {
       eyebrow: "برنامج الولاء",
-      title: "مكافآت lool",
+      title: "مكافآت loollook",
       intro:
         "اكسب نقطة واحدة عن كل $1 تنفقه، إضافةً إلى نقاط إضافية على التقييمات والإحالات وعيد ميلادك. استبدل النقاط بترقيات مجانية وهدايا وإطارات حصرية.",
       sections: [
@@ -2827,7 +2827,7 @@ const REGISTRY: Registry = {
     },
     vi: {
       eyebrow: "Chương trình khách hàng thân thiết",
-      title: "lool Rewards",
+      title: "loollook Rewards",
       intro:
         "Nhận 1 điểm cho mỗi $1 chi tiêu, cộng thêm điểm thưởng cho đánh giá, giới thiệu và sinh nhật. Đổi điểm lấy nâng cấp miễn phí, quà tặng và những chiếc gọng độc quyền.",
       sections: [
@@ -2848,7 +2848,7 @@ const REGISTRY: Registry = {
     },
     th: {
       eyebrow: "โปรแกรมสมาชิก",
-      title: "lool Rewards",
+      title: "loollook Rewards",
       intro:
         "รับ 1 คะแนนทุก ๆ $1 ที่ใช้จ่าย พร้อมคะแนนพิเศษสำหรับการรีวิว แนะนำเพื่อน และวันเกิด แลกคะแนนเป็นการอัปเกรดฟรี ของขวัญ และกรอบแว่นรุ่นพิเศษเฉพาะสมาชิก",
       sections: [
@@ -2869,7 +2869,7 @@ const REGISTRY: Registry = {
     },
     id: {
       eyebrow: "Program loyalitas",
-      title: "lool Rewards",
+      title: "loollook Rewards",
       intro:
         "Dapatkan 1 poin untuk setiap $1 yang Anda belanjakan, plus poin bonus untuk ulasan, rekomendasi, dan ulang tahun Anda. Tukar poin dengan upgrade gratis, hadiah, dan bingkai eksklusif.",
       sections: [
@@ -2890,7 +2890,7 @@ const REGISTRY: Registry = {
     },
     ms: {
       eyebrow: "Program kesetiaan",
-      title: "lool Rewards",
+      title: "loollook Rewards",
       intro:
         "Dapatkan 1 mata untuk setiap $1 yang anda belanjakan, tambah mata bonus untuk ulasan, rujukan, dan hari jadi anda. Tebus mata untuk naik taraf percuma, hadiah, dan bingkai eksklusif.",
       sections: [
@@ -2915,7 +2915,7 @@ const REGISTRY: Registry = {
       eyebrow: "Refer-a-Friend",
       title: "Give $20, get $20",
       intro:
-        "Share lool with the people in your life. They’ll get $20 off their first pair, and we’ll send you $20 in credit the moment their order ships.",
+        "Share loollook with the people in your life. They’ll get $20 off their first pair, and we’ll send you $20 in credit the moment their order ships.",
       sections: [
         {
           heading: "How to refer",
@@ -2940,7 +2940,7 @@ const REGISTRY: Registry = {
       eyebrow: "邀请好友",
       title: "送 20 美元，得 20 美元",
       intro:
-        "把 lool 分享给身边的人。他们首次购买减 20 美元，订单一发货你就能获得 20 美元店内积分。",
+        "把 loollook 分享给身边的人。他们首次购买减 20 美元，订单一发货你就能获得 20 美元店内积分。",
       sections: [
         {
           heading: "如何邀请",
@@ -2965,7 +2965,7 @@ const REGISTRY: Registry = {
       eyebrow: "Recomienda a un amigo",
       title: "Da $20, recibe $20",
       intro:
-        "Comparte lool con las personas de tu vida. Recibirán $20 de descuento en su primer par y te enviaremos $20 en crédito en cuanto se envíe su pedido.",
+        "Comparte loollook con las personas de tu vida. Recibirán $20 de descuento en su primer par y te enviaremos $20 en crédito en cuanto se envíe su pedido.",
       sections: [
         {
           heading: "Cómo recomendar",
@@ -2990,7 +2990,7 @@ const REGISTRY: Registry = {
       eyebrow: "Parrainez un ami",
       title: "Offrez 20 $, recevez 20 $",
       intro:
-        "Partagez lool avec vos proches. Ils obtiennent $20 de remise sur leur première paire, et nous vous créditons $20 dès l’expédition de leur commande.",
+        "Partagez loollook avec vos proches. Ils obtiennent $20 de remise sur leur première paire, et nous vous créditons $20 dès l’expédition de leur commande.",
       sections: [
         {
           heading: "Comment parrainer",
@@ -3015,7 +3015,7 @@ const REGISTRY: Registry = {
       eyebrow: "Freunde werben",
       title: "Verschenke 20 $, erhalte 20 $",
       intro:
-        "Teile lool mit den Menschen in deinem Leben. Sie bekommen $20 Rabatt auf ihre erste Brille, und wir schreiben dir $20 Guthaben gut, sobald ihre Bestellung versandt wird.",
+        "Teile loollook mit den Menschen in deinem Leben. Sie bekommen $20 Rabatt auf ihre erste Brille, und wir schreiben dir $20 Guthaben gut, sobald ihre Bestellung versandt wird.",
       sections: [
         {
           heading: "So empfiehlst du",
@@ -3040,7 +3040,7 @@ const REGISTRY: Registry = {
       eyebrow: "Invita un amico",
       title: "Regala 20 $, ricevi 20 $",
       intro:
-        "Condividi lool con le persone della tua vita. Riceveranno $20 di sconto sul primo paio e a te invieremo $20 di credito nel momento in cui il loro ordine viene spedito.",
+        "Condividi loollook con le persone della tua vita. Riceveranno $20 di sconto sul primo paio e a te invieremo $20 di credito nel momento in cui il loro ordine viene spedito.",
       sections: [
         {
           heading: "Come invitare",
@@ -3065,7 +3065,7 @@ const REGISTRY: Registry = {
       eyebrow: "Indique um amigo",
       title: "Dê US$20, ganhe US$20",
       intro:
-        "Compartilhe a lool com as pessoas da sua vida. Elas ganham $20 de desconto no primeiro par, e enviamos $20 em crédito para você assim que o pedido for despachado.",
+        "Compartilhe a loollook com as pessoas da sua vida. Elas ganham $20 de desconto no primeiro par, e enviamos $20 em crédito para você assim que o pedido for despachado.",
       sections: [
         {
           heading: "Como indicar",
@@ -3090,7 +3090,7 @@ const REGISTRY: Registry = {
       eyebrow: "友達紹介",
       title: "$20 を贈って、$20 をもらう",
       intro:
-        "身近な方に lool をご紹介ください。お友達は初回購入で $20 OFF、そしてご注文が発送された瞬間に、あなたへ $20 のクレジットをお届けします。",
+        "身近な方に loollook をご紹介ください。お友達は初回購入で $20 OFF、そしてご注文が発送された瞬間に、あなたへ $20 のクレジットをお届けします。",
       sections: [
         {
           heading: "紹介の方法",
@@ -3115,7 +3115,7 @@ const REGISTRY: Registry = {
       eyebrow: "친구 추천",
       title: "$20 선물하고 $20 받기",
       intro:
-        "주변 사람들에게 lool을 소개해 보세요. 친구는 첫 구매 시 $20 할인을, 친구의 주문이 발송되는 순간 회원님께도 $20 스토어 크레딧이 적립됩니다.",
+        "주변 사람들에게 loollook을 소개해 보세요. 친구는 첫 구매 시 $20 할인을, 친구의 주문이 발송되는 순간 회원님께도 $20 스토어 크레딧이 적립됩니다.",
       sections: [
         {
           heading: "추천 방법",
@@ -3140,7 +3140,7 @@ const REGISTRY: Registry = {
       eyebrow: "أوصِ بصديق",
       title: "امنح 20$ واحصل على 20$",
       intro:
-        "شارك lool مع من حولك. سيحصلون على خصم $20 على نظارتهم الأولى، وسنرسل لك رصيدًا بقيمة $20 في اللحظة التي يُشحن فيها طلبهم.",
+        "شارك loollook مع من حولك. سيحصلون على خصم $20 على نظارتهم الأولى، وسنرسل لك رصيدًا بقيمة $20 في اللحظة التي يُشحن فيها طلبهم.",
       sections: [
         {
           heading: "كيف توصي",
@@ -3165,7 +3165,7 @@ const REGISTRY: Registry = {
       eyebrow: "Giới thiệu bạn bè",
       title: "Tặng $20, nhận $20",
       intro:
-        "Chia sẻ lool với những người thân thiết. Họ được giảm $20 cho lần mua đầu tiên, và chúng tôi sẽ gửi cho bạn $20 tín dụng ngay khi đơn của họ được gửi đi.",
+        "Chia sẻ loollook với những người thân thiết. Họ được giảm $20 cho lần mua đầu tiên, và chúng tôi sẽ gửi cho bạn $20 tín dụng ngay khi đơn của họ được gửi đi.",
       sections: [
         {
           heading: "Cách giới thiệu",
@@ -3190,7 +3190,7 @@ const REGISTRY: Registry = {
       eyebrow: "แนะนำเพื่อน",
       title: "ให้ $20 รับ $20",
       intro:
-        "แบ่งปัน lool ให้คนรอบตัวคุณ พวกเขาจะได้ส่วนลด $20 สำหรับการซื้อครั้งแรก และเราจะส่ง $20 เครดิตให้คุณทันทีที่คำสั่งซื้อของพวกเขาถูกจัดส่ง",
+        "แบ่งปัน loollook ให้คนรอบตัวคุณ พวกเขาจะได้ส่วนลด $20 สำหรับการซื้อครั้งแรก และเราจะส่ง $20 เครดิตให้คุณทันทีที่คำสั่งซื้อของพวกเขาถูกจัดส่ง",
       sections: [
         {
           heading: "วิธีแนะนำ",
@@ -3215,7 +3215,7 @@ const REGISTRY: Registry = {
       eyebrow: "Ajak teman",
       title: "Beri $20, dapat $20",
       intro:
-        "Bagikan lool kepada orang-orang dalam hidup Anda. Mereka mendapat diskon $20 untuk pesanan pertama, dan kami mengirimkan $20 dalam bentuk kredit kepada Anda saat pesanan mereka dikirim.",
+        "Bagikan loollook kepada orang-orang dalam hidup Anda. Mereka mendapat diskon $20 untuk pesanan pertama, dan kami mengirimkan $20 dalam bentuk kredit kepada Anda saat pesanan mereka dikirim.",
       sections: [
         {
           heading: "Cara merekomendasikan",
@@ -3240,7 +3240,7 @@ const REGISTRY: Registry = {
       eyebrow: "Rujuk rakan",
       title: "Beri $20, dapat $20",
       intro:
-        "Kongsi lool dengan orang-orang dalam hidup anda. Mereka mendapat diskaun $20 untuk pasangan pertama, dan kami menghantar $20 kredit kepada anda sebaik sahaja pesanan mereka dihantar.",
+        "Kongsi loollook dengan orang-orang dalam hidup anda. Mereka mendapat diskaun $20 untuk pasangan pertama, dan kami menghantar $20 kredit kepada anda sebaik sahaja pesanan mereka dihantar.",
       sections: [
         {
           heading: "Cara merujuk",
@@ -3265,7 +3265,7 @@ const REGISTRY: Registry = {
   affiliate: {
     en: {
       eyebrow: "For Creators & Partners",
-      title: "lool Affiliate Program",
+      title: "loollook Affiliate Program",
       intro:
         "Whether you’re a stylist, an optometrist, or a creator with an audience that loves great design, our affiliate program rewards every sale you drive.",
       sections: [
@@ -3289,7 +3289,7 @@ const REGISTRY: Registry = {
     },
     zh: {
       eyebrow: "创作者与合作伙伴",
-      title: "lool 联盟计划",
+      title: "loollook 联盟计划",
       intro:
         "无论你是造型师、视光师，还是拥有热爱设计受众的创作者，我们的联盟计划都能让你的每一次推荐获得回报。",
       sections: [
@@ -3313,7 +3313,7 @@ const REGISTRY: Registry = {
     },
     es: {
       eyebrow: "Para creadores y socios",
-      title: "Programa de afiliados lool",
+      title: "Programa de afiliados loollook",
       intro:
         "Tanto si eres estilista, optometrista o creador con una audiencia que adora el buen diseño, nuestro programa de afiliados recompensa cada venta que generas.",
       sections: [
@@ -3337,7 +3337,7 @@ const REGISTRY: Registry = {
     },
     fr: {
       eyebrow: "Pour créateurs et partenaires",
-      title: "Programme d’affiliation lool",
+      title: "Programme d’affiliation loollook",
       intro:
         "Que vous soyez styliste, optométriste ou créateur d’une audience qui aime le beau design, notre programme d’affiliation récompense chaque vente que vous générez.",
       sections: [
@@ -3361,7 +3361,7 @@ const REGISTRY: Registry = {
     },
     de: {
       eyebrow: "Für Creator & Partner",
-      title: "lool Affiliate-Programm",
+      title: "loollook Affiliate-Programm",
       intro:
         "Ob Stylistin, Augenoptiker oder Creator mit einer Community, die gutes Design liebt — unser Affiliate-Programm belohnt jeden Verkauf, den du auslöst.",
       sections: [
@@ -3385,7 +3385,7 @@ const REGISTRY: Registry = {
     },
     it: {
       eyebrow: "Per creator e partner",
-      title: "Programma affiliati lool",
+      title: "Programma affiliati loollook",
       intro:
         "Che tu sia uno stylist, un optometrista o un creator con un pubblico che ama il buon design, il nostro programma di affiliazione premia ogni vendita che generi.",
       sections: [
@@ -3409,7 +3409,7 @@ const REGISTRY: Registry = {
     },
     pt: {
       eyebrow: "Para criadores e parceiros",
-      title: "Programa de afiliados lool",
+      title: "Programa de afiliados loollook",
       intro:
         "Seja você um stylist, um optometrista ou um criador com uma audiência que ama bom design, nosso programa de afiliados recompensa cada venda que você gera.",
       sections: [
@@ -3433,7 +3433,7 @@ const REGISTRY: Registry = {
     },
     ja: {
       eyebrow: "クリエイター・パートナー向け",
-      title: "lool アフィリエイトプログラム",
+      title: "loollook アフィリエイトプログラム",
       intro:
         "スタイリスト、オプトメトリスト、優れたデザインを愛するオーディエンスを持つクリエイター、いずれの方であっても、当社のアフィリエイトプログラムはあなたが生み出したすべての売上に報酬をお支払いします。",
       sections: [
@@ -3457,7 +3457,7 @@ const REGISTRY: Registry = {
     },
     ko: {
       eyebrow: "크리에이터 & 파트너",
-      title: "lool 제휴 프로그램",
+      title: "loollook 제휴 프로그램",
       intro:
         "스타일리스트든, 검안사든, 좋은 디자인을 사랑하는 오디언스를 보유한 크리에이터든 — 저희 제휴 프로그램은 회원님이 만들어낸 모든 판매에 보상해드립니다.",
       sections: [
@@ -3481,7 +3481,7 @@ const REGISTRY: Registry = {
     },
     ar: {
       eyebrow: "للمبدعين والشركاء",
-      title: "برنامج شركاء lool",
+      title: "برنامج شركاء loollook",
       intro:
         "سواء كنت مصمّم مظهر، أو أخصائي بصريات، أو صانع محتوى يتابعه جمهور يعشق التصميم الجيّد، فإن برنامج الشركاء لدينا يكافئ كل عملية بيع تجلبها.",
       sections: [
@@ -3505,7 +3505,7 @@ const REGISTRY: Registry = {
     },
     vi: {
       eyebrow: "Cho người sáng tạo & đối tác",
-      title: "Chương trình affiliate lool",
+      title: "Chương trình affiliate loollook",
       intro:
         "Dù bạn là stylist, bác sĩ đo mắt hay người sáng tạo có cộng đồng yêu thiết kế đẹp, chương trình affiliate của chúng tôi tưởng thưởng cho mọi đơn hàng bạn mang lại.",
       sections: [
@@ -3529,7 +3529,7 @@ const REGISTRY: Registry = {
     },
     th: {
       eyebrow: "สำหรับครีเอเตอร์และพาร์ตเนอร์",
-      title: "โปรแกรมพันธมิตร lool",
+      title: "โปรแกรมพันธมิตร loollook",
       intro:
         "ไม่ว่าคุณจะเป็นสไตลิสต์ นักทัศนมาตร หรือครีเอเตอร์ที่มีผู้ติดตามรักงานออกแบบดี ๆ โปรแกรมพันธมิตรของเราจะให้รางวัลกับทุกการขายที่คุณนำพามา",
       sections: [
@@ -3553,7 +3553,7 @@ const REGISTRY: Registry = {
     },
     id: {
       eyebrow: "Untuk kreator & mitra",
-      title: "Program afiliasi lool",
+      title: "Program afiliasi loollook",
       intro:
         "Baik Anda seorang stylist, optometris, atau kreator dengan audiens yang menyukai desain hebat, program afiliasi kami memberikan imbalan atas setiap penjualan yang Anda dorong.",
       sections: [
@@ -3577,7 +3577,7 @@ const REGISTRY: Registry = {
     },
     ms: {
       eyebrow: "Untuk pencipta & rakan kongsi",
-      title: "Program afiliasi lool",
+      title: "Program afiliasi loollook",
       intro:
         "Sama ada anda seorang stylist, ahli optometri, atau pencipta dengan audiens yang menyukai reka bentuk hebat, program afiliasi kami memberi ganjaran atas setiap jualan yang anda dorong.",
       sections: [
@@ -3605,7 +3605,7 @@ const REGISTRY: Registry = {
       eyebrow: "Students & Educators",
       title: "Education discount",
       intro:
-        "Because clear vision shouldn’t come with a tuition bill. Verified students and educators save 15% on every lool order, every day.",
+        "Because clear vision shouldn’t come with a tuition bill. Verified students and educators save 15% on every loollook order, every day.",
       sections: [
         {
           heading: "Who qualifies",
@@ -3655,7 +3655,7 @@ const REGISTRY: Registry = {
       eyebrow: "Estudiantes y educadores",
       title: "Descuento educativo",
       intro:
-        "Porque ver bien no debería venir con una factura de matrícula. Estudiantes y educadores verificados ahorran un 15% en cada pedido de lool, todos los días.",
+        "Porque ver bien no debería venir con una factura de matrícula. Estudiantes y educadores verificados ahorran un 15% en cada pedido de loollook, todos los días.",
       sections: [
         {
           heading: "Quién califica",
@@ -3680,7 +3680,7 @@ const REGISTRY: Registry = {
       eyebrow: "Étudiants et enseignants",
       title: "Réduction éducation",
       intro:
-        "Parce qu’une vision nette ne devrait pas s’accompagner d’une facture de scolarité. Les étudiants et enseignants vérifiés économisent 15 % sur chaque commande lool, tous les jours.",
+        "Parce qu’une vision nette ne devrait pas s’accompagner d’une facture de scolarité. Les étudiants et enseignants vérifiés économisent 15 % sur chaque commande loollook, tous les jours.",
       sections: [
         {
           heading: "Qui peut bénéficier",
@@ -3705,7 +3705,7 @@ const REGISTRY: Registry = {
       eyebrow: "Schüler & Lehrkräfte",
       title: "Bildungsrabatt",
       intro:
-        "Weil scharfes Sehen nicht mit einer Studiengebühr verbunden sein sollte. Verifizierte Schülerinnen, Studierende und Lehrende sparen jeden Tag 15 % auf jede lool-Bestellung.",
+        "Weil scharfes Sehen nicht mit einer Studiengebühr verbunden sein sollte. Verifizierte Schülerinnen, Studierende und Lehrende sparen jeden Tag 15 % auf jede loollook-Bestellung.",
       sections: [
         {
           heading: "Wer ist berechtigt",
@@ -3730,7 +3730,7 @@ const REGISTRY: Registry = {
       eyebrow: "Studenti e docenti",
       title: "Sconto education",
       intro:
-        "Perché una visione nitida non dovrebbe arrivare insieme alla retta universitaria. Studenti e docenti verificati risparmiano il 15% su ogni ordine lool, ogni giorno.",
+        "Perché una visione nitida non dovrebbe arrivare insieme alla retta universitaria. Studenti e docenti verificati risparmiano il 15% su ogni ordine loollook, ogni giorno.",
       sections: [
         {
           heading: "Chi può aderire",
@@ -3755,7 +3755,7 @@ const REGISTRY: Registry = {
       eyebrow: "Estudantes e educadores",
       title: "Desconto educacional",
       intro:
-        "Porque enxergar com clareza não deveria vir junto com a conta da faculdade. Estudantes e educadores verificados economizam 15% em cada pedido lool, todos os dias.",
+        "Porque enxergar com clareza não deveria vir junto com a conta da faculdade. Estudantes e educadores verificados economizam 15% em cada pedido loollook, todos os dias.",
       sections: [
         {
           heading: "Quem se qualifica",
@@ -3780,7 +3780,7 @@ const REGISTRY: Registry = {
       eyebrow: "学生・教育者",
       title: "教育割引",
       intro:
-        "クリアな視界に、追加の学費はいりません。認証された学生と教育者の方は、lool のすべてのご注文で毎日 15% OFF をご利用いただけます。",
+        "クリアな視界に、追加の学費はいりません。認証された学生と教育者の方は、loollook のすべてのご注文で毎日 15% OFF をご利用いただけます。",
       sections: [
         {
           heading: "対象者",
@@ -3805,7 +3805,7 @@ const REGISTRY: Registry = {
       eyebrow: "학생 & 교육자",
       title: "교육 할인",
       intro:
-        "선명한 시야가 등록금 청구서를 동반해서는 안 됩니다. 인증된 학생과 교육자는 lool의 모든 주문에서 매일 15% 할인을 받습니다.",
+        "선명한 시야가 등록금 청구서를 동반해서는 안 됩니다. 인증된 학생과 교육자는 loollook의 모든 주문에서 매일 15% 할인을 받습니다.",
       sections: [
         {
           heading: "대상자",
@@ -3830,7 +3830,7 @@ const REGISTRY: Registry = {
       eyebrow: "الطلاب والمعلمون",
       title: "خصم تعليمي",
       intro:
-        "لأن الرؤية الواضحة لا ينبغي أن تأتي مع فاتورة دراسية. يحصل الطلاب والمعلّمون المُتحقَّق منهم على خصم 15% على كل طلب من lool، كل يوم.",
+        "لأن الرؤية الواضحة لا ينبغي أن تأتي مع فاتورة دراسية. يحصل الطلاب والمعلّمون المُتحقَّق منهم على خصم 15% على كل طلب من loollook، كل يوم.",
       sections: [
         {
           heading: "من يحق له",
@@ -3855,7 +3855,7 @@ const REGISTRY: Registry = {
       eyebrow: "Sinh viên & nhà giáo",
       title: "Ưu đãi giáo dục",
       intro:
-        "Vì tầm nhìn rõ ràng không nên đi kèm với hóa đơn học phí. Sinh viên và nhà giáo đã được xác minh tiết kiệm 15% trên mọi đơn lool, mỗi ngày.",
+        "Vì tầm nhìn rõ ràng không nên đi kèm với hóa đơn học phí. Sinh viên và nhà giáo đã được xác minh tiết kiệm 15% trên mọi đơn loollook, mỗi ngày.",
       sections: [
         {
           heading: "Ai đủ điều kiện",
@@ -3880,7 +3880,7 @@ const REGISTRY: Registry = {
       eyebrow: "นักเรียนและบุคลากรการศึกษา",
       title: "ส่วนลดการศึกษา",
       intro:
-        "เพราะการมองเห็นชัดเจนไม่ควรมาพร้อมกับใบเรียกเก็บค่าเล่าเรียน นักเรียนและบุคลากรการศึกษาที่ได้รับการยืนยันรับส่วนลด 15% สำหรับทุกคำสั่งซื้อ lool ทุกวัน",
+        "เพราะการมองเห็นชัดเจนไม่ควรมาพร้อมกับใบเรียกเก็บค่าเล่าเรียน นักเรียนและบุคลากรการศึกษาที่ได้รับการยืนยันรับส่วนลด 15% สำหรับทุกคำสั่งซื้อ loollook ทุกวัน",
       sections: [
         {
           heading: "ใครมีสิทธิ์",
@@ -3905,7 +3905,7 @@ const REGISTRY: Registry = {
       eyebrow: "Pelajar & pendidik",
       title: "Diskon pendidikan",
       intro:
-        "Karena penglihatan yang jernih tidak seharusnya datang bersama tagihan SPP. Pelajar dan pendidik yang terverifikasi menghemat 15% di setiap pesanan lool, setiap hari.",
+        "Karena penglihatan yang jernih tidak seharusnya datang bersama tagihan SPP. Pelajar dan pendidik yang terverifikasi menghemat 15% di setiap pesanan loollook, setiap hari.",
       sections: [
         {
           heading: "Siapa yang memenuhi syarat",
@@ -3930,7 +3930,7 @@ const REGISTRY: Registry = {
       eyebrow: "Pelajar & pendidik",
       title: "Diskaun pendidikan",
       intro:
-        "Kerana penglihatan jelas tidak sepatutnya datang dengan bil yuran pengajian. Pelajar dan pendidik yang disahkan menjimatkan 15% pada setiap pesanan lool, setiap hari.",
+        "Kerana penglihatan jelas tidak sepatutnya datang dengan bil yuran pengajian. Pelajar dan pendidik yang disahkan menjimatkan 15% pada setiap pesanan loollook, setiap hari.",
       sections: [
         {
           heading: "Siapa yang layak",
@@ -3955,9 +3955,9 @@ const REGISTRY: Registry = {
   promise: {
     en: {
       eyebrow: "Our Guarantee",
-      title: "The lool Promise",
+      title: "The loollook Promise",
       intro:
-        "Every lool frame is engineered to last — and we stand behind it. Here’s exactly what we cover, and for how long.",
+        "Every loollook frame is engineered to last — and we stand behind it. Here’s exactly what we cover, and for how long.",
       sections: [
         {
           heading: "365-day warranty",
@@ -3979,9 +3979,9 @@ const REGISTRY: Registry = {
     },
     zh: {
       eyebrow: "我们的承诺",
-      title: "lool 的承诺",
+      title: "loollook 的承诺",
       intro:
-        "每一副 lool 镜架都为耐用而生——我们以行动背书。下面是我们具体保障什么、保多久。",
+        "每一副 loollook 镜架都为耐用而生——我们以行动背书。下面是我们具体保障什么、保多久。",
       sections: [
         {
           heading: "365 天质保",
@@ -4003,9 +4003,9 @@ const REGISTRY: Registry = {
     },
     es: {
       eyebrow: "Nuestra garantía",
-      title: "La promesa lool",
+      title: "La promesa loollook",
       intro:
-        "Cada montura lool está diseñada para durar, y la respaldamos. Aquí tienes exactamente qué cubrimos y por cuánto tiempo.",
+        "Cada montura loollook está diseñada para durar, y la respaldamos. Aquí tienes exactamente qué cubrimos y por cuánto tiempo.",
       sections: [
         {
           heading: "Garantía de 365 días",
@@ -4027,9 +4027,9 @@ const REGISTRY: Registry = {
     },
     fr: {
       eyebrow: "Notre garantie",
-      title: "L’engagement lool",
+      title: "L’engagement loollook",
       intro:
-        "Chaque monture lool est conçue pour durer — et nous l’assumons. Voici exactement ce que nous couvrons, et pour combien de temps.",
+        "Chaque monture loollook est conçue pour durer — et nous l’assumons. Voici exactement ce que nous couvrons, et pour combien de temps.",
       sections: [
         {
           heading: "Garantie 365 jours",
@@ -4051,9 +4051,9 @@ const REGISTRY: Registry = {
     },
     de: {
       eyebrow: "Unsere Garantie",
-      title: "Das lool-Versprechen",
+      title: "Das loollook-Versprechen",
       intro:
-        "Jede lool-Fassung ist auf Langlebigkeit ausgelegt — und wir stehen dahinter. Hier steht genau, was wir abdecken und für wie lange.",
+        "Jede loollook-Fassung ist auf Langlebigkeit ausgelegt — und wir stehen dahinter. Hier steht genau, was wir abdecken und für wie lange.",
       sections: [
         {
           heading: "365 Tage Garantie",
@@ -4075,9 +4075,9 @@ const REGISTRY: Registry = {
     },
     it: {
       eyebrow: "La nostra garanzia",
-      title: "La promessa lool",
+      title: "La promessa loollook",
       intro:
-        "Ogni montatura lool è progettata per durare — e noi ci mettiamo la faccia. Ecco esattamente cosa copriamo e per quanto tempo.",
+        "Ogni montatura loollook è progettata per durare — e noi ci mettiamo la faccia. Ecco esattamente cosa copriamo e per quanto tempo.",
       sections: [
         {
           heading: "Garanzia 365 giorni",
@@ -4099,9 +4099,9 @@ const REGISTRY: Registry = {
     },
     pt: {
       eyebrow: "Nossa garantia",
-      title: "A promessa lool",
+      title: "A promessa loollook",
       intro:
-        "Cada armação lool é projetada para durar — e nós colocamos a cara a tapa por isso. Veja exatamente o que cobrimos e por quanto tempo.",
+        "Cada armação loollook é projetada para durar — e nós colocamos a cara a tapa por isso. Veja exatamente o que cobrimos e por quanto tempo.",
       sections: [
         {
           heading: "Garantia de 365 dias",
@@ -4123,9 +4123,9 @@ const REGISTRY: Registry = {
     },
     ja: {
       eyebrow: "保証について",
-      title: "lool の約束",
+      title: "loollook の約束",
       intro:
-        "すべての lool フレームは長く使えるように設計されています。そして、私たちはその品質を保証します。具体的な保証範囲と期間をご紹介します。",
+        "すべての loollook フレームは長く使えるように設計されています。そして、私たちはその品質を保証します。具体的な保証範囲と期間をご紹介します。",
       sections: [
         {
           heading: "365 日保証",
@@ -4147,9 +4147,9 @@ const REGISTRY: Registry = {
     },
     ko: {
       eyebrow: "보증 안내",
-      title: "lool의 약속",
+      title: "loollook의 약속",
       intro:
-        "모든 lool 프레임은 오래 사용할 수 있도록 설계되었으며, 저희는 이를 확실히 책임집니다. 보장 범위와 기간을 정확히 알려드립니다.",
+        "모든 loollook 프레임은 오래 사용할 수 있도록 설계되었으며, 저희는 이를 확실히 책임집니다. 보장 범위와 기간을 정확히 알려드립니다.",
       sections: [
         {
           heading: "365일 보증",
@@ -4171,9 +4171,9 @@ const REGISTRY: Registry = {
     },
     ar: {
       eyebrow: "ضماننا",
-      title: "وعد lool",
+      title: "وعد loollook",
       intro:
-        "كل إطار من lool مصمَّم ليدوم — ونحن نقف خلفه. إليك بالضبط ما نغطّيه، ولكم من الوقت.",
+        "كل إطار من loollook مصمَّم ليدوم — ونحن نقف خلفه. إليك بالضبط ما نغطّيه، ولكم من الوقت.",
       sections: [
         {
           heading: "ضمان 365 يومًا",
@@ -4195,9 +4195,9 @@ const REGISTRY: Registry = {
     },
     vi: {
       eyebrow: "Cam kết của chúng tôi",
-      title: "Cam kết lool",
+      title: "Cam kết loollook",
       intro:
-        "Mỗi chiếc gọng lool được chế tạo để bền lâu — và chúng tôi đứng sau điều đó. Đây chính xác là những gì chúng tôi bảo hành, và trong bao lâu.",
+        "Mỗi chiếc gọng loollook được chế tạo để bền lâu — và chúng tôi đứng sau điều đó. Đây chính xác là những gì chúng tôi bảo hành, và trong bao lâu.",
       sections: [
         {
           heading: "Bảo hành 365 ngày",
@@ -4219,9 +4219,9 @@ const REGISTRY: Registry = {
     },
     th: {
       eyebrow: "การรับประกันของเรา",
-      title: "คำมั่นสัญญาของ lool",
+      title: "คำมั่นสัญญาของ loollook",
       intro:
-        "ทุกกรอบของ lool ถูกออกแบบให้ใช้งานได้ทนทาน — และเรายืนหยัดอยู่เบื้องหลังมัน นี่คือสิ่งที่เราครอบคลุมและระยะเวลาที่ครอบคลุม",
+        "ทุกกรอบของ loollook ถูกออกแบบให้ใช้งานได้ทนทาน — และเรายืนหยัดอยู่เบื้องหลังมัน นี่คือสิ่งที่เราครอบคลุมและระยะเวลาที่ครอบคลุม",
       sections: [
         {
           heading: "รับประกัน 365 วัน",
@@ -4243,9 +4243,9 @@ const REGISTRY: Registry = {
     },
     id: {
       eyebrow: "Jaminan kami",
-      title: "Janji lool",
+      title: "Janji loollook",
       intro:
-        "Setiap bingkai lool dirancang agar tahan lama — dan kami berdiri di belakangnya. Inilah yang tepatnya kami jamin, dan untuk berapa lama.",
+        "Setiap bingkai loollook dirancang agar tahan lama — dan kami berdiri di belakangnya. Inilah yang tepatnya kami jamin, dan untuk berapa lama.",
       sections: [
         {
           heading: "Garansi 365 hari",
@@ -4267,9 +4267,9 @@ const REGISTRY: Registry = {
     },
     ms: {
       eyebrow: "Jaminan kami",
-      title: "Janji lool",
+      title: "Janji loollook",
       intro:
-        "Setiap bingkai lool direka untuk tahan lama — dan kami menyokongnya. Inilah dengan tepat apa yang kami lindungi, dan berapa lama.",
+        "Setiap bingkai loollook direka untuk tahan lama — dan kami menyokongnya. Inilah dengan tepat apa yang kami lindungi, dan berapa lama.",
       sections: [
         {
           heading: "Jaminan 365 hari",
@@ -4307,7 +4307,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Duties & taxes",
-          body: "For most destinations, lool pre-pays import duties and taxes, but some countries may occasionally require a payment. If you receive a customs duty or tax notice, contact us before paying so we can offer the best solution. Duties paid without lool confirmation are not reimbursable. At checkout, a 5% sales tax is added to the order subtotal (after any discount) and shown as a separate line before you pay.",
+          body: "For most destinations, loollook pre-pays import duties and taxes, but some countries may occasionally require a payment. If you receive a customs duty or tax notice, contact us before paying so we can offer the best solution. Duties paid without loollook confirmation are not reimbursable. At checkout, a 5% sales tax is added to the order subtotal (after any discount) and shown as a separate line before you pay.",
         },
         {
           heading: "365-day quality warranty (all products)",
@@ -4351,7 +4351,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "关税与税金",
-          body: "对大多数目的地，lool 会预付进口关税与税金；但少数国家偶尔可能要求缴纳关税或税费。收到缴税通知后，请先联系我们，以便我们为您提供更合适的解决方案。未经 lool 确认而自行支付的关税，我们将不予报销。 结账时会按订单商品小计（扣除折扣后）加收 5% 销售税，并在付款前单独列出。",
+          body: "对大多数目的地，loollook 会预付进口关税与税金；但少数国家偶尔可能要求缴纳关税或税费。收到缴税通知后，请先联系我们，以便我们为您提供更合适的解决方案。未经 loollook 确认而自行支付的关税，我们将不予报销。 结账时会按订单商品小计（扣除折扣后）加收 5% 销售税，并在付款前单独列出。",
         },
         {
           heading: "365 天质量保修（所有产品）",
@@ -4396,7 +4396,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Aranceles e impuestos",
-          body: "Para la mayoría de los destinos, lool prepaga los aranceles e impuestos de importación, pero algunos países pueden pedir un pago ocasionalmente. Si recibes un aviso de aduana o impuestos, contáctanos antes de pagar para que podamos ofrecerte la mejor solución. Los pagos realizados sin confirmación de lool no son reembolsables. Al pagar, se añade un impuesto sobre las ventas del 5 % al subtotal del pedido (tras descuentos), que se muestra en una línea aparte antes de pagar.",
+          body: "Para la mayoría de los destinos, loollook prepaga los aranceles e impuestos de importación, pero algunos países pueden pedir un pago ocasionalmente. Si recibes un aviso de aduana o impuestos, contáctanos antes de pagar para que podamos ofrecerte la mejor solución. Los pagos realizados sin confirmación de loollook no son reembolsables. Al pagar, se añade un impuesto sobre las ventas del 5 % al subtotal del pedido (tras descuentos), que se muestra en una línea aparte antes de pagar.",
         },
         {
           heading: "Garantía de calidad de 365 días (todos los productos)",
@@ -4441,7 +4441,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Droits & taxes",
-          body: "Pour la plupart des destinations, lool prépaye les droits d’importation et les taxes, mais certains pays peuvent parfois demander un paiement. Si vous recevez un avis de droits ou taxes, contactez-nous avant de payer afin que nous puissions proposer la meilleure solution. Les droits payés sans confirmation de lool ne sont pas remboursables. Lors du paiement, une taxe de vente de 5 % est ajoutée au sous-total de la commande (après remise) et affichée sur une ligne distincte avant le règlement.",
+          body: "Pour la plupart des destinations, loollook prépaye les droits d’importation et les taxes, mais certains pays peuvent parfois demander un paiement. Si vous recevez un avis de droits ou taxes, contactez-nous avant de payer afin que nous puissions proposer la meilleure solution. Les droits payés sans confirmation de loollook ne sont pas remboursables. Lors du paiement, une taxe de vente de 5 % est ajoutée au sous-total de la commande (après remise) et affichée sur une ligne distincte avant le règlement.",
         },
         {
           heading: "Garantie qualité 365 jours (tous les produits)",
@@ -4486,7 +4486,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Zoll & Steuern",
-          body: "Für die meisten Zielländer zahlt lool Einfuhrzölle und Steuern im Voraus, doch einzelne Länder können gelegentlich eine Zahlung verlangen. Wenn du eine Zoll- oder Steuerbenachrichtigung erhältst, kontaktiere uns bitte vor der Zahlung, damit wir die beste Lösung anbieten können. Ohne Bestätigung von lool gezahlte Abgaben können nicht erstattet werden. Beim Checkout wird auf die Zwischensumme (nach Rabatten) eine Umsatzsteuer von 5 % aufgeschlagen und vor der Zahlung als eigene Zeile angezeigt.",
+          body: "Für die meisten Zielländer zahlt loollook Einfuhrzölle und Steuern im Voraus, doch einzelne Länder können gelegentlich eine Zahlung verlangen. Wenn du eine Zoll- oder Steuerbenachrichtigung erhältst, kontaktiere uns bitte vor der Zahlung, damit wir die beste Lösung anbieten können. Ohne Bestätigung von loollook gezahlte Abgaben können nicht erstattet werden. Beim Checkout wird auf die Zwischensumme (nach Rabatten) eine Umsatzsteuer von 5 % aufgeschlagen und vor der Zahlung als eigene Zeile angezeigt.",
         },
         {
           heading: "365 Tage Qualitätsgarantie (alle Produkte)",
@@ -4531,7 +4531,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Dazi e tasse",
-          body: "Per la maggior parte delle destinazioni, lool pre-paga dazi e tasse d’importazione, ma alcuni Paesi possono occasionalmente richiedere un pagamento. Se ricevi un avviso di dazi o tasse, contattaci prima di pagare così possiamo offrirti la soluzione migliore. I dazi pagati senza conferma di lool non sono rimborsabili. Al checkout viene aggiunta un'imposta sulle vendite del 5% al subtotale dell'ordine (dopo gli sconti), mostrata in una riga separata prima del pagamento.",
+          body: "Per la maggior parte delle destinazioni, loollook pre-paga dazi e tasse d’importazione, ma alcuni Paesi possono occasionalmente richiedere un pagamento. Se ricevi un avviso di dazi o tasse, contattaci prima di pagare così possiamo offrirti la soluzione migliore. I dazi pagati senza conferma di loollook non sono rimborsabili. Al checkout viene aggiunta un'imposta sulle vendite del 5% al subtotale dell'ordine (dopo gli sconti), mostrata in una riga separata prima del pagamento.",
         },
         {
           heading: "Garanzia qualità 365 giorni (tutti i prodotti)",
@@ -4576,7 +4576,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Impostos e taxas",
-          body: "Para a maioria dos destinos, a lool pré-paga os impostos e taxas de importação, mas alguns países podem ocasionalmente exigir pagamento. Se você receber um aviso de imposto ou taxa alfandegária, fale conosco antes de pagar para que possamos oferecer a melhor solução. Valores pagos sem confirmação da lool não são reembolsáveis. No checkout, é acrescentado um imposto sobre vendas de 5% ao subtotal do pedido (após descontos), exibido em linha separada antes do pagamento.",
+          body: "Para a maioria dos destinos, a loollook pré-paga os impostos e taxas de importação, mas alguns países podem ocasionalmente exigir pagamento. Se você receber um aviso de imposto ou taxa alfandegária, fale conosco antes de pagar para que possamos oferecer a melhor solução. Valores pagos sem confirmação da loollook não são reembolsáveis. No checkout, é acrescentado um imposto sobre vendas de 5% ao subtotal do pedido (após descontos), exibido em linha separada antes do pagamento.",
         },
         {
           heading: "Garantia de qualidade de 365 dias (todos os produtos)",
@@ -4621,7 +4621,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "関税・税金",
-          body: "ほとんどの配送先では lool が輸入関税と税金を事前に支払いますが、一部の国ではまれにお支払いを求められる場合があります。関税または税金の通知を受け取った場合は、お支払い前に必ず当社へご連絡ください。lool の確認なしにお支払いされた関税は返金対象外です。 ご注文時には、商品小計（割引適用後）に 5% の販売税が加算され、お支払い前に別行で表示されます。",
+          body: "ほとんどの配送先では loollook が輸入関税と税金を事前に支払いますが、一部の国ではまれにお支払いを求められる場合があります。関税または税金の通知を受け取った場合は、お支払い前に必ず当社へご連絡ください。loollook の確認なしにお支払いされた関税は返金対象外です。 ご注文時には、商品小計（割引適用後）に 5% の販売税が加算され、お支払い前に別行で表示されます。",
         },
         {
           heading: "365 日間品質保証（全商品対象）",
@@ -4665,7 +4665,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "관세 및 세금",
-          body: "대부분의 배송 지역에서는 lool이 수입 관세와 세금을 사전에 부담하지만, 일부 국가에서는 간혹 납부를 요구할 수 있습니다. 관세 또는 세금 납부 통지를 받으면 결제 전에 먼저 저희에게 연락해 주세요. lool의 확인 없이 결제한 관세는 환불되지 않습니다. 결제 시 주문 상품 소계(할인 적용 후)에 5% 판매세가 추가되며, 결제 전에 별도 항목으로 표시됩니다.",
+          body: "대부분의 배송 지역에서는 loollook이 수입 관세와 세금을 사전에 부담하지만, 일부 국가에서는 간혹 납부를 요구할 수 있습니다. 관세 또는 세금 납부 통지를 받으면 결제 전에 먼저 저희에게 연락해 주세요. loollook의 확인 없이 결제한 관세는 환불되지 않습니다. 결제 시 주문 상품 소계(할인 적용 후)에 5% 판매세가 추가되며, 결제 전에 별도 항목으로 표시됩니다.",
         },
         {
           heading: "365일 품질 보증(전 제품)",
@@ -4709,7 +4709,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "الرسوم والضرائب",
-          body: "في معظم الوجهات، تدفع lool رسوم الاستيراد والضرائب مسبقًا، لكن بعض البلدان قد تطلب الدفع أحيانًا. إذا تلقيت إشعارًا برسوم جمركية أو ضرائب، فتواصل معنا قبل الدفع حتى نقدم لك الحل الأنسب. الرسوم المدفوعة دون تأكيد من lool غير قابلة للاسترداد. عند الدفع، تُضاف ضريبة مبيعات بنسبة 5% إلى المجموع الفرعي للطلب (بعد الخصم)، وتظهر في سطر منفصل قبل الدفع.",
+          body: "في معظم الوجهات، تدفع loollook رسوم الاستيراد والضرائب مسبقًا، لكن بعض البلدان قد تطلب الدفع أحيانًا. إذا تلقيت إشعارًا برسوم جمركية أو ضرائب، فتواصل معنا قبل الدفع حتى نقدم لك الحل الأنسب. الرسوم المدفوعة دون تأكيد من loollook غير قابلة للاسترداد. عند الدفع، تُضاف ضريبة مبيعات بنسبة 5% إلى المجموع الفرعي للطلب (بعد الخصم)، وتظهر في سطر منفصل قبل الدفع.",
         },
         {
           heading: "ضمان الجودة 365 يومًا (لجميع المنتجات)",
@@ -4753,7 +4753,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Thuế và phí",
-          body: "Với hầu hết các điểm đến, lool trả trước thuế và phí nhập khẩu, nhưng một số quốc gia đôi khi có thể yêu cầu thanh toán. Nếu bạn nhận được thông báo thuế hoặc phí hải quan, hãy liên hệ với chúng tôi trước khi thanh toán để chúng tôi có thể đưa ra giải pháp tốt nhất. Các khoản đã trả khi chưa có xác nhận của lool sẽ không được hoàn lại. Khi thanh toán, thuế bán hàng 5% sẽ được cộng vào tạm tính đơn hàng (sau giảm giá) và hiển thị thành một dòng riêng trước khi bạn trả tiền.",
+          body: "Với hầu hết các điểm đến, loollook trả trước thuế và phí nhập khẩu, nhưng một số quốc gia đôi khi có thể yêu cầu thanh toán. Nếu bạn nhận được thông báo thuế hoặc phí hải quan, hãy liên hệ với chúng tôi trước khi thanh toán để chúng tôi có thể đưa ra giải pháp tốt nhất. Các khoản đã trả khi chưa có xác nhận của loollook sẽ không được hoàn lại. Khi thanh toán, thuế bán hàng 5% sẽ được cộng vào tạm tính đơn hàng (sau giảm giá) và hiển thị thành một dòng riêng trước khi bạn trả tiền.",
         },
         {
           heading: "Bảo hành chất lượng 365 ngày (tất cả sản phẩm)",
@@ -4798,7 +4798,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "ภาษีและอากร",
-          body: "สำหรับปลายทางส่วนใหญ่ lool ชำระภาษีและอากรนำเข้าไว้ล่วงหน้า แต่บางประเทศอาจมีการเรียกเก็บเป็นครั้งคราว หากคุณได้รับแจ้งให้ชำระภาษีหรืออากร โปรดติดต่อเราก่อนชำระเงิน เพื่อให้เราหาทางออกที่เหมาะสมที่สุดให้คุณ ค่าภาษีหรืออากรที่ชำระโดยไม่ได้รับการยืนยันจาก lool จะไม่สามารถขอคืนได้ เมื่อชำระเงิน จะมีการบวกภาษีขาย 5% จากยอดรวมสินค้า (หลังหักส่วนลด) และแสดงเป็นรายการแยกก่อนชำระเงิน",
+          body: "สำหรับปลายทางส่วนใหญ่ loollook ชำระภาษีและอากรนำเข้าไว้ล่วงหน้า แต่บางประเทศอาจมีการเรียกเก็บเป็นครั้งคราว หากคุณได้รับแจ้งให้ชำระภาษีหรืออากร โปรดติดต่อเราก่อนชำระเงิน เพื่อให้เราหาทางออกที่เหมาะสมที่สุดให้คุณ ค่าภาษีหรืออากรที่ชำระโดยไม่ได้รับการยืนยันจาก loollook จะไม่สามารถขอคืนได้ เมื่อชำระเงิน จะมีการบวกภาษีขาย 5% จากยอดรวมสินค้า (หลังหักส่วนลด) และแสดงเป็นรายการแยกก่อนชำระเงิน",
         },
         {
           heading: "รับประกันคุณภาพ 365 วัน (สินค้าทั้งหมด)",
@@ -4842,7 +4842,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Bea masuk & pajak",
-          body: "Untuk sebagian besar tujuan, lool membayar bea masuk dan pajak impor di muka, tetapi beberapa negara terkadang dapat meminta pembayaran. Jika Anda menerima pemberitahuan bea atau pajak, hubungi kami sebelum membayar agar kami dapat menawarkan solusi terbaik. Bea yang dibayar tanpa konfirmasi lool tidak dapat diganti. Saat checkout, pajak penjualan 5% ditambahkan ke subtotal pesanan (setelah diskon) dan ditampilkan sebagai baris terpisah sebelum Anda membayar.",
+          body: "Untuk sebagian besar tujuan, loollook membayar bea masuk dan pajak impor di muka, tetapi beberapa negara terkadang dapat meminta pembayaran. Jika Anda menerima pemberitahuan bea atau pajak, hubungi kami sebelum membayar agar kami dapat menawarkan solusi terbaik. Bea yang dibayar tanpa konfirmasi loollook tidak dapat diganti. Saat checkout, pajak penjualan 5% ditambahkan ke subtotal pesanan (setelah diskon) dan ditampilkan sebagai baris terpisah sebelum Anda membayar.",
         },
         {
           heading: "Garansi kualitas 365 hari (semua produk)",
@@ -4887,7 +4887,7 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Duti & cukai",
-          body: "Untuk kebanyakan destinasi, lool membayar duti import dan cukai terlebih dahulu, tetapi sesetengah negara mungkin sekali-sekala meminta bayaran. Jika anda menerima notis duti atau cukai, hubungi kami sebelum membuat bayaran supaya kami boleh menawarkan penyelesaian terbaik. Duti yang dibayar tanpa pengesahan lool tidak boleh dibayar balik. Semasa pembayaran, cukai jualan 5% ditambah pada subjumlah pesanan (selepas diskaun) dan dipaparkan sebagai baris berasingan sebelum anda membayar.",
+          body: "Untuk kebanyakan destinasi, loollook membayar duti import dan cukai terlebih dahulu, tetapi sesetengah negara mungkin sekali-sekala meminta bayaran. Jika anda menerima notis duti atau cukai, hubungi kami sebelum membuat bayaran supaya kami boleh menawarkan penyelesaian terbaik. Duti yang dibayar tanpa pengesahan loollook tidak boleh dibayar balik. Semasa pembayaran, cukai jualan 5% ditambah pada subjumlah pesanan (selepas diskaun) dan dipaparkan sebagai baris berasingan sebelum anda membayar.",
         },
         {
           heading: "Jaminan kualiti 365 hari (semua produk)",
@@ -4926,7 +4926,7 @@ const REGISTRY: Registry = {
       sections: [
         {
           heading: "What we collect",
-          body: "Account details (email, name), shipping address, optional prescription data, browsing patterns on lool.com, and payment tokens (we never store full card numbers — they’re tokenized by our PCI-DSS Level 1 processor).",
+          body: "Account details (email, name), shipping address, optional prescription data, browsing patterns on loollook.com, and payment tokens (we never store full card numbers — they’re tokenized by our PCI-DSS Level 1 processor).",
         },
         {
           heading: "Why we collect it",
@@ -4950,7 +4950,7 @@ const REGISTRY: Registry = {
       sections: [
         {
           heading: "我们收集哪些信息",
-          body: "账户信息（邮箱、姓名）、配送地址、可选的处方数据、lool.com 上的浏览行为、支付令牌（我们从不存储完整卡号——它们由我们 PCI-DSS Level 1 支付方进行令牌化处理）。",
+          body: "账户信息（邮箱、姓名）、配送地址、可选的处方数据、loollook.com 上的浏览行为、支付令牌（我们从不存储完整卡号——它们由我们 PCI-DSS Level 1 支付方进行令牌化处理）。",
         },
         {
           heading: "为什么收集",
@@ -4974,7 +4974,7 @@ const REGISTRY: Registry = {
       sections: [
         {
           heading: "Qué recopilamos",
-          body: "Datos de la cuenta (correo, nombre), dirección de envío, datos de receta opcionales, patrones de navegación en lool.com y tokens de pago (nunca guardamos números de tarjeta completos: están tokenizados por nuestro procesador PCI-DSS Nivel 1).",
+          body: "Datos de la cuenta (correo, nombre), dirección de envío, datos de receta opcionales, patrones de navegación en loollook.com y tokens de pago (nunca guardamos números de tarjeta completos: están tokenizados por nuestro procesador PCI-DSS Nivel 1).",
         },
         {
           heading: "Por qué lo recopilamos",
@@ -4998,7 +4998,7 @@ const REGISTRY: Registry = {
       sections: [
         {
           heading: "Ce que nous collectons",
-          body: "Informations de compte (e-mail, nom), adresse de livraison, données d’ordonnance facultatives, parcours de navigation sur lool.com, et jetons de paiement (nous ne stockons jamais les numéros de carte complets — ils sont tokenisés par notre prestataire certifié PCI-DSS Niveau 1).",
+          body: "Informations de compte (e-mail, nom), adresse de livraison, données d’ordonnance facultatives, parcours de navigation sur loollook.com, et jetons de paiement (nous ne stockons jamais les numéros de carte complets — ils sont tokenisés par notre prestataire certifié PCI-DSS Niveau 1).",
         },
         {
           heading: "Pourquoi nous le collectons",
@@ -5022,7 +5022,7 @@ const REGISTRY: Registry = {
       sections: [
         {
           heading: "Was wir erfassen",
-          body: "Kontodaten (E-Mail, Name), Lieferadresse, optionale Rezeptdaten, Nutzungsmuster auf lool.com sowie Zahlungstoken (vollständige Kartennummern speichern wir nie — sie werden von unserem PCI-DSS Level 1 zertifizierten Zahlungsdienstleister tokenisiert).",
+          body: "Kontodaten (E-Mail, Name), Lieferadresse, optionale Rezeptdaten, Nutzungsmuster auf loollook.com sowie Zahlungstoken (vollständige Kartennummern speichern wir nie — sie werden von unserem PCI-DSS Level 1 zertifizierten Zahlungsdienstleister tokenisiert).",
         },
         {
           heading: "Warum wir es erfassen",
@@ -5046,7 +5046,7 @@ const REGISTRY: Registry = {
       sections: [
         {
           heading: "Cosa raccogliamo",
-          body: "Dati dell’account (email, nome), indirizzo di spedizione, dati della ricetta facoltativi, comportamenti di navigazione su lool.com e token di pagamento (non conserviamo mai i numeri completi delle carte — vengono tokenizzati dal nostro processore PCI-DSS Level 1).",
+          body: "Dati dell’account (email, nome), indirizzo di spedizione, dati della ricetta facoltativi, comportamenti di navigazione su loollook.com e token di pagamento (non conserviamo mai i numeri completi delle carte — vengono tokenizzati dal nostro processore PCI-DSS Level 1).",
         },
         {
           heading: "Perché lo raccogliamo",
@@ -5070,7 +5070,7 @@ const REGISTRY: Registry = {
       sections: [
         {
           heading: "O que coletamos",
-          body: "Dados da conta (e-mail, nome), endereço de entrega, dados opcionais de receita, padrões de navegação no lool.com e tokens de pagamento (nunca armazenamos números completos de cartão — são tokenizados pelo nosso processador PCI-DSS Nível 1).",
+          body: "Dados da conta (e-mail, nome), endereço de entrega, dados opcionais de receita, padrões de navegação no loollook.com e tokens de pagamento (nunca armazenamos números completos de cartão — são tokenizados pelo nosso processador PCI-DSS Nível 1).",
         },
         {
           heading: "Por que coletamos",
@@ -5094,7 +5094,7 @@ const REGISTRY: Registry = {
       sections: [
         {
           heading: "取得する情報",
-          body: "アカウント情報（メールアドレス、氏名）、配送先住所、任意の処方データ、lool.com 上の閲覧パターン、決済トークン（カード番号全体は保存しません。PCI-DSS Level 1 認証の決済プロセッサーによりトークン化されます）。",
+          body: "アカウント情報（メールアドレス、氏名）、配送先住所、任意の処方データ、loollook.com 上の閲覧パターン、決済トークン（カード番号全体は保存しません。PCI-DSS Level 1 認証の決済プロセッサーによりトークン化されます）。",
         },
         {
           heading: "利用目的",
@@ -5118,7 +5118,7 @@ const REGISTRY: Registry = {
       sections: [
         {
           heading: "수집 항목",
-          body: "계정 정보(이메일, 이름), 배송지 주소, 선택적 처방 데이터, lool.com 내 이용 패턴, 결제 토큰(전체 카드 번호는 절대 저장하지 않으며, PCI-DSS Level 1 결제 처리사가 토큰화합니다)을 수집합니다.",
+          body: "계정 정보(이메일, 이름), 배송지 주소, 선택적 처방 데이터, loollook.com 내 이용 패턴, 결제 토큰(전체 카드 번호는 절대 저장하지 않으며, PCI-DSS Level 1 결제 처리사가 토큰화합니다)을 수집합니다.",
         },
         {
           heading: "수집 이유",
@@ -5142,7 +5142,7 @@ const REGISTRY: Registry = {
       sections: [
         {
           heading: "ما نجمعه",
-          body: "بيانات الحساب (البريد الإلكتروني، الاسم)، عنوان الشحن، بيانات الوصفة الطبية الاختيارية، أنماط التصفّح على lool.com، ورموز الدفع (لا نخزّن أرقام البطاقات الكاملة أبدًا — يجري ترميزها لدى معالج الدفع المعتمد PCI-DSS Level 1).",
+          body: "بيانات الحساب (البريد الإلكتروني، الاسم)، عنوان الشحن، بيانات الوصفة الطبية الاختيارية، أنماط التصفّح على loollook.com، ورموز الدفع (لا نخزّن أرقام البطاقات الكاملة أبدًا — يجري ترميزها لدى معالج الدفع المعتمد PCI-DSS Level 1).",
         },
         {
           heading: "لماذا نجمعها",
@@ -5166,7 +5166,7 @@ const REGISTRY: Registry = {
       sections: [
         {
           heading: "Những gì chúng tôi thu thập",
-          body: "Thông tin tài khoản (email, tên), địa chỉ giao hàng, dữ liệu đơn thuốc tùy chọn, mẫu hành vi duyệt trên lool.com, và token thanh toán (chúng tôi không bao giờ lưu số thẻ đầy đủ — chúng được token hóa bởi nhà xử lý thanh toán PCI-DSS Level 1 của chúng tôi).",
+          body: "Thông tin tài khoản (email, tên), địa chỉ giao hàng, dữ liệu đơn thuốc tùy chọn, mẫu hành vi duyệt trên loollook.com, và token thanh toán (chúng tôi không bao giờ lưu số thẻ đầy đủ — chúng được token hóa bởi nhà xử lý thanh toán PCI-DSS Level 1 của chúng tôi).",
         },
         {
           heading: "Tại sao chúng tôi thu thập",
@@ -5190,7 +5190,7 @@ const REGISTRY: Registry = {
       sections: [
         {
           heading: "เราเก็บอะไรบ้าง",
-          body: "รายละเอียดบัญชี (อีเมล ชื่อ) ที่อยู่จัดส่ง ข้อมูลใบสั่งยาตามที่เลือก รูปแบบการเรียกดูบน lool.com และโทเค็นการชำระเงิน (เราไม่เก็บหมายเลขบัตรแบบเต็ม — มันถูกแปลงเป็นโทเค็นโดยผู้ประมวลผล PCI-DSS Level 1 ของเรา)",
+          body: "รายละเอียดบัญชี (อีเมล ชื่อ) ที่อยู่จัดส่ง ข้อมูลใบสั่งยาตามที่เลือก รูปแบบการเรียกดูบน loollook.com และโทเค็นการชำระเงิน (เราไม่เก็บหมายเลขบัตรแบบเต็ม — มันถูกแปลงเป็นโทเค็นโดยผู้ประมวลผล PCI-DSS Level 1 ของเรา)",
         },
         {
           heading: "ทำไมเราจึงเก็บ",
@@ -5214,7 +5214,7 @@ const REGISTRY: Registry = {
       sections: [
         {
           heading: "Apa yang kami kumpulkan",
-          body: "Detail akun (email, nama), alamat pengiriman, data resep opsional, pola penjelajahan di lool.com, dan token pembayaran (kami tidak pernah menyimpan nomor kartu lengkap — mereka ditokenisasi oleh prosesor PCI-DSS Level 1 kami).",
+          body: "Detail akun (email, nama), alamat pengiriman, data resep opsional, pola penjelajahan di loollook.com, dan token pembayaran (kami tidak pernah menyimpan nomor kartu lengkap — mereka ditokenisasi oleh prosesor PCI-DSS Level 1 kami).",
         },
         {
           heading: "Mengapa kami mengumpulkannya",
@@ -5238,7 +5238,7 @@ const REGISTRY: Registry = {
       sections: [
         {
           heading: "Apa yang kami kumpulkan",
-          body: "Maklumat akaun (e-mel, nama), alamat penghantaran, data preskripsi pilihan, corak penyemakan imbas pada lool.com, dan token pembayaran (kami tidak pernah menyimpan nombor kad penuh — ia ditokenkan oleh pemproses PCI-DSS Level 1 kami).",
+          body: "Maklumat akaun (e-mel, nama), alamat penghantaran, data preskripsi pilihan, corak penyemakan imbas pada loollook.com, dan token pembayaran (kami tidak pernah menyimpan nombor kad penuh — ia ditokenkan oleh pemproses PCI-DSS Level 1 kami).",
         },
         {
           heading: "Mengapa kami mengumpulkannya",
@@ -5260,7 +5260,7 @@ const REGISTRY: Registry = {
       eyebrow: "Legal",
       title: "Terms & Conditions",
       intro:
-        "By using lool.com or buying from us, you agree to the following. Plain language version below — full legal text available on request.",
+        "By using loollook.com or buying from us, you agree to the following. Plain language version below — full legal text available on request.",
       sections: [
         {
           heading: "Your account",
@@ -5276,11 +5276,11 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Intellectual property",
-          body: "All site content — frame designs, photography, copy, code — is owned by lool and may not be reproduced without written consent.",
+          body: "All site content — frame designs, photography, copy, code — is owned by loollook and may not be reproduced without written consent.",
         },
         {
           heading: "Liability",
-          body: "lool’s total liability for any order is capped at the order’s value. We are not liable for indirect, incidental, or consequential damages.",
+          body: "loollook’s total liability for any order is capped at the order’s value. We are not liable for indirect, incidental, or consequential damages.",
         },
         {
           heading: "Governing law",
@@ -5292,7 +5292,7 @@ const REGISTRY: Registry = {
       eyebrow: "法律",
       title: "条款与条件",
       intro:
-        "使用 lool.com 或在我们这里购物即视为同意以下条款。下方为通俗版，完整法律文本可应请求提供。",
+        "使用 loollook.com 或在我们这里购物即视为同意以下条款。下方为通俗版，完整法律文本可应请求提供。",
       sections: [
         {
           heading: "你的账户",
@@ -5308,11 +5308,11 @@ const REGISTRY: Registry = {
         },
         {
           heading: "知识产权",
-          body: "网站全部内容——镜架设计、摄影、文案、代码——归 lool 所有，未经书面同意不得复制。",
+          body: "网站全部内容——镜架设计、摄影、文案、代码——归 loollook 所有，未经书面同意不得复制。",
         },
         {
           heading: "责任",
-          body: "lool 对任一订单的总责任以该订单价值为上限。我们不对间接、附带或后果性损失承担责任。",
+          body: "loollook 对任一订单的总责任以该订单价值为上限。我们不对间接、附带或后果性损失承担责任。",
         },
         {
           heading: "适用法律",
@@ -5324,7 +5324,7 @@ const REGISTRY: Registry = {
       eyebrow: "Legal",
       title: "Términos y condiciones",
       intro:
-        "Al usar lool.com o comprar con nosotros, aceptas lo siguiente. Versión en lenguaje claro a continuación; el texto legal completo está disponible bajo petición.",
+        "Al usar loollook.com o comprar con nosotros, aceptas lo siguiente. Versión en lenguaje claro a continuación; el texto legal completo está disponible bajo petición.",
       sections: [
         {
           heading: "Tu cuenta",
@@ -5340,11 +5340,11 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Propiedad intelectual",
-          body: "Todo el contenido del sitio —diseños de monturas, fotografía, textos, código— es propiedad de lool y no puede reproducirse sin consentimiento por escrito.",
+          body: "Todo el contenido del sitio —diseños de monturas, fotografía, textos, código— es propiedad de loollook y no puede reproducirse sin consentimiento por escrito.",
         },
         {
           heading: "Responsabilidad",
-          body: "La responsabilidad total de lool por cualquier pedido se limita al valor del propio pedido. No nos hacemos responsables de daños indirectos, incidentales o derivados.",
+          body: "La responsabilidad total de loollook por cualquier pedido se limita al valor del propio pedido. No nos hacemos responsables de daños indirectos, incidentales o derivados.",
         },
         {
           heading: "Ley aplicable",
@@ -5356,7 +5356,7 @@ const REGISTRY: Registry = {
       eyebrow: "Mentions légales",
       title: "Conditions générales",
       intro:
-        "En utilisant lool.com ou en achetant chez nous, vous acceptez ce qui suit. Version en langage clair ci-dessous — texte juridique complet disponible sur demande.",
+        "En utilisant loollook.com ou en achetant chez nous, vous acceptez ce qui suit. Version en langage clair ci-dessous — texte juridique complet disponible sur demande.",
       sections: [
         {
           heading: "Votre compte",
@@ -5372,11 +5372,11 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Propriété intellectuelle",
-          body: "Tout le contenu du site — designs de monture, photographies, textes, code — appartient à lool et ne peut être reproduit sans accord écrit.",
+          body: "Tout le contenu du site — designs de monture, photographies, textes, code — appartient à loollook et ne peut être reproduit sans accord écrit.",
         },
         {
           heading: "Responsabilité",
-          body: "La responsabilité totale de lool pour toute commande est plafonnée à la valeur de la commande. Nous ne sommes pas responsables des dommages indirects, accessoires ou consécutifs.",
+          body: "La responsabilité totale de loollook pour toute commande est plafonnée à la valeur de la commande. Nous ne sommes pas responsables des dommages indirects, accessoires ou consécutifs.",
         },
         {
           heading: "Loi applicable",
@@ -5388,7 +5388,7 @@ const REGISTRY: Registry = {
       eyebrow: "Rechtliches",
       title: "AGB",
       intro:
-        "Mit der Nutzung von lool.com oder einem Kauf bei uns stimmst du den folgenden Bedingungen zu. Unten in klarer Sprache — den vollständigen rechtlichen Text stellen wir auf Anfrage bereit.",
+        "Mit der Nutzung von loollook.com oder einem Kauf bei uns stimmst du den folgenden Bedingungen zu. Unten in klarer Sprache — den vollständigen rechtlichen Text stellen wir auf Anfrage bereit.",
       sections: [
         {
           heading: "Dein Konto",
@@ -5404,11 +5404,11 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Geistiges Eigentum",
-          body: "Sämtliche Inhalte der Website — Fassungsdesigns, Fotografie, Texte, Code — sind Eigentum von lool und dürfen ohne schriftliche Zustimmung nicht reproduziert werden.",
+          body: "Sämtliche Inhalte der Website — Fassungsdesigns, Fotografie, Texte, Code — sind Eigentum von loollook und dürfen ohne schriftliche Zustimmung nicht reproduziert werden.",
         },
         {
           heading: "Haftung",
-          body: "Die Gesamthaftung von lool für jede Bestellung ist auf den Wert der Bestellung begrenzt. Wir haften nicht für mittelbare Schäden, Begleit- oder Folgeschäden.",
+          body: "Die Gesamthaftung von loollook für jede Bestellung ist auf den Wert der Bestellung begrenzt. Wir haften nicht für mittelbare Schäden, Begleit- oder Folgeschäden.",
         },
         {
           heading: "Anwendbares Recht",
@@ -5420,7 +5420,7 @@ const REGISTRY: Registry = {
       eyebrow: "Legale",
       title: "Termini e condizioni",
       intro:
-        "Utilizzando lool.com o acquistando da noi, accetti quanto segue. Di seguito una versione in linguaggio semplice — il testo legale completo è disponibile su richiesta.",
+        "Utilizzando loollook.com o acquistando da noi, accetti quanto segue. Di seguito una versione in linguaggio semplice — il testo legale completo è disponibile su richiesta.",
       sections: [
         {
           heading: "Il tuo account",
@@ -5436,11 +5436,11 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Proprietà intellettuale",
-          body: "Tutti i contenuti del sito — design delle montature, fotografie, testi, codice — sono di proprietà di lool e non possono essere riprodotti senza consenso scritto.",
+          body: "Tutti i contenuti del sito — design delle montature, fotografie, testi, codice — sono di proprietà di loollook e non possono essere riprodotti senza consenso scritto.",
         },
         {
           heading: "Responsabilità",
-          body: "La responsabilità complessiva di lool per ogni ordine è limitata al valore dell’ordine stesso. Non siamo responsabili per danni indiretti, incidentali o consequenziali.",
+          body: "La responsabilità complessiva di loollook per ogni ordine è limitata al valore dell’ordine stesso. Non siamo responsabili per danni indiretti, incidentali o consequenziali.",
         },
         {
           heading: "Legge applicabile",
@@ -5452,7 +5452,7 @@ const REGISTRY: Registry = {
       eyebrow: "Legal",
       title: "Termos e condições",
       intro:
-        "Ao utilizar o lool.com ou comprar conosco, você concorda com o que segue. Abaixo está a versão em linguagem simples — o texto legal completo pode ser solicitado.",
+        "Ao utilizar o loollook.com ou comprar conosco, você concorda com o que segue. Abaixo está a versão em linguagem simples — o texto legal completo pode ser solicitado.",
       sections: [
         {
           heading: "Sua conta",
@@ -5468,11 +5468,11 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Propriedade intelectual",
-          body: "Todo o conteúdo do site — desenhos de armação, fotografia, textos, código — é de propriedade da lool e não pode ser reproduzido sem consentimento por escrito.",
+          body: "Todo o conteúdo do site — desenhos de armação, fotografia, textos, código — é de propriedade da loollook e não pode ser reproduzido sem consentimento por escrito.",
         },
         {
           heading: "Responsabilidade",
-          body: "A responsabilidade total da lool por qualquer pedido limita-se ao valor desse pedido. Não nos responsabilizamos por danos indiretos, incidentais ou consequenciais.",
+          body: "A responsabilidade total da loollook por qualquer pedido limita-se ao valor desse pedido. Não nos responsabilizamos por danos indiretos, incidentais ou consequenciais.",
         },
         {
           heading: "Lei aplicável",
@@ -5484,7 +5484,7 @@ const REGISTRY: Registry = {
       eyebrow: "法的事項",
       title: "利用規約",
       intro:
-        "lool.com をご利用いただく、または当社から商品をご購入いただくことで、以下の規約に同意したものとみなされます。下記はわかりやすい言葉によるものです。完全な法的文書はご請求に応じてご提供します。",
+        "loollook.com をご利用いただく、または当社から商品をご購入いただくことで、以下の規約に同意したものとみなされます。下記はわかりやすい言葉によるものです。完全な法的文書はご請求に応じてご提供します。",
       sections: [
         {
           heading: "アカウント",
@@ -5500,11 +5500,11 @@ const REGISTRY: Registry = {
         },
         {
           heading: "知的財産",
-          body: "サイト上のすべてのコンテンツ（フレームデザイン、写真、コピー、コード）は lool に帰属し、書面による同意なしに複製することはできません。",
+          body: "サイト上のすべてのコンテンツ（フレームデザイン、写真、コピー、コード）は loollook に帰属し、書面による同意なしに複製することはできません。",
         },
         {
           heading: "責任",
-          body: "lool のあらゆるご注文に対する責任の総額は、当該注文の金額を上限とします。間接的、付随的、または結果的損害について当社は責任を負いません。",
+          body: "loollook のあらゆるご注文に対する責任の総額は、当該注文の金額を上限とします。間接的、付随的、または結果的損害について当社は責任を負いません。",
         },
         {
           heading: "準拠法",
@@ -5516,7 +5516,7 @@ const REGISTRY: Registry = {
       eyebrow: "법적 고지",
       title: "이용약관",
       intro:
-        "lool.com을 이용하거나 당사로부터 제품을 구매하시는 것은 아래 약관에 동의하는 것으로 간주됩니다. 아래는 쉬운 언어로 정리한 요약본이며, 전체 법률 원문은 요청 시 제공됩니다.",
+        "loollook.com을 이용하거나 당사로부터 제품을 구매하시는 것은 아래 약관에 동의하는 것으로 간주됩니다. 아래는 쉬운 언어로 정리한 요약본이며, 전체 법률 원문은 요청 시 제공됩니다.",
       sections: [
         {
           heading: "계정",
@@ -5532,11 +5532,11 @@ const REGISTRY: Registry = {
         },
         {
           heading: "지식재산",
-          body: "프레임 디자인, 사진, 카피, 코드 등 사이트의 모든 콘텐츠는 lool의 소유이며, 서면 동의 없이 복제할 수 없습니다.",
+          body: "프레임 디자인, 사진, 카피, 코드 등 사이트의 모든 콘텐츠는 loollook의 소유이며, 서면 동의 없이 복제할 수 없습니다.",
         },
         {
           heading: "책임",
-          body: "어떠한 주문에 대해서도 lool의 총 책임은 해당 주문 금액으로 제한됩니다. 당사는 간접적, 부수적 또는 결과적 손해에 대해 책임지지 않습니다.",
+          body: "어떠한 주문에 대해서도 loollook의 총 책임은 해당 주문 금액으로 제한됩니다. 당사는 간접적, 부수적 또는 결과적 손해에 대해 책임지지 않습니다.",
         },
         {
           heading: "준거법",
@@ -5548,7 +5548,7 @@ const REGISTRY: Registry = {
       eyebrow: "قانوني",
       title: "الشروط والأحكام",
       intro:
-        "باستخدامك lool.com أو الشراء منا، فإنك توافق على ما يلي. النسخة بلغة مبسّطة أدناه — والنص القانوني الكامل متاح عند الطلب.",
+        "باستخدامك loollook.com أو الشراء منا، فإنك توافق على ما يلي. النسخة بلغة مبسّطة أدناه — والنص القانوني الكامل متاح عند الطلب.",
       sections: [
         {
           heading: "حسابك",
@@ -5564,11 +5564,11 @@ const REGISTRY: Registry = {
         },
         {
           heading: "الملكية الفكرية",
-          body: "جميع محتويات الموقع — تصاميم الإطارات، والتصوير الفوتوغرافي، والنصوص، والكود — مملوكة لـ lool ولا يجوز إعادة إنتاجها دون موافقة خطية.",
+          body: "جميع محتويات الموقع — تصاميم الإطارات، والتصوير الفوتوغرافي، والنصوص، والكود — مملوكة لـ loollook ولا يجوز إعادة إنتاجها دون موافقة خطية.",
         },
         {
           heading: "المسؤولية",
-          body: "تقتصر المسؤولية الإجمالية لـ lool عن أي طلب على قيمة ذلك الطلب. ولا نتحمّل أي مسؤولية عن أضرار غير مباشرة أو عرضية أو تبعية.",
+          body: "تقتصر المسؤولية الإجمالية لـ loollook عن أي طلب على قيمة ذلك الطلب. ولا نتحمّل أي مسؤولية عن أضرار غير مباشرة أو عرضية أو تبعية.",
         },
         {
           heading: "القانون المعمول به",
@@ -5580,7 +5580,7 @@ const REGISTRY: Registry = {
       eyebrow: "Pháp lý",
       title: "Điều khoản & điều kiện",
       intro:
-        "Bằng việc sử dụng lool.com hoặc mua hàng từ chúng tôi, bạn đồng ý với các điều sau. Phiên bản ngôn ngữ dễ hiểu bên dưới — văn bản pháp lý đầy đủ có sẵn theo yêu cầu.",
+        "Bằng việc sử dụng loollook.com hoặc mua hàng từ chúng tôi, bạn đồng ý với các điều sau. Phiên bản ngôn ngữ dễ hiểu bên dưới — văn bản pháp lý đầy đủ có sẵn theo yêu cầu.",
       sections: [
         {
           heading: "Tài khoản của bạn",
@@ -5596,11 +5596,11 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Sở hữu trí tuệ",
-          body: "Toàn bộ nội dung trang — thiết kế gọng, ảnh, văn bản, mã — đều thuộc sở hữu của lool và không được sao chép nếu không có sự đồng ý bằng văn bản.",
+          body: "Toàn bộ nội dung trang — thiết kế gọng, ảnh, văn bản, mã — đều thuộc sở hữu của loollook và không được sao chép nếu không có sự đồng ý bằng văn bản.",
         },
         {
           heading: "Trách nhiệm",
-          body: "Tổng trách nhiệm của lool đối với bất kỳ đơn hàng nào được giới hạn ở giá trị của đơn hàng. Chúng tôi không chịu trách nhiệm cho các thiệt hại gián tiếp, ngẫu nhiên hoặc hệ quả.",
+          body: "Tổng trách nhiệm của loollook đối với bất kỳ đơn hàng nào được giới hạn ở giá trị của đơn hàng. Chúng tôi không chịu trách nhiệm cho các thiệt hại gián tiếp, ngẫu nhiên hoặc hệ quả.",
         },
         {
           heading: "Luật áp dụng",
@@ -5612,7 +5612,7 @@ const REGISTRY: Registry = {
       eyebrow: "ข้อกฎหมาย",
       title: "ข้อกำหนดและเงื่อนไข",
       intro:
-        "การใช้ lool.com หรือซื้อสินค้าจากเราถือว่าคุณยอมรับเงื่อนไขต่อไปนี้ ฉบับภาษาเข้าใจง่ายอยู่ด้านล่าง — ฉบับกฎหมายฉบับเต็มมีให้เมื่อร้องขอ",
+        "การใช้ loollook.com หรือซื้อสินค้าจากเราถือว่าคุณยอมรับเงื่อนไขต่อไปนี้ ฉบับภาษาเข้าใจง่ายอยู่ด้านล่าง — ฉบับกฎหมายฉบับเต็มมีให้เมื่อร้องขอ",
       sections: [
         {
           heading: "บัญชีของคุณ",
@@ -5628,11 +5628,11 @@ const REGISTRY: Registry = {
         },
         {
           heading: "ทรัพย์สินทางปัญญา",
-          body: "เนื้อหาทั้งหมดบนเว็บไซต์ — การออกแบบกรอบ การถ่ายภาพ ข้อความ โค้ด — เป็นของ lool และไม่สามารถทำซ้ำได้โดยไม่ได้รับความยินยอมเป็นลายลักษณ์อักษร",
+          body: "เนื้อหาทั้งหมดบนเว็บไซต์ — การออกแบบกรอบ การถ่ายภาพ ข้อความ โค้ด — เป็นของ loollook และไม่สามารถทำซ้ำได้โดยไม่ได้รับความยินยอมเป็นลายลักษณ์อักษร",
         },
         {
           heading: "ความรับผิด",
-          body: "ความรับผิดทั้งหมดของ lool สำหรับคำสั่งซื้อใด ๆ จำกัดที่มูลค่าของคำสั่งซื้อ เราไม่รับผิดชอบสำหรับความเสียหายทางอ้อม โดยบังเอิญ หรือสืบเนื่อง",
+          body: "ความรับผิดทั้งหมดของ loollook สำหรับคำสั่งซื้อใด ๆ จำกัดที่มูลค่าของคำสั่งซื้อ เราไม่รับผิดชอบสำหรับความเสียหายทางอ้อม โดยบังเอิญ หรือสืบเนื่อง",
         },
         {
           heading: "กฎหมายที่ใช้บังคับ",
@@ -5644,7 +5644,7 @@ const REGISTRY: Registry = {
       eyebrow: "Legal",
       title: "Syarat dan ketentuan",
       intro:
-        "Dengan menggunakan lool.com atau membeli dari kami, Anda menyetujui hal-hal berikut. Versi bahasa sederhana di bawah ini — teks hukum lengkap tersedia atas permintaan.",
+        "Dengan menggunakan loollook.com atau membeli dari kami, Anda menyetujui hal-hal berikut. Versi bahasa sederhana di bawah ini — teks hukum lengkap tersedia atas permintaan.",
       sections: [
         {
           heading: "Akun Anda",
@@ -5660,11 +5660,11 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Kekayaan intelektual",
-          body: "Semua konten situs — desain bingkai, fotografi, salinan, kode — adalah milik lool dan tidak dapat direproduksi tanpa persetujuan tertulis.",
+          body: "Semua konten situs — desain bingkai, fotografi, salinan, kode — adalah milik loollook dan tidak dapat direproduksi tanpa persetujuan tertulis.",
         },
         {
           heading: "Tanggung jawab",
-          body: "Tanggung jawab total lool untuk pesanan apa pun dibatasi pada nilai pesanan tersebut. Kami tidak bertanggung jawab atas kerusakan tidak langsung, insidental, atau konsekuensial.",
+          body: "Tanggung jawab total loollook untuk pesanan apa pun dibatasi pada nilai pesanan tersebut. Kami tidak bertanggung jawab atas kerusakan tidak langsung, insidental, atau konsekuensial.",
         },
         {
           heading: "Hukum yang berlaku",
@@ -5676,7 +5676,7 @@ const REGISTRY: Registry = {
       eyebrow: "Undang-undang",
       title: "Terma & syarat",
       intro:
-        "Dengan menggunakan lool.com atau membeli daripada kami, anda bersetuju dengan yang berikut. Versi bahasa biasa di bawah — teks undang-undang penuh tersedia atas permintaan.",
+        "Dengan menggunakan loollook.com atau membeli daripada kami, anda bersetuju dengan yang berikut. Versi bahasa biasa di bawah — teks undang-undang penuh tersedia atas permintaan.",
       sections: [
         {
           heading: "Akaun anda",
@@ -5692,11 +5692,11 @@ const REGISTRY: Registry = {
         },
         {
           heading: "Harta intelek",
-          body: "Semua kandungan tapak — reka bentuk bingkai, fotografi, salinan, kod — dimiliki oleh lool dan tidak boleh diterbitkan semula tanpa persetujuan bertulis.",
+          body: "Semua kandungan tapak — reka bentuk bingkai, fotografi, salinan, kod — dimiliki oleh loollook dan tidak boleh diterbitkan semula tanpa persetujuan bertulis.",
         },
         {
           heading: "Liabiliti",
-          body: "Jumlah liabiliti lool untuk mana-mana pesanan dihadkan kepada nilai pesanan tersebut. Kami tidak bertanggungjawab atas kerosakan tidak langsung, sampingan atau berbangkit.",
+          body: "Jumlah liabiliti loollook untuk mana-mana pesanan dihadkan kepada nilai pesanan tersebut. Kami tidak bertanggungjawab atas kerosakan tidak langsung, sampingan atau berbangkit.",
         },
         {
           heading: "Undang-undang yang mengawal",
@@ -5710,7 +5710,7 @@ const REGISTRY: Registry = {
       eyebrow: "Legal",
       title: "Cookie & tracking preferences",
       intro:
-        "We use a minimal set of cookies to make lool.com work, plus optional analytics and marketing cookies you can control here.",
+        "We use a minimal set of cookies to make loollook.com work, plus optional analytics and marketing cookies you can control here.",
       sections: [
         {
           heading: "Strictly necessary",
@@ -5734,7 +5734,7 @@ const REGISTRY: Registry = {
       eyebrow: "法律",
       title: "Cookie 与跟踪偏好",
       intro:
-        "我们使用极少量必要 Cookie 来确保 lool.com 运作，以及可选的分析与营销 Cookie——你可以在此控制。",
+        "我们使用极少量必要 Cookie 来确保 loollook.com 运作，以及可选的分析与营销 Cookie——你可以在此控制。",
       sections: [
         {
           heading: "必要 Cookie",
@@ -5758,7 +5758,7 @@ const REGISTRY: Registry = {
       eyebrow: "Legal",
       title: "Preferencias de cookies y rastreo",
       intro:
-        "Usamos un conjunto mínimo de cookies para que lool.com funcione, además de cookies opcionales de analítica y marketing que puedes controlar aquí.",
+        "Usamos un conjunto mínimo de cookies para que loollook.com funcione, además de cookies opcionales de analítica y marketing que puedes controlar aquí.",
       sections: [
         {
           heading: "Estrictamente necesarias",
@@ -5782,7 +5782,7 @@ const REGISTRY: Registry = {
       eyebrow: "Mentions légales",
       title: "Préférences cookies & suivi",
       intro:
-        "Nous utilisons un ensemble minimal de cookies pour faire fonctionner lool.com, plus des cookies d’analyse et de marketing optionnels que vous pouvez contrôler ici.",
+        "Nous utilisons un ensemble minimal de cookies pour faire fonctionner loollook.com, plus des cookies d’analyse et de marketing optionnels que vous pouvez contrôler ici.",
       sections: [
         {
           heading: "Strictement nécessaires",
@@ -5806,7 +5806,7 @@ const REGISTRY: Registry = {
       eyebrow: "Rechtliches",
       title: "Cookies & Tracking-Einstellungen",
       intro:
-        "Wir verwenden ein Minimum an Cookies, damit lool.com funktioniert, dazu optionale Analyse- und Marketing-Cookies, die du hier steuern kannst.",
+        "Wir verwenden ein Minimum an Cookies, damit loollook.com funktioniert, dazu optionale Analyse- und Marketing-Cookies, die du hier steuern kannst.",
       sections: [
         {
           heading: "Unbedingt erforderlich",
@@ -5830,7 +5830,7 @@ const REGISTRY: Registry = {
       eyebrow: "Legale",
       title: "Preferenze cookie e tracciamento",
       intro:
-        "Utilizziamo un set minimo di cookie per far funzionare lool.com, oltre a cookie facoltativi di analitica e marketing che puoi controllare da qui.",
+        "Utilizziamo un set minimo di cookie per far funzionare loollook.com, oltre a cookie facoltativi di analitica e marketing che puoi controllare da qui.",
       sections: [
         {
           heading: "Strettamente necessari",
@@ -5854,7 +5854,7 @@ const REGISTRY: Registry = {
       eyebrow: "Legal",
       title: "Preferências de cookies e rastreamento",
       intro:
-        "Usamos um conjunto mínimo de cookies para fazer o lool.com funcionar, além de cookies opcionais de análise e marketing que você pode controlar aqui.",
+        "Usamos um conjunto mínimo de cookies para fazer o loollook.com funcionar, além de cookies opcionais de análise e marketing que você pode controlar aqui.",
       sections: [
         {
           heading: "Estritamente necessários",
@@ -5878,7 +5878,7 @@ const REGISTRY: Registry = {
       eyebrow: "法的事項",
       title: "Cookie とトラッキング設定",
       intro:
-        "lool.com を機能させるために必要最小限の Cookie を使用しており、加えて、こちらで管理いただける任意の分析・マーケティング Cookie を提供しています。",
+        "loollook.com を機能させるために必要最小限の Cookie を使用しており、加えて、こちらで管理いただける任意の分析・マーケティング Cookie を提供しています。",
       sections: [
         {
           heading: "必須",
@@ -5902,7 +5902,7 @@ const REGISTRY: Registry = {
       eyebrow: "법적 고지",
       title: "쿠키 및 추적 설정",
       intro:
-        "당사는 lool.com이 정상적으로 작동하도록 하는 최소한의 쿠키와, 귀하가 이 페이지에서 제어할 수 있는 선택적 분석·마케팅 쿠키를 사용합니다.",
+        "당사는 loollook.com이 정상적으로 작동하도록 하는 최소한의 쿠키와, 귀하가 이 페이지에서 제어할 수 있는 선택적 분석·마케팅 쿠키를 사용합니다.",
       sections: [
         {
           heading: "필수",
@@ -5926,7 +5926,7 @@ const REGISTRY: Registry = {
       eyebrow: "قانوني",
       title: "تفضيلات ملفات تعريف الارتباط",
       intro:
-        "نستخدم الحد الأدنى من ملفات تعريف الارتباط لجعل lool.com يعمل، إضافةً إلى ملفات تحليل وتسويق اختيارية يمكنك التحكّم بها من هنا.",
+        "نستخدم الحد الأدنى من ملفات تعريف الارتباط لجعل loollook.com يعمل، إضافةً إلى ملفات تحليل وتسويق اختيارية يمكنك التحكّم بها من هنا.",
       sections: [
         {
           heading: "ضرورية تمامًا",
@@ -5950,7 +5950,7 @@ const REGISTRY: Registry = {
       eyebrow: "Pháp lý",
       title: "Cookie & tùy chọn theo dõi",
       intro:
-        "Chúng tôi dùng một bộ cookie tối thiểu để lool.com hoạt động, cùng các cookie phân tích và tiếp thị tùy chọn mà bạn có thể kiểm soát ở đây.",
+        "Chúng tôi dùng một bộ cookie tối thiểu để loollook.com hoạt động, cùng các cookie phân tích và tiếp thị tùy chọn mà bạn có thể kiểm soát ở đây.",
       sections: [
         {
           heading: "Cần thiết tuyệt đối",
@@ -5974,7 +5974,7 @@ const REGISTRY: Registry = {
       eyebrow: "ข้อกฎหมาย",
       title: "การตั้งค่าคุกกี้และการติดตาม",
       intro:
-        "เราใช้คุกกี้ขั้นต่ำที่จำเป็นเพื่อให้ lool.com ทำงาน พร้อมคุกกี้วิเคราะห์และการตลาดเสริมที่คุณสามารถควบคุมได้ที่นี่",
+        "เราใช้คุกกี้ขั้นต่ำที่จำเป็นเพื่อให้ loollook.com ทำงาน พร้อมคุกกี้วิเคราะห์และการตลาดเสริมที่คุณสามารถควบคุมได้ที่นี่",
       sections: [
         {
           heading: "จำเป็นอย่างยิ่ง",
@@ -5998,7 +5998,7 @@ const REGISTRY: Registry = {
       eyebrow: "Legal",
       title: "Preferensi cookie & pelacakan",
       intro:
-        "Kami menggunakan kumpulan cookie minimal agar lool.com berfungsi, ditambah cookie analitik dan pemasaran opsional yang dapat Anda kontrol di sini.",
+        "Kami menggunakan kumpulan cookie minimal agar loollook.com berfungsi, ditambah cookie analitik dan pemasaran opsional yang dapat Anda kontrol di sini.",
       sections: [
         {
           heading: "Sangat diperlukan",
@@ -6022,7 +6022,7 @@ const REGISTRY: Registry = {
       eyebrow: "Undang-undang",
       title: "Keutamaan kuki & penjejakan",
       intro:
-        "Kami menggunakan set kuki yang minimum agar lool.com berfungsi, tambahan kuki analitik dan pemasaran pilihan yang anda boleh kawal di sini.",
+        "Kami menggunakan set kuki yang minimum agar loollook.com berfungsi, tambahan kuki analitik dan pemasaran pilihan yang anda boleh kawal di sini.",
       sections: [
         {
           heading: "Mutlak diperlukan",

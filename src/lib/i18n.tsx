@@ -58,7 +58,7 @@ export const LANGUAGES: LangMeta[] = [
 /* ---------- Translation dictionaries ---------- */
 
 const en = {
-  "brand.name": "lool",
+  "brand.name": "loollook",
   "brand.tagline": "Your eyes, your style.",
 
   "nav.home": "Home",
@@ -142,7 +142,7 @@ const en = {
     "Blue-light, ultra-thin lenses, teen myopia control — all in one.",
   "cat.all.title": "All Products",
   "cat.all.desc":
-    "Browse the full lool collection — reading and everyday eyeglasses.",
+    "Browse the full loollook collection — reading and everyday eyeglasses.",
 
   "home.hero.cta.shopAll": "Shop the Collection",
   "home.shape.eyebrow": "Shape Guide",
@@ -192,7 +192,7 @@ const en = {
     "100% Accurate Fit · 360° Full View · 100+ Styles in Seconds",
   "home.tryon.cta": "Try It Now Free",
   "home.ugc.eyebrow": "Customer Looks",
-  "home.ugc.title": "Real Looks · The lool Community",
+  "home.ugc.title": "Real Looks · The loollook Community",
   "home.ugc.viewAll": "View All User Looks",
   "home.knowledge.eyebrow": "Knowledge Hub",
   "home.knowledge.title": "Eyewear Insights & Tips",
@@ -215,7 +215,7 @@ const en = {
   "home.knowledge.material.desc":
     "Understand the feel, weight and durability of each material.",
   "home.knowledge.learnMore": "Learn More",
-  "home.brand.eyebrow": "THE LOOL WAY",
+  "home.brand.eyebrow": "THE LOOLLOOK WAY",
   "home.brand.title":
     "Designed for Everyday Life, Crafted for Your Unique Style",
   "home.brand.cta": "Explore Our Full Collection",
@@ -450,7 +450,7 @@ const en = {
   "pdp.share.copy": "Copy",
   "pdp.share.wechat": "WeChat",
   "pdp.share.wechatHint": "Scan QR to share on WeChat",
-  "pdp.share.text": "Check out this lool frame: {title} — {url}",
+  "pdp.share.text": "Check out this loollook frame: {title} — {url}",
 
   "cart.title": "Cart",
   "cart.empty": "Your cart is empty",
@@ -488,7 +488,7 @@ const en = {
   "checkout.loading": "Loading secure checkout…",
   "chat.whatsapp": "Chat with us on WhatsApp",
   "chat.whatsappHint": "Our AI assistant is offline right now. Tap below to message our team on WhatsApp — a real person will get back to you.",
-  "chat.whatsappGreeting": "Hi lool, I have a question:",
+  "chat.whatsappGreeting": "Hi loollook, I have a question:",
   "checkout.unavailable": "Online payment is temporarily unavailable. Your cart is saved — please try again later or email support@loollook.com and we'll help you complete your order.",
   "checkout.error.required": "Please fill in every field.",
   "checkout.error.network": "Couldn't reach the server. Try again in a moment.",
@@ -644,9 +644,9 @@ const en = {
   "aff.unauth.title": "Sign in to view your affiliate account",
   "aff.unauth.sub": "Your affiliate dashboard is tied to your account email.",
   "aff.unauth.cta": "Go to sign in",
-  "aff.join.title": "Become a lool affiliate",
+  "aff.join.title": "Become a loollook affiliate",
   "aff.join.intro":
-    "Earn a commission on every order placed through your referral link. Anyone with a lool account can join — no application, no minimums to start.",
+    "Earn a commission on every order placed through your referral link. Anyone with a loollook account can join — no application, no minimums to start.",
   "aff.join.bullet1":
     "15% commission on the order subtotal (refunds deducted), credited to your ledger the moment an order is paid.",
   "aff.join.bullet2":
@@ -726,20 +726,20 @@ const en = {
   "favorites.removed": "Removed from favorites",
   "favorites.added": "Added to favorites",
 
-  "footer.about": "About lool",
+  "footer.about": "About loollook",
   "footer.help": "Help",
   "footer.policy": "Policies",
   "footer.follow": "Follow",
-  "footer.copyright": "© 2025 lool. Modern reading & myopia eyewear, direct.",
+  "footer.copyright": "© 2025 loollook. Modern reading & myopia eyewear, direct.",
 
   "footer.newsletter.title":
     "Sign up for our newsletter to get the latest updates",
   "footer.newsletter.placeholder": "Enter your email address",
   "footer.newsletter.cta": "Subscribe",
   "footer.newsletter.success": "Subscribed — thanks for joining our newsletter",
-  "footer.app.title": "Download the lool app",
+  "footer.app.title": "Download the loollook app",
   "footer.app.sub": "Try-on, save, and reorder lenses on the go",
-  "footer.app.install": "Install the lool app",
+  "footer.app.install": "Install the loollook app",
   "footer.app.installed": "Installed — open from your home screen",
   "footer.app.iosHint":
     "Tap the Share icon in Safari, then choose “Add to Home Screen”.",
@@ -760,11 +760,11 @@ const en = {
   "footer.col.material": "Shop by material",
   "footer.col.style": "By style",
   "footer.col.deals": "Deals",
-  "footer.col.about": "About lool",
+  "footer.col.about": "About loollook",
   "footer.col.howto": "How to",
   "footer.col.programs": "Our programs",
   "footer.col.faceShape": "Shop by face shape",
-  "footer.legal.promise": "lool Promise",
+  "footer.legal.promise": "loollook Promise",
   "footer.legal.shipping": "Shipping & Returns",
   "footer.legal.privacy": "Privacy & Security",
   "footer.legal.terms": "Terms & Conditions",
@@ -801,8 +801,8 @@ const en = {
   "footer.link.style.statement": "Statement",
   "footer.link.style.classic": "Classic",
   "footer.link.aboutUs": "About Us",
-  "footer.link.blog": "lool Blog",
-  "footer.link.whyLool": "Why Choose lool",
+  "footer.link.blog": "loollook Blog",
+  "footer.link.whyLool": "Why Choose loollook",
   "footer.link.helpCenter": "Help Center",
   "footer.link.accessibility": "Accessibility",
   "footer.link.findFit": "How to find your fit",
@@ -810,7 +810,7 @@ const en = {
   "footer.link.measurePD": "How to measure PD",
   "footer.link.rxGuide": "How to fill out your prescription",
   "footer.link.tryOn": "Virtual Try-On",
-  "footer.link.rewards": "lool Rewards",
+  "footer.link.rewards": "loollook Rewards",
   "footer.link.refer": "Refer a Friend",
   "footer.link.affiliate": "Affiliate Program",
   "footer.link.education": "Education Discount",
@@ -856,7 +856,7 @@ const en = {
   "wiz.brand.mingyue.desc": "Premium Chinese optics, crisp and durable.",
   "wiz.brand.zeiss": "ZEISS",
   "wiz.brand.zeiss.desc": "German precision, the gold standard for vision.",
-  "wiz.brand.inhouse": "lool",
+  "wiz.brand.inhouse": "loollook",
   "wiz.brand.inhouse.desc":
     "Self-brand entry tier — daily wear and reading-friendly options.",
   "wiz.s4.degToggle": "Add daily-wear preset (optional)",
@@ -1184,12 +1184,12 @@ const en = {
   // ——— AI Chat Concierge ———
   "chat.open": "Chat with AI",
   "chat.close": "Close chat",
-  "chat.title": "lool AI Assistant",
+  "chat.title": "loollook AI Assistant",
   "chat.subtitle": "Your eyewear expert, 24/7",
   "chat.placeholder": "Ask about frames, lenses, prescriptions…",
   "chat.send": "Send",
   "chat.welcome":
-    "Hi! I'm your lool AI assistant. I can help you find the perfect frames, understand lens options, or answer any eyewear questions. What can I help you with?",
+    "Hi! I'm your loollook AI assistant. I can help you find the perfect frames, understand lens options, or answer any eyewear questions. What can I help you with?",
   "chat.error":
     "Sorry, I'm having trouble connecting right now. Please try again in a moment.",
   "chat.disclaimer":
@@ -1212,7 +1212,7 @@ type Dict = Record<Key, string>;
 const fill = (partial: Partial<Dict>): Dict => ({ ...en, ...partial });
 
 const zh: Dict = fill({
-  "brand.name": "lool",
+  "brand.name": "loollook",
   "brand.tagline": "Your eyes, your style.",
   "error.boundary.title": "出错了",
   "error.boundary.body": "发生了意外错误，请稍后重试。",
@@ -1294,7 +1294,7 @@ const zh: Dict = fill({
   "cat.myopia.title": "日常近视镜",
   "cat.myopia.desc": "蓝光防护、超薄镜片、青少年防控一站式",
   "cat.all.title": "所有产品",
-  "cat.all.desc": "浏览 lool 全部系列 — 老花镜与日常近视镜。",
+  "cat.all.desc": "浏览 loollook 全部系列 — 老花镜与日常近视镜。",
 
   "home.hero.cta.shopAll": "选购系列",
   "home.shape.eyebrow": "形状指南",
@@ -1355,7 +1355,7 @@ const zh: Dict = fill({
   "home.knowledge.material.title": "镜框材质：醋酸纤维 / 钛 / TR90",
   "home.knowledge.material.desc": "了解不同材质的手感、重量与耐用度。",
   "home.knowledge.learnMore": "了解更多",
-  "home.brand.eyebrow": "LOOL 品牌主张",
+  "home.brand.eyebrow": "LOOLLOOK 品牌主张",
   "home.brand.title": "为日常而设计，为你的独特风格而制作",
   "home.brand.cta": "选购全系列",
 
@@ -1479,7 +1479,7 @@ const zh: Dict = fill({
   "home.faq.eyebrow": "常见问题解答",
   "chat.whatsapp": "通过 WhatsApp 联系我们",
   "chat.whatsappHint": "AI 助手暂时不在线。点击下方按钮，通过 WhatsApp 联系我们的客服，会有真人回复你。",
-  "chat.whatsappGreeting": "你好 lool，我想咨询一下：",
+  "chat.whatsappGreeting": "你好 loollook，我想咨询一下：",
   "checkout.unavailable": "在线支付暂时不可用。购物车已为你保存——请稍后再试，或发邮件至 support@loollook.com，我们会协助你完成下单。",
   "checkout.error.required": "请填写所有字段。",
   "checkout.error.network": "无法连接服务器，请稍后再试。",
@@ -1583,7 +1583,7 @@ const zh: Dict = fill({
     "【06-06 抵达目的国】\n" +
     "落地当地机场，移交本土物流\n\n" +
     "【06-07 目的地清关处理】\n" +
-    "海关清关核验，税费 LOOL 全包，无需买家付费\n\n" +
+    "海关清关核验，税费 LOOLLOOK 全包，无需买家付费\n\n" +
     "【06-09 本地派送中】\n" +
     "清关放行，快递上门派送\n" +
     "Tips：货品破损需签收 24h 内上传开箱素材\n\n" +
@@ -1635,9 +1635,9 @@ const zh: Dict = fill({
   "aff.unauth.title": "请先登录账户",
   "aff.unauth.sub": "代理中心与你的账户邮箱绑定。",
   "aff.unauth.cta": "前往登录",
-  "aff.join.title": "成为 lool 代理",
+  "aff.join.title": "成为 loollook 代理",
   "aff.join.intro":
-    "通过你的专属推广链接产生的每一笔订单都会有佣金返还。任何拥有 lool 账户的用户都可加入——无需审核，无最低门槛。",
+    "通过你的专属推广链接产生的每一笔订单都会有佣金返还。任何拥有 loollook 账户的用户都可加入——无需审核，无最低门槛。",
   "aff.join.bullet1":
     "订单实付金额（扣除退款）的 15% 作为佣金，订单付款一刻实时入账。",
   "aff.join.bullet2":
@@ -1737,19 +1737,19 @@ const zh: Dict = fill({
   "favorites.removed": "已取消收藏",
   "favorites.added": "已加入收藏",
 
-  "footer.about": "关于 lool",
+  "footer.about": "关于 loollook",
   "footer.help": "帮助",
   "footer.policy": "政策",
   "footer.follow": "关注我们",
-  "footer.copyright": "© 2025 lool. 专业老花 + 近视 DTC 品牌。",
+  "footer.copyright": "© 2025 loollook. 专业老花 + 近视 DTC 品牌。",
 
   "footer.newsletter.title": "订阅时讯，获取最新消息",
   "footer.newsletter.placeholder": "请输入邮箱",
   "footer.newsletter.cta": "立即订阅",
-  "footer.newsletter.success": "订阅成功，感谢关注 lool",
-  "footer.app.title": "下载 lool App",
+  "footer.newsletter.success": "订阅成功，感谢关注 loollook",
+  "footer.app.title": "下载 loollook App",
   "footer.app.sub": "随时试戴、收藏、配镜",
-  "footer.app.install": "安装 lool App",
+  "footer.app.install": "安装 loollook App",
   "footer.app.installed": "已安装 — 请从主屏幕打开",
   "footer.app.iosHint": "在 Safari 里点击「分享」图标，选择「添加到主屏幕」。",
   "footer.app.macHint":
@@ -1769,11 +1769,11 @@ const zh: Dict = fill({
   "footer.col.material": "按材质",
   "footer.col.style": "按风格",
   "footer.col.deals": "特惠",
-  "footer.col.about": "关于 lool",
+  "footer.col.about": "关于 loollook",
   "footer.col.howto": "购买指南",
   "footer.col.programs": "会员计划",
   "footer.col.faceShape": "按脸型",
-  "footer.legal.promise": "lool 承诺",
+  "footer.legal.promise": "loollook 承诺",
   "footer.legal.shipping": "配送与退换",
   "footer.legal.privacy": "隐私与安全",
   "footer.legal.terms": "服务条款",
@@ -1809,8 +1809,8 @@ const zh: Dict = fill({
   "footer.link.style.statement": "个性",
   "footer.link.style.classic": "经典",
   "footer.link.aboutUs": "关于我们",
-  "footer.link.blog": "lool 博客",
-  "footer.link.whyLool": "为什么选 lool",
+  "footer.link.blog": "loollook 博客",
+  "footer.link.whyLool": "为什么选 loollook",
   "footer.link.helpCenter": "帮助中心",
   "footer.link.accessibility": "无障碍",
   "footer.link.findFit": "如何找到合适尺寸",
@@ -1818,7 +1818,7 @@ const zh: Dict = fill({
   "footer.link.measurePD": "如何测量瞳距",
   "footer.link.rxGuide": "如何填写处方",
   "footer.link.tryOn": "虚拟试戴",
-  "footer.link.rewards": "lool 会员积分",
+  "footer.link.rewards": "loollook 会员积分",
   "footer.link.refer": "邀请好友",
   "footer.link.affiliate": "联盟计划",
   "footer.link.education": "学生 / 教师优惠",
@@ -1858,7 +1858,7 @@ const zh: Dict = fill({
   "wiz.brand.mingyue.desc": "国产高端光学，通透耐用。",
   "wiz.brand.zeiss": "蔡司",
   "wiz.brand.zeiss.desc": "德国精工,视觉领域的黄金标准。",
-  "wiz.brand.inhouse": "lool",
+  "wiz.brand.inhouse": "loollook",
   "wiz.brand.inhouse.desc": "自营入门款 — 适配日常佩戴 / 老花场景。",
   "wiz.s4.degToggle": "添加日常佩戴适配度数（可选）",
   "wiz.s4.degLabel": "日常佩戴适配度数",
@@ -2109,7 +2109,7 @@ const zh: Dict = fill({
   "pdp.share.copy": "复制",
   "pdp.share.wechat": "微信",
   "pdp.share.wechatHint": "请扫描右侧二维码分享至微信",
-  "pdp.share.text": "看看这副 lool 眼镜：{title} — {url}",
+  "pdp.share.text": "看看这副 loollook 眼镜：{title} — {url}",
 
   "wiz.head.type.title": "选择镜片用途",
   "wiz.head.type.subtitle": "根据您的视力需求选择对应的镜片类型",
@@ -2209,7 +2209,7 @@ const zh: Dict = fill({
   "cart.shipping.unlocked.bold": "免运费",
   "cart.shipping.addMore": "再购 {amount} 即可免运费",
 
-  "blog.eyebrow": "lool 专栏",
+  "blog.eyebrow": "loollook 专栏",
   "blog.title": "新品、设计与日常灵感",
   "blog.intro":
     "新品发布、设计幕后、穿搭灵感、护理贴士——点击标题展开阅读全文。",
@@ -2243,12 +2243,12 @@ const zh: Dict = fill({
   // ——— AI 智能客服 ———
   "chat.open": "AI 咨询",
   "chat.close": "关闭对话",
-  "chat.title": "lool AI 助手",
+  "chat.title": "loollook AI 助手",
   "chat.subtitle": "你的眼镜顾问，全天候在线",
   "chat.placeholder": "问镜框、镜片、处方…",
   "chat.send": "发送",
   "chat.welcome":
-    "你好！我是 lool AI 助手。我可以帮你挑选镜框、了解镜片选项，或回答任何眼镜相关的问题。有什么可以帮你的？",
+    "你好！我是 loollook AI 助手。我可以帮你挑选镜框、了解镜片选项，或回答任何眼镜相关的问题。有什么可以帮你的？",
   "chat.error": "抱歉，暂时连接失败，请稍后重试。",
   "chat.disclaimer": "AI 驱动。医疗建议请咨询验光师。",
   "chat.quick.recommend": "推荐镜框",
@@ -2346,7 +2346,7 @@ const es: Dict = fill({
     "Filtro azul, lentes ultrafinas y control de miopía juvenil — todo en uno.",
   "cat.all.title": "Todos los productos",
   "cat.all.desc":
-    "Explora la colección lool completa — lectura y graduadas para cada día.",
+    "Explora la colección loollook completa — lectura y graduadas para cada día.",
 
   "home.hero.cta.shopAll": "Comprar la colección",
   "home.shape.eyebrow": "Guía de formas",
@@ -2395,7 +2395,7 @@ const es: Dict = fill({
   "home.tryon.sub": "Ajuste 100% preciso · 360° · 100+ estilos en segundos",
   "home.tryon.cta": "Pruébalo gratis ahora",
   "home.ugc.eyebrow": "Estilos de clientes",
-  "home.ugc.title": "Looks reales · La comunidad lool",
+  "home.ugc.title": "Looks reales · La comunidad loollook",
   "home.ugc.viewAll": "Ver todos los looks",
   "home.knowledge.eyebrow": "Centro de conocimiento",
   "home.knowledge.title": "Consejos y guías sobre gafas",
@@ -2418,7 +2418,7 @@ const es: Dict = fill({
   "home.knowledge.material.desc":
     "Conoce el tacto, peso y durabilidad de cada material.",
   "home.knowledge.learnMore": "Saber más",
-  "home.brand.eyebrow": "EL ESTILO LOOL",
+  "home.brand.eyebrow": "EL ESTILO LOOLLOOK",
   "home.brand.title":
     "Diseñadas para la vida diaria, hechas para tu estilo único",
   "home.brand.cta": "Explorar la colección completa",
@@ -2635,7 +2635,7 @@ const es: Dict = fill({
   "pdp.share.copy": "Copiar",
   "pdp.share.wechat": "WeChat",
   "pdp.share.wechatHint": "Escanea el QR para compartir en WeChat",
-  "pdp.share.text": "Mira esta montura de lool: {title} — {url}",
+  "pdp.share.text": "Mira esta montura de loollook: {title} — {url}",
 
   "cart.title": "Carrito",
   "cart.empty": "Tu carrito está vacío",
@@ -2681,11 +2681,11 @@ const es: Dict = fill({
   "chat.quick.recommend": "Recomiéndame monturas",
   "chat.disclaimer": "Funciona con IA. Para consejo médico, consulta a tu optometrista.",
   "chat.error": "Lo siento, ahora mismo tengo problemas de conexión. Inténtalo de nuevo en un momento.",
-  "chat.welcome": "¡Hola! Soy el asistente IA de lool. Puedo ayudarte a encontrar la montura perfecta, entender las opciones de lentes o resolver cualquier duda sobre gafas. ¿En qué puedo ayudarte?",
+  "chat.welcome": "¡Hola! Soy el asistente IA de loollook. Puedo ayudarte a encontrar la montura perfecta, entender las opciones de lentes o resolver cualquier duda sobre gafas. ¿En qué puedo ayudarte?",
   "chat.send": "Enviar",
   "chat.placeholder": "Pregunta sobre monturas, lentes, recetas…",
   "chat.subtitle": "Tu experto en gafas, 24/7",
-  "chat.title": "Asistente IA de lool",
+  "chat.title": "Asistente IA de loollook",
   "chat.close": "Cerrar chat",
   "chat.open": "Chatear con la IA",
   "tryon.upload": "Subir una montura",
@@ -2732,7 +2732,7 @@ const es: Dict = fill({
   "home.faq.eyebrow": "Preguntas y respuestas",
   "chat.whatsapp": "Escríbenos por WhatsApp",
   "chat.whatsappHint": "Nuestro asistente de IA no está disponible ahora. Toca abajo para escribir a nuestro equipo por WhatsApp: te responderá una persona real.",
-  "chat.whatsappGreeting": "Hola lool, tengo una pregunta:",
+  "chat.whatsappGreeting": "Hola loollook, tengo una pregunta:",
   "checkout.unavailable": "El pago en línea no está disponible temporalmente. Tu carrito está guardado: inténtalo más tarde o escribe a support@loollook.com y te ayudaremos a completar el pedido.",
   "checkout.error.required": "Completa todos los campos.",
   "checkout.error.network":
@@ -2789,20 +2789,20 @@ const es: Dict = fill({
   "favorites.emptyCta": "Descubre las novedades",
   "favorites.removed": "Eliminado de favoritos",
   "favorites.added": "Añadido a favoritos",
-  "footer.about": "Sobre lool",
+  "footer.about": "Sobre loollook",
   "footer.help": "Ayuda",
   "footer.policy": "Políticas",
   "footer.follow": "Síguenos",
   "footer.copyright":
-    "© 2025 lool. Lectura y graduadas modernas, sin intermediarios.",
+    "© 2025 loollook. Lectura y graduadas modernas, sin intermediarios.",
   "footer.newsletter.title":
     "Suscríbete a nuestra newsletter para recibir las últimas novedades",
   "footer.newsletter.placeholder": "Introduce tu correo",
   "footer.newsletter.cta": "Suscribirme",
   "footer.newsletter.success": "¡Suscrito! Gracias por unirte a la newsletter",
-  "footer.app.title": "Descarga la app de lool",
+  "footer.app.title": "Descarga la app de loollook",
   "footer.app.sub": "Pruébate, guarda y reposiciona lentes desde el móvil",
-  "footer.app.install": "Instala la app de lool",
+  "footer.app.install": "Instala la app de loollook",
   "footer.app.installed": "Instalada — ábrela desde la pantalla de inicio",
   "footer.app.iosHint":
     "Toca el icono Compartir en Safari y elige «Añadir a la pantalla de inicio».",
@@ -2823,11 +2823,11 @@ const es: Dict = fill({
   "footer.col.material": "Por material",
   "footer.col.style": "Por estilo",
   "footer.col.deals": "Ofertas",
-  "footer.col.about": "Sobre lool",
+  "footer.col.about": "Sobre loollook",
   "footer.col.howto": "Cómo",
   "footer.col.programs": "Nuestros programas",
   "footer.col.faceShape": "Por forma de cara",
-  "footer.legal.promise": "Promesa lool",
+  "footer.legal.promise": "Promesa loollook",
   "footer.legal.shipping": "Envíos y devoluciones",
   "footer.legal.privacy": "Privacidad y seguridad",
   "footer.legal.terms": "Condiciones",
@@ -2868,7 +2868,7 @@ const es: Dict = fill({
   "wiz.brand.mingyue.desc": "Óptica china premium, nítida y duradera.",
   "wiz.brand.zeiss": "ZEISS",
   "wiz.brand.zeiss.desc": "Precisión alemana, el estándar de oro.",
-  "wiz.brand.inhouse": "lool",
+  "wiz.brand.inhouse": "loollook",
   "wiz.brand.inhouse.desc":
     "Marca propia básica — uso diario y opciones para lectura.",
   "wiz.s4.degToggle": "Añadir graduación diaria (opcional)",
@@ -3072,7 +3072,7 @@ const es: Dict = fill({
     "Lanzamientos, notas de diseño, consejos de estilo y más — toca cualquier título para leer.",
 
   // ---- Brand ----
-  "brand.name": "lool",
+  "brand.name": "loollook",
 
   // ---- Account: sign-in / OTP ----
   "account.signin.title": "Consulta tus pedidos",
@@ -3177,8 +3177,8 @@ const es: Dict = fill({
   "footer.link.style.statement": "Carácter",
   "footer.link.style.classic": "Clásico",
   "footer.link.aboutUs": "Sobre nosotros",
-  "footer.link.blog": "Blog de lool",
-  "footer.link.whyLool": "Por qué elegir lool",
+  "footer.link.blog": "Blog de loollook",
+  "footer.link.whyLool": "Por qué elegir loollook",
   "footer.link.helpCenter": "Centro de ayuda",
   "footer.link.accessibility": "Accesibilidad",
   "footer.link.findFit": "Cómo encontrar tu ajuste",
@@ -3186,7 +3186,7 @@ const es: Dict = fill({
   "footer.link.measurePD": "Cómo medir tu DP",
   "footer.link.rxGuide": "Cómo rellenar tu receta",
   "footer.link.tryOn": "Probador virtual",
-  "footer.link.rewards": "Recompensas lool",
+  "footer.link.rewards": "Recompensas loollook",
   "footer.link.refer": "Recomienda a un amigo",
   "footer.link.affiliate": "Programa de afiliados",
   "footer.link.education": "Descuento estudiantes y docentes",
@@ -3292,7 +3292,7 @@ const es: Dict = fill({
   "aff.unauth.sub":
     "Tu panel de afiliados está vinculado al correo de tu cuenta.",
   "aff.unauth.cta": "Ir a iniciar sesión",
-  "aff.join.title": "Hazte afiliado de lool",
+  "aff.join.title": "Hazte afiliado de loollook",
   "aff.join.cta": "Hazte afiliado",
   "aff.join.err": "Algo salió mal. Inténtalo de nuevo en un momento.",
   "aff.link.title": "Tu enlace de recomendación",
@@ -3323,7 +3323,7 @@ const es: Dict = fill({
   "wiz.rx.replaceImage": "Cambiar imagen",
 
   "aff.join.intro":
-    "Gana una comisión por cada pedido realizado a través de tu enlace de referencia. Cualquiera con una cuenta de lool puede unirse — sin solicitud, sin mínimos para empezar.",
+    "Gana una comisión por cada pedido realizado a través de tu enlace de referencia. Cualquiera con una cuenta de loollook puede unirse — sin solicitud, sin mínimos para empezar.",
   "aff.join.bullet1":
     "15% de comisión sobre el subtotal del pedido (restando reembolsos), abonado a tu cuenta en el momento en que se paga un pedido.",
   "aff.join.bullet2":
@@ -3452,7 +3452,7 @@ const fr: Dict = fill({
     "Anti-lumière bleue, verres ultra-fins, contrôle de la myopie ado — tout en un.",
   "cat.all.title": "Tous les produits",
   "cat.all.desc":
-    "Découvrez toute la collection lool — lecture et optiques du quotidien.",
+    "Découvrez toute la collection loollook — lecture et optiques du quotidien.",
 
   "home.hero.cta.shopAll": "Découvrir la collection",
   "home.shape.eyebrow": "Guide des formes",
@@ -3504,7 +3504,7 @@ const fr: Dict = fill({
     "Ajustement 100% précis · 360° · 100+ styles en quelques secondes",
   "home.tryon.cta": "Essayer gratuitement",
   "home.ugc.eyebrow": "Looks de clients",
-  "home.ugc.title": "Looks réels · La communauté lool",
+  "home.ugc.title": "Looks réels · La communauté loollook",
   "home.ugc.viewAll": "Voir tous les looks",
   "home.knowledge.eyebrow": "Centre de savoir",
   "home.knowledge.title": "Conseils et astuces lunettes",
@@ -3528,7 +3528,7 @@ const fr: Dict = fill({
   "home.knowledge.material.desc":
     "Comprenez le toucher, le poids et la durabilité.",
   "home.knowledge.learnMore": "En savoir plus",
-  "home.brand.eyebrow": "L'ESPRIT LOOL",
+  "home.brand.eyebrow": "L'ESPRIT LOOLLOOK",
   "home.brand.title": "Pensées pour le quotidien, façonnées pour votre style",
   "home.brand.cta": "Explorer toute la collection",
 
@@ -3745,7 +3745,7 @@ const fr: Dict = fill({
   "pdp.share.copy": "Copier",
   "pdp.share.wechat": "WeChat",
   "pdp.share.wechatHint": "Scannez le QR pour partager sur WeChat",
-  "pdp.share.text": "Découvrez cette monture lool : {title} — {url}",
+  "pdp.share.text": "Découvrez cette monture loollook : {title} — {url}",
 
   "cart.title": "Panier",
   "cart.empty": "Votre panier est vide",
@@ -3790,11 +3790,11 @@ const fr: Dict = fill({
   "chat.quick.recommend": "Recommander des montures",
   "chat.disclaimer": "Propulsé par l'IA. Pour un avis médical, consultez votre opticien ou ophtalmologiste.",
   "chat.error": "Désolé, je rencontre un problème de connexion. Veuillez réessayer dans un instant.",
-  "chat.welcome": "Bonjour ! Je suis l'assistant IA de lool. Je peux vous aider à trouver la monture idéale, comprendre les options de verres ou répondre à vos questions sur les lunettes. Que puis-je faire pour vous ?",
+  "chat.welcome": "Bonjour ! Je suis l'assistant IA de loollook. Je peux vous aider à trouver la monture idéale, comprendre les options de verres ou répondre à vos questions sur les lunettes. Que puis-je faire pour vous ?",
   "chat.send": "Envoyer",
   "chat.placeholder": "Posez vos questions sur les montures, verres, ordonnances…",
   "chat.subtitle": "Votre expert lunettes, 24h/24 et 7j/7",
-  "chat.title": "Assistant IA lool",
+  "chat.title": "Assistant IA loollook",
   "chat.close": "Fermer le chat",
   "chat.open": "Discuter avec l'IA",
   "tryon.upload": "Importer une monture",
@@ -3841,7 +3841,7 @@ const fr: Dict = fill({
   "home.faq.eyebrow": "Vos questions, nos réponses",
   "chat.whatsapp": "Écrivez-nous sur WhatsApp",
   "chat.whatsappHint": "Notre assistant IA est momentanément indisponible. Touchez ci-dessous pour écrire à notre équipe sur WhatsApp — une vraie personne vous répondra.",
-  "chat.whatsappGreeting": "Bonjour lool, j'ai une question :",
+  "chat.whatsappGreeting": "Bonjour loollook, j'ai une question :",
   "checkout.unavailable": "Le paiement en ligne est temporairement indisponible. Votre panier est enregistré — réessayez plus tard ou écrivez à support@loollook.com pour finaliser votre commande.",
   "checkout.error.required": "Veuillez remplir tous les champs.",
   "checkout.error.network":
@@ -3899,20 +3899,20 @@ const fr: Dict = fill({
   "favorites.emptyCta": "Découvrir les nouveautés",
   "favorites.removed": "Retiré des favoris",
   "favorites.added": "Ajouté aux favoris",
-  "footer.about": "À propos de lool",
+  "footer.about": "À propos de loollook",
   "footer.help": "Aide",
   "footer.policy": "Mentions légales",
   "footer.follow": "Nous suivre",
-  "footer.copyright": "© 2025 lool. Lecture & optique du quotidien, en direct.",
+  "footer.copyright": "© 2025 loollook. Lecture & optique du quotidien, en direct.",
   "footer.newsletter.title":
     "Inscrivez-vous à la newsletter pour recevoir les dernières actualités",
   "footer.newsletter.placeholder": "Votre adresse e-mail",
   "footer.newsletter.cta": "S'inscrire",
   "footer.newsletter.success": "Inscription confirmée — merci de nous suivre",
-  "footer.app.title": "Téléchargez l'appli lool",
+  "footer.app.title": "Téléchargez l'appli loollook",
   "footer.app.sub":
     "Essayez, sauvegardez et recommandez vos verres en mobilité",
-  "footer.app.install": "Installer l'appli lool",
+  "footer.app.install": "Installer l'appli loollook",
   "footer.app.installed": "Installée — ouvrez-la depuis votre écran d'accueil",
   "footer.app.iosHint":
     "Appuyez sur l'icône Partager dans Safari, puis « Sur l'écran d'accueil ».",
@@ -3937,7 +3937,7 @@ const fr: Dict = fill({
   "footer.col.howto": "Mode d'emploi",
   "footer.col.programs": "Nos programmes",
   "footer.col.faceShape": "Par forme de visage",
-  "footer.legal.promise": "Promesse lool",
+  "footer.legal.promise": "Promesse loollook",
   "footer.legal.shipping": "Livraison & retours",
   "footer.legal.privacy": "Confidentialité & sécurité",
   "footer.legal.terms": "CGV",
@@ -3978,7 +3978,7 @@ const fr: Dict = fill({
   "wiz.brand.mingyue.desc": "Optique chinoise haut de gamme, nette et durable.",
   "wiz.brand.zeiss": "ZEISS",
   "wiz.brand.zeiss.desc": "Précision allemande, la référence absolue.",
-  "wiz.brand.inhouse": "lool",
+  "wiz.brand.inhouse": "loollook",
   "wiz.brand.inhouse.desc":
     "Marque maison entrée de gamme — port quotidien et options lecture.",
   "wiz.s4.degToggle": "Ajouter un réglage quotidien (optionnel)",
@@ -4183,7 +4183,7 @@ const fr: Dict = fill({
   "blog.intro":
     "Nouveautés, notes de design, conseils de style et plus — cliquez sur un titre pour lire.",
 
-  "brand.name": "lool",
+  "brand.name": "loollook",
 
   "account.signin.title": "Retrouvez vos commandes",
   "account.signin.subtitle":
@@ -4283,8 +4283,8 @@ const fr: Dict = fill({
   "footer.link.style.statement": "Caractère",
   "footer.link.style.classic": "Classique",
   "footer.link.aboutUs": "À propos",
-  "footer.link.blog": "Le blog lool",
-  "footer.link.whyLool": "Pourquoi choisir lool",
+  "footer.link.blog": "Le blog loollook",
+  "footer.link.whyLool": "Pourquoi choisir loollook",
   "footer.link.helpCenter": "Centre d'aide",
   "footer.link.accessibility": "Accessibilité",
   "footer.link.findFit": "Comment trouver votre taille",
@@ -4292,7 +4292,7 @@ const fr: Dict = fill({
   "footer.link.measurePD": "Comment mesurer votre EP",
   "footer.link.rxGuide": "Comment remplir votre ordonnance",
   "footer.link.tryOn": "Essayage virtuel",
-  "footer.link.rewards": "Programme de fidélité lool",
+  "footer.link.rewards": "Programme de fidélité loollook",
   "footer.link.refer": "Parrainer un ami",
   "footer.link.affiliate": "Programme d'affiliation",
   "footer.link.education": "Remise étudiants & enseignants",
@@ -4388,7 +4388,7 @@ const fr: Dict = fill({
   "aff.unauth.sub":
     "Votre tableau de bord affilié est lié à l'e-mail de votre compte.",
   "aff.unauth.cta": "Aller à la connexion",
-  "aff.join.title": "Devenir affilié lool",
+  "aff.join.title": "Devenir affilié loollook",
   "aff.join.cta": "Devenir affilié",
   "aff.join.err": "Une erreur est survenue. Réessayez dans un instant.",
   "aff.link.title": "Votre lien de parrainage",
@@ -4419,7 +4419,7 @@ const fr: Dict = fill({
   "wiz.rx.replaceImage": "Remplacer l'image",
 
   "aff.join.intro":
-    "Gagnez une commission sur chaque commande passée via votre lien de parrainage. Toute personne disposant d'un compte lool peut rejoindre le programme — sans candidature ni minimum pour démarrer.",
+    "Gagnez une commission sur chaque commande passée via votre lien de parrainage. Toute personne disposant d'un compte loollook peut rejoindre le programme — sans candidature ni minimum pour démarrer.",
   "aff.join.bullet1":
     "15 % de commission sur le sous-total de la commande (remboursements déduits), crédités à votre compte dès qu'une commande est payée.",
   "aff.join.bullet2":
@@ -4548,7 +4548,7 @@ const de: Dict = fill({
   "cat.myopia.desc":
     "Blaulichtfilter, ultradünne Gläser, Myopie-Kontrolle für Teens — alles in einem.",
   "cat.all.title": "Alle Produkte",
-  "cat.all.desc": "Die komplette lool-Kollektion — Lesen und Alltag.",
+  "cat.all.desc": "Die komplette loollook-Kollektion — Lesen und Alltag.",
 
   "home.hero.cta.shopAll": "Kollektion entdecken",
   "home.shape.eyebrow": "Formen-Guide",
@@ -4597,7 +4597,7 @@ const de: Dict = fill({
   "home.tryon.sub": "100% präzise Passform · 360° · 100+ Styles in Sekunden",
   "home.tryon.cta": "Jetzt kostenlos anprobieren",
   "home.ugc.eyebrow": "Customer Looks",
-  "home.ugc.title": "Echte Looks · Die lool-Community",
+  "home.ugc.title": "Echte Looks · Die loollook-Community",
   "home.ugc.viewAll": "Alle Looks ansehen",
   "home.knowledge.eyebrow": "Wissen",
   "home.knowledge.title": "Brillen-Insights & Tipps",
@@ -4615,7 +4615,7 @@ const de: Dict = fill({
   "home.knowledge.material.title": "Fassungsmaterial: Acetat, Titan & TR90",
   "home.knowledge.material.desc": "Haptik, Gewicht und Haltbarkeit verstehen.",
   "home.knowledge.learnMore": "Mehr erfahren",
-  "home.brand.eyebrow": "DER LOOL-WEG",
+  "home.brand.eyebrow": "DER LOOLLOOK-WEG",
   "home.brand.title": "Für den Alltag gestaltet, für deinen Stil gemacht",
   "home.brand.cta": "Alle Kollektionen ansehen",
 
@@ -4832,7 +4832,7 @@ const de: Dict = fill({
   "pdp.share.copy": "Kopieren",
   "pdp.share.wechat": "WeChat",
   "pdp.share.wechatHint": "QR-Code scannen, um auf WeChat zu teilen",
-  "pdp.share.text": "Schau dir diese lool-Fassung an: {title} — {url}",
+  "pdp.share.text": "Schau dir diese loollook-Fassung an: {title} — {url}",
 
   "cart.title": "Warenkorb",
   "cart.empty": "Ihr Warenkorb ist leer",
@@ -4878,11 +4878,11 @@ const de: Dict = fill({
   "chat.quick.recommend": "Fassungen empfehlen",
   "chat.disclaimer": "KI-gestützt. Für medizinischen Rat wenden Sie sich an Ihren Optiker oder Augenarzt.",
   "chat.error": "Entschuldigung, gerade gibt es Verbindungsprobleme. Bitte versuchen Sie es gleich noch einmal.",
-  "chat.welcome": "Hallo! Ich bin Ihr lool KI-Assistent. Ich helfe Ihnen, die perfekte Fassung zu finden, Glasoptionen zu verstehen, oder beantworte Ihre Fragen rund um Brillen. Wie kann ich helfen?",
+  "chat.welcome": "Hallo! Ich bin Ihr loollook KI-Assistent. Ich helfe Ihnen, die perfekte Fassung zu finden, Glasoptionen zu verstehen, oder beantworte Ihre Fragen rund um Brillen. Wie kann ich helfen?",
   "chat.send": "Senden",
   "chat.placeholder": "Fragen zu Fassungen, Gläsern, Rezepten…",
   "chat.subtitle": "Ihr Brillenexperte, rund um die Uhr",
-  "chat.title": "lool KI-Assistent",
+  "chat.title": "loollook KI-Assistent",
   "chat.close": "Chat schließen",
   "chat.open": "Mit der KI chatten",
   "tryon.upload": "Fassung hochladen",
@@ -4929,7 +4929,7 @@ const de: Dict = fill({
   "home.faq.eyebrow": "Fragen & Antworten",
   "chat.whatsapp": "Schreiben Sie uns auf WhatsApp",
   "chat.whatsappHint": "Unser KI-Assistent ist gerade offline. Tippen Sie unten, um unserem Team auf WhatsApp zu schreiben – ein echter Mensch antwortet Ihnen.",
-  "chat.whatsappGreeting": "Hallo lool, ich habe eine Frage:",
+  "chat.whatsappGreeting": "Hallo loollook, ich habe eine Frage:",
   "checkout.unavailable": "Die Online-Zahlung ist vorübergehend nicht verfügbar. Ihr Warenkorb ist gespeichert – bitte versuchen Sie es später erneut oder schreiben Sie an support@loollook.com.",
   "checkout.error.required": "Bitte alle Felder ausfüllen.",
   "checkout.error.network": "Server nicht erreichbar. Bitte erneut versuchen.",
@@ -4982,19 +4982,19 @@ const de: Dict = fill({
   "favorites.emptyCta": "Neuheiten entdecken",
   "favorites.removed": "Aus Favoriten entfernt",
   "favorites.added": "Zu Favoriten hinzugefügt",
-  "footer.about": "Über lool",
+  "footer.about": "Über loollook",
   "footer.help": "Hilfe",
   "footer.policy": "Richtlinien",
   "footer.follow": "Folgen Sie uns",
-  "footer.copyright": "© 2025 lool. Moderne Lese- und Alltagsbrillen, direkt.",
+  "footer.copyright": "© 2025 loollook. Moderne Lese- und Alltagsbrillen, direkt.",
   "footer.newsletter.title":
     "Newsletter abonnieren und neuesten Updates erhalten",
   "footer.newsletter.placeholder": "Ihre E-Mail-Adresse",
   "footer.newsletter.cta": "Abonnieren",
   "footer.newsletter.success": "Abonniert — danke, dass Sie dabei sind",
-  "footer.app.title": "lool-App laden",
+  "footer.app.title": "loollook-App laden",
   "footer.app.sub": "Anprobe, Speichern und Nachbestellen unterwegs",
-  "footer.app.install": "lool-App installieren",
+  "footer.app.install": "loollook-App installieren",
   "footer.app.installed": "Installiert — vom Startbildschirm öffnen",
   "footer.app.iosHint":
     "Tippen Sie in Safari auf das Teilen-Symbol und wählen Sie „Zum Home-Bildschirm“.",
@@ -5014,11 +5014,11 @@ const de: Dict = fill({
   "footer.col.material": "Nach Material",
   "footer.col.style": "Nach Stil",
   "footer.col.deals": "Angebote",
-  "footer.col.about": "Über lool",
+  "footer.col.about": "Über loollook",
   "footer.col.howto": "Anleitung",
   "footer.col.programs": "Unsere Programme",
   "footer.col.faceShape": "Nach Gesichtsform",
-  "footer.legal.promise": "lool-Versprechen",
+  "footer.legal.promise": "loollook-Versprechen",
   "footer.legal.shipping": "Versand & Rückgabe",
   "footer.legal.privacy": "Datenschutz",
   "footer.legal.terms": "AGB",
@@ -5059,7 +5059,7 @@ const de: Dict = fill({
   "wiz.brand.mingyue.desc": "Premium-Optik aus China, klar und langlebig.",
   "wiz.brand.zeiss": "ZEISS",
   "wiz.brand.zeiss.desc": "Deutsche Präzision, der Goldstandard.",
-  "wiz.brand.inhouse": "lool",
+  "wiz.brand.inhouse": "loollook",
   "wiz.brand.inhouse.desc": "Eigenmarke Einstieg — Alltag und Leseoptionen.",
   "wiz.s4.degToggle": "Alltags-Voreinstellung hinzufügen (optional)",
   "wiz.s4.degLabel": "Alltags-Voreinstellung",
@@ -5259,7 +5259,7 @@ const de: Dict = fill({
   "blog.intro":
     "Neuheiten, Design-Notizen, Style-Tipps und mehr — klicke auf einen Titel, um zu lesen.",
 
-  "brand.name": "lool",
+  "brand.name": "loollook",
 
   "account.signin.title": "Bestellungen nachschlagen",
   "account.signin.subtitle":
@@ -5360,8 +5360,8 @@ const de: Dict = fill({
   "footer.link.style.statement": "Statement",
   "footer.link.style.classic": "Klassisch",
   "footer.link.aboutUs": "Über uns",
-  "footer.link.blog": "lool Journal",
-  "footer.link.whyLool": "Warum lool",
+  "footer.link.blog": "loollook Journal",
+  "footer.link.whyLool": "Warum loollook",
   "footer.link.helpCenter": "Hilfecenter",
   "footer.link.accessibility": "Barrierefreiheit",
   "footer.link.findFit": "So findest du deine Passform",
@@ -5369,7 +5369,7 @@ const de: Dict = fill({
   "footer.link.measurePD": "So misst du deinen PD",
   "footer.link.rxGuide": "So füllst du dein Rezept aus",
   "footer.link.tryOn": "Virtuelle Anprobe",
-  "footer.link.rewards": "lool Rewards",
+  "footer.link.rewards": "loollook Rewards",
   "footer.link.refer": "Freunde werben",
   "footer.link.affiliate": "Affiliate-Programm",
   "footer.link.education": "Bildungsrabatt",
@@ -5466,7 +5466,7 @@ const de: Dict = fill({
   "aff.unauth.sub":
     "Dein Partner-Dashboard ist mit der E-Mail deines Kontos verknüpft.",
   "aff.unauth.cta": "Zur Anmeldung",
-  "aff.join.title": "lool-Partner werden",
+  "aff.join.title": "loollook-Partner werden",
   "aff.join.cta": "Partner werden",
   "aff.join.err": "Etwas ist schiefgelaufen. Versuche es gleich noch einmal.",
   "aff.link.title": "Dein Empfehlungslink",
@@ -5497,7 +5497,7 @@ const de: Dict = fill({
   "wiz.rx.replaceImage": "Bild ersetzen",
 
   "aff.join.intro":
-    "Verdiene eine Provision auf jede Bestellung, die über deinen Empfehlungslink aufgegeben wird. Jeder mit einem lool-Konto kann mitmachen — keine Bewerbung, keine Mindestumsätze für den Start.",
+    "Verdiene eine Provision auf jede Bestellung, die über deinen Empfehlungslink aufgegeben wird. Jeder mit einem loollook-Konto kann mitmachen — keine Bewerbung, keine Mindestumsätze für den Start.",
   "aff.join.bullet1":
     "15 % Provision auf den Bestell-Zwischensumme (Rückerstattungen abgezogen), in dem Moment auf deinem Konto gutgeschrieben, in dem eine Bestellung bezahlt wird.",
   "aff.join.bullet2":
@@ -5624,7 +5624,7 @@ const it: Dict = fill({
   "cat.myopia.desc":
     "Filtro luce blu, lenti ultra-sottili, controllo miopia per teen — tutto in uno.",
   "cat.all.title": "Tutti i prodotti",
-  "cat.all.desc": "Tutta la collezione lool — lettura e occhiali da giorno.",
+  "cat.all.desc": "Tutta la collezione loollook — lettura e occhiali da giorno.",
 
   "home.hero.cta.shopAll": "Scopri la collezione",
   "home.shape.eyebrow": "Guida alle forme",
@@ -5675,7 +5675,7 @@ const it: Dict = fill({
     "Vestibilità 100% precisa · 360° · 100+ stili in pochi secondi",
   "home.tryon.cta": "Provalo gratis ora",
   "home.ugc.eyebrow": "Customer Looks",
-  "home.ugc.title": "Look reali · La community lool",
+  "home.ugc.title": "Look reali · La community loollook",
   "home.ugc.viewAll": "Vedi tutti i look",
   "home.knowledge.eyebrow": "Knowledge Hub",
   "home.knowledge.title": "Consigli e guide sugli occhiali",
@@ -5696,7 +5696,7 @@ const it: Dict = fill({
   "home.knowledge.material.title": "Materiali: acetato, titanio e TR90",
   "home.knowledge.material.desc": "Tatto, peso e durabilità di ogni materiale.",
   "home.knowledge.learnMore": "Scopri di più",
-  "home.brand.eyebrow": "LO STILE LOOL",
+  "home.brand.eyebrow": "LO STILE LOOLLOOK",
   "home.brand.title":
     "Disegnati per la vita quotidiana, fatti per il tuo stile",
   "home.brand.cta": "Esplora tutta la collezione",
@@ -5912,7 +5912,7 @@ const it: Dict = fill({
   "pdp.share.copy": "Copia",
   "pdp.share.wechat": "WeChat",
   "pdp.share.wechatHint": "Scansiona il QR per condividere su WeChat",
-  "pdp.share.text": "Guarda questa montatura lool: {title} — {url}",
+  "pdp.share.text": "Guarda questa montatura loollook: {title} — {url}",
 
   "cart.title": "Carrello",
   "cart.empty": "Il tuo carrello è vuoto",
@@ -5958,11 +5958,11 @@ const it: Dict = fill({
   "chat.quick.recommend": "Consigliami montature",
   "chat.disclaimer": "Basato sull'IA. Per consigli medici, rivolgiti al tuo optometrista.",
   "chat.error": "Spiacente, al momento ho problemi di connessione. Riprova tra poco.",
-  "chat.welcome": "Ciao! Sono l'assistente IA di lool. Posso aiutarti a trovare la montatura perfetta, capire le opzioni delle lenti o rispondere a qualsiasi domanda sugli occhiali. Come posso aiutarti?",
+  "chat.welcome": "Ciao! Sono l'assistente IA di loollook. Posso aiutarti a trovare la montatura perfetta, capire le opzioni delle lenti o rispondere a qualsiasi domanda sugli occhiali. Come posso aiutarti?",
   "chat.send": "Invia",
   "chat.placeholder": "Chiedi di montature, lenti, prescrizioni…",
   "chat.subtitle": "Il tuo esperto di occhiali, 24/7",
-  "chat.title": "Assistente IA lool",
+  "chat.title": "Assistente IA loollook",
   "chat.close": "Chiudi chat",
   "chat.open": "Chatta con l'IA",
   "tryon.upload": "Carica una montatura",
@@ -6009,7 +6009,7 @@ const it: Dict = fill({
   "home.faq.eyebrow": "Domande e risposte",
   "chat.whatsapp": "Scrivici su WhatsApp",
   "chat.whatsappHint": "Il nostro assistente IA è momentaneamente offline. Tocca qui sotto per scrivere al nostro team su WhatsApp: ti risponderà una persona reale.",
-  "chat.whatsappGreeting": "Ciao lool, ho una domanda:",
+  "chat.whatsappGreeting": "Ciao loollook, ho una domanda:",
   "checkout.unavailable": "Il pagamento online è temporaneamente non disponibile. Il carrello è salvato: riprova più tardi o scrivi a support@loollook.com e ti aiuteremo a completare l'ordine.",
   "checkout.error.required": "Compila tutti i campi.",
   "checkout.error.network":
@@ -6064,20 +6064,20 @@ const it: Dict = fill({
   "favorites.emptyCta": "Scopri le novità",
   "favorites.removed": "Rimosso dai preferiti",
   "favorites.added": "Aggiunto ai preferiti",
-  "footer.about": "Su lool",
+  "footer.about": "Su loollook",
   "footer.help": "Aiuto",
   "footer.policy": "Norme",
   "footer.follow": "Seguici",
-  "footer.copyright": "© 2025 lool. Lettura e occhiali moderni, direttamente.",
+  "footer.copyright": "© 2025 loollook. Lettura e occhiali moderni, direttamente.",
   "footer.newsletter.title":
     "Iscriviti alla newsletter per ricevere gli ultimi aggiornamenti",
   "footer.newsletter.placeholder": "La tua e-mail",
   "footer.newsletter.cta": "Iscrivimi",
   "footer.newsletter.success":
     "Iscritto — grazie per esserti unito alla newsletter",
-  "footer.app.title": "Scarica l'app lool",
+  "footer.app.title": "Scarica l'app loollook",
   "footer.app.sub": "Prova, salva e riordina lenti in mobilità",
-  "footer.app.install": "Installa l'app lool",
+  "footer.app.install": "Installa l'app loollook",
   "footer.app.installed": "Installata — aprila dalla schermata Home",
   "footer.app.iosHint":
     "Tocca l'icona Condividi in Safari, poi «Aggiungi alla schermata Home».",
@@ -6098,11 +6098,11 @@ const it: Dict = fill({
   "footer.col.material": "Per materiale",
   "footer.col.style": "Per stile",
   "footer.col.deals": "Offerte",
-  "footer.col.about": "Su lool",
+  "footer.col.about": "Su loollook",
   "footer.col.howto": "Come fare",
   "footer.col.programs": "I nostri programmi",
   "footer.col.faceShape": "Per forma del viso",
-  "footer.legal.promise": "Promessa lool",
+  "footer.legal.promise": "Promessa loollook",
   "footer.legal.shipping": "Spedizioni e resi",
   "footer.legal.privacy": "Privacy e sicurezza",
   "footer.legal.terms": "Termini",
@@ -6143,7 +6143,7 @@ const it: Dict = fill({
   "wiz.brand.mingyue.desc": "Ottica cinese premium, nitida e durevole.",
   "wiz.brand.zeiss": "ZEISS",
   "wiz.brand.zeiss.desc": "Precisione tedesca, lo standard di riferimento.",
-  "wiz.brand.inhouse": "lool",
+  "wiz.brand.inhouse": "loollook",
   "wiz.brand.inhouse.desc":
     "Marchio proprio entry — uso quotidiano e opzioni lettura.",
   "wiz.s4.degToggle": "Aggiungi preset quotidiano (opzionale)",
@@ -6344,7 +6344,7 @@ const it: Dict = fill({
   "blog.intro":
     "Novità, note di design, consigli di stile e altro — tocca un titolo per leggere.",
 
-  "brand.name": "lool",
+  "brand.name": "loollook",
 
   "account.signin.title": "Trova i tuoi ordini",
   "account.signin.subtitle":
@@ -6445,8 +6445,8 @@ const it: Dict = fill({
   "footer.link.style.statement": "Carattere",
   "footer.link.style.classic": "Classico",
   "footer.link.aboutUs": "Chi siamo",
-  "footer.link.blog": "Diario lool",
-  "footer.link.whyLool": "Perché scegliere lool",
+  "footer.link.blog": "Diario loollook",
+  "footer.link.whyLool": "Perché scegliere loollook",
   "footer.link.helpCenter": "Centro assistenza",
   "footer.link.accessibility": "Accessibilità",
   "footer.link.findFit": "Come trovare la tua misura",
@@ -6454,7 +6454,7 @@ const it: Dict = fill({
   "footer.link.measurePD": "Come misurare la PD",
   "footer.link.rxGuide": "Come compilare la ricetta",
   "footer.link.tryOn": "Prova virtuale",
-  "footer.link.rewards": "lool Rewards",
+  "footer.link.rewards": "loollook Rewards",
   "footer.link.refer": "Invita un amico",
   "footer.link.affiliate": "Programma affiliati",
   "footer.link.education": "Sconto studenti",
@@ -6551,7 +6551,7 @@ const it: Dict = fill({
   "aff.unauth.sub":
     "Il tuo pannello affiliati è collegato all'e-mail del tuo account.",
   "aff.unauth.cta": "Vai all'accesso",
-  "aff.join.title": "Diventa affiliato lool",
+  "aff.join.title": "Diventa affiliato loollook",
   "aff.join.cta": "Diventa affiliato",
   "aff.join.err": "Qualcosa è andato storto. Riprova tra un momento.",
   "aff.link.title": "Il tuo link di referral",
@@ -6582,7 +6582,7 @@ const it: Dict = fill({
   "wiz.rx.replaceImage": "Sostituisci immagine",
 
   "aff.join.intro":
-    "Guadagna una commissione su ogni ordine effettuato tramite il tuo link di riferimento. Chiunque abbia un account lool può unirsi — nessuna candidatura, nessun minimo per iniziare.",
+    "Guadagna una commissione su ogni ordine effettuato tramite il tuo link di riferimento. Chiunque abbia un account loollook può unirsi — nessuna candidatura, nessun minimo per iniziare.",
   "aff.join.bullet1":
     "15% di commissione sul subtotale dell'ordine (rimborsi dedotti), accreditata sul tuo conto nel momento in cui un ordine viene pagato.",
   "aff.join.bullet2":
@@ -6708,7 +6708,7 @@ const pt: Dict = fill({
   "cat.myopia.desc":
     "Filtro azul, lentes ultrafinas, controle de miopia teen — tudo em um.",
   "cat.all.title": "Todos os produtos",
-  "cat.all.desc": "Toda a coleção lool — leitura e óculos do dia a dia.",
+  "cat.all.desc": "Toda a coleção loollook — leitura e óculos do dia a dia.",
 
   "home.hero.cta.shopAll": "Comprar a coleção",
   "home.shape.eyebrow": "Guia de formatos",
@@ -6758,7 +6758,7 @@ const pt: Dict = fill({
   "home.tryon.sub": "Encaixe 100% preciso · 360° · 100+ estilos em segundos",
   "home.tryon.cta": "Experimente agora grátis",
   "home.ugc.eyebrow": "Customer Looks",
-  "home.ugc.title": "Looks reais · A comunidade lool",
+  "home.ugc.title": "Looks reais · A comunidade loollook",
   "home.ugc.viewAll": "Ver todos os looks",
   "home.knowledge.eyebrow": "Centro de conhecimento",
   "home.knowledge.title": "Dicas e guias de óculos",
@@ -6778,7 +6778,7 @@ const pt: Dict = fill({
   "home.knowledge.material.desc":
     "Entenda tato, peso e durabilidade de cada material.",
   "home.knowledge.learnMore": "Saiba mais",
-  "home.brand.eyebrow": "O JEITO LOOL",
+  "home.brand.eyebrow": "O JEITO LOOLLOOK",
   "home.brand.title": "Desenhados para o dia a dia, feitos para o seu estilo",
   "home.brand.cta": "Explorar toda a coleção",
 
@@ -6991,7 +6991,7 @@ const pt: Dict = fill({
   "pdp.share.copy": "Copiar",
   "pdp.share.wechat": "WeChat",
   "pdp.share.wechatHint": "Escaneie o QR para compartilhar no WeChat",
-  "pdp.share.text": "Confira esta armação lool: {title} — {url}",
+  "pdp.share.text": "Confira esta armação loollook: {title} — {url}",
 
   "cart.title": "Sacola",
   "cart.empty": "Sua sacola está vazia",
@@ -7037,11 +7037,11 @@ const pt: Dict = fill({
   "chat.quick.recommend": "Recomendar armações",
   "chat.disclaimer": "Com tecnologia de IA. Para orientação médica, consulte seu optometrista.",
   "chat.error": "Desculpe, estou com problemas de conexão agora. Tente novamente em instantes.",
-  "chat.welcome": "Olá! Sou o assistente de IA da lool. Posso ajudar você a encontrar a armação ideal, entender as opções de lentes ou responder dúvidas sobre óculos. Como posso ajudar?",
+  "chat.welcome": "Olá! Sou o assistente de IA da loollook. Posso ajudar você a encontrar a armação ideal, entender as opções de lentes ou responder dúvidas sobre óculos. Como posso ajudar?",
   "chat.send": "Enviar",
   "chat.placeholder": "Pergunte sobre armações, lentes, receitas…",
   "chat.subtitle": "Seu especialista em óculos, 24/7",
-  "chat.title": "Assistente de IA lool",
+  "chat.title": "Assistente de IA loollook",
   "chat.close": "Fechar chat",
   "chat.open": "Conversar com a IA",
   "tryon.upload": "Enviar uma armação",
@@ -7088,7 +7088,7 @@ const pt: Dict = fill({
   "home.faq.eyebrow": "Perguntas e respostas",
   "chat.whatsapp": "Fale conosco no WhatsApp",
   "chat.whatsappHint": "Nosso assistente de IA está offline no momento. Toque abaixo para falar com nossa equipe no WhatsApp — uma pessoa de verdade vai responder.",
-  "chat.whatsappGreeting": "Olá lool, tenho uma dúvida:",
+  "chat.whatsappGreeting": "Olá loollook, tenho uma dúvida:",
   "checkout.unavailable": "O pagamento online está temporariamente indisponível. Seu carrinho foi salvo — tente mais tarde ou escreva para support@loollook.com e ajudaremos a concluir o pedido.",
   "checkout.error.required": "Preencha todos os campos.",
   "checkout.error.network":
@@ -7142,20 +7142,20 @@ const pt: Dict = fill({
   "favorites.emptyCta": "Descobrir novidades",
   "favorites.removed": "Removido dos favoritos",
   "favorites.added": "Adicionado aos favoritos",
-  "footer.about": "Sobre a lool",
+  "footer.about": "Sobre a loollook",
   "footer.help": "Ajuda",
   "footer.policy": "Políticas",
   "footer.follow": "Siga-nos",
   "footer.copyright":
-    "© 2025 lool. Leitura e óculos modernos, direto da marca.",
+    "© 2025 loollook. Leitura e óculos modernos, direto da marca.",
   "footer.newsletter.title":
     "Inscreva-se na newsletter para receber as últimas novidades",
   "footer.newsletter.placeholder": "Seu e-mail",
   "footer.newsletter.cta": "Inscrever",
   "footer.newsletter.success": "Inscrito — obrigado por se juntar à newsletter",
-  "footer.app.title": "Baixe o app da lool",
+  "footer.app.title": "Baixe o app da loollook",
   "footer.app.sub": "Provador, salvar e refazer lentes na palma da mão",
-  "footer.app.install": "Instale o app da lool",
+  "footer.app.install": "Instale o app da loollook",
   "footer.app.installed": "Instalado — abra pela tela inicial",
   "footer.app.iosHint":
     "Toque no ícone Compartilhar no Safari e escolha «Adicionar à Tela de Início».",
@@ -7180,7 +7180,7 @@ const pt: Dict = fill({
   "footer.col.howto": "Como fazer",
   "footer.col.programs": "Nossos programas",
   "footer.col.faceShape": "Por formato de rosto",
-  "footer.legal.promise": "Promessa lool",
+  "footer.legal.promise": "Promessa loollook",
   "footer.legal.shipping": "Envio e devoluções",
   "footer.legal.privacy": "Privacidade",
   "footer.legal.terms": "Termos",
@@ -7221,7 +7221,7 @@ const pt: Dict = fill({
   "wiz.brand.mingyue.desc": "Óptica chinesa premium, nítida e durável.",
   "wiz.brand.zeiss": "ZEISS",
   "wiz.brand.zeiss.desc": "Precisão alemã, o padrão-ouro da visão.",
-  "wiz.brand.inhouse": "lool",
+  "wiz.brand.inhouse": "loollook",
   "wiz.brand.inhouse.desc":
     "Marca própria de entrada — uso diário e opções de leitura.",
   "wiz.s4.degToggle": "Adicionar predefinição diária (opcional)",
@@ -7419,7 +7419,7 @@ const pt: Dict = fill({
   "blog.intro":
     "Lançamentos, notas de design, dicas de estilo e mais — toque em qualquer título para ler.",
 
-  "brand.name": "lool",
+  "brand.name": "loollook",
 
   "account.signin.title": "Consulte seus pedidos",
   "account.signin.subtitle":
@@ -7520,8 +7520,8 @@ const pt: Dict = fill({
   "footer.link.style.statement": "Caráter",
   "footer.link.style.classic": "Clássico",
   "footer.link.aboutUs": "Sobre nós",
-  "footer.link.blog": "Diário lool",
-  "footer.link.whyLool": "Por que escolher a lool",
+  "footer.link.blog": "Diário loollook",
+  "footer.link.whyLool": "Por que escolher a loollook",
   "footer.link.helpCenter": "Central de ajuda",
   "footer.link.accessibility": "Acessibilidade",
   "footer.link.findFit": "Como encontrar seu tamanho",
@@ -7529,7 +7529,7 @@ const pt: Dict = fill({
   "footer.link.measurePD": "Como medir a DP",
   "footer.link.rxGuide": "Como preencher sua receita",
   "footer.link.tryOn": "Provador virtual",
-  "footer.link.rewards": "Recompensas lool",
+  "footer.link.rewards": "Recompensas loollook",
   "footer.link.refer": "Indique um amigo",
   "footer.link.affiliate": "Programa de afiliados",
   "footer.link.education": "Desconto para educação",
@@ -7623,7 +7623,7 @@ const pt: Dict = fill({
   "aff.unauth.sub":
     "Seu painel de afiliado está vinculado ao e-mail da sua conta.",
   "aff.unauth.cta": "Ir para entrar",
-  "aff.join.title": "Torne-se afiliado da lool",
+  "aff.join.title": "Torne-se afiliado da loollook",
   "aff.join.cta": "Torne-se afiliado",
   "aff.join.err": "Algo deu errado. Tente novamente em instantes.",
   "aff.link.title": "Seu link de indicação",
@@ -7654,7 +7654,7 @@ const pt: Dict = fill({
   "wiz.rx.replaceImage": "Substituir imagem",
 
   "aff.join.intro":
-    "Ganhe uma comissão em cada pedido feito pelo seu link de indicação. Qualquer pessoa com uma conta lool pode participar — sem candidatura, sem mínimos para começar.",
+    "Ganhe uma comissão em cada pedido feito pelo seu link de indicação. Qualquer pessoa com uma conta loollook pode participar — sem candidatura, sem mínimos para começar.",
   "aff.join.bullet1":
     "15% de comissão sobre o subtotal do pedido (descontados os reembolsos), creditados na sua conta no momento em que um pedido é pago.",
   "aff.join.bullet2":
@@ -7782,7 +7782,7 @@ const ja: Dict = fill({
   "cat.myopia.desc":
     "ブルーライトカット、超薄型レンズ、ティーン向け近視ケア — オールインワン。",
   "cat.all.title": "すべての商品",
-  "cat.all.desc": "lool コレクション全体 — 老眼鏡と日常メガネ。",
+  "cat.all.desc": "loollook コレクション全体 — 老眼鏡と日常メガネ。",
 
   "home.hero.cta.shopAll": "コレクションを見る",
   "home.shape.eyebrow": "シェイプガイド",
@@ -7830,7 +7830,7 @@ const ja: Dict = fill({
   "home.tryon.sub": "100% 精度フィット · 360° · 数秒で 100+ スタイル",
   "home.tryon.cta": "今すぐ無料で試着",
   "home.ugc.eyebrow": "お客様の着用例",
-  "home.ugc.title": "リアルルック · lool コミュニティ",
+  "home.ugc.title": "リアルルック · loollook コミュニティ",
   "home.ugc.viewAll": "すべての着用例を見る",
   "home.knowledge.eyebrow": "ナレッジハブ",
   "home.knowledge.title": "アイウェアの知識とヒント",
@@ -7848,7 +7848,7 @@ const ja: Dict = fill({
   "home.knowledge.material.title": "フレーム素材：アセテート、チタン、TR90",
   "home.knowledge.material.desc": "各素材の質感・重量・耐久性を理解。",
   "home.knowledge.learnMore": "詳しく見る",
-  "home.brand.eyebrow": "LOOL のあり方",
+  "home.brand.eyebrow": "LOOLLOOK のあり方",
   "home.brand.title": "日常のためにデザイン、あなたの個性のために作る",
   "home.brand.cta": "フルコレクションを見る",
 
@@ -8059,7 +8059,7 @@ const ja: Dict = fill({
   "pdp.share.copy": "コピー",
   "pdp.share.wechat": "WeChat",
   "pdp.share.wechatHint": "QRをスキャンしてWeChatでシェア",
-  "pdp.share.text": "この lool フレームをチェック：{title} — {url}",
+  "pdp.share.text": "この loollook フレームをチェック：{title} — {url}",
 
   "cart.title": "カート",
   "cart.empty": "カートは空です",
@@ -8104,11 +8104,11 @@ const ja: Dict = fill({
   "chat.quick.recommend": "フレームを提案して",
   "chat.disclaimer": "AIによる回答です。医学的なご相談は眼科医・検眼士にお問い合わせください。",
   "chat.error": "申し訳ありません。現在接続に問題が発生しています。しばらくしてからもう一度お試しください。",
-  "chat.welcome": "こんにちは！lool AIアシスタントです。ぴったりのフレーム探し、レンズの選び方、メガネに関するご質問にお答えします。どのようなご用件でしょうか？",
+  "chat.welcome": "こんにちは！loollook AIアシスタントです。ぴったりのフレーム探し、レンズの選び方、メガネに関するご質問にお答えします。どのようなご用件でしょうか？",
   "chat.send": "送信",
   "chat.placeholder": "フレーム・レンズ・処方についてご質問ください…",
   "chat.subtitle": "メガネのエキスパートが24時間対応",
-  "chat.title": "lool AIアシスタント",
+  "chat.title": "loollook AIアシスタント",
   "chat.close": "チャットを閉じる",
   "chat.open": "AIとチャット",
   "tryon.upload": "フレームをアップロード",
@@ -8155,7 +8155,7 @@ const ja: Dict = fill({
   "home.faq.eyebrow": "よくあるご質問",
   "chat.whatsapp": "WhatsApp でお問い合わせ",
   "chat.whatsappHint": "AI アシスタントは現在ご利用いただけません。下のボタンから WhatsApp でスタッフにご連絡ください。担当者が返信します。",
-  "chat.whatsappGreeting": "こんにちは lool さん、質問があります：",
+  "chat.whatsappGreeting": "こんにちは loollook さん、質問があります：",
   "checkout.unavailable": "オンライン決済は一時的にご利用いただけません。カートは保存されています。時間をおいて再度お試しいただくか、support@loollook.com までご連絡ください。",
   "checkout.error.required": "すべての項目を入力してください。",
   "checkout.error.network":
@@ -8208,18 +8208,18 @@ const ja: Dict = fill({
   "favorites.emptyCta": "新作を見る",
   "favorites.removed": "お気に入りから削除",
   "favorites.added": "お気に入りに追加",
-  "footer.about": "loolについて",
+  "footer.about": "loollookについて",
   "footer.help": "ヘルプ",
   "footer.policy": "ポリシー",
   "footer.follow": "フォロー",
-  "footer.copyright": "© 2025 lool. モダンな老眼・近視メガネをダイレクトに。",
+  "footer.copyright": "© 2025 loollook. モダンな老眼・近視メガネをダイレクトに。",
   "footer.newsletter.title": "ニュースレターに登録して最新情報を受け取る",
   "footer.newsletter.placeholder": "メールアドレス",
   "footer.newsletter.cta": "登録する",
   "footer.newsletter.success": "登録完了 — ご登録ありがとうございます",
-  "footer.app.title": "loolアプリをダウンロード",
+  "footer.app.title": "loollookアプリをダウンロード",
   "footer.app.sub": "外出先でも試着・保存・再注文",
-  "footer.app.install": "loolアプリをインストール",
+  "footer.app.install": "loollookアプリをインストール",
   "footer.app.installed": "インストール済み — ホーム画面から開いてください",
   "footer.app.iosHint":
     "Safariの共有アイコンをタップし、「ホーム画面に追加」を選んでください。",
@@ -8240,11 +8240,11 @@ const ja: Dict = fill({
   "footer.col.material": "素材別",
   "footer.col.style": "スタイル別",
   "footer.col.deals": "セール",
-  "footer.col.about": "loolについて",
+  "footer.col.about": "loollookについて",
   "footer.col.howto": "使い方",
   "footer.col.programs": "プログラム",
   "footer.col.faceShape": "顔型別",
-  "footer.legal.promise": "loolの約束",
+  "footer.legal.promise": "loollookの約束",
   "footer.legal.shipping": "配送・返品",
   "footer.legal.privacy": "プライバシー",
   "footer.legal.terms": "利用規約",
@@ -8285,7 +8285,7 @@ const ja: Dict = fill({
   "wiz.brand.mingyue.desc": "中国プレミアム光学、クリアで耐久性◎。",
   "wiz.brand.zeiss": "ZEISS（ツァイス）",
   "wiz.brand.zeiss.desc": "ドイツ精密、視界のゴールドスタンダード。",
-  "wiz.brand.inhouse": "lool",
+  "wiz.brand.inhouse": "loollook",
   "wiz.brand.inhouse.desc":
     "自社ブランドのエントリー — 日常用と老眼向けに対応。",
   "wiz.s4.degToggle": "日常用度数を追加（任意）",
@@ -8481,7 +8481,7 @@ const ja: Dict = fill({
     "新作発表、デザインの裏話、スタイルガイドなど——タイトルをタップして本文を読む。",
 
   // ── brand ──
-  "brand.name": "lool",
+  "brand.name": "loollook",
 
   // ── account: sign-in ──
   "account.signin.title": "ご注文を確認する",
@@ -8600,8 +8600,8 @@ const ja: Dict = fill({
 
   // ── footer links: about / help ──
   "footer.link.aboutUs": "私たちについて",
-  "footer.link.blog": "lool ジャーナル",
-  "footer.link.whyLool": "lool を選ぶ理由",
+  "footer.link.blog": "loollook ジャーナル",
+  "footer.link.whyLool": "loollook を選ぶ理由",
   "footer.link.helpCenter": "ヘルプセンター",
   "footer.link.accessibility": "アクセシビリティ",
   "footer.link.findFit": "サイズの選び方",
@@ -8609,7 +8609,7 @@ const ja: Dict = fill({
   "footer.link.measurePD": "PD（瞳孔間距離）の測り方",
   "footer.link.rxGuide": "処方箋の入力方法",
   "footer.link.tryOn": "バーチャル試着",
-  "footer.link.rewards": "lool リワード",
+  "footer.link.rewards": "loollook リワード",
   "footer.link.refer": "友達紹介",
   "footer.link.affiliate": "アフィリエイトプログラム",
   "footer.link.education": "学割",
@@ -8719,7 +8719,7 @@ const ja: Dict = fill({
   "aff.unauth.sub":
     "アフィリエイト管理画面はアカウントのメールアドレスに紐づいています。",
   "aff.unauth.cta": "ログインへ",
-  "aff.join.title": "lool アフィリエイトになる",
+  "aff.join.title": "loollook アフィリエイトになる",
   "aff.join.cta": "アフィリエイトになる",
   "aff.join.err": "エラーが発生しました。少し時間をおいて再度お試しください。",
   "aff.link.title": "あなたの紹介リンク",
@@ -8749,7 +8749,7 @@ const ja: Dict = fill({
   "wiz.rx.replaceImage": "画像を差し替える",
 
   "aff.join.intro":
-    "あなたの紹介リンクから入った注文ごとに報酬を獲得できます。lool アカウントをお持ちであればどなたでも参加可能です — 申請も最低条件もありません。",
+    "あなたの紹介リンクから入った注文ごとに報酬を獲得できます。loollook アカウントをお持ちであればどなたでも参加可能です — 申請も最低条件もありません。",
   "aff.join.bullet1":
     "注文の小計（返金分を差し引いた額）の 15% を報酬として、注文が支払われた瞬間に台帳へ記録します。",
   "aff.join.bullet2":
@@ -8875,7 +8875,7 @@ const ko: Dict = fill({
   "cat.myopia.title": "데일리 안경",
   "cat.myopia.desc": "블루라이트, 초박형 렌즈, 청소년 근시 관리 — 올인원.",
   "cat.all.title": "전체 상품",
-  "cat.all.desc": "lool 컬렉션 전체.",
+  "cat.all.desc": "loollook 컬렉션 전체.",
 
   "home.hero.cta.shopAll": "컬렉션 보기",
   "home.shape.eyebrow": "셰이프 가이드",
@@ -8921,7 +8921,7 @@ const ko: Dict = fill({
   "home.tryon.sub": "100% 정확한 핏 · 360° · 100+ 스타일을 몇 초 만에",
   "home.tryon.cta": "지금 무료로 착용해 보기",
   "home.ugc.eyebrow": "고객 룩",
-  "home.ugc.title": "실제 룩 · lool 커뮤니티",
+  "home.ugc.title": "실제 룩 · loollook 커뮤니티",
   "home.ugc.viewAll": "모든 룩 보기",
   "home.knowledge.eyebrow": "지식 허브",
   "home.knowledge.title": "아이웨어 인사이트와 팁",
@@ -8939,7 +8939,7 @@ const ko: Dict = fill({
   "home.knowledge.material.title": "프레임 소재: 아세테이트, 티타늄, TR90",
   "home.knowledge.material.desc": "각 소재의 촉감, 무게, 내구성을 이해.",
   "home.knowledge.learnMore": "자세히 보기",
-  "home.brand.eyebrow": "LOOL 방식",
+  "home.brand.eyebrow": "LOOLLOOK 방식",
   "home.brand.title": "일상을 위해 디자인, 당신의 스타일을 위해 제작",
   "home.brand.cta": "전체 컬렉션 보기",
 
@@ -9148,7 +9148,7 @@ const ko: Dict = fill({
   "pdp.share.copy": "복사",
   "pdp.share.wechat": "WeChat",
   "pdp.share.wechatHint": "QR을 스캔하여 WeChat에 공유",
-  "pdp.share.text": "이 lool 프레임을 확인하세요: {title} — {url}",
+  "pdp.share.text": "이 loollook 프레임을 확인하세요: {title} — {url}",
 
   "cart.title": "장바구니",
   "cart.empty": "장바구니가 비었습니다",
@@ -9193,11 +9193,11 @@ const ko: Dict = fill({
   "chat.quick.recommend": "프레임 추천",
   "chat.disclaimer": "AI 기반 답변입니다. 의학적 조언은 검안사와 상담하세요.",
   "chat.error": "죄송합니다. 지금 연결에 문제가 있습니다. 잠시 후 다시 시도해 주세요.",
-  "chat.welcome": "안녕하세요! lool AI 어시스턴트입니다. 꼭 맞는 프레임 찾기, 렌즈 옵션 안내, 안경에 관한 모든 질문을 도와드립니다. 무엇을 도와드릴까요?",
+  "chat.welcome": "안녕하세요! loollook AI 어시스턴트입니다. 꼭 맞는 프레임 찾기, 렌즈 옵션 안내, 안경에 관한 모든 질문을 도와드립니다. 무엇을 도와드릴까요?",
   "chat.send": "보내기",
   "chat.placeholder": "프레임, 렌즈, 처방에 대해 물어보세요…",
   "chat.subtitle": "24시간 안경 전문가",
-  "chat.title": "lool AI 어시스턴트",
+  "chat.title": "loollook AI 어시스턴트",
   "chat.close": "채팅 닫기",
   "chat.open": "AI와 채팅",
   "tryon.upload": "프레임 업로드",
@@ -9244,7 +9244,7 @@ const ko: Dict = fill({
   "home.faq.eyebrow": "자주 묻는 질문",
   "chat.whatsapp": "WhatsApp으로 문의하기",
   "chat.whatsappHint": "AI 도우미가 지금 오프라인입니다. 아래 버튼을 눌러 WhatsApp으로 저희 팀에 문의해 주세요. 담당자가 직접 답변드립니다.",
-  "chat.whatsappGreeting": "안녕하세요 lool, 문의드릴 게 있어요:",
+  "chat.whatsappGreeting": "안녕하세요 loollook, 문의드릴 게 있어요:",
   "checkout.unavailable": "온라인 결제를 일시적으로 사용할 수 없습니다. 장바구니는 저장되어 있으니 잠시 후 다시 시도하시거나 support@loollook.com 으로 연락해 주세요.",
   "checkout.error.required": "모든 항목을 입력해 주세요.",
   "checkout.error.network":
@@ -9296,19 +9296,19 @@ const ko: Dict = fill({
   "favorites.emptyCta": "신상품 보기",
   "favorites.removed": "즐겨찾기 해제",
   "favorites.added": "즐겨찾기 추가",
-  "footer.about": "lool 소개",
+  "footer.about": "loollook 소개",
   "footer.help": "도움말",
   "footer.policy": "정책",
   "footer.follow": "팔로우",
-  "footer.copyright": "© 2025 lool. 모던 리딩 & 데일리 안경, 다이렉트.",
+  "footer.copyright": "© 2025 loollook. 모던 리딩 & 데일리 안경, 다이렉트.",
   "footer.newsletter.title": "뉴스레터를 구독하고 최신 소식을 받아보세요",
   "footer.newsletter.placeholder": "이메일 주소 입력",
   "footer.newsletter.cta": "구독하기",
   "footer.newsletter.success":
     "구독 완료 — 뉴스레터에 가입해 주셔서 감사합니다",
-  "footer.app.title": "lool 앱 다운로드",
+  "footer.app.title": "loollook 앱 다운로드",
   "footer.app.sub": "이동 중에도 착용·저장·재주문",
-  "footer.app.install": "lool 앱 설치하기",
+  "footer.app.install": "loollook 앱 설치하기",
   "footer.app.installed": "설치됨 — 홈 화면에서 열어 주세요",
   "footer.app.iosHint":
     "Safari의 공유 아이콘을 누른 뒤 '홈 화면에 추가'를 선택하세요.",
@@ -9329,11 +9329,11 @@ const ko: Dict = fill({
   "footer.col.material": "소재별",
   "footer.col.style": "스타일별",
   "footer.col.deals": "할인",
-  "footer.col.about": "lool 소개",
+  "footer.col.about": "loollook 소개",
   "footer.col.howto": "사용법",
   "footer.col.programs": "프로그램",
   "footer.col.faceShape": "얼굴형별",
-  "footer.legal.promise": "lool의 약속",
+  "footer.legal.promise": "loollook의 약속",
   "footer.legal.shipping": "배송 및 반품",
   "footer.legal.privacy": "개인정보 처리방침",
   "footer.legal.terms": "이용약관",
@@ -9374,7 +9374,7 @@ const ko: Dict = fill({
   "wiz.brand.mingyue.desc": "중국 프리미엄 광학, 선명하고 내구성 우수.",
   "wiz.brand.zeiss": "ZEISS (자이스)",
   "wiz.brand.zeiss.desc": "독일 정밀공학, 비전의 골드 스탠다드.",
-  "wiz.brand.inhouse": "lool",
+  "wiz.brand.inhouse": "loollook",
   "wiz.brand.inhouse.desc": "자체 브랜드 입문 — 일상용 / 노안 옵션 지원.",
   "wiz.s4.degToggle": "일상용 도수 추가 (선택)",
   "wiz.s4.degLabel": "일상용 도수",
@@ -9553,7 +9553,7 @@ const ko: Dict = fill({
     "신제품 출시, 디자인 비하인드, 스타일 가이드 등 — 제목을 클릭해서 본문을 읽으세요.",
 
   // brand
-  "brand.name": "lool",
+  "brand.name": "loollook",
 
   // account — sign-in & verification
   "account.signin.title": "주문 조회",
@@ -9655,8 +9655,8 @@ const ko: Dict = fill({
   "footer.link.style.statement": "개성",
   "footer.link.style.classic": "클래식",
   "footer.link.aboutUs": "회사 소개",
-  "footer.link.blog": "lool 저널",
-  "footer.link.whyLool": "lool을 선택하는 이유",
+  "footer.link.blog": "loollook 저널",
+  "footer.link.whyLool": "loollook을 선택하는 이유",
   "footer.link.helpCenter": "고객센터",
   "footer.link.accessibility": "접근성",
   "footer.link.findFit": "내게 맞는 핏 찾는 법",
@@ -9664,7 +9664,7 @@ const ko: Dict = fill({
   "footer.link.measurePD": "PD(동공 거리) 측정 방법",
   "footer.link.rxGuide": "처방전 작성 방법",
   "footer.link.tryOn": "가상 착용",
-  "footer.link.rewards": "lool 리워드",
+  "footer.link.rewards": "loollook 리워드",
   "footer.link.refer": "친구 추천",
   "footer.link.affiliate": "제휴 프로그램",
   "footer.link.education": "학생 / 교사 할인",
@@ -9778,7 +9778,7 @@ const ko: Dict = fill({
   "aff.unauth.title": "어필리에이트 계정을 보려면 로그인하세요",
   "aff.unauth.sub": "어필리에이트 대시보드는 계정 이메일과 연결되어 있습니다.",
   "aff.unauth.cta": "로그인하러 가기",
-  "aff.join.title": "lool 어필리에이트 되기",
+  "aff.join.title": "loollook 어필리에이트 되기",
   "aff.join.cta": "어필리에이트 시작하기",
   "aff.join.err": "문제가 발생했습니다. 잠시 후 다시 시도해 주세요.",
   "aff.link.title": "내 추천 링크",
@@ -9808,7 +9808,7 @@ const ko: Dict = fill({
   "wiz.rx.replaceImage": "이미지 교체",
 
   "aff.join.intro":
-    "추천 링크를 통해 발생한 모든 주문에 대해 커미션을 받습니다. lool 계정이 있는 누구나 참여할 수 있습니다 — 신청이나 최소 조건 없이 바로 시작할 수 있습니다.",
+    "추천 링크를 통해 발생한 모든 주문에 대해 커미션을 받습니다. loollook 계정이 있는 누구나 참여할 수 있습니다 — 신청이나 최소 조건 없이 바로 시작할 수 있습니다.",
   "aff.join.bullet1":
     "주문 소계(환불 차감 후)의 15%를 커미션으로, 주문이 결제되는 즉시 장부에 적립합니다.",
   "aff.join.bullet2":
@@ -9933,7 +9933,7 @@ const ar: Dict = fill({
   "cat.myopia.desc":
     "حماية من الضوء الأزرق، عدسات فائقة الرقّة، وتحكّم بقصر النظر للمراهقين.",
   "cat.all.title": "جميع المنتجات",
-  "cat.all.desc": "تصفّح مجموعة lool كاملة — قراءة ونظارات يومية.",
+  "cat.all.desc": "تصفّح مجموعة loollook كاملة — قراءة ونظارات يومية.",
 
   "home.hero.cta.shopAll": "تسوّق المجموعة",
   "home.shape.eyebrow": "دليل الأشكال",
@@ -9979,7 +9979,7 @@ const ar: Dict = fill({
   "home.tryon.sub": "ملاءمة 100% · 360° · أكثر من 100 نمط في ثوانٍ",
   "home.tryon.cta": "جرّب الآن مجاناً",
   "home.ugc.eyebrow": "إطلالات العملاء",
-  "home.ugc.title": "إطلالات حقيقية · مجتمع lool",
+  "home.ugc.title": "إطلالات حقيقية · مجتمع loollook",
   "home.ugc.viewAll": "عرض كل الإطلالات",
   "home.knowledge.eyebrow": "مركز المعرفة",
   "home.knowledge.title": "نصائح ومعرفة عن النظارات",
@@ -9996,7 +9996,7 @@ const ar: Dict = fill({
   "home.knowledge.material.title": "مواد الإطار: الأسيتات والتيتانيوم وTR90",
   "home.knowledge.material.desc": "افهم الملمس والوزن والمتانة لكل مادة.",
   "home.knowledge.learnMore": "اعرف المزيد",
-  "home.brand.eyebrow": "أسلوب LOOL",
+  "home.brand.eyebrow": "أسلوب LOOLLOOK",
   "home.brand.title": "مصممة للحياة اليومية، صُنعت لأسلوبك الفريد",
   "home.brand.cta": "استكشاف المجموعة الكاملة",
 
@@ -10206,7 +10206,7 @@ const ar: Dict = fill({
   "pdp.share.copy": "نسخ",
   "pdp.share.wechat": "WeChat",
   "pdp.share.wechatHint": "امسح الرمز لمشاركته على WeChat",
-  "pdp.share.text": "شاهد إطار lool هذا: {title} — {url}",
+  "pdp.share.text": "شاهد إطار loollook هذا: {title} — {url}",
 
   "cart.title": "السلة",
   "cart.empty": "سلتك فارغة",
@@ -10251,11 +10251,11 @@ const ar: Dict = fill({
   "chat.quick.recommend": "اقترح إطارات",
   "chat.disclaimer": "مدعوم بالذكاء الاصطناعي. للاستشارة الطبية، راجع أخصائي البصريات.",
   "chat.error": "عذرًا، أواجه مشكلة في الاتصال الآن. يرجى المحاولة بعد قليل.",
-  "chat.welcome": "مرحبًا! أنا مساعد lool الذكي. يمكنني مساعدتك في إيجاد الإطار المثالي، أو فهم خيارات العدسات، أو الإجابة عن أي سؤال حول النظارات. كيف يمكنني مساعدتك؟",
+  "chat.welcome": "مرحبًا! أنا مساعد loollook الذكي. يمكنني مساعدتك في إيجاد الإطار المثالي، أو فهم خيارات العدسات، أو الإجابة عن أي سؤال حول النظارات. كيف يمكنني مساعدتك؟",
   "chat.send": "إرسال",
   "chat.placeholder": "اسأل عن الإطارات والعدسات والوصفات…",
   "chat.subtitle": "خبيرك في النظارات على مدار الساعة",
-  "chat.title": "مساعد lool الذكي",
+  "chat.title": "مساعد loollook الذكي",
   "chat.close": "إغلاق الدردشة",
   "chat.open": "الدردشة مع الذكاء الاصطناعي",
   "tryon.upload": "رفع إطار",
@@ -10302,7 +10302,7 @@ const ar: Dict = fill({
   "home.faq.eyebrow": "أسئلة وأجوبة",
   "chat.whatsapp": "تواصل معنا عبر واتساب",
   "chat.whatsappHint": "المساعد الذكي غير متاح حاليًا. اضغط أدناه لمراسلة فريقنا عبر واتساب — سيرد عليك شخص حقيقي.",
-  "chat.whatsappGreeting": "مرحبًا lool، لدي سؤال:",
+  "chat.whatsappGreeting": "مرحبًا loollook، لدي سؤال:",
   "checkout.unavailable": "الدفع عبر الإنترنت غير متاح مؤقتًا. تم حفظ سلتك — يُرجى المحاولة لاحقًا أو مراسلتنا على support@loollook.com لمساعدتك في إتمام الطلب.",
   "checkout.error.required": "يرجى ملء جميع الحقول.",
   "checkout.error.network": "تعذّر الاتصال بالخادم. يرجى المحاولة لاحقًا.",
@@ -10353,19 +10353,19 @@ const ar: Dict = fill({
   "favorites.emptyCta": "اكتشف الجديد",
   "favorites.removed": "أُزيل من المفضلة",
   "favorites.added": "أُضيف إلى المفضلة",
-  "footer.about": "عن lool",
+  "footer.about": "عن loollook",
   "footer.help": "المساعدة",
   "footer.policy": "السياسات",
   "footer.follow": "تابعنا",
   "footer.copyright":
-    "© 2025 lool. نظارات قراءة وعدسات يومية مباشرة من العلامة.",
+    "© 2025 loollook. نظارات قراءة وعدسات يومية مباشرة من العلامة.",
   "footer.newsletter.title": "اشترك في النشرة لتصلك آخر المستجدات",
   "footer.newsletter.placeholder": "أدخل بريدك الإلكتروني",
   "footer.newsletter.cta": "اشتراك",
   "footer.newsletter.success": "تم الاشتراك — شكراً لانضمامك إلى نشرتنا",
-  "footer.app.title": "حمّل تطبيق lool",
+  "footer.app.title": "حمّل تطبيق loollook",
   "footer.app.sub": "جرّب واحفظ وأعِد طلب العدسات أينما كنت",
-  "footer.app.install": "ثبّت تطبيق lool",
+  "footer.app.install": "ثبّت تطبيق loollook",
   "footer.app.installed": "مُثبَّت — افتحه من الشاشة الرئيسية",
   "footer.app.iosHint":
     "اضغط أيقونة المشاركة في Safari ثم اختر «إضافة إلى الشاشة الرئيسية».",
@@ -10386,11 +10386,11 @@ const ar: Dict = fill({
   "footer.col.material": "حسب الخامة",
   "footer.col.style": "حسب الأسلوب",
   "footer.col.deals": "العروض",
-  "footer.col.about": "عن lool",
+  "footer.col.about": "عن loollook",
   "footer.col.howto": "إرشادات",
   "footer.col.programs": "برامجنا",
   "footer.col.faceShape": "حسب شكل الوجه",
-  "footer.legal.promise": "وعد lool",
+  "footer.legal.promise": "وعد loollook",
   "footer.legal.shipping": "الشحن والإرجاع",
   "footer.legal.privacy": "الخصوصية والأمان",
   "footer.legal.terms": "الشروط",
@@ -10431,7 +10431,7 @@ const ar: Dict = fill({
   "wiz.brand.mingyue.desc": "بصريات صينية فاخرة، نقية ومتينة.",
   "wiz.brand.zeiss": "ZEISS",
   "wiz.brand.zeiss.desc": "دقة ألمانية، المعيار الذهبي للرؤية.",
-  "wiz.brand.inhouse": "lool",
+  "wiz.brand.inhouse": "loollook",
   "wiz.brand.inhouse.desc": "علامة داخلية أساسية — للاستخدام اليومي والقراءة.",
   "wiz.s4.degToggle": "إضافة إعداد يومي (اختياري)",
   "wiz.s4.degLabel": "الإعداد اليومي",
@@ -10611,7 +10611,7 @@ const ar: Dict = fill({
   "blog.intro":
     "إصدارات جديدة وملاحظات تصميم ونصائح ستايل ونصائح للعناية — اضغط على أي عنوان للقراءة.",
 
-  "brand.name": "lool",
+  "brand.name": "loollook",
 
   "account.signin.title": "ابحث عن طلباتك",
   "account.signin.subtitle":
@@ -10710,8 +10710,8 @@ const ar: Dict = fill({
   "footer.link.style.statement": "متميّز",
   "footer.link.style.classic": "كلاسيكي",
   "footer.link.aboutUs": "من نحن",
-  "footer.link.blog": "مدونة lool",
-  "footer.link.whyLool": "لماذا lool",
+  "footer.link.blog": "مدونة loollook",
+  "footer.link.whyLool": "لماذا loollook",
   "footer.link.helpCenter": "مركز المساعدة",
   "footer.link.accessibility": "إمكانية الوصول",
   "footer.link.findFit": "كيف تجد المقاس المناسب",
@@ -10719,7 +10719,7 @@ const ar: Dict = fill({
   "footer.link.measurePD": "كيفية قياس المسافة بين الحدقتين",
   "footer.link.rxGuide": "كيفية تعبئة الوصفة الطبية",
   "footer.link.tryOn": "تجربة افتراضية",
-  "footer.link.rewards": "مكافآت lool",
+  "footer.link.rewards": "مكافآت loollook",
   "footer.link.refer": "أحِل صديقًا",
   "footer.link.affiliate": "برنامج الشراكة",
   "footer.link.education": "خصم التعليم",
@@ -10817,7 +10817,7 @@ const ar: Dict = fill({
   "aff.unauth.title": "سجّل الدخول لعرض حساب التسويق بالعمولة",
   "aff.unauth.sub": "لوحة التسويق بالعمولة مرتبطة بالبريد الإلكتروني لحسابك.",
   "aff.unauth.cta": "اذهب إلى تسجيل الدخول",
-  "aff.join.title": "كن مسوّقًا بالعمولة لدى lool",
+  "aff.join.title": "كن مسوّقًا بالعمولة لدى loollook",
   "aff.join.cta": "كن مسوّقًا بالعمولة",
   "aff.join.err": "حدث خطأ ما. حاول مرة أخرى بعد قليل.",
   "aff.link.title": "رابط الإحالة الخاص بك",
@@ -10847,7 +10847,7 @@ const ar: Dict = fill({
   "wiz.rx.replaceImage": "استبدال الصورة",
 
   "aff.join.intro":
-    "احصل على عمولة عن كل طلب يُقدَّم عبر رابط الإحالة الخاص بك. يمكن لأي شخص لديه حساب lool الانضمام — دون طلب تسجيل ودون حد أدنى للبدء.",
+    "احصل على عمولة عن كل طلب يُقدَّم عبر رابط الإحالة الخاص بك. يمكن لأي شخص لديه حساب loollook الانضمام — دون طلب تسجيل ودون حد أدنى للبدء.",
   "aff.join.bullet1":
     "عمولة 15% على المجموع الفرعي للطلب (مع خصم المبالغ المستردّة)، تُضاف إلى حسابك لحظة دفع الطلب.",
   "aff.join.bullet2":
@@ -10973,7 +10973,7 @@ const vi: Dict = fill({
     "Lọc ánh sáng xanh, tròng siêu mỏng, kiểm soát cận thị tuổi teen — tất cả trong một.",
   "cat.all.title": "Tất cả sản phẩm",
   "cat.all.desc":
-    "Khám phá trọn bộ sưu tập lool — kính đọc sách và kính cận hằng ngày.",
+    "Khám phá trọn bộ sưu tập loollook — kính đọc sách và kính cận hằng ngày.",
 
   "home.hero.cta.shopAll": "Mua bộ sưu tập",
   "home.shape.eyebrow": "Cẩm nang dáng gọng",
@@ -11022,7 +11022,7 @@ const vi: Dict = fill({
     "Vừa vặn 100% · Toàn cảnh 360° · Hơn 100 kiểu chỉ trong vài giây",
   "home.tryon.cta": "Thử miễn phí ngay",
   "home.ugc.eyebrow": "Khách hàng thực tế",
-  "home.ugc.title": "Phong cách thật · Cộng đồng lool",
+  "home.ugc.title": "Phong cách thật · Cộng đồng loollook",
   "home.ugc.viewAll": "Xem tất cả ảnh khách hàng",
   "home.knowledge.eyebrow": "Trung tâm kiến thức",
   "home.knowledge.title": "Kiến thức và mẹo về kính mắt",
@@ -11046,7 +11046,7 @@ const vi: Dict = fill({
   "home.knowledge.material.desc":
     "Cảm nhận, trọng lượng và độ bền của từng chất liệu.",
   "home.knowledge.learnMore": "Tìm hiểu thêm",
-  "home.brand.eyebrow": "TINH THẦN LOOL",
+  "home.brand.eyebrow": "TINH THẦN LOOLLOOK",
   "home.brand.title":
     "Thiết kế cho đời sống hằng ngày, làm thủ công cho phong cách riêng của bạn",
   "home.brand.cta": "Khám phá toàn bộ sưu tập",
@@ -11267,7 +11267,7 @@ const vi: Dict = fill({
   "pdp.share.copy": "Sao chép",
   "pdp.share.wechat": "WeChat",
   "pdp.share.wechatHint": "Quét mã QR để chia sẻ trên WeChat",
-  "pdp.share.text": "Xem qua gọng kính lool này: {title} — {url}",
+  "pdp.share.text": "Xem qua gọng kính loollook này: {title} — {url}",
 
   "cart.title": "Giỏ hàng",
   "cart.empty": "Giỏ hàng của bạn đang trống",
@@ -11314,11 +11314,11 @@ const vi: Dict = fill({
   "chat.quick.recommend": "Gợi ý gọng kính",
   "chat.disclaimer": "Vận hành bởi AI. Để được tư vấn y khoa, hãy hỏi chuyên viên đo mắt.",
   "chat.error": "Xin lỗi, hiện tôi đang gặp sự cố kết nối. Vui lòng thử lại sau giây lát.",
-  "chat.welcome": "Xin chào! Tôi là trợ lý AI của lool. Tôi có thể giúp bạn tìm gọng kính phù hợp, hiểu các lựa chọn tròng kính hoặc giải đáp mọi thắc mắc về kính mắt. Bạn cần giúp gì?",
+  "chat.welcome": "Xin chào! Tôi là trợ lý AI của loollook. Tôi có thể giúp bạn tìm gọng kính phù hợp, hiểu các lựa chọn tròng kính hoặc giải đáp mọi thắc mắc về kính mắt. Bạn cần giúp gì?",
   "chat.send": "Gửi",
   "chat.placeholder": "Hỏi về gọng, tròng kính, đơn kính…",
   "chat.subtitle": "Chuyên gia kính mắt của bạn, 24/7",
-  "chat.title": "Trợ lý AI lool",
+  "chat.title": "Trợ lý AI loollook",
   "chat.close": "Đóng trò chuyện",
   "chat.open": "Trò chuyện với AI",
   "tryon.upload": "Tải gọng kính lên",
@@ -11365,7 +11365,7 @@ const vi: Dict = fill({
   "home.faq.eyebrow": "Hỏi & đáp",
   "chat.whatsapp": "Nhắn tin cho chúng tôi qua WhatsApp",
   "chat.whatsappHint": "Trợ lý AI hiện đang ngoại tuyến. Nhấn bên dưới để nhắn cho đội ngũ của chúng tôi qua WhatsApp — sẽ có nhân viên trả lời bạn.",
-  "chat.whatsappGreeting": "Chào lool, mình có câu hỏi:",
+  "chat.whatsappGreeting": "Chào loollook, mình có câu hỏi:",
   "checkout.unavailable": "Thanh toán trực tuyến tạm thời không khả dụng. Giỏ hàng của bạn đã được lưu — vui lòng thử lại sau hoặc email support@loollook.com để chúng tôi hỗ trợ.",
   "checkout.error.required": "Vui lòng điền đầy đủ thông tin.",
   "checkout.error.network": "Không kết nối được máy chủ. Thử lại sau ít phút.",
@@ -11489,9 +11489,9 @@ const vi: Dict = fill({
   "aff.unauth.sub":
     "Bảng điều khiển affiliate gắn với email tài khoản của bạn.",
   "aff.unauth.cta": "Đăng nhập",
-  "aff.join.title": "Trở thành affiliate của lool",
+  "aff.join.title": "Trở thành affiliate của loollook",
   "aff.join.intro":
-    "Nhận hoa hồng cho mỗi đơn hàng đặt qua liên kết của bạn. Bất kỳ ai có tài khoản lool đều có thể tham gia — không cần xét duyệt, không có hạn mức.",
+    "Nhận hoa hồng cho mỗi đơn hàng đặt qua liên kết của bạn. Bất kỳ ai có tài khoản loollook đều có thể tham gia — không cần xét duyệt, không có hạn mức.",
   "aff.join.bullet1":
     "Hoa hồng 15% trên tạm tính đơn hàng (đã trừ hoàn tiền), ghi nhận ngay khi đơn được thanh toán.",
   "aff.join.bullet2":
@@ -11567,20 +11567,20 @@ const vi: Dict = fill({
   "favorites.removed": "Đã xoá khỏi yêu thích",
   "favorites.added": "Đã thêm vào yêu thích",
 
-  "footer.about": "Về lool",
+  "footer.about": "Về loollook",
   "footer.help": "Trợ giúp",
   "footer.policy": "Chính sách",
   "footer.follow": "Theo dõi",
   "footer.copyright":
-    "© 2025 lool. Kính đọc sách & kính cận hiện đại, trực tiếp.",
+    "© 2025 loollook. Kính đọc sách & kính cận hiện đại, trực tiếp.",
 
   "footer.newsletter.title": "Đăng ký nhận bản tin để cập nhật tin mới nhất",
   "footer.newsletter.placeholder": "Nhập địa chỉ email của bạn",
   "footer.newsletter.cta": "Đăng ký",
   "footer.newsletter.success": "Đăng ký thành công — cảm ơn bạn đã tham gia",
-  "footer.app.title": "Tải ứng dụng lool",
+  "footer.app.title": "Tải ứng dụng loollook",
   "footer.app.sub": "Thử kính, lưu mẫu và đặt lại tròng ở bất cứ đâu",
-  "footer.app.install": "Cài đặt ứng dụng lool",
+  "footer.app.install": "Cài đặt ứng dụng loollook",
   "footer.app.installed": "Đã cài — mở từ màn hình chính",
   "footer.app.iosHint":
     "Chạm biểu tượng Chia sẻ trên Safari, sau đó chọn “Thêm vào màn hình chính”.",
@@ -11601,11 +11601,11 @@ const vi: Dict = fill({
   "footer.col.material": "Theo chất liệu",
   "footer.col.style": "Theo phong cách",
   "footer.col.deals": "Ưu đãi",
-  "footer.col.about": "Về lool",
+  "footer.col.about": "Về loollook",
   "footer.col.howto": "Hướng dẫn",
   "footer.col.programs": "Chương trình của chúng tôi",
   "footer.col.faceShape": "Theo dáng mặt",
-  "footer.legal.promise": "Cam kết lool",
+  "footer.legal.promise": "Cam kết loollook",
   "footer.legal.shipping": "Giao hàng & đổi trả",
   "footer.legal.privacy": "Bảo mật & quyền riêng tư",
   "footer.legal.terms": "Điều khoản",
@@ -11641,8 +11641,8 @@ const vi: Dict = fill({
   "footer.link.style.statement": "Cá tính",
   "footer.link.style.classic": "Cổ điển",
   "footer.link.aboutUs": "Về chúng tôi",
-  "footer.link.blog": "Nhật ký lool",
-  "footer.link.whyLool": "Vì sao chọn lool",
+  "footer.link.blog": "Nhật ký loollook",
+  "footer.link.whyLool": "Vì sao chọn loollook",
   "footer.link.helpCenter": "Trung tâm trợ giúp",
   "footer.link.accessibility": "Trợ năng",
   "footer.link.findFit": "Cách tìm gọng vừa vặn",
@@ -11650,7 +11650,7 @@ const vi: Dict = fill({
   "footer.link.measurePD": "Cách đo PD",
   "footer.link.rxGuide": "Cách điền đơn kính",
   "footer.link.tryOn": "Thử kính ảo",
-  "footer.link.rewards": "Điểm thưởng lool",
+  "footer.link.rewards": "Điểm thưởng loollook",
   "footer.link.refer": "Giới thiệu bạn bè",
   "footer.link.affiliate": "Chương trình affiliate",
   "footer.link.education": "Giảm giá giáo dục",
@@ -11692,7 +11692,7 @@ const vi: Dict = fill({
   "wiz.brand.mingyue.desc": "Quang học Trung Quốc cao cấp, sắc nét và bền bỉ.",
   "wiz.brand.zeiss": "ZEISS",
   "wiz.brand.zeiss.desc": "Độ chính xác kiểu Đức, chuẩn mực vàng cho thị lực.",
-  "wiz.brand.inhouse": "lool",
+  "wiz.brand.inhouse": "loollook",
   "wiz.brand.inhouse.desc":
     "Dòng nhãn riêng giá thân thiện — phù hợp đeo hằng ngày và đọc sách.",
   "wiz.s4.degToggle": "Thêm cấu hình đeo hằng ngày (tuỳ chọn)",
@@ -11965,7 +11965,7 @@ const vi: Dict = fill({
   "blog.intro":
     "Ra mắt mới, ghi chú thiết kế, mẹo phong cách và hơn thế — bấm vào bất kỳ tiêu đề nào để đọc.",
 
-  "brand.name": "lool",
+  "brand.name": "loollook",
 
   // Product reviews tab
   "review.all": "Tất cả",
@@ -12076,7 +12076,7 @@ const th: Dict = fill({
     "กรองแสงสีฟ้า เลนส์บางพิเศษ ควบคุมสายตาสั้นในวัยรุ่น — ครบในแว่นเดียว",
   "cat.all.title": "สินค้าทั้งหมด",
   "cat.all.desc":
-    "สำรวจคอลเลกชัน lool ทั้งหมด — แว่นอ่านหนังสือและแว่นสายตาประจำวัน",
+    "สำรวจคอลเลกชัน loollook ทั้งหมด — แว่นอ่านหนังสือและแว่นสายตาประจำวัน",
 
   "home.hero.cta.shopAll": "ช้อปคอลเลกชัน",
   "home.shape.eyebrow": "คู่มือรูปทรง",
@@ -12123,7 +12123,7 @@ const th: Dict = fill({
   "home.tryon.sub": "พอดี 100% · มุมมอง 360° · กว่า 100 สไตล์ในไม่กี่วินาที",
   "home.tryon.cta": "ลองฟรีตอนนี้",
   "home.ugc.eyebrow": "ลุคของลูกค้า",
-  "home.ugc.title": "ลุคจริง · คอมมูนิตี้ lool",
+  "home.ugc.title": "ลุคจริง · คอมมูนิตี้ loollook",
   "home.ugc.viewAll": "ดูลุคของผู้ใช้ทั้งหมด",
   "home.knowledge.eyebrow": "ศูนย์ความรู้",
   "home.knowledge.title": "ความรู้และเคล็ดลับเรื่องแว่น",
@@ -12143,7 +12143,7 @@ const th: Dict = fill({
   "home.knowledge.material.desc":
     "เข้าใจสัมผัส น้ำหนัก และความทนทานของแต่ละวัสดุ",
   "home.knowledge.learnMore": "เรียนรู้เพิ่มเติม",
-  "home.brand.eyebrow": "วิถี LOOL",
+  "home.brand.eyebrow": "วิถี LOOLLOOK",
   "home.brand.title": "ออกแบบเพื่อชีวิตประจำวัน รังสรรค์เพื่อสไตล์เฉพาะของคุณ",
   "home.brand.cta": "สำรวจคอลเลกชันทั้งหมด",
 
@@ -12363,7 +12363,7 @@ const th: Dict = fill({
   "pdp.share.copy": "คัดลอก",
   "pdp.share.wechat": "WeChat",
   "pdp.share.wechatHint": "สแกน QR เพื่อแชร์บน WeChat",
-  "pdp.share.text": "ดูกรอบ lool นี้สิ: {title} — {url}",
+  "pdp.share.text": "ดูกรอบ loollook นี้สิ: {title} — {url}",
 
   "cart.title": "ตะกร้า",
   "cart.empty": "ตะกร้าของคุณยังว่างอยู่",
@@ -12409,11 +12409,11 @@ const th: Dict = fill({
   "chat.quick.recommend": "แนะนำกรอบแว่น",
   "chat.disclaimer": "ขับเคลื่อนด้วย AI หากต้องการคำแนะนำทางการแพทย์ โปรดปรึกษานักทัศนมาตร",
   "chat.error": "ขออภัย ขณะนี้การเชื่อมต่อมีปัญหา โปรดลองใหม่อีกครั้งในอีกสักครู่",
-  "chat.welcome": "สวัสดี! ฉันคือผู้ช่วย AI ของ lool ช่วยคุณหากรอบแว่นที่ใช่ อธิบายตัวเลือกเลนส์ หรือตอบทุกคำถามเรื่องแว่นตา ให้ช่วยอะไรดีคะ?",
+  "chat.welcome": "สวัสดี! ฉันคือผู้ช่วย AI ของ loollook ช่วยคุณหากรอบแว่นที่ใช่ อธิบายตัวเลือกเลนส์ หรือตอบทุกคำถามเรื่องแว่นตา ให้ช่วยอะไรดีคะ?",
   "chat.send": "ส่ง",
   "chat.placeholder": "ถามเรื่องกรอบแว่น เลนส์ ค่าสายตา…",
   "chat.subtitle": "ผู้เชี่ยวชาญด้านแว่นตา ตลอด 24 ชั่วโมง",
-  "chat.title": "ผู้ช่วย AI ของ lool",
+  "chat.title": "ผู้ช่วย AI ของ loollook",
   "chat.close": "ปิดแชท",
   "chat.open": "แชทกับ AI",
   "tryon.upload": "อัปโหลดกรอบแว่น",
@@ -12460,7 +12460,7 @@ const th: Dict = fill({
   "home.faq.eyebrow": "คำถามและคำตอบ",
   "chat.whatsapp": "แชทกับเราทาง WhatsApp",
   "chat.whatsappHint": "ผู้ช่วย AI ไม่พร้อมใช้งานในขณะนี้ แตะด้านล่างเพื่อส่งข้อความหาทีมงานทาง WhatsApp — จะมีเจ้าหน้าที่ตอบกลับคุณ",
-  "chat.whatsappGreeting": "สวัสดี lool มีคำถามค่ะ/ครับ:",
+  "chat.whatsappGreeting": "สวัสดี loollook มีคำถามค่ะ/ครับ:",
   "checkout.unavailable": "ระบบชำระเงินออนไลน์ไม่พร้อมใช้งานชั่วคราว ตะกร้าของคุณถูกบันทึกไว้แล้ว โปรดลองใหม่ภายหลังหรืออีเมลถึง support@loollook.com",
   "checkout.error.required": "กรุณากรอกข้อมูลให้ครบทุกช่อง",
   "checkout.error.network":
@@ -12582,9 +12582,9 @@ const th: Dict = fill({
   "aff.unauth.title": "เข้าสู่ระบบเพื่อดูบัญชีพันธมิตรของคุณ",
   "aff.unauth.sub": "แดชบอร์ดพันธมิตรของคุณผูกกับอีเมลบัญชีของคุณ",
   "aff.unauth.cta": "ไปที่หน้าเข้าสู่ระบบ",
-  "aff.join.title": "เป็นพันธมิตรของ lool",
+  "aff.join.title": "เป็นพันธมิตรของ loollook",
   "aff.join.intro":
-    "รับค่าคอมมิชชันจากทุกคำสั่งซื้อที่เกิดจากลิงก์แนะนำของคุณ ใครก็ตามที่มีบัญชี lool เข้าร่วมได้ — ไม่ต้องสมัคร ไม่มียอดขั้นต่ำ",
+    "รับค่าคอมมิชชันจากทุกคำสั่งซื้อที่เกิดจากลิงก์แนะนำของคุณ ใครก็ตามที่มีบัญชี loollook เข้าร่วมได้ — ไม่ต้องสมัคร ไม่มียอดขั้นต่ำ",
   "aff.join.bullet1":
     "ค่าคอมมิชชัน 15% จากยอดรวมย่อยของคำสั่งซื้อ (หักการคืนเงินแล้ว) เครดิตเข้าบัญชีทันทีเมื่อคำสั่งซื้อชำระเงิน",
   "aff.join.bullet2":
@@ -12656,20 +12656,20 @@ const th: Dict = fill({
   "favorites.removed": "ลบออกจากรายการโปรดแล้ว",
   "favorites.added": "เพิ่มในรายการโปรดแล้ว",
 
-  "footer.about": "เกี่ยวกับ lool",
+  "footer.about": "เกี่ยวกับ loollook",
   "footer.help": "ช่วยเหลือ",
   "footer.policy": "นโยบาย",
   "footer.follow": "ติดตาม",
   "footer.copyright":
-    "© 2025 lool. แว่นอ่านหนังสือและแว่นสายตาสมัยใหม่ ส่งตรงถึงคุณ",
+    "© 2025 loollook. แว่นอ่านหนังสือและแว่นสายตาสมัยใหม่ ส่งตรงถึงคุณ",
 
   "footer.newsletter.title": "สมัครรับจดหมายข่าวเพื่อรับข้อมูลล่าสุด",
   "footer.newsletter.placeholder": "ใส่อีเมลของคุณ",
   "footer.newsletter.cta": "สมัครสมาชิก",
   "footer.newsletter.success": "สมัครเรียบร้อย — ขอบคุณที่เข้าร่วม",
-  "footer.app.title": "ดาวน์โหลดแอป lool",
+  "footer.app.title": "ดาวน์โหลดแอป loollook",
   "footer.app.sub": "ลองแว่น บันทึก และสั่งเลนส์ใหม่ได้ทุกที่",
-  "footer.app.install": "ติดตั้งแอป lool",
+  "footer.app.install": "ติดตั้งแอป loollook",
   "footer.app.installed": "ติดตั้งแล้ว — เปิดจากหน้าจอหลัก",
   "footer.app.iosHint":
     "แตะไอคอนแชร์ใน Safari จากนั้นเลือก “เพิ่มไปยังหน้าจอหลัก”",
@@ -12690,11 +12690,11 @@ const th: Dict = fill({
   "footer.col.material": "ตามวัสดุ",
   "footer.col.style": "ตามสไตล์",
   "footer.col.deals": "ดีล",
-  "footer.col.about": "เกี่ยวกับ lool",
+  "footer.col.about": "เกี่ยวกับ loollook",
   "footer.col.howto": "วิธีใช้",
   "footer.col.programs": "โปรแกรมของเรา",
   "footer.col.faceShape": "ตามรูปหน้า",
-  "footer.legal.promise": "lool Promise",
+  "footer.legal.promise": "loollook Promise",
   "footer.legal.shipping": "การจัดส่งและการคืนสินค้า",
   "footer.legal.privacy": "ความเป็นส่วนตัวและความปลอดภัย",
   "footer.legal.terms": "ข้อกำหนดและเงื่อนไข",
@@ -12730,8 +12730,8 @@ const th: Dict = fill({
   "footer.link.style.statement": "เอกลักษณ์",
   "footer.link.style.classic": "คลาสสิก",
   "footer.link.aboutUs": "เกี่ยวกับเรา",
-  "footer.link.blog": "บล็อก lool",
-  "footer.link.whyLool": "ทำไมต้อง lool",
+  "footer.link.blog": "บล็อก loollook",
+  "footer.link.whyLool": "ทำไมต้อง loollook",
   "footer.link.helpCenter": "ศูนย์ช่วยเหลือ",
   "footer.link.accessibility": "การเข้าถึง",
   "footer.link.findFit": "วิธีหาขนาดที่พอดี",
@@ -12739,7 +12739,7 @@ const th: Dict = fill({
   "footer.link.measurePD": "วิธีวัด PD",
   "footer.link.rxGuide": "วิธีกรอกใบสั่งแว่น",
   "footer.link.tryOn": "ลองแว่นเสมือนจริง",
-  "footer.link.rewards": "lool Rewards",
+  "footer.link.rewards": "loollook Rewards",
   "footer.link.refer": "แนะนำเพื่อน",
   "footer.link.affiliate": "โปรแกรมพันธมิตร",
   "footer.link.education": "ส่วนลดสำหรับการศึกษา",
@@ -12781,7 +12781,7 @@ const th: Dict = fill({
   "wiz.brand.mingyue.desc": "เลนส์จีนพรีเมียม คมชัดและทนทาน",
   "wiz.brand.zeiss": "ZEISS",
   "wiz.brand.zeiss.desc": "ความแม่นยำสไตล์เยอรมัน มาตรฐานทองคำสำหรับการมองเห็น",
-  "wiz.brand.inhouse": "lool",
+  "wiz.brand.inhouse": "loollook",
   "wiz.brand.inhouse.desc":
     "ไลน์แบรนด์ของเราในระดับเริ่มต้น — ตัวเลือกสำหรับใช้ทุกวันและอ่านหนังสือ",
   "wiz.s4.degToggle": "เพิ่มค่าพรีเซ็ตการใช้งานประจำวัน (ไม่บังคับ)",
@@ -13041,7 +13041,7 @@ const th: Dict = fill({
   "blog.intro":
     "สินค้าใหม่ บันทึกการออกแบบ เคล็ดลับสไตล์และอื่น ๆ — คลิกที่ชื่อใดก็ได้เพื่ออ่าน",
 
-  "brand.name": "lool",
+  "brand.name": "loollook",
 
   // Product reviews tab
   "review.all": "ทั้งหมด",
@@ -13152,7 +13152,7 @@ const id: Dict = fill({
     "Filter cahaya biru, lensa ultra-tipis, kontrol miopia remaja — semua dalam satu.",
   "cat.all.title": "Semua produk",
   "cat.all.desc":
-    "Jelajahi seluruh koleksi lool — kacamata baca dan kacamata harian.",
+    "Jelajahi seluruh koleksi loollook — kacamata baca dan kacamata harian.",
 
   "home.hero.cta.shopAll": "Belanja koleksi",
   "home.shape.eyebrow": "Panduan bentuk",
@@ -13203,7 +13203,7 @@ const id: Dict = fill({
     "Pas 100% · Tampilan penuh 360° · 100+ gaya dalam hitungan detik",
   "home.tryon.cta": "Coba gratis sekarang",
   "home.ugc.eyebrow": "Tampilan pelanggan",
-  "home.ugc.title": "Tampilan nyata · Komunitas lool",
+  "home.ugc.title": "Tampilan nyata · Komunitas loollook",
   "home.ugc.viewAll": "Lihat semua tampilan pengguna",
   "home.knowledge.eyebrow": "Pusat pengetahuan",
   "home.knowledge.title": "Wawasan dan tips kacamata",
@@ -13227,7 +13227,7 @@ const id: Dict = fill({
   "home.knowledge.material.desc":
     "Pahami sentuhan, bobot, dan ketahanan setiap bahan.",
   "home.knowledge.learnMore": "Pelajari lebih lanjut",
-  "home.brand.eyebrow": "CARA LOOL",
+  "home.brand.eyebrow": "CARA LOOLLOOK",
   "home.brand.title": "Dirancang untuk keseharian, dibuat untuk gaya unik Anda",
   "home.brand.cta": "Jelajahi koleksi lengkap",
 
@@ -13450,7 +13450,7 @@ const id: Dict = fill({
   "pdp.share.copy": "Salin",
   "pdp.share.wechat": "WeChat",
   "pdp.share.wechatHint": "Pindai QR untuk berbagi di WeChat",
-  "pdp.share.text": "Lihat bingkai lool ini: {title} — {url}",
+  "pdp.share.text": "Lihat bingkai loollook ini: {title} — {url}",
 
   "cart.title": "Keranjang",
   "cart.empty": "Keranjang Anda kosong",
@@ -13497,11 +13497,11 @@ const id: Dict = fill({
   "chat.quick.recommend": "Rekomendasi bingkai",
   "chat.disclaimer": "Didukung AI. Untuk saran medis, konsultasikan dengan optometris Anda.",
   "chat.error": "Maaf, saat ini ada gangguan koneksi. Silakan coba lagi sebentar lagi.",
-  "chat.welcome": "Halo! Saya asisten AI lool. Saya bisa membantu Anda menemukan bingkai yang pas, memahami pilihan lensa, atau menjawab pertanyaan seputar kacamata. Ada yang bisa saya bantu?",
+  "chat.welcome": "Halo! Saya asisten AI loollook. Saya bisa membantu Anda menemukan bingkai yang pas, memahami pilihan lensa, atau menjawab pertanyaan seputar kacamata. Ada yang bisa saya bantu?",
   "chat.send": "Kirim",
   "chat.placeholder": "Tanya soal bingkai, lensa, resep…",
   "chat.subtitle": "Ahli kacamata Anda, 24/7",
-  "chat.title": "Asisten AI lool",
+  "chat.title": "Asisten AI loollook",
   "chat.close": "Tutup chat",
   "chat.open": "Chat dengan AI",
   "tryon.upload": "Unggah bingkai",
@@ -13548,7 +13548,7 @@ const id: Dict = fill({
   "home.faq.eyebrow": "Tanya jawab",
   "chat.whatsapp": "Chat dengan kami di WhatsApp",
   "chat.whatsappHint": "Asisten AI kami sedang offline. Ketuk di bawah untuk menghubungi tim kami di WhatsApp — orang sungguhan akan membalas Anda.",
-  "chat.whatsappGreeting": "Halo lool, saya ada pertanyaan:",
+  "chat.whatsappGreeting": "Halo loollook, saya ada pertanyaan:",
   "checkout.unavailable": "Pembayaran online sementara tidak tersedia. Keranjang Anda tersimpan — coba lagi nanti atau email support@loollook.com dan kami akan membantu menyelesaikan pesanan.",
   "checkout.error.required": "Harap isi setiap kolom.",
   "checkout.error.network":
@@ -13673,9 +13673,9 @@ const id: Dict = fill({
   "aff.unauth.title": "Masuk untuk melihat akun afiliasi Anda",
   "aff.unauth.sub": "Dasbor afiliasi Anda terhubung dengan email akun.",
   "aff.unauth.cta": "Ke halaman masuk",
-  "aff.join.title": "Jadi afiliasi lool",
+  "aff.join.title": "Jadi afiliasi loollook",
   "aff.join.intro":
-    "Dapatkan komisi untuk setiap pesanan yang dibuat melalui tautan referral Anda. Siapa pun dengan akun lool bisa ikut — tanpa aplikasi, tanpa minimum untuk memulai.",
+    "Dapatkan komisi untuk setiap pesanan yang dibuat melalui tautan referral Anda. Siapa pun dengan akun loollook bisa ikut — tanpa aplikasi, tanpa minimum untuk memulai.",
   "aff.join.bullet1":
     "Komisi 15% dari subtotal pesanan (dikurangi pengembalian dana), dikreditkan ke buku besar Anda saat pesanan dibayar.",
   "aff.join.bullet2":
@@ -13749,20 +13749,20 @@ const id: Dict = fill({
   "favorites.removed": "Dihapus dari favorit",
   "favorites.added": "Ditambahkan ke favorit",
 
-  "footer.about": "Tentang lool",
+  "footer.about": "Tentang loollook",
   "footer.help": "Bantuan",
   "footer.policy": "Kebijakan",
   "footer.follow": "Ikuti",
-  "footer.copyright": "© 2025 lool. Kacamata baca & minus modern, langsung.",
+  "footer.copyright": "© 2025 loollook. Kacamata baca & minus modern, langsung.",
 
   "footer.newsletter.title":
     "Daftar buletin kami untuk mendapatkan pembaruan terbaru",
   "footer.newsletter.placeholder": "Masukkan alamat email Anda",
   "footer.newsletter.cta": "Berlangganan",
   "footer.newsletter.success": "Berlangganan — terima kasih telah bergabung",
-  "footer.app.title": "Unduh aplikasi lool",
+  "footer.app.title": "Unduh aplikasi loollook",
   "footer.app.sub": "Coba, simpan, dan pesan ulang lensa di mana saja",
-  "footer.app.install": "Pasang aplikasi lool",
+  "footer.app.install": "Pasang aplikasi loollook",
   "footer.app.installed": "Terpasang — buka dari layar utama",
   "footer.app.iosHint":
     "Ketuk ikon Bagikan di Safari, lalu pilih “Tambahkan ke Layar Utama”.",
@@ -13783,11 +13783,11 @@ const id: Dict = fill({
   "footer.col.material": "Berdasarkan bahan",
   "footer.col.style": "Berdasarkan gaya",
   "footer.col.deals": "Penawaran",
-  "footer.col.about": "Tentang lool",
+  "footer.col.about": "Tentang loollook",
   "footer.col.howto": "Cara",
   "footer.col.programs": "Program kami",
   "footer.col.faceShape": "Berdasarkan bentuk wajah",
-  "footer.legal.promise": "Janji lool",
+  "footer.legal.promise": "Janji loollook",
   "footer.legal.shipping": "Pengiriman & pengembalian",
   "footer.legal.privacy": "Privasi & keamanan",
   "footer.legal.terms": "Syarat & ketentuan",
@@ -13823,8 +13823,8 @@ const id: Dict = fill({
   "footer.link.style.statement": "Statement",
   "footer.link.style.classic": "Klasik",
   "footer.link.aboutUs": "Tentang kami",
-  "footer.link.blog": "Jurnal lool",
-  "footer.link.whyLool": "Mengapa pilih lool",
+  "footer.link.blog": "Jurnal loollook",
+  "footer.link.whyLool": "Mengapa pilih loollook",
   "footer.link.helpCenter": "Pusat bantuan",
   "footer.link.accessibility": "Aksesibilitas",
   "footer.link.findFit": "Cara menemukan ukuran yang pas",
@@ -13832,7 +13832,7 @@ const id: Dict = fill({
   "footer.link.measurePD": "Cara mengukur PD",
   "footer.link.rxGuide": "Cara mengisi resep",
   "footer.link.tryOn": "Coba kacamata virtual",
-  "footer.link.rewards": "Hadiah lool",
+  "footer.link.rewards": "Hadiah loollook",
   "footer.link.refer": "Ajak teman",
   "footer.link.affiliate": "Program afiliasi",
   "footer.link.education": "Diskon pendidikan",
@@ -13874,7 +13874,7 @@ const id: Dict = fill({
   "wiz.brand.mingyue.desc": "Optik Tiongkok premium, tajam dan tahan lama.",
   "wiz.brand.zeiss": "ZEISS",
   "wiz.brand.zeiss.desc": "Presisi Jerman, standar emas untuk penglihatan.",
-  "wiz.brand.inhouse": "lool",
+  "wiz.brand.inhouse": "loollook",
   "wiz.brand.inhouse.desc":
     "Tier awal merek sendiri — opsi untuk pemakaian harian dan ramah membaca.",
   "wiz.s4.degToggle": "Tambahkan preset pemakaian harian (opsional)",
@@ -14152,7 +14152,7 @@ const id: Dict = fill({
   "blog.intro":
     "Peluncuran baru, catatan desain, tips gaya, dan banyak lagi — klik judul mana saja untuk membaca.",
 
-  "brand.name": "lool",
+  "brand.name": "loollook",
 
   // Product reviews tab
   "review.all": "Semua",
@@ -14263,7 +14263,7 @@ const ms: Dict = fill({
     "Penapis cahaya biru, kanta ultra-nipis, kawalan rabun jauh remaja — semua dalam satu.",
   "cat.all.title": "Semua produk",
   "cat.all.desc":
-    "Terokai seluruh koleksi lool — cermin mata baca dan cermin mata harian.",
+    "Terokai seluruh koleksi loollook — cermin mata baca dan cermin mata harian.",
 
   "home.hero.cta.shopAll": "Beli koleksi",
   "home.shape.eyebrow": "Panduan bentuk",
@@ -14315,7 +14315,7 @@ const ms: Dict = fill({
     "Padan 100% · Paparan penuh 360° · 100+ gaya dalam beberapa saat",
   "home.tryon.cta": "Cuba percuma sekarang",
   "home.ugc.eyebrow": "Penampilan pelanggan",
-  "home.ugc.title": "Penampilan sebenar · Komuniti lool",
+  "home.ugc.title": "Penampilan sebenar · Komuniti loollook",
   "home.ugc.viewAll": "Lihat semua penampilan pengguna",
   "home.knowledge.eyebrow": "Hab pengetahuan",
   "home.knowledge.title": "Pandangan dan petua cermin mata",
@@ -14339,7 +14339,7 @@ const ms: Dict = fill({
   "home.knowledge.material.desc":
     "Fahami sentuhan, berat dan ketahanan setiap bahan.",
   "home.knowledge.learnMore": "Ketahui lebih lanjut",
-  "home.brand.eyebrow": "CARA LOOL",
+  "home.brand.eyebrow": "CARA LOOLLOOK",
   "home.brand.title":
     "Direka untuk kehidupan harian, dibuat untuk gaya unik anda",
   "home.brand.cta": "Terokai koleksi lengkap kami",
@@ -14564,7 +14564,7 @@ const ms: Dict = fill({
   "pdp.share.copy": "Salin",
   "pdp.share.wechat": "WeChat",
   "pdp.share.wechatHint": "Imbas QR untuk berkongsi di WeChat",
-  "pdp.share.text": "Lihat bingkai lool ini: {title} — {url}",
+  "pdp.share.text": "Lihat bingkai loollook ini: {title} — {url}",
 
   "cart.title": "Troli",
   "cart.empty": "Troli anda kosong",
@@ -14611,11 +14611,11 @@ const ms: Dict = fill({
   "chat.quick.recommend": "Cadangkan bingkai",
   "chat.disclaimer": "Dikuasakan AI. Untuk nasihat perubatan, rujuk pakar optometri anda.",
   "chat.error": "Maaf, saya menghadapi masalah sambungan sekarang. Sila cuba sebentar lagi.",
-  "chat.welcome": "Hai! Saya pembantu AI lool. Saya boleh bantu anda mencari bingkai yang sesuai, memahami pilihan kanta atau menjawab sebarang soalan tentang cermin mata. Apa yang boleh saya bantu?",
+  "chat.welcome": "Hai! Saya pembantu AI loollook. Saya boleh bantu anda mencari bingkai yang sesuai, memahami pilihan kanta atau menjawab sebarang soalan tentang cermin mata. Apa yang boleh saya bantu?",
   "chat.send": "Hantar",
   "chat.placeholder": "Tanya tentang bingkai, kanta, preskripsi…",
   "chat.subtitle": "Pakar cermin mata anda, 24/7",
-  "chat.title": "Pembantu AI lool",
+  "chat.title": "Pembantu AI loollook",
   "chat.close": "Tutup sembang",
   "chat.open": "Sembang dengan AI",
   "tryon.upload": "Muat naik bingkai",
@@ -14662,7 +14662,7 @@ const ms: Dict = fill({
   "home.faq.eyebrow": "Soalan dijawab",
   "chat.whatsapp": "Sembang dengan kami di WhatsApp",
   "chat.whatsappHint": "Pembantu AI kami sedang di luar talian. Ketik di bawah untuk menghubungi pasukan kami di WhatsApp — orang sebenar akan membalas anda.",
-  "chat.whatsappGreeting": "Hai lool, saya ada soalan:",
+  "chat.whatsappGreeting": "Hai loollook, saya ada soalan:",
   "checkout.unavailable": "Pembayaran dalam talian tidak tersedia buat sementara. Troli anda telah disimpan — cuba lagi nanti atau e-mel support@loollook.com untuk bantuan.",
   "checkout.error.required": "Sila isi setiap ruangan.",
   "checkout.error.network":
@@ -14787,9 +14787,9 @@ const ms: Dict = fill({
   "aff.unauth.title": "Log masuk untuk lihat akaun afiliat anda",
   "aff.unauth.sub": "Papan pemuka afiliat anda terikat dengan e-mel akaun.",
   "aff.unauth.cta": "Ke halaman log masuk",
-  "aff.join.title": "Jadi afiliat lool",
+  "aff.join.title": "Jadi afiliat loollook",
   "aff.join.intro":
-    "Dapatkan komisen untuk setiap pesanan yang dibuat melalui pautan rujukan anda. Sesiapa yang mempunyai akaun lool boleh menyertai — tiada permohonan, tiada minimum untuk bermula.",
+    "Dapatkan komisen untuk setiap pesanan yang dibuat melalui pautan rujukan anda. Sesiapa yang mempunyai akaun loollook boleh menyertai — tiada permohonan, tiada minimum untuk bermula.",
   "aff.join.bullet1":
     "Komisen 15% daripada subjumlah pesanan (bayaran balik ditolak), dikreditkan ke lejar anda sebaik pesanan dibayar.",
   "aff.join.bullet2":
@@ -14866,11 +14866,11 @@ const ms: Dict = fill({
   "favorites.removed": "Dibuang daripada kegemaran",
   "favorites.added": "Ditambah ke kegemaran",
 
-  "footer.about": "Tentang lool",
+  "footer.about": "Tentang loollook",
   "footer.help": "Bantuan",
   "footer.policy": "Polisi",
   "footer.follow": "Ikuti",
-  "footer.copyright": "© 2025 lool. Cermin mata baca & rabun moden, terus.",
+  "footer.copyright": "© 2025 loollook. Cermin mata baca & rabun moden, terus.",
 
   "footer.newsletter.title":
     "Daftar surat berita kami untuk mendapatkan kemas kini terkini",
@@ -14878,9 +14878,9 @@ const ms: Dict = fill({
   "footer.newsletter.cta": "Langgan",
   "footer.newsletter.success":
     "Telah dilanggan — terima kasih kerana menyertai",
-  "footer.app.title": "Muat turun aplikasi lool",
+  "footer.app.title": "Muat turun aplikasi loollook",
   "footer.app.sub": "Cuba, simpan dan pesan semula kanta di mana sahaja",
-  "footer.app.install": "Pasang aplikasi lool",
+  "footer.app.install": "Pasang aplikasi loollook",
   "footer.app.installed": "Dipasang — buka dari skrin utama",
   "footer.app.iosHint":
     "Ketik ikon Kongsi dalam Safari, kemudian pilih “Tambah ke Skrin Utama”.",
@@ -14901,11 +14901,11 @@ const ms: Dict = fill({
   "footer.col.material": "Mengikut bahan",
   "footer.col.style": "Mengikut gaya",
   "footer.col.deals": "Tawaran",
-  "footer.col.about": "Tentang lool",
+  "footer.col.about": "Tentang loollook",
   "footer.col.howto": "Cara",
   "footer.col.programs": "Program kami",
   "footer.col.faceShape": "Mengikut bentuk wajah",
-  "footer.legal.promise": "Janji lool",
+  "footer.legal.promise": "Janji loollook",
   "footer.legal.shipping": "Penghantaran & pemulangan",
   "footer.legal.privacy": "Privasi & keselamatan",
   "footer.legal.terms": "Terma & syarat",
@@ -14941,8 +14941,8 @@ const ms: Dict = fill({
   "footer.link.style.statement": "Statement",
   "footer.link.style.classic": "Klasik",
   "footer.link.aboutUs": "Tentang kami",
-  "footer.link.blog": "Jurnal lool",
-  "footer.link.whyLool": "Kenapa pilih lool",
+  "footer.link.blog": "Jurnal loollook",
+  "footer.link.whyLool": "Kenapa pilih loollook",
   "footer.link.helpCenter": "Pusat bantuan",
   "footer.link.accessibility": "Kebolehcapaian",
   "footer.link.findFit": "Cara mencari kesesuaian anda",
@@ -14950,7 +14950,7 @@ const ms: Dict = fill({
   "footer.link.measurePD": "Cara mengukur PD",
   "footer.link.rxGuide": "Cara mengisi preskripsi anda",
   "footer.link.tryOn": "Cuba cermin mata maya",
-  "footer.link.rewards": "Ganjaran lool",
+  "footer.link.rewards": "Ganjaran loollook",
   "footer.link.refer": "Ajak rakan",
   "footer.link.affiliate": "Program afiliat",
   "footer.link.education": "Diskaun pendidikan",
@@ -14993,7 +14993,7 @@ const ms: Dict = fill({
   "wiz.brand.mingyue.desc": "Optik China premium, tajam dan tahan lama.",
   "wiz.brand.zeiss": "ZEISS",
   "wiz.brand.zeiss.desc": "Ketepatan Jerman, standard emas untuk penglihatan.",
-  "wiz.brand.inhouse": "lool",
+  "wiz.brand.inhouse": "loollook",
   "wiz.brand.inhouse.desc":
     "Tahap permulaan jenama sendiri — pilihan untuk pemakaian harian dan mesra membaca.",
   "wiz.s4.degToggle": "Tambah pratetap pemakaian harian (pilihan)",
@@ -15277,7 +15277,7 @@ const ms: Dict = fill({
   "blog.intro":
     "Pelancaran baharu, nota reka bentuk, petua gaya dan lagi — klik mana-mana tajuk untuk membaca.",
 
-  "brand.name": "lool",
+  "brand.name": "loollook",
 
   // Product reviews tab
   "review.all": "Semua",

@@ -25,19 +25,20 @@ export function JsonLd({
   );
 }
 
-/** lool brand Organization schema. Single source of truth for sameAs links. */
+/** loollook brand Organization schema. Single source of truth for sameAs links. */
 export const ORGANIZATION_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "lool",
+  name: "loollook",
   url: SITE,
   logo: `${SITE}/lool-logo.png`,
   description:
     "Modern fashion readers and everyday eyeglasses, designed for the 45–60 generation. Direct-to-consumer eyewear with professional-grade lenses at fair prices.",
   // 对齐 brand-library V1.1 tagline："See clearly, agelessly."
   slogan: "See clearly, agelessly.",
-  // Add real social profiles once they exist; placeholders below.
-  sameAs: ["https://instagram.com/lool", "https://twitter.com/lool"],
+  // Add real social profiles once they exist. (The old instagram.com/lool and
+  // twitter.com/lool placeholders pointed at accounts we don't own.)
+  sameAs: [] as string[],
 };
 
 /**
@@ -49,7 +50,7 @@ export function websiteSchema(lang = "en") {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "lool",
+    name: "loollook",
     url: SITE,
     potentialAction: {
       "@type": "SearchAction",
@@ -102,7 +103,7 @@ export function productSchema(
   const desc =
     (p.description?.[lang] ?? p.description?.en ?? p.description?.zh) ||
     (p.intro?.[lang] ?? p.intro?.en ?? p.intro?.zh) ||
-    `${name} — modern eyewear from lool.`;
+    `${name} — modern eyewear from loollook.`;
   // Collect all images across colors (deduped, absolute URLs)
   const imgs = new Set<string>();
   if (p.hero) imgs.add(p.hero);
@@ -126,7 +127,7 @@ export function productSchema(
     name,
     description: desc,
     sku: p.slug,
-    brand: { "@type": "Brand", name: "lool" },
+    brand: { "@type": "Brand", name: "loollook" },
     category: (p.categories ?? []).includes("presbyopia")
       ? "Fashion Readers"
       : (p.categories ?? []).includes("myopia")
@@ -221,7 +222,7 @@ export function articleSchema(
     author: { "@type": "Person", name: p.author },
     publisher: {
       "@type": "Organization",
-      name: "lool",
+      name: "loollook",
       logo: { "@type": "ImageObject", url: `${SITE}/lool-logo.png` },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },

@@ -19,7 +19,7 @@ import { LogOut, Glasses, Loader2 } from "lucide-react";
 export const Route = createFileRoute("/tracker")({
   head: () => ({
     meta: [
-      { title: "lool — 订单跟踪" },
+      { title: "loollook — 订单跟踪" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),
@@ -79,7 +79,7 @@ function TrackerLayout() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
           <Link to="/tracker" className="flex items-center gap-2">
             <Glasses className="h-5 w-5 text-primary" />
-            <span className="font-semibold font-display">lool 订单跟踪</span>
+            <span className="font-semibold font-display">loollook 订单跟踪</span>
           </Link>
           <div className="flex items-center gap-4 text-sm">
             <span className="text-muted-foreground">

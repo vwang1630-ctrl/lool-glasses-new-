@@ -102,7 +102,7 @@ function buildBody(): string {
   lines.push("## Content roadmap");
   lines.push("");
   lines.push(
-    "Editorial clusters in the lool plan (status labels reflect progress):",
+    "Editorial clusters in the loollook plan (status labels reflect progress):",
   );
   lines.push("");
   for (const k of knowledgeHubCards()) {

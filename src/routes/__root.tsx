@@ -60,7 +60,7 @@ export const Route = createRootRoute({
         content:
           "width=device-width, initial-scale=1, interactive-widget=resizes-content",
       },
-      { title: "lool — Ageless Fashion Readers & Eyeglasses" },
+      { title: "loollook — Ageless Fashion Readers & Eyeglasses" },
       {
         name: "description",
         content:
@@ -71,32 +71,31 @@ export const Route = createRootRoute({
         content:
           "fashion readers, ageless reading glasses, eyeglasses for 45+, TR90 readers, fashion cheaters",
       },
-      { name: "author", content: "lool" },
+      { name: "author", content: "loollook" },
       // PWA — Android status bar + Apple iOS standalone-mode chrome.
       { name: "theme-color", content: "#5C3A21" },
       { name: "apple-mobile-web-app-capable", content: "yes" },
-      { name: "apple-mobile-web-app-title", content: "lool" },
+      { name: "apple-mobile-web-app-title", content: "loollook" },
       { name: "apple-mobile-web-app-status-bar-style", content: "default" },
       {
         property: "og:title",
-        content: "lool — Ageless Fashion Readers & Eyeglasses",
+        content: "loollook — Ageless Fashion Readers & Eyeglasses",
       },
       {
         property: "og:description",
         content:
-          "See clearly, agelessly. Fashion readers and everyday eyeglasses for the 45–60 generation, direct from lool.",
+          "See clearly, agelessly. Fashion readers and everyday eyeglasses for the 45–60 generation, direct from loollook.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@lool" },
       {
         name: "twitter:title",
-        content: "lool — Ageless Fashion Readers & Eyeglasses",
+        content: "loollook — Ageless Fashion Readers & Eyeglasses",
       },
       {
         name: "twitter:description",
         content:
-          "See clearly, agelessly. Fashion readers and everyday eyeglasses for the 45–60 generation, direct from lool.",
+          "See clearly, agelessly. Fashion readers and everyday eyeglasses for the 45–60 generation, direct from loollook.",
       },
       { property: "og:image", content: OG_IMAGE },
       { name: "twitter:image", content: OG_IMAGE },

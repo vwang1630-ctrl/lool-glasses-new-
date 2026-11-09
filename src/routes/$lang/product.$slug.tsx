@@ -209,7 +209,7 @@ export const Route = createFileRoute("/$lang/product/$slug")({
     const seo = content?.seo;
     const name = p.name.en ?? p.name.zh ?? p.slug;
     // <title>: this lang's own SEO title if the content has one; otherwise a
-    // non-en page gets "lool — <name in this lang>" instead of borrowing the
+    // non-en page gets "loollook — <name in this lang>" instead of borrowing the
     // English SEO title. en behavior is unchanged.
     const ownSeoTitle = p.content?.[lang]?.seo?.title;
     const localName = pickLang(p.name, lang) || name;
@@ -230,11 +230,11 @@ export const Route = createFileRoute("/$lang/product/$slug")({
       p.description?.zh ||
       p.intro?.en ||
       p.intro?.zh ||
-      `${name} — modern eyewear from lool. ${p.shape ?? ""} ${p.material ?? ""} frame, $${(p.priceCents / 100).toFixed(0)}.`.trim();
+      `${name} — modern eyewear from loollook. ${p.shape ?? ""} ${p.material ?? ""} frame, $${(p.priceCents / 100).toFixed(0)}.`.trim();
     const title =
       lang === "en"
-        ? seo?.title || `lool — ${name}`
-        : ownSeoTitle || `lool — ${localName}`;
+        ? seo?.title || `loollook — ${name}`
+        : ownSeoTitle || `loollook — ${localName}`;
     const heroImg = p.colors[0]?.images[0];
     const ogImg = heroImg
       ? heroImg.startsWith("http")
@@ -753,8 +753,8 @@ function ProductDetailRendered({
       {
         q: zh ? "镜片有哪些品牌层级？" : "What lens tiers are available?",
         a: zh
-          ? "我们提供 4 层透明定价：lool House（自有品牌入门）→ 明月 Mingyue（国产高端）→ Essilor/ZEISS（国际一线光学）→ Transitions（变色镜片）。每层价格下单前可见，无隐藏费用。"
-          : "We offer 4 transparent lens tiers: lool House (entry-level) → Mingyue (premium domestic) → Essilor/ZEISS (top international optics) → Transitions (photochromic). Prices for each tier are shown before checkout — no hidden fees.",
+          ? "我们提供 4 层透明定价：loollook House（自有品牌入门）→ 明月 Mingyue（国产高端）→ Essilor/ZEISS（国际一线光学）→ Transitions（变色镜片）。每层价格下单前可见，无隐藏费用。"
+          : "We offer 4 transparent lens tiers: loollook House (entry-level) → Mingyue (premium domestic) → Essilor/ZEISS (top international optics) → Transitions (photochromic). Prices for each tier are shown before checkout — no hidden fees.",
       },
     ];
   }, [contentLang, dbContent]);
