@@ -46,7 +46,7 @@
   },
   "content_contract": {
     "title_chars": [40, 60],
-    "title_note": "head 自动拼 ' | Blog | lool'（15 字符）→ SERP 总长 ≤60",
+    "title_note": "head 自动拼 ' | Blog | loollook'（19 字符）→ SERP 总长 ≤60",
     "excerpt_chars": [150, 160],
     "excerpt_note": "excerpt 即 meta description 与列表卡摘要",
     "categories": [

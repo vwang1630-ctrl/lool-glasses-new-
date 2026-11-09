@@ -132,11 +132,11 @@
   "meta_patterns": {
     "title": {
       "rule": "50-60 字符，包含主关键词 + 品牌名",
-      "pattern": "{keyword} — {benefit} | lool",
+      "pattern": "{keyword} — {benefit} | loollook",
       "examples": [
-        "Reading Glasses — Stylish Frames for 45+ | lool",
-        "Progressive Lenses — 3-Week Adaptation Guarantee | lool",
-        "Virtual Try-On — See Glasses on Your Face | lool"
+        "Reading Glasses — Stylish Frames for 45+ | loollook",
+        "Progressive Lenses — 3-Week Adaptation Guarantee | loollook",
+        "Virtual Try-On — See Glasses on Your Face | loollook"
       ]
     },
     "description": {
