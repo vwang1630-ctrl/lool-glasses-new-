@@ -10,7 +10,7 @@
 // API routes (/api/*), admin (/admin/*), and crawler files (/sitemap.xml,
 // /robots.txt, /llms.txt) have their own explicit routes and never reach here.
 
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 import { createIsomorphicFn } from "@tanstack/react-start";
 import { getRequestHeader } from "@tanstack/react-start/server";
 import { SUPPORTED_LANG_CODES, type Lang } from "@/lib/i18n";
@@ -104,10 +104,11 @@ export const Route = createFileRoute("/$")({
     // Guard 2: path already starts with a valid lang prefix (e.g. /en/foo).
     // Falling through to the splat means the expected $lang/foo route is
     // missing — don't recursively re-prefix (that's how /en/en/en/... was
-    // produced). Send the user to that lang's home page instead.
+    // produced). Render a real 404 (status 404) rather than bouncing to the
+    // home page, which search engines flag as a "soft 404".
     const firstSeg = path.split("/").filter(Boolean)[0] ?? "";
     if ((SUPPORTED_LANG_CODES as readonly string[]).includes(firstSeg)) {
-      throw redirect({ href: `/${firstSeg}/${suffix}`, replace: true });
+      throw notFound();
     }
 
     const lang = detectLang();

@@ -3,3 +3,14 @@
 # gets a new directory), so they can be cached for a year.
 /mediapipe/*
   Cache-Control: public, max-age=31536000, immutable
+
+# Legacy offline try-on prototype (kept as the reference implementation for
+# src/routes/$lang/try-on.tsx) — not a customer page, keep it out of search.
+/tryon/*
+  X-Robots-Tag: noindex, nofollow
+
+# Baseline security headers for static assets (Worker responses get the same
+# set from src/server.ts).
+/*
+  X-Content-Type-Options: nosniff
+  Strict-Transport-Security: max-age=31536000; includeSubDomains

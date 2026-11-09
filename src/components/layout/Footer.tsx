@@ -71,9 +71,24 @@ export function Footer() {
     e.preventDefault();
     // type="text" + inputMode="email" doesn't get the browser's built-in
     // email format check, so validate here.
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) return;
-    toast.success(t("footer.newsletter.success"));
-    setEmail("");
+    const value = email.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return;
+    fetch("/api/public/newsletter", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: value,
+        locale: lang,
+        pagePath: window.location.pathname,
+        source: "footer",
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error(String(res.status));
+        toast.success(t("footer.newsletter.success"));
+        setEmail("");
+      })
+      .catch(() => toast.error(t("refDiscount.capture.error.network")));
   };
 
   const onInstallApp = () => {

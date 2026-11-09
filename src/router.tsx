@@ -5,6 +5,7 @@ import {
 } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 import { getTranslator, langFromPath } from "@/lib/i18n";
+import { NotFoundPage } from "@/components/NotFoundPage";
 
 function DefaultErrorComponent({
   error,
@@ -81,6 +82,7 @@ export const getRouter = () => {
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
     defaultErrorComponent: DefaultErrorComponent,
+    defaultNotFoundComponent: NotFoundPage,
   });
 
   return router;

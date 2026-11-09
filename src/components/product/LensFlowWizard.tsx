@@ -37,6 +37,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { useI18n, shapeLabel, materialLabel, type Lang } from "@/lib/i18n";
 import { pickLang } from "@/lib/lang";
+import { PdWizardHelper } from "@/components/pd/PdWizardHelper";
+import type { MeasuredPd } from "@/lib/measured-pd";
 import { toast } from "sonner";
 import type { Product } from "@/data/products";
 import { getCustomerClientId, trackCustomerEvent } from "@/lib/customer-audit";
@@ -1851,6 +1853,15 @@ export function LensFlowWizard({
     colorOptions.find((c) => c.id === sel.colorId) ?? colorOptions[0];
   const fileRef = useRef<HTMLInputElement>(null);
 
+  // Fill PD from the /measure-pd camera tool (keeps the single/dual mode).
+  const applyMeasuredPd = (m: MeasuredPd) =>
+    setSel((s) => ({
+      ...s,
+      rx: s.rx.dualPd && m.odHalf != null && m.osHalf != null
+        ? { ...s.rx, pdRight: m.odHalf.toFixed(1), pdLeft: m.osHalf.toFixed(1) }
+        : { ...s.rx, dualPd: false, pd: m.pd.toFixed(2) },
+    }));
+
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -3424,6 +3435,10 @@ export function LensFlowWizard({
                                           />
                                           {t("wiz.rx.twoPdNumbers")}
                                         </label>
+                                        <PdWizardHelper
+                                          lang={contentLang}
+                                          onUse={applyMeasuredPd}
+                                        />
                                       </div>
                                     </td>
                                   </tr>
@@ -3691,6 +3706,10 @@ export function LensFlowWizard({
                                     />
                                     <span>{t("wiz.rx.twoPdNumbers")}</span>
                                   </label>
+                                  <PdWizardHelper
+                                    lang={contentLang}
+                                    onUse={applyMeasuredPd}
+                                  />
                                 </div>
                               </div>
                             </div>

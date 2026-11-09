@@ -15,6 +15,37 @@ interface Props {
   hideUrlInput?: boolean;
 }
 
+// Photos straight from a camera / design tool are often 1–2 MB. Re-encode
+// JPEG/WebP uploads over 300 KB in the browser: same aspect ratio, longest
+// side capped at 2400 px, JPEG q0.85 — only if that is actually smaller.
+// PNG/GIF are left untouched (try-on frames rely on PNG transparency).
+const OPTIMIZE_MIN_BYTES = 300 * 1024;
+const OPTIMIZE_MAX_SIDE = 2400;
+async function optimizeImage(file: File): Promise<File> {
+  if (!/^image\/(jpeg|webp)$/.test(file.type) || file.size < OPTIMIZE_MIN_BYTES) return file;
+  try {
+    const bmp = await createImageBitmap(file);
+    const scale = Math.min(1, OPTIMIZE_MAX_SIDE / Math.max(bmp.width, bmp.height));
+    const w = Math.round(bmp.width * scale);
+    const h = Math.round(bmp.height * scale);
+    const canvas = document.createElement("canvas");
+    canvas.width = w;
+    canvas.height = h;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return file;
+    ctx.drawImage(bmp, 0, 0, w, h);
+    bmp.close();
+    const blob = await new Promise<Blob | null>((res) =>
+      canvas.toBlob(res, "image/jpeg", 0.85),
+    );
+    if (!blob || blob.size >= file.size) return file;
+    const name = file.name.replace(/\.(webp|jpe?g)$/i, "") + ".jpg";
+    return new File([blob], name, { type: "image/jpeg" });
+  } catch {
+    return file;
+  }
+}
+
 export function ImageUpload({
   value,
   onChange,
@@ -32,7 +63,7 @@ export function ImageUpload({
     setErr(null);
     try {
       const fd = new FormData();
-      fd.append("file", file);
+      fd.append("file", await optimizeImage(file));
       fd.append("prefix", prefix);
       const r = await fetch("/api/admin/upload", {
         method: "POST",

@@ -13,6 +13,8 @@ export interface InfoPageProps {
   intro?: string;
   sections: InfoSection[];
   cta?: { label: string; to: string };
+  /** Interactive block rendered above the editorial sections. */
+  children?: ReactNode;
 }
 
 /**
@@ -26,6 +28,7 @@ export function InfoPage({
   intro,
   sections,
   cta,
+  children,
 }: InfoPageProps) {
   return (
     <div>
@@ -55,6 +58,7 @@ export function InfoPage({
 
       {/* Body */}
       <div className="mx-auto max-w-4xl px-6 lg:px-8 py-16 md:py-20">
+        {children && <div className="mb-10 md:mb-14">{children}</div>}
         <div className="space-y-6 md:space-y-8">
           {sections.map((s) => (
             <section
@@ -75,6 +79,15 @@ export function InfoPage({
 
         {cta && (
           <div className="mt-16 text-center">
+            {cta.to.startsWith("#") ? (
+              <a
+                href={cta.to}
+                className="inline-flex items-center gap-2 h-12 px-8 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-smooth shadow-soft"
+              >
+                {cta.label}
+                <ChevronRight className="w-4 h-4" />
+              </a>
+            ) : (
             <LangLink
               to={cta.to}
               className="inline-flex items-center gap-2 h-12 px-8 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-smooth shadow-soft"
@@ -82,6 +95,7 @@ export function InfoPage({
               {cta.label}
               <ChevronRight className="w-4 h-4" />
             </LangLink>
+            )}
           </div>
         )}
       </div>

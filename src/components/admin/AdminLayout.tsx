@@ -62,6 +62,7 @@ const groups: NavGroup[] = [
     items: [
       { to: "/admin/orders", label: "订单管理", icon: ShoppingCart },
       { to: "/admin/customers", label: "客户管理", icon: Users },
+      { to: "/admin/newsletter", label: "邮件订阅", icon: Megaphone },
       { to: "/admin/prescriptions", label: "处方记录", icon: FileText },
     ],
   },

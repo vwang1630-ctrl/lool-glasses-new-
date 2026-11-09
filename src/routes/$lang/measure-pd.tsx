@@ -4,6 +4,7 @@ import { pageTitle } from "@/lib/page-titles";
 import { InfoPage } from "@/components/layout/InfoPage";
 import { getInfoContent } from "@/lib/info-content";
 import { useI18n } from "@/lib/i18n";
+import { PdMeasureTool } from "@/components/pd/PdMeasureTool";
 
 export const Route = createFileRoute("/$lang/measure-pd")({
   head: ({ params }) => ({
@@ -30,7 +31,11 @@ function MeasurePDPage() {
       title={c.title}
       intro={c.intro}
       sections={c.sections}
-      cta={c.cta}
-    />
+      // The design's "Use the digital PD tool" CTA used to link back to this
+      // same page; it now scrolls up to the camera tool.
+      cta={c.cta ? { ...c.cta, to: "#pd-tool" } : undefined}
+    >
+      <PdMeasureTool />
+    </InfoPage>
   );
 }

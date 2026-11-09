@@ -3,7 +3,9 @@
   "name": "lool-work",
   "compatibility_date": "2025-09-24",
   "compatibility_flags": ["nodejs_compat"],
-  "main": "@tanstack/react-start/server-entry",
+  // Custom entry wraps the default TanStack handler (security headers,
+  // http/www → https://loollook.com redirects, noindex on private pages).
+  "main": "src/server.ts",
   "workers_dev": true,
   "preview_urls": true,
   "d1_databases": [

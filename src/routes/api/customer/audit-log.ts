@@ -8,6 +8,7 @@ import {
   writeCustomerAudit,
   type AuditAction,
 } from "@/server/audit";
+import { clientIp, isCrossOrigin, rateLimited } from "@/server/rate-limit";
 
 const ALLOWED_ACTIONS = new Set<AuditAction>([
   "CLIENT_IDENTIFIED",
@@ -45,6 +46,14 @@ export const Route = createFileRoute("/api/customer/audit-log")({
   server: {
     handlers: {
       POST: async ({ request }) => {
+        if (isCrossOrigin(request)) {
+          return Response.json({ error: "forbidden" }, { status: 403 });
+        }
+        // A real visitor emits a handful of events per page; 200 per 10 min
+        // per IP leaves plenty of room (shared NATs included) but stops floods.
+        if (await rateLimited("audit", clientIp(request), 200, 600)) {
+          return Response.json({ ok: true, dropped: true }, { status: 202 });
+        }
         let body: Body;
         try {
           body = await request.json();

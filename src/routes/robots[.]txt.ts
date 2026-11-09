@@ -16,6 +16,7 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /api/admin
+Disallow: /tracker
 
 # ─────────────────────────────────────────────────────────────
 # AI search engines — explicitly allowed.

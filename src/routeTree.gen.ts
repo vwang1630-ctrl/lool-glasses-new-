@@ -37,6 +37,7 @@ import { Route as AdminSuppliersLogisticsRouteImport } from './routes/admin/supp
 import { Route as AdminShipmentsRouteImport } from './routes/admin/shipments'
 import { Route as AdminSettingsRouteImport } from './routes/admin/settings'
 import { Route as AdminPrescriptionsRouteImport } from './routes/admin/prescriptions'
+import { Route as AdminNewsletterRouteImport } from './routes/admin/newsletter'
 import { Route as AdminLogisticsContactsRouteImport } from './routes/admin/logistics-contacts'
 import { Route as AdminLensBrandsRouteImport } from './routes/admin/lens-brands'
 import { Route as AdminHomeUgcRouteImport } from './routes/admin/home-ugc'
@@ -97,6 +98,7 @@ import { Route as ImagesBannerSplatRouteImport } from './routes/images/banner/$'
 import { Route as ApiTrackerMeRouteImport } from './routes/api/tracker/me'
 import { Route as ApiTrackerLogoutRouteImport } from './routes/api/tracker/logout'
 import { Route as ApiTrackerCarriersRouteImport } from './routes/api/tracker/carriers'
+import { Route as ApiPublicNewsletterRouteImport } from './routes/api/public/newsletter'
 import { Route as ApiPublicConsultTrackRouteImport } from './routes/api/public/consult-track'
 import { Route as ApiPrescriptionsUploadRouteImport } from './routes/api/prescriptions/upload'
 import { Route as ApiPrescriptionsExtractRouteImport } from './routes/api/prescriptions/extract'
@@ -112,6 +114,7 @@ import { Route as ApiAffiliateMeRouteImport } from './routes/api/affiliate/me'
 import { Route as ApiAffiliateLogoutRouteImport } from './routes/api/affiliate/logout'
 import { Route as ApiAffiliateChildrenRouteImport } from './routes/api/affiliate/children'
 import { Route as ApiAdminUploadRouteImport } from './routes/api/admin/upload'
+import { Route as ApiAdminNewsletterRouteImport } from './routes/api/admin/newsletter'
 import { Route as ApiAdminMeRouteImport } from './routes/api/admin/me'
 import { Route as ApiAdminLogoutRouteImport } from './routes/api/admin/logout'
 import { Route as ApiAdminHomeUgcRouteImport } from './routes/api/admin/home-ugc'
@@ -319,6 +322,11 @@ const AdminSettingsRoute = AdminSettingsRouteImport.update({
 const AdminPrescriptionsRoute = AdminPrescriptionsRouteImport.update({
   id: '/prescriptions',
   path: '/prescriptions',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminNewsletterRoute = AdminNewsletterRouteImport.update({
+  id: '/newsletter',
+  path: '/newsletter',
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminLogisticsContactsRoute = AdminLogisticsContactsRouteImport.update({
@@ -621,6 +629,11 @@ const ApiTrackerCarriersRoute = ApiTrackerCarriersRouteImport.update({
   path: '/api/tracker/carriers',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicNewsletterRoute = ApiPublicNewsletterRouteImport.update({
+  id: '/api/public/newsletter',
+  path: '/api/public/newsletter',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicConsultTrackRoute = ApiPublicConsultTrackRouteImport.update({
   id: '/api/public/consult-track',
   path: '/api/public/consult-track',
@@ -695,6 +708,11 @@ const ApiAffiliateChildrenRoute = ApiAffiliateChildrenRouteImport.update({
 const ApiAdminUploadRoute = ApiAdminUploadRouteImport.update({
   id: '/api/admin/upload',
   path: '/api/admin/upload',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAdminNewsletterRoute = ApiAdminNewsletterRouteImport.update({
+  id: '/api/admin/newsletter',
+  path: '/api/admin/newsletter',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiAdminMeRoute = ApiAdminMeRouteImport.update({
@@ -1099,6 +1117,7 @@ export interface FileRoutesByFullPath {
   '/admin/home-ugc': typeof AdminHomeUgcRoute
   '/admin/lens-brands': typeof AdminLensBrandsRoute
   '/admin/logistics-contacts': typeof AdminLogisticsContactsRoute
+  '/admin/newsletter': typeof AdminNewsletterRoute
   '/admin/prescriptions': typeof AdminPrescriptionsRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/shipments': typeof AdminShipmentsRoute
@@ -1135,6 +1154,7 @@ export interface FileRoutesByFullPath {
   '/api/admin/home-ugc': typeof ApiAdminHomeUgcRoute
   '/api/admin/logout': typeof ApiAdminLogoutRoute
   '/api/admin/me': typeof ApiAdminMeRoute
+  '/api/admin/newsletter': typeof ApiAdminNewsletterRoute
   '/api/admin/upload': typeof ApiAdminUploadRoute
   '/api/affiliate/children': typeof ApiAffiliateChildrenRoute
   '/api/affiliate/logout': typeof ApiAffiliateLogoutRoute
@@ -1150,6 +1170,7 @@ export interface FileRoutesByFullPath {
   '/api/prescriptions/extract': typeof ApiPrescriptionsExtractRoute
   '/api/prescriptions/upload': typeof ApiPrescriptionsUploadRoute
   '/api/public/consult-track': typeof ApiPublicConsultTrackRoute
+  '/api/public/newsletter': typeof ApiPublicNewsletterRoute
   '/api/tracker/carriers': typeof ApiTrackerCarriersRoute
   '/api/tracker/logout': typeof ApiTrackerLogoutRoute
   '/api/tracker/me': typeof ApiTrackerMeRoute
@@ -1268,6 +1289,7 @@ export interface FileRoutesByTo {
   '/admin/home-ugc': typeof AdminHomeUgcRoute
   '/admin/lens-brands': typeof AdminLensBrandsRoute
   '/admin/logistics-contacts': typeof AdminLogisticsContactsRoute
+  '/admin/newsletter': typeof AdminNewsletterRoute
   '/admin/prescriptions': typeof AdminPrescriptionsRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/shipments': typeof AdminShipmentsRoute
@@ -1304,6 +1326,7 @@ export interface FileRoutesByTo {
   '/api/admin/home-ugc': typeof ApiAdminHomeUgcRoute
   '/api/admin/logout': typeof ApiAdminLogoutRoute
   '/api/admin/me': typeof ApiAdminMeRoute
+  '/api/admin/newsletter': typeof ApiAdminNewsletterRoute
   '/api/admin/upload': typeof ApiAdminUploadRoute
   '/api/affiliate/children': typeof ApiAffiliateChildrenRoute
   '/api/affiliate/logout': typeof ApiAffiliateLogoutRoute
@@ -1319,6 +1342,7 @@ export interface FileRoutesByTo {
   '/api/prescriptions/extract': typeof ApiPrescriptionsExtractRoute
   '/api/prescriptions/upload': typeof ApiPrescriptionsUploadRoute
   '/api/public/consult-track': typeof ApiPublicConsultTrackRoute
+  '/api/public/newsletter': typeof ApiPublicNewsletterRoute
   '/api/tracker/carriers': typeof ApiTrackerCarriersRoute
   '/api/tracker/logout': typeof ApiTrackerLogoutRoute
   '/api/tracker/me': typeof ApiTrackerMeRoute
@@ -1442,6 +1466,7 @@ export interface FileRoutesById {
   '/admin/home-ugc': typeof AdminHomeUgcRoute
   '/admin/lens-brands': typeof AdminLensBrandsRoute
   '/admin/logistics-contacts': typeof AdminLogisticsContactsRoute
+  '/admin/newsletter': typeof AdminNewsletterRoute
   '/admin/prescriptions': typeof AdminPrescriptionsRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/shipments': typeof AdminShipmentsRoute
@@ -1478,6 +1503,7 @@ export interface FileRoutesById {
   '/api/admin/home-ugc': typeof ApiAdminHomeUgcRoute
   '/api/admin/logout': typeof ApiAdminLogoutRoute
   '/api/admin/me': typeof ApiAdminMeRoute
+  '/api/admin/newsletter': typeof ApiAdminNewsletterRoute
   '/api/admin/upload': typeof ApiAdminUploadRoute
   '/api/affiliate/children': typeof ApiAffiliateChildrenRoute
   '/api/affiliate/logout': typeof ApiAffiliateLogoutRoute
@@ -1493,6 +1519,7 @@ export interface FileRoutesById {
   '/api/prescriptions/extract': typeof ApiPrescriptionsExtractRoute
   '/api/prescriptions/upload': typeof ApiPrescriptionsUploadRoute
   '/api/public/consult-track': typeof ApiPublicConsultTrackRoute
+  '/api/public/newsletter': typeof ApiPublicNewsletterRoute
   '/api/tracker/carriers': typeof ApiTrackerCarriersRoute
   '/api/tracker/logout': typeof ApiTrackerLogoutRoute
   '/api/tracker/me': typeof ApiTrackerMeRoute
@@ -1617,6 +1644,7 @@ export interface FileRouteTypes {
     | '/admin/home-ugc'
     | '/admin/lens-brands'
     | '/admin/logistics-contacts'
+    | '/admin/newsletter'
     | '/admin/prescriptions'
     | '/admin/settings'
     | '/admin/shipments'
@@ -1653,6 +1681,7 @@ export interface FileRouteTypes {
     | '/api/admin/home-ugc'
     | '/api/admin/logout'
     | '/api/admin/me'
+    | '/api/admin/newsletter'
     | '/api/admin/upload'
     | '/api/affiliate/children'
     | '/api/affiliate/logout'
@@ -1668,6 +1697,7 @@ export interface FileRouteTypes {
     | '/api/prescriptions/extract'
     | '/api/prescriptions/upload'
     | '/api/public/consult-track'
+    | '/api/public/newsletter'
     | '/api/tracker/carriers'
     | '/api/tracker/logout'
     | '/api/tracker/me'
@@ -1786,6 +1816,7 @@ export interface FileRouteTypes {
     | '/admin/home-ugc'
     | '/admin/lens-brands'
     | '/admin/logistics-contacts'
+    | '/admin/newsletter'
     | '/admin/prescriptions'
     | '/admin/settings'
     | '/admin/shipments'
@@ -1822,6 +1853,7 @@ export interface FileRouteTypes {
     | '/api/admin/home-ugc'
     | '/api/admin/logout'
     | '/api/admin/me'
+    | '/api/admin/newsletter'
     | '/api/admin/upload'
     | '/api/affiliate/children'
     | '/api/affiliate/logout'
@@ -1837,6 +1869,7 @@ export interface FileRouteTypes {
     | '/api/prescriptions/extract'
     | '/api/prescriptions/upload'
     | '/api/public/consult-track'
+    | '/api/public/newsletter'
     | '/api/tracker/carriers'
     | '/api/tracker/logout'
     | '/api/tracker/me'
@@ -1959,6 +1992,7 @@ export interface FileRouteTypes {
     | '/admin/home-ugc'
     | '/admin/lens-brands'
     | '/admin/logistics-contacts'
+    | '/admin/newsletter'
     | '/admin/prescriptions'
     | '/admin/settings'
     | '/admin/shipments'
@@ -1995,6 +2029,7 @@ export interface FileRouteTypes {
     | '/api/admin/home-ugc'
     | '/api/admin/logout'
     | '/api/admin/me'
+    | '/api/admin/newsletter'
     | '/api/admin/upload'
     | '/api/affiliate/children'
     | '/api/affiliate/logout'
@@ -2010,6 +2045,7 @@ export interface FileRouteTypes {
     | '/api/prescriptions/extract'
     | '/api/prescriptions/upload'
     | '/api/public/consult-track'
+    | '/api/public/newsletter'
     | '/api/tracker/carriers'
     | '/api/tracker/logout'
     | '/api/tracker/me'
@@ -2112,6 +2148,7 @@ export interface RootRouteChildren {
   ApiAdminHomeUgcRoute: typeof ApiAdminHomeUgcRoute
   ApiAdminLogoutRoute: typeof ApiAdminLogoutRoute
   ApiAdminMeRoute: typeof ApiAdminMeRoute
+  ApiAdminNewsletterRoute: typeof ApiAdminNewsletterRoute
   ApiAdminUploadRoute: typeof ApiAdminUploadRoute
   ApiAffiliateChildrenRoute: typeof ApiAffiliateChildrenRoute
   ApiAffiliateLogoutRoute: typeof ApiAffiliateLogoutRoute
@@ -2127,6 +2164,7 @@ export interface RootRouteChildren {
   ApiPrescriptionsExtractRoute: typeof ApiPrescriptionsExtractRoute
   ApiPrescriptionsUploadRoute: typeof ApiPrescriptionsUploadRoute
   ApiPublicConsultTrackRoute: typeof ApiPublicConsultTrackRoute
+  ApiPublicNewsletterRoute: typeof ApiPublicNewsletterRoute
   ApiTrackerCarriersRoute: typeof ApiTrackerCarriersRoute
   ApiTrackerLogoutRoute: typeof ApiTrackerLogoutRoute
   ApiTrackerMeRoute: typeof ApiTrackerMeRoute
@@ -2385,6 +2423,13 @@ declare module '@tanstack/react-router' {
       path: '/prescriptions'
       fullPath: '/admin/prescriptions'
       preLoaderRoute: typeof AdminPrescriptionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/newsletter': {
+      id: '/admin/newsletter'
+      path: '/newsletter'
+      fullPath: '/admin/newsletter'
+      preLoaderRoute: typeof AdminNewsletterRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/logistics-contacts': {
@@ -2807,6 +2852,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiTrackerCarriersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/newsletter': {
+      id: '/api/public/newsletter'
+      path: '/api/public/newsletter'
+      fullPath: '/api/public/newsletter'
+      preLoaderRoute: typeof ApiPublicNewsletterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/consult-track': {
       id: '/api/public/consult-track'
       path: '/api/public/consult-track'
@@ -2910,6 +2962,13 @@ declare module '@tanstack/react-router' {
       path: '/api/admin/upload'
       fullPath: '/api/admin/upload'
       preLoaderRoute: typeof ApiAdminUploadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/admin/newsletter': {
+      id: '/api/admin/newsletter'
+      path: '/api/admin/newsletter'
+      fullPath: '/api/admin/newsletter'
+      preLoaderRoute: typeof ApiAdminNewsletterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/admin/me': {
@@ -3485,6 +3544,7 @@ interface AdminRouteChildren {
   AdminHomeUgcRoute: typeof AdminHomeUgcRoute
   AdminLensBrandsRoute: typeof AdminLensBrandsRoute
   AdminLogisticsContactsRoute: typeof AdminLogisticsContactsRoute
+  AdminNewsletterRoute: typeof AdminNewsletterRoute
   AdminPrescriptionsRoute: typeof AdminPrescriptionsRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
   AdminShipmentsRoute: typeof AdminShipmentsRoute
@@ -3517,6 +3577,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminHomeUgcRoute: AdminHomeUgcRoute,
   AdminLensBrandsRoute: AdminLensBrandsRoute,
   AdminLogisticsContactsRoute: AdminLogisticsContactsRoute,
+  AdminNewsletterRoute: AdminNewsletterRoute,
   AdminPrescriptionsRoute: AdminPrescriptionsRoute,
   AdminSettingsRoute: AdminSettingsRoute,
   AdminShipmentsRoute: AdminShipmentsRoute,
@@ -3623,6 +3684,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiAdminHomeUgcRoute: ApiAdminHomeUgcRoute,
   ApiAdminLogoutRoute: ApiAdminLogoutRoute,
   ApiAdminMeRoute: ApiAdminMeRoute,
+  ApiAdminNewsletterRoute: ApiAdminNewsletterRoute,
   ApiAdminUploadRoute: ApiAdminUploadRoute,
   ApiAffiliateChildrenRoute: ApiAffiliateChildrenRoute,
   ApiAffiliateLogoutRoute: ApiAffiliateLogoutRoute,
@@ -3638,6 +3700,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiPrescriptionsExtractRoute: ApiPrescriptionsExtractRoute,
   ApiPrescriptionsUploadRoute: ApiPrescriptionsUploadRoute,
   ApiPublicConsultTrackRoute: ApiPublicConsultTrackRoute,
+  ApiPublicNewsletterRoute: ApiPublicNewsletterRoute,
   ApiTrackerCarriersRoute: ApiTrackerCarriersRoute,
   ApiTrackerLogoutRoute: ApiTrackerLogoutRoute,
   ApiTrackerMeRoute: ApiTrackerMeRoute,

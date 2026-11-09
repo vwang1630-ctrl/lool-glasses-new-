@@ -235,6 +235,9 @@ function isHomePath(pathname: string) {
   );
 }
 
+const CAPTURE_DISMISS_KEY = "lool:capture-dismissed-at";
+const CAPTURE_SNOOZE_MS = 7 * 24 * 60 * 60 * 1000;
+
 function RefCodeWriter() {
   const { t } = useI18n();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -265,11 +268,48 @@ function RefCodeWriter() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const showAccountRefOrCapture = () => {
+    let cancelTrigger: (() => void) | null = null;
+    // Common e-commerce practice: never on landing. Show after ~15 s, or once
+    // the visitor has scrolled 40% of the page (min 5 s), or on desktop exit
+    // intent; affiliate-link visitors (who came for the offer) after 5 s.
+    // A dismissal is remembered for 7 days.
+    const scheduleCapture = (fromRef: boolean) => {
+      try {
+        const at = Number(window.localStorage.getItem(CAPTURE_DISMISS_KEY) || 0);
+        if (at && Date.now() - at < CAPTURE_SNOOZE_MS) return;
+      } catch {
+        /* storage unavailable — fall through */
+      }
+      const t0 = Date.now();
+      let done = false;
+      const fire = () => {
+        if (done) return;
+        done = true;
+        cleanup();
+        setCaptureVisible(true);
+      };
+      const timer = window.setTimeout(fire, fromRef ? 5000 : 15000);
+      const onScroll = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        if (max > 0 && window.scrollY / max >= 0.4 && Date.now() - t0 >= 5000) fire();
+      };
+      const onLeave = (e: MouseEvent) => {
+        if (e.clientY <= 0 && !e.relatedTarget && Date.now() - t0 >= 3000) fire();
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      document.addEventListener("mouseout", onLeave);
+      const cleanup = () => {
+        window.clearTimeout(timer);
+        window.removeEventListener("scroll", onScroll);
+        document.removeEventListener("mouseout", onLeave);
+      };
+      cancelTrigger = cleanup;
+    };
+    const showAccountRefOrCapture = (fromRef = false) => {
       fetch("/api/account/me")
         .then(async (res) => {
           if (res.status === 401) {
-            setCaptureVisible(true);
+            scheduleCapture(fromRef);
             return;
           }
           if (!res.ok) return;
@@ -321,12 +361,22 @@ function RefCodeWriter() {
       const value = refStorageValue(ref);
       window.localStorage.setItem(REF_STORAGE_KEY, value);
       removeRefFromCurrentUrl();
-      showAccountRefOrCapture();
+      showAccountRefOrCapture(true);
     } catch {
       // Private mode / quota-full / disabled — silently skip; the user just
       // doesn't get attribution, which is the same as if they'd never clicked.
     }
+    return () => cancelTrigger?.();
   }, [initialPath, searchStr]);
+
+  const dismissCapture = () => {
+    setCaptureVisible(false);
+    try {
+      window.localStorage.setItem(CAPTURE_DISMISS_KEY, String(Date.now()));
+    } catch {
+      /* storage unavailable */
+    }
+  };
 
   const requestCaptureCode = async (e: FormEvent) => {
     e.preventDefault();
@@ -496,7 +546,7 @@ function RefCodeWriter() {
             </div>
             <button
               type="button"
-              onClick={() => setCaptureVisible(false)}
+              onClick={dismissCapture}
               className="-mr-1 -mt-1 rounded-full p-2 text-base text-muted-foreground hover:bg-secondary hover:text-foreground sm:p-1 sm:text-sm"
               aria-label={t("refDiscount.capture.dismiss")}
             >
