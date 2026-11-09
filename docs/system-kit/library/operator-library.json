@@ -1,5 +1,5 @@
 {
-  "manifest": "lool operator-library — DTC eyeglasses 战略板（第 0 层：战略层。一号战略原则 Every product starts with itself：PRODUCT→MARKET→HUMAN→PSYCHOLOGY→CONTENT→CONVERSION。漏斗图×内容矩阵×CRO 台账(ICE)×工单台账×AB 纪律×品牌资产×E-E-A-T 审计×strategy 链。命令：operator 审计 / operator-intel 情报 / operator-next 排序 / operator-intake 产品逆向推导 / operator-selftest 自检）",
+  "manifest": "loollook operator-library — DTC eyeglasses 战略板（第 0 层：战略层。一号战略原则 Every product starts with itself：PRODUCT→MARKET→HUMAN→PSYCHOLOGY→CONTENT→CONVERSION。漏斗图×内容矩阵×CRO 台账(ICE)×工单台账×AB 纪律×品牌资产×E-E-A-T 审计×strategy 链。命令：operator 审计 / operator-intel 情报 / operator-next 排序 / operator-intake 产品逆向推导 / operator-selftest 自检）",
   "version": "V2.2.0",
   "updated": "2026-11-09",
   "manifest_note": "五幕十三流全系统索引见 docs/system-kit/operator-flows.md（V1.0，2026-10-15 立）——本板战略判断与台账归属不变，新资产进哪条流查总纲",
@@ -31,7 +31,7 @@
   ],
   "funnel_map": {
     "attract": {
-      "jobs": "让『没听说过 lool 的人』第一次到站：品类大词 SEO 内容 + AI 引擎引用（GEO）+ 社媒",
+      "jobs": "让『没听说过 loollook 的人』第一次到站：品类大词 SEO 内容 + AI 引擎引用（GEO）+ 社媒",
       "assets": [
         "/blog（eyeglasses topic clusters）",
         "homepage（hero banners from R2）",
@@ -78,7 +78,7 @@
     "trust": {
       "jobs": "让『心动的人』敢信：镜片品牌背书 + 专业内容 + 真实评价",
       "assets": [
-        "镜片品牌（Essilor / ZEISS / Transitions / Mingyue / lool House）",
+        "镜片品牌（Essilor / ZEISS / Transitions / Mingyue / loollook House）",
         "FAQ 100+ 条（5 大类，14 语言）",
         "/prescription-guide（处方指南：度数估算 + 镜片选择）",
         "/measure-pd（MediaPipe 手机量瞳距）",
@@ -258,7 +258,7 @@
       "id": "cro-homepage-images",
       "hypothesis": "首页 hero 图片从旧的 Lovable 原型替换为真实产品图后，bounce rate 下降",
       "evidence_tier": "T1",
-      "evidence": "首页 fallback 到 Lovable 原型图片，非 lool 品牌产品",
+      "evidence": "首页 fallback 到 Lovable 原型图片，非 loollook 品牌产品",
       "metric": "首页 bounce rate + hero CTR",
       "status": "done",
       "done_at": "2026-11-09",
@@ -272,7 +272,7 @@
     },
     {
       "id": "cro-llms-txt",
-      "hypothesis": "部署 llms.txt 可提升 AI 引擎（ChatGPT/Perplexity/Gemini）对 lool 的引用率",
+      "hypothesis": "部署 llms.txt 可提升 AI 引擎（ChatGPT/Perplexity/Gemini）对 loollook 的引用率",
       "evidence_tier": "T2",
       "evidence": "代码有 llms.txt guard 但无路由文件；robots.txt 已允许所有 AI 爬虫",
       "metric": "AI citation 计数（ai-visibility.check_log）",
@@ -377,7 +377,7 @@
       "id": "cro-og-image",
       "hypothesis": "OG image 从旧 R2 URL 更新为新 bucket 后社交分享预览正确显示",
       "evidence_tier": "T1",
-      "evidence": "2026-11-09 复核：首页/列表/工具页 og:image 仍是 Lovable 设计稿预览截图（pub-bb2e…r2.dev 第三方桶，lovable.app preview PNG）——非 lool 资产、随时可能失效；PDP/blog 已用自有商品图",
+      "evidence": "2026-11-09 复核：首页/列表/工具页 og:image 仍是 Lovable 设计稿预览截图（pub-bb2e…r2.dev 第三方桶，lovable.app preview PNG）——非 loollook 资产、随时可能失效；PDP/blog 已用自有商品图",
       "metric": "社交分享预览正确率",
       "status": "open",
       "note": "Phase 1 进展：首页 og:image 已接入桥接层 resolveHeadMeta（此前首页 head 无 og:image）；bucket 迁移未做，待站主上传新图后换 URL",

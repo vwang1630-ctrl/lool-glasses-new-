@@ -1,10 +1,10 @@
 {
-  "manifest": "lool brand-library — 眼镜品牌运营库 V1.1（同价竞争策略）",
+  "manifest": "loollook brand-library — 眼镜品牌运营库 V1.1（同价竞争策略）",
   "version": "V1.1.0",
   "updated": "2026-10-07",
   "v1.1_change_log": "删除'价格低3-5x'错误叙事，修正为'同价不同命'策略。ZEELOOL确认为唯一真实竞品，7家假想敌降级。",
   "brand_identity": {
-    "name": "lool",
+    "name": "loollook",
     "tagline": "See clearly, agelessly.",
     "tagline_zh": "清晰视界，不被定义。",
     "positioning": "去老年化 DTC 眼镜品牌，45-60 代际专属。与 ZEELOOL 同价位（$6-$29），但打完全不同的用户心智。",
@@ -13,8 +13,8 @@
   },
   "competitive_posture": {
     "strategy": "同价不同命",
-    "price_reality": "lool $6-$29 vs ZEELOOL $7-$59.95，价格区间基本重叠，不主打价格优势",
-    "core_narrative": "同样的价格，完全不同的产品。lool = 去老年化正经眼镜，ZEELOOL = 年轻多副快时尚。",
+    "price_reality": "loollook $6-$29 vs ZEELOOL $7-$59.95，价格区间基本重叠，不主打价格优势",
+    "core_narrative": "同样的价格，完全不同的产品。loollook = 去老年化正经眼镜，ZEELOOL = 年轻多副快时尚。",
     "three_blades": [
       {
         "id": "blade-1-quality-transparency",
@@ -40,7 +40,7 @@
         "lool_counter": "'See clearly, agelessly' — 专为45-60第一次老花、不想被叫 senior 的人设计",
         "psych_job": "desire_capture + legitimacy",
         "pdp_section": "Section 1 Hero + Section 14 SEOMeta",
-        "market_gap": "ZEELOOL 有 534 款 Reading Glasses 但从不打 ageless，lool 不是竞品，是新品类"
+        "market_gap": "ZEELOOL 有 534 款 Reading Glasses 但从不打 ageless，loollook 不是竞品，是新品类"
       }
     ],
     "positioning_summary": "zeelool = 年轻人 $7 多副玩具 → loollook = 45-60 $19 去老年化正经眼镜"
@@ -55,22 +55,22 @@
     {
       "id": "holt-cultural-branding",
       "source": "Douglas Holt, How Brands Become Icons",
-      "applied_lesson": "lool 的机会在于文化矛盾：45-60 岁的人觉得自己还年轻，但市面上的老花镜把他们标签化为'老人'。lool 应成为'去老年化视觉解决方案'的文化符号。ZEELOOL 的 'Daily Optical Stylist' 完全回避了这个矛盾。"
+      "applied_lesson": "loollook 的机会在于文化矛盾：45-60 岁的人觉得自己还年轻，但市面上的老花镜把他们标签化为'老人'。loollook 应成为'去老年化视觉解决方案'的文化符号。ZEELOOL 的 'Daily Optical Stylist' 完全回避了这个矛盾。"
     },
     {
       "id": "keller_brand_equity",
       "source": "Kevin Lane Keller, Strategic Brand Management",
-      "applied_lesson": "品牌资产建立在品牌知识（brand knowledge）上。lool 需要在消费者心中建立'ageless design + professional lenses'的品牌联想，区别于 ZEELOOL 的'多副快时尚'。"
+      "applied_lesson": "品牌资产建立在品牌知识（brand knowledge）上。loollook 需要在消费者心中建立'ageless design + professional lenses'的品牌联想，区别于 ZEELOOL 的'多副快时尚'。"
     },
     {
       "id": "aaker_identity",
       "source": "David Aaker, Brand Identity Strategy",
-      "applied_lesson": "品牌_identity 四维度：作为产品（品质眼镜）、作为组织（HK Lool Vision）、作为人（专业、年轻心态、值得信赖）、作为符号（lool Logo + 棕色系配色 #5C3A21）。"
+      "applied_lesson": "品牌_identity 四维度：作为产品（品质眼镜）、作为组织（HK Loollook Vision）、作为人（专业、年轻心态、值得信赖）、作为符号（loollook Logo + 棕色系配色 #5C3A21）。"
     },
     {
       "id": "ries-positioning",
       "source": "Al Ries & Jack Trout, Positioning: The Battle for Your Mind",
-      "applied_lesson": "不要在已有品类里跟强者拼，要在消费者心里开一个新品类。ZEELOOL = 年轻多副眼镜，lool = 45-60 去老年化眼镜。不是更好，是不同。"
+      "applied_lesson": "不要在已有品类里跟强者拼，要在消费者心里开一个新品类。ZEELOOL = 年轻多副眼镜，loollook = 45-60 去老年化眼镜。不是更好，是不同。"
     }
   ],
   "case_studies": [
@@ -97,12 +97,12 @@
         "无 ageless 定位，目标用户 18-35",
         "规格参数不透明，藏在详情页底部"
       ],
-      "lesson": "ZEELOOL 的弱点就是 lool 的入口。同价打质量透明度、真工具、去老年化三条线，直接截胡其 45+ 搜索流量。"
+      "lesson": "ZEELOOL 的弱点就是 loollook 的入口。同价打质量透明度、真工具、去老年化三条线，直接截胡其 45+ 搜索流量。"
     },
     {
       "id": "warby-parker-dtc",
       "brand": "Warby Parker",
-      "relevance": "DTC 眼镜先驱，但 $95 价位完全不同。lool 不学它的价格，学它的信任建设：免费试戴 + 退换保障 + 专业内容。",
+      "relevance": "DTC 眼镜先驱，但 $95 价位完全不同。loollook 不学它的价格，学它的信任建设：免费试戴 + 退换保障 + 专业内容。",
       "lesson": "DTC 眼镜的关键是降低信任门槛。"
     },
     {
@@ -114,20 +114,20 @@
     {
       "id": "quay-australia-social",
       "brand": "Quay Australia",
-      "relevance": "通过社媒（Instagram/Pinterest）打造时尚眼镜品牌，主打年轻人群。lool 可借鉴其社媒策略但针对 45-60 代际。",
+      "relevance": "通过社媒（Instagram/Pinterest）打造时尚眼镜品牌，主打年轻人群。loollook 可借鉴其社媒策略但针对 45-60 代际。",
       "lesson": "Pinterest 是 45-60 代际的核心社媒平台（高于 TikTok）。"
     }
   ],
   "writing_rules": [
     "禁用 senior/elderly/old/aging 等老年标签词",
     "不说'anti-aging'——我们不是护肤品。说'ageless design'或'redesigned for the 45-60 generation'",
-    "镜片品牌层级必须准确：lool House（自有）< Mingyue（主流）< Essilor/ZEISS（高端）< Transitions（功能性）",
+    "镜片品牌层级必须准确：loollook House（自有）< Mingyue（主流）< Essilor/ZEISS（高端）< Transitions（功能性）",
     "虚拟试戴必须强调'真实摄像头实时叠加'而非'AI 换脸'——这是与 ZEELOOL AR 试戴的核心差异",
     "禁止说'我们更便宜'或'价格低3-5x'——同价竞争，不打价格牌",
     "价格叙事说'pro-grade lenses at honest prices'，不说'cheapest'或'budget'",
     "渐进镜片适应期承诺不超过 3 周，不说'立即适应'——ZEELOOL 无此保障，这是差异点",
     "不说'presbyopia'作为面向消费者的词——用'reading glasses'或'near vision'",
-    "品牌名写作：小写 lool（不是 LOOL 或 Lool），除非在 Logo 上下文中",
+    "品牌名写作：小写 loollook（不是 LOOLLOOK 或 Loollook），除非在 Logo 上下文中",
     "竞品对比时：不点名攻击，用'other online eyewear stores'或'typical AR try-on'暗示"
   ],
   "visual_identity": {

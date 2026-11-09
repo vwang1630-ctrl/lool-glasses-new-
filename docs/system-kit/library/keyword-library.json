@@ -1,5 +1,5 @@
 {
-  "manifest": "lool keyword-library — 眼镜关键词库 V1.1.0（2号位 Fashion Readers 定位上线）",
+  "manifest": "loollook keyword-library — 眼镜关键词库 V1.1.0（2号位 Fashion Readers 定位上线）",
   "version": "V1.1.0",
   "updated": "2026-10-08",
   "keywords": [
@@ -167,7 +167,7 @@
     },
     {
       "id": "kw-lool-glasses-review",
-      "term": "lool glasses review",
+      "term": "loollook glasses review",
       "market_layer": "A",
       "intent": "commercial",
       "assigned_to": "",
