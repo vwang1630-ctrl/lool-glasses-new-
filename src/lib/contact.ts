@@ -4,6 +4,9 @@
 /** WhatsApp number in international format, digits only (for wa.me links). */
 export const WHATSAPP_NUMBER = "66641633446";
 
+/** Same number, human-readable (footer phone line, tel: link uses +NUMBER). */
+export const WHATSAPP_DISPLAY = "+66 64 163 3446";
+
 /** Build a wa.me click-to-chat link with an optional prefilled message. */
 export function whatsappLink(text?: string): string {
   const base = `https://wa.me/${WHATSAPP_NUMBER}`;

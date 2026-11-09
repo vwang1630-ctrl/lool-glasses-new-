@@ -15,6 +15,7 @@ import {
   Phone,
 } from "lucide-react";
 import loolLogo from "@/assets/lool-logo.png";
+import { WHATSAPP_DISPLAY, WHATSAPP_NUMBER } from "@/lib/contact";
 
 /* Inline social icons (lucide-react v1 doesn't export brand glyphs) */
 const Instagram = (p: React.SVGProps<SVGSVGElement>) => (
@@ -321,11 +322,11 @@ export function Footer() {
               <li className="flex items-center gap-1.5">
                 <Phone className="w-3 h-3" />{" "}
                 <a
-                  href="tel:+85270204733"
-                  aria-label={`${t("footer.help.phone")} +852 70204733`}
+                  href={`tel:+${WHATSAPP_NUMBER}`}
+                  aria-label={`${t("footer.help.phone")} ${WHATSAPP_DISPLAY}`}
                   className="hover:text-primary"
                 >
-                  +852 70204733
+                  {WHATSAPP_DISPLAY}
                 </a>
               </li>
             </ul>
