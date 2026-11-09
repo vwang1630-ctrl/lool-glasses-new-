@@ -410,7 +410,7 @@
       "evidence_tier": "T1",
       "evidence": "2026-11-09：D1 有 ai_bot_hits 表（bot_family/ua_snippet/path/ip_hash/created_at）但全仓库无任何写入代码，0 行；robots.txt 已放行 AI 爬虫",
       "metric": "ai_bot_hits 周计数（按 bot_family × path）",
-      "status": "open",
+      "status": "testing",
       "next_action": "WO-20261109-02：src/server.ts 入口按 UA 识别 AI 爬虫，waitUntil 异步写 ai_bot_hits（不阻塞响应）",
       "ice": {
         "i": 3,
@@ -424,7 +424,7 @@
       "evidence_tier": "T1",
       "evidence": "2026-11-09 PD 工具上线（PdMeasureTool），无任何埋点；funnel trust.metrics 里「PD 测量完成率（未埋点）」",
       "metric": "GA4：pd_tool_start → pd_result → pd_saved 完成率；pd_applied_in_wizard 次数",
-      "status": "open",
+      "status": "testing",
       "next_action": "WO-20261109-05：gtag event 埋点（无 PII，只发 method=card|iris 与是否保存）",
       "ice": {
         "i": 3,
@@ -614,8 +614,10 @@
       "target": "cro-ai-bot-tracking",
       "line": "D",
       "proposed": "2026-11-09",
-      "ruling": "pending",
-      "note": "只存 bot_family / UA 前 120 字 / path / ip 哈希；不阻塞响应；admin 或 operator 周报读取"
+      "ruling": "accepted",
+      "user_ruling": "用户 2026-11-09：「两个都做」",
+      "note": "只存 bot_family / UA 前 160 字 / path / ip 哈希（sha256 前 16 位）；waitUntil 不阻塞；跳过静态资源/API。14 个家族：chatgpt/claude/perplexity/gemini/copilot-bing/google-search/apple/meta/bytedance/commoncrawl/duckduckgo/mistral/amazon/you。线上验证：模拟 GPTBot/ClaudeBot 各 1 次入库、普通 UA 不入库，测试行已删。周报查询：SELECT bot_family, path, COUNT(*) FROM ai_bot_hits WHERE created_at > now-7d GROUP BY 1,2",
+      "executed_commit": "7da8927（CF 2175bcb4）"
     },
     {
       "id": "WO-20261109-03",
@@ -641,8 +643,10 @@
       "target": "cro-pd-tool-events",
       "line": "D",
       "proposed": "2026-11-09",
-      "ruling": "pending",
-      "note": "无 PII；只发 method 与是否保存"
+      "ruling": "accepted",
+      "user_ruling": "用户 2026-11-09：「两个都做」",
+      "note": "无 PII（不发 PD 数值）。事件：pd_tool_start{attempt} / pd_camera_ready / pd_camera_error{reason} / pd_photo_captured{frames} / pd_result{method,run,in_typical_range} / pd_saved{method,runs} / pd_tool_open_from_wizard / pd_applied_in_wizard{method}。线上验证 pd_tool_start 进入 dataLayer。GA4 后台需把这些事件标为关键事件/建漏斗探索才能看完成率",
+      "executed_commit": "7da8927（CF 2175bcb4）"
     },
     {
       "id": "WO-20261103-01",
