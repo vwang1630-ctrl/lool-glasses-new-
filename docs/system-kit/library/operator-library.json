@@ -1,7 +1,7 @@
 {
   "manifest": "lool operator-library — DTC eyeglasses 战略板（第 0 层：战略层。一号战略原则 Every product starts with itself：PRODUCT→MARKET→HUMAN→PSYCHOLOGY→CONTENT→CONVERSION。漏斗图×内容矩阵×CRO 台账(ICE)×工单台账×AB 纪律×品牌资产×E-E-A-T 审计×strategy 链。命令：operator 审计 / operator-intel 情报 / operator-next 排序 / operator-intake 产品逆向推导 / operator-selftest 自检）",
-  "version": "V2.1.0",
-  "updated": "2026-10-15",
+  "version": "V2.2.0",
+  "updated": "2026-11-09",
   "manifest_note": "五幕十三流全系统索引见 docs/system-kit/operator-flows.md（V1.0，2026-10-15 立）——本板战略判断与台账归属不变，新资产进哪条流查总纲",
   "business_model": {
     "model": "inventory",
@@ -244,8 +244,10 @@
       "evidence_tier": "T1",
       "evidence": "admin_users 表为空，RESEND_API_KEY 未配置，OTP 邮件无法发送",
       "metric": "Admin 后台可登录 + 可上传图片",
-      "status": "open",
-      "next_action": "管理员账号已创建(admin@loollook.com)，需配置 Resend API Key + 确认邮件路由",
+      "status": "done",
+      "done_at": "2026-11-09",
+      "note": "2026-11-09 全站复核：RESEND_API_KEY + SESSION_SECRET 在生产；/admin/login 200；R2 banner/ 下有站主经后台上传的 nanoid 图（首页 4 张 banner 即来自后台）→ 后台可登录可上传已被使用证实",
+      "next_action": "无",
       "ice": {
         "i": 5,
         "c": 5,
@@ -258,8 +260,10 @@
       "evidence_tier": "T1",
       "evidence": "首页 fallback 到 Lovable 原型图片，非 lool 品牌产品",
       "metric": "首页 bounce rate + hero CTR",
-      "status": "open",
-      "next_action": "Admin 后台可用后通过 Home Banners 管理页上传新图",
+      "status": "done",
+      "done_at": "2026-11-09",
+      "note": "/api/home-banners 4 槽均为后台上传的 R2 图（/images/banner/*）；2026-11-09 重压缩 2.0MB→318KB 同尺寸替换；仓库 src/assets 17.9MB→1.2MB。bounce/CTR 度量待 GA4 数据（无读取权限）",
+      "next_action": "GA4 有数后看首页 bounce",
       "ice": {
         "i": 5,
         "c": 4,
@@ -288,8 +292,10 @@
       "evidence_tier": "T1",
       "evidence": "blog 0 篇 published；attract 阶段 data_status=blind",
       "metric": "GSC organic clicks + blog pageviews",
-      "status": "open",
-      "next_action": "通过 Admin Blog 管理页创建首篇 blog post",
+      "status": "done",
+      "done_at": "2026-11-09",
+      "note": "D1 blog_posts active=2（best-reading-glasses-45-professionals-2026 / progressive-lenses-vs-reading-glasses），详情页 Article JSON-LD；2026-11-09 博客列表 SSR 链接修复后爬虫可发现。site: 查询显示文章本身尚未被 Google 收录——后续量化转 cro-gsc-submit",
+      "next_action": "B 线第 3 篇（见 WO-20261109-04）",
       "ice": {
         "i": 5,
         "c": 3,
@@ -316,10 +322,10 @@
       "id": "cro-gsc-submit",
       "hypothesis": "确认 GSC sitemap 提交后 Google 可正常索引所有 14 语言页面",
       "evidence_tier": "T1",
-      "evidence": "GSC 已发布到 production，但 sitemap 提交状态未确认",
+      "evidence": "2026-11-09：DNS 已有 google-site-verification TXT（属性已验证）；site:loollook.com 约 50-60 URL，PDP 0 收录、blog 文章 0 收录、英文结果混入多语言标题；列表页/博客 SSR 链接与关键词标题已于同日上线（b9ac0f74 / 399f0c61）",
       "metric": "GSC indexed pages + coverage errors",
       "status": "open",
-      "next_action": "在 GSC 控制台提交 https://loollook.com/sitemap.xml",
+      "next_action": "站主在 GSC：提交 sitemap.xml + 对 2 个 PDP、2 篇 blog 点「请求编入索引」；可选：把操盘手的服务账号加为 GSC 只读用户以解锁数据回流",
       "ice": {
         "i": 4,
         "c": 5,
@@ -362,14 +368,16 @@
       "evidence_tier": "T2",
       "evidence": "articleSchema() 在 jsonld.tsx 已定义但未被任何路由调用",
       "metric": "Google Search Console rich results count",
-      "status": "parked",
-      "next_action": "Blog published 后在 blog route 中调用 articleSchema"
+      "status": "done",
+      "done_at": "2026-11-09",
+      "note": "复核：/en/blog/<slug> 线上 HTML 已含 Article JSON-LD",
+      "next_action": "GSC 有数后看 rich results"
     },
     {
       "id": "cro-og-image",
       "hypothesis": "OG image 从旧 R2 URL 更新为新 bucket 后社交分享预览正确显示",
       "evidence_tier": "T1",
-      "evidence": "__root.tsx 中 og:image 指向 pub-*.r2.dev 旧地址",
+      "evidence": "2026-11-09 复核：首页/列表/工具页 og:image 仍是 Lovable 设计稿预览截图（pub-bb2e…r2.dev 第三方桶，lovable.app preview PNG）——非 lool 资产、随时可能失效；PDP/blog 已用自有商品图",
       "metric": "社交分享预览正确率",
       "status": "open",
       "note": "Phase 1 进展：首页 og:image 已接入桥接层 resolveHeadMeta（此前首页 head 无 og:image）；bucket 迁移未做，待站主上传新图后换 URL",
@@ -386,13 +394,77 @@
       "evidence_tier": "T1",
       "evidence": "lool-tr90-square verify：21 项中 FAIL 均为路由架构差异（title 组合/H1/静态 i18n 区/客户端 FAQ/无 FAQPage Schema）；highlights 已验证 DB→SSR 可渲染（Free shipping over $69 已在 SSR DOM）",
       "metric": "lool-tr90-square verify 全部 PASS（title==seo.title、H1、quote、Essilor/ZEISS/Transitions、3-week adaptation guarantee、配送口径、FAQPage JSON-LD）",
-      "status": "open",
+      "status": "done",
+      "done_at": "2026-10-08",
+      "note": "WO-20261008-01 已落地（verify 23/23）；2026-11-09 复核线上 Product+FAQPage JSON-LD 在、单 H1",
       "next_action": "WO-20261008-01：/en/product/[slug] 路由改 DB 驱动 14 区 + 每区独立 H2 + SSR 直出 + FAQPage/Product/Breadcrumb Schema 注入",
       "ice": {
         "i": 5,
         "c": 3,
         "e": 3
       }
+    },
+    {
+      "id": "cro-ai-bot-tracking",
+      "hypothesis": "记录 AI 爬虫（GPTBot/OAI-SearchBot/ClaudeBot/PerplexityBot/Google-Extended 等）访问后，GEO 从 blind 变成可度量，能看出哪些页被 AI 引擎抓取",
+      "evidence_tier": "T1",
+      "evidence": "2026-11-09：D1 有 ai_bot_hits 表（bot_family/ua_snippet/path/ip_hash/created_at）但全仓库无任何写入代码，0 行；robots.txt 已放行 AI 爬虫",
+      "metric": "ai_bot_hits 周计数（按 bot_family × path）",
+      "status": "open",
+      "next_action": "WO-20261109-02：src/server.ts 入口按 UA 识别 AI 爬虫，waitUntil 异步写 ai_bot_hits（不阻塞响应）",
+      "ice": {
+        "i": 3,
+        "c": 5,
+        "e": 4
+      }
+    },
+    {
+      "id": "cro-pd-tool-events",
+      "hypothesis": "给新摄像头 PD 工具埋 GA4 事件（开始/拍照/出结果/保存/向导一键填入），trust→decision 段的降门槛效果可量化",
+      "evidence_tier": "T1",
+      "evidence": "2026-11-09 PD 工具上线（PdMeasureTool），无任何埋点；funnel trust.metrics 里「PD 测量完成率（未埋点）」",
+      "metric": "GA4：pd_tool_start → pd_result → pd_saved 完成率；pd_applied_in_wizard 次数",
+      "status": "open",
+      "next_action": "WO-20261109-05：gtag event 埋点（无 PII，只发 method=card|iris 与是否保存）",
+      "ice": {
+        "i": 3,
+        "c": 4,
+        "e": 5
+      }
+    },
+    {
+      "id": "cro-newsletter-welcome",
+      "hypothesis": "订阅后立即发欢迎邮件（品牌介绍 + 首单激励）比只入库更能把订阅者转成首单",
+      "evidence_tier": "T2",
+      "evidence": "2026-11-09：页脚订阅已入库 newsletter_subscribers（0 行），无任何发信；行业惯例 welcome email 是 DTC 打开率最高的一封",
+      "metric": "订阅→首单转化率（newsletter email ∩ orders.email）",
+      "status": "open",
+      "next_action": "涉钱（首单优惠力度）+ 品牌文案 → 站主定内容后接 Resend",
+      "ice": {
+        "i": 3,
+        "c": 3,
+        "e": 3
+      }
+    },
+    {
+      "id": "cro-reviews-claim",
+      "hypothesis": "首页「4.9 · 12,400+ reviews」与 0 订单/0 真实评价不一致，长期是信任与合规风险（FTC 2024 虚假评价规则、Google 商家政策）；换成可核验的真实社证更稳",
+      "evidence_tier": "T1",
+      "evidence": "D1 orders=0、customers=0；首页文案来自设计稿",
+      "metric": "首页展示的评价数 == 可核验真实评价数",
+      "status": "parked",
+      "user_ruling": "站主此前裁决：「12,400+ reviews」暂保持设计稿原样",
+      "next_action": "首批真实订单/评价回流后提案替换"
+    },
+    {
+      "id": "cro-catalog-depth",
+      "hypothesis": "在售款式太少（2 款）且其中 lool-8663 图片全缺，列表页选择感弱、破图伤信任；补足图文完整 SKU 后列表→PDP 点击率上升",
+      "evidence_tier": "T1",
+      "evidence": "2026-11-09：products 在售 2；lool-8663 20 张图在 R2 不存在（10-07 建于旧账号，10-08 迁号未搬，旧号已不存在）",
+      "metric": "在售且图片完整的 SKU 数；列表页→PDP CTR（GA4）",
+      "status": "parked",
+      "user_ruling": "站主 2026-11-09：「现在就是先这样，后面我全部重新上传产品」",
+      "next_action": "站主重新上传后：验图 + GSC 请求编入索引"
     }
   ],
   "ab_tests": {
@@ -517,6 +589,62 @@
   },
   "work_orders": [
     {
+      "id": "WO-20261109-00",
+      "title": "SEO 技术修复批：列表页 SSR 商品链接 + 博客链接可爬 + PDP 单 H1 + 列表/工具页关键词标题",
+      "target": "cro-gsc-submit",
+      "line": "A",
+      "proposed": "2026-11-09",
+      "ruling": "accepted",
+      "user_ruling": "用户 2026-11-09：「开始修」（技术项）+「你去优化」（批准改设计稿 <title>）",
+      "note": "线上验证：/en|de/products、/presbyopia、/myopia SSR 各含 2 个 /product/ 链接；/blog SSR 含 2 篇文章链接；PDP h1=1；4 页 14 语言新标题；hreflang 原本就在（此前审计误报）",
+      "executed_commit": "68c9791 + c83d8d2（CF 399f0c61）"
+    },
+    {
+      "id": "WO-20261109-01",
+      "title": "GSC：提交 sitemap.xml + 2 PDP / 2 blog 请求编入索引（可选：给操盘手开 GSC 只读）",
+      "target": "cro-gsc-submit",
+      "line": "D",
+      "proposed": "2026-11-09",
+      "ruling": "pending",
+      "note": "需站主 Google 账号操作（属性已用 DNS TXT 验证）；这是解锁全部搜索数据的第一杠杆"
+    },
+    {
+      "id": "WO-20261109-02",
+      "title": "AI 爬虫访问记录器：src/server.ts 按 UA 识别 → waitUntil 写 ai_bot_hits",
+      "target": "cro-ai-bot-tracking",
+      "line": "D",
+      "proposed": "2026-11-09",
+      "ruling": "pending",
+      "note": "只存 bot_family / UA 前 120 字 / path / ip 哈希；不阻塞响应；admin 或 operator 周报读取"
+    },
+    {
+      "id": "WO-20261109-03",
+      "title": "自有 OG 分享图（1200×630，R2）替换 Lovable 预览截图",
+      "target": "cro-og-image",
+      "line": "A",
+      "proposed": "2026-11-09",
+      "ruling": "pending",
+      "note": "素材建议：hero-presbyopia 裁 1.91:1 + logo；视觉需站主点头"
+    },
+    {
+      "id": "WO-20261109-04",
+      "title": "B 线第 3 篇：How to Measure Your PD at Home（内嵌免费摄像头工具）",
+      "target": "cro-blog-publish",
+      "line": "B",
+      "proposed": "2026-11-09",
+      "ruling": "pending",
+      "note": "承接新 PD 工具的搜索意图（how to measure pd at home / online pd tool）；开写前 keyword-library 登记 + cannibal 裁决（与 /measure-pd 页分工：页=工具，文=方法对比+误差说明）；published 需站主裁决"
+    },
+    {
+      "id": "WO-20261109-05",
+      "title": "PD 工具 GA4 事件埋点（start / result / saved / applied_in_wizard）",
+      "target": "cro-pd-tool-events",
+      "line": "D",
+      "proposed": "2026-11-09",
+      "ruling": "pending",
+      "note": "无 PII；只发 method 与是否保存"
+    },
+    {
       "id": "WO-20261103-01",
       "title": "修复线上 bug：blog 详情页 progressive-lenses-vs-reading-glasses 404",
       "target": "cro-blog-publish",
@@ -534,8 +662,8 @@
       "target": "cro-admin-access",
       "line": "D",
       "proposed": "2026-10-07",
-      "ruling": "pending",
-      "note": "admin@loollook.com 已创建，需 Resend API Key"
+      "ruling": "absorbed",
+      "note": "admin@loollook.com 已创建，需 Resend API Key。2026-11-09 复核：secret 已在生产、后台已被用于上传 banner → 事实已完成，台账归档"
     },
     {
       "id": "WO-20261007-02",
@@ -543,8 +671,8 @@
       "target": "cro-homepage-images",
       "line": "A",
       "proposed": "2026-10-07",
-      "ruling": "pending",
-      "note": "依赖 WO-20261007-01 完成"
+      "ruling": "absorbed",
+      "note": "依赖 WO-20261007-01 完成。2026-11-09 复核：首页 4 槽已是后台上传的 R2 图，并已重压缩 → 归档"
     },
     {
       "id": "WO-20261007-03",
@@ -552,8 +680,8 @@
       "target": "cro-llms-txt",
       "line": "A",
       "proposed": "2026-10-07",
-      "ruling": "pending",
-      "note": "创建 src/routes/llms[.]txt.ts"
+      "ruling": "absorbed",
+      "note": "创建 src/routes/llms[.]txt.ts。已于 2026-10-08 上线（cro-llms-txt done）→ 归档"
     },
     {
       "id": "WO-20261007-04",
@@ -561,8 +689,8 @@
       "target": "cro-gsc-submit",
       "line": "B",
       "proposed": "2026-10-07",
-      "ruling": "pending",
-      "note": "在 GSC 控制台提交 https://loollook.com/sitemap.xml"
+      "ruling": "absorbed",
+      "note": "在 GSC 控制台提交 https://loollook.com/sitemap.xml。2026-11-09 并入 WO-20261109-01（加上请求编入索引）"
     },
     {
       "id": "WO-20261007-05",
