@@ -15,6 +15,7 @@
 // Nothing leaves the device — the frame lives only in an in-memory canvas.
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { FaceLandmarker } from "@mediapipe/tasks-vision";
+import { gaEvent } from "@/lib/analytics";
 import {
   Camera,
   Check,
@@ -189,6 +190,7 @@ export function PdMeasureTool() {
     const g = shot.guide;
     setEdges({ l: { x: g.cx - g.w / 2, y: g.cy }, r: { x: g.cx + g.w / 2, y: g.cy } });
     stopCamera();
+    gaEvent("pd_photo_captured", { frames: samples.length });
     go("mark");
   }, [stopCamera]);
 
@@ -255,6 +257,7 @@ export function PdMeasureTool() {
 
   const start = async () => {
     setSaved(false);
+    gaEvent("pd_tool_start", { attempt: history.length + 1 });
     go("loading");
     try {
       if (!landmarkerRef.current) {
@@ -283,10 +286,14 @@ export function PdMeasureTool() {
       hintRef.current = "noFace";
       setHint("noFace");
       go("live");
+      gaEvent("pd_camera_ready");
       rafRef.current = requestAnimationFrame(loop);
     } catch (e) {
       console.error("PD tool camera/model start failed", e);
       stopCamera();
+      gaEvent("pd_camera_error", {
+        reason: e instanceof DOMException ? e.name : "model",
+      });
       go("error");
     }
   };
@@ -441,6 +448,11 @@ export function PdMeasureTool() {
     const tot = dOd + dOs || 1;
     setHistory((h) => [...h, { pd, od: (pd * dOd) / tot, os: (pd * dOs) / tot, method }]);
     setSaved(false);
+    gaEvent("pd_result", {
+      method,
+      run: history.length + 1,
+      in_typical_range: pd >= 54 && pd <= 74,
+    });
     go("result");
   };
 
@@ -466,6 +478,7 @@ export function PdMeasureTool() {
       samples: used.length,
       measuredAt: Date.now(),
     });
+    gaEvent("pd_saved", { method, runs: used.length });
     setSaved(true);
   };
 

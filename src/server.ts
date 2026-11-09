@@ -4,6 +4,7 @@
 //   • add baseline security headers to every Worker response
 //   • mark private / transactional pages noindex
 import handler, { createServerEntry } from "@tanstack/react-start/server-entry";
+import { maybeLogBotHit } from "@/server/ai-bots";
 
 const APEX = "loollook.com";
 
@@ -36,6 +37,9 @@ export default createServerEntry({
         });
       }
     }
+
+    // GEO measurement: log AI / search crawler page reads (async, non-blocking).
+    maybeLogBotHit(request, url.pathname);
 
     const res = await handler.fetch(request, ...rest);
     // Upgrade / streaming-special responses are passed through untouched.

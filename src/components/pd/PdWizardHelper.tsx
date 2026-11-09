@@ -4,6 +4,7 @@ import { Ruler } from "lucide-react";
 import type { Lang } from "@/lib/i18n";
 import { useMeasuredPd, type MeasuredPd } from "@/lib/measured-pd";
 import { pdStrings } from "@/lib/pd-tool-i18n";
+import { gaEvent } from "@/lib/analytics";
 
 export function PdWizardHelper({
   lang,
@@ -19,7 +20,10 @@ export function PdWizardHelper({
       {m && (
         <button
           type="button"
-          onClick={() => onUse(m)}
+          onClick={() => {
+            gaEvent("pd_applied_in_wizard", { method: m.method });
+            onUse(m);
+          }}
           className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/5 px-3 py-1.5 font-medium text-primary hover:bg-primary/10"
         >
           {s.wizUseSaved.replace("{pd}", m.pd.toFixed(1))}
@@ -29,6 +33,7 @@ export function PdWizardHelper({
         href={`/${lang}/measure-pd#pd-tool`}
         target="_blank"
         rel="noopener"
+        onClick={() => gaEvent("pd_tool_open_from_wizard")}
         className="inline-flex items-center gap-1.5 text-muted-foreground underline underline-offset-4 hover:text-foreground"
       >
         <Ruler className="h-3.5 w-3.5" />
