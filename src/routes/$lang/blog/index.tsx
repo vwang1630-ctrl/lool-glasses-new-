@@ -701,8 +701,10 @@ function BlogPage() {
                     className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
                   />
                 </div>
-                {open && (
-                  <div className="px-2 pb-6 -mt-1">
+                {/* Always in the DOM (hidden when collapsed) so the excerpt and
+                    the /blog/<slug> link are in the SSR HTML for crawlers. */}
+                {(
+                  <div className="px-2 pb-6 -mt-1" hidden={!open}>
                     <div className="sm:hidden mb-3 flex items-center gap-2 text-xs">
                       {postTag && (
                         <span className="inline-flex items-center rounded-full bg-primary/10 text-primary px-2.5 py-0.5 font-medium">

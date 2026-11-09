@@ -3,8 +3,10 @@ import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
 import { pageTitle } from "@/lib/page-titles";
 import {
   ProductListPage,
+  type ApiProduct,
   type PreselectFilters,
 } from "@/components/product/ProductListPage";
+import { fetchCatalogList } from "@/lib/catalog-ssr";
 
 const SORT_VALUES = [
   "popular",
@@ -27,6 +29,7 @@ export const Route = createFileRoute("/$lang/products")({
         ? (s.sort as SortValue)
         : undefined,
   }),
+  loader: () => fetchCatalogList(),
   head: ({ params }) => ({
     meta: [
       { title: pageTitle("products", params.lang) },
@@ -55,5 +58,12 @@ export const Route = createFileRoute("/$lang/products")({
 
 function ProductsPage() {
   const search = Route.useSearch();
-  return <ProductListPage category="all" preselect={search} />;
+  const products = Route.useLoaderData();
+  return (
+    <ProductListPage
+      category="all"
+      preselect={search}
+      initialProducts={products as ApiProduct[]}
+    />
+  );
 }

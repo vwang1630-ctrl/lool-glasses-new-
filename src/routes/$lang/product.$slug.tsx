@@ -965,7 +965,17 @@ function ProductDetailRendered({
               name reads cleanly and the price stands apart below (mobile
               app-style, mirrors the desktop heading hierarchy). */}
           <div className="px-4 pt-3">
-            <h1 className="text-xl font-bold leading-snug">{headingText}</h1>
+            {/* Mobile-only duplicate of the desktop <h1> below — kept as a
+                role=heading <p> so the page has a single <h1> for SEO while
+                screen readers on mobile (desktop block is display:none) still
+                get a level-1 heading. */}
+            <p
+              role="heading"
+              aria-level={1}
+              className="text-xl font-bold leading-snug"
+            >
+              {headingText}
+            </p>
             <div className="flex items-baseline gap-2 mt-1.5">
               <span className="text-lg font-bold">${total}</span>
               {product.originalPriceUSD &&

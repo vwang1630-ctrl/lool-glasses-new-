@@ -3,8 +3,10 @@ import { pageDesc, pageOgDesc } from "@/lib/page-descriptions";
 import { pageTitle } from "@/lib/page-titles";
 import {
   ProductListPage,
+  type ApiProduct,
   type PreselectFilters,
 } from "@/components/product/ProductListPage";
+import { fetchCatalogList } from "@/lib/catalog-ssr";
 
 export const Route = createFileRoute("/$lang/myopia")({
   validateSearch: (s: Record<string, unknown>): PreselectFilters => ({
@@ -13,6 +15,7 @@ export const Route = createFileRoute("/$lang/myopia")({
     style: typeof s.style === "string" ? s.style : undefined,
     color: typeof s.color === "string" ? s.color : undefined,
   }),
+  loader: () => fetchCatalogList(),
   head: ({ params }) => ({
     meta: [
       { title: pageTitle("myopia", params.lang) },
@@ -41,5 +44,12 @@ export const Route = createFileRoute("/$lang/myopia")({
 
 function MyopiaPage() {
   const search = Route.useSearch();
-  return <ProductListPage category="myopia" preselect={search} />;
+  const products = Route.useLoaderData();
+  return (
+    <ProductListPage
+      category="myopia"
+      preselect={search}
+      initialProducts={products as ApiProduct[]}
+    />
+  );
 }

@@ -11,7 +11,7 @@ interface ApiColor {
   images: string[];
   tryonImageUrl: string | null;
 }
-interface ApiProduct {
+export interface ApiProduct {
   id: string;
   slug: string;
   productKind: string;
@@ -256,15 +256,22 @@ export interface PreselectFilters {
 export function ProductListPage({
   category,
   preselect,
+  initialProducts,
 }: {
   category: "presbyopia" | "myopia" | "all";
   preselect?: PreselectFilters;
+  /** SSR catalog from the route loader — makes product cards/links part of
+   *  the initial HTML. When absent/empty the page fetches /api/catalog. */
+  initialProducts?: ApiProduct[];
 }) {
   const { t, contentLang } = useI18n();
   const geo = useGeoRecommend();
 
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>(() =>
+    (initialProducts ?? []).map(adaptProduct),
+  );
   useEffect(() => {
+    if (initialProducts && initialProducts.length > 0) return;
     let alive = true;
     fetch("/api/catalog", { credentials: "same-origin" })
       .then((r) =>
@@ -277,7 +284,7 @@ export function ProductListPage({
     return () => {
       alive = false;
     };
-  }, []);
+  }, [initialProducts]);
 
   const [materials, setMaterials] = useState<Material[]>(() =>
     preselect?.material ? [preselect.material as Material] : [],
